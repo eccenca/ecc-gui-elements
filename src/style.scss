@@ -66,6 +66,9 @@
 .g-elds-btn-default {
     @extend .btn-default;
 }
+.g-elds-btn-link {
+    @extend btn-link;
+}
 .g-elds-text-muted {
     @extend .text-muted;
 }
