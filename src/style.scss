@@ -1,0 +1,68 @@
+@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.g-elds-container {
+    @extend .container;
+}
+.g-elds-row {
+    @extend .row;
+}
+.g-elds-col-lg-3 {
+    @extend .col-lg-3;
+}
+.g-elds-col-lg-9 {
+    @extend .col-lg-9;
+}
+.g-elds-navbar {
+    @extend .navbar;
+}
+.g-elds-navbar-default {
+    @extend .navbar-default;
+}
+.g-elds-navbar-fixed-top {
+    @extend .navbar-fixed-top;
+}
+.g-elds-navbar-header {
+    @extend .navbar-header;
+}
+.g-elds-navbar-toggle {
+    @extend .navbar-toggle;
+}
+.g-elds-sr-only {
+    @extend .sr-only;
+}
+.g-elds-icon-bar {
+    @extend .icon-bar;
+}
+.g-elds-navbar-brand {
+    @extend .navbar-brand;
+}
+.g-elds-collapse {
+    @extend .collapse;
+}
+.g-elds-navbar-collapse {
+    @extend .navbar-collapse;
+}
+.g-elds-nav {
+    @extend .nav;
+}
+.g-elds-navbar-nav {
+    @extend .navbar-nav;
+}
+.g-elds-navbar-right {
+    @extend .navbar-right;
+}
+.g-elds-form-group {
+    @extend .form-group;
+}
+.g-elds-form-control {
+    @extend .form-control;
+}
+.g-elds-well {
+    @extend .well;
+}
+.g-elds-btn {
+    @extend .btn;
+}
+.g-elds-btn-default {
+    @extend .btn-default;
+}
