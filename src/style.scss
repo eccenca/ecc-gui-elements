@@ -75,3 +75,9 @@
 .g-elds-text-right {
     @extend .text-right;
 }
+.g-ecc-alert {
+    @extend .alert;
+}
+.g-ecc-alert-danger {
+    @extend .alert-danger;
+}
