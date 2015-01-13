@@ -6,7 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Tim Ermilov <yamalight@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.eccenca.com/elds-ui/scss-core.git"
+  },
+  "author": "Tim Ermilov <termilov@brox.de>",
   "license": "GPL-3.0",
   "dependencies": {
     "bootstrap-sass": "^3.3.1"
