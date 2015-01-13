@@ -81,3 +81,12 @@
 .g-ecc-alert-danger {
     @extend .alert-danger;
 }
+.g-ecc-alert-success {
+    @extend .alert-success;
+};
+.g-ecc-alert-info {
+    @extend .alert-info;
+};
+.g-ecc-alert-warning {
+    @extend .alert-warning;
+};
