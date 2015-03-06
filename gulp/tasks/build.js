@@ -1,9 +1,9 @@
 /* jshint node:true */
 var gulp = require('gulp');
-var sass = require('gulp-sass');
+var less = require('gulp-less');
 
 module.exports = function() {
-    return gulp.src('./src/*.scss')
-        .pipe(sass())
+    return gulp.src('./src/*.less')
+        .pipe(less())
         .pipe(gulp.dest('./css'));
 };

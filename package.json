@@ -1,5 +1,5 @@
 {
-  "name": "scss-core",
+  "name": "style-core",
   "version": "1.0.0",
   "description": "SCSS core classes for ELDS UI framework",
   "main": "index.js",
@@ -8,16 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.eccenca.com/elds-ui/scss-core.git"
+    "url": "https://gitlab.eccenca.com/elds-ui/style-core.git"
   },
   "author": "Tim Ermilov <termilov@brox.de>",
   "license": "GPL-3.0",
   "dependencies": {
-    "bootstrap-material": "^0.1.5",
-    "bootstrap-sass": "^3.3.3"
+    "bootstrap": "^3.3.2",
+    "bootstrap-material": "^0.1.5"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "gulp-sass": "^1.3.3"
+    "gulp-less": "^3.0.1"
   }
 }
