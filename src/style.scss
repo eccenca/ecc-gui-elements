@@ -162,6 +162,10 @@
 .g-elds-col-right {
     padding-left: 0;
 }
+.g-elds-col-left {
+    text-align: right;
+    padding-right: 0;
+}
 
 /* navbar */
 .g-elds-navbar {
@@ -235,6 +239,16 @@
 .g-elds-flat-fab {
     box-shadow: none !important;
 }
+.g-elds-btn-nomargin {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.g-elds-btn-fullwidth {
+    width: 100%;
+    text-align: left;
+    padding-left: 5px;
+    text-transform: none;
+}
 
 /* text */
 .g-elds-text-muted {
@@ -292,4 +306,22 @@
 /* icons */
 .g-elds-mdi-action-settings {
     @extend .mdi-action-settings;
+}
+.g-elds-mdi-navigation-expand-more {
+    @extend .mdi-navigation-expand-more;
+}
+
+/* badge */
+.g-elds-badge {
+    @extend .badge;
+}
+.g-elds-badge-info-count {
+    color: #fff !important;
+    background-color: #ffa726 !important;
+    top: 0 !important;
+}
+
+/* misc */
+.g-elds-pull-right {
+    @extend .pull-right;
 }
