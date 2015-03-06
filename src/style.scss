@@ -90,3 +90,11 @@
 .g-ecc-alert-warning {
     @extend .alert-warning;
 };
+
+.g-elds-panel {
+    @extend .panel;
+};
+
+.g-elds-panel-default {
+    @extend .panel-default;
+};
