@@ -158,6 +158,9 @@
 .g-elds-col-lg-12 {
     @extend .col-lg-12;
 }
+.g-elds-col-right {
+    padding-left: 0;
+}
 
 /* navbar */
 .g-elds-navbar {
@@ -274,6 +277,9 @@
 }
 .g-elds-input-group-addon {
     @extend .input-group-addon;
+}
+.g-elds-input-group-addon-transparent {
+    background-color: rgba(0,0,0,0);
 }
 .g-elds-form-control-wrapper {
     @extend .form-control-wrapper;
