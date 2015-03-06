@@ -13,6 +13,7 @@
   "author": "Tim Ermilov <termilov@brox.de>",
   "license": "GPL-3.0",
   "dependencies": {
+    "bootstrap-material": "^0.1.5",
     "bootstrap-sass": "^3.3.3"
   },
   "devDependencies": {
