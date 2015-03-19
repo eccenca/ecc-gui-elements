@@ -13,11 +13,11 @@
   "author": "Tim Ermilov <termilov@brox.de>",
   "license": "GPL-3.0",
   "dependencies": {
-    "bootstrap": "^3.3.2",
+    "bootstrap": "^3.3.4",
     "bootstrap-material": "^0.1.5"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "gulp-less": "^3.0.1"
+    "gulp-less": "^3.0.2"
   }
 }
