@@ -1,7 +1,7 @@
 {
   "name": "style-core",
   "version": "1.0.0",
-  "description": "SCSS core classes for ELDS UI framework",
+  "description": "Core style classes for ELDS UI framework",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,7 +14,8 @@
   "license": "GPL-3.0",
   "dependencies": {
     "bootstrap": "^3.3.4",
-    "bootstrap-material": "^0.1.5"
+    "bootstrap-material": "^0.1.5",
+    "loaders.css": "^0.1.0"
   },
   "devDependencies": {
     "gulp": "^3.8.11",
