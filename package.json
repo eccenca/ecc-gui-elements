@@ -14,7 +14,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "bootstrap": "^3.3.4",
-    "bootstrap-material": "^0.1.5",
+    "bootswatch": "^3.3.4",
     "loaders.css": "^0.1.0"
   },
   "devDependencies": {
