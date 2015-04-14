@@ -12,6 +12,7 @@
             border-color: transparent;
         }
         &:focus {
+            outline: none;
             border-color: transparent;
         }
     }
@@ -27,6 +28,9 @@
         }
         &, &:hover {
             .shadow-z-1();
+        }
+        &:focus: {
+            outline: none;
         }
         &:active {
             .shadow-z-1-hover();
@@ -48,10 +52,11 @@
 
     &.btn-selected {
         color: #3F51B5;
+        outline: none;
     }
 }
 
-.btn-fab-xx {
+.btn-fab-xs {
     padding: 8px !important;
     font-size: 24px !important;
     width: 40px !important;
@@ -72,9 +77,9 @@
 .flat-fab {
     box-shadow: none !important;
     border: 0;
-}
-.flat-fab:disabled {
-    opacity: 0.2;
+    &:disabled {
+        opacity: 0.2;
+    }
 }
 .btn-nomargin {
     margin-top: 0;
@@ -85,7 +90,4 @@
     text-align: left;
     padding-left: 5px;
     text-transform: none;
-}
-.flat-fab {
-    box-shadow: none !important;
 }
