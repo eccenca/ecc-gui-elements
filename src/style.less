@@ -4,6 +4,7 @@
 @import './colors.less';
 @import "./variables.less";
 @import "./mixins.less";
+@import './shadows.less';
 @import "./icons.less";
 /* bootstrap material theme */
 @import "../node_modules/bootswatch/paper/variables.less";
@@ -11,15 +12,8 @@
 /* loaders */
 @import (inline) "../node_modules/loaders.css/loaders.css";
 
-/* buttons overrides */
+// button overrides
 @import './buttons.less';
-
-/* mixins */
-.text-overflow() {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
 
 /* columns overrides */
 .col-right {

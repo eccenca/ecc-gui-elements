@@ -1,4 +1,3 @@
-// usage: .variations(~" .check", color, transparent);
 .variations(@extra, @property, @default) {
   .generic-variations(@extra, @default, {
       @{property}: @material-color;
@@ -20,17 +19,6 @@
       color: @material-color;
     });
 }
-
-//
-// To use this mixin you should pass a function as final parameter to define
-// the style. In that definition you can use the following variables to define it.
-//
-// @material-color-name ---> "red", "green", "indigo" ...
-// @material-color-full-name ---> "red", "green-50", "indigo-400" ...
-// @material-color ---> #f44336, #e8f5e9, #5c6bc0 ...
-// @text-color ---> rgba(255,255,255,0.84), rgba(0,0,0,0.84), rgba(255,255,255,0.84) ...
-//
-
 
 .generic-variations(@extra, @default, @func) {
 
@@ -140,6 +128,11 @@
   .generic-variations-factory(~"blue-grey");
 
 }
-
-
 @all-variations: ~"-default, -primary, -info, -success, -warning, -danger";
+
+// text overfloww
+.text-overflow() {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
