@@ -1,12 +1,18 @@
 @font-face {
     font-family: 'Material-Design-Icons';
-    src:url('fonts/Material-Design-Icons.eot?3ocs8m');
-    src:url('fonts/Material-Design-Icons.eot?#iefix3ocs8m') format('embedded-opentype'),
-        url('fonts/Material-Design-Icons.woff?3ocs8m') format('woff'),
-        url('fonts/Material-Design-Icons.ttf?3ocs8m') format('truetype'),
-        url('fonts/Material-Design-Icons.svg?3ocs8m#Material-Design-Icons') format('svg');
+    src:url('@{material-font-path}/Material-Design-Icons.eot?3ocs8m');
+    src:url('@{material-font-path}/Material-Design-Icons.eot?#iefix3ocs8m') format('embedded-opentype'),
+        url('@{material-font-path}/Material-Design-Icons.woff?3ocs8m') format('woff'),
+        url('@{material-font-path}/Material-Design-Icons.ttf?3ocs8m') format('truetype'),
+        url('@{material-font-path}/Material-Design-Icons.svg?3ocs8m#Material-Design-Icons') format('svg');
     font-weight: normal;
     font-style: normal;
+}
+
+.mdi, icon {
+    .variations(~"", color, @lightbg-text);
+    line-height: inherit;
+    vertical-align: bottom;
 }
 
 [class^="mdi-"], [class*="mdi-"] {
@@ -14,6 +20,7 @@
     display: inline-block;
     font: normal normal normal 24px/1 'Material-Design-Icons';
     text-rendering: auto;
+    /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     transform: translate(0, 0);
@@ -207,6 +214,7 @@
 
 
 /* Start Icons */
+
 .mdi-action-3d-rotation:before {
     content: "\e600";
 }
