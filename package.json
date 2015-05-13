@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://gitlab.eccenca.com/elds-ui/style-core.git"
   },
-  "author": "Tim Ermilov <termilov@brox.de>",
+  "author": "Tim Ermilov <tim.ermilov@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
     "bootstrap": "^3.3.4",
