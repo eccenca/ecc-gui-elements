@@ -1,7 +1,7 @@
 {
   "name": "ecc-style-core",
   "version": "0.1.0",
-  "description": "Core style classes for Eccenca ELDS UI framework",
+  "description": "Core style classes for Eccenca eLDS DataManager framework",
   "style": "main.less",
   "scripts": {
     "test": "lessc -l main.less"
