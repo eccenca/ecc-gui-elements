@@ -1,13 +1,33 @@
-// -- our configuration values -------------------------------------------------
+// == CONFIGURATION ============================================================
 
 @color-brand: #ff8f00; // eccenca orange
 @color-brand-darker: #ff8000;
 
-// -- imports: bootstrap library and themes ------------------------------------
+// == CONFIG VALUE AUTOMATISATION ==============================================
 
-// bootstrap core
-// Core variables and mixins
+// loading all configurations, cascade changes and patches
+
+// Bootstrap core
 @import "./node_modules/bootstrap/less/variables.less";
+
+// Material Design Icons
+@import "./src/mdi/colors.less";
+@import "./src/mdi/variables.less";
+
+// Bootswatch Paper patches
+@import "./node_modules/bootswatch/paper/variables.less";
+
+// overwrite with our config patches
+//@import "./src/patchvars.less"; // overwrite vars another time because less community probably don't can use something like !default.
+
+
+// == IMPORT LIBRARIES =========================================================
+
+// -- Bootstrap core -----------------------------------------------------------
+
+// you may uncomment all parts that are not needed
+
+// Core variables and mixins
 @import "./node_modules/bootstrap/less/mixins.less";
 
 // Reset and dependencies
@@ -57,20 +77,22 @@
 @import "./node_modules/bootstrap/less/utilities.less";
 @import "./node_modules/bootstrap/less/responsive-utilities.less";
 
-// include material design icon fonts
-@import "./src/mdi/colors.less";
-@import "./src/mdi/variables.less";
+// -- Bootswatch Paper Theme (Bootstrap Material Design) -----------------------
+
+@import "./node_modules/bootswatch/paper/bootswatch.less";
+
+// -- Loaders ------------------------------------------------------------------
+
+@import (inline) "./node_modules/loaders.css/loaders.css";
+
+// -- Material Design Icon -----------------------------------------------------
+
 @import "./src/mdi/mixins.less";
 @import "./src/mdi/shadows.less";
 @import "./src/mdi/icons.less";
 
-// bootstrap material theme
-@import "./node_modules/bootswatch/paper/variables.less";
-//@import "./variables.less"; // overwrite vars another time because less community probably don't can use something like !default.
-@import "./node_modules/bootswatch/paper/bootswatch.less";
 
-// inline loaders
-@import (inline) "./node_modules/loaders.css/loaders.css";
+// == IMPORT TWEAKS AND PATCHES ================================================
 
 // button overrides
 @import "./src/buttons.less";
