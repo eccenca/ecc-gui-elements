@@ -1,17 +1,31 @@
+// -- our configuration values -------------------------------------------------
+
+@color-brand: #ff8f00; // eccenca orange
+@color-brand-darker: #ff8000;
+
+// -- imports: bootstrap library and themes ------------------------------------
+
 // bootstrap core
 @import "./node_modules/bootstrap/less/bootstrap.less";
+
 // include material design icon fonts
-@import './src/colors.less';
+@import "./src/colors.less";
 @import "./src/variables.less";
 @import "./src/mixins.less";
-@import './src/shadows.less';
+@import "./src/shadows.less";
 @import "./src/icons.less";
+
 // bootstrap material theme
 @import "./node_modules/bootswatch/paper/variables.less";
+//@import "./variables.less"; // overwrite vars another time because less community probably don't can use something like !default.
 @import "./node_modules/bootswatch/paper/bootswatch.less";
+
 // inline loaders
 @import (inline) "./node_modules/loaders.css/loaders.css";
+
 // button overrides
-@import './src/buttons.less';
+@import "./src/buttons.less";
+
 // other styles
-@import './src/styles.less';
+@import "./src/styles.less";
+
