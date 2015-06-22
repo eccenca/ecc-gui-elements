@@ -14,11 +14,19 @@ body {
 
 .toggleSidebar {
     position: absolute;
-    left: -12px;
+    left: -1 * @grid-gutter-width / 2;
+    width: 2 * @grid-gutter-width / 3;
     top: 0;
     
-    button {
-        background: none;
+    .btn.btn-default.btn-fab {
+        background: @panel-bg !important;
+        color: @panel-default-text !important;
+        border: 1px solid @panel-inner-border !important;
+        border-left: 0 !important;
+        width: 2 * @grid-gutter-width / 3;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        border-radius: 0 @panel-border-radius @panel-border-radius 0 !important;
     }
 }
 .noSidebar {
@@ -58,6 +66,7 @@ body {
     
     .navbar-header {
         min-width: 25%;
+        text-align: center;
     }
     
     .navbar-brand {
@@ -66,8 +75,8 @@ body {
         height: 60px;
         line-height: 40px;
         font-size: 24px;
-        width: 100%;
-        text-align: center;
+        display: inline-block;
+        float: none;
         
         img {
             float: none !important;
@@ -123,7 +132,8 @@ body {
     
     .row {
         .col-xs-2 {
-            width: 54px;
+            width: 36px + @grid-gutter-width / 4;
+            padding-left: @grid-gutter-width / 4;
         }
     }
 }
