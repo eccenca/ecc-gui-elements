@@ -93,9 +93,14 @@ body {
         height: 60px;
         line-height: 40px;
         
+        &:focus, &:hover {
+            color: @link-hover-color;
+        }
+
         &.active {
             color: @color-brand;
         }
+        
     }
     
     .navbar-form,
@@ -124,10 +129,18 @@ body {
         &.btn-selected {
             color: @color-brand;
             font-weight: bold;
+
+            &:focus {
+                color: @color-brand;
+            }
         }
         
         &.mdi-navigation-expand-more {
             color: @color-brand;
+        }
+        
+        &:focus, &:hover {
+            color: @link-hover-color;
         }
     }
     
