@@ -14,9 +14,9 @@ body {
 
 .toggleSidebar {
     position: absolute;
-    left: -1 * @grid-gutter-width / 2;
+    left: (-1 * @grid-gutter-width / 2) - 2px;
     width: 2 * @grid-gutter-width / 3;
-    top: 0;
+    top: -2px;
     
     .btn.btn-default.btn-fab {
         background: @panel-bg !important;
@@ -83,6 +83,7 @@ body {
             display: inline-block;
             max-height: 100%;
             margin-right: 10px;
+            vertical-align: bottom;
         }
     }
     
@@ -136,5 +137,19 @@ body {
             padding-left: @grid-gutter-width / 4;
         }
     }
+}
+
+// -- Forms --------------------------------------------------------------------
+
+textarea,
+textarea.form-control,
+[type=text].form-control,
+[type=password].form-control,
+[type=email].form-control,
+[type=tel].form-control,
+[contenteditable].form-control {
+    padding-left: @grid-gutter-width / 4;
+    padding-right: @grid-gutter-width / 4;
+    background-color: @panel-default-heading-bg;
 }
 
