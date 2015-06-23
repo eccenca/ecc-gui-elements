@@ -13,30 +13,37 @@ body {
 }
 
 .toggleSidebar {
-    position: absolute;
-    left: (-1 * @grid-gutter-width / 2) - 2px;
-    width: 2 * @grid-gutter-width / 3;
-    top: -2px;
-    
-    .btn.btn-default.btn-fab {
-        background: @panel-bg !important;
-        color: @panel-default-text !important;
-        border: 1px solid @panel-inner-border !important;
-        border-left: 0 !important;
+    display: none;
+}
+
+@media screen and (min-width: @screen-sm-min) {
+    .toggleSidebar {
+        display: block;
+        position: absolute;
+        left: (-1 * @grid-gutter-width / 2) - 2px;
         width: 2 * @grid-gutter-width / 3;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        border-radius: 0 @panel-border-radius @panel-border-radius 0 !important;
+        top: -2px;
+        
+        .btn.btn-default.btn-fab {
+            background: @panel-bg !important;
+            color: @panel-default-text !important;
+            border: 1px solid @panel-inner-border !important;
+            border-left: 0 !important;
+            width: 2 * @grid-gutter-width / 3;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            border-radius: 0 @panel-border-radius @panel-border-radius 0 !important;
+        }
     }
-}
-.noSidebar {
-    margin-left: 20px;
-}
-.noSidebar.col-sm-8 {
-    width: ~'calc(100% / 12 * 8 - 20px)';
-}
-.noSidebar.col-sm-12 {
-    width: ~'calc(100% - 20px)';
+    .noSidebar {
+        margin-left: 20px;
+    }
+    .noSidebar.col-sm-8 {
+        width: ~'calc(100% / 12 * 8 - 20px)';
+    }
+    .noSidebar.col-sm-12 {
+        width: ~'calc(100% - 20px)';
+    }
 }
 
 .panel {
@@ -58,7 +65,7 @@ body {
 // -- Navigation top -----------------------------------------------------------
 
 .navbar-fixed-top {
-    font-size: 16px;
+    font-size: 13px;
     
     .container {
         width: auto;
@@ -74,7 +81,7 @@ body {
         padding-bottom: 10px;
         height: 60px;
         line-height: 40px;
-        font-size: 24px;
+        font-size: 16px;
         display: inline-block;
         float: none;
         
@@ -109,11 +116,57 @@ body {
         padding-top: 10px;
         padding-bottom: 10px;
         height: 60px;
+        transition: width @checkbox-animation-check;
+        
+        .input-group {
+            width: 100%;
+        }
         
         input.form-control {
+            font-size: 13px;
             line-height: 40px;
             height: 40px;
-            min-width: 30em;
+            width: 100%;
+        }
+        
+        .input-group-addon {
+            display: none;
+        }
+    }
+}
+
+@media screen and (min-width: @screen-sm-min) {
+    .navbar-fixed-top {
+        .navbar-form,
+        .navbar-search {
+            width: 15em;
+        }
+    }
+}
+
+@media screen and (min-width: @screen-md-min) {
+    .navbar-fixed-top {
+        font-size: 16px;
+        
+        .navbar-brand {
+            font-size: 24px;
+        }
+
+        .navbar-form,
+        .navbar-search {
+            width: 20em;
+            input.form-control {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: @screen-lg-min) {
+    .navbar-fixed-top {
+        .navbar-form,
+        .navbar-search {
+            width: 30em;
         }
     }
 }
