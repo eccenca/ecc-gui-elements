@@ -53,7 +53,7 @@ body {
 
 .ball-pulse > div {
     // loader color 
-    background-color: @color-brand;
+    background-color: @ecc-color-brand;
 }
 
 .footer-component {
@@ -66,7 +66,7 @@ body {
 // -- Navigation top -----------------------------------------------------------
 
 .navbar-fixed-top {
-    font-size: 16px;
+    font-size: @ecc-fontsize-base;
 }
 
 .navbar-brand {
@@ -74,7 +74,7 @@ body {
     padding-bottom: 10px;
     height: 60px;
     line-height: 40px;
-    font-size: 20px;
+    font-size: @ecc-fontsize-h3;
     display: inline-block;
     float: none;
     
@@ -97,6 +97,7 @@ body {
     padding: 0;
 
     input.form-control {
+        font-size: @ecc-fontsize-base;
         padding-left: @grid-gutter-width / 2;
     }
 }
@@ -104,7 +105,7 @@ body {
 
 @media screen and (min-width: @screen-sm-min) {
     .navbar-fixed-top {
-        font-size: 13px;
+        font-size: @ecc-fontsize-small;
         
         .container {
             width: auto;
@@ -116,7 +117,7 @@ body {
         }
         
         .navbar-brand {
-            font-size: 16px;
+            font-size: @ecc-fontsize-h4;
         }
         
         .navbar-nav > li > a {
@@ -130,7 +131,7 @@ body {
             }
 
             &.active {
-                color: @color-brand;
+                color: @ecc-color-brand;
             }
             
         }
@@ -142,6 +143,7 @@ body {
             padding-top: 10px;
             padding-bottom: 10px;
             height: 60px;
+            width: 15em;
             transition: width @checkbox-animation-check;
             
             .input-group {
@@ -149,7 +151,7 @@ body {
             }
             
             input.form-control {
-                font-size: 13px;
+                font-size: @ecc-fontsize-small;
                 line-height: 40px;
                 height: 40px;
                 width: 100%;
@@ -162,28 +164,19 @@ body {
     }
 }
 
-@media screen and (min-width: @screen-sm-min) {
-    .navbar-fixed-top {
-        .navbar-form,
-        .navbar-search {
-            width: 15em;
-        }
-    }
-}
-
 @media screen and (min-width: @screen-md-min) {
     .navbar-fixed-top {
-        font-size: 16px;
+        font-size: @ecc-fontsize-base;
         
         .navbar-brand {
-            font-size: 24px;
+            font-size: @ecc-fontsize-h3;
         }
 
         .navbar-form,
         .navbar-search {
             width: 20em;
             input.form-control {
-                font-size: 16px;
+                font-size: @ecc-fontsize-base;
             }
         }
     }
@@ -191,9 +184,18 @@ body {
 
 @media screen and (min-width: @screen-lg-min) {
     .navbar-fixed-top {
+        font-size: @ecc-fontsize-large;
+        
+        .navbar-brand {
+            font-size: @ecc-fontsize-h2;
+        }
+
         .navbar-form,
         .navbar-search {
-            width: 30em;
+            width: 25em;
+            input.form-control {
+                font-size: @ecc-fontsize-large;
+            }
         }
     }
 }
@@ -207,16 +209,16 @@ body {
         font-weight: normal;
     
         &.btn-selected {
-            color: @color-brand;
+            color: @ecc-color-brand;
             font-weight: bold;
 
             &:focus {
-                color: @color-brand;
+                color: @ecc-color-brand;
             }
         }
         
         &.mdi-navigation-expand-more {
-            color: @color-brand;
+            color: @ecc-color-brand;
         }
         
         &:focus, &:hover {
@@ -245,4 +247,6 @@ textarea.form-control,
     padding-right: @grid-gutter-width / 4;
     background-color: @panel-default-heading-bg;
 }
+
+// -- Typography --------------------------------------------------------------
 
