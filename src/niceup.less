@@ -66,72 +66,98 @@ body {
 // -- Navigation top -----------------------------------------------------------
 
 .navbar-fixed-top {
-    font-size: 13px;
-    
-    .container {
-        width: auto;
-    }
-    
-    .navbar-header {
-        min-width: 25%;
-        text-align: center;
-    }
-    
-    .navbar-brand {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        height: 60px;
-        line-height: 40px;
-        font-size: 16px;
-        display: inline-block;
-        float: none;
-        
-        img {
-            float: none !important;
-            display: inline-block;
-            max-height: 100%;
-            margin-right: 10px;
-            vertical-align: bottom;
-        }
-    }
-    
-    .navbar-nav > li > a {
-        padding-top: 10px;
-        padding-bottom: 10px;
-        height: 60px;
-        line-height: 40px;
-        
-        &:focus, &:hover {
-            color: @link-hover-color;
-        }
+    font-size: 16px;
+}
 
-        &.active {
-            color: @color-brand;
-        }
-        
-    }
+.navbar-brand {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 60px;
+    line-height: 40px;
+    font-size: 20px;
+    display: inline-block;
+    float: none;
     
-    .navbar-form,
-    .navbar-search {
-        margin: 0;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        height: 60px;
-        transition: width @checkbox-animation-check;
+    img {
+        float: none !important;
+        display: inline-block;
+        max-height: 100%;
+        margin-right: 10px;
+        vertical-align: bottom;
+    }
+}
+
+.navbar-nav {
+    margin: 0;
+}
+
+.navbar-form,
+.navbar-search {
+    margin: 0;
+    padding: 0;
+
+    input.form-control {
+        padding-left: @grid-gutter-width / 2;
+    }
+}
+
+
+@media screen and (min-width: @screen-sm-min) {
+    .navbar-fixed-top {
+        font-size: 13px;
         
-        .input-group {
-            width: 100%;
+        .container {
+            width: auto;
         }
         
-        input.form-control {
-            font-size: 13px;
+        .navbar-header {
+            min-width: 25%;
+            text-align: center;
+        }
+        
+        .navbar-brand {
+            font-size: 16px;
+        }
+        
+        .navbar-nav > li > a {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 60px;
             line-height: 40px;
-            height: 40px;
-            width: 100%;
+            
+            &:focus, &:hover {
+                color: @link-hover-color;
+            }
+
+            &.active {
+                color: @color-brand;
+            }
+            
         }
         
-        .input-group-addon {
-            display: none;
+        .navbar-form,
+        .navbar-search {
+            margin: 0;
+            margin-left: @grid-gutter-width / 2;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            height: 60px;
+            transition: width @checkbox-animation-check;
+            
+            .input-group {
+                width: 100%;
+            }
+            
+            input.form-control {
+                font-size: 13px;
+                line-height: 40px;
+                height: 40px;
+                width: 100%;
+            }
+
+            .input-group-addon {
+                display: none;
+            }
         }
     }
 }
