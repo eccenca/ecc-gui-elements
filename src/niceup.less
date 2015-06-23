@@ -22,13 +22,14 @@ body {
         position: absolute;
         left: (-1 * @grid-gutter-width / 2) - 2px;
         width: 2 * @grid-gutter-width / 3;
-        top: -2px;
+        top: 0px;
         
         .btn.btn-default.btn-fab {
+            display: block !important;
             background: @panel-bg !important;
             color: @panel-default-text !important;
-            border: 1px solid @panel-inner-border !important;
-            border-left: 0 !important;
+            border: none !important;
+            box-shadow: 2px 0 2px rgba(0,0,0,0.15) !important;
             width: 2 * @grid-gutter-width / 3;
             padding-left: 0 !important;
             padding-right: 0 !important;
