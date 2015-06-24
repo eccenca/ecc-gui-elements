@@ -1,17 +1,117 @@
-// bootstrap core
-@import "./node_modules/bootstrap/less/bootstrap.less";
-// include material design icon fonts
-@import './src/colors.less';
-@import "./src/variables.less";
-@import "./src/mixins.less";
-@import './src/shadows.less';
-@import "./src/icons.less";
-// bootstrap material theme
+// == CONFIGURATION ============================================================
+
+@ecc-color-brand: #ff8f00; // eccenca orange
+
+@ecc-fontsize-base: 14px;
+@ecc-fontsize-large: 18px;
+@ecc-fontsize-small: 12px;
+@ecc-fontsize-h1: 28px;
+@ecc-fontsize-h2: 24px;
+@ecc-fontsize-h3: 22px;
+@ecc-fontsize-h4: 18px;
+@ecc-fontsize-h5: 16px;
+@ecc-fontsize-h6: 15px;
+
+@ecc-lineheight-base: 21/13;
+
+// == CONFIG VALUE AUTOMATISATION ==============================================
+
+// loading all configurations, cascade changes and patches
+
+// Bootstrap core
+@import "./node_modules/bootstrap/less/variables.less";
+
+// Material Design Icons
+@import "./src/mdi/colors.less";
+@import "./src/mdi/variables.less";
+
+// Bootswatch Paper patches
 @import "./node_modules/bootswatch/paper/variables.less";
+
+// overwrite with our config patches
+@import "./src/patchvars.less"; // overwrite vars another time because less community probably don't can use something like !default.
+
+
+// == IMPORT LIBRARIES =========================================================
+
+// -- Bootstrap core -----------------------------------------------------------
+
+// you may uncomment all parts that are not needed
+
+// Core variables and mixins
+@import "./node_modules/bootstrap/less/mixins.less";
+
+// Reset and dependencies
+@import "./node_modules/bootstrap/less/normalize.less";
+@import "./node_modules/bootstrap/less/print.less";
+@import "./node_modules/bootstrap/less/glyphicons.less";
+
+// Core CSS
+@import "./node_modules/bootstrap/less/scaffolding.less";
+@import "./node_modules/bootstrap/less/type.less";
+@import "./node_modules/bootstrap/less/code.less";
+@import "./node_modules/bootstrap/less/grid.less";
+@import "./node_modules/bootstrap/less/tables.less";
+@import "./node_modules/bootstrap/less/forms.less";
+@import "./node_modules/bootstrap/less/buttons.less";
+
+// Components
+@import "./node_modules/bootstrap/less/component-animations.less";
+@import "./node_modules/bootstrap/less/dropdowns.less";
+@import "./node_modules/bootstrap/less/button-groups.less";
+@import "./node_modules/bootstrap/less/input-groups.less";
+@import "./node_modules/bootstrap/less/navs.less";
+@import "./node_modules/bootstrap/less/navbar.less";
+@import "./node_modules/bootstrap/less/breadcrumbs.less";
+@import "./node_modules/bootstrap/less/pagination.less";
+@import "./node_modules/bootstrap/less/pager.less";
+@import "./node_modules/bootstrap/less/labels.less";
+@import "./node_modules/bootstrap/less/badges.less";
+@import "./node_modules/bootstrap/less/jumbotron.less";
+@import "./node_modules/bootstrap/less/thumbnails.less";
+@import "./node_modules/bootstrap/less/alerts.less";
+@import "./node_modules/bootstrap/less/progress-bars.less";
+@import "./node_modules/bootstrap/less/media.less";
+@import "./node_modules/bootstrap/less/list-group.less";
+@import "./node_modules/bootstrap/less/panels.less";
+@import "./node_modules/bootstrap/less/responsive-embed.less";
+@import "./node_modules/bootstrap/less/wells.less";
+@import "./node_modules/bootstrap/less/close.less";
+
+// Components w/ JavaScript
+@import "./node_modules/bootstrap/less/modals.less";
+@import "./node_modules/bootstrap/less/tooltip.less";
+@import "./node_modules/bootstrap/less/popovers.less";
+@import "./node_modules/bootstrap/less/carousel.less";
+
+// Utility classes
+@import "./node_modules/bootstrap/less/utilities.less";
+@import "./node_modules/bootstrap/less/responsive-utilities.less";
+
+// -- Bootswatch Paper Theme (Bootstrap Material Design) -----------------------
+
 @import "./node_modules/bootswatch/paper/bootswatch.less";
-// inline loaders
+
+// -- Loaders ------------------------------------------------------------------
+
 @import (inline) "./node_modules/loaders.css/loaders.css";
+
+// -- Material Design Icon -----------------------------------------------------
+
+@import "./src/mdi/mixins.less";
+@import "./src/mdi/shadows.less";
+@import "./src/mdi/icons.less";
+
+
+// == IMPORT TWEAKS AND PATCHES ================================================
+
 // button overrides
-@import './src/buttons.less';
+@import "./src/buttons.less";
+
 // other styles
-@import './src/styles.less';
+@import "./src/styles.less";
+
+@import "./src/othertweaks";
+
+// nice up for first release
+@import "./src/niceup";
