@@ -4,7 +4,7 @@
   "description": "Core style classes for Eccenca eLDS DataManager framework",
   "style": "main.less",
   "scripts": {
-    "test": "node-sass -q main.scss"
+    "test": "node-sass main.scss"
   },
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "loaders.css": "^0.1.0",
-    "material-design-lite": "eccenca/material-design-lite"
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#fix/nodesassproblems"
   },
   "devDependencies": {
     "node-sass": "^3.2.0"
