@@ -2,7 +2,7 @@
   "name": "ecc-style-core",
   "version": "0.3.0",
   "description": "Core style classes for Eccenca eLDS DataManager framework",
-  "style": "main.less",
+  "style": "main.scss",
   "scripts": {
     "test": "node-sass main.scss"
   },
