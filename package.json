@@ -1,10 +1,10 @@
 {
   "name": "ecc-style-core",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Core style classes for Eccenca eLDS DataManager framework",
-  "style": "main.scss",
+  "main": "index.js",
   "scripts": {
-    "test": "node-sass main.scss"
+    "test": "node-sass src/main.scss"
   },
   "repository": {
     "type": "git",
@@ -14,6 +14,7 @@
   "license": "GPL-3.0",
   "dependencies": {
     "loaders.css": "^0.1.0",
+    "material-design-icons": "^2.0.0",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#fix/nodesassproblems"
   },
   "devDependencies": {
