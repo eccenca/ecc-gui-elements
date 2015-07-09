@@ -4,7 +4,7 @@
   "description": "Core style classes for Eccenca eLDS DataManager framework",
   "style": "main.less",
   "scripts": {
-    "test": "lessc -l main.less"
+    "test": "node-sass -q main.scss"
   },
   "repository": {
     "type": "git",
@@ -13,11 +13,10 @@
   "author": "Tim Ermilov <tim.ermilov@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "bootstrap": "^3.3.4",
-    "bootswatch": "^3.3.4",
-    "loaders.css": "^0.1.0"
+    "loaders.css": "^0.1.0",
+    "material-design-lite": "eccenca/material-design-lite"
   },
   "devDependencies": {
-    "less": "^2.5.0"
+    "node-sass": "^3.2.0"
   }
 }
