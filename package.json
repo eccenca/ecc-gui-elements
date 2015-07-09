@@ -14,9 +14,10 @@
   "license": "GPL-3.0",
   "dependencies": {
     "loaders.css": "^0.1.0",
-    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#fix/nodesassproblems"
+    "material-design-lite": "eccenca/material-design-lite#fix/nodesassproblems"
   },
   "devDependencies": {
+    "napa": "^1.2.0",
     "node-sass": "^3.2.0"
   }
 }
