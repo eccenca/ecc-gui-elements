@@ -3,8 +3,8 @@
 Style core for all projects.
 Includes less from:
 
-- [Twitter bootstrap](http://getbootstrap.com/)
-- [Bootswatch paper theme](http://bootswatch.com/paper/)
+- [Material design lite](http://www.getmdl.io/)
+- [Material design icons](http://google.github.io/material-design-icons/)
 - [loaders.css](https://github.com/ConnorAtherton/loaders.css)
 
 ## Usage
