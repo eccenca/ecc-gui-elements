@@ -4,7 +4,8 @@
   "description": "Core style classes for Eccenca eLDS DataManager framework",
   "main": "index.js",
   "scripts": {
-    "test": "node-sass src/main.scss"
+    "test": "node-sass src/main.scss",
+    "prepublish": "cp -r node_modules/material-design-icons/iconfont iconfont"
   },
   "repository": {
     "type": "git",
@@ -14,10 +15,10 @@
   "license": "GPL-3.0",
   "dependencies": {
     "loaders.css": "^0.1.0",
-    "material-design-icons": "^2.0.0",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#fix/nodesassproblems"
   },
   "devDependencies": {
+    "material-design-icons": "^2.0.0",
     "node-sass": "^3.2.0"
   }
 }
