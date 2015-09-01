@@ -22,6 +22,16 @@ $input-text-highlight-color: unquote("rgb(#{$color-primary})");
 $input-text-disabled-color: $input-text-bottom-border-color;
 $input-text-error-color: unquote("rgb(222, 50, 38)");
 
+// -- Size Configurations ------------------------------------------------------
+
+/* Only a few sizes can be configured forehand. Most sizes mus be overwritten
+   after MDL was loaded.
+   
+   @see https://github.com/google/material-design-lite/issues/864
+
+*/
+
+$card-title-font-size: 21px;
 
 // -- Material Design Lite -----------------------------------------------------
 @import '../node_modules/material-design-lite/src/styleguide.scss';
@@ -44,6 +54,27 @@ html {
     background-color: #f6f6f6;
 }
 
-.ace_editor {
-    margin-bottom: 1.5em;
+h1 {
+    font-size: 42px;
 }
+
+h2 {
+    font-size: 35px;
+}
+
+h3 {
+    font-size: 28px;
+}
+
+h4 {
+    font-size: 21px;
+}
+
+h5 {
+    font-size: 18px;
+}
+
+h6 {
+    font-size: 16px;
+}
+
