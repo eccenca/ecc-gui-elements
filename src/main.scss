@@ -26,6 +26,12 @@ $input-text-error-color: unquote("rgb(222, 50, 38)");
 // -- Material Design Lite -----------------------------------------------------
 @import '../node_modules/material-design-lite/src/styleguide.scss';
 
+// -- Own MDL Extensions -------------------------------------------------------
+
+@import './mdl-extension/layout/layout';
+@import './mdl-extension/grid/grid';
+@import './mdl-extension/card/card';
+
 // -- Loaders ------------------------------------------------------------------
 @import '../node_modules/loaders.css/src/loaders.scss';
 
