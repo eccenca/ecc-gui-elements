@@ -38,9 +38,12 @@ $card-title-font-size: 21px;
 
 // -- Own MDL Extensions -------------------------------------------------------
 
-@import './mdl-extension/layout/layout';
-@import './mdl-extension/grid/grid';
+@import './mdl-extension/alert/alert';
+@import './mdl-extension/data-table/data-table';
 @import './mdl-extension/card/card';
+@import './mdl-extension/grid/grid';
+@import './mdl-extension/layout/layout';
+@import './mdl-extension/textfield/textfield';
 
 // -- Loaders ------------------------------------------------------------------
 @import '../node_modules/loaders.css/src/loaders.scss';
