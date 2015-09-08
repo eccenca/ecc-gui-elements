@@ -1,0 +1,83 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.mdl-alert {
+    border-radius: $button-border-radius;
+    
+    &.mdl-alert--spacing {
+        margin: 1rem 0;
+    }
+    
+    &.mdl-alert--border {
+        border-style: solid;
+        border-width: 1px;
+    }
+    
+    &.mdl-alert--success {
+        color: unquote("rgb(#{$palette-green-800})");
+        background-color: unquote("rgb(#{$palette-green-50})");
+        border-color: unquote("rgb(#{$palette-green-100})");
+    }
+    
+    &.mdl-alert--info {
+        color: unquote("rgb(#{$palette-blue-800})");
+        background-color: unquote("rgb(#{$palette-blue-50})");
+        border-color: unquote("rgb(#{$palette-blue-100})");
+    }
+    
+    &.mdl-alert--warning {
+        color: unquote("rgb(#{$palette-orange-800})");
+        background-color: unquote("rgb(#{$palette-orange-50})");
+        border-color: unquote("rgb(#{$palette-orange-100})");
+    }
+    
+    &.mdl-alert--danger {
+        color: unquote("rgb(#{$palette-red-800})");
+        background-color: unquote("rgb(#{$palette-red-50})");
+        border-color: unquote("rgb(#{$palette-red-100})");
+    }
+    
+    a {
+        color: inherit;
+        font-weight: bold;
+    }
+    
+    .mdl-alert__title {
+        // TODO
+    }
+    
+    .mdl-alert__content {
+        padding: 1rem;
+    }
+    
+    .mdl-alert__actions {
+        // TODO
+        &.mdl-alert--border {
+        }
+    }
+    
+    &.mdl-alert--dismissable {
+    
+        padding-right: 32px;
+        position: relative;
+    
+        .mdl-alert__dismiss {
+            position: absolute;
+            top: 0;
+            right: 0;
+            
+            .mdl-button {
+                opacity: 0.5;
+                
+                &:focus, &:hover {
+                    background-color: transparent;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    
+}
