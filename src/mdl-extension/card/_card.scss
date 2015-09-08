@@ -18,3 +18,18 @@
         margin-top: -1rem;
     }
 }
+
+.mdl-card--reduced {
+    .mdl-card__title {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .mdl-card__content {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+    }
+}
+
+
