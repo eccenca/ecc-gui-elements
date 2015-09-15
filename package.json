@@ -23,7 +23,8 @@
     "ecc-messagebus": "^3.3.2",
     "ecc-mixins": "^0.5.1",
     "lodash": "^3.10.1",
-    "react": "^0.13.3"
+    "react": "^0.13.3",
+    "react-mdl": "git@github.com:eccenca/react-mdl.git#v0.12.1"
   },
   "devDependencies": {
     "ecc-gulp-tasks": "^0.13.4",
