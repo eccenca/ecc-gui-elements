@@ -1,0 +1,31 @@
+{
+  "name": "ecc-component-eccGuiElements",
+  "version": "0.1.0",
+  "description": "ecc-gui-elements component",
+  "main": "es5/component.js",
+  "es5": "es5/component.js",
+  "es6": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "lint": "gulp lint",
+    "cover": "gulp cover",
+    "start": "gulp",
+    "build": "gulp build",
+    "prepublish": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ecc-messagebus": "^3.3.0",
+    "ecc-mixins": "^0.4.0",
+    "lodash": "^3.8.0",
+    "react": "^0.13.2"
+  },
+  "devDependencies": {
+    "ecc-gulp-tasks": "^0.12.0",
+    "ecc-resparqler": "^0.1.2",
+    "ecc-test-helpers": "^0.1.6",
+    "ecc-uitest-helpers": "^5.0.0",
+    "gulp": "^3.9.0"
+  }
+}
