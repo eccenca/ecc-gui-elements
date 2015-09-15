@@ -5,6 +5,7 @@ import render from 'ecc-uitest-helpers';
 import '../style/test.less';
 // component
 import Component from '../index.js';
+import {Button} from '../index.js';
 
 const Page = React.createClass({
     getInitialState() {
@@ -20,6 +21,7 @@ const Page = React.createClass({
                 </div>
                 <div className="mdl-card__supporting-text">
                     <Component />
+                    <Button raised={true} ripple={false}>Test</Button>
                 </div>
             </div>
         );

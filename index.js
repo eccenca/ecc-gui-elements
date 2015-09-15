@@ -6,6 +6,10 @@ if (__WEBPACK__) {
 // code
 import Component from './src/component';
 import Widget from './src/widget';
+import Button from 'react-mdl/lib/Button';
 
 export default Component;
-export {Widget};
+export {
+    Widget,
+    Button
+};
