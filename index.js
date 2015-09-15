@@ -5,8 +5,7 @@ if (__WEBPACK__) {
 }
 // code
 import Component from './src/component';
-import Store from './src/store';
 import Widget from './src/widget';
 
 export default Component;
-export {Store, Widget};
+export {Widget};

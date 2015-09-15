@@ -3,7 +3,6 @@ import _ from 'lodash';
 import {IntlMixin} from 'ecc-mixins';
 import Template from './template.jsx';
 import intlData from '../locales';
-import eccGuiElementsChannel from '../store';
 
 const EccGuiElementsComponent = React.createClass({
     intlData,

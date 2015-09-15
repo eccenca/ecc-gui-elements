@@ -14,7 +14,7 @@ const Page = React.createClass({
     // template rendering
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp mdl-card-wide">
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
                     <h4 className="mdl-card__title-text">test</h4>
                 </div>

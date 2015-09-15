@@ -5,7 +5,6 @@ import './spec_helper.js';
 
 // imports
 import TestComp from '../index.js';
-import {Store as testChannel} from '../index.js';
 import {Widget as TestWidget} from '../index.js';
 
 import intlData from '../src/locales';
@@ -21,19 +20,6 @@ describe('ecc-gui-elements suite', function() {
                 <TestComp />
             );
 
-            done();
-        });
-    });
-
-    // main test suite
-    describe('ecc-gui-elements Store', function() {
-        it('should exist', function() {
-            // check object
-            should.exist(testChannel);
-        });
-
-        it('should do work', function(done) {
-            // ...
             done();
         });
     });
