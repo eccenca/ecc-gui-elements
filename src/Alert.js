@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'react-mdl/node_modules/classnames';
 import mdlUpgrade from 'react-mdl/lib/utils/mdlUpgrade';
 import Button from './Button';
-import Icon from './Icon';
 
 const Alert = React.createClass({
     // define property types
@@ -39,9 +38,7 @@ const Alert = React.createClass({
         if (dismissLabel) {
             dismiss = (
                 <div className="mdl-alert__dismiss">
-                    <Button type="button" className="mdl-button--icon" tooltip={dismissLabel}>
-                        <Icon name="close" />
-                    </Button>
+                    <Button type="button" iconName="close" tooltip={dismissLabel} />
                 </div>
             );
         }

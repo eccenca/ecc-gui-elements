@@ -47,7 +47,7 @@ const Page = React.createClass({
                     </div>
                     <div>
                         <Button raised={true} accent={true} ripple={false}>Test</Button>
-                        <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="large">
+                        <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
                             <Icon name="mood" />
                         </Button>
                     </div>
