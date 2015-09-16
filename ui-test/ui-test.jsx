@@ -21,7 +21,10 @@ const Page = React.createClass({
                 </div>
                 <div className="mdl-card__supporting-text">
                     <Component />
-                    <Button raised={true} ripple={false}>Test</Button>
+                    <Button raised={true} accent={true} ripple={false}>Test</Button>
+                    <Button raised={true} ripple={false} tooltip="This is a Test!">
+                        Test mit Tooltip
+                    </Button>
                 </div>
             </div>
         );
