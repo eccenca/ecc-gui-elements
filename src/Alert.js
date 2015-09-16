@@ -1,0 +1,62 @@
+import React from 'react';
+import classNames from 'react-mdl/node_modules/classnames';
+import mdlUpgrade from 'react-mdl/lib/utils/mdlUpgrade';
+import Button from './Button';
+import Icon from './Icon';
+
+const Alert = React.createClass({
+    // define property types
+    propTypes: {
+        children: React.PropTypes.oneOfType([
+            React.PropTypes.node
+        ]).isRequired,
+        className: React.PropTypes.string,
+        dismissLabel: React.PropTypes.oneOfType([
+            React.PropTypes.element,
+            React.PropTypes.string
+        ]),
+        type: React.PropTypes.string.isRequired,
+        border: React.PropTypes.bool,
+        vertSpacing: React.PropTypes.bool,
+    },
+
+    // template rendering
+    render() {
+        const {className, border, dismissLabel, type, vertSpacing, ...otherProps} = this.props;
+
+        const classes = classNames('mdl-alert', {
+            'mdl-alert--info': type === 'info',
+            'mdl-alert--success': type === 'success',
+            'mdl-alert--warning': type === 'warning',
+            'mdl-alert--danger': type === 'error',
+            'mdl-alert--border': border,
+            'mdl-alert--spacing': vertSpacing,
+            'mdl-alert--dismissable': typeof dismissLabel !== 'undefined',
+        }, className);
+
+        // TODO: add onclick event to remove alert
+        let dismiss = false;
+        if (dismissLabel) {
+            dismiss = (
+                <div className="mdl-alert__dismiss">
+                    <Button type="button" className="mdl-button--icon" tooltip={dismissLabel}>
+                        <Icon name="close" />
+                    </Button>
+                </div>
+            );
+        }
+
+        return (
+            <div className={classes} {...otherProps}>
+                <div className="mdl-alert__content">
+                    {this.props.children}
+                </div>
+                {dismiss}
+            </div>
+        );
+
+    },
+});
+
+export default mdlUpgrade(Alert);
+
