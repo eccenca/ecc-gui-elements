@@ -5,7 +5,7 @@ import render from 'ecc-uitest-helpers';
 import '../style/test.less';
 // component
 import Component from '../index.js';
-import {Button} from '../index.js';
+import {Button, Icon} from '../index.js';
 
 const Page = React.createClass({
     getInitialState() {
@@ -22,8 +22,8 @@ const Page = React.createClass({
                 <div className="mdl-card__supporting-text">
                     <Component />
                     <Button raised={true} accent={true} ripple={false}>Test</Button>
-                    <Button raised={true} ripple={false} tooltip="This is a Test!">
-                        Test mit Tooltip
+                    <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="large">
+                        <Icon name="mood" />
                     </Button>
                 </div>
             </div>

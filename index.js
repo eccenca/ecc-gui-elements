@@ -6,10 +6,12 @@ if (__WEBPACK__) {
 // code
 import Component from './src/component';
 import Widget from './src/widget';
-import Button from './src//Button';
+import Button from './src/Button';
+import Icon from './src/Icon';
 
 export default Component;
 export {
     Widget,
-    Button
+    Button,
+    Icon
 };
