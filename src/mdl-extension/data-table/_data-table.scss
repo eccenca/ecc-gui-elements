@@ -1,0 +1,55 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.mdl-data-table {
+
+    th {
+        .material-icons {
+            font-size: 16px;
+        }
+    }
+}
+
+.mdl-data-table--stretch,
+.mdl-data-table--full-width {
+    width: 100%;
+}
+
+.mdl-data-table__cell-controls {
+    .mdl-button--icon {
+        opacity: 0.54;
+        font-size: 18px;
+        
+        &:focus, &:hover {
+            opacity: 1;
+            background-color: transparent;
+        }
+        
+        .material-icons {
+            font-size: 1em;
+        }
+    }
+}
+
+.mdl-data-table__header-button {
+    text-transform: none;
+    padding: 0;
+    min-width: 0;
+    text-align: left;
+    font-size: inherit;
+    color: inherit;
+    
+    &:focus, &:hover {
+        background-color: transparent;
+        color: #000; // TODO: fix this later with configured value
+    }
+    
+    .material-icons {
+        opacity: 0.26;
+    }
+}
+
+

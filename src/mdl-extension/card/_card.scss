@@ -1,0 +1,35 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.mdl-card--stretch,
+.mdl-card--full-width {
+    width: auto;
+    min-height: 0;
+}
+
+.mdl-card__content {
+    margin: 1rem;
+    padding: 0;
+    
+    .mdl-grid + & {
+        margin-top: -1rem;
+    }
+}
+
+.mdl-card--reduced {
+    .mdl-card__title {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .mdl-card__content {
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 0;
+    }
+}
+
+
