@@ -26,7 +26,7 @@ $input-text-error-color: unquote("rgb(222, 50, 38)");
 
 /* Only a few sizes can be configured forehand. Most sizes mus be overwritten
    after MDL was loaded.
-   
+
    @see https://github.com/google/material-design-lite/issues/864
 
 */
@@ -46,7 +46,7 @@ $card-title-font-size: 21px;
 @import './mdl-extension/textfield/textfield';
 
 // -- Loaders ------------------------------------------------------------------
-@import '../node_modules/loaders.css/src/loaders.scss';
+@import './node_modules/loaders.css/src/loaders.scss';
 
 // -- Icon font ----------------------------------------------------------------
 @import './iconfont.scss';
