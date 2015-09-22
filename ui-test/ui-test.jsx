@@ -66,6 +66,8 @@ const Page = React.createClass({
                     <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
                         <Icon name="mood" />
                     </Button>
+                    <Button iconName="more_vert" tooltip="more tooltip" />
+                    <Icon name="cloud_download" tooltip="cloudy clouds" />
                 </div>
             </div>
         </div>);
