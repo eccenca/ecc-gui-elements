@@ -1,18 +1,21 @@
 import React from 'react';
 import classNames from 'react-mdl/node_modules/classnames';
 import mdlUpgrade from 'react-mdl/lib/utils/mdlUpgrade';
-//import ReactMDLIcon from 'react-mdl/lib/Icon';
+import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
 
 const Icon = React.createClass({
     // define property types
     propTypes: {
         className: React.PropTypes.string,
-        name: React.PropTypes.string.isRequired
+        name: React.PropTypes.string.isRequired,
+        tooltip: React.PropTypes.oneOfType([
+            React.PropTypes.node
+        ]),
     },
 
     // template rendering
     render() {
-        const {className, otherProps} = this.props;
+        const {className, tooltip, otherProps} = this.props;
 
         // change ligatures to char codes for browser compatibility (eg for IE9)
         /*eslint camelcase: 0 */
@@ -820,10 +823,18 @@ const Icon = React.createClass({
 
         const classes = classNames('material-icons', className);
 
-        return (
+        let icon = (
                 <i className={classes} {...otherProps}
                   dangerouslySetInnerHTML={{__html: name}} />
         );
+
+        if (tooltip) {
+            icon = (
+                <ReactMDLTooltip label={tooltip}>{icon}</ReactMDLTooltip>
+            );
+        }
+
+        return icon;
     },
 });
 
