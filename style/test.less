@@ -2,10 +2,18 @@
     margin: 2rem;
 }
 
+// TODO: move to ecc-style-core
+
 .mdl-spinner {
     position: absolute;
     top: 50%;
     left: 50%;
     margin-top: -14px;
     margin-left: -14px;
+}
+
+.mdl-alert__content {
+    & > *:last-child {
+        margin-bottom: 0;
+    }
 }
