@@ -5,7 +5,6 @@ Includes less from:
 
 - [Material design lite](http://www.getmdl.io/)
 - [Material design icons](http://google.github.io/material-design-icons/)
-- [loaders.css](https://github.com/ConnorAtherton/loaders.css)
 
 ## Usage
 

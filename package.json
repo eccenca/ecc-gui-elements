@@ -14,7 +14,6 @@
   "author": "Tim Ermilov <tim.ermilov@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "loaders.css": "^0.1.0",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.4-fixed"
   },
   "devDependencies": {
