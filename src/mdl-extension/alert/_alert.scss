@@ -7,6 +7,11 @@
 .mdl-alert {
     border-radius: $button-border-radius;
     
+    a {
+        color: inherit;
+        font-weight: bold;
+    }
+    
     &.mdl-alert--spacing {
         margin: 1rem 0;
     }
@@ -40,25 +45,6 @@
         border-color: unquote("rgb(#{$palette-red-100})");
     }
     
-    a {
-        color: inherit;
-        font-weight: bold;
-    }
-    
-    .mdl-alert__title {
-        // TODO
-    }
-    
-    .mdl-alert__content {
-        padding: 1rem;
-    }
-    
-    .mdl-alert__actions {
-        // TODO
-        &.mdl-alert--border {
-        }
-    }
-    
     &.mdl-alert--dismissable {
     
         padding-right: 32px;
@@ -79,5 +65,22 @@
             }
         }
     }
-    
+}
+
+.mdl-alert__title {
+    // TODO
+}
+
+.mdl-alert__content {
+    padding: 1rem;
+
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.mdl-alert__actions {
+    // TODO
+    &.mdl-alert--border {
+    }
 }
