@@ -18,7 +18,7 @@ const Button = React.createClass({
     propTypes: {
         children: React.PropTypes.oneOfType([
             React.PropTypes.node
-        ]).isRequired,
+        ]),
         className: React.PropTypes.string,
         tooltip: React.PropTypes.oneOfType([
             React.PropTypes.node
