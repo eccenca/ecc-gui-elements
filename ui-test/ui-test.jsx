@@ -90,7 +90,7 @@ const Page = React.createClass({
                         {testAlerts}
                         {testButtons}
                     </Content>
-                    <footer class="mdl-mini-footer">
+                    <footer className="mdl-mini-footer">
                         Footer
                     </footer>
                 </Layout>
