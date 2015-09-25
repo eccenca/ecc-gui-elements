@@ -14,15 +14,20 @@ import {
     Spinner,
     Success
 } from '../index.js';
+import {
+    Layout, Content, Header
+} from 'react-mdl';
 
 const Page = React.createClass({
     getInitialState() {
         return {
         };
     },
+
     // template rendering
     render() {
-        return (<div>
+
+        const testSpinner = (
             <div className="mdl-card mdl-shadow--2dp">
                 <div className="mdl-card__title">
                     <h4 className="mdl-card__title-text">Test Spinner</h4>
@@ -32,7 +37,9 @@ const Page = React.createClass({
                 </div>
                 <Spinner />
             </div>
+        );
 
+        const testAlerts = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
                     <h4 className="mdl-card__title-text">Test Alerts</h4>
@@ -56,7 +63,9 @@ const Page = React.createClass({
                     </Error>
                 </div>
             </div>
+        );
 
+        const testButtons = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
                     <h4 className="mdl-card__title-text">Test Buttons</h4>
@@ -70,7 +79,23 @@ const Page = React.createClass({
                     <Icon name="cloud_download" tooltip="cloudy clouds" />
                 </div>
             </div>
-        </div>);
+        );
+
+        return (
+            <div className="mdl-layout__container">
+                <Layout fixedHeader={true}>
+                    <Header />
+                    <Content>
+                        {testSpinner}
+                        {testAlerts}
+                        {testButtons}
+                    </Content>
+                    <footer class="mdl-mini-footer">
+                        Footer
+                    </footer>
+                </Layout>
+            </div>
+        );
     },
 });
 
