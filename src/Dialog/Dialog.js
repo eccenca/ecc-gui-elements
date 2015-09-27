@@ -17,7 +17,7 @@ const Dialog = React.createClass({
     render() {
         const {className, active, size, modal, cancelButton, confirmButton, ...otherProps} = this.props;
 
-        const classes = classNames('mdl-dialog', {
+        const classes = classNames('mdl-dialog mdl-shadow--16dp', {
             'is-activated': active === true,
             'mdl-dialog--modal': modal === true,
             'mdl-dialog--mini': size === 'mini',
