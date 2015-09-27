@@ -4,6 +4,10 @@
  * @author Michael Haschke
  */
 
+.mdl-card {
+    z-index: auto; // TODO: check if this value brings up problems
+}
+
 .mdl-card--stretch,
 .mdl-card--full-width {
     width: auto;
