@@ -4,40 +4,37 @@ import should from 'ecc-test-helpers';
 import './spec_helper.js';
 
 // imports
-//import TestComp from '../index.js';
-//import {Widget as TestWidget} from '../index.js';
+import {Alert} from '../index.js';
 
-import intlData from '../src/locales';
-
-describe('ecc-gui-elements suite', function() {
-/*
-    describe('ecc-gui-elements Component', function() {
-        it('should render', function(done) {
+describe('Gui Elements Suite', function() {
+    describe('Alert', function() {
+        it('should render', function() {
             const React = this.React;
             const TestUtils = this.TestUtils;
 
             // render
             const comp = TestUtils.renderIntoDocument(
-                <TestComp />
+                <Alert border={true} vertSpacing={true} dismissLabel="remove">
+                    <p>This is a</p>
+                    <p>untyped message.</p>
+                </Alert>
             );
 
-            done();
+            // check that div structure is rendered correctly
+            const divs = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'div');
+            should(divs.length).equal(4);
+            // check that children rendered correctly
+            const p = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'p');
+            should(p.length).equal(2);
+            // check that dismiss button is rendered correctly
+            const button = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'button');
+            should(button.length).equal(1);
+            const i = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'i');
+            should(i.length).equal(1);
+            const span = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'span');
+            should(span.length).equal(1);
         });
     });
 
-    describe('ecc-gui-elements Widget', function() {
-        it('should render', function() {
-            const React = this.React;
-            const TestUtils = this.TestUtils;
-
-            // Render a checkbox with label in the document
-            const comp = TestUtils.renderIntoDocument(
-                <TestWidget {...intlData.en} />
-            );
-
-            // TODO: test me
-            // ...
-        });
-    });
-*/
+    // TODO: add tests for rest of components
 });

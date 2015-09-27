@@ -9,6 +9,7 @@ if (__WEBPACK__) {
 import Alert from './src/Alert';
 import Button from './src/Button';
 import Error from './src/Error';
+import Dialog from './src/Dialog/Dialog';
 import Icon from './src/Icon';
 import Info from './src/Info';
 import Spinner from './src/Spinner';
@@ -19,6 +20,7 @@ export default {
     Alert,
     Button,
     Error,
+    Dialog,
     Icon,
     Info,
     Spinner,

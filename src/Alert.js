@@ -14,7 +14,7 @@ const Alert = React.createClass({
             React.PropTypes.element,
             React.PropTypes.string
         ]),
-        type: React.PropTypes.string.isRequired,
+        type: React.PropTypes.string,
         border: React.PropTypes.bool,
         vertSpacing: React.PropTypes.bool,
     },

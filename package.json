@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "ecc-gui-elements component",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -21,7 +21,7 @@
   "license": "ISC",
   "dependencies": {
     "ecc-messagebus": "^3.3.2",
-    "ecc-mixins": "^0.5.1",
+    "ecc-mixins": "^0.6.0",
     "lodash": "^3.10.1",
     "react": "^0.13.3",
     "react-mdl": "^0.12.1"
@@ -30,7 +30,7 @@
     "ecc-gulp-tasks": "^0.13.4",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^0.1.12",
-    "ecc-uitest-helpers": "^5.3.0",
+    "ecc-uitest-helpers": "^6.1.0",
     "gulp": "^3.9.0"
   }
 }
