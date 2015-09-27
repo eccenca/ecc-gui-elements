@@ -39,8 +39,9 @@ $card-title-font-size: 21px;
 // -- Own MDL Extensions -------------------------------------------------------
 
 @import './mdl-extension/alert/alert';
-@import './mdl-extension/data-table/data-table';
 @import './mdl-extension/card/card';
+@import './mdl-extension/data-table/data-table';
+@import './mdl-extension/dialog/dialog';
 @import './mdl-extension/grid/grid';
 @import './mdl-extension/layout/layout';
 @import './mdl-extension/spinner/spinner';
