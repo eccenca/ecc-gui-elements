@@ -30,7 +30,7 @@
     "ecc-gulp-tasks": "^0.13.4",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^0.1.12",
-    "ecc-uitest-helpers": "^6.0.0",
+    "ecc-uitest-helpers": "^6.1.0",
     "gulp": "^3.9.0"
   }
 }
