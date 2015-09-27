@@ -7,6 +7,7 @@ import '../style/test.less';
 import {
     Alert,
     Button,
+    Dialog,
     Icon,
     Info,
     Error,
@@ -65,10 +66,43 @@ const Page = React.createClass({
             </div>
         );
 
+        const testDialog = (
+            <Dialog title="Dialog Title"
+                    active={true}
+                    modal={true}
+                    size="mini"
+                    cancelButton={<Button>Cancel</Button>}
+                    confirmButton={<Button>Yes</Button>}
+            >
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+                <p>Dialog Content</p>
+            </Dialog>
+        );
+
         const testButtons = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
                     <h4 className="mdl-card__title-text">Test Buttons</h4>
+                </div>
+                <div className="mdl-card__content">
+                    {testDialog}
                 </div>
                 <div className="mdl-card__actions">
                     <Button raised={true} accent={true} ripple={false}>Test</Button>
