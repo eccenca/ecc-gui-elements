@@ -39,14 +39,14 @@
 }
 
 .mdl-dialog__modalbackground {
-    @extend html;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: #f6f6f6;
     opacity: 0.54;
-    z-index: 999;
+    z-index: -1;
 }
 
 .mdl-dialog__title {
