@@ -24,10 +24,10 @@
     "ecc-mixins": "^0.6.0",
     "lodash": "^3.10.1",
     "react": "^0.13.3",
-    "react-mdl": "^0.12.1"
+    "react-mdl": "^0.14.0"
   },
   "devDependencies": {
-    "ecc-gulp-tasks": "^0.13.4",
+    "ecc-gulp-tasks": "^0.14.0",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^0.1.12",
     "ecc-uitest-helpers": "^6.1.0",
