@@ -1,9 +1,11 @@
 import React from 'react';
+import {MaterialMixin} from 'ecc-mixins';
 import classNames from 'react-mdl/node_modules/classnames';
-import mdlUpgrade from 'react-mdl/lib/utils/mdlUpgrade';
 import Button from './Button';
 
 const Alert = React.createClass({
+    mixins: [MaterialMixin],
+
     // define property types
     propTypes: {
         children: React.PropTypes.oneOfType([
@@ -55,5 +57,4 @@ const Alert = React.createClass({
     },
 });
 
-export default mdlUpgrade(Alert);
-
+export default Alert;

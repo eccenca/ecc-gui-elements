@@ -1,9 +1,11 @@
 import React from 'react';
 import classNames from 'react-mdl/node_modules/classnames';
-import mdlUpgrade from 'react-mdl/lib/utils/mdlUpgrade';
+import {MaterialMixin} from 'ecc-mixins';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
 
 const Icon = React.createClass({
+    mixins: [MaterialMixin],
+
     // define property types
     propTypes: {
         className: React.PropTypes.string,
@@ -838,5 +840,4 @@ const Icon = React.createClass({
     },
 });
 
-export default mdlUpgrade(Icon);
-
+export default Icon;
