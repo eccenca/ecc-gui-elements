@@ -1,8 +1,10 @@
 import React from 'react';
-import mdlUpgrade from 'react-mdl/lib/utils/mdlUpgrade';
+import {MaterialMixin} from 'ecc-mixins';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
 
 const Spinner = React.createClass({
+    mixins: [MaterialMixin],
+
     // define property types
     propTypes: {
         className: React.PropTypes.string,
@@ -15,5 +17,4 @@ const Spinner = React.createClass({
     },
 });
 
-export default mdlUpgrade(Spinner);
-
+export default Spinner;

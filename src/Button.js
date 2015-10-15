@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'react-mdl/node_modules/classnames';
-import mdlUpgrade from 'react-mdl/lib/utils/mdlUpgrade';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
+import {MaterialMixin} from 'ecc-mixins';
 import Icon from './Icon';
 
 /* TODO:
@@ -14,6 +14,8 @@ import Icon from './Icon';
 */
 
 const Button = React.createClass({
+    mixins: [MaterialMixin],
+
     // define property types
     propTypes: {
         children: React.PropTypes.oneOfType([
@@ -73,5 +75,4 @@ const Button = React.createClass({
     },
 });
 
-export default mdlUpgrade(Button);
-
+export default Button;
