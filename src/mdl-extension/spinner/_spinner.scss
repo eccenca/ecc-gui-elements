@@ -4,12 +4,17 @@
  * @author Michael Haschke
  */
 
-.mdl-spinner {
-    position: absolute;
+.mdl-spinner--global,
+.mdl-spinner--local {
+    position: fixed;
     top: 50%;
     left: 50%;
     margin-top: -14px;
     margin-left: -14px;
+    z-index: 32000;
 }
 
-
+.mdl-spinner--local {
+    position: absolute;
+    top: 25%;
+}
