@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'react-mdl/node_modules/classnames';
+import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';

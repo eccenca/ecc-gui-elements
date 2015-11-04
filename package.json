@@ -20,6 +20,7 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "ISC",
   "dependencies": {
+    "classnames": "2.2.0",
     "ecc-messagebus": "^3.3.2",
     "ecc-mixins": "^0.6.0",
     "lodash": "^3.10.1",

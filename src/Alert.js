@@ -1,6 +1,6 @@
 import React from 'react';
 import {MaterialMixin} from 'ecc-mixins';
-import classNames from 'react-mdl/node_modules/classnames';
+import classNames from 'classnames';
 import Button from './Button';
 
 const Alert = React.createClass({
