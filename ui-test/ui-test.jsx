@@ -34,7 +34,8 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Spinner</h4>
                 </div>
                 <div className="mdl-card__content">
-                    <Spinner />
+                <Spinner appearInline={true} />
+                <Spinner appearLocal={true} />
                 </div>
                 <Spinner />
             </div>
@@ -68,7 +69,7 @@ const Page = React.createClass({
 
         const testDialog = (
             <Dialog title="Dialog Title"
-                    active={true}
+                    active={false}
                     modal={true}
                     size="mini"
                     cancelButton={<Button>Cancel</Button>}

@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'react-mdl/node_modules/classnames';
+import classNames from 'classnames';
 import {MaterialMixin} from 'ecc-mixins';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import classNames from 'react-mdl/node_modules/classnames';
+import classNames from 'classnames';
 
 const Dialog = React.createClass({
     // define property types
@@ -79,4 +79,3 @@ const Dialog = React.createClass({
 });
 
 export default Dialog;
-
