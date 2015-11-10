@@ -6,6 +6,8 @@
 
 .mdl-card {
     z-index: auto; // TODO: check if this value brings up problems
+    overflow: visible; // TODO: watch that behaviour
+    // occuring problems should be solved by more exact definition of child elements
 }
 
 .mdl-card--stretch,
@@ -17,7 +19,7 @@
 .mdl-card__content {
     margin: 1rem;
     padding: 0;
-    
+
     .mdl-grid + & {
         margin-top: -1rem;
     }
@@ -28,12 +30,10 @@
         padding: 0;
         margin-bottom: 1rem;
     }
-    
+
     .mdl-card__content {
         margin-left: 0;
         margin-right: 0;
         margin-top: 0;
     }
 }
-
-
