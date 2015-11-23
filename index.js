@@ -12,6 +12,7 @@ import Error from './src/Error';
 import Dialog from './src/Dialog/Dialog';
 import Icon from './src/Icon';
 import Info from './src/Info';
+import Progressbar from './src/Progressbar';
 import Spinner from './src/Spinner';
 import Success from './src/Success';
 import Warning from './src/Warning';
@@ -23,6 +24,7 @@ export default {
     Dialog,
     Icon,
     Info,
+    Progressbar,
     Spinner,
     Success,
     Warning
