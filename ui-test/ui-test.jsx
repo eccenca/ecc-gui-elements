@@ -12,6 +12,7 @@ import {
     Info,
     Error,
     Warning,
+    Progressbar,
     Spinner,
     Success
 } from '../index.js';
@@ -34,10 +35,23 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Spinner</h4>
                 </div>
                 <div className="mdl-card__content">
-                <Spinner appearInline={true} />
-                <Spinner appearLocal={true} />
+                    <Spinner appearInline={true} />
+                    <Spinner appearLocal={true} />
                 </div>
                 <Spinner />
+            </div>
+        );
+
+        const testProgressbar = (
+            <div className="mdl-card mdl-shadow--2dp">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Progressbars</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Progressbar progress={85} />
+                    <Progressbar appearGlobal={true} indeterminate={true} progress={95} />
+                </div>
+                <Progressbar appearLocal={true} progress={15} />
             </div>
         );
 
@@ -122,6 +136,7 @@ const Page = React.createClass({
                     <Header />
                     <Content>
                         {testSpinner}
+                        {testProgressbar}
                         {testAlerts}
                         {testButtons}
                     </Content>
