@@ -8,12 +8,12 @@
     z-index: auto; // TODO: check if this value brings up problems
     overflow: visible; // TODO: watch that behaviour
     // occuring problems should be solved by more exact definition of child elements
+    min-height: 0;
 }
 
 .mdl-card--stretch,
 .mdl-card--full-width {
     width: auto;
-    min-height: 0;
 }
 
 .mdl-card__content {
