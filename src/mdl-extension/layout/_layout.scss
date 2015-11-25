@@ -34,4 +34,11 @@ hr.mdl-layout-spacer {
     }
 }
 
+.mdl-layout--hide-on-screen {
+    position: absolute;
+    left: -5000em;
+}
 
+.mdl-layout--hide-always {
+    display: none;
+}
