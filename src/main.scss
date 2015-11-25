@@ -1,6 +1,6 @@
 // -- Color Configuration ------------------------------------------------------
 
-@import '../node_modules/material-design-lite/src/color-definitions';
+@import '~material-design-lite/src/color-definitions';
 
 $primary-color: #fe8f01; // loaders
 
@@ -34,7 +34,7 @@ $input-text-error-color: unquote("rgb(222, 50, 38)");
 $card-title-font-size: 21px;
 
 // -- Material Design Lite -----------------------------------------------------
-@import '../node_modules/material-design-lite/src/styleguide.scss';
+@import '~material-design-lite/src/styleguide.scss';
 
 // -- Own MDL Extensions -------------------------------------------------------
 
