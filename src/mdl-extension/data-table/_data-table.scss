@@ -22,12 +22,12 @@
     .mdl-button--icon {
         opacity: 0.54;
         font-size: 18px;
-        
+
         &:focus, &:hover {
             opacity: 1;
             background-color: transparent;
         }
-        
+
         .material-icons {
             font-size: 1em;
         }
@@ -41,15 +41,21 @@
     text-align: left;
     font-size: inherit;
     color: inherit;
-    
+
     &:focus, &:hover {
         background-color: transparent;
         color: #000; // TODO: fix this later with configured value
     }
-    
+
     .material-icons {
         opacity: 0.26;
     }
 }
 
-
+.mdl-data-table__cell--simple {
+    text-align: left;
+    white-space: normal;
+    vertical-align: top;
+    padding: 0.5rem 1rem;
+    line-height: inherit;
+}
