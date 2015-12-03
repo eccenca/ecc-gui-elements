@@ -7,14 +7,16 @@ import '../style/test.less';
 import {
     Alert,
     Button,
+    Checkbox,
+    Error,
     Dialog,
     Icon,
     Info,
-    Error,
-    Warning,
     Progressbar,
     Spinner,
-    Success
+    Success,
+    Switch,
+    Warning
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -130,15 +132,47 @@ const Page = React.createClass({
             </div>
         );
 
+        const testInputs = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Inputfields</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Switch id="test_id_666"
+                            ripple={true}
+                    />
+                    <Switch checked>
+                        Switch 2 Text
+                    </Switch>
+                    <Checkbox id="test_id_667"
+                            ripple={true}
+                    />
+                    <Checkbox label="Checkbox 1 Text" />
+                    <Checkbox disabled>
+                        Checkbox 2 Text
+                    </Checkbox>
+                    <Checkbox checked>
+                        <div className="test">Checkbox 3 Text</div>
+                    </Checkbox>
+                </div>
+            </div>
+        );
+
         return (
             <div className="mdl-layout__container">
                 <Layout fixedHeader={true}>
                     <Header />
                     <Content>
                         {testSpinner}
+                        <hr className="mdl-layout-spacer" />
                         {testProgressbar}
+                        <hr className="mdl-layout-spacer" />
                         {testAlerts}
+                        <hr className="mdl-layout-spacer" />
                         {testButtons}
+                        <hr className="mdl-layout-spacer" />
+                        {testInputs}
+                        <hr className="mdl-layout-spacer" />
                     </Content>
                     <footer className="mdl-mini-footer">
                         Footer
