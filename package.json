@@ -1,6 +1,6 @@
 {
   "name": "ecc-style-core",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "description": "Core style classes for Eccenca eLDS DataManager framework",
   "main": "index.js",
   "scripts": {
