@@ -1,7 +1,7 @@
 {
   "name": "ecc-style-core",
-  "version": "0.10.4",
-  "description": "Core style classes for Eccenca eLDS DataManager framework",
+  "version": "0.10.5",
+  "description": "Core style classes for eccenca DataManager",
   "main": "index.js",
   "scripts": {
     "test": "node-sass src/main.scss",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://gitlab.eccenca.com/elds-ui/style-core.git"
   },
-  "author": "Tim Ermilov <tim.ermilov@eccenca.com>",
+  "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.4-fixed"
