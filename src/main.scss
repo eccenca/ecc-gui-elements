@@ -80,3 +80,10 @@ h5 {
 h6 {
     font-size: 16px;
 }
+
+// dirty and incomplete fix for checkbox problem in Chrome
+// real problem is about ignored svg url values that are not included as datauris
+// url-loader need to be triggered
+.mdl-checkbox__tick-outline {
+    mask: none;
+}
