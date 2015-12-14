@@ -60,6 +60,11 @@ $card-title-font-size: 21px;
 
 // -- Changes ------------------------------------------------------------------
 
+
+html, body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
 html {
     background-color: #f6f6f6;
 }
