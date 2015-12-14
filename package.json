@@ -1,6 +1,6 @@
 {
   "name": "ecc-style-core",
-  "version": "0.10.5",
+  "version": "0.9.6",
   "description": "Core style classes for eccenca DataManager",
   "main": "index.js",
   "scripts": {
