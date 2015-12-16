@@ -8,14 +8,10 @@ const Alert = React.createClass({
 
     // define property types
     propTypes: {
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.node
-        ]).isRequired,
+        children: React.PropTypes.node.isRequired,
         className: React.PropTypes.string,
-        dismissLabel: React.PropTypes.oneOfType([
-            React.PropTypes.element,
-            React.PropTypes.string
-        ]),
+        handlerDismiss: React.PropTypes.func,
+        labelDismiss: React.PropTypes.string,
         type: React.PropTypes.string,
         border: React.PropTypes.bool,
         vertSpacing: React.PropTypes.bool,
@@ -23,7 +19,15 @@ const Alert = React.createClass({
 
     // template rendering
     render() {
-        const {className, border, dismissLabel, type, vertSpacing, ...otherProps} = this.props;
+        const {
+            className,
+            border,
+            handlerDismiss,
+            labelDismiss,
+            type,
+            vertSpacing,
+            children,
+            ...otherProps} = this.props;
 
         const classes = classNames('mdl-alert', {
             'mdl-alert--info': type === 'info',
@@ -32,15 +36,20 @@ const Alert = React.createClass({
             'mdl-alert--danger': type === 'error',
             'mdl-alert--border': border,
             'mdl-alert--spacing': vertSpacing,
-            'mdl-alert--dismissable': typeof dismissLabel !== 'undefined',
+            'mdl-alert--dismissable': typeof handlerDismiss !== 'undefined',
         }, className);
 
         // TODO: add onclick event to remove alert
         let dismiss = false;
-        if (dismissLabel) {
+        if (handlerDismiss) {
             dismiss = (
                 <div className="mdl-alert__dismiss">
-                    <Button type="button" iconName="close" tooltip={dismissLabel} />
+                    <Button
+                        type="button"
+                        iconName="close"
+                        tooltip={labelDismiss ? labelDismiss : false}
+                        onClick={handlerDismiss}
+                    />
                 </div>
             );
         }

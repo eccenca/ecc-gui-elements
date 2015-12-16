@@ -7,15 +7,12 @@ const Warning = React.createClass({
 
     // define property types
     propTypes: {
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.element,
-            React.PropTypes.string
-        ]).isRequired,
+        children: React.PropTypes.node.isRequired,
     },
 
     // template rendering
     render() {
-        const {...otherProps} = this.props;
+        const {children, ...otherProps} = this.props;
 
         return (
             <Alert type="warning" {...otherProps}>
