@@ -12,6 +12,7 @@ import {
     Dialog,
     Icon,
     Info,
+    Nothing,
     Progressbar,
     Spinner,
     Success,
@@ -63,7 +64,7 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Alerts</h4>
                 </div>
                 <div className="mdl-card__content">
-                    <Alert border={true} vertSpacing={true} handlerDismiss={function(){}}>
+                    <Alert border={true} vertSpacing={true} handlerDismiss={function() {}}>
                         <p>This is a</p>
                         <p>untyped message.</p>
                     </Alert>
@@ -76,7 +77,7 @@ const Page = React.createClass({
                     <Warning border={true} vertSpacing={true} >
                         warning
                     </Warning>
-                    <Error handlerDismiss={function(){}} labelDismiss="remove error" vertSpacing={true} >
+                    <Error handlerDismiss={function() {}} labelDismiss="remove error" vertSpacing={true} >
                         error
                     </Error>
                 </div>
@@ -163,6 +164,7 @@ const Page = React.createClass({
                 <Layout fixedHeader={true}>
                     <Header />
                     <Content>
+                        <Nothing />
                         {testSpinner}
                         <hr className="mdl-layout-spacer" />
                         {testProgressbar}
