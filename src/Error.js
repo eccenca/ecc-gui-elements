@@ -1,5 +1,5 @@
 import React from 'react';
-import {MaterialMixin} from 'ecc-mixins';
+import MaterialMixin from './MaterialMixin';
 import Alert from './Alert';
 
 const Error = React.createClass({

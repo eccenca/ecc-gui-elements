@@ -22,8 +22,8 @@
   "dependencies": {
     "classnames": "2.2.0",
     "ecc-messagebus": "^3.3.2",
-    "ecc-mixins": "^0.6.0",
     "lodash": "^3.10.1",
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.4-fixed",
     "react": "^0.13.3",
     "react-mdl": "^0.14.0"
   },

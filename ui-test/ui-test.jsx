@@ -123,7 +123,7 @@ const Page = React.createClass({
                     {testDialog}
                 </div>
                 <div className="mdl-card__actions">
-                    <Button raised={true} accent={true} ripple={false}>Test</Button>
+                    <Button raised={true} accent ripple={false}>Test</Button>
                     <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
                         <Icon name="mood" />
                     </Button>

@@ -14,7 +14,7 @@ describe('Gui Elements Suite', function() {
 
             // render
             const comp = TestUtils.renderIntoDocument(
-                <Alert border={true} vertSpacing={true} dismissLabel="remove">
+                <Alert border={true} vertSpacing={true} handlerDismiss={function() {}}>
                     <p>This is a</p>
                     <p>untyped message.</p>
                 </Alert>
@@ -22,7 +22,7 @@ describe('Gui Elements Suite', function() {
 
             // check that div structure is rendered correctly
             const divs = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'div');
-            should(divs.length).equal(4);
+            should(divs.length).equal(3);
             // check that children rendered correctly
             const p = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'p');
             should(p.length).equal(2);
@@ -31,8 +31,6 @@ describe('Gui Elements Suite', function() {
             should(button.length).equal(1);
             const i = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'i');
             should(i.length).equal(1);
-            const span = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'span');
-            should(span.length).equal(1);
         });
     });
 

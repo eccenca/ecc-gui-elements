@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import {MaterialMixin} from 'ecc-mixins';
+import MaterialMixin from './MaterialMixin';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
 
 const Icon = React.createClass({

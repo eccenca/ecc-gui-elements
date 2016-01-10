@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
-import {MaterialMixin} from 'ecc-mixins';
+import MaterialMixin from './MaterialMixin';
 // does not use Checkbox from react-mdl because overspecified onChange property request
 
 const Checkbox = React.createClass({
@@ -46,7 +46,7 @@ const Checkbox = React.createClass({
                     type="checkbox"
                     id={inputId}
                     className="mdl-checkbox__input"
-                    checked={checked}
+                    defaultChecked={checked}
                     disabled={disabled}
                     onChange={onChange}
                 />

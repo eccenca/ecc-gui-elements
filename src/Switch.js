@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
-import {MaterialMixin} from 'ecc-mixins';
+import MaterialMixin from './MaterialMixin';
 // does not use Switch from react-mdl because overspecified onChange property request
 
 const Switch = React.createClass({
@@ -41,7 +41,7 @@ const Switch = React.createClass({
                     type="checkbox"
                     id={inputId}
                     className="mdl-switch__input"
-                    checked={checked}
+                    defaultChecked={checked}
                     disabled={disabled}
                     onChange={onChange}
                 />

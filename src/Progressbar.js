@@ -1,5 +1,5 @@
 import React from 'react';
-import {MaterialMixin} from 'ecc-mixins';
+import MaterialMixin from './MaterialMixin';
 import classNames from 'classnames';
 import ReactMDLProgressBar from 'react-mdl/lib/ProgressBar';
 
