@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
-import {MaterialMixin} from 'ecc-mixins';
+import MaterialMixin from './mixins/MaterialMixin';
 import Icon from './Icon';
 
 /* TODO:

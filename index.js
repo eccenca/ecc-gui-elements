@@ -4,6 +4,10 @@ if (__WEBPACK__) {
     require('./style/style.less');
 }
 
+// Mixins
+
+import MaterialMixin from './src/mixins/MaterialMixin';
+
 // MDL Elements
 
 import Alert from './src/Alert';
@@ -21,6 +25,7 @@ import Switch from './src/Switch';
 import Warning from './src/Warning';
 
 export default {
+    MaterialMixin,
     Alert,
     Button,
     Checkbox,
