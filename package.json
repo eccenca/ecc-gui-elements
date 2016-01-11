@@ -11,7 +11,8 @@
     "cover": "gulp cover",
     "start": "gulp",
     "build": "gulp build",
-    "prepublish": "npm run build"
+    "init": "node common-files/install.js",
+    "prepublish": "git submodule init && git submodule update && npm run init && npm run build"
   },
   "repository": {
     "type": "git",
@@ -28,10 +29,10 @@
     "react-mdl": "^0.14.0"
   },
   "devDependencies": {
-    "ecc-gulp-tasks": "^0.14.0",
+    "ecc-gulp-tasks": "^0.16.9",
     "ecc-resparqler": "^0.1.7",
-    "ecc-test-helpers": "^0.1.12",
-    "ecc-uitest-helpers": "^6.1.0",
+    "ecc-test-helpers": "^0.2.0",
+    "ecc-uitest-helpers": "^7.0.0",
     "gulp": "^3.9.0"
   }
 }

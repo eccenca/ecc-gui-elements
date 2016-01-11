@@ -1,5 +1,22 @@
-# ignore node deps
+#START
+# PLEASE PLACE CUSTOM GIT IGNORES BELOW #END
+#
+# ANYTHING YOU PLACE BEFORE THE END TAG
+# WILL BE OVERWRITTEN BY OUR COMMON-FILES
+# INSTALL-SCRIPT
+
+# node && npm
 node_modules/
+npm-debug.log
+
+# ignore symlinks
+.babelrc
+.editorconfig
+.eslintrc.yml
+Makefile
+
+# ignore coverage report
+coverage/
 
 # ignore compiled
 es5/
@@ -10,10 +27,7 @@ ui-test/*.woff*
 ui-test/*.ttf
 ui-test/*.svg
 
-# ignore tests and coverage report
-coverage/
+# ignore data folders by jetbrains products
+.idea/
 
-# ignore symlinks
-.editorconfig
-.eslintrc
-Makefile
+#END
