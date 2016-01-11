@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "0.5.2",
+  "version": "0.6.0-react-upgrade.0",
   "description": "ecc-gui-elements component",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -25,14 +25,14 @@
     "ecc-messagebus": "^3.3.2",
     "lodash": "^3.10.1",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.4-fixed",
-    "react": "^0.13.3",
-    "react-mdl": "^0.14.0"
+    "react": "^0.14.6",
+    "react-mdl": "^0.15.0"
   },
   "devDependencies": {
     "ecc-gulp-tasks": "^0.16.9",
     "ecc-resparqler": "^0.1.7",
-    "ecc-test-helpers": "^0.2.0",
-    "ecc-uitest-helpers": "^7.0.0",
+    "ecc-test-helpers": "^0.3.0-alpha.0",
+    "ecc-uitest-helpers": "^8.0.0-alpha.0",
     "gulp": "^3.9.0"
   }
 }
