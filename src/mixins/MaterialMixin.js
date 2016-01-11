@@ -4,7 +4,7 @@ const MaterialMixin = {
     materialDesign,
 
     componentDidUpdate() {
-        materialDesign.upgradeDom();
+        window.componentHandler.upgradeDom();
     },
 };
 
