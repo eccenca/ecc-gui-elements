@@ -15,7 +15,7 @@ const Dialog = React.createClass({
 
     // template rendering
     render() {
-        const {className, active, size, modal, cancelButton, confirmButton, ...otherProps} = this.props;
+        const {className, active, size, modal, confirmButton, ...otherProps} = this.props;
 
         const classes = classNames('mdl-dialog mdl-shadow--16dp', {
             'is-activated': active === true,
@@ -49,11 +49,12 @@ const Dialog = React.createClass({
             );
         }
 
-        confirmButton.props.accent = true;
+        const cb = React.cloneElement(confirmButton, {accent: true});
+
         const actions = (
             <div className="mdl-dialog__actions">
                 {this.props.cancelButton}
-                {this.props.confirmButton}
+                {cb}
             </div>
         );
 
