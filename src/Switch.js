@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
-import MaterialMixin from './MaterialMixin';
+import MaterialMixin from './mixins/MaterialMixin';
 // does not use Switch from react-mdl because overspecified onChange property request
 
 const Switch = React.createClass({

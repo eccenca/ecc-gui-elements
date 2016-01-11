@@ -1,5 +1,5 @@
 import React from 'react';
-import MaterialMixin from './MaterialMixin';
+import MaterialMixin from './mixins/MaterialMixin';
 import Alert from './Alert';
 
 const Warning = React.createClass({

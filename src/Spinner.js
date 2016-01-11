@@ -1,5 +1,5 @@
 import React from 'react';
-import MaterialMixin from './MaterialMixin';
+import MaterialMixin from './mixins/MaterialMixin';
 import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
 
