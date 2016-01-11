@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "ecc-gui-elements component",
   "main": "es5/component.js",
   "es5": "es5/component.js",
