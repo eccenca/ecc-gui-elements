@@ -1,7 +1,7 @@
 import React from 'react';
-import MaterialMixin from './mixins/MaterialMixin';
+import MaterialMixin from '../mixins/MaterialMixin';
 import classNames from 'classnames';
-import Button from './Button';
+import Button from '../Button';
 
 const Alert = React.createClass({
     mixins: [MaterialMixin],
