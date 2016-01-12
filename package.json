@@ -14,7 +14,7 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.4-fixed",
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.6-fixed",
     "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0"
   },
   "devDependencies": {
