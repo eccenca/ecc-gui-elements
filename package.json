@@ -1,7 +1,7 @@
 {
   "name": "ecc-style-core",
-  "version": "0.11.1",
-  "description": "Core style classes for eccenca DataManager",
+  "version": "0.11.2",
+  "description": "Contains core styles, icons and fonts for all materialized components.",
   "main": "index.js",
   "scripts": {
     "test": "node-sass src/main.scss",
