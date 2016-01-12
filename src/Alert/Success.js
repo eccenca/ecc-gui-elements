@@ -1,8 +1,8 @@
 import React from 'react';
-import MaterialMixin from './mixins/MaterialMixin';
+import MaterialMixin from '../mixins/MaterialMixin';
 import Alert from './Alert';
 
-const Warning = React.createClass({
+const Success = React.createClass({
     mixins: [MaterialMixin],
 
     // define property types
@@ -15,7 +15,7 @@ const Warning = React.createClass({
         const {children, ...otherProps} = this.props;
 
         return (
-            <Alert type="warning" {...otherProps}>
+            <Alert type="success" {...otherProps}>
                 {this.props.children}
             </Alert>
         );
@@ -23,4 +23,4 @@ const Warning = React.createClass({
     },
 });
 
-export default Warning;
+export default Success;
