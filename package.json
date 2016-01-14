@@ -1,6 +1,6 @@
 {
   "name": "ecc-style-core",
-  "version": "1.0.0-mdlupdate.0",
+  "version": "1.0.0-mdlupdate.1",
   "description": "Core style classes for eccenca DataManager",
   "main": "index.js",
   "scripts": {
