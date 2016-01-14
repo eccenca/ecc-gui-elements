@@ -1,10 +1,10 @@
 import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
-import MaterialMixin from './mixins/MaterialMixin';
-// does not use Checkbox from react-mdl because overspecified onChange property request
+import MaterialMixin from '../mixins/MaterialMixin';
+// does not use Switch from react-mdl because overspecified onChange property request
 
-const Checkbox = React.createClass({
+const Switch = React.createClass({
     mixins: [MaterialMixin],
 
     propTypes: {
@@ -12,7 +12,6 @@ const Checkbox = React.createClass({
         checked: React.PropTypes.bool,
         disabled: React.PropTypes.bool,
         id: React.PropTypes.string,
-        label: React.PropTypes.string,
         onChange: React.PropTypes.func,
         ripple: React.PropTypes.bool
     },
@@ -22,38 +21,38 @@ const Checkbox = React.createClass({
     },
 
     render() {
-        const {className, id, ripple, onChange, checked, disabled, label, children, ...otherProps} = this.props;
+        const {className, id, ripple, onChange, checked, disabled, children, ...otherProps} = this.props;
 
         let inputId = _.uniqueId('switch_');
         if (id) {
             inputId = id;
         }
 
-        let checkboxlabel = label ? label : false;
-        if (!checkboxlabel && children) {
-            checkboxlabel = children;
-        }
-
-        const classes = classNames('mdl-checkbox mdl-js-checkbox', {
+        const classes = classNames('mdl-switch mdl-js-switch', {
             'mdl-js-ripple-effect': ripple
         }, className);
 
         return (
             <label className={classes}
                    htmlFor={inputId}
+                   {...otherProps}
             >
                 <input
                     type="checkbox"
                     id={inputId}
-                    className="mdl-checkbox__input"
+                    className="mdl-switch__input"
                     defaultChecked={checked}
                     disabled={disabled}
                     onChange={onChange}
                 />
-                {checkboxlabel ? <span className="mdl-checkbox__label">{checkboxlabel}</span> : false}
+                {
+                    children ? (
+                        <span className="mdl-switch__label">{children}</span>
+                    ) : false
+                }
             </label>
         );
     }
 });
 
-export default Checkbox;
+export default Switch;

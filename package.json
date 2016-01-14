@@ -1,7 +1,7 @@
 {
   "name": "ecc-gui-elements",
-  "version": "0.6.0-react-upgrade.4",
-  "description": "ecc-gui-elements component",
+  "version": "1.0.0-react-mdl-update.0",
+  "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
   "es6": "index.js",
@@ -24,16 +24,16 @@
     "classnames": "2.2.0",
     "ecc-messagebus": "^3.3.2",
     "lodash": "^3.10.1",
-    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.4-fixed",
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.6-fixed",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
-    "react-mdl": "^0.15.0"
+    "react-mdl": "^1.1.0"
   },
   "devDependencies": {
     "ecc-gulp-tasks": "^0.16.9",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^0.3.0-alpha.2",
-    "ecc-uitest-helpers": "^8.0.0-alpha.1",
+    "ecc-uitest-helpers": "^8.0.0-react-mdl-update.0",
     "gulp": "^3.9.0"
   }
 }
