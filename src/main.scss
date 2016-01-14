@@ -22,7 +22,6 @@ $input-text-highlight-color: unquote("rgb(#{$color-primary})");
 $input-text-disabled-color: $input-text-bottom-border-color;
 $input-text-error-color: unquote("rgb(222, 50, 38)");
 
-//TODO: enable this later aftr upgrade to MDL 1.0.5
 $image_path: '~material-design-lite/src/images';
 
 // -- Size Configurations ------------------------------------------------------
@@ -43,7 +42,7 @@ $card-title-font-size: 21px;
 
 @import './mdl-extension/alert/alert';
 @import './mdl-extension/card/card';
-@import './mdl-extension/checkbox/checkbox';
+//@import './mdl-extension/checkbox/checkbox';
 @import './mdl-extension/data-table/data-table';
 @import './mdl-extension/dialog/dialog';
 @import './mdl-extension/grid/grid';
