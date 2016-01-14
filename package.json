@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "0.5.5",
+  "version": "1.0.0-mdlupdate.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -32,7 +32,7 @@
     "ecc-gulp-tasks": "^0.16.9",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^0.2.0",
-    "ecc-uitest-helpers": "^7.0.0",
+    "ecc-uitest-helpers": "8.0.0-mdlupdate.0",
     "gulp": "^3.9.0"
   }
 }
