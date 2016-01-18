@@ -1,0 +1,32 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ *
+ * Create Stylesheet using CLI tools build on libsass or Ruby. We need to repeat
+ * code because (at least libsass) test @import statements before conditionals
+ * and Sass itself do not allow variables in non-url imports.
+ */
+
+// -- Configuration ------------------------------------------------------------
+
+@import "./../node_modules/material-design-lite/src/color-definitions";
+$image_path: "./images" !default;
+@import "./configuration.default";
+
+// -- Material Design Lite -----------------------------------------------------
+
+@import "./../node_modules/material-design-lite/src/styleguide.scss";
+
+// -- Own MDL Extensions -------------------------------------------------------
+
+@import "./mdl-extension/all";
+
+// -- Changes ------------------------------------------------------------------
+
+@import "./adjustments";
+
+// -- Fonts --------------------------------------------------------------------
+
+@import "./roboto";
+@import "./iconfont";
