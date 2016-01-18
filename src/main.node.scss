@@ -1,0 +1,21 @@
+// -- Configuration ------------------------------------------------------------
+
+@import "~material-design-lite/src/color-definitions";
+@import "./configuration.default";
+
+// -- Material Design Lite -----------------------------------------------------
+
+@import "~material-design-lite/src/styleguide.scss";
+
+// -- Own MDL Extensions -------------------------------------------------------
+
+@import "./mdl-extension/all";
+
+// -- Changes ------------------------------------------------------------------
+
+@import "./adjustments";
+
+// -- Fonts --------------------------------------------------------------------
+
+@import "./roboto";
+@import "./iconfont";

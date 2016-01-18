@@ -1,21 +1,7 @@
-// -- Configuration ------------------------------------------------------------
+// -- Deprecation --------------------------------------------------------------
 
-@import "~material-design-lite/src/color-definitions";
-@import "./configuration.default";
+@debug "Using ecc-core-styles/src/main.scss is deprecated. See file for more info. It is going be removed in next major version.";
 
-// -- Material Design Lite -----------------------------------------------------
+// -- Fallback -----------------------------------------------------------------
 
-@import "~material-design-lite/src/styleguide.scss";
-
-// -- Own MDL Extensions -------------------------------------------------------
-
-@import "./mdl-extension/all";
-
-// -- Changes ------------------------------------------------------------------
-
-@import "./adjustments";
-
-// -- Fonts --------------------------------------------------------------------
-
-@import "./roboto";
-@import "./iconfont";
+@import "main.node";
