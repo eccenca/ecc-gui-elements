@@ -1,93 +1,21 @@
-// -- Color Configuration ------------------------------------------------------
+// -- Configuration ------------------------------------------------------------
 
-@import '~material-design-lite/src/color-definitions';
-
-$primary-color: #fe8f01; // loaders
-
-$color-primary: "254,143,1";
-$color-primary-dark: "254,106,1";
-$color-accent: "10,103,163";
-$color-primary-contrast: $color-dark-contrast;
-$color-accent-contrast: $color-dark-contrast;
-
-$layout-header-bg-color: unquote("rgb(#{$color-white})");
-$layout-header-text-color: unquote("rgb(#{$color-black})");
-$layout-header-nav-hover-color: unquote("rgba(#{$palette-grey-700}, 0.6)");
-$layout-header-tab-text-color: unquote("rgba(#{$color-primary-contrast}, 0.6)");
-
-$input-text-background-color: $color-white;
-$input-text-label-color: unquote("rgba(#{$color-black}, 0.26)");
-$input-text-bottom-border-color: unquote("rgba(#{$color-black}, 0.12)");
-$input-text-highlight-color: unquote("rgb(#{$color-primary})");
-$input-text-disabled-color: $input-text-bottom-border-color;
-$input-text-error-color: unquote("rgb(222, 50, 38)");
-
-$image_path: '~material-design-lite/src/images';
-
-// -- Size Configurations ------------------------------------------------------
-
-/* Only a few sizes can be configured forehand. Most sizes mus be overwritten
-   after MDL was loaded.
-
-   @see https://github.com/google/material-design-lite/issues/864
-
-*/
-
-$card-title-font-size: 21px;
+@import "~material-design-lite/src/color-definitions";
+@import "./configuration.default";
 
 // -- Material Design Lite -----------------------------------------------------
-@import '~material-design-lite/src/styleguide.scss';
+
+@import "~material-design-lite/src/styleguide.scss";
 
 // -- Own MDL Extensions -------------------------------------------------------
 
-@import './mdl-extension/alert/alert';
-@import './mdl-extension/card/card';
-//@import './mdl-extension/checkbox/checkbox';
-@import './mdl-extension/data-table/data-table';
-@import './mdl-extension/dialog/dialog';
-@import './mdl-extension/grid/grid';
-@import './mdl-extension/layout/layout';
-@import './mdl-extension/progressbar/progressbar';
-@import './mdl-extension/spinner/spinner';
-@import './mdl-extension/textfield/textfield';
-
-// -- Roboto font --------------------------------------------------------------
-@import "./roboto.scss";
-
-// -- Icon font ----------------------------------------------------------------
-@import './iconfont.scss';
+@import "./mdl-extension/all";
 
 // -- Changes ------------------------------------------------------------------
 
+@import "./adjustments";
 
-html, body {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-}
+// -- Fonts --------------------------------------------------------------------
 
-html {
-    background-color: #f6f6f6;
-}
-
-h1 {
-    font-size: 42px;
-}
-
-h2 {
-    font-size: 35px;
-}
-
-h3 {
-    font-size: 28px;
-}
-
-h4 {
-    font-size: 21px;
-}
-
-h5 {
-    font-size: 18px;
-}
-
-h6 {
-    font-size: 16px;
-}
+@import "./roboto";
+@import "./iconfont";
