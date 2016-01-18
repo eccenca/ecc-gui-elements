@@ -2,16 +2,24 @@
 import materialDesign from 'material-design-lite/compiled/material';
 import {findDOMNode} from 'react-dom';
 
+import _ from 'lodash';
+
 const MaterialMixin = {
     materialDesign,
     componentDidMount() {
         componentHandler.upgradeDom();
     },
     componentWillUnmount() {
-        componentHandler.downgradeElements(findDOMNode(this));
+        const comp = findDOMNode(this);
+        if (!_.isNull(comp)) {
+            componentHandler.downgradeElements(comp);
+        }
     },
     componentDidUpdate() {
-        componentHandler.upgradeElements(findDOMNode(this));
+        const comp = findDOMNode(this);
+        if (!_.isNull(comp)) {
+            componentHandler.upgradeElements(comp);
+        }
     }
 };
 

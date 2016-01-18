@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "1.0.0-react-mdl-update.0",
+  "version": "1.0.0-react-mdl-update.1",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -32,8 +32,8 @@
   "devDependencies": {
     "ecc-gulp-tasks": "^0.16.9",
     "ecc-resparqler": "^0.1.7",
-    "ecc-test-helpers": "^0.3.0-alpha.2",
-    "ecc-uitest-helpers": "^8.0.0-react-mdl-update.0",
+    "ecc-test-helpers": "^0.3.0-upgrade-react.0",
+    "ecc-uitest-helpers": "^8.0.0-react-mdl-update.2",
     "gulp": "^3.9.0"
   }
 }
