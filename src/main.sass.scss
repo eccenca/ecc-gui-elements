@@ -3,9 +3,9 @@
  *
  * @author Michael Haschke
  *
- * Create Stylesheet using CLI tools build on libsass or Ruby. We need to repeat
- * code because (at least libsass) test @import statements before conditionals
- * and Sass itself do not allow variables in non-url imports.
+ * Create Stylesheet using CLI tools build on libsass or Ruby.
+ * We need to repeat code because (at least libsass) test @import statements
+ * before conditionals and Sass itself do not allow variables in direct imports.
  */
 
 // -- Configuration ------------------------------------------------------------

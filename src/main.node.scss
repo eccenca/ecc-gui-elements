@@ -1,3 +1,13 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ *
+ * Create Stylesheet using Node imports via Webpack's require method.
+ * We need to repeat code because (at least libsass) test @import statements
+ * before conditionals and Sass itself do not allow variables in direct imports.
+ */
+
 // -- Configuration ------------------------------------------------------------
 
 @import "~material-design-lite/src/color-definitions";
