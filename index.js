@@ -1,2 +1,2 @@
 /* main scss stuff */
-require('./src/main.scss');
+require('./src/main.node.scss');
