@@ -32,8 +32,8 @@
   "devDependencies": {
     "ecc-gulp-tasks": "^0.16.9",
     "ecc-resparqler": "^0.1.7",
-    "ecc-test-helpers": "^0.3.0-upgrade-react.0",
-    "ecc-uitest-helpers": "^8.0.0-react-mdl-update.3",
+    "ecc-test-helpers": "^1.0.0",
+    "ecc-uitest-helpers": "^8.0.0",
     "gulp": "^3.9.0"
   }
 }
