@@ -1,6 +1,6 @@
 {
   "name": "ecc-style-core",
-  "version": "0.11.2",
+  "version": "1.0.0-mdlupdate.2",
   "description": "Contains core styles, icons and fonts for all materialized components.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.4-fixed",
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.6-fixed",
     "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0"
   },
   "devDependencies": {
