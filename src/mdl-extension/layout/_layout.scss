@@ -34,7 +34,8 @@ hr.mdl-layout-spacer {
     }
 }
 
-.mdl-layout--hide-on-screen {
+.mdl-layout--hide-on-screen,
+.mdl-layout--hide-for-eyes {
     position: absolute;
     left: -5000em;
 }
