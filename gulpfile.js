@@ -3,6 +3,7 @@ var gulp = require('gulp');
 gulp.task('default', function () {
     var path = require('path');
     var sass = require('gulp-sass');
+    var rename = require("gulp-rename");
 
     var nodeModules = path.join(process.cwd(), 'node_modules')
 
@@ -21,5 +22,6 @@ gulp.task('default', function () {
 
             }
         }).on('error', sass.logError))
+        .pipe(rename("main.css"))
         .pipe(gulp.dest('./dist'));
 });
