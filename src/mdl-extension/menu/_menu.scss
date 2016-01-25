@@ -4,6 +4,13 @@
  * @author Michael Haschke
  */
 
+.mdl-menu__item {
+    &.has-contextblock {
+        padding-right: calc(1.5rem + 24px);
+    }
+}
+
+
 .mdl-menu__item-contextmenu {
     display: block;
     position: absolute;
