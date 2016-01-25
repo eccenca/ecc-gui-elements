@@ -21,5 +21,5 @@ gulp.task('default', function () {
 
             }
         }).on('error', sass.logError))
-        .pipe(gulp.dest('./css'));
+        .pipe(gulp.dest('./dist'));
 });
