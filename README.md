@@ -13,6 +13,13 @@ Includes libraries from:
 - Import in your bootstrapper with `import 'ecc-style-core';`, or
 - Use Webpack's `require` method with `src/main.node.scss`.
 
+### Use style configuration in your modules
+
+You can import the global default configuration by using it from ``ecc-style-core``:
+
+1. install node module: ``npm install ecc-style-core --save``
+2. import it your component SCSS file: ``@import '~ecc-style-core/src/configuration.default'``
+
 ## Usage with Sass CLI tools
 
 There are two main CLI tools for Sass:

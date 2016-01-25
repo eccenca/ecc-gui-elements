@@ -53,3 +53,12 @@ $ecc-typo-display-1-font-size: 28px;
 $ecc-typo-headline-font-size:  21px;
 $ecc-typo-title-font-size:     18px;
 $ecc-typo-subhead-font-size:   16px;
+
+// -- Load MDL variables and mixins --------------------------------------------
+
+@if (variable-exists(target-elements-directly) == false) {
+    @import '~material-design-lite/src/variables';
+}
+@if (mixin-exists(material-animation-fast-out-slow-in) == false) {
+    @import '~material-design-lite/src/mixins';
+}
