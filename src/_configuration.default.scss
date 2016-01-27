@@ -6,6 +6,12 @@
  * Configuration used for MDL and beyond.
  */
 
+// -- Load MDL colors ----------------------------------------------------------
+
+@if (variable-exists(styleguide-generate-template) == false) {
+    @import "~material-design-lite/src/color-definitions";
+}
+
 // -- Environment --------------------------------------------------------------
 
 $image_path: "~material-design-lite/src/images" !default;
