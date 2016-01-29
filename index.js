@@ -1,7 +1,7 @@
 /* global __WEBPACK__ */
 if (__WEBPACK__) {
     // only load style when using webpack
-    require('./style/style.less');
+    require('./style/style.scss');
 }
 
 // Mixins
