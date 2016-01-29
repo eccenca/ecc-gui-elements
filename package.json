@@ -30,7 +30,7 @@
     "react-mdl": "^1.1.0"
   },
   "devDependencies": {
-    "ecc-gulp-tasks": "^0.16.9",
+    "ecc-gulp-tasks": "^1.1.0",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^1.0.0",
     "ecc-uitest-helpers": "^8.0.0",
