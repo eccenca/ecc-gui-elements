@@ -2,7 +2,7 @@
 import React from 'react';
 import render from 'ecc-uitest-helpers';
 // test styles
-import '../style/test.less';
+import '../style/test.scss';
 // component
 import {
     Alert,
