@@ -140,6 +140,31 @@ const Page = React.createClass({
             </div>
         );
 
+        const testIcons = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Icons</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>Basic Icons with Fallback tooltips</h5>
+                    <Icon name="edit" />
+                    <Icon name="delete" />
+                    <Icon name="arrow_nextpage" />
+                    <Icon name="arrow_prevpage" />
+                    <Icon name="arrow_lastpage" />
+                    <Icon name="arrow_firstpage" />
+                    <Icon name="arrow_dropdown" />
+                    <Icon name="expand_more" />
+                    <Icon name="expand_less" />
+                    <Icon name="menu_more" />
+                    <Icon name="filter" />
+                    <Icon name="sort" />
+                    <Icon name="hide" />
+                    <Icon name="access_forbidden" />
+                </div>
+            </div>
+        );
+
         const testInputs = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
@@ -177,6 +202,8 @@ const Page = React.createClass({
                         {testProgressbar}
                         <hr className="mdl-layout-spacer"/>
                         {testAlerts}
+                        <hr className="mdl-layout-spacer"/>
+                        {testIcons}
                         <hr className="mdl-layout-spacer"/>
                         {testButtons}
                         <hr className="mdl-layout-spacer"/>
