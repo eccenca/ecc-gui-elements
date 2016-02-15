@@ -11,13 +11,50 @@ const Icon = React.createClass({
         className: React.PropTypes.string,
         name: React.PropTypes.string.isRequired,
         tooltip: React.PropTypes.oneOfType([
-            React.PropTypes.node
+            React.PropTypes.node,
+            React.PropTypes.boolean
         ]),
+    },
+
+    // cononical icons
+    canonicalIcons: {
+        edit: 'mode_edit',
+        delete: 'delete',
+        arrow_nextpage: 'chevron_left',
+        arrow_prevpage: 'chevron_right',
+        arrow_lastpage: 'skip_next', //'last_page',
+        arrow_firstpage: 'skip_previous', //'first_page',
+        arrow_dropdown: 'arrow_drop_down',
+        expand_more: 'expand_more',
+        expand_less: 'expand_less',
+        menu_more: 'more_vert',
+        filter: 'filter_list',
+        sort: 'swap_vert',
+        hide: 'close',
+        access_forbidden: 'lock_outline',
+    },
+
+    // TODO: use translations
+    canonicalTooltips: {
+        edit: 'Edit',
+        delete: 'Delete',
+        arrow_nextpage: 'Next Page',
+        arrow_prevpage: 'Previous Page',
+        arrow_lastpage: 'Last Page',
+        arrow_firstpage: 'First Page',
+        arrow_dropdown: 'Open',
+        expand_more: 'Show More',
+        expand_less: 'Show Less',
+        menu_more: 'Open Menu',
+        filter: 'Filter Data',
+        sort: 'Sort Data',
+        hide: 'Hide',
+        access_forbidden: 'No Access',
     },
 
     // template rendering
     render() {
-        const {className, tooltip, otherProps} = this.props;
+        const {className, otherProps} = this.props;
 
         // change ligatures to char codes for browser compatibility (eg for IE9)
         /*eslint camelcase: 0 */
@@ -818,7 +855,17 @@ const Icon = React.createClass({
             zoom_in: '&#xe8ff;',
             zoom_out: '&#xe900;',
         };
+
         let name = this.props.name;
+        let tooltip = this.props.tooltip;
+
+        if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[name] !== 'undefined')) {
+            tooltip = this.canonicalTooltips[name];
+        }
+
+        if (typeof this.canonicalIcons[name] !== 'undefined') {
+            name = this.canonicalIcons[name];
+        }
         if (typeof ligaturcodes[name] !== 'undefined') {
             name = ligaturcodes[name];
         }

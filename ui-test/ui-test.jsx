@@ -161,6 +161,9 @@ const Page = React.createClass({
                     <Icon name="sort" />
                     <Icon name="hide" />
                     <Icon name="access_forbidden" />
+                    <h5>Other Icons</h5>
+                    <Icon name="widgets" tooltip={false} />
+                    <Icon name="access_forbidden" tooltip={false} />
                 </div>
             </div>
         );
