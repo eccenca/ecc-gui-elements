@@ -26,9 +26,16 @@ import {
 const Page = React.createClass({
     getInitialState() {
         return {
+            dialog: false
         };
     },
-
+    openDialog() {
+        this.setState({dialog: true});
+    },
+    closeDialog(param) {
+        console.log('Dialog closed', param);
+        this.setState({dialog: false});
+    },
     // template rendering
     render() {
 
@@ -38,8 +45,8 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Spinner</h4>
                 </div>
                 <div className="mdl-card__content">
-                    <Spinner appearInline={true} />
-                    <Spinner appearLocal={true} />
+                    <Spinner appearInline={true}/>
+                    <Spinner appearLocal={true}/>
                 </div>
                 <Spinner />
             </div>
@@ -51,10 +58,10 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Progressbars</h4>
                 </div>
                 <div className="mdl-card__content">
-                    <Progressbar progress={85} />
-                    <Progressbar appearGlobal={true} indeterminate={true} progress={95} />
+                    <Progressbar progress={85}/>
+                    <Progressbar appearGlobal={true} indeterminate={true} progress={95}/>
                 </div>
-                <Progressbar appearLocal={true} progress={15} />
+                <Progressbar appearLocal={true} progress={15}/>
             </div>
         );
 
@@ -68,16 +75,16 @@ const Page = React.createClass({
                         <p>This is a</p>
                         <p>untyped message.</p>
                     </Alert>
-                    <Info border={true} vertSpacing={true} >
+                    <Info border={true} vertSpacing={true}>
                         info
                     </Info>
-                    <Success border={true} vertSpacing={true} >
-                       success
+                    <Success border={true} vertSpacing={true}>
+                        success
                     </Success>
-                    <Warning border={true} vertSpacing={true} >
+                    <Warning border={true} vertSpacing={true}>
                         warning
                     </Warning>
-                    <Error handlerDismiss={function() {}} labelDismiss="remove error" vertSpacing={true} >
+                    <Error handlerDismiss={function() {}} labelDismiss="remove error" vertSpacing={true}>
                         error
                     </Error>
                 </div>
@@ -86,11 +93,11 @@ const Page = React.createClass({
 
         const testDialog = (
             <Dialog title="Dialog Title"
-                    active={false}
+                    active={this.state.dialog}
                     modal={true}
                     size="mini"
-                    cancelButton={<Button>Cancel</Button>}
-                    confirmButton={<Button>Yes</Button>}
+                    cancelButton={<Button onClick={this.closeDialog.bind(null, 'Cancel')}>Cancel</Button>}
+                    confirmButton={<Button onClick={this.closeDialog.bind(null, 'Yes')}>Yes</Button>}
             >
                 <p>Dialog Content</p>
                 <p>Dialog Content</p>
@@ -123,12 +130,12 @@ const Page = React.createClass({
                     {testDialog}
                 </div>
                 <div className="mdl-card__actions">
-                    <Button raised={true} accent ripple={false}>Test</Button>
+                    <Button raised={true} accent ripple={false} onClick={this.openDialog}>Open Dialog</Button>
                     <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
-                        <Icon name="mood" />
+                        <Icon name="mood"/>
                     </Button>
-                    <Button iconName="more_vert" tooltip="more tooltip" />
-                    <Icon name="cloud_download" tooltip="cloudy clouds" />
+                    <Button iconName="more_vert" tooltip="more tooltip"/>
+                    <Icon name="cloud_download" tooltip="cloudy clouds"/>
                 </div>
             </div>
         );
@@ -146,9 +153,9 @@ const Page = React.createClass({
                         Switch 2 Text
                     </Switch>
                     <Checkbox id="test_id_667"
-                            ripple={true}
+                              ripple={true}
                     />
-                    <Checkbox label="Checkbox 1 Text" />
+                    <Checkbox label="Checkbox 1 Text"/>
                     <Checkbox disabled>
                         Checkbox 2 Text
                     </Checkbox>
@@ -166,15 +173,15 @@ const Page = React.createClass({
                     <Content>
                         <Nothing />
                         {testSpinner}
-                        <hr className="mdl-layout-spacer" />
+                        <hr className="mdl-layout-spacer"/>
                         {testProgressbar}
-                        <hr className="mdl-layout-spacer" />
+                        <hr className="mdl-layout-spacer"/>
                         {testAlerts}
-                        <hr className="mdl-layout-spacer" />
+                        <hr className="mdl-layout-spacer"/>
                         {testButtons}
-                        <hr className="mdl-layout-spacer" />
+                        <hr className="mdl-layout-spacer"/>
                         {testInputs}
-                        <hr className="mdl-layout-spacer" />
+                        <hr className="mdl-layout-spacer"/>
                     </Content>
                     <footer className="mdl-mini-footer">
                         Footer
