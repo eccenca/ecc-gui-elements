@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node-sass src/main.scss",
-    "prepublish": "cp -r node_modules/material-design-icons/iconfont iconfont && cp -r node_modules/roboto/fonts roboto"
+    "prepublish": "mkdir -p dist/fonts/materialicons && cp -fru node_modules/material-design-icons/iconfont/* dist/fonts/materialicons && mkdir -p dist/fonts/roboto && cp -fru node_modules/roboto/fonts/* dist/fonts/roboto"
   },
   "repository": {
     "type": "git",
@@ -14,14 +14,14 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.6-fixed",
-    "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0"
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.6-fixed"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-sass": "^2.1.1",
     "gulp-rename": "^1.2.2",
     "material-design-icons": "^2.0.0",
-    "node-sass": "^3.4.0"
+    "node-sass": "^3.4.0",
+    "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0"
   }
 }
