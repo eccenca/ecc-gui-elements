@@ -23,17 +23,37 @@ const Button = React.createClass({
         ]),
         className: React.PropTypes.string,
         tooltip: React.PropTypes.oneOfType([
-            React.PropTypes.node
+            React.PropTypes.node,
+            React.PropTypes.bool
         ]),
         fabSize: React.PropTypes.string,
         iconName: React.PropTypes.string,
         ripple: React.PropTypes.bool,
     },
 
+    // TODO: use translations
+    /*eslint camelcase: 0 */
+    canonicalTooltips: {
+        edit: 'Edit',
+        delete: 'Delete',
+        arrow_nextpage: 'Next Page',
+        arrow_prevpage: 'Previous Page',
+        arrow_lastpage: 'Last Page',
+        arrow_firstpage: 'First Page',
+        arrow_dropdown: 'Open',
+        expand_more: 'Show More',
+        expand_less: 'Show Less',
+        menu_more: 'Open Menu',
+        filter: 'Filter Data',
+        sort: 'Sort Data',
+        hide: 'Hide',
+        access_forbidden: 'No Access',
+    },
+
     // template rendering
     render() {
 
-        const {className, tooltip, fabSize, iconName, ...otherProps} = this.props;
+        const {className, fabSize, iconName, ...otherProps} = this.props;
         const classes = classNames(
             {
                 'mdl-button--icon': typeof iconName !== 'undefined',
@@ -63,6 +83,11 @@ const Button = React.createClass({
                     {buttonContent}
                 </ReactMDLButton>
             );
+        }
+
+        let tooltip = this.props.tooltip;
+        if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[iconName] !== 'undefined')) {
+            tooltip = this.canonicalTooltips[iconName];
         }
 
         if (tooltip) {
