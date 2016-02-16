@@ -22,7 +22,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.1",
-    "material-design-icons": "^2.0.0",
+    "material-design-icons": "git://github.com/google/material-design-icons#2.2.0",
     "node-sass": "^3.4.0",
     "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0"
   }
