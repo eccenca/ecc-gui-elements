@@ -12,7 +12,7 @@ const Icon = React.createClass({
         name: React.PropTypes.string.isRequired,
         tooltip: React.PropTypes.oneOfType([
             React.PropTypes.node,
-            React.PropTypes.boolean
+            React.PropTypes.bool
         ]),
     },
 
