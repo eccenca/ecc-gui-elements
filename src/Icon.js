@@ -861,13 +861,19 @@ const Icon = React.createClass({
 
         if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[name] !== 'undefined')) {
             tooltip = this.canonicalTooltips[name];
+        } else {
+            // TODO: add debug warning about missing tooltip
         }
 
         if (typeof this.canonicalIcons[name] !== 'undefined') {
             name = this.canonicalIcons[name];
+        } else {
+            // TODO: add warning about usage of non-canonical icons
         }
         if (typeof ligaturcodes[name] !== 'undefined') {
             name = ligaturcodes[name];
+        } else {
+            // TODO: add error about unknown ligature code/icon name
         }
 
         const classes = classNames('material-icons', className);
