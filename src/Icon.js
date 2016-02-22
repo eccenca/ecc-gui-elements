@@ -18,13 +18,15 @@ const Icon = React.createClass({
     },
 
     // cononical icons
+    // TODO: some icons are broken, probably because of bug in material icons release
+    // @see https://github.com/google/material-design-icons/issues/311
     canonicalIcons: {
         edit: 'mode_edit',
         delete: 'delete',
-        arrow_nextpage: 'chevron_left',
-        arrow_prevpage: 'chevron_right',
-        arrow_lastpage: 'last_page',
-        arrow_firstpage: 'first_page',
+        arrow_nextpage: 'navigate_next',
+        arrow_prevpage: 'navigate_before',
+        arrow_lastpage: 'skip_next', // TODO: workaround for 'last_page',
+        arrow_firstpage: 'skip_previous', // TODO: workaround for 'first_page',
         arrow_dropdown: 'arrow_drop_down',
         expand_more: 'expand_more',
         expand_less: 'expand_less',
