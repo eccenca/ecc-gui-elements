@@ -130,10 +130,10 @@ const Page = React.createClass({
                     <h5>Basic Icons with Fallback tooltips</h5>
                     <Icon name="edit" />
                     <Icon name="delete" />
-                    <Icon name="arrow_nextpage" />
-                    <Icon name="arrow_prevpage" />
-                    <Icon name="arrow_lastpage" />
                     <Icon name="arrow_firstpage" />
+                    <Icon name="arrow_prevpage" />
+                    <Icon name="arrow_nextpage" />
+                    <Icon name="arrow_lastpage" />
                     <Icon name="arrow_dropdown" />
                     <Icon name="expand_more" />
                     <Icon name="expand_less" />
