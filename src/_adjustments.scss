@@ -37,3 +37,7 @@ h5 {
 h6 {
     font-size: $ecc-typo-subhead-font-size;
 }
+
+// -- Other patches ------------------------------------------------------------
+
+@import "./patches";
