@@ -10,6 +10,9 @@
   -webkit-appearance: none;
   width: 6px;
 }
+::-webkit-scrollbar:horizontal {
+  height: 6px;
+}
 ::-webkit-scrollbar-thumb {
   border-radius: 3px;
   background-color: grey;
