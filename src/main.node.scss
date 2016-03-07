@@ -16,6 +16,13 @@
 
 @import "~material-design-lite/src/material-design-lite";
 
+// -- Material Design Stepper Polyfill -----------------------------------------
+
+$stepper-box-shadow: none !default;
+$stepper-define-keyframes: false !default;
+@import "~mdl-stepper/src/sass/mdl-variables";
+@import "~mdl-stepper/src/sass/stepper";
+
 // -- Own MDL Extensions -------------------------------------------------------
 
 @import "./mdl-extension/all";
