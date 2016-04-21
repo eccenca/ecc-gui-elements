@@ -17,6 +17,7 @@ import {
     Spinner,
     Success,
     Switch,
+    Timeline,
     Warning
 } from '../index.js';
 import {
@@ -212,6 +213,21 @@ const Page = React.createClass({
             </div>
         );
 
+        const testTimelines = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Timelines</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Timeline items={[
+                        {start: '2013-01-01 09:30', content: 'First'},
+                        {start: '2013-01-01 10:00', content: 'Second'},
+                        {start: '2013-01-01 11:00', content: 'Third'},
+                    ]} />
+                </div>
+            </div>
+        );
+
         return (
             <div className="mdl-layout__container">
                 <Layout fixedHeader={true}>
@@ -229,6 +245,8 @@ const Page = React.createClass({
                         {testButtons}
                         <hr className="mdl-layout-spacer"/>
                         {testInputs}
+                        <hr className="mdl-layout-spacer"/>
+                        {testTimelines}
                         <hr className="mdl-layout-spacer"/>
                     </Content>
                     <footer className="mdl-mini-footer">
