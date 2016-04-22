@@ -12,6 +12,15 @@ const Timeline = React.createClass({
         onSelect: React.PropTypes.func,
     },
 
+    componentWillReceiveProps(props) {
+        if (this.state.timeline) {
+            this.state.timeline.destroy();
+            const timeline = new vis.Timeline(this.refs.vis, new vis.DataSet(props.items), {});
+            timeline.on('select', this.onTimelineSelect);
+            this.setState({timeline});
+        }
+    },
+
     componentDidMount() {
         const timeline = new vis.Timeline(this.refs.vis, new vis.DataSet(this.props.items), {});
         timeline.on('select', this.onTimelineSelect);

@@ -27,7 +27,12 @@ import {
 const Page = React.createClass({
     getInitialState() {
         return {
-            dialog: false
+            dialog: false,
+            timelineItems: [
+                {id: 'http://example.com/1', start: '2013-01-01 09:30', content: 'First'},
+                {id: 'http://example.com/2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
+                {id: 'http://example.com/3', start: '2013-01-01 11:00', content: 'Third'},
+            ],
         };
     },
     openDialog() {
@@ -219,11 +224,14 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Timelines</h4>
                 </div>
                 <div className="mdl-card__content">
-                    <Timeline items={[
-                        {id: 'http://example.com/1', start: '2013-01-01 09:30', content: 'First'},
-                        {id: 'http://example.com/2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
-                        {id: 'http://example.com/3', start: '2013-01-01 11:00', content: 'Third'},
-                    ]} onSelect={items => console.log('Timeline', 'onSelect', items)} />
+                    <Timeline
+                        items={this.state.timelineItems}
+                        onSelect={items => console.log('Timeline', 'onSelect', items)}
+                    />
+                    <Button onClick={() => this.setState({timelineItems: this.state.timelineItems.concat([{
+                        start: Date.now(),
+                        content: '' + Date.now(),
+                    }])})}>Add item to the timeline</Button>
                 </div>
             </div>
         );
