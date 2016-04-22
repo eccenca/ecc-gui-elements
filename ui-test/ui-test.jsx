@@ -29,9 +29,9 @@ const Page = React.createClass({
         return {
             dialog: false,
             timelineItems: [
-                {id: 'http://example.com/1', start: '2013-01-01 09:30', content: 'First'},
-                {id: 'http://example.com/2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
-                {id: 'http://example.com/3', start: '2013-01-01 11:00', content: 'Third'},
+                {id: 'http://example.com/1', className: 'binding1', start: '2013-01-01 09:30', content: 'First'},
+                {id: 'http://example.com/2', className: 'binding2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
+                {id: 'http://example.com/3', className: 'binding3', start: '2013-01-01 11:00', content: 'Third'},
             ],
         };
     },
