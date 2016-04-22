@@ -2,7 +2,7 @@
 if (__WEBPACK__) {
     // only load style when using webpack
     // currently not used at all because component is only used as wrapper
-    // require('./style/style.scss');
+    require('./style/style.scss');
 }
 
 // Mixins
