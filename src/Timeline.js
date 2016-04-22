@@ -1,6 +1,5 @@
 import React from 'react';
 import vis from 'vis';
-import '../node_modules/vis/dist/vis.css';
 
 import MaterialMixin from './mixins/MaterialMixin';
 
