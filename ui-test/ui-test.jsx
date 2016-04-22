@@ -286,6 +286,7 @@ const Page = React.createClass({
                 <div className="mdl-card__content">
                     <Timeline
                         items={this.state.timelineItems}
+                        options={{type: 'point'}}
                         onSelect={items => console.log('Timeline', 'onSelect', items)}
                     />
                     <Button onClick={() => this.setState({timelineItems: this.state.timelineItems.concat([{
