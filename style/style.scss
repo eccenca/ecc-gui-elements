@@ -5,3 +5,33 @@
     // for react-mdl
     // your style here
 //}
+
+.vis-item.binding1 {
+  background-color: greenyellow;
+  border-color: green;
+}
+
+.vis-item.binding2 {
+  background-color: red;
+  border-color: darkred;
+}
+
+.vis-item.binding3 {
+  background-color: gold;
+  border-color: orange;
+}
+
+.vis-item.binding4 {
+  background-color: magenta;
+  border-color: purple;
+  color: white;
+}
+
+/* our custom classes overrule the styles for selected events,
+   so lets define a new style for the selected events */
+.vis-item.vis-selected {
+  background-color: white;
+  border-color: black;
+  color: black;
+  box-shadow: 0 0 10px gray;
+}
