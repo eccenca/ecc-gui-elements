@@ -27,7 +27,12 @@ import {
 const Page = React.createClass({
     getInitialState() {
         return {
-            dialog: false
+            dialog: false,
+            timelineItems: [
+                {id: 'http://example.com/1', start: '2013-01-01 09:30', content: 'First'},
+                {id: 'http://example.com/2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
+                {id: 'http://example.com/3', start: '2013-01-01 11:00', content: 'Third'},
+            ],
         };
     },
     openDialog() {
@@ -120,6 +125,66 @@ const Page = React.createClass({
                 <p>Dialog Content</p>
                 <p>Dialog Content</p>
             </Dialog>
+        );
+
+        const testStepper = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Stepper</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>Linear Stepper</h5>
+                    <ul data-upgraded=",MaterialStepper" className="mdl-stepper mdl-stepper--linear" id="demo-stepper-linear">
+                        <li className="mdl-step is-active">
+                          <span className="mdl-step__label">
+                            <span className="mdl-step__title"><span className="mdl-step__title-text">Title of step 1</span>
+                          <span className="mdl-step__title-message">Summarize if needed</span>
+                          </span>
+                          <span className="mdl-step__label-indicator"><span className="mdl-step__label-indicator-content">1</span></span></span>
+                          <div className="mdl-step__content">
+                          </div>
+                          <div className="mdl-step__actions">
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next="">
+                              Continue
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel="">
+                              Cancel
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                          </div>
+                        </li>
+                        <li className="mdl-step"><span className="mdl-step__label">
+                          <span className="mdl-step__title"><span className="mdl-step__title-text">Title of step 2</span>
+                          </span>
+                          <span className="mdl-step__label-indicator"><span className="mdl-step__label-indicator-content">2</span></span></span>
+                          <div className="mdl-step__content">
+                          </div>
+                          <div className="mdl-step__actions">
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next="">
+                              Continue
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel="">
+                              Cancel
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                          </div>
+                        </li>
+                        <li className="mdl-step"><span className="mdl-step__label">
+                          <span className="mdl-step__title"><span className="mdl-step__title-text">Title of step 3</span>
+                          </span>
+                          <span className="mdl-step__label-indicator"><span className="mdl-step__label-indicator-content">3</span></span></span>
+                          <div className="mdl-step__content">
+                          </div>
+                          <div className="mdl-step__actions">
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next="">
+                              Continue
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel="">
+                              Cancel
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         );
 
         const testIcons = (
@@ -219,11 +284,14 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Timelines</h4>
                 </div>
                 <div className="mdl-card__content">
-                    <Timeline items={[
-                        {id: 'http://example.com/1', start: '2013-01-01 09:30', content: 'First'},
-                        {id: 'http://example.com/2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
-                        {id: 'http://example.com/3', start: '2013-01-01 11:00', content: 'Third'},
-                    ]} onSelect={items => console.log('Timeline', 'onSelect', items)} />
+                    <Timeline
+                        items={this.state.timelineItems}
+                        onSelect={items => console.log('Timeline', 'onSelect', items)}
+                    />
+                    <Button onClick={() => this.setState({timelineItems: this.state.timelineItems.concat([{
+                        start: Date.now(),
+                        content: '' + Date.now(),
+                    }])})}>Add item to the timeline</Button>
                 </div>
             </div>
         );
@@ -235,6 +303,8 @@ const Page = React.createClass({
                     <Content>
                         <Nothing />
                         {testSpinner}
+                        <hr className="mdl-layout-spacer"/>
+                        {testStepper}
                         <hr className="mdl-layout-spacer"/>
                         {testProgressbar}
                         <hr className="mdl-layout-spacer"/>
