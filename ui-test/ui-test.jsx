@@ -18,7 +18,8 @@ import {
     Success,
     Switch,
     Timeline,
-    Warning
+    Warning,
+    Tabs
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -33,6 +34,11 @@ const Page = React.createClass({
                 {id: 'http://example.com/2', className: 'binding2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
                 {id: 'http://example.com/3', className: 'binding3', start: '2013-01-01 11:00', content: 'Third'},
             ],
+            tabContent: [
+                {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
+                {tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab'},
+                {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
+            ],
         };
     },
     openDialog() {
@@ -41,6 +47,9 @@ const Page = React.createClass({
     closeDialog(param) {
         console.log('Dialog closed', param);
         this.setState({dialog: false});
+    },
+    tabClick(tabName) {
+        console.log('tabClick:', tabName);
     },
     // template rendering
     render() {
@@ -297,6 +306,29 @@ const Page = React.createClass({
             </div>
         );
 
+        const testTab = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Tabs</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Tabs
+                        prefixTabNames={'tab-container'}
+                        tabs={this.state.tabContent}
+                        onTabClick={this.tabClick}
+                        activeTab={'kpiTab'}
+                    />
+                    <Button onClick={() => this.setState({tabContent:
+                        [
+                            {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
+                            {tabTitle: 'discovery Tab', tabContent: false},
+                            {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
+                        ]
+                    })}>Remove content from discovery tab</Button>
+                </div>
+            </div>
+        );
+
         return (
             <div className="mdl-layout__container">
                 <Layout fixedHeader={true}>
@@ -318,6 +350,8 @@ const Page = React.createClass({
                         {testInputs}
                         <hr className="mdl-layout-spacer"/>
                         {testTimelines}
+                        <hr className="mdl-layout-spacer"/>
+                        {testTab}
                         <hr className="mdl-layout-spacer"/>
                     </Content>
                     <footer className="mdl-mini-footer">

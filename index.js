@@ -25,6 +25,7 @@ import Success from './src/Alert/Success';
 import Switch from './src/Input/Switch';
 import Timeline from './src/Timeline';
 import Warning from './src/Alert/Warning';
+import Tabs from './src/Tabs';
 
 export default {
     MaterialMixin,
@@ -41,5 +42,6 @@ export default {
     Success,
     Switch,
     Timeline,
-    Warning
+    Warning,
+    Tabs
 };
