@@ -135,7 +135,7 @@ const Page = React.createClass({
                 <p>Dialog Content</p>
             </Dialog>
         );
-
+        /*
         const testStepper = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
@@ -195,6 +195,7 @@ const Page = React.createClass({
                 </div>
             </div>
         );
+        */
 
         const testIcons = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
@@ -330,35 +331,33 @@ const Page = React.createClass({
         );
 
         return (
-            <div className="mdl-layout__container">
-                <Layout fixedHeader={true}>
-                    <Header />
-                    <Content>
-                        <Nothing />
-                        {testSpinner}
-                        <hr className="mdl-layout-spacer"/>
-                        {testStepper}
-                        <hr className="mdl-layout-spacer"/>
-                        {testProgressbar}
-                        <hr className="mdl-layout-spacer"/>
-                        {testAlerts}
-                        <hr className="mdl-layout-spacer"/>
-                        {testIcons}
-                        <hr className="mdl-layout-spacer"/>
-                        {testButtons}
-                        <hr className="mdl-layout-spacer"/>
-                        {testInputs}
-                        <hr className="mdl-layout-spacer"/>
-                        {testTimelines}
-                        <hr className="mdl-layout-spacer"/>
-                        {testTab}
-                        <hr className="mdl-layout-spacer"/>
-                    </Content>
-                    <footer className="mdl-mini-footer">
-                        Footer
-                    </footer>
-                </Layout>
-            </div>
+            <Layout fixedHeader={true}>
+                <Header />
+                <Content>
+                    <Nothing />
+                    {testSpinner}
+                    <hr className="mdl-layout-spacer"/>
+                    {(typeof testStepper !== 'undefined') ? testStepper : false}
+                    <hr className="mdl-layout-spacer"/>
+                    {testProgressbar}
+                    <hr className="mdl-layout-spacer"/>
+                    {testAlerts}
+                    <hr className="mdl-layout-spacer"/>
+                    {testIcons}
+                    <hr className="mdl-layout-spacer"/>
+                    {testButtons}
+                    <hr className="mdl-layout-spacer"/>
+                    {testInputs}
+                    <hr className="mdl-layout-spacer"/>
+                    {testTimelines}
+                    <hr className="mdl-layout-spacer"/>
+                    {testTab}
+                    <hr className="mdl-layout-spacer"/>
+                </Content>
+                <footer className="mdl-mini-footer">
+                    Footer
+                </footer>
+            </Layout>
         );
     },
 });
