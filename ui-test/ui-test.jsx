@@ -17,7 +17,9 @@ import {
     Spinner,
     Success,
     Switch,
-    Warning
+    Timeline,
+    Warning,
+    Tabs
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -26,7 +28,17 @@ import {
 const Page = React.createClass({
     getInitialState() {
         return {
-            dialog: false
+            dialog: false,
+            timelineItems: [
+                {id: 'http://example.com/1', className: 'binding1', start: '2013-01-01 09:30', content: 'First'},
+                {id: 'http://example.com/2', className: 'binding2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
+                {id: 'http://example.com/3', className: 'binding3', start: '2013-01-01 11:00', content: 'Third'},
+            ],
+            tabContent: [
+                {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
+                {tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab'},
+                {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
+            ],
         };
     },
     openDialog() {
@@ -35,6 +47,9 @@ const Page = React.createClass({
     closeDialog(param) {
         console.log('Dialog closed', param);
         this.setState({dialog: false});
+    },
+    tabClick(tabName) {
+        console.log('tabClick:', tabName);
     },
     // template rendering
     render() {
@@ -120,6 +135,67 @@ const Page = React.createClass({
                 <p>Dialog Content</p>
             </Dialog>
         );
+        /*
+        const testStepper = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Stepper</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>Linear Stepper</h5>
+                    <ul data-upgraded=",MaterialStepper" className="mdl-stepper mdl-stepper--linear" id="demo-stepper-linear">
+                        <li className="mdl-step is-active">
+                          <span className="mdl-step__label">
+                            <span className="mdl-step__title"><span className="mdl-step__title-text">Title of step 1</span>
+                          <span className="mdl-step__title-message">Summarize if needed</span>
+                          </span>
+                          <span className="mdl-step__label-indicator"><span className="mdl-step__label-indicator-content">1</span></span></span>
+                          <div className="mdl-step__content">
+                          </div>
+                          <div className="mdl-step__actions">
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next="">
+                              Continue
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel="">
+                              Cancel
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                          </div>
+                        </li>
+                        <li className="mdl-step"><span className="mdl-step__label">
+                          <span className="mdl-step__title"><span className="mdl-step__title-text">Title of step 2</span>
+                          </span>
+                          <span className="mdl-step__label-indicator"><span className="mdl-step__label-indicator-content">2</span></span></span>
+                          <div className="mdl-step__content">
+                          </div>
+                          <div className="mdl-step__actions">
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next="">
+                              Continue
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel="">
+                              Cancel
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                          </div>
+                        </li>
+                        <li className="mdl-step"><span className="mdl-step__label">
+                          <span className="mdl-step__title"><span className="mdl-step__title-text">Title of step 3</span>
+                          </span>
+                          <span className="mdl-step__label-indicator"><span className="mdl-step__label-indicator-content">3</span></span></span>
+                          <div className="mdl-step__content">
+                          </div>
+                          <div className="mdl-step__actions">
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--colored mdl-button--raised" data-stepper-next="">
+                              Continue
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                            <button data-upgraded=",MaterialButton,MaterialRipple" className="mdl-button mdl-js-button mdl-js-ripple-effect" data-stepper-cancel="">
+                              Cancel
+                            <span className="mdl-button__ripple-container"><span className="mdl-ripple"></span></span></button>
+                          </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        );
+        */
 
         const testIcons = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
@@ -212,30 +288,76 @@ const Page = React.createClass({
             </div>
         );
 
-        return (
-            <div className="mdl-layout__container">
-                <Layout fixedHeader={true}>
-                    <Header />
-                    <Content>
-                        <Nothing />
-                        {testSpinner}
-                        <hr className="mdl-layout-spacer"/>
-                        {testProgressbar}
-                        <hr className="mdl-layout-spacer"/>
-                        {testAlerts}
-                        <hr className="mdl-layout-spacer"/>
-                        {testIcons}
-                        <hr className="mdl-layout-spacer"/>
-                        {testButtons}
-                        <hr className="mdl-layout-spacer"/>
-                        {testInputs}
-                        <hr className="mdl-layout-spacer"/>
-                    </Content>
-                    <footer className="mdl-mini-footer">
-                        Footer
-                    </footer>
-                </Layout>
+        const testTimelines = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Timelines</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Timeline
+                        items={this.state.timelineItems}
+                        options={{type: 'point'}}
+                        onSelect={items => console.log('Timeline', 'onSelect', items)}
+                    />
+                    <Button onClick={() => this.setState({timelineItems: this.state.timelineItems.concat([{
+                        start: Date.now(),
+                        content: '' + Date.now(),
+                    }])})}>Add item to the timeline</Button>
+                </div>
             </div>
+        );
+
+        const testTab = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Tabs</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Tabs
+                        prefixTabNames={'tab-container'}
+                        tabs={this.state.tabContent}
+                        onTabClick={this.tabClick}
+                        activeTab={'kpiTab'}
+                    />
+                    <Button onClick={() => this.setState({tabContent:
+                        [
+                            {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
+                            {tabTitle: 'discovery Tab', tabContent: false},
+                            {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
+                        ]
+                    })}>Remove content from discovery tab</Button>
+                </div>
+            </div>
+        );
+
+        return (
+            <Layout fixedHeader={true}>
+                <Header />
+                <Content>
+                    <Nothing />
+                    {testSpinner}
+                    <hr className="mdl-layout-spacer"/>
+                    {(typeof testStepper !== 'undefined') ? testStepper : false}
+                    <hr className="mdl-layout-spacer"/>
+                    {testProgressbar}
+                    <hr className="mdl-layout-spacer"/>
+                    {testAlerts}
+                    <hr className="mdl-layout-spacer"/>
+                    {testIcons}
+                    <hr className="mdl-layout-spacer"/>
+                    {testButtons}
+                    <hr className="mdl-layout-spacer"/>
+                    {testInputs}
+                    <hr className="mdl-layout-spacer"/>
+                    {testTimelines}
+                    <hr className="mdl-layout-spacer"/>
+                    {testTab}
+                    <hr className="mdl-layout-spacer"/>
+                </Content>
+                <footer className="mdl-mini-footer">
+                    Footer
+                </footer>
+            </Layout>
         );
     },
 });

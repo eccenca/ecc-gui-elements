@@ -17,6 +17,7 @@ Consists of
 - `Spinner`: Progressbar which may be placed globally or locally in a component
 - `Switch`: A simple binary switch (a nicer checkbox)
 - `Error`, `Info`, `Success` and `Warning` are wrappers around `Alert` which already set the appropriate styles for that kind of Alert.
+- `Tabs`: A tabs container which manages tabbing behaviour
 
 ## Usage
 
@@ -174,6 +175,28 @@ const Page = React.createClass({
             <Spinner appearInline={true} />
             <Spinner appearLocal={true} />
             <Spinner />
+        )
+    },
+    // ....
+});
+
+```
+
+### Tabs
+
+```js
+import { Tabs } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Tabs
+                prefixTabNames={'ecc-view-resource-panel-tab'}
+                activeTab={'historyview'}
+                tabs={[{tabTitle: 'name', tabContent: value}]}
+                onTabClick={this.TabClick}
+            />
         )
     },
     // ....

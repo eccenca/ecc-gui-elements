@@ -2,7 +2,7 @@
 if (__WEBPACK__) {
     // only load style when using webpack
     // currently not used at all because component is only used as wrapper
-    // require('./style/style.scss');
+    require('./style/style.scss');
 }
 
 // Mixins
@@ -23,7 +23,9 @@ import Progressbar from './src/Progressbar';
 import Spinner from './src/Spinner';
 import Success from './src/Alert/Success';
 import Switch from './src/Input/Switch';
+import Timeline from './src/Timeline';
 import Warning from './src/Alert/Warning';
+import Tabs from './src/Tabs';
 
 export default {
     MaterialMixin,
@@ -39,5 +41,7 @@ export default {
     Spinner,
     Success,
     Switch,
-    Warning
+    Timeline,
+    Warning,
+    Tabs
 };
