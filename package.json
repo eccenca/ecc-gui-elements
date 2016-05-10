@@ -1,6 +1,6 @@
 {
   "name": "ecc-style-core",
-  "version": "1.4.2",
+  "version": "1.5.0",
   "description": "Contains core styles, icons and fonts for all materialized components.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.0.6-fixed",
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed",
     "mdl-stepper": "git://github.com/eccenca/mdl-stepper.git#v0.1.3"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
     "gulp-sass": "^2.1.1",
-    "material-design-icons": "git://github.com/google/material-design-icons#2.2.0",
+    "material-design-icons": "git://github.com/google/material-design-icons#2.2.3",
     "node-sass": "^3.4.0",
     "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0"
   }
