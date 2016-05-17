@@ -1,3 +1,0 @@
-[submodule "common-files"]
-	path = common-files
-	url = ssh://git@gitlab.eccenca.com:8101/elds-ui/common-files.git
