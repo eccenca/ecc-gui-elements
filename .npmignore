@@ -2,7 +2,7 @@
 # PLEASE PLACE CUSTOM NPM IGNORES BELOW #END
 #
 # ANYTHING YOU PLACE BEFORE THE END TAG
-# WILL BE OVERWRITTEN BY OUR COMMON-FILES
+# WILL BE OVERWRITTEN BY ecc-dotfiles
 # INSTALL-SCRIPT
 
 # ignore node_modules and debug log
@@ -24,11 +24,14 @@ test/
 # ignore coverage report
 coverage/
 
-# ignore symlinks
+# ignore dotfiles
 .babelrc
 .editorconfig
 .eslintrc.yml
 Makefile
+
+# ignore gulpfile
+gulpfile.js
 
 # ignore data folders by jetbrains products
 .idea/

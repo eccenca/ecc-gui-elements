@@ -11,8 +11,8 @@
     "cover": "gulp cover",
     "start": "gulp",
     "build": "gulp build",
-    "init": "node common-files/install.js",
-    "prepublish": "git submodule init && git submodule update && npm run init && npm run build"
+    "init": "ecc-link-dotfiles",
+    "prepublish": "npm run init && npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,8 @@
     "vis": "^4.16.1"
   },
   "devDependencies": {
-    "ecc-gulp-tasks": "^1.1.0",
+    "ecc-dotfiles": "^1.4.1",
+    "ecc-gulp-tasks": "^2.0.1",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^1.0.0",
     "ecc-uitest-helpers": "^9.0.0",
