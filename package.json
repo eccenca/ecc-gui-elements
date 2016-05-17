@@ -26,17 +26,20 @@
     "ecc-style-core": "^1.5.1",
     "lodash": "^3.10.1",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
     "react-mdl": "1.5.2",
     "vis": "^4.16.1"
+  },
+  "peerDependencies": {
+    "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
     "ecc-dotfiles": "^1.4.1",
     "ecc-gulp-tasks": "^2.0.1",
     "ecc-resparqler": "^0.1.7",
-    "ecc-test-helpers": "^1.0.0",
-    "ecc-uitest-helpers": "^9.0.0",
-    "gulp": "^3.9.0"
+    "ecc-test-helpers": "^15.0.0",
+    "ecc-uitest-helpers": "^15.0.1",
+    "gulp": "^3.9.0",
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   }
 }
