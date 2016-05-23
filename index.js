@@ -26,6 +26,7 @@ import Switch from './src/Input/Switch';
 import Timeline from './src/Timeline';
 import Warning from './src/Alert/Warning';
 import Tabs from './src/Tabs';
+import Version from './src/Version';
 
 export default {
     MaterialMixin,
@@ -43,5 +44,6 @@ export default {
     Switch,
     Timeline,
     Warning,
-    Tabs
+    Tabs,
+    Version
 };
