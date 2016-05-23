@@ -19,7 +19,8 @@ import {
     Switch,
     Timeline,
     Warning,
-    Tabs
+    Tabs,
+    Version,
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -329,6 +330,18 @@ const Page = React.createClass({
                 </div>
             </div>
         );
+        const testVersion= (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Version</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Version
+                        version={'v0.1.0'}
+                    />
+                </div>
+            </div>
+        );
 
         return (
             <Layout fixedHeader={true}>
@@ -352,6 +365,8 @@ const Page = React.createClass({
                     {testTimelines}
                     <hr className="mdl-layout-spacer"/>
                     {testTab}
+                    <hr className="mdl-layout-spacer"/>
+                    {testVersion}
                     <hr className="mdl-layout-spacer"/>
                 </Content>
                 <footer className="mdl-mini-footer">

@@ -18,6 +18,7 @@ Consists of
 - `Switch`: A simple binary switch (a nicer checkbox)
 - `Error`, `Info`, `Success` and `Warning` are wrappers around `Alert` which already set the appropriate styles for that kind of Alert.
 - `Tabs`: A tabs container which manages tabbing behaviour
+- `Version`: A normalised string output of product version
 
 ## Usage
 
@@ -203,3 +204,20 @@ const Page = React.createClass({
 });
 
 ```
+
+### Version
+
+```js
+import { Version } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Version
+                version={'v1.1.0'}
+            />
+        )
+    },
+    // ....
+});
