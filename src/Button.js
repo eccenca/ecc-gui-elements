@@ -62,11 +62,18 @@ const Button = React.createClass({
         );
         const ripple = this.props.ripple === true; // disable ripple by default
 
+        let tooltip = this.props.tooltip;
+        // if tooltip is empty check for default one
+        if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[iconName] !== 'undefined')) {
+            tooltip = this.canonicalTooltips[iconName];
+        }
+
         let button = '';
         let buttonContent = this.props.children;
         if (iconName) {
             buttonContent = (
-                <Icon name={iconName} />
+                // if tooltip already exist send 'false' to prevent adding additional default tooltip in <Icon/>
+                <Icon name={iconName} tooltip={tooltip ? false : ''}/>
             );
         }
 
@@ -83,11 +90,6 @@ const Button = React.createClass({
                     {buttonContent}
                 </ReactMDLButton>
             );
-        }
-
-        let tooltip = this.props.tooltip;
-        if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[iconName] !== 'undefined')) {
-            tooltip = this.canonicalTooltips[iconName];
         }
 
         if (tooltip) {
