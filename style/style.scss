@@ -1,10 +1,12 @@
-@import "~vis/dist/vis.css";
-
 //.ecc-gui-elements {
     // currently not used at all because component is only used as wrapper
     // for react-mdl
     // your style here
 //}
+
+// TODO: move vis timeline styles to dedicated place, it's wrong here
+
+@import "~vis/dist/vis.css";
 
 .vis-item.binding1 {
   //background-color: greenyellow;

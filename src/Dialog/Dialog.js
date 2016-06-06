@@ -54,7 +54,7 @@ const Dialog = React.createClass({
         const buttonLayout = {
             accent: true,
             colored: false,
-            fabSize: false
+            fabSize: ''
         };
         const buttonCancel = React.cloneElement(cancelButton, buttonLayout);
         const buttonConfirm = React.cloneElement(confirmButton, buttonLayout);
