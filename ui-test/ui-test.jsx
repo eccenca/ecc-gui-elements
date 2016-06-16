@@ -19,7 +19,8 @@ import {
     Switch,
     Timeline,
     Warning,
-    Tabs
+    Tabs,
+    Version,
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -30,9 +31,26 @@ const Page = React.createClass({
         return {
             dialog: false,
             timelineItems: [
-                {id: 'http://example.com/1', className: 'binding1', start: '2013-01-01 09:30', content: 'First'},
-                {id: 'http://example.com/2', className: 'binding2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
-                {id: 'http://example.com/3', className: 'binding3', start: '2013-01-01 11:00', content: 'Third'},
+                {
+                    id: 'http://example.com/1',
+                    className: 'binding1',
+                    start: '2013-01-01 09:30',
+                    content: 'First'
+                },
+                {
+                    id: 'http://example.com/2',
+                    className: 'binding2',
+                    start:
+                    '2013-01-01 10:00',
+                    end: '2013-01-01 10:45',
+                    content: 'Second'
+                },
+                {
+                    id: 'http://example.com/3',
+                    className: 'binding3',
+                    start: '2013-01-01 11:00',
+                    content: 'Third'
+                },
             ],
             tabContent: [
                 {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
@@ -320,12 +338,24 @@ const Page = React.createClass({
                         activeTab={'kpiTab'}
                     />
                     <Button onClick={() => this.setState({tabContent:
-                        [
-                            {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
-                            {tabTitle: 'discovery Tab', tabContent: false},
-                            {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
-                        ]
+                    [
+                        {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
+                        {tabTitle: 'discovery Tab', tabContent: false},
+                        {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
+                    ]
                     })}>Remove content from discovery tab</Button>
+                </div>
+            </div>
+        );
+        const testVersion = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Version</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <Version
+                        version={'v0.1.0'}
+                    />
                 </div>
             </div>
         );
@@ -352,6 +382,8 @@ const Page = React.createClass({
                     {testTimelines}
                     <hr className="mdl-layout-spacer"/>
                     {testTab}
+                    <hr className="mdl-layout-spacer"/>
+                    {testVersion}
                     <hr className="mdl-layout-spacer"/>
                 </Content>
                 <footer className="mdl-mini-footer">

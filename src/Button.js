@@ -34,20 +34,20 @@ const Button = React.createClass({
     // TODO: use translations
     /*eslint camelcase: 0 */
     canonicalTooltips: {
-        edit: 'Edit',
-        delete: 'Delete',
-        arrow_nextpage: 'Next Page',
-        arrow_prevpage: 'Previous Page',
-        arrow_lastpage: 'Last Page',
-        arrow_firstpage: 'First Page',
-        arrow_dropdown: 'Open',
-        expand_more: 'Show More',
-        expand_less: 'Show Less',
-        menu_more: 'Open Menu',
-        filter: 'Filter Data',
-        sort: 'Sort Data',
-        hide: 'Hide',
-        access_forbidden: 'No Access',
+        'edit': 'Edit',
+        'delete': 'Delete',
+        'arrow_nextpage': 'Next Page',
+        'arrow_prevpage': 'Previous Page',
+        'arrow_lastpage': 'Last Page',
+        'arrow_firstpage': 'First Page',
+        'arrow_dropdown': 'Open',
+        'expand_more': 'Show More',
+        'expand_less': 'Show Less',
+        'menu_more': 'Open Menu',
+        'filter': 'Filter Data',
+        'sort': 'Sort Data',
+        'hide': 'Hide',
+        'access_forbidden': 'No Access',
     },
 
     // template rendering
@@ -62,11 +62,18 @@ const Button = React.createClass({
         );
         const ripple = this.props.ripple === true; // disable ripple by default
 
+        let tooltip = this.props.tooltip;
+        // if tooltip is empty check for default one
+        if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[iconName] !== 'undefined')) {
+            tooltip = this.canonicalTooltips[iconName];
+        }
+
         let button = '';
         let buttonContent = this.props.children;
         if (iconName) {
             buttonContent = (
-                <Icon name={iconName} />
+                // if tooltip already exist send 'false' to prevent adding additional default tooltip in <Icon/>
+                <Icon name={iconName} tooltip={tooltip ? false : ''}/>
             );
         }
 
@@ -83,11 +90,6 @@ const Button = React.createClass({
                     {buttonContent}
                 </ReactMDLButton>
             );
-        }
-
-        let tooltip = this.props.tooltip;
-        if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[iconName] !== 'undefined')) {
-            tooltip = this.canonicalTooltips[iconName];
         }
 
         if (tooltip) {

@@ -16,7 +16,7 @@ const Warning = React.createClass({
 
         return (
             <Alert type="warning" {...otherProps}>
-                {this.props.children}
+                {children}
             </Alert>
         );
 

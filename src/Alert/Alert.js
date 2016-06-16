@@ -57,7 +57,7 @@ const Alert = React.createClass({
         return (
             <div className={classes} {...otherProps}>
                 <div className="mdl-alert__content">
-                    {this.props.children}
+                    {children}
                 </div>
                 {dismiss}
             </div>

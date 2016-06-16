@@ -22,7 +22,7 @@ const Checkbox = React.createClass({
     },
 
     render() {
-        const {className, id, ripple, onChange, checked, disabled, label, children, ...otherProps} = this.props;
+        const {className, id, ripple, onChange, checked, disabled, label, children} = this.props;
 
         let inputId = _.uniqueId('switch_');
         if (id) {
