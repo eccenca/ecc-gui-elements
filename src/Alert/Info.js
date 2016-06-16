@@ -16,7 +16,7 @@ const Info = React.createClass({
 
         return (
             <Alert type="info" {...otherProps}>
-                {this.props.children}
+                {children}
             </Alert>
         );
 

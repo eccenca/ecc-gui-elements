@@ -16,7 +16,7 @@ const Success = React.createClass({
 
         return (
             <Alert type="success" {...otherProps}>
-                {this.props.children}
+                {children}
             </Alert>
         );
 

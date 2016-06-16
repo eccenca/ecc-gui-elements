@@ -16,7 +16,7 @@ const Error = React.createClass({
 
         return (
             <Alert type="error" {...otherProps}>
-                {this.props.children}
+                {children}
             </Alert>
         );
 
