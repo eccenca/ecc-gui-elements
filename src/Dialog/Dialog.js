@@ -61,8 +61,8 @@ const Dialog = React.createClass({
 
         const actions = (
             <div className="mdl-dialog__actions">
-                {buttonCancel}
                 {buttonConfirm}
+                {buttonCancel}
             </div>
         );
 
