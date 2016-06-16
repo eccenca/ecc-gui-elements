@@ -10,6 +10,7 @@ import {
     Checkbox,
     Error,
     Dialog,
+    BaseDialog,
     Icon,
     Info,
     Nothing,
@@ -30,6 +31,7 @@ const Page = React.createClass({
     getInitialState() {
         return {
             dialog: false,
+            baseDialog: false,
             timelineItems: [
                 {id: 'http://example.com/1', className: 'binding1', start: '2013-01-01 09:30', content: 'First'},
                 {id: 'http://example.com/2', className: 'binding2', start: '2013-01-01 10:00', end: '2013-01-01 10:45', content: 'Second'},
@@ -48,6 +50,13 @@ const Page = React.createClass({
     closeDialog(param) {
         console.log('Dialog closed', param);
         this.setState({dialog: false});
+    },
+    openBaseDialog() {
+        this.setState({baseDialog: true});
+    },
+    closeBaseDialog(param) {
+        console.log('BaseDialog closed', param);
+        this.setState({baseDialog: false});
     },
     tabClick(tabName) {
         console.log('tabClick:', tabName);
@@ -135,6 +144,31 @@ const Page = React.createClass({
                 <p>Dialog Content</p>
                 <p>Dialog Content</p>
             </Dialog>
+        );
+
+        const testBaseDialog = (
+            <BaseDialog title="DialogCustomActions Title"
+                    active={this.state.baseDialog}
+                    modal={true}
+                    titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
+                    size="large"
+                    buttonRow={[
+                        <Button onClick={this.closeBaseDialog.bind(null, 'Cancel')}>Cancel</Button>,
+                        <Button onClick={this.closeBaseDialog.bind(null, 'Yes')}>Yes</Button>,
+                        <Button onClick={this.closeBaseDialog.bind(null, 'Custom')}>Custom</Button>
+                    ]}
+            >
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+            </BaseDialog>
         );
         /*
         const testStepper = (
@@ -232,7 +266,7 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Buttons</h4>
                 </div>
                 <div className="mdl-card__content">
-                    {testDialog}
+                    {testDialog}{testBaseDialog}
                     <h5>Buttons using canonical icons</h5>
                     <Button colored iconName="edit" tooltip="own tooltip"/>
                     <Button accent iconName="delete" tooltip={false} />
@@ -251,6 +285,7 @@ const Page = React.createClass({
                 </div>
                 <div className="mdl-card__actions">
                     <Button raised={true} accent ripple={false} onClick={this.openDialog}>Open Dialog</Button>
+                    <Button raised={true} accent ripple={false} onClick={this.openBaseDialog}>Open BaseDialog</Button>
                     <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
                         <Icon name="mood" />
                     </Button>

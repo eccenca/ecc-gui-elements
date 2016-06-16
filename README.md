@@ -10,7 +10,8 @@ Consists of
 - `Alert`: A message box which is optionally dismissable.
 - `Button`: A simple Button which also may contain icons
 - `Checkbox`: A checkbox with optional description
-- `Dialog`: A message box with optional Buttons for confirmation and cancelation
+- `Dialog`: A message box with Buttons for confirmation and cancelation
+- `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Nothing`: Literally Nothing
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
@@ -120,6 +121,34 @@ const Page = React.createClass({
             >
                 <p>Dialog Content</p>
             </Dialog>
+        )
+    },
+    // ....
+});
+
+```
+
+### BaseDialog
+
+```js
+import { Button, BaseDialog } from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <BaseDialog title="Dialog Title"
+                    active={true}
+                    modal={true}
+                    titleCancelButton={this.close}
+                    size="mini"
+                    buttonRow={[
+                        <Button>Cancel</Button>,
+                        <Button>Yes</Button>,
+                        <Button>More</Button>
+                    ]}
+            >
+                <p>Dialog Content</p>
+            </BaseDialog>
         )
     },
     // ....

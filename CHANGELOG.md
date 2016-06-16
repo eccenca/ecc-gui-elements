@@ -1,10 +1,16 @@
-## [v1.9.0]
-> May 23, 2016
+# Change Log
+All notable changes to this project will be documented in this file.
+This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-- **Feature:** Add Version to provide standard output of product version.
+## [Unreleased]
+### Added
+- alternative dialog with customizable action row
 
-## [v1.8.0]
-> May 17, 2016
+## [v1.9.0] 2016-05-23
+### Added
+- Add Version to provide standard output of product version.
 
-- **Feature:** Upgrade React development version to v15.
-- **Feature:** Upgrade devvtools.
+## [v1.8.0] 2016-05-17
+### Changed
+- Upgrade React development version to v15.
+- Upgrade devvtools.
