@@ -12,6 +12,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Deprecated
 - Dialog should be renamed to ConfirmationDialog
 
+### Fixed
+- removed class from react tabs to prevent null errors
+
 ## [v1.9.0] 2016-05-23
 ### Added
 - Add Version to provide standard output of product version.

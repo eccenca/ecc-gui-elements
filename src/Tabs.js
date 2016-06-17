@@ -71,7 +71,7 @@ const Tabs = React.createClass({
             // create tab content
             const tabContent = this.state.tabs[activeTab].tabContent;
             content = (
-                <div className="mdl-tabs mdl-js-tabs">
+                <div className="mdl-tabs">
                     <ReactMDLTabs activeTab={activeTab} onChange={this.handleSelect}>
                         {tabPanel}
                     </ReactMDLTabs>
