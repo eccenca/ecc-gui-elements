@@ -19,6 +19,7 @@ Please rename it to ConfirmationDialog.`);
 
     // template rendering
     render() {
+
         return (
             <ConfirmationDialog
                 active={this.props.active}
