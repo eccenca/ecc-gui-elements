@@ -2,6 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 import Button from '../Button';
 
+/**
+ * This Component creates a customizable dialog.
+ */
 const BaseDialog = React.createClass({
     // define property types
     propTypes: {

@@ -16,6 +16,7 @@ import Button from './src/Button';
 import Checkbox from './src/Input/Checkbox';
 import Error from './src/Alert/Error';
 import Dialog from './src/Dialog/Dialog';
+import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
 import BaseDialog from './src/Dialog/BaseDialog';
 import Icon from './src/Icon';
 import Info from './src/Alert/Info';
@@ -36,6 +37,7 @@ export default {
     Checkbox,
     Error,
     Dialog,
+    ConfirmationDialog,
     BaseDialog,
     Icon,
     Info,

@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - alternative dialog with customizable action row
 
+### Changed
+- renamed Dialog into ConfirmationDialog
+
+### Deprecated
+- Dialog should be renamed to ConfirmationDialog
+
 ## [v1.9.0] 2016-05-23
 ### Added
 - Add Version to provide standard output of product version.

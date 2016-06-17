@@ -10,7 +10,7 @@ Consists of
 - `Alert`: A message box which is optionally dismissable.
 - `Button`: A simple Button which also may contain icons
 - `Checkbox`: A checkbox with optional description
-- `Dialog`: A message box with Buttons for confirmation and cancelation
+- `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Nothing`: Literally Nothing
@@ -104,15 +104,15 @@ const Page = React.createClass({
 });
 ```
 
-### Dialog
+### ConfirmationDialog
 
 ```js
-import { Button, Dialog } from 'ecc-gui-elements';
+import { Button, ConfirmationDialog } from 'ecc-gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
         return (
-            <Dialog title="Dialog Title"
+            <ConfirmationDialog title="Dialog Title"
                     active={true}
                     modal={true}
                     size="mini"
@@ -120,7 +120,7 @@ const Page = React.createClass({
                     confirmButton={<Button>Yes</Button>}
             >
                 <p>Dialog Content</p>
-            </Dialog>
+            </ConfirmationDialog>
         )
     },
     // ....
