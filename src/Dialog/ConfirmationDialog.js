@@ -1,7 +1,10 @@
 import React from 'react';
-import ConfirmationDialog from './ConfirmationDialog';
+import BaseDialog from './BaseDialog';
 
-const Dialog = React.createClass({
+/**
+ * This Component creates a confirmation dialog based on BaseDialog.
+ */
+const ConfirmationDialog = React.createClass({
     // define property types
     propTypes: {
         active: React.PropTypes.bool.isRequired,
@@ -12,29 +15,25 @@ const Dialog = React.createClass({
         confirmButton: React.PropTypes.element.isRequired,
         title: React.PropTypes.node
     },
-    componentDidMount() {
-        console.error(`Dialog is deprecated and will be removed within next update!!!
-Please rename it to ConfirmationDialog.`);
-    },
-
     // template rendering
     render() {
-
+        // push data with formatted buttons to base dialog
         return (
-            <ConfirmationDialog
+            <BaseDialog
                 active={this.props.active}
                 className={this.props.className}
                 modal={this.props.modal}
                 size={this.props.size}
                 title={this.props.title}
-                cancelButton={this.props.cancelButton}
-                confirmButton={this.props.confirmButton}
+                buttonRow={[
+                    this.props.confirmButton,
+                    this.props.cancelButton
+                ]}
             >
                 {this.props.children}
-            </ConfirmationDialog>
+            </BaseDialog>
         );
-
     },
 });
 
-export default Dialog;
+export default ConfirmationDialog;
