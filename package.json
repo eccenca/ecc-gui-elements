@@ -14,8 +14,7 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "GPL-3.0",
   "dependencies": {
-    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed",
-    "mdl-stepper": "git://github.com/eccenca/mdl-stepper.git#v0.1.3"
+    "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
