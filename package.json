@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "node-sass src/main.scss",
-    "prepublish": "mkdir -p dist/fonts/materialicons && cp -fru node_modules/material-design-icons/iconfont/* dist/fonts/materialicons && mkdir -p dist/fonts/roboto && cp -fru node_modules/roboto/fonts/* dist/fonts/roboto && gulp"
+    "init": "ecc-link-dotfiles",
+    "copy-mdi": "mkdir -p dist/fonts/materialicons && cp -fru node_modules/material-design-icons/iconfont/* dist/fonts/materialicons",
+    "copy-roboto": "mkdir -p dist/fonts/roboto && cp -fru node_modules/roboto/fonts/* dist/fonts/roboto",
+    "prepublish": "npm run init && npm run copy-mdi && npm run copy-roboto && gulp"
   },
   "repository": {
     "type": "git",
