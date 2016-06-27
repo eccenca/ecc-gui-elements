@@ -1,2 +1,36 @@
+#START
+# PLEASE PLACE CUSTOM GIT IGNORES BELOW #END
+#
+# ANYTHING YOU PLACE BEFORE THE END TAG
+# WILL BE OVERWRITTEN BY ecc-dotfiles
+# INSTALL-SCRIPT
+
+# node && npm
 node_modules/
+npm-debug.log
+
+# ignore symlinks
+.babelrc
+.editorconfig
+.eslintrc.yml
+Makefile
+
+# ignore coverage report
+coverage/
+
+# ignore compiled
+es5/
+ui-test/component.min.js
+ui-test/*.map
+ui-test/*.eot
+ui-test/*.woff*
+ui-test/*.ttf
+ui-test/*.svg
+
+# ignore data folders by jetbrains products
+.idea/
+
+#END
+
+css/
 dist/
