@@ -1,6 +1,6 @@
 {
   "name": "ecc-style-core",
-  "version": "1.6.0",
+  "version": "1.6.1",
   "description": "Contains core styles, icons and fonts for all materialized components.",
   "main": "index.js",
   "scripts": {
