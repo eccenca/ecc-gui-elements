@@ -26,8 +26,8 @@ const ConfirmationDialog = React.createClass({
                 size={this.props.size}
                 title={this.props.title}
                 buttonRow={[
-                    this.props.confirmButton,
-                    this.props.cancelButton
+                    this.props.cancelButton,
+                    this.props.confirmButton
                 ]}
             >
                 {this.props.children}
