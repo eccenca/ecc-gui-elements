@@ -37,3 +37,23 @@
   color: black;
   box-shadow: 0 0 10px gray;
 }
+
+.ecc-gui-elements__pagination {
+    font-size: 12px;
+    flex-grow: 1;
+    float: right;
+
+    .ecc-gui-elements__pagination-actions {
+      text-align: right;
+    }
+}
+.ecc-gui-elements__pagination-limit_text {
+  margin-right: 1rem;
+}
+.ecc-gui-elements__pagination-limit_size {
+    display: inline-block;
+}
+
+.ecc-gui-elements__pagination-pageInfo {
+    margin-right: 1rem;
+}

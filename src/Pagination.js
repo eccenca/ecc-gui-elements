@@ -80,7 +80,7 @@ const Pagination = React.createClass({
     render() {
         // render actual site information
         const pageInformation = (
-            <span className="ecc-mixins__pagination-pageInfo">
+            <span className="ecc-gui-elements__pagination-pageInfo">
                 {this.props.offsetAsPage ?
                     _.floor(this.props.offset / this.props.limit + 1) : this.props.offset + 1
                 }
@@ -94,15 +94,20 @@ const Pagination = React.createClass({
         return (
             <div className="ecc-gui-elements__pagination" key={'bla'/*paginationId*/}>
                 {this.props.handleNewLimit ? (
-                    <span className="ecc-gui-elements__pagination-limit-size">
-                        <Select
-                            value={ {value: this.props.limit, label: this.props.limit}}
-                            options={_.map(this.props.limitRange, it =>
-                                {return {value: it, label: it}; }
-                            )}
-                            clearable={false}
-                            onChange={this.handleSetNewLimit}
-                        />
+                    <span className="ecc-gui-elements__pagination-limit">
+                        <span className="ecc-gui-elements__pagination-limit_text">
+                            Rows per page:
+                        </span>
+                        <span className="ecc-gui-elements__pagination-limit_size">
+                            <Select
+                                value={ {value: this.props.limit, label: this.props.limit}}
+                                options={_.map(this.props.limitRange, it =>
+                                    {return {value: it, label: it}; }
+                                )}
+                                clearable={false}
+                                onChange={this.handleSetNewLimit}
+                            />
+                        </span>
                     </span>
                 ) : ''}
                 <span className="ecc-gui-elements__pagination-actions">
