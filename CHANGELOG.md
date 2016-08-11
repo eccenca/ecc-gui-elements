@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [Unreleased]
+### Added
+- SelectionBox
+
 ## [1.10.1] 2016-06-30 
 ### Fixed
 - switch button order of confirmationDialog due to mdl guideline
