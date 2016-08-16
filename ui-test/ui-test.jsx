@@ -89,7 +89,7 @@ const Page = React.createClass({
         this.setState({confirmationDialog: false});
     },
     selectBoxOnChange(value) {
-        console.log('SelectBox onChange: ', value, 'Type: ', typeof value);
+        console.log('SelectBox onChange: ', value);
     },
     // template rendering
     render() {

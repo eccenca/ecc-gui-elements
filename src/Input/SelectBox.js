@@ -35,30 +35,15 @@ const SelectBox = React.createClass({
         // onChange handler
         onChange: React.PropTypes.func.isRequired,
     },
-    getInitialState() {
-        return {
-            // check if this.props.options using plain objects (withiin array) or not
-            usePlainObjectsOption: _.isArray(this.props.options) && _.isPlainObject(this.props.options[0]),
-            // check if this.props.value is a plain object
-            usePlainObjectValue: _.isPlainObject(this.props.value),
-        };
-    },
-    // catch onChange event and parse values back to used datatype
-    handleChange(value) {
-        this.state.usePlainObjectValue ?
-            this.props.onChange(value) :
-            // return just the label or value itself if value is null
-            this.props.onChange(value ? value.label : value);
-    },
 
     render() {
         // parse values to object format if needed
-        const parsedOptions = this.state.usePlainObjectsOption ? (
+        const parsedOptions = _.isPlainObject(this.props.options[0]) ? (
             this.props.options)
             : (_.map(this.props.options, it => {return {value: it, label: it}; })
         );
         // parse values to object format if needed
-        const parsedValue = this.state.usePlainObjectValue ? (
+        const parsedValue = _.isPlainObject(this.props.value) ? (
             this.props.value) : {value: this.props.value, label: this.props.value};
 
         return (
@@ -66,7 +51,6 @@ const SelectBox = React.createClass({
                 {...this.props}
                 value={parsedValue}
                 options={parsedOptions}
-                onChange={this.handleChange}
             />
         );
     }
