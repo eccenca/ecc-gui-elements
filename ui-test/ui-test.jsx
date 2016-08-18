@@ -23,6 +23,7 @@ import {
     Warning,
     Tabs,
     Version,
+    SelectBox,
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -61,6 +62,8 @@ const Page = React.createClass({
                 {tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab'},
                 {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
             ],
+            selectBox1: {label: 'labelz', value: 'valuez'},
+            selectBox2: 8,
         };
     },
     openDialog() {
@@ -86,6 +89,14 @@ const Page = React.createClass({
     closeConfirmationDialog(param) {
         console.log('ConfirmationDialog closed', param);
         this.setState({confirmationDialog: false});
+    },
+    selectBox1OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox1: value});
+    },
+    selectBox2OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox2: value});
     },
     // template rendering
     render() {
@@ -434,6 +445,29 @@ const Page = React.createClass({
                 </div>
             </div>
         );
+        const testSelectBox = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test SelectBox</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>With objects</h5>
+                    <SelectBox
+                        placeholder={'Value deleted'}
+                        options={[{label: 'label1', value: 'value1'}, {label: 'label2', value: 'value2'}]}
+                        value={this.state.selectBox1}
+                        onChange={this.selectBox1OnChange}
+                    />
+                    <h5>With mixed strings and numbers</h5>
+                    <SelectBox
+                        placeholder={'No Value'}
+                        options={['label1', 3]}
+                        value={this.state.selectBox2}
+                        onChange={this.selectBox2OnChange}
+                    />
+                </div>
+            </div>
+        );
 
         return (
             <Layout fixedHeader={true}>
@@ -459,6 +493,8 @@ const Page = React.createClass({
                     {testTab}
                     <hr className="mdl-layout-spacer"/>
                     {testVersion}
+                    <hr className="mdl-layout-spacer"/>
+                    {testSelectBox}
                     <hr className="mdl-layout-spacer"/>
                 </Content>
                 <footer className="mdl-mini-footer">

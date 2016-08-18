@@ -15,6 +15,7 @@ Consists of
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Nothing`: Literally Nothing
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
+- `SelectBox`: A selection box for choosing predefined values
 - `Spinner`: Progressbar which may be placed globally or locally in a component
 - `Switch`: A simple binary switch (a nicer checkbox)
 - `Error`, `Info`, `Success` and `Warning` are wrappers around `Alert` which already set the appropriate styles for that kind of Alert.
@@ -205,6 +206,42 @@ const Page = React.createClass({
             <Spinner appearInline={true} />
             <Spinner appearLocal={true} />
             <Spinner />
+        )
+    },
+    // ....
+});
+
+```
+
+### SelectBox
+
+The SelectBox wraps [react-select](https://github.com/JedWatson/react-select) to use mixed content of strings and numbers as well as the default object type.
+
+The SelectBox behaves like a [controlled input](https://facebook.github.io/react/docs/forms.html#controlled-components)
+
+```js
+import { SelectBox } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    
+    getInitialState(){
+      return {
+          value: 8,
+      };
+    },
+    selectBoxOnChange(value){
+       this.setState({
+           value
+       });
+    },
+    // template rendering
+    render() {
+        return (
+            <SelectBox
+                options={['label1', 3]}
+                value={this.state.value}
+                onChange={this.selectBoxOnChange}
+            />
         )
     },
     // ....

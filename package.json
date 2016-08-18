@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -27,6 +27,7 @@
     "lodash": "^3.10.1",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed",
     "react-mdl": "1.5.2",
+    "react-select": "1.0.0-beta14",
     "vis": "^4.16.1"
   },
   "peerDependencies": {
