@@ -3,8 +3,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Added
+- SelectionBox, which is a wrapper around react-select
+
 ### Fixed
-- pushing wrong proptypes into other components
+- pushing wrong properties into Buttons
 
 ## [1.10.1] 2016-06-30 
 ### Fixed

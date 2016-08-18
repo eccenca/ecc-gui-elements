@@ -23,6 +23,7 @@ import {
     Warning,
     Tabs,
     Version,
+    SelectBox,
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -86,6 +87,9 @@ const Page = React.createClass({
     closeConfirmationDialog(param) {
         console.log('ConfirmationDialog closed', param);
         this.setState({confirmationDialog: false});
+    },
+    selectBoxOnChange(value) {
+        console.log('SelectBox onChange: ', value);
     },
     // template rendering
     render() {
@@ -434,6 +438,29 @@ const Page = React.createClass({
                 </div>
             </div>
         );
+        const testSelectBox = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test SelectBox</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>With objects</h5>
+                    <SelectBox
+                        placeholder={'Value deleted'}
+                        options={[{label: 'label1', value: 'value1'}, {label: 'label2', value: 'value2'}]}
+                        value={{label: 'labelz', value: 'valuez'}}
+                        onChange={this.selectBoxOnChange}
+                    />
+                    <h5>With mixed strings and numbers</h5>
+                    <SelectBox
+                        placeholder={'No Value'}
+                        options={['label1', 3]}
+                        value={8}
+                        onChange={this.selectBoxOnChange}
+                    />
+                </div>
+            </div>
+        );
 
         return (
             <Layout fixedHeader={true}>
@@ -459,6 +486,8 @@ const Page = React.createClass({
                     {testTab}
                     <hr className="mdl-layout-spacer"/>
                     {testVersion}
+                    <hr className="mdl-layout-spacer"/>
+                    {testSelectBox}
                     <hr className="mdl-layout-spacer"/>
                 </Content>
                 <footer className="mdl-mini-footer">

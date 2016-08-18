@@ -29,12 +29,14 @@ import Timeline from './src/Timeline';
 import Warning from './src/Alert/Warning';
 import Tabs from './src/Tabs';
 import Version from './src/Version';
+import SelectBox from './src/Input/SelectBox';
 
 export default {
     MaterialMixin,
     Alert,
     Button,
     Checkbox,
+    SelectBox,
     Error,
     Dialog,
     ConfirmationDialog,
