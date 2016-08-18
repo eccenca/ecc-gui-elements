@@ -62,6 +62,8 @@ const Page = React.createClass({
                 {tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab'},
                 {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
             ],
+            selectBox1: {label: 'labelz', value: 'valuez'},
+            selectBox2: 8,
         };
     },
     openDialog() {
@@ -88,8 +90,13 @@ const Page = React.createClass({
         console.log('ConfirmationDialog closed', param);
         this.setState({confirmationDialog: false});
     },
-    selectBoxOnChange(value) {
+    selectBox1OnChange(value) {
         console.log('SelectBox onChange: ', value);
+        this.setState({selectBox1: value});
+    },
+    selectBox2OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox2: value});
     },
     // template rendering
     render() {
@@ -448,15 +455,15 @@ const Page = React.createClass({
                     <SelectBox
                         placeholder={'Value deleted'}
                         options={[{label: 'label1', value: 'value1'}, {label: 'label2', value: 'value2'}]}
-                        value={{label: 'labelz', value: 'valuez'}}
-                        onChange={this.selectBoxOnChange}
+                        value={this.state.selectBox1}
+                        onChange={this.selectBox1OnChange}
                     />
                     <h5>With mixed strings and numbers</h5>
                     <SelectBox
                         placeholder={'No Value'}
                         options={['label1', 3]}
-                        value={8}
-                        onChange={this.selectBoxOnChange}
+                        value={this.state.selectBox2}
+                        onChange={this.selectBox2OnChange}
                     />
                 </div>
             </div>
