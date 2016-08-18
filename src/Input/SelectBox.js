@@ -6,27 +6,27 @@ import _ from 'lodash';
 const SelectBox = React.createClass({
     propTypes: {
         /**
-        * contains values which are available in dropdown list
-        * options is an array of objects or strings and/or numbers
-        */
+         * contains values which are available in dropdown list
+         * options is an array of objects or strings and/or numbers
+         */
         options: React.PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
             const containObjects = _.isPlainObject(_.head(propValue));
-            if (containObjects === false && ( !_.isString(propValue[key]) && !_.isNumber(propValue[key]))) {
+
+            const isObject = _.isPlainObject(propValue[key]);
+
+            const isNumberOrString = _.isString(propValue[key]) || _.isNumber(propValue[key]);
+
+            if (!containObjects && !isNumberOrString || containObjects && !isObject) {
                 return new Error(
-                  'Invalid prop `' + propFullName + '` supplied to' +
-                  ' `' + componentName + '`. No mixed content (object vs string/number) allowed.'
-                );
-            } else if (containObjects === true && !_.isPlainObject(propValue[key])) {
-                return new Error(
-                  'Invalid prop `' + propFullName + '` supplied to' +
-                  ' `' + componentName + '`. No mixed content (object vs string/number) allowed.'
+                    'Invalid prop `' + propFullName + '` supplied to' +
+                    ' `' + componentName + '`. No mixed content (object vs string/number) allowed.'
                 );
             }
         }),
         /**
-        * contains selected value
-        * value is an object or a strings a numbers
-        */
+         * contains selected value
+         * value is an object or a strings a numbers
+         */
         value: React.PropTypes.oneOfType([
             React.PropTypes.string,
             React.PropTypes.number,
@@ -37,18 +37,25 @@ const SelectBox = React.createClass({
     },
 
     render() {
+
+        const {options, value, ...passProps} = this.props;
+
         // parse values to object format if needed
-        const parsedOptions = _.isPlainObject(this.props.options[0]) ? (
-            this.props.options)
-            : (_.map(this.props.options, it => {return {value: it, label: it}; })
-        );
+        const parsedOptions = _.isPlainObject(options[0]) ? options :
+            (
+                _.map(options, it => {
+                    return {value: it, label: it};
+                })
+            );
+
         // parse values to object format if needed
-        const parsedValue = _.isPlainObject(this.props.value) ? (
-            this.props.value) : {value: this.props.value, label: this.props.value};
+        const parsedValue = _.isPlainObject(value) ? value : {value, label: value};
+
+        console.warn(passProps, parsedOptions, parsedValue)
 
         return (
             <Select
-                {...this.props}
+                {...passProps}
                 value={parsedValue}
                 options={parsedOptions}
             />
