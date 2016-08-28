@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [1.11.1] 2016-08-28 
 ### Changed
 - Tabs onTabClick propType is now optional
 - removed checks for changed content from Tabs regarding to some irregular behavior. Content should now check props changes by its own
