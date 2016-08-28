@@ -20,7 +20,7 @@ const Tabs = React.createClass({
         prefixTabNames: React.PropTypes.string, // html class prefix
         activeTab: React.PropTypes.string, // set default active tab
         tabs: React.PropTypes.array, // tab content [{tabTitle: 'name', tabContent: value}]
-        onTabClick: React.PropTypes.func.isRequired, // handle tab header click
+        onTabClick: React.PropTypes.func, // handle tab header click
     },
     getDefaultProps() {
         return {
@@ -38,12 +38,6 @@ const Tabs = React.createClass({
         // remove entries with empty tabContent and get clear names from i18n
         newProps.tabs = clearTabTitles(_.reject(props.tabs, ({tabContent}) => _.isEmpty(tabContent)));
         this.setState(newProps);
-    },
-    shouldComponentUpdate(nextProps, nextState) {
-        return !_.isEqual(this.state.prefixTabNames, nextState.prefixTabNames) ||
-        !_.isEqual(this.state.activeTab, nextState.activeTab) ||
-        !_.isEqual(this.state.tabs, nextState.tabs) ||
-        !_.isEqual(this.state.onTabClick, nextState.onTabClick);
     },
     handleSelect(tabSelect) {
         tabSelect = this.state.tabs[tabSelect].tabTitle;
