@@ -454,14 +454,14 @@ const Page = React.createClass({
                     <h5>With objects</h5>
                     <SelectBox
                         placeholder={'Value deleted'}
-                        options={[{label: 'label1', value: 'value1'}, {label: 'label2', value: 'value2'}]}
+                        options={[{label: 'labelz', value: 'valuez'}, {label: 'label1', value: 'value1'}, {label: 'label2', value: 'value2'}]}
                         value={this.state.selectBox1}
                         onChange={this.selectBox1OnChange}
                     />
                     <h5>With mixed strings and numbers</h5>
                     <SelectBox
                         placeholder={'No Value'}
-                        options={['label1', 3]}
+                        options={['label1', 3, 8]}
                         value={this.state.selectBox2}
                         onChange={this.selectBox2OnChange}
                     />
