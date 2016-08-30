@@ -1,6 +1,5 @@
 import React from 'react';
 import Select from 'react-select/lib/Select.js';
-import 'react-select/dist/react-select.css';
 import _ from 'lodash';
 
 const SelectBox = React.createClass({
@@ -59,9 +58,8 @@ const SelectBox = React.createClass({
 
         let parsedValue = null;
 
-        // Only set our value if it is in the options
-        if (!_.isUndefined(_.find(options, value))) {
-            // parse values to object format if needed
+        // if value is empty (and not a number) just parse it
+        if (!_.isEmpty(value) || _.isNumber(value)) {
             parsedValue = _.isPlainObject(value) ? value : {value, label: value};
         }
 
