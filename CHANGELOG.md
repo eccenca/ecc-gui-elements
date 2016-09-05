@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.12.0] 2016-09-05
+### Changed
+-   TimeLine: Instead of including the `vis` library completely,
+    we just build the relevant parts directly from a submodule.
+    
+    If you want or need to update the `vis` dependency, please forward the submodule in `lib/vis` and run `npm run prepublish`.
+
 ## [1.11.2] 2016-08-30
 ### Fixed
 - SelectBox: fixed type handling for strings and numbers
