@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [1.12.0] 2016-09-05
 ### Changed
 -   TimeLine: Instead of including the `vis` library completely,
     we just build the relevant parts directly from a submodule.
