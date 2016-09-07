@@ -6,6 +6,9 @@
  * Create Stylesheet using CLI tools build on libsass or Ruby.
  * We need to repeat code because (at least libsass) test @import statements
  * before conditionals and Sass itself do not allow variables in direct imports.
+ *
+ * DEPRACATED - this import file is not used currently
+ * @TODO: remove it? test first for usage by other modules
  */
 
 // -- Configuration ------------------------------------------------------------
