@@ -25,6 +25,13 @@
 .ecc-gui-elements__pagination-limit_size {
     display: inline-block;
     vertical-align: middle;
+
+    .Select-menu-outer {
+        top: auto;
+        margin-top: 0;
+        bottom: 100%;
+        margin-bottom: -1px;
+    }
 }
 
 .ecc-gui-elements__pagination-pageInfo {
