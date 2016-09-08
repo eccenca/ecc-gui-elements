@@ -1,0 +1,42 @@
+/**
+ * Copyright 2016 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.ecc-gui-elements__pagination {
+    @include typo-body-1
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    align-items: baseline;
+}
+
+.ecc-gui-elements__pagination-limit {
+    margin-right: 1rem;
+}
+
+.ecc-gui-elements__pagination-limit_text {
+    margin-right: 0.5rem;
+}
+
+.ecc-gui-elements__pagination-limit_size {
+    display: inline-block;
+    vertical-align: middle;
+
+    .Select-menu-outer {
+        top: auto;
+        margin-top: 0;
+        bottom: 100%;
+        margin-bottom: -1px;
+    }
+}
+
+.ecc-gui-elements__pagination-pageInfo {
+}
+
+.ecc-gui-elements__pagination-actions {
+    text-align: right;
+}
