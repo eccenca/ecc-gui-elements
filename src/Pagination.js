@@ -94,11 +94,11 @@ const Pagination = React.createClass({
         return (
             <div className="ecc-gui-elements__pagination" key={'bla'/*paginationId*/}>
                 {this.props.handleNewLimit ? (
-                    <span className="ecc-gui-elements__pagination-limit">
+                    <div className="ecc-gui-elements__pagination-limit">
                         <span className="ecc-gui-elements__pagination-limit_text">
                             Rows per page:
                         </span>
-                        <span className="ecc-gui-elements__pagination-limit_size">
+                        <div className="ecc-gui-elements__pagination-limit_size">
                             <Select
                                 value={ {value: this.props.limit, label: this.props.limit}}
                                 options={_.map(this.props.limitRange, it =>
@@ -107,8 +107,8 @@ const Pagination = React.createClass({
                                 clearable={false}
                                 onChange={this.handleSetNewLimit}
                             />
-                        </span>
-                    </span>
+                        </div>
+                    </div>
                 ) : ''}
                 <span className="ecc-gui-elements__pagination-actions">
                         <Button onClick={this.onClickFirst}
