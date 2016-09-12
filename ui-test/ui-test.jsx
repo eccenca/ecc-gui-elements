@@ -24,6 +24,7 @@ import {
     Tabs,
     Version,
     Pagination,
+    SelectBox,
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -64,6 +65,8 @@ const Page = React.createClass({
             ],
             paginationOffset: 15,
             paginationLimit: 15,
+            selectBox1: {label: 'labelz', value: 'valuez'},
+            selectBox2: 8,
         };
     },
     openDialog() {
@@ -97,6 +100,13 @@ const Page = React.createClass({
     handleNewPaginationLimit(limit) {
         console.log('new limit: ', limit);
         this.setState({paginationLimit: limit});
+    selectBox1OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox1: value});
+    },
+    selectBox2OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox2: value});
     },
     // template rendering
     render() {
@@ -445,6 +455,29 @@ const Page = React.createClass({
                 </div>
             </div>
         );
+        const testSelectBox = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test SelectBox</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>With objects</h5>
+                    <SelectBox
+                        placeholder={'Value deleted'}
+                        options={[{label: 'labelz', value: 'valuez'}, {label: 'label1', value: 'value1'}, {label: 'label2', value: 'value2'}]}
+                        value={this.state.selectBox1}
+                        onChange={this.selectBox1OnChange}
+                    />
+                    <h5>With mixed strings and numbers</h5>
+                    <SelectBox
+                        placeholder={'No Value'}
+                        options={['label1', 3, 8]}
+                        value={this.state.selectBox2}
+                        onChange={this.selectBox2OnChange}
+                    />
+                </div>
+            </div>
+        );
 
         const testPagination = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
@@ -504,6 +537,8 @@ const Page = React.createClass({
                     {testVersion}
                     <hr className="mdl-layout-spacer"/>
                     {testPagination}
+                    <hr className="mdl-layout-spacer"/>
+                    {testSelectBox}
                     <hr className="mdl-layout-spacer"/>
                 </Content>
                 <footer className="mdl-mini-footer">

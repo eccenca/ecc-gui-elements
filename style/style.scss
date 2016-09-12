@@ -6,7 +6,7 @@
 
 // TODO: move vis timeline styles to dedicated place, it's wrong here
 
-@import "~vis/dist/vis.css";
+@import "../lib/vis/dist/vis.css";
 
 .vis-item.binding1 {
   //background-color: greenyellow;
@@ -37,3 +37,6 @@
   color: black;
   box-shadow: 0 0 10px gray;
 }
+
+// react-select styles
+@import "~react-select/dist/react-select.css";

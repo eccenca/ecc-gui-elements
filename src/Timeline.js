@@ -1,5 +1,6 @@
 import React from 'react';
-import vis from 'vis';
+import DataSet from '../lib/vis/lib/DataSet';
+import VisTimeline from '../lib/vis/lib/timeline/Timeline';
 
 import MaterialMixin from './mixins/MaterialMixin';
 
@@ -16,14 +17,14 @@ const Timeline = React.createClass({
     componentWillReceiveProps(props) {
         if (this.state.timeline) {
             this.state.timeline.destroy();
-            const timeline = new vis.Timeline(this.refs.vis, new vis.DataSet(props.items), this.props.options);
+            const timeline = new VisTimeline(this.refs.vis, new DataSet(props.items), this.props.options);
             timeline.on('select', this.onTimelineSelect);
             this.setState({timeline});
         }
     },
 
     componentDidMount() {
-        const timeline = new vis.Timeline(this.refs.vis, new vis.DataSet(this.props.items), this.props.options);
+        const timeline = new VisTimeline(this.refs.vis, new DataSet(this.props.items), this.props.options);
         timeline.on('select', this.onTimelineSelect);
         this.setState({timeline});
     },

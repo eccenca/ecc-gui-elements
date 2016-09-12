@@ -6,6 +6,30 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - Pagination element
 
+## [1.12.0] 2016-09-05
+### Changed
+-   TimeLine: Instead of including the `vis` library completely,
+    we just build the relevant parts directly from a submodule.
+    
+    If you want or need to update the `vis` dependency, please forward the submodule in `lib/vis` and run `npm run prepublish`.
+
+## [1.11.2] 2016-08-30
+### Fixed
+- SelectBox: fixed type handling for strings and numbers
+- SelectBox: correctly export react-select styles
+
+## [1.11.1] 2016-08-28 
+### Changed
+- Tabs onTabClick propType is now optional
+- removed checks for changed content from Tabs regarding to some irregular behavior. Content should now check props changes by its own
+
+## [1.11.0] 2016-08-18
+### Added
+- SelectBox, which is a wrapper around react-select
+
+### Fixed
+- pushing wrong properties into Buttons
+
 ## [1.10.1] 2016-06-30 
 ### Fixed
 - switch button order of confirmationDialog due to mdl guideline
