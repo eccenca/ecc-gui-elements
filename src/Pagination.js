@@ -1,8 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Button from './Button';
-import Select from 'react-select/lib/Select.js';
-import 'react-select/dist/react-select.css';
+import SelectBox from './Input/SelectBox';
 
 /**
 * This component provides a pagination for switching through lists of results
@@ -71,10 +70,6 @@ const Pagination = React.createClass({
     onClickLast() {
         this.props.handleNewOffset(this.props.totalResults - this.props.limit);
     },
-    // trigger event to use new limit
-    handleSetNewLimit(limitObject) {
-        this.props.handleNewLimit(limitObject.value);
-    },
 
     // template rendering
     render() {
@@ -99,13 +94,11 @@ const Pagination = React.createClass({
                             Rows per page:
                         </span>
                         <div className="ecc-gui-elements__pagination-limit_size">
-                            <Select
-                                value={ {value: this.props.limit, label: this.props.limit}}
-                                options={_.map(this.props.limitRange, it =>
-                                    {return {value: it, label: it}; }
-                                )}
+                            <SelectBox
+                                value={this.props.limit}
+                                options={this.props.limitRange}
                                 clearable={false}
-                                onChange={this.handleSetNewLimit}
+                                onChange={this.props.handleNewLimit}
                             />
                         </div>
                     </div>
