@@ -26,6 +26,21 @@
     display: inline-block;
     vertical-align: middle;
 
+    .Select {
+    }
+
+    .Select-control {
+        width: auto;
+    }
+
+    .Select-value {
+        width: auto;
+    }
+
+    .Select-input {
+        min-width: 2.5em;
+    }
+
     .Select-menu-outer {
         top: auto;
         margin-top: 0;
