@@ -21,6 +21,7 @@ Consists of
 - `Error`, `Info`, `Success` and `Warning` are wrappers around `Alert` which already set the appropriate styles for that kind of Alert.
 - `Tabs`: A tabs container which manages tabbing behaviour
 - `Version`: A normalised string output of product version
+- `Pagination`: A page control element
 
 ## Usage
 
@@ -167,6 +168,31 @@ const Page = React.createClass({
     render() {
         return (
             <Nothing />
+        )
+    },
+    // ....
+});
+
+```
+
+### Pagination
+
+```js
+import { Pagination } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Pagination
+                offset={0}
+                limit={10}
+                actualResults={10}
+                totalResults={31}
+                handleNewOffset={handleNewPaginationOffset}
+                handleNewLimit={handleNewPaginationLimit}
+                offsetAsPage={false}
+            />
         )
     },
     // ....
