@@ -29,6 +29,7 @@ import Timeline from './src/Timeline';
 import Warning from './src/Alert/Warning';
 import Tabs from './src/Tabs';
 import Version from './src/Version';
+import Pagination from './src/Pagination';
 import SelectBox from './src/Input/SelectBox';
 
 export default {
@@ -51,5 +52,6 @@ export default {
     Timeline,
     Warning,
     Tabs,
-    Version
+    Version,
+    Pagination
 };

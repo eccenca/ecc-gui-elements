@@ -23,6 +23,7 @@ import {
     Warning,
     Tabs,
     Version,
+    Pagination,
     SelectBox,
 } from '../index.js';
 import {
@@ -62,6 +63,8 @@ const Page = React.createClass({
                 {tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab'},
                 {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
             ],
+            paginationOffset: 15,
+            paginationLimit: 15,
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
         };
@@ -89,6 +92,14 @@ const Page = React.createClass({
     closeConfirmationDialog(param) {
         console.log('ConfirmationDialog closed', param);
         this.setState({confirmationDialog: false});
+    },
+    handleNewPaginationOffset(offset) {
+        console.log('new offset: ', offset);
+        this.setState({paginationOffset: offset});
+    },
+    handleNewPaginationLimit(limit) {
+        console.log('new limit: ', limit);
+        this.setState({paginationLimit: limit});
     },
     selectBox1OnChange(value) {
         console.log('SelectBox onChange: ', value);
@@ -469,6 +480,38 @@ const Page = React.createClass({
             </div>
         );
 
+        const testPagination = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Pagination</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>Pagination with Elements</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        actualResults={15}
+                        totalResults={31}
+                        handleNewOffset={this.handleNewPaginationOffset}
+                        offsetAsPage={false}
+                        handleNewLimit={this.handleNewPaginationLimit}
+                    />
+                    <h5>Pagination with Page</h5>
+                    Note: if offset is not a multiple of limit the page can be shown wrong
+                    because page have to change offset by itself to fit "one page" instead
+                    of e.g. show last elements from page 2 and first elements form page 3
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        totalResults={31}
+                        handleNewOffset={this.handleNewPaginationOffset}
+                        offsetAsPage={true}
+                        handleNewLimit={this.handleNewPaginationLimit}
+                    />
+                </div>
+            </div>
+        );
+
         return (
             <Layout fixedHeader={true}>
                 <Header />
@@ -476,7 +519,7 @@ const Page = React.createClass({
                     <Nothing />
                     {testSpinner}
                     <hr className="mdl-layout-spacer"/>
-                    {(typeof testStepper !== 'undefined') ? testStepper : false}
+                    {/*(typeof testStepper !== 'undefined') ? testStepper : false*/}
                     <hr className="mdl-layout-spacer"/>
                     {testProgressbar}
                     <hr className="mdl-layout-spacer"/>
@@ -493,6 +536,8 @@ const Page = React.createClass({
                     {testTab}
                     <hr className="mdl-layout-spacer"/>
                     {testVersion}
+                    <hr className="mdl-layout-spacer"/>
+                    {testPagination}
                     <hr className="mdl-layout-spacer"/>
                     {testSelectBox}
                     <hr className="mdl-layout-spacer"/>
