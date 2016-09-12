@@ -100,6 +100,7 @@ const Page = React.createClass({
     handleNewPaginationLimit(limit) {
         console.log('new limit: ', limit);
         this.setState({paginationLimit: limit});
+    },
     selectBox1OnChange(value) {
         console.log('SelectBox onChange: ', value);
         this.setState({selectBox1: value});
