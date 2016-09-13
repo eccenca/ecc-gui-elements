@@ -3,8 +3,16 @@
  *
  * @author Michael Haschke
  */
-
+// This fixes an animation bug
+// https://github.com/google/material-design-lite/issues/4574#issuecomment-246600670
 // @TODO: maybe this can be removed after MDL was updated
 .mdl-tooltip {
-    will-change: inherit;
+    will-change: unset;
+}
+
+.mdl-tooltip.is-active {
+    animation: none;
+    transform: scale(1);
+    opacity: 1;
+    visibility: visible;
 }
