@@ -12,6 +12,7 @@ npm-debug.log
 # ignore git
 .git/
 .gitignore
+.gitlab
 
 # ignore submodule files
 common-files/
