@@ -53,7 +53,16 @@ const Button = React.createClass({
     // template rendering
     render() {
 
-        const {className, fabSize, iconName, tooltip: defaultTooltip, children: defaultChildren, ripple: defaultRipple, ...otherProps} = this.props;
+        const {
+            className,
+            fabSize,
+            iconName,
+            tooltip: defaultTooltip,
+            children: defaultChildren,
+            ripple: defaultRipple,
+            ...otherProps
+        } = this.props;
+
         const classes = classNames(
             {
                 'mdl-button--icon': typeof iconName !== 'undefined',
