@@ -8,12 +8,14 @@ import {
     Alert,
     Button,
     Checkbox,
+    ContextMenu,
     Error,
     Dialog,
     ConfirmationDialog,
     BaseDialog,
     Icon,
     Info,
+    MenuItem,
     Nothing,
     Progressbar,
     Spinner,
@@ -514,7 +516,17 @@ const Page = React.createClass({
 
         return (
             <Layout fixedHeader={true}>
-                <Header />
+                <Header>
+                    <ContextMenu
+                        align="left"
+                    >
+                        <MenuItem>First Item</MenuItem>
+                        <MenuItem>Second Item</MenuItem>
+                        <MenuItem>Menu Item 3</MenuItem>
+                        <MenuItem>Another Menu Item</MenuItem>
+                        <MenuItem>Alright</MenuItem>
+                    </ContextMenu>
+                </Header>
                 <Content>
                     <Nothing />
                     {testSpinner}

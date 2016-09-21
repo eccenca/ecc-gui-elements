@@ -20,6 +20,7 @@ import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
 import BaseDialog from './src/Dialog/BaseDialog';
 import Icon from './src/Icon';
 import Info from './src/Alert/Info';
+import {ContextMenu, MenuItem} from './src/ContextMenu';
 import Nothing from './src/Nothing';
 import Progressbar from './src/Progressbar';
 import Spinner from './src/Spinner';
@@ -37,6 +38,7 @@ export default {
     Alert,
     Button,
     Checkbox,
+    ContextMenu,
     SelectBox,
     Error,
     Dialog,
@@ -44,6 +46,7 @@ export default {
     BaseDialog,
     Icon,
     Info,
+    MenuItem,
     Nothing,
     Progressbar,
     Spinner,

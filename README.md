@@ -11,6 +11,7 @@ Consists of
 - `Button`: A simple Button which also may contain icons
 - `Checkbox`: A checkbox with optional description
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
+- `ContextMenu`: A context menu with menu items
 - `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Nothing`: Literally Nothing
@@ -158,6 +159,33 @@ const Page = React.createClass({
 
 ```
 
+### ContextMenu
+
+```js
+import { ContextMenu, MenuItem } from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <ContextMenu
+                align="left|right(default)"
+                valign="top|bottom(default)"
+                tooltip="for menu button(currently not supported)"
+                target="idformymenu(auto generated if it is not given)"
+            >
+                <MenuItem>First Item</MenuItem>
+                <MenuItem>Second Item</MenuItem>
+                <MenuItem>Menu Item 3</MenuItem>
+                <MenuItem>Another Menu Item</MenuItem>
+                <MenuItem>Alright</MenuItem>
+            </ContextMenu>
+        )
+    },
+    // ....
+});
+
+```
+
 ### Nothing
 
 ```js
@@ -249,7 +277,7 @@ The SelectBox behaves like a [controlled input](https://facebook.github.io/react
 import { SelectBox } from 'ecc-gui-elements';
 
 const Page = React.createClass({
-    
+
     getInitialState(){
       return {
           value: 8,
