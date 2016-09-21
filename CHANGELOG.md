@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.7.4] 2016-09-21
+
+### Fixed
+- (Workaround) do not show tooltips for disabled buttons, @see https://openproject.brox.de/work_packages/11918
+
 ## [1.7.3] 2016-09-13
 
 ### Fixed

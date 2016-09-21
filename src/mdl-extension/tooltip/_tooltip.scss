@@ -15,4 +15,13 @@
     transform: scale(1);
     opacity: 1;
     visibility: visible;
+
+    button[disabled] + & {
+        /*
+            Workaround to prevent mouseleave problem with disabled form elements
+            @see https://openproject.brox.de/work_packages/11918
+            drawback: tooltips never shown on disabled buttons
+        */
+        display: none;
+    }
 }
