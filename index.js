@@ -16,8 +16,11 @@ import Button from './src/Button';
 import Checkbox from './src/Input/Checkbox';
 import Error from './src/Alert/Error';
 import Dialog from './src/Dialog/Dialog';
+import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
+import BaseDialog from './src/Dialog/BaseDialog';
 import Icon from './src/Icon';
 import Info from './src/Alert/Info';
+import {ContextMenu, MenuItem} from './src/ContextMenu';
 import Nothing from './src/Nothing';
 import Progressbar from './src/Progressbar';
 import Spinner from './src/Spinner';
@@ -27,16 +30,23 @@ import Timeline from './src/Timeline';
 import Warning from './src/Alert/Warning';
 import Tabs from './src/Tabs';
 import Version from './src/Version';
+import Pagination from './src/Pagination';
+import SelectBox from './src/Input/SelectBox';
 
 export default {
     MaterialMixin,
     Alert,
     Button,
     Checkbox,
+    ContextMenu,
+    SelectBox,
     Error,
     Dialog,
+    ConfirmationDialog,
+    BaseDialog,
     Icon,
     Info,
+    MenuItem,
     Nothing,
     Progressbar,
     Spinner,
@@ -45,5 +55,6 @@ export default {
     Timeline,
     Warning,
     Tabs,
-    Version
+    Version,
+    Pagination
 };

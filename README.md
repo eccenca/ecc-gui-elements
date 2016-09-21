@@ -10,15 +10,19 @@ Consists of
 - `Alert`: A message box which is optionally dismissable.
 - `Button`: A simple Button which also may contain icons
 - `Checkbox`: A checkbox with optional description
-- `Dialog`: A message box with optional Buttons for confirmation and cancelation
+- `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
+- `ContextMenu`: A context menu with menu items
+- `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Nothing`: Literally Nothing
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
+- `SelectBox`: A selection box for choosing predefined values
 - `Spinner`: Progressbar which may be placed globally or locally in a component
 - `Switch`: A simple binary switch (a nicer checkbox)
 - `Error`, `Info`, `Success` and `Warning` are wrappers around `Alert` which already set the appropriate styles for that kind of Alert.
 - `Tabs`: A tabs container which manages tabbing behaviour
 - `Version`: A normalised string output of product version
+- `Pagination`: A page control element
 
 ## Usage
 
@@ -103,15 +107,15 @@ const Page = React.createClass({
 });
 ```
 
-### Dialog
+### ConfirmationDialog
 
 ```js
-import { Button, Dialog } from 'ecc-gui-elements';
+import { Button, ConfirmationDialog } from 'ecc-gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
         return (
-            <Dialog title="Dialog Title"
+            <ConfirmationDialog title="Dialog Title"
                     active={true}
                     modal={true}
                     size="mini"
@@ -119,7 +123,62 @@ const Page = React.createClass({
                     confirmButton={<Button>Yes</Button>}
             >
                 <p>Dialog Content</p>
-            </Dialog>
+            </ConfirmationDialog>
+        )
+    },
+    // ....
+});
+
+```
+
+### BaseDialog
+
+```js
+import { Button, BaseDialog } from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <BaseDialog title="Dialog Title"
+                    active={true}
+                    modal={true}
+                    titleCancelButton={this.close}
+                    size="mini"
+                    buttonRow={[
+                        <Button>Cancel</Button>,
+                        <Button>Yes</Button>,
+                        <Button>More</Button>
+                    ]}
+            >
+                <p>Dialog Content</p>
+            </BaseDialog>
+        )
+    },
+    // ....
+});
+
+```
+
+### ContextMenu
+
+```js
+import { ContextMenu, MenuItem } from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <ContextMenu
+                align="left|right(default)"
+                valign="top|bottom(default)"
+                tooltip="for menu button(currently not supported)"
+                target="idformymenu(auto generated if it is not given)"
+            >
+                <MenuItem>First Item</MenuItem>
+                <MenuItem>Second Item</MenuItem>
+                <MenuItem>Menu Item 3</MenuItem>
+                <MenuItem>Another Menu Item</MenuItem>
+                <MenuItem>Alright</MenuItem>
+            </ContextMenu>
         )
     },
     // ....
@@ -137,6 +196,31 @@ const Page = React.createClass({
     render() {
         return (
             <Nothing />
+        )
+    },
+    // ....
+});
+
+```
+
+### Pagination
+
+```js
+import { Pagination } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Pagination
+                offset={0}
+                limit={10}
+                actualResults={10}
+                totalResults={31}
+                handleNewOffset={handleNewPaginationOffset}
+                handleNewLimit={handleNewPaginationLimit}
+                offsetAsPage={false}
+            />
         )
     },
     // ....
@@ -176,6 +260,42 @@ const Page = React.createClass({
             <Spinner appearInline={true} />
             <Spinner appearLocal={true} />
             <Spinner />
+        )
+    },
+    // ....
+});
+
+```
+
+### SelectBox
+
+The SelectBox wraps [react-select](https://github.com/JedWatson/react-select) to use mixed content of strings and numbers as well as the default object type.
+
+The SelectBox behaves like a [controlled input](https://facebook.github.io/react/docs/forms.html#controlled-components)
+
+```js
+import { SelectBox } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+
+    getInitialState(){
+      return {
+          value: 8,
+      };
+    },
+    selectBoxOnChange(value){
+       this.setState({
+           value
+       });
+    },
+    // template rendering
+    render() {
+        return (
+            <SelectBox
+                options={['label1', 3]}
+                value={this.state.value}
+                onChange={this.selectBoxOnChange}
+            />
         )
     },
     // ....

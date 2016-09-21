@@ -8,10 +8,14 @@ import {
     Alert,
     Button,
     Checkbox,
+    ContextMenu,
     Error,
     Dialog,
+    ConfirmationDialog,
+    BaseDialog,
     Icon,
     Info,
+    MenuItem,
     Nothing,
     Progressbar,
     Spinner,
@@ -21,6 +25,8 @@ import {
     Warning,
     Tabs,
     Version,
+    Pagination,
+    SelectBox,
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -30,6 +36,8 @@ const Page = React.createClass({
     getInitialState() {
         return {
             dialog: false,
+            baseDialog: false,
+            confirmationDialog: false,
             timelineItems: [
                 {
                     id: 'http://example.com/1',
@@ -57,6 +65,10 @@ const Page = React.createClass({
                 {tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab'},
                 {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
             ],
+            paginationOffset: 15,
+            paginationLimit: 15,
+            selectBox1: {label: 'labelz', value: 'valuez'},
+            selectBox2: 8,
         };
     },
     openDialog() {
@@ -66,8 +78,38 @@ const Page = React.createClass({
         console.log('Dialog closed', param);
         this.setState({dialog: false});
     },
+    openBaseDialog() {
+        this.setState({baseDialog: true});
+    },
+    closeBaseDialog(param) {
+        console.log('BaseDialog closed', param);
+        this.setState({baseDialog: false});
+    },
     tabClick(tabName) {
         console.log('tabClick:', tabName);
+    },
+    openConfirmationDialog() {
+        this.setState({confirmationDialog: true});
+    },
+    closeConfirmationDialog(param) {
+        console.log('ConfirmationDialog closed', param);
+        this.setState({confirmationDialog: false});
+    },
+    handleNewPaginationOffset(offset) {
+        console.log('new offset: ', offset);
+        this.setState({paginationOffset: offset});
+    },
+    handleNewPaginationLimit(limit) {
+        console.log('new limit: ', limit);
+        this.setState({paginationLimit: limit});
+    },
+    selectBox1OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox1: value});
+    },
+    selectBox2OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox2: value});
     },
     // template rendering
     render() {
@@ -152,6 +194,61 @@ const Page = React.createClass({
                 <p>Dialog Content</p>
                 <p>Dialog Content</p>
             </Dialog>
+        );
+
+        const testConfirmationDialog = (
+            <ConfirmationDialog title="ConfirmationDialog Title"
+                    active={this.state.confirmationDialog}
+                    modal={true}
+                    size="mini"
+                    cancelButton={<Button onClick={this.closeConfirmationDialog.bind(null, 'Cancel')}>Cancel</Button>}
+                    confirmButton={<Button onClick={this.closeConfirmationDialog.bind(null, 'Yes')}>Yes</Button>}
+            >
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+                <p>ConfirmationDialog Content</p>
+            </ConfirmationDialog>
+        );
+
+        const testBaseDialog = (
+            <BaseDialog title="DialogCustomActions Title"
+                    active={this.state.baseDialog}
+                    modal={true}
+                    titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
+                    size="large"
+                    buttonRow={[
+                        <Button onClick={this.closeBaseDialog.bind(null, 'Cancel')}>Cancel</Button>,
+                        <Button onClick={this.closeBaseDialog.bind(null, 'Yes')}>Yes</Button>,
+                        <Button onClick={this.closeBaseDialog.bind(null, 'Custom')}>Custom</Button>
+                    ]}
+            >
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+                <p>DialogCustomActions Content</p>
+            </BaseDialog>
         );
         /*
         const testStepper = (
@@ -249,7 +346,7 @@ const Page = React.createClass({
                     <h4 className="mdl-card__title-text">Test Buttons</h4>
                 </div>
                 <div className="mdl-card__content">
-                    {testDialog}
+                    {testDialog}{testBaseDialog}{testConfirmationDialog}
                     <h5>Buttons using canonical icons</h5>
                     <Button colored iconName="edit" tooltip="own tooltip"/>
                     <Button accent iconName="delete" tooltip={false} />
@@ -264,10 +361,12 @@ const Page = React.createClass({
                     <Button iconName="filter" />
                     <Button iconName="sort" />
                     <Button iconName="hide" />
-                    <Button iconName="access_forbidden" />
+                    <Button iconName="access_forbidden" />ConfirmationDialog
                 </div>
                 <div className="mdl-card__actions">
                     <Button raised={true} accent ripple={false} onClick={this.openDialog}>Open Dialog</Button>
+                    <Button raised={true} accent ripple={false} onClick={this.openBaseDialog}>Open BaseDialog</Button>
+                    <Button raised={true} accent ripple={false} onClick={this.openConfirmationDialog}>Open ConfirmationDialog</Button>
                     <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
                         <Icon name="mood" />
                     </Button>
@@ -359,15 +458,80 @@ const Page = React.createClass({
                 </div>
             </div>
         );
+        const testSelectBox = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test SelectBox</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>With objects</h5>
+                    <SelectBox
+                        placeholder={'Value deleted'}
+                        options={[{label: 'labelz', value: 'valuez'}, {label: 'label1', value: 'value1'}, {label: 'label2', value: 'value2'}]}
+                        value={this.state.selectBox1}
+                        onChange={this.selectBox1OnChange}
+                    />
+                    <h5>With mixed strings and numbers</h5>
+                    <SelectBox
+                        placeholder={'No Value'}
+                        options={['label1', 3, 8]}
+                        value={this.state.selectBox2}
+                        onChange={this.selectBox2OnChange}
+                    />
+                </div>
+            </div>
+        );
+
+        const testPagination = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Pagination</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <h5>Pagination with Elements</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        actualResults={15}
+                        totalResults={31}
+                        handleNewOffset={this.handleNewPaginationOffset}
+                        offsetAsPage={false}
+                        handleNewLimit={this.handleNewPaginationLimit}
+                    />
+                    <h5>Pagination with Page</h5>
+                    Note: if offset is not a multiple of limit the page can be shown wrong
+                    because page have to change offset by itself to fit "one page" instead
+                    of e.g. show last elements from page 2 and first elements form page 3
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        totalResults={31}
+                        handleNewOffset={this.handleNewPaginationOffset}
+                        offsetAsPage={true}
+                        handleNewLimit={this.handleNewPaginationLimit}
+                    />
+                </div>
+            </div>
+        );
 
         return (
             <Layout fixedHeader={true}>
-                <Header />
+                <Header>
+                    <ContextMenu
+                        align="left"
+                    >
+                        <MenuItem>First Item</MenuItem>
+                        <MenuItem>Second Item</MenuItem>
+                        <MenuItem>Menu Item 3</MenuItem>
+                        <MenuItem>Another Menu Item</MenuItem>
+                        <MenuItem>Alright</MenuItem>
+                    </ContextMenu>
+                </Header>
                 <Content>
                     <Nothing />
                     {testSpinner}
                     <hr className="mdl-layout-spacer"/>
-                    {(typeof testStepper !== 'undefined') ? testStepper : false}
+                    {/*(typeof testStepper !== 'undefined') ? testStepper : false*/}
                     <hr className="mdl-layout-spacer"/>
                     {testProgressbar}
                     <hr className="mdl-layout-spacer"/>
@@ -384,6 +548,10 @@ const Page = React.createClass({
                     {testTab}
                     <hr className="mdl-layout-spacer"/>
                     {testVersion}
+                    <hr className="mdl-layout-spacer"/>
+                    {testPagination}
+                    <hr className="mdl-layout-spacer"/>
+                    {testSelectBox}
                     <hr className="mdl-layout-spacer"/>
                 </Content>
                 <footer className="mdl-mini-footer">

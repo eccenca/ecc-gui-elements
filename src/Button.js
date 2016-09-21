@@ -53,23 +53,32 @@ const Button = React.createClass({
     // template rendering
     render() {
 
-        const {className, fabSize, iconName, ...otherProps} = this.props;
+        const {
+            className,
+            fabSize,
+            iconName,
+            tooltip: defaultTooltip,
+            children: defaultChildren,
+            ripple: defaultRipple,
+            ...otherProps
+        } = this.props;
+
         const classes = classNames(
             {
                 'mdl-button--icon': typeof iconName !== 'undefined',
             },
             className
         );
-        const ripple = this.props.ripple === true; // disable ripple by default
+        const ripple = defaultRipple === true; // disable ripple by default
 
-        let tooltip = this.props.tooltip;
+        let tooltip = defaultTooltip;
         // if tooltip is empty check for default one
         if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[iconName] !== 'undefined')) {
             tooltip = this.canonicalTooltips[iconName];
         }
 
         let button = '';
-        let buttonContent = this.props.children;
+        let buttonContent = defaultChildren;
         if (iconName) {
             buttonContent = (
                 // if tooltip already exist send 'false' to prevent adding additional default tooltip in <Icon/>
