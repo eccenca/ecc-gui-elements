@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.14.1] 2016-09-26
+### Fixed
+- Pagination: 'Last Page' button returned wrong offset
+
 ## [1.14.0] 2016-09-21
 ### Added
 - ContextMenu element
