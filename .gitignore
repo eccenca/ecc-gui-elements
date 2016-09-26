@@ -30,7 +30,4 @@ ui-test/*.svg
 # ignore data folders by jetbrains products
 .idea/
 
-# ignore gitlab templates
-.gitlab/
-
 #END
