@@ -82,7 +82,7 @@ const Button = React.createClass({
         if (iconName) {
             buttonContent = (
                 // if tooltip already exist send 'false' to prevent adding additional default tooltip in <Icon/>
-                <Icon name={iconName} tooltip={tooltip ? false : ''}/>
+                <Icon name={iconName} tooltip={(tooltip || tooltip === false) ? false : ''}/>
             );
         }
 

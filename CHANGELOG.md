@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.14.3] 2016-09-27
+### Fixed
+- Button: forwarded info about to prevented tooltip to icon if used
+
 ## [1.14.2] 2016-09-27
 ### Fixed
 - ContextMenu: fixed bug that it did not work properly with only one menu item
