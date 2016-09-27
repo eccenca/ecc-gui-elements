@@ -8,6 +8,8 @@
 // @TODO: maybe this can be removed after MDL was updated
 .mdl-tooltip {
     will-change: unset;
+    background: darken(rgba($tooltip-background-color, 1), 10%);
+    border: 1px solid rgba($tooltip-text-color, 0.39);
 }
 
 .mdl-tooltip.is-active {
