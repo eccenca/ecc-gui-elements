@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.7.5] 2016-09-27
+
+### Fixed
+- Improve visibility of tooltips by darker background and light border
+
 ## [1.7.4] 2016-09-21
 
 ### Fixed
