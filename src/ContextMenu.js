@@ -40,7 +40,7 @@ const ContextMenu = React.createClass({
             ...otherProps
         } = this.props;
 
-        const menu = (typeof children !== 'undefined' && children.length > 0) ? (
+        const menu = (typeof children !== 'undefined') ? (
             <ReactMDLMenu
                 align={align}
                 className={className}
