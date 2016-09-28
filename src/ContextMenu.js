@@ -1,10 +1,10 @@
 import React from 'react';
+import _ from 'lodash';
 import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
 import Button from './Button';
 import MaterialMixin from './mixins/MaterialMixin';
-import {v4 as uuid} from 'node-uuid';
-import _ from 'lodash';
+
 
 /**
 * This component provides a context menu
