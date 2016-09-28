@@ -1,9 +1,10 @@
 import React from 'react';
-import _ from 'lodash';
 import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
 import Button from './Button';
 import MaterialMixin from './mixins/MaterialMixin';
+import {v4 as uuid} from 'node-uuid';
+import _ from 'lodash';
 
 /**
 * This component provides a context menu
@@ -24,8 +25,12 @@ const ContextMenu = React.createClass({
         return {
             align: 'right',
             ripple: false,
-            target: _.uniqueId('app-contextmenu-'),
             tooltip: 'open menu',
+        };
+    },
+    getInitialState() {
+        return {
+            target: this.props.target || _.uniqueId('app-contextmenu-'),
         };
     },
 
@@ -35,10 +40,11 @@ const ContextMenu = React.createClass({
             children,
             className,
             ripple,
-            target,
             tooltip,
             ...otherProps
         } = this.props;
+
+        const target = this.state.target;
 
         const menu = (typeof children !== 'undefined') ? (
             <ReactMDLMenu

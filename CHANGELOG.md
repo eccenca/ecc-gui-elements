@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [Unreleased]
+### Fixed
+- ContextMenu: using more than one ContextMenu element per side without setting `target` results in the same id for every element
+
 ## [1.14.3] 2016-09-27
 ### Fixed
 - Button: forwarded info about to prevented tooltip to icon if used
