@@ -520,11 +520,20 @@ const Page = React.createClass({
                     <ContextMenu
                         align="left"
                     >
-                        <MenuItem>First Item</MenuItem>
-                        <MenuItem>Second Item</MenuItem>
-                        <MenuItem>Menu Item 3</MenuItem>
-                        <MenuItem>Another Menu Item</MenuItem>
-                        <MenuItem>Alright</MenuItem>
+                        <MenuItem>First First Item</MenuItem>
+                        <MenuItem>First Second Item</MenuItem>
+                        <MenuItem>First Menu Item 3</MenuItem>
+                        <MenuItem>First Another Menu Item</MenuItem>
+                        <MenuItem>First Alright</MenuItem>
+                    </ContextMenu>
+                    <ContextMenu
+                        align="left"
+                    >
+                        <MenuItem>Second First Item</MenuItem>
+                        <MenuItem>Second Second Item</MenuItem>
+                        <MenuItem>Second Menu Item 3</MenuItem>
+                        <MenuItem>Second Another Menu Item</MenuItem>
+                        <MenuItem>Second Alright</MenuItem>
                     </ContextMenu>
                 </Header>
                 <Content>
