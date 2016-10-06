@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.14.4] 2016-10-06
+### Fixed
+- ContextMenu: using more than one ContextMenu element per side without setting `target` results in the same id for every element
+- Pagination: if no data exists offset was 0 instead of 1
+
 ## [1.14.3] 2016-09-27
 ### Fixed
 - Button: forwarded info about to prevented tooltip to icon if used
