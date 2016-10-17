@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "ecc-dotfiles": "^1.6.0",
-    "ecc-gulp-tasks": "^2.5.0",
+    "ecc-gulp-tasks": "^3.0.0-alpha",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^15.0.0",
     "ecc-uitest-helpers": "^15.0.1",
