@@ -21,18 +21,18 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "ISC",
   "dependencies": {
-    "classnames": "2.2.0",
+    "classnames": "^2.2.5",
     "ecc-messagebus": "^3.3.2",
     "ecc-style-core": "^1.7.3",
     "emitter-component": "^1.1.1",
     "hammerjs": "^2.0.6",
     "keycharm": "^0.2.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.16.4",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed",
     "moment": "^2.12.0",
     "propagating-hammerjs": "^1.4.6",
     "react-mdl": "1.5.2",
-    "react-select": "1.0.0-beta14",
+    "react-select": "1.0.0-rc.2",
     "vis": "4.16.1"
   },
   "peerDependencies": {
