@@ -1,7 +1,7 @@
 import React from 'react';
-import _ from 'lodash';
 import classNames from 'classnames';
 import MaterialMixin from '../mixins/MaterialMixin';
+import uniqueId from '../utils/uniqueId';
 // does not use Switch from react-mdl because overspecified onChange property request
 
 const Switch = React.createClass({
@@ -23,10 +23,6 @@ const Switch = React.createClass({
     render() {
         const {className, id, ripple, onChange, checked, disabled, children, ...otherProps} = this.props;
 
-        let inputId = _.uniqueId('switch_');
-        if (id) {
-            inputId = id;
-        }
 
         const classes = classNames('mdl-switch mdl-js-switch', {
             'mdl-js-ripple-effect': ripple
@@ -34,12 +30,12 @@ const Switch = React.createClass({
 
         return (
             <label className={classes}
-                   htmlFor={inputId}
+                   htmlFor={id}
                    {...otherProps}
             >
                 <input
                     type="checkbox"
-                    id={inputId}
+                    id={id}
                     className="mdl-switch__input"
                     defaultChecked={checked}
                     disabled={disabled}
@@ -55,4 +51,4 @@ const Switch = React.createClass({
     }
 });
 
-export default Switch;
+export default uniqueId(Switch, {prefix: 'switch'});
