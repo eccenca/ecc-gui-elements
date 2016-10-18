@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "1.14.4",
+  "version": "1.15.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -21,18 +21,18 @@
   "author": "Michael Haschke <michael.haschke@eccenca.com>",
   "license": "ISC",
   "dependencies": {
-    "classnames": "2.2.0",
+    "classnames": "^2.2.5",
     "ecc-messagebus": "^3.3.2",
     "ecc-style-core": "^1.7.3",
     "emitter-component": "^1.1.1",
     "hammerjs": "^2.0.6",
     "keycharm": "^0.2.0",
-    "lodash": "^3.10.1",
+    "lodash": "^4.16.4",
     "material-design-lite": "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed",
     "moment": "^2.12.0",
     "propagating-hammerjs": "^1.4.6",
     "react-mdl": "1.5.2",
-    "react-select": "1.0.0-beta14",
+    "react-select": "1.0.0-rc.2",
     "vis": "4.16.1"
   },
   "peerDependencies": {
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "ecc-dotfiles": "^1.6.0",
-    "ecc-gulp-tasks": "^2.5.0",
+    "ecc-gulp-tasks": "^3.0.0-alpha",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^15.0.0",
     "ecc-uitest-helpers": "^15.0.1",

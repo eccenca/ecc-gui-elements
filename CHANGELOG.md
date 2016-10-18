@@ -2,30 +2,39 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.15.0] 2016-10-18
+### Changed
+- Updated to `lodash@4`, `react-select@1.0.0-rc.2` and `classnames@^2.2.5`
+- `Switch` and `Checkbox` now use `uniqueId` Higher Order Component
+
+### Added
+- `TextField` component
+- `uniqueId` Higher Order Component
+
 ## [1.14.4] 2016-10-06
 ### Fixed
-- ContextMenu: using more than one ContextMenu element per side without setting `target` results in the same id for every element
-- Pagination: if no data exists offset was 0 instead of 1
+- `ContextMenu`: using more than one ContextMenu element per side without setting `target` results in the same id for every element
+- `Pagination`: if no data exists offset was 0 instead of 1
 
 ## [1.14.3] 2016-09-27
 ### Fixed
-- Button: forwarded info about to prevented tooltip to icon if used
+- `Button`: forwarded info about to prevented tooltip to icon if used
 
 ## [1.14.2] 2016-09-27
 ### Fixed
-- ContextMenu: fixed bug that it did not work properly with only one menu item
+- `ContextMenu`: fixed bug that it did not work properly with only one menu item
 
 ## [1.14.1] 2016-09-26
 ### Fixed
-- Pagination: 'Last Page' button returned wrong offset
+- `Pagination`: 'Last Page' button returned wrong offset
 
 ## [1.14.0] 2016-09-21
 ### Added
-- ContextMenu element
+- `ContextMenu` element
 
 ## [1.13.0] 2016-09-12
 ### Added
-- Pagination element
+- `Pagination` element
 
 ## [1.12.0] 2016-09-05
 ### Changed
