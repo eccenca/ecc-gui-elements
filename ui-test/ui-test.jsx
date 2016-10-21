@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 import React from 'react';
 import render from 'ecc-uitest-helpers';
+import _ from 'lodash';
 // test styles
 import '../style/test.scss';
 // component
@@ -70,7 +71,7 @@ const Page = React.createClass({
             paginationLimit: 15,
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
-            textInput: ["5"]
+            textInput: ['5']
         };
     },
     openDialog() {
@@ -113,12 +114,12 @@ const Page = React.createClass({
         console.log('SelectBox onChange: ', value);
         this.setState({selectBox2: value});
     },
-    updateTextInput(index, {value}){
+    updateTextInput(index, {value}) {
         const textInput = _.clone(this.state.textInput);
         textInput[index] = value;
         this.setState({
             textInput,
-        })
+        });
     },
     // template rendering
     render() {
