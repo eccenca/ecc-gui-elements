@@ -71,7 +71,8 @@ const Page = React.createClass({
             paginationLimit: 15,
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
-            textInput: ['5']
+            textInput: ['5'],
+            switches: [false, true, undefined, undefined, true, false],
         };
     },
     openDialog() {
@@ -113,6 +114,13 @@ const Page = React.createClass({
     selectBox2OnChange(value) {
         console.log('SelectBox onChange: ', value);
         this.setState({selectBox2: value});
+    },
+    updateSwitch(index, {value}) {
+        const switches = _.clone(this.state.switches);
+        switches[index] = value;
+        this.setState({
+            switches,
+        });
     },
     updateTextInput(index, {value}) {
         const textInput = _.clone(this.state.textInput);
@@ -397,18 +405,22 @@ const Page = React.createClass({
                 <div className="mdl-card__content">
                     <Switch id="test_id_666"
                             ripple={true}
+                            checked={this.state.switches[0]}
+                            onChange={this.updateSwitch.bind(null, 0)}
                     />
-                    <Switch checked>
-                        Switch 2 Text
+                    <Switch checked={this.state.switches[1]} onChange={this.updateSwitch.bind(null, 1)}>
+                        Switch with Ripple
                     </Switch>
                     <Checkbox id="test_id_667"
                               ripple={true}
+                              checked={this.state.switches[2]}
+                              onChange={this.updateSwitch.bind(null, 2)}
                     />
-                    <Checkbox label="Checkbox 1 Text"/>
-                    <Checkbox disabled>
+                    <Checkbox label="Checkbox 1 Text" checked={this.state.switches[3]} onChange={this.updateSwitch.bind(null, 3)}/>
+                    <Checkbox disabled checked={this.state.switches[4]} onChange={this.updateSwitch.bind(null, 4)}>
                         Checkbox 2 Text
                     </Checkbox>
-                    <Checkbox checked>
+                    <Checkbox checked={this.state.switches[5]} onChange={this.updateSwitch.bind(null, 5)}>
                         <div className="test">Checkbox 3 Text</div>
                     </Checkbox>
                 </div>

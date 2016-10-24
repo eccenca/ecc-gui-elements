@@ -1,54 +1,30 @@
 import React from 'react';
-import classNames from 'classnames';
-import MaterialMixin from '../mixins/MaterialMixin';
-import uniqueId from '../utils/uniqueId';
-// does not use Checkbox from react-mdl because overspecified onChange property request
+import ReactMDLCheckbox from 'react-mdl/lib/Checkbox';
+import extendedOnChangeBoolean from '../utils/extendedOnChangeBoolean';
 
-const Checkbox = React.createClass({
-    mixins: [MaterialMixin],
+const Checkbox = (props) => {
+    const {label, children, ripple = false, checked, otherProperties, onChange} = props;
 
-    propTypes: {
-        className: React.PropTypes.string,
-        checked: React.PropTypes.bool,
-        disabled: React.PropTypes.bool,
-        id: React.PropTypes.string,
-        label: React.PropTypes.string,
-        onChange: React.PropTypes.func,
-        ripple: React.PropTypes.bool
-    },
-
-    defaultProps: {
-        ripple: false
-    },
-
-    render() {
-        const {className, id, ripple, onChange, checked, disabled, label, children} = this.props;
-
-        let checkboxlabel = label ? label : false;
-        if (!checkboxlabel && children) {
-            checkboxlabel = children;
-        }
-
-        const classes = classNames('mdl-checkbox mdl-js-checkbox', {
-            'mdl-js-ripple-effect': ripple
-        }, className);
-
-        return (
-            <label className={classes}
-                   htmlFor={id}
-            >
-                <input
-                    type="checkbox"
-                    id={id}
-                    className="mdl-checkbox__input"
-                    defaultChecked={checked}
-                    disabled={disabled}
-                    onChange={onChange}
-                />
-                {checkboxlabel ? <span className="mdl-checkbox__label">{checkboxlabel}</span> : false}
-            </label>
-        );
+    let checkboxlabel = label ? label : false;
+    if (!checkboxlabel && children) {
+        checkboxlabel = children;
     }
-});
 
-export default uniqueId(Checkbox, {prefix: 'checkbox'});
+    return (
+        <ReactMDLCheckbox
+            checked={!!checked}
+            label={checkboxlabel}
+            ripple={ripple}
+            value="test"
+            onChange={extendedOnChangeBoolean.bind(null, onChange)}
+            {...otherProperties}
+        />
+    );
+};
+
+Checkbox.propTypes = {
+    checked: React.PropTypes.bool.isRequired,
+    onChange: React.PropTypes.func.isRequired,
+};
+
+export default Checkbox;

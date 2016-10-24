@@ -1,54 +1,28 @@
 import React from 'react';
-import classNames from 'classnames';
-import MaterialMixin from '../mixins/MaterialMixin';
-import uniqueId from '../utils/uniqueId';
-// does not use Switch from react-mdl because overspecified onChange property request
+import ReactMDLSwitch from 'react-mdl/lib/Switch';
+import extendedOnChangeBoolean from '../utils/extendedOnChangeBoolean';
 
-const Switch = React.createClass({
-    mixins: [MaterialMixin],
+const Switch = (props) => {
+    const {label, children, checked, ripple = false, onChange, otherProperties} = props;
 
-    propTypes: {
-        className: React.PropTypes.string,
-        checked: React.PropTypes.bool,
-        disabled: React.PropTypes.bool,
-        id: React.PropTypes.string,
-        onChange: React.PropTypes.func,
-        ripple: React.PropTypes.bool
-    },
-
-    defaultProps: {
-        ripple: false
-    },
-
-    render() {
-        const {className, id, ripple, onChange, checked, disabled, children, ...otherProps} = this.props;
-
-
-        const classes = classNames('mdl-switch mdl-js-switch', {
-            'mdl-js-ripple-effect': ripple
-        }, className);
-
-        return (
-            <label className={classes}
-                   htmlFor={id}
-                   {...otherProps}
-            >
-                <input
-                    type="checkbox"
-                    id={id}
-                    className="mdl-switch__input"
-                    defaultChecked={checked}
-                    disabled={disabled}
-                    onChange={onChange}
-                />
-                {
-                    children ? (
-                        <span className="mdl-switch__label">{children}</span>
-                    ) : false
-                }
-            </label>
-        );
+    let checkboxlabel = label ? label : false;
+    if (!checkboxlabel && children) {
+        checkboxlabel = children;
     }
-});
 
-export default uniqueId(Switch, {prefix: 'switch'});
+    return (
+        <ReactMDLSwitch
+            checked={!!checked}
+            ripple={ripple}
+            onChange={extendedOnChangeBoolean.bind(null, onChange)}
+            {...otherProperties}
+        >{checkboxlabel}</ReactMDLSwitch>
+    );
+};
+
+Switch.propTypes = {
+    checked: React.PropTypes.bool.isRequired,
+    onChange: React.PropTypes.func.isRequired,
+};
+
+export default Switch;
