@@ -68,7 +68,8 @@ const Pagination = React.createClass({
     },
     // trigger event to show last results (regarding to limit)
     onClickLast() {
-        this.props.handleNewOffset(this.props.totalResults - (this.props.totalResults % this.props.limit));
+        const limitRest = this.props.totalResults % this.props.limit;
+        this.props.handleNewOffset(this.props.totalResults - (limitRest !== 0 ? limitRest : this.props.limit));
     },
 
     // template rendering
