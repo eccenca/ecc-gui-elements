@@ -59,7 +59,7 @@ const ContextMenu = React.createClass({
         ) : false;
 
         return (
-            <div style={{position: 'relative'}}>
+            <div className={'contextmenu-container'}>
                 <Button
                     iconName="menu_more"
                     id={target}
