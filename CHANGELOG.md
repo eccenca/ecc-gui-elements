@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.16.0] 2016-10-24
+### Fixed
+- `Pagination`: 'Last Page' button now returns correct offset if number of total results is a multiple of limit
+
 ## [1.15.0] 2016-10-18
 ### Changed
 - Updated to `lodash@4`, `react-select@1.0.0-rc.2` and `classnames@^2.2.5`
