@@ -39,8 +39,8 @@
     "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
-    "ecc-dotfiles": "^1.6.0",
-    "ecc-gulp-tasks": "^3.0.0-alpha",
+    "ecc-dotfiles": "^1.7.1",
+    "ecc-gulp-tasks": "^3.0.0-alpha.3",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^15.0.0",
     "ecc-uitest-helpers": "^15.0.1",
