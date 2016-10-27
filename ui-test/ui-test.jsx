@@ -513,7 +513,8 @@ const Page = React.createClass({
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        totalResults={31}
+                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
+                        totalResults={88}
                         newLimitText="Elements per Page"
                         onChange={this.handlePaginationChange}
                         offsetAsPage={false}
@@ -525,7 +526,7 @@ const Page = React.createClass({
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        totalResults={31}
+                        totalResults={88}
                         onChange={this.handlePaginationChange}
                         offsetAsPage={true}
                     />

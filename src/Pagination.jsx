@@ -128,10 +128,14 @@ const Pagination = React.createClass({
 
         const {currentPage, totalPages, lastItemOnPage, onLastPage, onFirstPage} = calculatePagination(this.props);
 
-        const pageInfo = offsetAsPage ?
-            `${currentPage + 1} of ${totalPages}` :
-            `${offset + 1} - ${lastItemOnPage} of ${totalResults}`;
+        let pageInfo = '';
 
+        if (offsetAsPage) {
+            pageInfo = `${currentPage + 1} of ${totalPages}`;
+        } else {
+            const start = offset + 1 === lastItemOnPage ? lastItemOnPage : `${offset + 1} - ${lastItemOnPage}`;
+            pageInfo = `${start} of ${totalResults}`;
+        }
 
         // render actual site information
         const pageInformation = (
