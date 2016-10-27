@@ -101,7 +101,7 @@ const Pagination = React.createClass({
 
         this.props.onChange(calculatePagination({
             limit,
-            offset: _.floor(totalResults / limit) * limit,
+            offset: (_.ceil(totalResults / limit) - 1 ) * limit,
             totalResults,
         }));
     },
