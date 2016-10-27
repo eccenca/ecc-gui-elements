@@ -101,7 +101,7 @@ const Button = React.createClass({
             );
         }
 
-        if (tooltip) {
+        if (tooltip && !this.props.disabled) {
             button = (
                 <ReactMDLTooltip label={tooltip}>{button}</ReactMDLTooltip>
             );

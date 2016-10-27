@@ -68,7 +68,7 @@ const Page = React.createClass({
                 {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
             ],
             paginationOffset: 15,
-            paginationLimit: 15,
+            paginationLimit: 3,
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
             textInput: ['5'],
@@ -99,13 +99,12 @@ const Page = React.createClass({
         console.log('ConfirmationDialog closed', param);
         this.setState({confirmationDialog: false});
     },
-    handleNewPaginationOffset(offset) {
-        console.log('new offset: ', offset);
-        this.setState({paginationOffset: offset});
-    },
-    handleNewPaginationLimit(limit) {
-        console.log('new limit: ', limit);
-        this.setState({paginationLimit: limit});
+    handlePaginationChange({offset, limit}) {
+        console.log(`Pagination: Offset ${offset} Limit: ${limit}`);
+        this.setState({
+            paginationLimit: limit,
+            paginationOffset: offset,
+        });
     },
     selectBox1OnChange(value) {
         console.log('SelectBox onChange: ', value);
@@ -514,11 +513,10 @@ const Page = React.createClass({
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        actualResults={15}
                         totalResults={31}
-                        handleNewOffset={this.handleNewPaginationOffset}
+                        newLimitText="Elements per Page"
+                        onChange={this.handlePaginationChange}
                         offsetAsPage={false}
-                        handleNewLimit={this.handleNewPaginationLimit}
                     />
                     <h5>Pagination with Page</h5>
                     Note: if offset is not a multiple of limit the page can be shown wrong
@@ -528,9 +526,8 @@ const Page = React.createClass({
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
                         totalResults={31}
-                        handleNewOffset={this.handleNewPaginationOffset}
+                        onChange={this.handlePaginationChange}
                         offsetAsPage={true}
-                        handleNewLimit={this.handleNewPaginationLimit}
                     />
                 </div>
             </div>

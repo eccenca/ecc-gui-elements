@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [Unreleased]
+### Changed
+- Disabled buttons do not show their tooltip anymore
+- TODO: Describe Breaking CHANGE Checkbox and Switch
+- TODO: Describe Pagination Changes
+
 ## [1.16.0] 2016-10-24
 ### Fixed
 - `Pagination`: 'Last Page' button now returns correct offset if number of total results is a multiple of limit
