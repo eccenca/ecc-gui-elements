@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 import React from 'react';
 import render from 'ecc-uitest-helpers';
+import _ from 'lodash';
 // test styles
 import '../style/test.scss';
 // component
@@ -27,6 +28,7 @@ import {
     Version,
     Pagination,
     SelectBox,
+    TextField,
 } from '../index.js';
 import {
     Layout, Content, Header
@@ -69,6 +71,7 @@ const Page = React.createClass({
             paginationLimit: 15,
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
+            textInput: ['5']
         };
     },
     openDialog() {
@@ -110,6 +113,13 @@ const Page = React.createClass({
     selectBox2OnChange(value) {
         console.log('SelectBox onChange: ', value);
         this.setState({selectBox2: value});
+    },
+    updateTextInput(index, {value}) {
+        const textInput = _.clone(this.state.textInput);
+        textInput[index] = value;
+        this.setState({
+            textInput,
+        });
     },
     // template rendering
     render() {
@@ -514,17 +524,46 @@ const Page = React.createClass({
             </div>
         );
 
+        const testTextField = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test TextField</h4>
+                </div>
+                <div className="mdl-card__content">
+                    <TextField
+                        value={this.state.textInput[0]}
+                        label="Test Input"
+                        onChange={this.updateTextInput.bind(null, 0)}
+                    />
+                    <TextField
+                        className="mdl-textfield--full-width"
+                        value={this.state.textInput[1]}
+                        onChange={this.updateTextInput.bind(null, 1)}
+                    />
+                </div>
+            </div>
+        );
+
         return (
             <Layout fixedHeader={true}>
                 <Header>
                     <ContextMenu
                         align="left"
                     >
-                        <MenuItem>First Item</MenuItem>
-                        <MenuItem>Second Item</MenuItem>
-                        <MenuItem>Menu Item 3</MenuItem>
-                        <MenuItem>Another Menu Item</MenuItem>
-                        <MenuItem>Alright</MenuItem>
+                        <MenuItem>First First Item</MenuItem>
+                        <MenuItem>First Second Item</MenuItem>
+                        <MenuItem>First Menu Item 3</MenuItem>
+                        <MenuItem>First Another Menu Item</MenuItem>
+                        <MenuItem>First Alright</MenuItem>
+                    </ContextMenu>
+                    <ContextMenu
+                        align="left"
+                    >
+                        <MenuItem>Second First Item</MenuItem>
+                        <MenuItem>Second Second Item</MenuItem>
+                        <MenuItem>Second Menu Item 3</MenuItem>
+                        <MenuItem>Second Another Menu Item</MenuItem>
+                        <MenuItem>Second Alright</MenuItem>
                     </ContextMenu>
                 </Header>
                 <Content>
@@ -552,6 +591,8 @@ const Page = React.createClass({
                     {testPagination}
                     <hr className="mdl-layout-spacer"/>
                     {testSelectBox}
+                    <hr className="mdl-layout-spacer"/>
+                    {testTextField}
                     <hr className="mdl-layout-spacer"/>
                 </Content>
                 <footer className="mdl-mini-footer">

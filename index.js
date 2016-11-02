@@ -32,6 +32,7 @@ import Tabs from './src/Tabs';
 import Version from './src/Version';
 import Pagination from './src/Pagination';
 import SelectBox from './src/Input/SelectBox';
+import TextField from './src/Input/TextField';
 
 export default {
     MaterialMixin,
@@ -56,5 +57,6 @@ export default {
     Warning,
     Tabs,
     Version,
-    Pagination
+    Pagination,
+    TextField,
 };

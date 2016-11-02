@@ -5,6 +5,7 @@ import {MenuItem} from 'react-mdl/lib/Menu';
 import Button from './Button';
 import MaterialMixin from './mixins/MaterialMixin';
 
+
 /**
 * This component provides a context menu
 * @type {[type]}
@@ -24,8 +25,12 @@ const ContextMenu = React.createClass({
         return {
             align: 'right',
             ripple: false,
-            target: _.uniqueId('app-contextmenu-'),
             tooltip: 'open menu',
+        };
+    },
+    getInitialState() {
+        return {
+            target: this.props.target || _.uniqueId('app-contextmenu-'),
         };
     },
 
@@ -35,10 +40,11 @@ const ContextMenu = React.createClass({
             children,
             className,
             ripple,
-            target,
             tooltip,
             ...otherProps
         } = this.props;
+
+        const target = this.state.target;
 
         const menu = (typeof children !== 'undefined') ? (
             <ReactMDLMenu
@@ -53,7 +59,7 @@ const ContextMenu = React.createClass({
         ) : false;
 
         return (
-            <div style={{position: 'relative'}}>
+            <div className={'contextmenu-container'}>
                 <Button
                     iconName="menu_more"
                     id={target}

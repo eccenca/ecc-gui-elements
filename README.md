@@ -23,6 +23,7 @@ Consists of
 - `Tabs`: A tabs container which manages tabbing behaviour
 - `Version`: A normalised string output of product version
 - `Pagination`: A page control element
+- `TextField`: A TextField with floating label. Wrapper around [React-MDL Textfield]()
 
 ## Usage
 
@@ -317,6 +318,34 @@ const Page = React.createClass({
                 activeTab={'historyview'}
                 tabs={[{tabTitle: 'name', tabContent: value}]}
                 onTabClick={this.TabClick}
+            />
+        )
+    },
+    // ....
+});
+
+```
+
+### TextField
+
+```js
+import { TextField } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // event is the original react onChange event
+    // value is event.target.value (a shortcut for convienience)
+    onChange({value, event}) {
+        this.setState({
+            value,
+        })
+    },
+    // template rendering
+    render() {
+        return (
+            <TextField
+                onChange={this.onChange}
+                value={this.state.value}
+                label="Textfield"
             />
         )
     },

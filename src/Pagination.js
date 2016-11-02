@@ -68,17 +68,26 @@ const Pagination = React.createClass({
     },
     // trigger event to show last results (regarding to limit)
     onClickLast() {
-        this.props.handleNewOffset(this.props.totalResults - (this.props.totalResults % this.props.limit));
+        const limitRest = this.props.totalResults % this.props.limit;
+        this.props.handleNewOffset(this.props.totalResults - (limitRest !== 0 ? limitRest : this.props.limit));
     },
 
     // template rendering
     render() {
+         // set start value
+        let startResults = this.props.offset;
+        // is offsetAsPage is used
+        if (this.props.offsetAsPage) {
+            startResults = _.floor(this.props.offset / this.props.limit + 1);
+        }
+        // if actualResults exists add one up (counting starts with 0 vs with 1)
+        else if (this.props.actualResults > 0) {
+            startResults = this.props.offset + 1;
+        }
         // render actual site information
         const pageInformation = (
             <span className="ecc-gui-elements__pagination-pageInfo">
-                {this.props.offsetAsPage ?
-                    _.floor(this.props.offset / this.props.limit + 1) : this.props.offset + 1
-                }
+                {startResults}
                 {this.props.offsetAsPage ? '' : ` - ${this.props.offset + this.props.actualResults}`}
                 {this.props.offsetAsPage ?
                     ` of ${_.ceil(this.props.totalResults / this.props.limit)}`

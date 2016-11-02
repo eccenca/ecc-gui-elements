@@ -1,7 +1,7 @@
 import React from 'react';
-import _ from 'lodash';
 import classNames from 'classnames';
 import MaterialMixin from '../mixins/MaterialMixin';
+import uniqueId from '../utils/uniqueId';
 // does not use Checkbox from react-mdl because overspecified onChange property request
 
 const Checkbox = React.createClass({
@@ -24,11 +24,6 @@ const Checkbox = React.createClass({
     render() {
         const {className, id, ripple, onChange, checked, disabled, label, children} = this.props;
 
-        let inputId = _.uniqueId('switch_');
-        if (id) {
-            inputId = id;
-        }
-
         let checkboxlabel = label ? label : false;
         if (!checkboxlabel && children) {
             checkboxlabel = children;
@@ -40,11 +35,11 @@ const Checkbox = React.createClass({
 
         return (
             <label className={classes}
-                   htmlFor={inputId}
+                   htmlFor={id}
             >
                 <input
                     type="checkbox"
-                    id={inputId}
+                    id={id}
                     className="mdl-checkbox__input"
                     defaultChecked={checked}
                     disabled={disabled}
@@ -56,4 +51,4 @@ const Checkbox = React.createClass({
     }
 });
 
-export default Checkbox;
+export default uniqueId(Checkbox, {prefix: 'checkbox'});
