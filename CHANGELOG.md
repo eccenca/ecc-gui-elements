@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [Unreleased]
+### Fixed
+- issue with not shown `Tabs` content caused by className troubles
+
+## [1.16.2] 2016-11-02
+### Fixed
+- add mdl class for tab panels to tab content section
+
 ## [1.16.1] 2016-10-28
 ### Fixed
 - Fixed incorrect context menu style.
