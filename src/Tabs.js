@@ -69,7 +69,7 @@ const Tabs = React.createClass({
                     <ReactMDLTabs activeTab={activeTab} onChange={this.handleSelect}>
                         {tabPanel}
                     </ReactMDLTabs>
-                    <section>
+                    <section className="mdl-tabs__panel">
                         {tabContent}
                     </section>
                 </div>
