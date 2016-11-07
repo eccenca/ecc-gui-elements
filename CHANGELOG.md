@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.16.4] 2016-11-07
+### Fixed
+- readd `Tabs` className
+
 ## [1.16.3] 2016-11-07
 ### Fixed
 - issue with not shown `Tabs` content caused by className troubles
