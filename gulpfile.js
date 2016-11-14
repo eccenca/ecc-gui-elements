@@ -5,6 +5,21 @@ gulp.task('default', ['debug', 'serve']);
 
 gulp.task('full-build', gulpSequence(['vis', 'icontable'], 'build', 'copy-style-core'));
 
+gulp.task('full-test', ['test', 'test-core-sass']);
+
+gulp.task('test-core-sass', function(cb) {
+    var path = require('path');
+    var sass = require('node-sass');
+    sass.render({
+        file: './style/core/main.scss',
+        importer: function importer(url, prev, done) {
+            if (url[0] === '~') {
+                url = path.resolve(path.join(__dirname, 'node_modules'), url.substr(1));
+            }
+
+            return {file: url};
+        }
+    }, cb);
 });
 
 gulp.task('vis', function(cb) {

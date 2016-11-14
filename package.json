@@ -6,7 +6,7 @@
   "es5": "es5/component.js",
   "es6": "index.js",
   "scripts": {
-    "test": "gulp test && node-sass src/main.scss",
+    "test": "gulp full-test",
     "lint": "gulp lint",
     "cover": "gulp cover",
     "start": "gulp",
