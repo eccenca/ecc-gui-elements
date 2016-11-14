@@ -4,6 +4,9 @@ import render from 'ecc-uitest-helpers';
 import _ from 'lodash';
 // test styles
 import '../style/test.scss';
+
+import '../style/core/main.node.scss';
+
 // component
 import {
     Alert,

@@ -24,6 +24,7 @@ module.exports = {
                 filename: '[name].js',
                 libraryTarget: 'commonjs2',
             },
+            prependSCSS: 'component.js',
         },
     },
     lintingFiles: [
