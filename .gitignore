@@ -31,3 +31,7 @@ ui-test/*.svg
 .idea/
 
 #END
+
+css/
+dist/
+

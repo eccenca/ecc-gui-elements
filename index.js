@@ -1,5 +1,6 @@
 /* global __WEBPACK__ */
 if (__WEBPACK__) {
+    require('./src/main.node.scss');
     // only load style when using webpack
     // currently not used at all because component is only used as wrapper
     require('./style/style.scss');

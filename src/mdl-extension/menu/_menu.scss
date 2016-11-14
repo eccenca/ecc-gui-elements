@@ -1,0 +1,33 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.mdl-menu {
+    /*
+    - MDL javascript injects clip rule for unknown reasons
+    - we remove it here because clip introduces a rendering bug in our app and
+      the attribute is deprecated in spec anyway
+    */
+    clip: auto !important;
+}
+
+.mdl-menu__item {
+    &.has-contextblock {
+        padding-right: calc(1.5rem + 24px);
+    }
+}
+
+.mdl-menu__item-contextmenu {
+    display: block;
+    position: absolute;
+    height: 32px;
+    right: 16px;
+    top: 50%;
+    margin-top: -16px;
+
+    .material-icons {
+        vertical-align: middle;
+    }
+}

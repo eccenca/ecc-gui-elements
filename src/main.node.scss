@@ -1,0 +1,41 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ *
+ * Create Stylesheet using Node imports via Webpack's require method.
+ * We need to repeat code because (at least libsass) test @import statements
+ * before conditionals and Sass itself do not allow variables in direct imports.
+ */
+
+// -- Configuration ------------------------------------------------------------
+
+@import "./configuration.default";
+
+// -- Material Design Lite -----------------------------------------------------
+
+@import "~material-design-lite/src/material-design-lite";
+
+// -- Material Design Stepper Polyfill -----------------------------------------
+
+//$stepper-box-shadow: none !default;
+//$stepper-define-keyframes: false !default;
+//@import "~mdl-stepper/src/sass/mdl-variables";
+//@import "~mdl-stepper/src/sass/stepper";
+
+// -- Own MDL Extensions -------------------------------------------------------
+
+@import "./mdl-extension/all";
+
+// -- Other Extensions -------------------------------------------------------
+
+@import "./gui-extension/all";
+
+// -- Changes ------------------------------------------------------------------
+
+@import "./adjustments";
+
+// -- Fonts --------------------------------------------------------------------
+
+@import "./roboto";
+@import "./iconfont";

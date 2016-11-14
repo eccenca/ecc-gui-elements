@@ -1,0 +1,33 @@
+$FontPath: "../dist/fonts/roboto" !default;
+$FontName: "Roboto" !default;
+$FontVersion: "1.1.0" !default;
+
+@mixin fontdef($FontType:"Regular", $FontWeight:400, $FontStyle: normal) {
+    @font-face {
+        font-family: Roboto;
+        src: url('#{$FontPath}/#{$FontType}/#{$FontName}-#{$FontType}.woff2?v=#{$FontVersion}') format('woff2'),
+        url('#{$FontPath}/#{$FontType}/#{$FontName}-#{$FontType}.woff?v=#{$FontVersion}') format('woff'),
+        url('#{$FontPath}/#{$FontType}/#{$FontName}-#{$FontType}.ttf?v=#{$FontVersion}') format('truetype');
+        font-weight: $FontWeight;
+        font-style: $FontStyle;
+    }
+}
+
+@include fontdef("ThinItalic", 100, italic);
+@include fontdef("Thin", 100, normal);
+
+@include fontdef("LightItalic", 300, italic);
+@include fontdef("Light", 300, normal);
+
+@include fontdef("Regular", 400, normal);
+@include fontdef("Regular", normal, normal);
+@include fontdef("Italic", 400, italic);
+@include fontdef("Italic", normal, italic);
+
+@include fontdef("MediumItalic", 500, italic);
+@include fontdef("Medium", 500, normal);
+
+@include fontdef("BoldItalic", 700, italic);
+@include fontdef("BoldItalic", bold, italic);
+@include fontdef("Bold", 700, normal);
+@include fontdef("Bold", bold, normal);
