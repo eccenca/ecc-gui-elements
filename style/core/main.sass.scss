@@ -13,17 +13,21 @@
 
 // -- Configuration ------------------------------------------------------------
 
-@import "./../node_modules/material-design-lite/src/color-definitions";
+@import "../../node_modules/material-design-lite/src/color-definitions";
 $image_path: "./images" !default;
 @import "./configuration.default";
 
 // -- Material Design Lite -----------------------------------------------------
 
-@import "./../node_modules/material-design-lite/src/material-design-lite";
+@import "../../node_modules/material-design-lite/src/material-design-lite";
 
 // -- Own MDL Extensions -------------------------------------------------------
 
 @import "./mdl-extension/all";
+
+// -- Other Extensions -------------------------------------------------------
+
+@import "./gui-extension/all";
 
 // -- Changes ------------------------------------------------------------------
 

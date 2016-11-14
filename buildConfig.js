@@ -15,10 +15,13 @@ module.exports = {
             },
         },
         production: {
-            entry: './index.js',
+            entry: {
+                'component': './index.js',
+                'style-core': './style/style-core.js',
+            },
             output: {
                 path: path.join(__dirname, 'es5'),
-                filename: 'component.js',
+                filename: '[name].js',
                 libraryTarget: 'commonjs2',
             },
         },

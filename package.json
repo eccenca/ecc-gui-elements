@@ -10,11 +10,9 @@
     "lint": "gulp lint",
     "cover": "gulp cover",
     "start": "gulp",
-    "build": "gulp build",
-    "copy-mdi": "mkdir -p dist/fonts/materialicons && cp -fru node_modules/material-design-icons/iconfont/* dist/fonts/materialicons",
-    "copy-roboto": "mkdir -p dist/fonts/roboto && cp -fru node_modules/roboto/fonts/* dist/fonts/roboto",
+    "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
-    "prepublish": "git submodule update --init --recursive && npm run init && gulp vis && npm run copy-mdi && npm run copy-roboto && gulp && npm run build"
+    "prepublish": "git submodule update --init --recursive && gulp full-build"
   },
   "repository": {
     "type": "git",
@@ -25,7 +23,6 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "ecc-messagebus": "^3.3.2",
-    "ecc-style-core": "^1.7.3",
     "emitter-component": "^1.1.1",
     "hammerjs": "^2.0.6",
     "keycharm": "^0.2.0",
@@ -35,25 +32,22 @@
     "propagating-hammerjs": "^1.4.6",
     "react-mdl": "1.5.2",
     "react-select": "1.0.0-rc.2",
+    "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0",
     "vis": "4.16.1"
   },
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
-    "ecc-dotfiles": "^1.6.0",
+    "ecc-dotfiles": "^1.8.0",
     "ecc-gulp-tasks": "^3.0.0-alpha",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^15.0.0",
     "ecc-uitest-helpers": "^15.0.1",
     "gulp": "^3.9.0",
-    "gulp-insert": "^0.5.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-replace": "^0.5.4",
-    "gulp-sass": "^2.1.1",
+    "gulp-sequence": "^0.4.6",
     "material-design-icons": "git://github.com/google/material-design-icons#2.2.3",
     "node-sass": "^3.4.0",
-    "roboto": "git://github.com/FontFaceKit/roboto.git#v1.1.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   }

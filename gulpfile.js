@@ -1,5 +1,11 @@
 var gulp = require('ecc-gulp-tasks')(require('./buildConfig.js'));
+var gulpSequence = require('gulp-sequence');
 
+gulp.task('default', ['debug', 'serve']);
+
+gulp.task('full-build', gulpSequence(['vis', 'icontable'], 'build', 'copy-style-core'));
+
+});
 
 gulp.task('vis', function(cb) {
     var _ = require('lodash');
@@ -27,72 +33,34 @@ gulp.task('vis', function(cb) {
     fs.writeFile('./package.json', JSON.stringify(p, null, 2) + "\n", cb);
 });
 
-gulp.task('default', ['debug', 'serve']);
+gulp.task('icontable', function(cb) {
 
-gulp.task('sass', function () {
-    var path = require('path');
-    var sass = require('gulp-sass');
-    var rename = require("gulp-rename");
+    var fs = require('fs');
 
-    var nodeModules = path.join(process.cwd(), 'node_modules')
+    fs.readFile('./node_modules/material-design-icons/iconfont/codepoints', 'utf8', function(err, data) {
 
-    return gulp.src('./src/main.node.scss')
-        .pipe(sass({
-            importer : function(url, prev, done){
+        if (err) {
+            cb(err);
+        }
 
-                if(url.indexOf('~') === 0){
+        var result = {};
 
-                    url = path.join(nodeModules, url.substr(1));
-                    console.log('Resolved file to: ' + url);
-
-                }
-
-                done({file: url})
-
+        data.split('\n').forEach(function(line) {
+            if (/^\s*$/.test(line)) {
+                return;
             }
-        }).on('error', sass.logError))
-        .pipe(rename("main.css"))
-        .pipe(gulp.dest('./dist'));
+            var split = line.split(' ');
+
+            result[split[0]] = split[1];
+
+        });
+
+        fs.writeFile('./icontable.json', JSON.stringify(result, null, 2) + '\n', cb);
+    });
+
 });
 
-gulp.task('icontable', function () {
-
-    //var csv = require('gulp-csvtojson');
-    var rename = require('gulp-rename');
-
-    /* TODO:
-       Using insert and replace as workaround as long as gulp-csvtojson doesn't
-       use recent csvtojson version that offers more options and callbacks.
-    */
-    var insert = require('gulp-insert');
-    var replace = require('gulp-replace');
-
-    return gulp.src('./dist/fonts/materialicons/codepoints')
-        .pipe(
-            replace(' ', '":"&#x')
-        )
-        .pipe(
-            replace('\n', '","')
-        )
-        .pipe(
-            insert.wrap('{"','"}')
-        )
-        .pipe(
-            replace(',""}', '}')
-        )
-        /*
-        .pipe(csv({
-            constructResult: false,
-            checkType: false,
-            delimiter: ' ',
-            noheader: true,
-            headers:['ligatur','charcode'],
-            trim: true,
-        }))
-        */
-        .pipe(rename("icontable.json"))
-        .pipe(gulp.dest('./dist/fonts/materialicons'));
+gulp.task('copy-style-core', function(){
+    return gulp.src('./style/style-core.js')
+        .pipe(gulp.dest('./es5'));
 });
-
-// TODO: Move to new task
-// gulp.task('default', ['sass', 'icontable']);

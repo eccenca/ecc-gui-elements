@@ -8,6 +8,8 @@
 # ignore node_modules and debug log
 node_modules/
 npm-debug.log
+yarn-error.log
+yarn.lock
 
 # ignore git
 .git/
@@ -38,5 +40,3 @@ gulpfile.js
 .idea/
 
 #END
-
-css/
