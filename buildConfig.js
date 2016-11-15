@@ -15,16 +15,12 @@ module.exports = {
             },
         },
         production: {
-            entry: {
-                'component': './index.js',
-                'style-core': './style/style-core.js',
-            },
+            entry: './index.js',
             output: {
                 path: path.join(__dirname, 'es5'),
                 filename: '[name].js',
                 libraryTarget: 'commonjs2',
-            },
-            prependSCSS: 'component.js',
+            }
         },
     },
     lintingFiles: [

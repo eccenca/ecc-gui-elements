@@ -14,6 +14,7 @@
 
 // -- Material Design Lite -----------------------------------------------------
 
+$image_path: "./images";
 @import "~material-design-lite/src/material-design-lite";
 
 // -- Material Design Stepper Polyfill -----------------------------------------
@@ -37,5 +38,6 @@
 
 // -- Fonts --------------------------------------------------------------------
 
+$FontRoot: "./fonts" !default;
 @import "./roboto";
 @import "./iconfont";

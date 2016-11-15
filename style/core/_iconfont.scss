@@ -1,11 +1,14 @@
+
+$FontRoot: "fonts" !default;
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
   font-weight: 400;
-  src: url('~material-design-icons/iconfont/MaterialIcons-Regular.eot'); /* For IE6-8 */
-  src: url('~material-design-icons/iconfont/MaterialIcons-Regular.woff2') format('woff2'),
-       url('~material-design-icons/iconfont/MaterialIcons-Regular.woff') format('woff'),
-       url('~material-design-icons/iconfont/MaterialIcons-Regular.ttf') format('truetype');
+  src: url('#{$FontRoot}/iconfont/MaterialIcons-Regular.eot'); /* For IE6-8 */
+  src: url('#{$FontRoot}/iconfont/MaterialIcons-Regular.woff2') format('woff2'),
+       url('#{$FontRoot}/iconfont/MaterialIcons-Regular.woff') format('woff'),
+       url('#{$FontRoot}/iconfont/MaterialIcons-Regular.ttf') format('truetype');
 }
 
 .material-icons {
