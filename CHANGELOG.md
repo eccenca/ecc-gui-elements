@@ -8,6 +8,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 - TODO: Describe Breaking CHANGE Checkbox and Switch
 - TODO: Describe Pagination Changes
 
+## [1.17.1] 2016-11-15
+### Fixed
+- Missing mdl icons are now shown again 
+
+### Changed
+- bumped `ecc-uitest-helpers`
+
 ## [1.17.0] 2016-11-15
 ### Changed
 - Merged `ecc-style-core@1.7.5` into this project, with complete history.
