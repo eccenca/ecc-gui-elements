@@ -14,7 +14,7 @@
 
 // -- Material Design Lite -----------------------------------------------------
 
-$image_path: "./images";
+$image_path: "./images" !default;
 @import "~material-design-lite/src/material-design-lite";
 
 // -- Material Design Stepper Polyfill -----------------------------------------
