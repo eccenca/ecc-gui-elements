@@ -86,7 +86,7 @@ const Icon = React.createClass({
 
         let icon = (
                 <i className={classes} {...otherProps}
-                  dangerouslySetInnerHTML={{__html: name}} />
+                  dangerouslySetInnerHTML={{__html: `&#x${name};`}} />
         );
 
         if (tooltip) {
