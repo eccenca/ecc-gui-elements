@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [Unreleased]
+### Fixed
+- Missing mdl icons are now shown again 
+
+### Changed
+- bumped `ecc-uitest-helpers`
+
 ## [1.17.0] 2016-11-15
 ### Changed
 - Merged `ecc-style-core@1.7.5` into this project, with complete history.
