@@ -1,15 +1,13 @@
-$FontRoot: "fonts" !default;
-$FontPath: "#{$FontRoot}/roboto" !default;
-$FontName: "Roboto" !default;
+$font_root: "fonts" !default;
 
-@mixin fontdef($FontType:"Regular", $FontWeight:400, $FontStyle: normal) {
+@mixin fontdef($font_type:"Regular", $font_weight:400, $font_style: normal) {
     @font-face {
         font-family: Roboto;
-        src: url('#{$FontPath}/#{$FontType}/#{$FontName}-#{$FontType}.woff2') format('woff2'),
-        url('#{$FontPath}/#{$FontType}/#{$FontName}-#{$FontType}.woff') format('woff'),
-        url('#{$FontPath}/#{$FontType}/#{$FontName}-#{$FontType}.ttf') format('truetype');
-        font-weight: $FontWeight;
-        font-style: $FontStyle;
+        src: url('#{$font_root}/roboto/#{$font_type}/Roboto-#{$font_type}.woff2') format('woff2'),
+        url('#{$font_root}/roboto/#{$font_type}/Roboto-#{$font_type}.woff') format('woff'),
+        url('#{$font_root}/roboto/#{$font_type}/Roboto-#{$font_type}.ttf') format('truetype');
+        font-weight: $font_weight;
+        font-style: $font_style;
     }
 }
 

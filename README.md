@@ -381,23 +381,22 @@ Includes libraries from:
 - [Material Design icons](http://google.github.io/material-design-icons/)
 - [Roboto Font](https://github.com/FontFaceKit/roboto)
 
-### Usage with Node (webpack)
+### via scss
 
-```js
-//Import javascript module (preferred method):
-import 'ecc-gui-elements/style/core';`
-//Require scss directly
-require('ecc-gui-elements/style/core/main.webpack.scss');
+Add this into your main scss.
+
+```scss
+@import '~ecc-gui-elements/src/main';
 ```
 
-### Use style configuration in your modules
+### configuration via scss
 
 You can import the global default configuration by using it from `ecc-gui-elements`:
 
 ```scss
-@import '~ecc-gui-elements/style/core/configuration.default';
+@import '~ecc-gui-elements/src/configuration.default';
 ```
 
-### Usage of compiled css
+### via css
 
 - Copy `/dist` folder and use `style-core.css`

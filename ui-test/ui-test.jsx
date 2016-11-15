@@ -5,8 +5,6 @@ import _ from 'lodash';
 // test styles
 import '../style/test.scss';
 
-import '../style/core/main.webpack.scss';
-
 // component
 import {
     Alert,

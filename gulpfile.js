@@ -84,7 +84,7 @@ gulp.task('sass-compile', function(cb) {
     var path = require('path');
     var sass = require('node-sass');
     sass.render({
-        file: './style/core/main.node.scss',
+        file: './style/core/main.build-css.scss',
         importer: function importer(url, prev, done) {
             if (url[0] === '~') {
                 url = path.resolve(path.join(__dirname, 'node_modules'), url.substr(1));
