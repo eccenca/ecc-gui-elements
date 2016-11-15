@@ -8,6 +8,7 @@
 # node && npm
 node_modules/
 npm-debug.log
+yarn-error.log
 
 # ignore symlinks
 .babelrc
