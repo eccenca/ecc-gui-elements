@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.17.0] 2016-11-15
+### Changed
+- Merged `ecc-style-core@1.7.5` into this project, with complete history.
+  You can find the `ecc-style-core` changelog at the end of this file.
+
 ## [1.16.4] 2016-11-07
 ### Fixed
 - readd `Tabs` className
@@ -105,3 +110,45 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Changed
 - Upgrade React development version to v15.
 - Upgrade devvtools.
+
+## ecc-style-core history
+
+`ecc-style-core` was merged into this project. You can find the history here:
+
+### [ecc-style-core@1.7.5] 2016-09-27
+
+#### Fixed
+- Improve visibility of tooltips by darker background and light border
+
+### [ecc-style-core@1.7.4] 2016-09-21
+
+#### Fixed
+- (Workaround) do not show tooltips for disabled buttons, @see https://openproject.brox.de/work_packages/11918
+
+### [ecc-style-core@1.7.3] 2016-09-13
+
+#### Fixed
+- Disabled animation of tooltips, as it causes problems in Chrome 53
+
+### [ecc-style-core@1.7.2] 2016-09-12
+
+#### Fixed
+- Fix Page Size Selection in Pagination in Chrome
+
+### [ecc-style-core@1.7.1] 2016-09-12
+
+#### Fixed
+- Tooltips are not blurry anymore in Chrome 53
+
+### [ecc-style-core@1.7.0] 2016-09-08
+
+#### Added
+- basic styles for Pagination element
+
+### [ecc-style-core@1.6.0] 2016-06-27
+
+#### Added
+- Added `ecc-dotfiles` dev dependency
+
+#### Removed
+- `mdl-stepper` dependency due to license problems. Was not used anyway
