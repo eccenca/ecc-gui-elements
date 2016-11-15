@@ -395,7 +395,7 @@ require('ecc-gui-elements/style/core/main.webpack.scss');
 You can import the global default configuration by using it from `ecc-gui-elements`:
 
 ```scss
-@import '~ecc-gui-elements/style/core/_configuration.default';
+@import '~ecc-gui-elements/style/core/configuration.default';
 ```
 
 ### Usage of compiled css

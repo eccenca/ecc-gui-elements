@@ -18,9 +18,9 @@ module.exports = {
             entry: './index.js',
             output: {
                 path: path.join(__dirname, 'es5'),
-                filename: '[name].js',
+                filename: 'component.js',
                 libraryTarget: 'commonjs2',
-            }
+            },
         },
     },
     lintingFiles: [

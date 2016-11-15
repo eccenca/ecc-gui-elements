@@ -12,7 +12,7 @@
     "start": "gulp",
     "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
-    "prepublish": "git submodule update --init --recursive && gulp full-build"
+    "prepublish": "git submodule update --init --recursive && ecc-link-dotfiles && gulp full-build"
   },
   "repository": {
     "type": "git",
