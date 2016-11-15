@@ -1830,6 +1830,23 @@ ecc-dotfiles@^1.8.0:
   dependencies:
     fs-extra "^0.30.0"
 
+ecc-gui-elements@^1.17.0:
+  version "1.17.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gui-elements/-/ecc-gui-elements-1.17.0.tgz#48ac6e01cb32a624999493f2356cacc5c77f23d8"
+  dependencies:
+    classnames "^2.2.5"
+    ecc-messagebus "^3.3.2"
+    emitter-component "^1.1.1"
+    hammerjs "^2.0.6"
+    keycharm "^0.2.0"
+    lodash "^4.16.4"
+    material-design-lite "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed"
+    moment "^2.12.0"
+    propagating-hammerjs "^1.4.6"
+    react-mdl "1.5.2"
+    react-select "1.0.0-rc.2"
+    vis "4.16.1"
+
 ecc-gulp-tasks@^3.0.0-alpha.4:
   version "3.0.0-alpha.4"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gulp-tasks/-/ecc-gulp-tasks-3.0.0-alpha.4.tgz#b976eb75a65e87643610c0cc1c7475cc2ff99b50"
@@ -1946,12 +1963,6 @@ ecc-store-titlehelper@^3.7.0:
     lodash "^3.10.1"
     lscache "^1.0.5"
 
-ecc-style-core@^1.5.0:
-  version "1.7.5"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-style-core/-/ecc-style-core-1.7.5.tgz#775487cf578ed87025c59ec20392a210966ea49d"
-  dependencies:
-    material-design-lite "git://github.com/eccenca/material-design-lite.git#v1.1.3-fixed"
-
 ecc-superagent@^1.0.0, ecc-superagent@^1.1.0:
   version "1.1.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-superagent/-/ecc-superagent-1.1.0.tgz#a4fa282e39db560505b328d22a17c6d7a3095f25"
@@ -1973,16 +1984,16 @@ ecc-test-helpers@^15.0.0:
     react-dom "^15.0.0"
     should "^10.0.0"
 
-ecc-uitest-helpers@^15.0.1:
-  version "15.2.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-uitest-helpers/-/ecc-uitest-helpers-15.2.1.tgz#dbf231eec3a6062d377e2262734bbc622f290457"
+ecc-uitest-helpers@^15.3.0:
+  version "15.3.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-uitest-helpers/-/ecc-uitest-helpers-15.3.0.tgz#cd7c6c623a9ba1fb70cbf2ffd9b8606c91edf597"
   dependencies:
     babel-polyfill "^6.3.14"
+    ecc-gui-elements "^1.17.0"
     ecc-messagebus "^3.3.0"
     ecc-store-auth "^7.0.2"
     ecc-store-sparql "^4.3.0"
     ecc-store-titlehelper "^3.7.0"
-    ecc-style-core "^1.5.0"
     intl "^1.0.0"
     lodash "^4.0.1"
     react "^15.0.0"

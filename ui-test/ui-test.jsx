@@ -604,4 +604,4 @@ const Page = React.createClass({
     },
 });
 
-render({Component: Page});
+render({Component: Page, importCoreStyles: false});
