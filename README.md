@@ -372,7 +372,7 @@ const Page = React.createClass({
 });
 ```
 
-## Eccenca style core (ecc-style-core)
+## Usage of core styles
 
 Style core for all projects.
 Includes libraries from:
@@ -381,24 +381,23 @@ Includes libraries from:
 - [Material Design icons](http://google.github.io/material-design-icons/)
 - [Roboto Font](https://github.com/FontFaceKit/roboto)
 
-### Usage with Node
+### Usage with Node (webpack)
 
-- Install into your app `npm install --save ecc-style-core`.
-- Import in your bootstrapper with `import 'ecc-style-core';`, or
-- Use Webpack's `require` method with `src/main.node.scss`.
+```js
+//Import javascript module (preferred method):
+import 'ecc-gui-elements/style/core';`
+//Require scss directly
+require('ecc-gui-elements/style/core/main.webpack.scss');
+```
 
-#### Use style configuration in your modules
+### Use style configuration in your modules
 
-You can import the global default configuration by using it from ``ecc-style-core``:
+You can import the global default configuration by using it from `ecc-gui-elements`:
 
-1. install node module: ``npm install ecc-style-core --save``
-2. import it your component SCSS file: ``@import '~ecc-style-core/src/configuration.default'``
+```scss
+@import '~ecc-gui-elements/style/core/_configuration.default';
+```
 
-### Usage with Sass CLI tools
+### Usage of compiled css
 
-There are two main CLI tools for Sass:
-
-- [Ruby Sass](https://github.com/sass/sass): install it by `gem install sass`
-- [Node Sass](https://github.com/sass/node-sass): install it by `npm install -g node-sass` (appr. 20 times faster than Ruby Sass)
-
-Always use `src/main.sass.scss` as import or source.
+- Copy `/dist` folder and use `style-core.css`
