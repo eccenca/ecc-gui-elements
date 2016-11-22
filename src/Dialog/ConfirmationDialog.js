@@ -11,12 +11,19 @@ const ConfirmationDialog = React.createClass({
         className: React.PropTypes.string,
         modal: React.PropTypes.bool,
         size: React.PropTypes.string,
-        cancelButton: React.PropTypes.element.isRequired,
-        confirmButton: React.PropTypes.element.isRequired,
+        cancelButton: React.PropTypes.any.isRequired,
+        confirmButton: React.PropTypes.any.isRequired,
         title: React.PropTypes.node
     },
     // template rendering
     render() {
+        const buttons = [];
+        if (React.isValidElement(this.props.cancelButton)) {
+            buttons.push(this.props.cancelButton);
+        }
+        if (React.isValidElement(this.props.confirmButton)) {
+            buttons.push(this.props.confirmButton);
+        }
         // push data with formatted buttons to base dialog
         return (
             <BaseDialog
@@ -25,10 +32,7 @@ const ConfirmationDialog = React.createClass({
                 modal={this.props.modal}
                 size={this.props.size}
                 title={this.props.title}
-                buttonRow={[
-                    this.props.cancelButton,
-                    this.props.confirmButton
-                ]}
+                buttonRow={buttons}
             >
                 {this.props.children}
             </BaseDialog>
