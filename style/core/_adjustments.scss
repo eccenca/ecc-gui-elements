@@ -1,0 +1,43 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ *
+ * Adjustments that we cannot do by configuration.
+ */
+
+html, body {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+html {
+    background-color: $layout-bg-color
+}
+
+h1 {
+    font-size: $ecc-typo-display-3-font-size;
+}
+
+h2 {
+    font-size: $ecc-typo-display-2-font-size;
+}
+
+h3 {
+    font-size: $ecc-typo-display-1-font-size;
+}
+
+h4 {
+    font-size: $ecc-typo-headline-font-size;
+}
+
+h5 {
+    font-size: $ecc-typo-title-font-size;
+}
+
+h6 {
+    font-size: $ecc-typo-subhead-font-size;
+}
+
+// -- Other patches ------------------------------------------------------------
+
+@import "./patches";

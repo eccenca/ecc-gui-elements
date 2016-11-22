@@ -370,3 +370,33 @@ const Page = React.createClass({
     },
     // ....
 });
+```
+
+## Usage of core styles
+
+Style core for all projects.
+Includes libraries from:
+
+- [Material Design Lite (forked)](https://github.com/eccenca/material-design-lite)
+- [Material Design icons](http://google.github.io/material-design-icons/)
+- [Roboto Font](https://github.com/FontFaceKit/roboto)
+
+### via scss
+
+Add this into your main scss.
+
+```scss
+@import '~ecc-gui-elements/src/main';
+```
+
+### configuration via scss
+
+You can import the global default configuration by using it from `ecc-gui-elements`:
+
+```scss
+@import '~ecc-gui-elements/src/configuration.default';
+```
+
+### via css
+
+- Copy `/dist` folder and use `style-core.css`

@@ -4,6 +4,7 @@ import render from 'ecc-uitest-helpers';
 import _ from 'lodash';
 // test styles
 import '../style/test.scss';
+
 // component
 import {
     Alert,
@@ -603,4 +604,4 @@ const Page = React.createClass({
     },
 });
 
-render({Component: Page});
+render({Component: Page, importCoreStyles: false});

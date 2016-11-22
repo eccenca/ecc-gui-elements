@@ -60,7 +60,7 @@ const Icon = React.createClass({
         const {className, otherProps} = this.props;
 
         // change ligatures to char codes for browser compatibility (eg for IE9)
-        const ligaturcodes = require('ecc-style-core/dist/fonts/materialicons/icontable.json');
+        const ligaturcodes = require('../icontable.json');
 
         let name = this.props.name;
         let tooltip = this.props.tooltip;
@@ -86,7 +86,7 @@ const Icon = React.createClass({
 
         let icon = (
                 <i className={classes} {...otherProps}
-                  dangerouslySetInnerHTML={{__html: name}} />
+                  dangerouslySetInnerHTML={{__html: `&#x${name};`}} />
         );
 
         if (tooltip) {

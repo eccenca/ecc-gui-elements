@@ -1,0 +1,53 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.mdl-textfield--reduced {
+    padding-bottom: 0;
+    
+    .mdl-textfield__label:after {
+        bottom: 0;
+    }
+}
+
+.mdl-textfield--clearable {
+    position: relative;
+    
+    .mdl-textfield__input {
+        box-sizing: border-box;
+        padding-right: 32px;
+    }
+}
+
+.mdl-input__clearable-holder {
+    display: block;
+    left: 100%;
+    margin-left: -32px;
+    position: relative;
+    top: 20px;
+
+    .mdl-button--icon {
+        opacity: 0.5;
+        
+        &:focus, &:hover {
+            opacity: 1;
+            background-color: transparent;
+        }
+    }
+}
+
+.mdl-textfield__input[readonly] {
+
+    cursor: normal;
+    color: rgba(0, 0, 0, 0.54);
+
+    & + .mdl-textfield__label {
+        color: rgba(0, 0, 0, 0.26);
+        
+        &:after {
+            display: none;
+        }
+    }
+}

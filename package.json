@@ -1,18 +1,18 @@
 {
   "name": "ecc-gui-elements",
-  "version": "1.16.2",
-  "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts.",
+  "version": "1.17.2",
+  "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
   "es6": "index.js",
   "scripts": {
-    "test": "gulp test",
+    "test": "gulp full-test",
     "lint": "gulp lint",
     "cover": "gulp cover",
     "start": "gulp",
-    "build": "gulp build",
+    "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
-    "prepublish": "git submodule update --init --recursive && npm run init && gulp vis && npm run build"
+    "prepublish": "git submodule update --init --recursive && ecc-link-dotfiles && gulp full-build"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,6 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "ecc-messagebus": "^3.3.2",
-    "ecc-style-core": "^1.7.3",
     "emitter-component": "^1.1.1",
     "hammerjs": "^2.0.6",
     "keycharm": "^0.2.0",
@@ -39,12 +38,16 @@
     "react": "^0.14.0 || ^15.0.0"
   },
   "devDependencies": {
-    "ecc-dotfiles": "^1.6.0",
-    "ecc-gulp-tasks": "^3.0.0-alpha",
+    "ecc-dotfiles": "^1.8.0",
+    "ecc-gulp-tasks": "^3.0.0-alpha.4",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^15.0.0",
-    "ecc-uitest-helpers": "^15.0.1",
+    "ecc-uitest-helpers": "^15.3.0",
     "gulp": "^3.9.0",
+    "gulp-download-stream": "^0.0.13",
+    "gulp-rename": "^1.2.2",
+    "gulp-sequence": "^0.4.6",
+    "node-sass": "^3.4.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   }
