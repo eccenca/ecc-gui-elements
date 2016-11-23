@@ -44,3 +44,115 @@
 .contextmenu-container {
   position: relative;
 }
+
+// most of it should be deprecated if mdl will be upgraded and has native "chip" support
+.mdl-chip {
+
+    height: 32px;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    line-height: 32px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 16px;
+    background-color: rgb(222, 222, 222);
+    display: inline-block;
+    color: unquote("rgba(0,0,0,0.87)");
+    margin: 2px 0;
+    font-size: 0;
+    white-space: nowrap;
+
+    &__text {
+        font-size: 13px;
+        vertical-align: middle;
+        display: inline-block;
+    }
+
+    &__contact {
+        height: 32px;
+        width: 32px;
+        border-radius: 16px;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 8px;
+        overflow: hidden;
+        text-align: center;
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    &:focus {
+        outline: 0;
+        //@include shadow-2dp();
+    }
+
+    // let this here as enhancement for this component only
+
+    &:active {
+        background-color: rgb(214, 214, 214);
+    }
+    &--contact {
+        padding-left: 0;
+    }
+
+    // if chip is used as cell in a table
+
+    td & {
+        max-width: 100%;
+        box-sizing: border-box;
+        display: flex;
+        width: fit-content;
+
+        &__contact {
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+
+        &__text {
+            flex-shrink: 1;
+            flex-grow: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+
+    // left-sided icon background color
+    .chip-icon-blue {
+        background-color: #BBDEFB;
+    }
+    .chip-icon-green {
+        background-color: #C8E6C9;
+    }
+    .chip-icon-dark-green {
+        background-color: #C5E1A5;
+    }
+    .chip-icon-blue-grey {
+        background-color: #B0BEC5;
+    }
+    .chip-icon-red {
+        background-color: #EF9A9A;
+    }
+    .chip-icon-yellow {
+        background-color: #FFF59D;
+    }
+    // chip custom colors
+    &--blue {
+        background-color: #E3F2FD;
+    }
+    &--green {
+        background-color: #E8F5E9;
+    }
+    &--green-light {
+        background-color: #C5E1A5;
+    }
+    &--text-blue {
+        color: #0A67A3;
+    }
+    &--text-green {
+        color: #2E7D32;    
+    }
+}
+
+.cursor-as-hand {
+    cursor: pointer;
+    cursor: hand;
+}

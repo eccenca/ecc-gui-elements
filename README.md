@@ -24,6 +24,7 @@ Consists of
 - `Version`: A normalised string output of product version
 - `Pagination`: A page control element
 - `TextField`: A TextField with floating label. Wrapper around [React-MDL Textfield]()
+- `Chip`: A chip element for visualized status
 
 ## Usage
 
@@ -102,6 +103,27 @@ const Page = React.createClass({
             <Checkbox checked>
                 <div className="test">Checkbox 3 Text</div>
             </Checkbox>
+        )
+    },
+    // ....
+});
+```
+
+### Chip
+
+```js
+import { Chip} from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Chip
+                label={chip text}
+                onClick={() => console.log('chip clicked')}
+                className={bg-chip-green},
+                iconContent={'H'},
+                iconClassName={'tc-icon-white'}
+            />
         )
     },
     // ....

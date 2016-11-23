@@ -33,12 +33,14 @@ import Version from './src/Version';
 import Pagination from './src/Pagination';
 import SelectBox from './src/Input/SelectBox';
 import TextField from './src/Input/TextField';
+import Chip from './src/Chip';
 
 export default {
     MaterialMixin,
     Alert,
     Button,
     Checkbox,
+    Chip,
     ContextMenu,
     SelectBox,
     Error,
