@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [1.17.3] 2016-11-24
+### Changed
+- Reverted Changes to Confirmation Dialog, as a Confirmation Dialog should always have two buttons [per spec](https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs).
+
 ## [1.17.1] 2016-11-15
 ### Fixed
 - Missing mdl icons are now shown again 
