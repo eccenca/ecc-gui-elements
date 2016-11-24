@@ -120,7 +120,7 @@ const Page = React.createClass({
             <Chip
                 label={chip text}
                 onClick={() => console.log('chip clicked')}
-                className={bg-chip-green},
+                className={'bg-chip-green'},
                 iconContent={'H'},
                 iconClassName={'tc-icon-white'}
             />
