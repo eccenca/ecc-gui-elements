@@ -72,6 +72,7 @@ const Page = React.createClass({
             paginationLimit: 3,
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
+            selectBox3: '',
             textInput: ['5'],
             switches: [false, true, undefined, undefined, true, false],
         };
@@ -114,6 +115,10 @@ const Page = React.createClass({
     selectBox2OnChange(value) {
         console.log('SelectBox onChange: ', value);
         this.setState({selectBox2: value});
+    },
+    selectBox3OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox3: value});
     },
     updateSwitch(index, {value}) {
         const switches = _.clone(this.state.switches);
@@ -499,6 +504,19 @@ const Page = React.createClass({
                         options={['label1', 3, 8]}
                         value={this.state.selectBox2}
                         onChange={this.selectBox2OnChange}
+                    />
+                    <h5>multiple selections with option to create new entries</h5>
+                    <SelectBox
+                        placeholder={'No Value'}
+                        options={['label1', 3, 8]}
+                        value={this.state.selectBox3}
+                        onChange={this.selectBox3OnChange}
+                        multi={true}
+                        clearable={false}
+                        creatable={true}
+                        promptTextCreator={
+                            (newLabel) => `New freaking Stuff called: ${newLabel}`
+                        }
                     />
                 </div>
             </div>

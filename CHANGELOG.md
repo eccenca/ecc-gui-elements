@@ -7,6 +7,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 - Disabled buttons do not show their tooltip anymore
 - TODO: Describe Breaking CHANGE Checkbox and Switch
 - TODO: Describe Pagination Changes
+- `Selectbox` now support multi selection and new value creation
 
 ## [1.17.1] 2016-11-15
 ### Fixed
