@@ -296,6 +296,7 @@ const Page = React.createClass({
                 value={this.state.value}
                 onChange={this.selectBoxOnChange}
                 creatable={true} // allow creation of new values
+                promptTextCreator={(newLabel) => ('New stuff: ' + newLabel)} // change default "Create option 'newLabel'" to "New stuff: 'newLabel'"
                 multi={true} // allow multi selection
                 clearable={false} // hide 'remove all selected values' button
             />

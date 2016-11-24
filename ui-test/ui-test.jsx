@@ -514,6 +514,9 @@ const Page = React.createClass({
                         multi={true}
                         clearable={false}
                         creatable={true}
+                        promptTextCreator={
+                            (newLabel) => `New freaking Stuff called: ${newLabel}`
+                        }
                     />
                 </div>
             </div>
