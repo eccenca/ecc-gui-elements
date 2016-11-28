@@ -3,6 +3,21 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Breaking
+-   Removed `<Dialog>`. Please use `<ConfirmationDialog>` or `<BaseDialog>` instead:
+
+    ```jsx    
+    //Converting old Dialog to ConfirmationDialog:
+    <Dialog cancelButton={...} confirmButton={...}/>
+    // =>
+    <ConfirmationDialog cancelButton={...} confirmButton={...}/>
+    
+    //If you used Dialog with just one button, please use BaseDialog instead:
+    <Dialog confirmButton={this.exampleButton}/>
+    // =>
+    <BaseDialog buttonRow={[this.exampleButton]}/>
+    ```
+    
 ### Changed
 - Disabled buttons do not show their tooltip anymore
 - TODO: Describe Breaking CHANGE Checkbox and Switch
