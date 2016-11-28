@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Breaking
 -   Removed `<Dialog>`. Please use `<ConfirmationDialog>` or `<BaseDialog>` instead:
 
-    ```jsx    
+    ```jsx
     //Converting old Dialog to ConfirmationDialog:
     <Dialog cancelButton={...} confirmButton={...}/>
     // =>
@@ -18,11 +18,54 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
     <BaseDialog buttonRow={[this.exampleButton]}/>
     ```
     
+-   Checkbox/Switch have been changed to a controlled input.
+    
+    Furthermore the onChange function has been changed:
+
+    ```jsx
+    //New Usage
+    
+    let isChecked = false;
+    
+    const handleChange(data) => {
+    
+        const {
+            //contains the react synthetic event
+            event,
+            //contains the content of the value prop
+            rawValue,
+            // contains true or false
+            value,
+        } = data;
+    
+        isChecked = value;
+    
+    }
+
+    <Checkbox
+        onChange={handleChange}
+        checked={isChecked}
+        value="foo"
+    />
+    ```
+
+-   Pagination has now a simpler onChange handler:
+
+    ```jsx
+    //before
+    <Pagination
+        handleNewLimit={(limit) => console.log(limit)}  
+        handleNewOffset={(offset) => console.log(offset)}
+    />
+    //after
+    <Pagination
+        onChange={({offset, limit}) => console.log(offset, limit)}  
+    />
+    ```
+
 ### Changed
 - Disabled buttons do not show their tooltip anymore
-- TODO: Describe Breaking CHANGE Checkbox and Switch
-- TODO: Describe Pagination Changes
-- `Selectbox` now support multi selection and new value creation
+- `SelectBox` now support multi selection and new value creation
 
 ## [1.17.1] 2016-11-15
 ### Fixed
