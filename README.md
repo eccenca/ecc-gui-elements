@@ -278,7 +278,6 @@ The SelectBox behaves like a [controlled input](https://facebook.github.io/react
 import { SelectBox } from 'ecc-gui-elements';
 
 const Page = React.createClass({
-
     getInitialState(){
       return {
           value: 8,
@@ -296,13 +295,21 @@ const Page = React.createClass({
                 options={['label1', 3]}
                 value={this.state.value}
                 onChange={this.selectBoxOnChange}
+                creatable={true} // allow creation of new values
+                promptTextCreator={(newLabel) => ('New stuff: ' + newLabel)} // change default "Create option 'newLabel'" to "New stuff: 'newLabel'"
+                multi={true} // allow multi selection
+                clearable={false} // hide 'remove all selected values' button
             />
         )
     },
-    // ....
 });
 
 ```
+Note:
+
+- if objects are used in multi selectable options you can add {"clearableValue": false} to it to hide delete button for this specifc object
+
+- if "creatable" is set new values will be applied on Enter, Tab and Comma (",")
 
 ### Tabs
 

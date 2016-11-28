@@ -2,6 +2,71 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.0.0] 2016-11-28
+### Breaking
+-   Removed `<Dialog>`. Please use `<ConfirmationDialog>` or `<BaseDialog>` instead:
+
+    ```jsx
+    //Converting old Dialog to ConfirmationDialog:
+    <Dialog cancelButton={...} confirmButton={...}/>
+    // =>
+    <ConfirmationDialog cancelButton={...} confirmButton={...}/>
+    
+    //If you used Dialog with just one button, please use BaseDialog instead:
+    <Dialog confirmButton={this.exampleButton}/>
+    // =>
+    <BaseDialog buttonRow={[this.exampleButton]}/>
+    ```
+    
+-   Checkbox/Switch have been changed to a controlled input.
+    
+    Furthermore the onChange function has been changed:
+
+    ```jsx
+    //New Usage
+    
+    let isChecked = false;
+    
+    const handleChange(data) => {
+    
+        const {
+            //contains the react synthetic event
+            event,
+            //contains the content of the value prop
+            rawValue,
+            // contains true or false
+            value,
+        } = data;
+    
+        isChecked = value;
+    
+    }
+
+    <Checkbox
+        onChange={handleChange}
+        checked={isChecked}
+        value="foo"
+    />
+    ```
+
+-   Pagination has now a simpler onChange handler:
+
+    ```jsx
+    //before
+    <Pagination
+        handleNewLimit={(limit) => console.log(limit)}  
+        handleNewOffset={(offset) => console.log(offset)}
+    />
+    //after
+    <Pagination
+        onChange={({offset, limit}) => console.log(offset, limit)}  
+    />
+    ```
+
+### Changed
+- Disabled buttons do not show their tooltip anymore
+- `SelectBox` now support multi selection and new value creation
+
 ## [1.17.3] 2016-11-24
 ### Changed
 - Reverted Changes to Confirmation Dialog, as a Confirmation Dialog should always have two buttons [per spec](https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs).

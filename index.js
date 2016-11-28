@@ -15,7 +15,6 @@ import Alert from './src/Alert/Alert';
 import Button from './src/Button';
 import Checkbox from './src/Input/Checkbox';
 import Error from './src/Alert/Error';
-import Dialog from './src/Dialog/Dialog';
 import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
 import BaseDialog from './src/Dialog/BaseDialog';
 import Icon from './src/Icon';
@@ -42,7 +41,6 @@ export default {
     ContextMenu,
     SelectBox,
     Error,
-    Dialog,
     ConfirmationDialog,
     BaseDialog,
     Icon,
