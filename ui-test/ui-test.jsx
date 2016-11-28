@@ -31,16 +31,9 @@ import {
 const Page = React.createClass({
     getInitialState() {
         return {
-            textInput: ['5'],
         };
     },
-    updateTextInput(index, {value}) {
-        const textInput = _.clone(this.state.textInput);
-        textInput[index] = value;
-        this.setState({
-            textInput,
-        });
-    },
+
     // template rendering
     render() {
 
@@ -60,7 +53,7 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestButtons />,
             <hr className="mdl-layout-spacer"/>,
-            // <TestInputs />,
+            <TestInputs />,
             <hr className="mdl-layout-spacer"/>,
             <TestTimeline />,
             <hr className="mdl-layout-spacer"/>,

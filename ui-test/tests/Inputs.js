@@ -3,7 +3,8 @@ import _ from 'lodash';
 import {
     Checkbox,
     SelectBox,
-    Switch
+    Switch,
+    TextField,
 } from '../../index.js';
 
 const TestInputs = React.createClass({
@@ -13,6 +14,7 @@ const TestInputs = React.createClass({
             selectBox2: 8,
             selectBox3: '',
             switches: [false, true, undefined, undefined, true, false],
+            textInput: ['5'],
         };
     },
 
@@ -34,6 +36,14 @@ const TestInputs = React.createClass({
         switches[index] = value;
         this.setState({
             switches,
+        });
+    },
+
+    updateTextInput(index, {value}) {
+        const textInput = _.clone(this.state.textInput);
+        textInput[index] = value;
+        this.setState({
+            textInput,
         });
     },
 
