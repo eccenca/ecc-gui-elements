@@ -3,7 +3,7 @@ import ReactMDLCheckbox from 'react-mdl/lib/Checkbox';
 import extendedOnChangeBoolean from '../utils/extendedOnChangeBoolean';
 
 const Checkbox = (props) => {
-    const {label, children, ripple = false, checked, otherProperties, onChange} = props;
+    const {label, children, ripple = false, checked, onChange, ...otherProperties} = props;
 
     let checkboxlabel = label ? label : false;
     if (!checkboxlabel && children) {

@@ -3,7 +3,7 @@ import ReactMDLSwitch from 'react-mdl/lib/Switch';
 import extendedOnChangeBoolean from '../utils/extendedOnChangeBoolean';
 
 const Switch = (props) => {
-    const {label, children, checked, ripple = false, onChange, otherProperties} = props;
+    const {label, children, checked, ripple = false, onChange, ...otherProperties} = props;
 
     let checkboxlabel = label ? label : false;
     if (!checkboxlabel && children) {
