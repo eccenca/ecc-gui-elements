@@ -52,7 +52,7 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestAlerts />,
             <hr className="mdl-layout-spacer"/>,
-            // <TestDialogs />,
+            <TestDialogs />,
             <hr className="mdl-layout-spacer"/>,
             // <TestStepper />,
             // <hr className="mdl-layout-spacer"/>,
