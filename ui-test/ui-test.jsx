@@ -69,10 +69,12 @@ const Page = React.createClass({
                 {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
             ],
             paginationOffset: 15,
-            paginationLimit: 15,
+            paginationLimit: 3,
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
-            textInput: ['5']
+            selectBox3: '',
+            textInput: ['5'],
+            switches: [false, true, undefined, undefined, true, false],
         };
     },
     openDialog() {
@@ -99,13 +101,12 @@ const Page = React.createClass({
         console.log('ConfirmationDialog closed', param);
         this.setState({confirmationDialog: false});
     },
-    handleNewPaginationOffset(offset) {
-        console.log('new offset: ', offset);
-        this.setState({paginationOffset: offset});
-    },
-    handleNewPaginationLimit(limit) {
-        console.log('new limit: ', limit);
-        this.setState({paginationLimit: limit});
+    handlePaginationChange({offset, limit}) {
+        console.log(`Pagination: Offset ${offset} Limit: ${limit}`);
+        this.setState({
+            paginationLimit: limit,
+            paginationOffset: offset,
+        });
     },
     selectBox1OnChange(value) {
         console.log('SelectBox onChange: ', value);
@@ -114,6 +115,17 @@ const Page = React.createClass({
     selectBox2OnChange(value) {
         console.log('SelectBox onChange: ', value);
         this.setState({selectBox2: value});
+    },
+    selectBox3OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox3: value});
+    },
+    updateSwitch(index, {value}) {
+        const switches = _.clone(this.state.switches);
+        switches[index] = value;
+        this.setState({
+            switches,
+        });
     },
     updateTextInput(index, {value}) {
         const textInput = _.clone(this.state.textInput);
@@ -398,18 +410,22 @@ const Page = React.createClass({
                 <div className="mdl-card__content">
                     <Switch id="test_id_666"
                             ripple={true}
+                            checked={this.state.switches[0]}
+                            onChange={this.updateSwitch.bind(null, 0)}
                     />
-                    <Switch checked>
-                        Switch 2 Text
+                    <Switch checked={this.state.switches[1]} onChange={this.updateSwitch.bind(null, 1)}>
+                        Switch with Ripple
                     </Switch>
                     <Checkbox id="test_id_667"
                               ripple={true}
+                              checked={this.state.switches[2]}
+                              onChange={this.updateSwitch.bind(null, 2)}
                     />
-                    <Checkbox label="Checkbox 1 Text"/>
-                    <Checkbox disabled>
+                    <Checkbox label="Checkbox 1 Text" checked={this.state.switches[3]} onChange={this.updateSwitch.bind(null, 3)}/>
+                    <Checkbox disabled checked={this.state.switches[4]} onChange={this.updateSwitch.bind(null, 4)}>
                         Checkbox 2 Text
                     </Checkbox>
-                    <Checkbox checked>
+                    <Checkbox checked={this.state.switches[5]} onChange={this.updateSwitch.bind(null, 5)}>
                         <div className="test">Checkbox 3 Text</div>
                     </Checkbox>
                 </div>
@@ -489,6 +505,19 @@ const Page = React.createClass({
                         value={this.state.selectBox2}
                         onChange={this.selectBox2OnChange}
                     />
+                    <h5>multiple selections with option to create new entries</h5>
+                    <SelectBox
+                        placeholder={'No Value'}
+                        options={['label1', 3, 8]}
+                        value={this.state.selectBox3}
+                        onChange={this.selectBox3OnChange}
+                        multi={true}
+                        clearable={false}
+                        creatable={true}
+                        promptTextCreator={
+                            (newLabel) => `New freaking Stuff called: ${newLabel}`
+                        }
+                    />
                 </div>
             </div>
         );
@@ -503,11 +532,11 @@ const Page = React.createClass({
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        actualResults={15}
-                        totalResults={31}
-                        handleNewOffset={this.handleNewPaginationOffset}
+                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
+                        totalResults={88}
+                        newLimitText="Elements per Page"
+                        onChange={this.handlePaginationChange}
                         offsetAsPage={false}
-                        handleNewLimit={this.handleNewPaginationLimit}
                     />
                     <h5>Pagination with Page</h5>
                     Note: if offset is not a multiple of limit the page can be shown wrong
@@ -516,10 +545,9 @@ const Page = React.createClass({
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        totalResults={31}
-                        handleNewOffset={this.handleNewPaginationOffset}
+                        totalResults={88}
+                        onChange={this.handlePaginationChange}
                         offsetAsPage={true}
-                        handleNewLimit={this.handleNewPaginationLimit}
                     />
                 </div>
             </div>
