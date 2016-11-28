@@ -11,6 +11,8 @@ const ConfirmationDialog = React.createClass({
         className: React.PropTypes.string,
         modal: React.PropTypes.bool,
         size: React.PropTypes.string,
+        //a Confirmation Dialog should always have two buttons per spec:
+        // https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs
         cancelButton: React.PropTypes.element.isRequired,
         confirmButton: React.PropTypes.element.isRequired,
         title: React.PropTypes.node

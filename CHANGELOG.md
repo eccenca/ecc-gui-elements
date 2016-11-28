@@ -67,6 +67,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 - Disabled buttons do not show their tooltip anymore
 - `SelectBox` now support multi selection and new value creation
 
+## [1.17.3] 2016-11-24
+### Changed
+- Reverted Changes to Confirmation Dialog, as a Confirmation Dialog should always have two buttons [per spec](https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs).
+
 ## [1.17.1] 2016-11-15
 ### Fixed
 - Missing mdl icons are now shown again 
