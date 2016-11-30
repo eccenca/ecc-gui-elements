@@ -292,6 +292,7 @@ const Page = React.createClass({
     render() {
         return (
             <SelectBox
+                placeholder="Label for SelectBox"
                 options={['label1', 3]}
                 value={this.state.value}
                 onChange={this.selectBoxOnChange}
@@ -310,6 +311,8 @@ Note:
 - if objects are used in multi selectable options you can add {"clearableValue": false} to it to hide delete button for this specifc object
 
 - if "creatable" is set new values will be applied on Enter, Tab and Comma (",")
+
+- ``placeholder`` label is used within MDL floating label layout 
 
 ### Tabs
 
