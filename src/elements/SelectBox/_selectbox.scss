@@ -30,10 +30,26 @@
         margin-left: 0;
         margin-right: 5px;
         margin-top: 5px;
+        display: inline-flex;
+        flex-direction: row-reverse;
+        border-color: #ddd;
+        background: #f6f6f6;
+        border-radius: 3px;
+        color: inherit;
     }
 
     .Select--single > .Select-control & {
         padding-left: 0;
+    }
+}
+
+.Select-value-icon {
+    .Select--multi & {
+        border: none;
+
+        &:hover {
+            background-color: transparent;
+        }
     }
 }
 
