@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Button from './Button';
-import SelectBox from './Input/SelectBox';
+import SelectBox from './elements/SelectBox/SelectBox';
 const calculatePagination = ({limit, offset, totalResults}) => {
 
     const onLastPage = (offset + limit) >= totalResults;
