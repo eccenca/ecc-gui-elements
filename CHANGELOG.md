@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [2.1.0] 2016-12-01
 ### Added
 -   SelectBox now has the `optionsOnTop` property (boolean, default `false`). If set to `true`, the dropdown will open to the top
 -   Pagination now has the `isTopPagination` property (boolean, default `false`). If set to `true`, the limit selector will open to the bottom
