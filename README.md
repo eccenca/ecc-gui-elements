@@ -221,6 +221,7 @@ const Page = React.createClass({
                 handleNewOffset={handleNewPaginationOffset}
                 handleNewLimit={handleNewPaginationLimit}
                 offsetAsPage={false}
+                isTopPagination={true} // is pagination on top of the site (pages selection opens to bottom), default is false
             />
         )
     },
@@ -292,7 +293,9 @@ const Page = React.createClass({
     render() {
         return (
             <SelectBox
+                placeholder="Label for SelectBox"
                 options={['label1', 3]}
+                optionsOnTop={true} // option list opens up on top of select input (default: false)
                 value={this.state.value}
                 onChange={this.selectBoxOnChange}
                 creatable={true} // allow creation of new values
@@ -310,6 +313,8 @@ Note:
 - if objects are used in multi selectable options you can add {"clearableValue": false} to it to hide delete button for this specifc object
 
 - if "creatable" is set new values will be applied on Enter, Tab and Comma (",")
+
+- ``placeholder`` label is used within MDL floating label layout
 
 ### Tabs
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import Select from 'react-select/lib/Select.js';
 import Creatable from 'react-select/lib/Creatable.js';
 import _ from 'lodash';
@@ -44,7 +45,13 @@ const SelectBox = React.createClass({
         // allow creation of new values
         creatable: React.PropTypes.bool,
     },
-    onChange (value) {
+    getInitialState() {
+        return {
+            focused: this.props.autofocus,
+        };
+    },
+
+    onChange(value) {
         // If the options consist of plainvalues, we just want to return the plain value
         if (_.get(value, '$plainValue', false)) {
             return this.props.onChange(value.value);
@@ -53,7 +60,7 @@ const SelectBox = React.createClass({
     },
     // default check for value creation
     // prevent double values (check case insensitive, and handle numbers as string)
-    uniqueOptions ({option: newObject, options}) {
+    uniqueOptions({option: newObject, options}) {
         return (
             !_.some(options, ({value, label}) => (
                 stringCompare(value) === stringCompare(newObject.value) &&
@@ -61,12 +68,32 @@ const SelectBox = React.createClass({
             ))
         );
     },
+    onFocus() {
+        this.setState({
+            focused: true,
+        });
+    },
+    onBlur() {
+        this.setState({
+            focused: false,
+        });
+    },
     render() {
 
-        const {options, value, creatable, ...passProps} = this.props;
+        const {
+            creatable,
+            placeholder = '',
+            options,
+            optionsOnTop,
+            value,
+            ...passProps
+        } = this.props;
 
         // we do not want to pass onChange, as we wrap onChange ourselves
         delete passProps.onChange;
+
+        passProps.onFocus = this.onFocus;
+        passProps.onBlur = this.onBlur;
 
         // parse values to object format if needed
         const parsedOptions = _.isPlainObject(options[0]) ? options :
@@ -91,24 +118,46 @@ const SelectBox = React.createClass({
             }
         }
 
+        const classes = classNames(
+            {
+                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': placeholder ? true : false,
+                'mdl-textfield--floating-label': placeholder ? true : false,
+                'is-dirty': (!_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value))) ? true : false,
+                'is-focused': (this.state.focused === true),
+                'Select--optionsontop': (optionsOnTop === true),
+            }
+        );
+
         return (
-            creatable ?
-            (
-                <Creatable
-                    {...passProps}
-                    value={parsedValue}
-                    options={parsedOptions}
-                    onChange={this.onChange}
-                    isOptionUnique={this.uniqueOptions}
-                />
-            ) : (
-                <Select
-                    {...passProps}
-                    value={parsedValue}
-                    options={parsedOptions}
-                    onChange={this.onChange}
-                />
-            )
+            <div className={classes}>
+                {
+                    creatable ?
+                    (
+                        <Creatable
+                            {...passProps}
+                            value={parsedValue}
+                            options={parsedOptions}
+                            onChange={this.onChange}
+                            isOptionUnique={this.uniqueOptions}
+                            placeholder=""
+                        />
+                    ) : (
+                        <Select
+                            {...passProps}
+                            value={parsedValue}
+                            options={parsedOptions}
+                            onChange={this.onChange}
+                            placeholder=""
+                        />
+                    )
+                }
+                {
+                    placeholder &&
+                    <label className="mdl-textfield__label">
+                        {placeholder}
+                    </label>
+                }
+            </div>
         );
     }
 });
