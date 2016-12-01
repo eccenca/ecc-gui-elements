@@ -123,9 +123,15 @@ const TestInputs = React.createClass({
                         value={this.state.selectBox2}
                         onChange={this.selectBox2OnChange}
                     />
+                    <SelectBox
+                        placeholder={'Open option to top'}
+                        options={['label1', 3, 8]}
+                        value={this.state.selectBox2}
+                        onChange={this.selectBox2OnChange}
+                        optionsOnTop={true}
+                    />
                     <h5>Multiple selections with option to create new entries</h5>
                     <SelectBox
-                        placeholder={'No Value'}
                         options={['label1', 3, 8]}
                         value={this.state.selectBox3}
                         onChange={this.selectBox3OnChange}

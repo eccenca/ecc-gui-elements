@@ -1,0 +1,64 @@
+/**
+ * Copyright 2016 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+// react-select styles
+@import "~react-select/dist/react-select.css";
+
+.Select-control {
+    border-style: none none solid none;
+    border-radius: 0;
+    border-color: $input-text-bottom-border-color;
+
+    .is-focused:not(.is-open) > &,
+    .is-open > & {
+        border-color: $input-text-bottom-border-color;
+        box-shadow: none;
+    }
+
+    .is-focused:not(.mdl-textfield) > & {
+        border-color: $input-text-highlight-color;
+        border-bottom-width: 2px;
+    }
+}
+
+.Select-value {
+
+    .Select--multi & {
+        margin-left: 0;
+        margin-right: 5px;
+        margin-top: 5px;
+        display: inline-flex;
+        flex-direction: row-reverse;
+        border-color: #ddd;
+        background: #f6f6f6;
+        border-radius: 3px;
+        color: inherit;
+    }
+
+    .Select--single > .Select-control & {
+        padding-left: 0;
+    }
+}
+
+.Select-value-icon {
+    .Select--multi & {
+        border: none;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.Select-menu-outer {
+    margin-top: 0;
+
+    .Select--optionsontop & {
+        top: auto;
+        bottom: 100%;
+        margin-bottom: -1px;
+    }
+}

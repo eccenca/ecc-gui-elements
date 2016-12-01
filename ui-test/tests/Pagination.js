@@ -35,6 +35,16 @@ const TestPagination = React.createClass({
                         newLimitText="Elements per Page"
                         onChange={this.handlePaginationChange}
                         offsetAsPage={false}
+                        isTopPagination={true}
+                    />
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
+                        totalResults={88}
+                        newLimitText="Elements per Page"
+                        onChange={this.handlePaginationChange}
+                        offsetAsPage={false}
                     />
                     <h5>Pagination with Page</h5>
                     Note: if offset is not a multiple of limit the page can be shown wrong

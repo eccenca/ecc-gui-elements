@@ -30,7 +30,7 @@ import Warning from './src/Alert/Warning';
 import Tabs from './src/Tabs';
 import Version from './src/Version';
 import Pagination from './src/Pagination';
-import SelectBox from './src/Input/SelectBox';
+import SelectBox from './src/elements/SelectBox/SelectBox';
 import TextField from './src/elements/TextField/TextField';
 
 export default {
