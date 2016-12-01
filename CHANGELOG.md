@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 ### Changes
 -   add stretch option (default: true) to TextField element
+-   add multiline option (default: false) to TextField element
+
 ## [2.0.0] 2016-11-28
 ### Breaking
 -   Removed `<Dialog>`. Please use `<ConfirmationDialog>` or `<BaseDialog>` instead:

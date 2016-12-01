@@ -18,11 +18,20 @@ const TextField = (props) => {
     const {
         className,
         label = '',
+        multiline = false,
         onChange,
         stretch = true,
         value = '',
         ...otherProps
     } = props;
+
+    /*
+    TODO: improve multiline support with auto height
+
+    calculate rows depending on value and max-rows but we
+    need react state for it, so we need TextField to be a
+    React class.
+    */
 
     const classes = classNames(
         className,
@@ -31,14 +40,17 @@ const TextField = (props) => {
         },
     );
 
-    return <ReactMDLTextField
-        className={classes}
-        floatingLabel={true}
-        value={value}
-        label={label}
-        onChange={extendedOnChange.bind(null, onChange)}
-        {...otherProps}
-    />;
+    return (
+        <ReactMDLTextField
+            className={classes}
+            floatingLabel={true}
+            value={value}
+            label={label}
+            onChange={extendedOnChange.bind(null, onChange)}
+            rows={(multiline === true) ? 3 : 0}
+            {...otherProps}
+        />
+    );
 };
 
 export default uniqueId(TextField, {prefix: 'textField', targetProp: 'id'});

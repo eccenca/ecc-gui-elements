@@ -152,6 +152,8 @@ const TestInputs = React.createClass({
                         stretch={false}
                     />
                     <TextField
+                        multiline={true}
+                        label="Multiline input"
                         className="mdl-textfield--full-width"
                         value={this.state.textInput[1]}
                         onChange={this.updateTextInput.bind(null, 1)}
