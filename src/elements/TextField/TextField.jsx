@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactMDLTextField from 'react-mdl/lib/Textfield';
 import _ from 'lodash';
-import uniqueId from '../utils/uniqueId';
+import uniqueId from './../../utils/uniqueId';
 
 const extendedOnChange = (onChangeFn, event) => {
     if (_.isFunction(onChangeFn)) {
