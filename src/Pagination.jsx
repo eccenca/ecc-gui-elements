@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Button from './Button';
-import SelectBox from './Input/SelectBox';
+import SelectBox from './elements/SelectBox/SelectBox';
 const calculatePagination = ({limit, offset, totalResults}) => {
 
     const onLastPage = (offset + limit) >= totalResults;
@@ -116,7 +116,14 @@ const Pagination = React.createClass({
     },
     // template rendering
     render() {
-        const {offsetAsPage, offset, limit, totalResults, newLimitText} = this.props;
+        const {
+            offsetAsPage,
+            offset,
+            limit,
+            totalResults,
+            newLimitText,
+            isTopPagination = false,
+        } = this.props;
 
         const limitRange = _.chain(this.props.limitRange)
             .push(limit)
@@ -126,7 +133,13 @@ const Pagination = React.createClass({
             .value();
 
 
-        const {currentPage, totalPages, lastItemOnPage, onLastPage, onFirstPage} = calculatePagination(this.props);
+        const {
+            currentPage,
+            totalPages,
+            lastItemOnPage,
+            onLastPage,
+            onFirstPage,
+        } = calculatePagination(this.props);
 
         let pageInfo = '';
 
@@ -157,6 +170,7 @@ const Pagination = React.createClass({
                                 clearable={false}
                                 searchable={false}
                                 onChange={this.onNewLimit}
+                                optionsOnTop={(isTopPagination !== true)}
                             />
                         </div>
                     </div>
