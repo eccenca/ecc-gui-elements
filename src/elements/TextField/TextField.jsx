@@ -25,14 +25,6 @@ const TextField = (props) => {
         ...otherProps
     } = props;
 
-    /*
-    TODO: improve multiline support with auto height
-
-    calculate rows depending on value and max-rows but we
-    need react state for it, so we need TextField to be a
-    React class.
-    */
-
     const classes = classNames(
         className,
         {
