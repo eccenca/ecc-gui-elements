@@ -221,6 +221,7 @@ const Page = React.createClass({
                 handleNewOffset={handleNewPaginationOffset}
                 handleNewLimit={handleNewPaginationLimit}
                 offsetAsPage={false}
+                isTopPagination={true} // is pagination on top of the site (pages selection opens to bottom), default is false
             />
         )
     },

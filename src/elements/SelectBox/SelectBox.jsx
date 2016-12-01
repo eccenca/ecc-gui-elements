@@ -118,20 +118,13 @@ const SelectBox = React.createClass({
             }
         }
 
-        /*
-        <div className="
-            ecc-component-datasetbrowser__fixed-label is-focused
-
-        ">
-        */
-
         const classes = classNames(
             {
                 'mdl-textfield mdl-js-textfield mdl-textfield--full-width': placeholder ? true : false,
                 'mdl-textfield--floating-label': placeholder ? true : false,
                 'is-dirty': (!_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value))) ? true : false,
-                'is-focused': this.state.focused,
-                'Select--optionsontop': optionsOnTop,
+                'is-focused': (this.state.focused === true),
+                'Select--optionsontop': (optionsOnTop === true),
             }
         );
 
