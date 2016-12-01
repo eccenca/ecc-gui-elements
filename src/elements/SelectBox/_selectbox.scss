@@ -55,4 +55,10 @@
 
 .Select-menu-outer {
     margin-top: 0;
+
+    .Select--optionsontop & {
+        top: auto;
+        bottom: 100%;
+        margin-bottom: -1px;
+    }
 }

@@ -81,10 +81,11 @@ const SelectBox = React.createClass({
     render() {
 
         const {
-            options,
-            value,
             creatable,
             placeholder = '',
+            options,
+            optionsOnTop,
+            value,
             ...passProps
         } = this.props;
 
@@ -130,6 +131,7 @@ const SelectBox = React.createClass({
                 'mdl-textfield--floating-label': placeholder ? true : false,
                 'is-dirty': (!_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value))) ? true : false,
                 'is-focused': this.state.focused,
+                'Select--optionsontop': optionsOnTop,
             }
         );
 

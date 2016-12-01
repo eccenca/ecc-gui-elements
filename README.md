@@ -294,6 +294,7 @@ const Page = React.createClass({
             <SelectBox
                 placeholder="Label for SelectBox"
                 options={['label1', 3]}
+                optionsOnTop={true} // option list opens up on top of select input (default: false)
                 value={this.state.value}
                 onChange={this.selectBoxOnChange}
                 creatable={true} // allow creation of new values
@@ -312,7 +313,7 @@ Note:
 
 - if "creatable" is set new values will be applied on Enter, Tab and Comma (",")
 
-- ``placeholder`` label is used within MDL floating label layout 
+- ``placeholder`` label is used within MDL floating label layout
 
 ### Tabs
 
