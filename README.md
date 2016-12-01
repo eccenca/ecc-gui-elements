@@ -353,6 +353,7 @@ const Page = React.createClass({
                 onChange={this.onChange}
                 value={this.state.value}
                 label="Textfield"
+                stretch={false} // do not use full width (default: true)
             />
         )
     },

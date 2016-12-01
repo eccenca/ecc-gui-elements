@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 import ReactMDLTextField from 'react-mdl/lib/Textfield';
 import _ from 'lodash';
 import uniqueId from './../../utils/uniqueId';
@@ -14,9 +15,24 @@ const extendedOnChange = (onChangeFn, event) => {
 };
 
 const TextField = (props) => {
-    const {value = '', label = '', onChange, ...otherProps} = props;
+    const {
+        className,
+        label = '',
+        onChange,
+        stretch = true,
+        value = '',
+        ...otherProps
+    } = props;
+
+    const classes = classNames(
+        className,
+        {
+            'mdl-textfield--full-width': (stretch === true),
+        },
+    );
 
     return <ReactMDLTextField
+        className={classes}
         floatingLabel={true}
         value={value}
         label={label}
