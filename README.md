@@ -358,6 +358,9 @@ const Page = React.createClass({
                 onChange={this.onChange}
                 value={this.state.value}
                 label="Textfield"
+                error="Please correct your input" // optional, error message
+                stretch={false} // do not use full width (default: true)
+                multiline={true} // use a text area (default: false)
             />
         )
     },
