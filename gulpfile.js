@@ -118,6 +118,10 @@ gulp.task('vis', function(cb) {
             return visp.devDependencies[key];
         }
 
+        if (_.includes(_.keys(visp.dependencies), key)) {
+            return visp.dependencies[key];
+        }
+
         if (key === 'vis') {
             return visp.version;
         }

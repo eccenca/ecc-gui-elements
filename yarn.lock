@@ -3033,13 +3033,9 @@ https-browserify@0.0.0:
   version "0.0.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/https-browserify/-/https-browserify-0.0.0.tgz#b3ffdfe734b2a3d4a9efd58e8654c91fce86eafd"
 
-iconv-lite@0.4.13:
+iconv-lite@0.4.13, iconv-lite@^0.4.13, iconv-lite@~0.4.13:
   version "0.4.13"
   resolved "https://artifactory.eccenca.com/api/npm/npm/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
-
-iconv-lite@^0.4.13, iconv-lite@~0.4.13:
-  version "0.4.15"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
 icss-replace-symbols@^1.0.2:
   version "1.0.2"
@@ -4903,7 +4899,7 @@ react-mdl@1.5.2:
     clamp "^1.0.1"
     classnames "^2.2.3"
 
-react-select@1.0.0-rc.2:
+react-select@1.0.0-rc.2, react-select@^1.0.0-rc.2:
   version "1.0.0-rc.2"
   resolved "https://artifactory.eccenca.com/api/npm/npm/react-select/-/react-select-1.0.0-rc.2.tgz#9fc11b149a3dc1ac831289d21b40a59742f82f8d"
   dependencies:
@@ -4983,7 +4979,7 @@ readable-stream@^1.0.27-1, readable-stream@^1.1.13, readable-stream@~1.1.9:
     isarray "0.0.1"
     string_decoder "~0.10.x"
 
-"readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.1.5:
+"readable-stream@^2.0.0 || ^1.1.13", readable-stream@^2.0.1, readable-stream@^2.1.5:
   version "2.2.2"
   resolved "https://artifactory.eccenca.com/api/npm/npm/readable-stream/-/readable-stream-2.2.2.tgz#a9e6fec3c7dda85f8bb1b3ba7028604556fc825e"
   dependencies:
@@ -4995,7 +4991,7 @@ readable-stream@^1.0.27-1, readable-stream@^1.1.13, readable-stream@~1.1.9:
     string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
 
-readable-stream@~2.0.0:
+readable-stream@^2.0.2, readable-stream@~2.0.0:
   version "2.0.6"
   resolved "https://artifactory.eccenca.com/api/npm/npm/readable-stream/-/readable-stream-2.0.6.tgz#8f90341e68a53ccc928788dacfcd11b36eb9b78e"
   dependencies:
@@ -5981,9 +5977,15 @@ vinyl@^0.5.0:
     clone-stats "^0.0.1"
     replace-ext "0.0.1"
 
-vis@4.16.1:
-  version "4.16.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/vis/-/vis-4.16.1.tgz#db6c8453afa2f8fe0bdc4866c8df77936e52febe"
+vis@4.17.0:
+  version "4.17.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/vis/-/vis-4.17.0.tgz#15995688f1613275b1104cc0732b47a848fc3248"
+  dependencies:
+    emitter-component "^1.1.1"
+    hammerjs "^2.0.6"
+    keycharm "^0.2.0"
+    moment "^2.12.0"
+    propagating-hammerjs "^1.4.6"
 
 vm-browserify@0.0.4:
   version "0.0.4"
