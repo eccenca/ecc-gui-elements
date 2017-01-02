@@ -4,7 +4,7 @@ var gulpSequence = require('gulp-sequence');
 var iconFontVersion = '3.0.1';
 var robotoFontVersion = 'v1.1.0';
 
-gulp.task('default', ['debug', 'serve']);
+gulp.task('default', ['debug']);
 
 gulp.task('full-build', gulpSequence(['vis', 'build-sass'], 'build'));
 
