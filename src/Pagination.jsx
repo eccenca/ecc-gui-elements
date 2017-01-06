@@ -176,22 +176,30 @@ const Pagination = React.createClass({
                     </div>
                 ) : ''}
                 <div className="ecc-gui-elements__pagination-actions">
-                    <Button onClick={this.onClickFirst}
-                            disabled={onFirstPage}
-                            iconName="arrow_firstpage"
+                    <Button
+                        className="ecc-gui-elements__pagination-actions__first-page-button"
+                        onClick={this.onClickFirst}
+                        disabled={onFirstPage}
+                        iconName="arrow_firstpage"
                     />
-                    <Button onClick={this.onClickBack}
-                            disabled={onFirstPage}
-                            iconName="arrow_prevpage"
+                    <Button
+                        className="ecc-gui-elements__pagination-actions__prev-page-button"
+                        onClick={this.onClickBack}
+                        disabled={onFirstPage}
+                        iconName="arrow_prevpage"
                     />
                     {pageInformation}
-                    <Button onClick={this.onClickForward}
-                            disabled={onLastPage}
-                            iconName="arrow_nextpage"
+                    <Button
+                        className="ecc-gui-elements__pagination-actions__next-page-button"
+                        onClick={this.onClickForward}
+                        disabled={onLastPage}
+                        iconName="arrow_nextpage"
                     />
-                    <Button onClick={this.onClickLast}
-                            disabled={onLastPage}
-                            iconName="arrow_lastpage"
+                    <Button
+                        className="ecc-gui-elements__pagination-actions__last-page-button"
+                        onClick={this.onClickLast}
+                        disabled={onLastPage}
+                        iconName="arrow_lastpage"
                     />
                 </div>
             </div>
