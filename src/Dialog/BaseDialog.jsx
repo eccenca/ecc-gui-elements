@@ -58,7 +58,12 @@ const BaseDialog = React.createClass({
 
         // set title cancel Button
         const cancelButton = titleCancelButton ? (
-            <Button tooltip="Close" iconName="hide" onClick={titleCancelButton} />
+            <Button
+                className="mdl-dialog__title__close-button"
+                tooltip="Close"
+                iconName="hide"
+                onClick={titleCancelButton}
+            />
         ) : false;
         // set title
         const dialogTitle = title ? (
@@ -87,7 +92,7 @@ const BaseDialog = React.createClass({
         };
         // set buttons
         const rowActions = buttonRow.reverse().map((button, idx) => (
-            <span key={'Button_' + idx}>
+            <span className={`mdl-dialog__actions__${idx}-button`} key={'Button_' + idx}>
                 {React.cloneElement(button, buttonLayout)}
             </span>
         ));
