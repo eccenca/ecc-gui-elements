@@ -69,7 +69,7 @@ const Page = React.createClass({
                     <ContextMenu
                         align="left"
                     >
-                        <MenuItem>First First Item</MenuItem>
+                        <MenuItem className="ownClassName">First First Item</MenuItem>
                         <MenuItem>First Second Item</MenuItem>
                         <MenuItem>First Menu Item 3</MenuItem>
                         <MenuItem>First Another Menu Item</MenuItem>

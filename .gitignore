@@ -18,12 +18,7 @@ coverage/
 
 # ignore compiled
 es5/
-ui-test/component.min.js
-ui-test/*.map
-ui-test/*.eot
-ui-test/*.woff*
-ui-test/*.ttf
-ui-test/*.svg
+.tmp/
 
 # ignore data folders by jetbrains products
 .idea/
