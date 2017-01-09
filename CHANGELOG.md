@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 ### Added
-- classnames for `Pagination` and `Dialog` buttons
+- classnames for `Pagination`, `ContextMenu` and `Dialog` buttons
 
 ## [2.2.0] 2016-12-01
 ### Changes
