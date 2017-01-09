@@ -37,26 +37,42 @@ const ContextMenu = React.createClass({
     render() {
         const {
             align,
-            children,
             className,
             ripple,
             tooltip,
             ...otherProps
         } = this.props;
 
+        let children = _.cloneDeep(this.props.children);
         const target = this.state.target;
 
-        const menu = (typeof children !== 'undefined') ? (
-            <ReactMDLMenu
-                align={align}
-                className={className}
-                ripple={ripple}
-                target={target}
-                {...otherProps}
-            >
-                {children}
-            </ReactMDLMenu>
-        ) : false;
+        const menu = () => {
+            if (typeof children !== 'undefined') {
+                // check for classNames
+                children = _.map(children, (obj, idx) => {
+                    // add className if none exist
+                    if (!_.has(obj, 'props.className')) {
+                        obj.props.className = `item-${_.kebabCase(obj.props.children)}`;
+                    }
+                    obj.key = `MenuItem.${idx}`;
+                    return obj;
+                });
+                return (
+                    <ReactMDLMenu
+                        align={align}
+                        className={className}
+                        ripple={ripple}
+                        target={target}
+                        {...otherProps}
+                    >
+                        {children}
+                    </ReactMDLMenu>
+                );
+
+            }
+            return false;
+
+        }
 
         return (
             <div className={'contextmenu-container'}>
@@ -65,7 +81,7 @@ const ContextMenu = React.createClass({
                     id={target}
                     tooltip={tooltip ? false : false}
                 />
-                {menu}
+                {menu()}
             </div>
         );
     }
