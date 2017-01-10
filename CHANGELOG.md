@@ -2,9 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [Released]
+### Fixed
+-   Tabs: No Error is thrown anymore if onTabClick is undefined
+
 ## [2.3.0] 2017-01-09 
 ### Added
-- classnames for `Pagination`, `ContextMenu` and `Dialog` buttons
+-   classnames for `Pagination`, `ContextMenu` and `Dialog` buttons
 
 ## [2.2.0] 2016-12-01
 ### Changes
