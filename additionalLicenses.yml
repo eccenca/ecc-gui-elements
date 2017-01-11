@@ -1,5 +1,5 @@
 ecc-gui-elements:
-  description: Project description
+  description: GUI Elements
   language: javascript
   dependencies:
     # Not imported using npm
