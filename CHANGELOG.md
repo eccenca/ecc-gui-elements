@@ -4,6 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 ### Fixed
+-   Added missing licenses for `material-design-icons`, `roboto` and `vis`
 -   Tabs: No Error is thrown anymore if onTabClick is undefined
 
 ## [2.3.0] 2017-01-09 
