@@ -9,7 +9,6 @@ module.exports = {
         debug: {
             entry: './ui-test/ui-test.jsx',
             output: {
-                path: path.join(__dirname, 'ui-test'),
                 filename: 'component.min.js',
             },
         },

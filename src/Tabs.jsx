@@ -42,7 +42,9 @@ const Tabs = React.createClass({
     handleSelect(tabSelect) {
         tabSelect = this.state.tabs[tabSelect].tabTitle;
         this.setState({activeTab: tabSelect});
-        this.state.onTabClick(tabSelect);
+        if(_.isFunction(this.state.onTabClick)){
+            this.state.onTabClick(tabSelect);
+        }
     },
 
     render() {
