@@ -24,7 +24,6 @@ ecc-gui-elements:
     - name: vis
       version: 4.17.0
       url: https://github.com/almende/vis
-      spdx: (MIT OR Apache-2.0)
       licenses:
         - name: (MIT OR Apache-2.0)
           url: https://raw.githubusercontent.com/almende/vis/v4.17.0/README.md
