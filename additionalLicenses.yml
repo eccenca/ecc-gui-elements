@@ -24,7 +24,7 @@ ecc-gui-elements:
     # Not imported using npm. It has a dual license. See more:
     # https://github.com/almende/vis/issues/285
     - name: vis
-      version: v4.17.0
+      version: 4.17.0
       spdx: (MIT OR Apache-2.0)
       licenses:
         - name: MIT
