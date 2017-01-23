@@ -171,6 +171,7 @@ const Page = React.createClass({
             <ContextMenu
                 align="left|right(default)"
                 valign="top|bottom(default)"
+                iconName="menu_more(default)"
                 tooltip="for menu button(currently not supported)"
                 target="idformymenu(auto generated if it is not given)"
             >

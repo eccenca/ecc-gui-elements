@@ -5,33 +5,31 @@ ecc-gui-elements:
     # Not imported using npm
     - name: material-design-icons
       version: 3.0.1
+      url: https://github.com/google/material-design-icons
       spdx: Apache-2.0
       licenses:
         - name: Apache 2.0
           url: https://raw.githubusercontent.com/google/material-design-icons/3.0.1/LICENSE
-      notices: false
-      url: https://github.com/google/material-design-icons
-      downloadUrl: https://github.com/google/material-design-icons/archive/3.0.1.zip
     # Not imported using npm because it is very big
     - name: roboto
-      version: 2.136
+      version: '2.136'
+      url: https://github.com/google/roboto
       spdx: Apache-2.0
       licenses:
         - name: Apache 2.0
           url: https://raw.githubusercontent.com/google/roboto/v2.136/LICENSE
-      notices: false
-      url: https://github.com/google/roboto
+      downloadUrl: https://github.com/google/roboto/archive/v2.136.zip
     # Not imported using npm. It has a dual license. See more:
     # https://github.com/almende/vis/issues/285
     - name: vis
       version: 4.17.0
-      spdx: (MIT OR Apache-2.0)
-      licenses:
-        - name: MIT
-          url: https://github.com/almende/vis/blob/v4.17.0/LICENSE-MIT
-        - name: Apache 2.0
-          url: https://github.com/almende/vis/blob/v4.17.0/LICENSE-APACHE-2.0
-      notices:
-        - url: https://github.com/almende/vis/blob/v4.17.0/NOTICE
-      downloadUrl: https://github.com/almende/vis/archive/v4.17.0.zip
       url: https://github.com/almende/vis
+      licenses:
+        - name: (MIT OR Apache-2.0)
+          url: https://raw.githubusercontent.com/almende/vis/v4.17.0/README.md
+        - name: MIT
+          url: https://raw.githubusercontent.com/almende/vis/v4.17.0/LICENSE-MIT
+        - name: Apache 2.0
+          url: https://raw.githubusercontent.com/almende/vis/v4.17.0/LICENSE-APACHE-2.0
+      notices:
+        - url: https://raw.githubusercontent.com/almende/vis/v4.17.0/NOTICE

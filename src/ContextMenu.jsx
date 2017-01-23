@@ -38,6 +38,7 @@ const ContextMenu = React.createClass({
         const {
             align,
             className,
+            iconName,
             ripple,
             tooltip,
             ...otherProps
@@ -77,7 +78,7 @@ const ContextMenu = React.createClass({
         return (
             <div className={'contextmenu-container'}>
                 <Button
-                    iconName="menu_more"
+                    iconName={iconName ? iconName : 'menu_more'}
                     id={target}
                     tooltip={tooltip ? false : false}
                 />

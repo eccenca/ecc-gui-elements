@@ -76,7 +76,9 @@ const Page = React.createClass({
                         <MenuItem>First Alright</MenuItem>
                     </ContextMenu>
                     <ContextMenu
-                        align="left"
+                        align="right"
+                        iconName="add"
+                        tooltip="add property"
                     >
                         <MenuItem>Second First Item</MenuItem>
                         <MenuItem>Second Second Item</MenuItem>
