@@ -4,14 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+-   add config option to overwrite default icon of context menu element
 
-## [2.3.1] 2017-01-11 
+## [2.3.1] 2017-01-11
 ### Fixed
 -   Added missing licenses for `material-design-icons`, `roboto` and `vis`
 -   Tabs: No Error is thrown anymore if onTabClick is undefined
 
-## [2.3.0] 2017-01-09 
+## [2.3.0] 2017-01-09
 ### Added
 -   classnames for `Pagination`, `ContextMenu` and `Dialog` buttons
 
