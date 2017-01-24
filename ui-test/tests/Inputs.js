@@ -132,7 +132,13 @@ const TestInputs = React.createClass({
                     />
                     <h5>Multiple selections with option to create new entries</h5>
                     <SelectBox
-                        options={['label1', 3, 8]}
+                        options={[
+                            'label1',
+                            3,
+                            'Andelsselskab med begrænset ansvar, Denmark',
+                            'Akcionersko Društvo / Акционерско друштво, Republic of Macedonia',
+                            8
+                        ]}
                         value={this.state.selectBox3}
                         onChange={this.selectBox3OnChange}
                         multi={true}

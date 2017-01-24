@@ -2,7 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [2.4.0] 2017-01-23 
+## [Unreleased]
+
+### Fixed
+- improve layout of multi select values to prevent box overflows
+
+### Changed
+- move remove button of multi select values to left side again
+
+## [2.4.0] 2017-01-23
 
 ### Added
 -   add config option to overwrite default icon of context menu element
