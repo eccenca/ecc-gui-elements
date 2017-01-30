@@ -12,7 +12,7 @@ import MaterialMixin from './src/mixins/MaterialMixin';
 // MDL Elements
 
 import Alert from './src/Alert/Alert';
-import Button from './src/Button';
+import Button from './src/elements/Button/Button';
 import Checkbox from './src/Input/Checkbox';
 import Error from './src/Alert/Error';
 import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
