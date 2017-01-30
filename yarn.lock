@@ -1756,9 +1756,9 @@ ecc-gui-elements@^2.2.0:
     react-select "1.0.0-rc.2"
     vis "4.16.1"
 
-ecc-gulp-tasks@^3.1.2:
-  version "3.1.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gulp-tasks/-/ecc-gulp-tasks-3.1.2.tgz#9e29062520e98eb25cd56c2b2b53413eca3781d0"
+ecc-gulp-tasks@^3.2.0:
+  version "3.2.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gulp-tasks/-/ecc-gulp-tasks-3.2.0.tgz#392320317c236811f8869596495796fcdd3863bd"
   dependencies:
     autoprefixer "^6.6.0"
     babel-core "^6.21.0"
