@@ -76,7 +76,7 @@ const Button = React.createClass({
             semanticConfig.colored = false;
         }
 
-        if (dismissive === true) {
+        if (dismissive === true || disruptive === true) {
             semanticConfig.accent = false;
             semanticConfig.colored = false;
         }
@@ -84,6 +84,7 @@ const Button = React.createClass({
         const classes = classNames(
             {
                 'mdl-button--icon': typeof iconName !== 'undefined',
+                'mdl-button--danger': disruptive === true,
             },
             className
         );
