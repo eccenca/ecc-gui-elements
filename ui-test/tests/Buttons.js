@@ -17,6 +17,27 @@ const TestButtons = React.createClass({
                     <h4 className="mdl-card__title-text">Test Buttons</h4>
                 </div>
                 <div className="mdl-card__content">
+                    <h5>MDL button types</h5>
+                    <Button>Normal</Button>
+                    <Button accent>Accented</Button>
+                    <Button colored>Colored</Button>
+                    <Button raised>Raised</Button>
+                    <Button raised accent>Accent Raised</Button>
+                    <Button raised colored>Colored Raised</Button>
+                    <h5>Semantic button types</h5>
+                    <Button dismissive>Dismissive</Button>
+                    <Button affirmative>Affirmative</Button>
+                    <Button disruptive>Disruptive</Button>
+                    <Button raised dismissive>Dismissive</Button>
+                    <Button raised affirmative>Affirmative</Button>
+                    <Button raised disruptive>Disruptive</Button>
+                    <br/>
+                    <Button dismissive iconName="hide" />
+                    <Button affirmative iconName="hide" />
+                    <Button disruptive iconName="hide" />
+                    <Button raised dismissive iconName="hide" />
+                    <Button raised affirmative iconName="hide" />
+                    <Button raised disruptive iconName="hide" />
                     <h5>Buttons using canonical icons</h5>
                     <Button colored iconName="edit" tooltip="own tooltip"/>
                     <Button accent iconName="delete" tooltip={false} />

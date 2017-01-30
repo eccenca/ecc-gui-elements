@@ -29,6 +29,9 @@ const Button = React.createClass({
         fabSize: React.PropTypes.string,
         iconName: React.PropTypes.string,
         ripple: React.PropTypes.bool,
+        affirmative: React.PropTypes.bool,
+        dismissive: React.PropTypes.bool,
+        disruptive: React.PropTypes.bool,
     },
 
     // TODO: use translations
@@ -57,11 +60,26 @@ const Button = React.createClass({
             className,
             fabSize,
             iconName,
+            affirmative,
+            dismissive,
+            disruptive,
             tooltip: defaultTooltip,
             children: defaultChildren,
             ripple: defaultRipple,
             ...otherProps
         } = this.props;
+
+        const semanticConfig = {};
+
+        if (affirmative === true) {
+            semanticConfig.accent = true;
+            semanticConfig.colored = false;
+        }
+
+        if (dismissive === true) {
+            semanticConfig.accent = false;
+            semanticConfig.colored = false;
+        }
 
         const classes = classNames(
             {
@@ -88,14 +106,25 @@ const Button = React.createClass({
 
         if (fabSize) {
             button = (
-                <ReactMDLFabButton className={classes} ripple={ripple} mini={fabSize === 'mini'} {...otherProps}>
+                <ReactMDLFabButton
+                    className={classes}
+                    ripple={ripple}
+                    mini={fabSize === 'mini'}
+                    {...otherProps}
+                    {...semanticConfig}
+                >
                     {buttonContent}
                 </ReactMDLFabButton>
             );
         }
         else {
             button = (
-                <ReactMDLButton className={classes} ripple={ripple} {...otherProps}>
+                <ReactMDLButton
+                    className={classes}
+                    ripple={ripple}
+                    {...otherProps}
+                    {...semanticConfig}
+                >
                     {buttonContent}
                 </ReactMDLButton>
             );
