@@ -3,8 +3,8 @@ import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
-import MaterialMixin from './mixins/MaterialMixin';
-import Icon from './Icon';
+import MaterialMixin from '../../mixins/MaterialMixin';
+import Icon from '../../Icon';
 
 /* TODO:
 
@@ -29,6 +29,9 @@ const Button = React.createClass({
         fabSize: React.PropTypes.string,
         iconName: React.PropTypes.string,
         ripple: React.PropTypes.bool,
+        affirmative: React.PropTypes.bool,
+        dismissive: React.PropTypes.bool,
+        disruptive: React.PropTypes.bool,
     },
 
     // TODO: use translations
@@ -57,15 +60,31 @@ const Button = React.createClass({
             className,
             fabSize,
             iconName,
+            affirmative,
+            dismissive,
+            disruptive,
             tooltip: defaultTooltip,
             children: defaultChildren,
             ripple: defaultRipple,
             ...otherProps
         } = this.props;
 
+        const semanticConfig = {};
+
+        if (affirmative === true) {
+            semanticConfig.accent = true;
+            semanticConfig.colored = false;
+        }
+
+        if (dismissive === true || disruptive === true) {
+            semanticConfig.accent = false;
+            semanticConfig.colored = false;
+        }
+
         const classes = classNames(
             {
                 'mdl-button--icon': typeof iconName !== 'undefined',
+                'mdl-button--danger': disruptive === true,
             },
             className
         );
@@ -88,14 +107,25 @@ const Button = React.createClass({
 
         if (fabSize) {
             button = (
-                <ReactMDLFabButton className={classes} ripple={ripple} mini={fabSize === 'mini'} {...otherProps}>
+                <ReactMDLFabButton
+                    className={classes}
+                    ripple={ripple}
+                    mini={fabSize === 'mini'}
+                    {...otherProps}
+                    {...semanticConfig}
+                >
                     {buttonContent}
                 </ReactMDLFabButton>
             );
         }
         else {
             button = (
-                <ReactMDLButton className={classes} ripple={ripple} {...otherProps}>
+                <ReactMDLButton
+                    className={classes}
+                    ripple={ripple}
+                    {...otherProps}
+                    {...semanticConfig}
+                >
                     {buttonContent}
                 </ReactMDLButton>
             );

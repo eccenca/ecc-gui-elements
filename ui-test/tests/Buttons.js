@@ -1,6 +1,9 @@
 import React from 'react';
 import {
     Button,
+    AffirmativeButton,
+    DismissiveButton,
+    DisruptiveButton,
     Icon
 } from '../../index.js';
 
@@ -17,6 +20,27 @@ const TestButtons = React.createClass({
                     <h4 className="mdl-card__title-text">Test Buttons</h4>
                 </div>
                 <div className="mdl-card__content">
+                    <h5>MDL button types</h5>
+                    <Button>Normal</Button>
+                    <Button accent>Accented</Button>
+                    <Button colored>Colored</Button>
+                    <Button raised>Raised</Button>
+                    <Button raised accent>Accent Raised</Button>
+                    <Button raised colored>Colored Raised</Button>
+                    <h5>Semantic button types</h5>
+                    <DismissiveButton accent>Dismissive</DismissiveButton>
+                    <AffirmativeButton accent>Affirmative</AffirmativeButton>
+                    <DisruptiveButton accent>Disruptive</DisruptiveButton>
+                    <DismissiveButton raised colored>Dismissive</DismissiveButton>
+                    <AffirmativeButton raised colored>Affirmative</AffirmativeButton>
+                    <DisruptiveButton raised colored>Disruptive</DisruptiveButton>
+                    <br/>
+                    <DismissiveButton iconName="hide" />
+                    <AffirmativeButton iconName="hide" />
+                    <DisruptiveButton iconName="hide" />
+                    <DismissiveButton raised iconName="hide" />
+                    <AffirmativeButton raised iconName="hide" />
+                    <DisruptiveButton raised iconName="hide" />
                     <h5>Buttons using canonical icons</h5>
                     <Button colored iconName="edit" tooltip="own tooltip"/>
                     <Button accent iconName="delete" tooltip={false} />

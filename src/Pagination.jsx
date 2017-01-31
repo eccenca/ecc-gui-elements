@@ -1,6 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import Button from './Button';
+import Button from './elements/Button/Button';
 import SelectBox from './elements/SelectBox/SelectBox';
 const calculatePagination = ({limit, offset, totalResults}) => {
 
