@@ -6,13 +6,29 @@ const DisruptiveButton = React.createClass({
     render() {
         // split 'normal' props from button content
         const {children, ...otherProps} = this.props;
-        const semanticConfig = {};
-        // define special params
-        semanticConfig.accent = true;
-        semanticConfig.colored = false;
+
+        if (__DEBUG__ && (typeof otherProps.accent !== 'undefined')) {
+            console.warn('Do not use <DisruptiveButton/>  with accent property.'); // eslint-disable-line no-console
+        }
+
+        if (__DEBUG__ && (typeof otherProps.colored !== 'undefined')) {
+            console.warn('Do not use <DisruptiveButton/>  with colored property.'); // eslint-disable-line no-console
+        }
+
+        if (__DEBUG__ && (typeof otherProps.affirmative !== 'undefined')) {
+            console.warn('Do not use <DisruptiveButton/>  with affirmative property.'); // eslint-disable-line no-console
+        }
+
+        if (__DEBUG__ && (typeof otherProps.dismissive !== 'undefined')) {
+            console.warn('Do not use <DisruptiveButton/>  with dismissive property.'); // eslint-disable-line no-console
+        }
+
         // render button
         return (
-            <Button {...otherProps} {...semanticConfig}>
+            <Button
+                {...otherProps}
+                disruptive = {true}
+            >
                 {children}
             </Button>
         );

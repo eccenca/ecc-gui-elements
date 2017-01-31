@@ -14,8 +14,8 @@ import MaterialMixin from './src/mixins/MaterialMixin';
 import Alert from './src/Alert/Alert';
 import Button from './src/elements/Button/Button';
 import AffirmativeButton from './src/elements/Button/AffirmativeButton';
-//import DismissiveButton from './src/elements/Button/DismissiveButton';
-//import DisruptiveButton from './src/elements/Button/DisruptiveButton';
+import DismissiveButton from './src/elements/Button/DismissiveButton';
+import DisruptiveButton from './src/elements/Button/DisruptiveButton';
 import Checkbox from './src/Input/Checkbox';
 import Error from './src/Alert/Error';
 import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
@@ -41,6 +41,8 @@ export default {
     Alert,
     Button,
     AffirmativeButton,
+    DismissiveButton,
+    DisruptiveButton,
     Checkbox,
     ContextMenu,
     SelectBox,

@@ -28,15 +28,19 @@ const TestButtons = React.createClass({
                     <Button raised accent>Accent Raised</Button>
                     <Button raised colored>Colored Raised</Button>
                     <h5>Semantic button types</h5>
+                    <DismissiveButton accent>Dismissive</DismissiveButton>
                     <AffirmativeButton accent>Affirmative</AffirmativeButton>
-                    <AffirmativeButton raised dismissive>Affirmative</AffirmativeButton>
+                    <DisruptiveButton accent>Disruptive</DisruptiveButton>
+                    <DismissiveButton raised colored>Dismissive</DismissiveButton>
+                    <AffirmativeButton raised colored>Affirmative</AffirmativeButton>
+                    <DisruptiveButton raised colored>Disruptive</DisruptiveButton>
                     <br/>
-                    <Button dismissive iconName="hide" />
-                    <Button affirmative iconName="hide" />
-                    <Button disruptive iconName="hide" />
-                    <Button raised dismissive iconName="hide" />
-                    <Button raised affirmative iconName="hide" />
-                    <Button raised disruptive iconName="hide" />
+                    <DismissiveButton iconName="hide" />
+                    <AffirmativeButton iconName="hide" />
+                    <DisruptiveButton iconName="hide" />
+                    <DismissiveButton raised iconName="hide" />
+                    <AffirmativeButton raised iconName="hide" />
+                    <DisruptiveButton raised iconName="hide" />
                     <h5>Buttons using canonical icons</h5>
                     <Button colored iconName="edit" tooltip="own tooltip"/>
                     <Button accent iconName="delete" tooltip={false} />
