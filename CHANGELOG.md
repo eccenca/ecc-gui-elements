@@ -5,7 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 
 ### Added
-- new config options for buttons regarding their type of triggered action: affirmative, dismissive, disruptive
+- new button elements: `<AffirmativeButton/>`, `<DismissiveButton/>`, `<DisruptiveButton/>`
 
 ## [2.5.0] 2017-01-24
 

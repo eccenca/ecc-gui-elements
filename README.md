@@ -66,7 +66,7 @@ const Page = React.createClass({
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
 
 ```js
-import {Button, Icon} from 'ecc-gui-elements';
+import {Button, AffirmativeButton, DismissiveButton, DisruptiveButton} from 'ecc-gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -74,23 +74,6 @@ const Page = React.createClass({
         return (
             <Button>
                 Simple flat button
-            </Button>
-
-            // use config options to specify meaning of triggered action
-            <Button
-                affirmative={true} // true | false (default)
-            >
-                Affirmative action
-            </Button>
-            <Button
-                dismissive={true} // true | false (default)
-            >
-                Dismissive action
-            </Button>
-            <Button
-                disruptive={true} // true | false (default)
-            >
-                Disruptive action
             </Button>
 
             // according MDL-API, @see https://getmdl.io/components/index.html#buttons-section
@@ -109,6 +92,21 @@ const Page = React.createClass({
                 tooltip="This is a Test!" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
                 fabSize="mini" // use fabSize only if it is a FAB. "mini" | "large" (default)
                 // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
+            />
+
+            // use button elements to specify meaning of triggered action
+            // you can combine it with button properties like raised, iconName and ripple
+            <AffirmativeButton>
+                Affirmative action
+            </AffirmativeButton>
+            <DismissiveButton
+                raised={true}
+            >
+                Dismissive action
+            </DismissiveButton>
+            <DisruptiveButton
+                iconName="delete"
+                tooltip="Remove data"
             />
         )
     },
