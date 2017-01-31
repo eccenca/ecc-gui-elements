@@ -2,6 +2,8 @@ import React from 'react';
 import {
     Button,
     AffirmativeButton,
+    DismissiveButton,
+    DisruptiveButton,
     Icon
 } from '../../index.js';
 
@@ -26,14 +28,8 @@ const TestButtons = React.createClass({
                     <Button raised accent>Accent Raised</Button>
                     <Button raised colored>Colored Raised</Button>
                     <h5>Semantic button types</h5>
-                    <Button dismissive>Dismissive</Button>
-                    <Button affirmative>Affirmative</Button>
-                    <AffirmativeButton>Affirmative real</AffirmativeButton>
-                    <Button disruptive>Disruptive</Button>
-                    <Button raised dismissive>Dismissive</Button>
-                    <Button raised affirmative>Affirmative</Button>
-                    <AffirmativeButton raised>Affirmative real</AffirmativeButton>
-                    <Button raised disruptive>Disruptive</Button>
+                    <AffirmativeButton accent>Affirmative</AffirmativeButton>
+                    <AffirmativeButton raised dismissive>Affirmative</AffirmativeButton>
                     <br/>
                     <Button dismissive iconName="hide" />
                     <Button affirmative iconName="hide" />
