@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Button from '../Button';
+import Button from '../elements/Button/Button';
 
 /**
  * This Component creates a customizable dialog.

@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
-import Button from './Button';
+import Button from './elements/Button/Button';
 import MaterialMixin from './mixins/MaterialMixin';
 
 
