@@ -1,6 +1,7 @@
 import React from 'react';
 import {
     Button,
+    AffirmativeButton,
     Icon
 } from '../../index.js';
 
@@ -27,9 +28,11 @@ const TestButtons = React.createClass({
                     <h5>Semantic button types</h5>
                     <Button dismissive>Dismissive</Button>
                     <Button affirmative>Affirmative</Button>
+                    <AffirmativeButton>Affirmative real</AffirmativeButton>
                     <Button disruptive>Disruptive</Button>
                     <Button raised dismissive>Dismissive</Button>
                     <Button raised affirmative>Affirmative</Button>
+                    <AffirmativeButton raised>Affirmative real</AffirmativeButton>
                     <Button raised disruptive>Disruptive</Button>
                     <br/>
                     <Button dismissive iconName="hide" />

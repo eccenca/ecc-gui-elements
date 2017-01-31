@@ -13,6 +13,7 @@ import MaterialMixin from './src/mixins/MaterialMixin';
 
 import Alert from './src/Alert/Alert';
 import Button from './src/elements/Button/Button';
+import AffirmativeButton from './src/elements/Button/predefinedButtons/predefinedButton';
 import Checkbox from './src/Input/Checkbox';
 import Error from './src/Alert/Error';
 import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
@@ -37,6 +38,7 @@ export default {
     MaterialMixin,
     Alert,
     Button,
+    AffirmativeButton,
     Checkbox,
     ContextMenu,
     SelectBox,
