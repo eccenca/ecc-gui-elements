@@ -61,7 +61,9 @@ const Page = React.createClass({
 });
 ```
 
-### Button and Icon
+### Button
+
+Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
 
 ```js
 import {Button, Icon} from 'ecc-gui-elements';
@@ -70,12 +72,63 @@ const Page = React.createClass({
     // template rendering
     render() {
         return (
-            <Button raised={true} accent ripple={false}>A Button</Button>
-            <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
-                <Icon name="mood" />
+            <Button>
+                Simple flat button
             </Button>
-            <Button iconName="more_vert" tooltip="more tooltip" />
-            <Icon name="cloud_download" tooltip="cloudy clouds" />
+
+            // use config options to specify meaning of triggered action
+            <Button
+                affirmative={true} // true | false (default)
+            >
+                Affirmative action
+            </Button>
+            <Button
+                dismissive={true} // true | false (default)
+            >
+                Dismissive action
+            </Button>
+            <Button
+                disruptive={true} // true | false (default)
+            >
+                Disruptive action
+            </Button>
+
+            // according MDL-API, @see https://getmdl.io/components/index.html#buttons-section
+            <Button
+                raised={true} // true | false (default), use it in cases when flat buttons not exposed enough
+                accent={true} // true | false (default), use configured accent color
+                colored={true} // true | false (default), use configured primary color
+                ripple={false} // true | false (default), activate ripple effect on button
+            >
+                A Button
+            </Button>
+
+            // Icon button and Floating action button (FAB)
+            <Button
+                iconName="more_vert" // icon name, @see https://material.io/icons/
+                tooltip="This is a Test!" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
+                fabSize="mini" // use fabSize only if it is a FAB. "mini" | "large" (default)
+                // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
+            />
+        )
+    },
+    // ....
+});
+```
+
+### Icon
+
+```js
+import {Icon} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Icon
+                name="cloud_download" // icon name, @see https://material.io/icons/
+                tooltip="cloudy clouds" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
+            />
         )
     },
     // ....

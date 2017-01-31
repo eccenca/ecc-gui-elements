@@ -4,9 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- new config options for buttons regarding their type of triggered action: affirmative, dismissive, disruptive
 
-## [2.5.0] 2017-01-24 
+## [2.5.0] 2017-01-24
 
 ### Fixed
 - improve layout of multi select values to prevent box overflows
