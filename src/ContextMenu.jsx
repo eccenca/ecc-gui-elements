@@ -49,10 +49,13 @@ const ContextMenu = React.createClass({
 
         const menu = () => {
             if (typeof children !== 'undefined') {
+                if (!Array.isArray(children)) {
+                    children = [children];
+                }
                 // check for classNames
                 children = _.map(children, (obj, idx) => {
                     // add className if none exist
-                    if (!_.has(obj, 'props.className')) {
+                    if (!_.has(obj, 'props.className') && (typeof obj.props.children !== 'undefined')) {
                         obj.props.className = `item-${_.kebabCase(obj.props.children)}`;
                     }
                     obj.key = `MenuItem.${idx}`;

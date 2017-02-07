@@ -4,9 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- ContextMenu with only one MenuItem does not break the application anymore
 
-## [2.6.1] 2017-02-03 
+## [2.6.1] 2017-02-03
 
 ### Fixed
 - use correct capitalization for fallback tooltips of icons and buttons

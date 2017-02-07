@@ -86,6 +86,11 @@ const Page = React.createClass({
                         <MenuItem>Second Another Menu Item</MenuItem>
                         <MenuItem>Second Alright</MenuItem>
                     </ContextMenu>
+                    <ContextMenu
+                        valign="top"
+                    >
+                        <MenuItem>Only one menu item</MenuItem>
+                    </ContextMenu>
                 </Header>
                 <Content>
                     {testcases}
