@@ -2,6 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import {
     Checkbox,
+    RadioButton,
+    RadioGroup,
     SelectBox,
     Switch,
     TextField,
@@ -37,6 +39,14 @@ const TestInputs = React.createClass({
         this.setState({
             switches,
         });
+    },
+
+    updateRadio({value}) {
+
+        this.setState({
+            selectedRadio: value,
+        })
+
     },
 
     updateTextInput(index, {value}) {
@@ -93,6 +103,41 @@ const TestInputs = React.createClass({
                     >
                         <div className="test">Checkbox 3 Text</div>
                     </Checkbox>
+
+                    <hr />
+
+                    <RadioGroup
+                        container="ul"
+                        childContainer="li"
+                        name="testradio"
+                        onChange={this.selectedRadio}
+                        value={this.state.selectedRadio}
+                    >
+                        <RadioButton
+                            value="one"
+                        />
+                        <RadioButton
+                            value="two"
+                            label="Radio 1 Text"
+                        />
+                        <RadioButton
+                            disabled
+                            value="three"
+                        >
+                            Radio 2 Text
+                        </RadioButton>
+                        <RadioButton
+                            value="four"
+                        >
+                            <div className="test">Radio 3 Text</div>
+                        </RadioButton>
+                        <div>
+                            <p>
+                                Current value:
+                                {this.state.selectedRadio}
+                            </p>
+                        </div>
+                    </RadioGroup>
 
                     <hr />
 

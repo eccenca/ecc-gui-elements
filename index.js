@@ -25,6 +25,8 @@ import Info from './src/Alert/Info';
 import {ContextMenu, MenuItem} from './src/ContextMenu';
 import Nothing from './src/Nothing';
 import Progressbar from './src/Progressbar';
+import RadioButton from 'react-mdl/lib/Radio';
+import RadioGroup from './src/elements/Radio/RadioGroup';
 import Spinner from './src/Spinner';
 import Success from './src/Alert/Success';
 import Switch from './src/Input/Switch';
@@ -54,6 +56,8 @@ export default {
     MenuItem,
     Nothing,
     Progressbar,
+    RadioButton,
+    RadioGroup,
     Spinner,
     Success,
     Switch,
