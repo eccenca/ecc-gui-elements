@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import {
     Checkbox,
-    RadioButton,
+    Radio,
     RadioGroup,
     SelectBox,
     Switch,
@@ -17,6 +17,7 @@ const TestInputs = React.createClass({
             selectBox3: '',
             switches: [false, true, undefined, undefined, true, false],
             textInput: ['5'],
+            selectedRadio: ''
         };
     },
 
@@ -107,36 +108,82 @@ const TestInputs = React.createClass({
                     <hr />
 
                     <RadioGroup
-                        container="ul"
-                        childContainer="li"
-                        name="testradio"
-                        onChange={this.selectedRadio}
+                        name="testradio1"
+                        onChange={this.updateRadio}
                         value={this.state.selectedRadio}
                     >
-                        <RadioButton
+                        <Radio
                             value="one"
                         />
-                        <RadioButton
+                        <Radio
                             value="two"
-                            label="Radio 1 Text"
+                            label="Radio 2 Text"
                         />
-                        <RadioButton
+                    </RadioGroup>
+                    <RadioGroup
+                        childContainer="div"
+                        name="testradio2"
+                        onChange={this.updateRadio}
+                        value={this.state.selectedRadio}
+                    >
+                        <Radio
                             disabled
                             value="three"
                         >
-                            Radio 2 Text
-                        </RadioButton>
-                        <RadioButton
+                            Radio 3 Text
+                        </Radio>
+                        <Radio
                             value="four"
                         >
-                            <div className="test">Radio 3 Text</div>
-                        </RadioButton>
-                        <div>
-                            <p>
-                                Current value:
-                                {this.state.selectedRadio}
-                            </p>
-                        </div>
+                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        </Radio>
+                    </RadioGroup>
+                    <div>
+                        <p>
+                            Current value:
+                            {this.state.selectedRadio}
+                        </p>
+                    </div>
+                    <RadioGroup
+                        container="div"
+                        value={this.state.selectedRadio}
+                    >
+                        <Radio
+                            value="one"
+                        />
+                        <Radio
+                            value="two"
+                            label="Radio 2 Text"
+                        />
+                        <Radio
+                            disabled
+                            value="three"
+                        >
+                            Radio 3 Text
+                        </Radio>
+                        <Radio
+                            value="four"
+                        >
+                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        </Radio>
+                        <Radio
+                            value="one"
+                        />
+                        <Radio
+                            value="two"
+                            label="Radio 2 Text"
+                        />
+                        <Radio
+                            disabled
+                            value="three"
+                        >
+                            Radio 3 Text
+                        </Radio>
+                        <Radio
+                            value="four"
+                        >
+                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        </Radio>
                     </RadioGroup>
 
                     <hr />

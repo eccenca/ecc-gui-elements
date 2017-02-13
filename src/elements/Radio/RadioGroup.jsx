@@ -15,13 +15,22 @@ const extendedOnChange = (onChangeFn, event) => {
 const RadioGroup = (props) => {
     const {
         onChange,
+        container,
+        childContainer,
         ...otherProps
     } = props;
+
+
+
     return (
-        <ReactMDLRadioGroup
-            onChange={extendedOnChange.bind(null, onChange)}
-            {...otherProps}
-        />
+        <div className="mdl-radio-group">
+            <ReactMDLRadioGroup
+                onChange={extendedOnChange.bind(null, onChange)}
+                container={(!childContainer && !container) ? 'ul' : container}
+                childContainer={(!childContainer && !container) ? 'li' : childContainer}
+                {...otherProps}
+            />
+        </div>
     );
 };
 
