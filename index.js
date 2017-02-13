@@ -25,6 +25,8 @@ import Info from './src/Alert/Info';
 import {ContextMenu, MenuItem} from './src/ContextMenu';
 import Nothing from './src/Nothing';
 import Progressbar from './src/Progressbar';
+import Radio from './src/elements/Radio/RadioButton';
+import RadioGroup from './src/elements/Radio/RadioGroup';
 import Spinner from './src/Spinner';
 import Success from './src/Alert/Success';
 import Switch from './src/Input/Switch';
@@ -54,6 +56,8 @@ export default {
     MenuItem,
     Nothing,
     Progressbar,
+    Radio,
+    RadioGroup,
     Spinner,
     Success,
     Switch,

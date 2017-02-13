@@ -2,6 +2,8 @@ import React from 'react';
 import _ from 'lodash';
 import {
     Checkbox,
+    Radio,
+    RadioGroup,
     SelectBox,
     Switch,
     TextField,
@@ -15,6 +17,7 @@ const TestInputs = React.createClass({
             selectBox3: '',
             switches: [false, true, undefined, undefined, true, false],
             textInput: ['5'],
+            selectedRadio: ''
         };
     },
 
@@ -37,6 +40,14 @@ const TestInputs = React.createClass({
         this.setState({
             switches,
         });
+    },
+
+    updateRadio({value}) {
+
+        this.setState({
+            selectedRadio: value,
+        })
+
     },
 
     updateTextInput(index, {value}) {
@@ -93,6 +104,87 @@ const TestInputs = React.createClass({
                     >
                         <div className="test">Checkbox 3 Text</div>
                     </Checkbox>
+
+                    <hr />
+
+                    <RadioGroup
+                        name="testradio1"
+                        onChange={this.updateRadio}
+                        value={this.state.selectedRadio}
+                    >
+                        <Radio
+                            value="one"
+                        />
+                        <Radio
+                            value="two"
+                            label="Radio 2 Text"
+                        />
+                    </RadioGroup>
+                    <RadioGroup
+                        childContainer="div"
+                        name="testradio2"
+                        onChange={this.updateRadio}
+                        value={this.state.selectedRadio}
+                    >
+                        <Radio
+                            disabled
+                            value="three"
+                        >
+                            Radio 3 Text
+                        </Radio>
+                        <Radio
+                            value="four"
+                        >
+                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        </Radio>
+                    </RadioGroup>
+                    <div>
+                        <p>
+                            Current value:
+                            {this.state.selectedRadio}
+                        </p>
+                    </div>
+                    <RadioGroup
+                        container="div"
+                        value={this.state.selectedRadio}
+                    >
+                        <Radio
+                            value="one"
+                        />
+                        <Radio
+                            value="two"
+                            label="Radio 2 Text"
+                        />
+                        <Radio
+                            disabled
+                            value="three"
+                        >
+                            Radio 3 Text
+                        </Radio>
+                        <Radio
+                            value="four"
+                        >
+                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        </Radio>
+                        <Radio
+                            value="one"
+                        />
+                        <Radio
+                            value="two"
+                            label="Radio 2 Text"
+                        />
+                        <Radio
+                            disabled
+                            value="three"
+                        >
+                            Radio 3 Text
+                        </Radio>
+                        <Radio
+                            value="four"
+                        >
+                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        </Radio>
+                    </RadioGroup>
 
                     <hr />
 
