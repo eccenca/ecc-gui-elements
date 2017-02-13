@@ -10,6 +10,7 @@ Consists of
 - `Alert`: A message box which is optionally dismissable.
 - `Button`: A simple Button which also may contain icons
 - `Checkbox`: A checkbox with optional description
+- `RadioGroup` and `Radio`: A radio button with optional label and grouping
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `ContextMenu`: A context menu with menu items
 - `BaseDialog`: A custom message box with optional Buttons
@@ -153,6 +154,43 @@ const Page = React.createClass({
             <Checkbox checked>
                 <div className="test">Checkbox 3 Text</div>
             </Checkbox>
+        )
+    },
+    // ....
+});
+```
+
+### RadioGroup and Radio
+
+```js
+import { Radio, RadioGroup} from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <RadioGroup
+                onChange={this.updateRadio}
+                value={this.state.selectedRadio}
+                container="div" // default: "ul"
+                childContainer="div" // default "li"
+                ripple={true|false(default)}
+            >
+                <Radio
+                    value={1}
+                    label="Radio 1 Text"
+                />
+                <Radio
+                    disabled
+                    value={2}
+                >
+                    Radio 2 Text
+                </Radio>
+                <Radio
+                    value={3}
+                >
+                    <div className="test">Radio 3 Text <br/>Line 2</div>
+                </Radio>
+            </RadioGroup>
         )
     },
     // ....

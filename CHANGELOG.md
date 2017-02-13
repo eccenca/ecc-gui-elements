@@ -4,12 +4,13 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- new elements for `<Radio/>` and `<RadioGroup/>`
 
-## [2.6.2] 2017-02-07 
+## [2.6.2] 2017-02-07
 
 ### Fixed
-- ContextMenu with only one MenuItem does not break the application anymore
+- `<ContextMenu/>` with only one MenuItem does not break the application anymore
 
 ## [2.6.1] 2017-02-03
 
