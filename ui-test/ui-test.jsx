@@ -28,11 +28,11 @@ import {
     Layout, Content, Header
 } from 'react-mdl';
 
-const Page = React.createClass({
+class Page  extends React.PureComponent {
     getInitialState() {
         return {
         };
-    },
+    }
 
     // template rendering
     render() {
@@ -102,7 +102,7 @@ const Page = React.createClass({
                 </footer>
             </Layout>
         );
-    },
-});
+    }
+};
 
 render({Component: Page, importCoreStyles: false});
