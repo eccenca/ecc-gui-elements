@@ -3,6 +3,8 @@ import React from 'react';
 import classNames from 'classnames';
 import MaterialMixin from './mixins/MaterialMixin';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
+import _ from 'lodash';
+
 
 const Icon = React.createClass({
     mixins: [MaterialMixin],
@@ -53,6 +55,9 @@ const Icon = React.createClass({
         'sort': 'Sort data',
         'hide': 'Hide',
         'access_forbidden': 'No access',
+    },
+    shouldComponentUpdate(nextProps, nextState) {
+        return !_.isEqual(this.props, nextState);
     },
 
     // template rendering

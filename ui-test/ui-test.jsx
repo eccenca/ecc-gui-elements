@@ -28,7 +28,7 @@ import {
     Layout, Content, Header
 } from 'react-mdl';
 
-class Page  extends React.PureComponent {
+class Page extends React.PureComponent {
     getInitialState() {
         return {
         };
