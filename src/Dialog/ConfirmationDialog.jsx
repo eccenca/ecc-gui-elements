@@ -1,10 +1,14 @@
 import React from 'react';
+import _ from 'lodash';
+import PerformanceMixin from '../mixins/PerformanceMixin';
 import BaseDialog from './BaseDialog';
 
 /**
  * This Component creates a confirmation dialog based on BaseDialog.
  */
 const ConfirmationDialog = React.createClass({
+    mixins: [PerformanceMixin],
+
     // define property types
     propTypes: {
         active: React.PropTypes.bool.isRequired,
@@ -19,6 +23,12 @@ const ConfirmationDialog = React.createClass({
     },
     // template rendering
     render() {
+        const {active} = this.props;
+
+        if (active !== true) {
+            return false;
+        }
+
         // push data with formatted buttons to base dialog
         return (
             <BaseDialog

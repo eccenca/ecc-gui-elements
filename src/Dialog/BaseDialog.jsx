@@ -1,4 +1,6 @@
 import React from 'react';
+import _ from 'lodash';
+import PerformanceMixin from '../mixins/PerformanceMixin';
 import classNames from 'classnames';
 import Button from '../elements/Button/Button';
 
@@ -6,6 +8,8 @@ import Button from '../elements/Button/Button';
  * This Component creates a customizable dialog.
  */
 const BaseDialog = React.createClass({
+    mixins: [PerformanceMixin],
+
     // define property types
     propTypes: {
         /**
@@ -41,6 +45,10 @@ const BaseDialog = React.createClass({
     // template rendering
     render() {
         const {active, className, modal, size, buttonRow, title, titleCancelButton, ...otherProps} = this.props;
+
+        if (active !== true) {
+            return false;
+        }
 
         // set classname
         const classes = classNames('mdl-dialog mdl-shadow--16dp', {

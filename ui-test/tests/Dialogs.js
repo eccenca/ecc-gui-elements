@@ -3,9 +3,12 @@ import {
     Button,
     ConfirmationDialog,
     BaseDialog,
+    PerformanceMixin,
 } from '../../index.js';
 
 const TestDialogs = React.createClass({
+    mixin: [PerformanceMixin],
+
     getInitialState() {
         return {
             baseDialog: false,
@@ -28,6 +31,7 @@ const TestDialogs = React.createClass({
         this.setState({baseDialog: false});
     },
 
+    // template rendering
     render() {
         return (
             <div>
@@ -85,8 +89,8 @@ const TestDialogs = React.createClass({
                         <h4 className="mdl-card__title-text">Test Dialogs</h4>
                     </div>
                     <div className="mdl-card__actions">
-                        <Button raised accent onClick={this.openBaseDialog}>Open BaseDialog</Button>
                         <Button raised accent onClick={this.openConfirmationDialog}>Open ConfirmationDialog</Button>
+                        <Button raised accent onClick={this.openBaseDialog}>Open BaseDialog</Button>
                     </div>
                 </div>
             </div>
