@@ -29,23 +29,14 @@ const Tabs = React.createClass({
             prefixTabNames: 'tabBar'
         };
     },
-    getInitialState() {
-        return _.defaults({
-            // remove entries with empty tabContent and get clear names from i18n
-            tabs: clearTabTitles(_.reject(this.props.tabs, ({tabContent}) => _.isEmpty(tabContent))),
-        }, this.props);
-    },
-    componentWillReceiveProps(props) {
-        const newProps = _.cloneDeep(props);
-        // remove entries with empty tabContent and get clear names from i18n
-        newProps.tabs = clearTabTitles(_.reject(props.tabs, ({tabContent}) => _.isEmpty(tabContent)));
-        this.setState(newProps);
-    },
     handleSelect(tabSelect) {
-        tabSelect = this.state.tabs[tabSelect].tabTitle;
+        tabSelect = this.props.tabs[tabSelect].tabTitle;
         this.setState({activeTab: tabSelect});
-        if(_.isFunction(this.state.onTabClick)){
-            this.state.onTabClick(tabSelect);
+        if(_.isFunction(this.props.onTabClick)){
+            if (__DEBUG__) {
+                console.log('selected tab: ' + tabSelect);
+            }
+            this.props.onTabClick(tabSelect);
         }
     },
 
@@ -53,21 +44,30 @@ const Tabs = React.createClass({
 
         let content = false;
 
-        if (!_.isEmpty(this.state.tabs)) {
+        const tabs = clearTabTitles(
+                        _.reject(
+                            this.props.tabs,
+                            ({tabContent}) => _.isEmpty(tabContent)
+                        )
+                    );
+
+        const activeTabTitle = (this.state && this.state.activeTab) ? this.state.activeTab : this.props.activeTab;
+
+        if (!_.isEmpty(tabs)) {
             // set active tab if given and matches // else take first tab
-            let activeTab = _.findIndex(this.state.tabs, {tabTitle: this.state.activeTab});
+            let activeTab = _.findIndex(tabs, {tabTitle: activeTabTitle});
             activeTab = activeTab === -1 ? 0 : activeTab;
             // create tab header
-            const tabPanel = _.map(this.state.tabs, it =>
+            const tabPanel = _.map(tabs, it =>
                 <ReactMDLTab
-                    className={this.state.prefixTabNames + '-header-' + _.kebabCase(it.tabTitle)}
+                    className={this.props.prefixTabNames + '-header-' + _.kebabCase(it.tabTitle)}
                     key={_.kebabCase(it.tabTitle)}
                 >
                     {it.tabTitle}
                 </ReactMDLTab>
             );
             // create tab content
-            const tabContent = this.state.tabs[activeTab].tabContent;
+            const tabContent = tabs[activeTab].tabContent;
             content = (
                 <div className="mdl-tabs">
                     <ReactMDLTabs activeTab={activeTab} onChange={this.handleSelect}>
