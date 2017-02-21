@@ -5,6 +5,7 @@ import ReactMDLTab from 'react-mdl/lib/Tabs/Tab';
 //import ReactMDLTabBar from 'react-mdl/lib/Tabs/TabBar';
 import _ from 'lodash';
 import Info from './Alert/Info';
+import PerformanceMixin from './mixins/PerformanceMixin';
 
 // get pure title names from i18n format
 const clearTabTitles = (tabs) => {
@@ -15,6 +16,7 @@ const clearTabTitles = (tabs) => {
 };
 
 const Tabs = React.createClass({
+    mixins: [PerformanceMixin],
 
     propTypes: {
         prefixTabNames: React.PropTypes.string, // html class prefix
