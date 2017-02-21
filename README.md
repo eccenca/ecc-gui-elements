@@ -11,7 +11,7 @@ Collection of shared GUI elements and mixins.
 
 The performance mixin provides a default process to test if a component need to be updated before it is rendered. It may be used to improve performance by preventeing unnecessary re-renderings of child components that did not changed.
 
-- Include mixin into your widget component:
+Include mixin into your widget component:
 
 ```js
 import {PerformanceMixin} from 'ecc-gui-elements';
@@ -19,6 +19,12 @@ const Widget = React.createClass({
     mixins: [PerformanceMixin],
     // ...
 });
+```
+
+In GUI elments import it directly from the source file, use the include path relative to the folder of the widget:
+
+```js
+import PerformanceMixin from '../mixins/PerformanceMixin';
 ```
 
 ## GUI elements
