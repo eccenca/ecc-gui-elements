@@ -41,6 +41,7 @@ import TextField from './src/elements/TextField/TextField';
 
 export default {
     MaterialMixin,
+    PerformanceMixin,
     Alert,
     Button,
     AffirmativeButton,
