@@ -8,6 +8,7 @@ if (__WEBPACK__) {
 // Mixins
 
 import MaterialMixin from './src/mixins/MaterialMixin';
+import PerformanceMixin from './src/mixins/PerformanceMixin';
 
 // MDL Elements
 
