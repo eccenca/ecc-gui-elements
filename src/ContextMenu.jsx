@@ -4,14 +4,14 @@ import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
 import Button from './elements/Button/Button';
 import MaterialMixin from './mixins/MaterialMixin';
-
+import PerformanceMixin from './mixins/PerformanceMixin';
 
 /**
 * This component provides a context menu
 * @type {[type]}
 */
 const ContextMenu = React.createClass({
-    mixins: [MaterialMixin],
+    mixins: [MaterialMixin, PerformanceMixin],
 
     propTypes: {
         align: React.PropTypes.string,
