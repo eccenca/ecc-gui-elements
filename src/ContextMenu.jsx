@@ -28,11 +28,6 @@ const ContextMenu = React.createClass({
             tooltip: 'open menu',
         };
     },
-    getInitialState() {
-        return {
-            target: this.props.target || _.uniqueId('app-contextmenu-'),
-        };
-    },
 
     render() {
         const {
@@ -45,7 +40,7 @@ const ContextMenu = React.createClass({
         } = this.props;
 
         let children = _.cloneDeep(this.props.children);
-        const target = this.state.target;
+        const target = this.props.target || _.uniqueId('app-contextmenu-');
 
         const menu = () => {
             if (typeof children !== 'undefined') {
