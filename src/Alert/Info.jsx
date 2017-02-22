@@ -1,18 +1,16 @@
 import React from 'react';
 import MaterialMixin from '../mixins/MaterialMixin';
 import Alert from './Alert';
-import _ from 'lodash';
+import PerformanceMixin from '../mixins/PerformanceMixin';
+
 
 
 const Info = React.createClass({
-    mixins: [MaterialMixin],
+    mixins: [MaterialMixin, PerformanceMixin],
 
     // define property types
     propTypes: {
         children: React.PropTypes.node.isRequired,
-    },
-    shouldComponentUpdate(nextProps, nextState) {
-        return !_.isEqual(this.props, nextState);
     },
 
     // template rendering

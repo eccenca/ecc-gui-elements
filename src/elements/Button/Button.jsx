@@ -5,7 +5,8 @@ import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
 import MaterialMixin from '../../mixins/MaterialMixin';
 import Icon from '../../Icon';
-import _ from 'lodash';
+import PerformanceMixin from '../../mixins/PerformanceMixin';
+
 
 /* TODO:
 
@@ -15,7 +16,7 @@ import _ from 'lodash';
 */
 
 const Button = React.createClass({
-    mixins: [MaterialMixin],
+    mixins: [MaterialMixin, PerformanceMixin],
 
     // define property types
     propTypes: {
@@ -52,9 +53,6 @@ const Button = React.createClass({
         'sort': 'Sort data',
         'hide': 'hide',
         'access_forbidden': 'No access',
-    },
-    shouldComponentUpdate(nextProps, nextState) {
-        return !_.isEqual(this.props, nextState);
     },
 
     // template rendering

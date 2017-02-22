@@ -2,11 +2,11 @@ import React from 'react';
 import MaterialMixin from './mixins/MaterialMixin';
 import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
-import _ from 'lodash';
+import PerformanceMixin from './mixins/PerformanceMixin';
 
 
 const Spinner = React.createClass({
-    mixins: [MaterialMixin],
+    mixins: [MaterialMixin, PerformanceMixin],
 
     // define property types
     propTypes: {
@@ -22,9 +22,7 @@ const Spinner = React.createClass({
             appearLocal: false,
         };
     },
-    shouldCompnentUpdate(nextProps, nextState) {
-        return !_.isEqual(this.props, nextState);
-    },
+
     // template rendering
     render() {
         const {className, appearGlobal, appearInline, appearLocal, ...otherProps} = this.props;
