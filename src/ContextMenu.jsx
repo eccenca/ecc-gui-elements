@@ -7,8 +7,6 @@ import classNames from 'classnames';
 import MaterialMixin from './mixins/MaterialMixin';
 import PerformanceMixin from './mixins/PerformanceMixin';
 
-console.log(ReactMDLMenu);
-
 /**
 * This component provides a context menu
 * @type {[type]}
