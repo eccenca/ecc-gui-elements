@@ -13,7 +13,7 @@ import TestDialogs from './tests/Dialogs';
 import TestIcons from './tests/Icons';
 import TestButtons from './tests/Buttons';
 import TestInputs from './tests/Inputs';
-// import TestTimeline from './tests/Timeline';
+import TestTimeline from './tests/Timeline';
 import TestTabs from './tests/Tabs';
 import TestPagination from './tests/Pagination';
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
@@ -59,8 +59,8 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestDialogs />,
             <hr className="mdl-layout-spacer"/>,
-            // <TestStepper />,
-            // <hr className="mdl-layout-spacer"/>,
+            <TestStepper />,
+            <hr className="mdl-layout-spacer"/>,
             <TestIcons />,
             <hr className="mdl-layout-spacer"/>,
             <TestButtons />,
