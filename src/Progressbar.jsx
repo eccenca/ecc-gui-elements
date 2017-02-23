@@ -1,10 +1,8 @@
 import React from 'react';
-import MaterialMixin from './mixins/MaterialMixin';
 import classNames from 'classnames';
 import ReactMDLProgressBar from 'react-mdl/lib/ProgressBar';
 
 const Progressbar = React.createClass({
-    mixins: [MaterialMixin],
 
     // define property types
     propTypes: {

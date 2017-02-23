@@ -1,10 +1,8 @@
 import React from 'react';
-import MaterialMixin from '../mixins/MaterialMixin';
 import classNames from 'classnames';
 import Button from '../elements/Button/Button';
 
 const Alert = React.createClass({
-    mixins: [MaterialMixin],
 
     // define property types
     propTypes: {

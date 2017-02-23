@@ -3,7 +3,6 @@ import _ from 'lodash';
 import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
 import Button from './elements/Button/Button';
-import MaterialMixin from './mixins/MaterialMixin';
 import PerformanceMixin from './mixins/PerformanceMixin';
 
 /**
@@ -11,7 +10,7 @@ import PerformanceMixin from './mixins/PerformanceMixin';
 * @type {[type]}
 */
 const ContextMenu = React.createClass({
-    mixins: [MaterialMixin, PerformanceMixin],
+    mixins: [PerformanceMixin],
 
     propTypes: {
         align: React.PropTypes.string,
@@ -71,7 +70,7 @@ const ContextMenu = React.createClass({
             }
             return false;
 
-        }
+        };
 
         return (
             <div className={'contextmenu-container'}>

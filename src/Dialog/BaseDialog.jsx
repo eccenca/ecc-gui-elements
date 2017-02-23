@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 import PerformanceMixin from '../mixins/PerformanceMixin';
 import classNames from 'classnames';
 import Button from '../elements/Button/Button';

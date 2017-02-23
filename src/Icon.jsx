@@ -1,13 +1,12 @@
 /*eslint camelcase: 0 */
 import React from 'react';
 import classNames from 'classnames';
-import MaterialMixin from './mixins/MaterialMixin';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
 import PerformanceMixin from './mixins/PerformanceMixin';
 
 
 const Icon = React.createClass({
-    mixins: [MaterialMixin, PerformanceMixin],
+    mixins: [PerformanceMixin],
 
     // define property types
     propTypes: {

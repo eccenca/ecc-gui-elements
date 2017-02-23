@@ -2,10 +2,7 @@ import React from 'react';
 import DataSet from '../lib/vis/lib/DataSet';
 import VisTimeline from '../lib/vis/lib/timeline/Timeline';
 
-import MaterialMixin from './mixins/MaterialMixin';
-
 const Timeline = React.createClass({
-    mixins: [MaterialMixin],
 
     // define property types
     propTypes: {

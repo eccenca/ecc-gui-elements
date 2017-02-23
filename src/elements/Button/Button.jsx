@@ -3,10 +3,8 @@ import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
-import MaterialMixin from '../../mixins/MaterialMixin';
 import Icon from '../../Icon';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
-
 
 /* TODO:
 
@@ -16,7 +14,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 */
 
 const Button = React.createClass({
-    mixins: [MaterialMixin, PerformanceMixin],
+    mixins: [PerformanceMixin],
 
     // define property types
     propTypes: {
