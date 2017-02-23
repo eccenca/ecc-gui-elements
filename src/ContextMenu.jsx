@@ -38,50 +38,45 @@ const ContextMenu = React.createClass({
             ...otherProps
         } = this.props;
 
-        let children = _.cloneDeep(this.props.children);
+        let menuItems = _.cloneDeep(this.props.children);
         const target = this.props.target || _.uniqueId('app-contextmenu-');
 
-        const menu = () => {
-            if (typeof children !== 'undefined') {
-                if (!Array.isArray(children)) {
-                    children = [children];
-                }
-                // check for classNames
-                children = _.map(children, (obj, idx) => {
+        if (typeof menuItems !== 'undefined') {
+            if (!Array.isArray(menuItems)) {
+                menuItems = [menuItems];
+            }
+            // check for classNames
+            menuItems = _.map(menuItems, (obj, idx) => {
+                if (obj) {
                     // add className if none exist
                     if (!_.has(obj, 'props.className') && (typeof obj.props.children !== 'undefined')) {
                         obj.props.className = `item-${_.kebabCase(obj.props.children)}`;
                     }
                     obj.key = `MenuItem.${idx}`;
                     return obj;
-                });
-                return (
-                    <ReactMDLMenu
-                        align={align}
-                        className={className}
-                        ripple={ripple}
-                        target={target}
-                        {...otherProps}
-                    >
-                        {children}
-                    </ReactMDLMenu>
-                );
-
-            }
-            return false;
+                }
+            });
 
         };
 
-        return (
+        return (menuItems.length > 0) ? (
             <div className={'contextmenu-container'}>
                 <Button
                     iconName={iconName ? iconName : 'menu_more'}
                     id={target}
                     tooltip={tooltip ? false : false}
                 />
-                {menu()}
+                <ReactMDLMenu
+                    align={align}
+                    className={className}
+                    ripple={ripple}
+                    target={target}
+                    {...otherProps}
+                >
+                    {menuItems}
+                </ReactMDLMenu>
             </div>
-        );
+        ) : false;
     }
 });
 
