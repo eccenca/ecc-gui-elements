@@ -1,8 +1,10 @@
 import React from 'react';
 import DataSet from '../lib/vis/lib/DataSet';
 import VisTimeline from '../lib/vis/lib/timeline/Timeline';
+import PerformanceMixin from './mixins/PerformanceMixin';
 
 const Timeline = React.createClass({
+    mixins: [PerformanceMixin],
 
     // define property types
     propTypes: {
