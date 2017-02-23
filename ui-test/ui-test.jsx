@@ -59,16 +59,16 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestDialogs />,
             <hr className="mdl-layout-spacer"/>,
-            // <TestStepper />,
-            // <hr className="mdl-layout-spacer"/>,
+            <TestStepper />,
+            <hr className="mdl-layout-spacer"/>,
             <TestIcons />,
             <hr className="mdl-layout-spacer"/>,
             <TestButtons />,
             <hr className="mdl-layout-spacer"/>,
             <TestInputs />,
             <hr className="mdl-layout-spacer"/>,
-            <TestTimeline />,
-            <hr className="mdl-layout-spacer"/>,
+            // <TestTimeline />,
+            // <hr className="mdl-layout-spacer"/>,
             <TestTabs />,
             <hr className="mdl-layout-spacer"/>,
             <TestPagination />,
@@ -108,6 +108,11 @@ const Page = React.createClass({
                     >
                         <MenuItem>Only one menu item</MenuItem>
                     </ContextMenu>
+                    {
+                        (this.state && this.state.insertContextMenuItem) ?
+                            <ContextMenu><MenuItem>test</MenuItem></ContextMenu> :
+                            false
+                    }
                 </Header>
                 <Content>
                     {testcases}

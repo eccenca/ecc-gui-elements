@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Fixed
+- improve rendering of `ContextMenu`, prevent re-rendering cascade (replace react-mdl element)
 
 ### Added
 - `PerformanceMixin` provides default checks for shouldComponentUpdate() to prevent unnecessary renderings
