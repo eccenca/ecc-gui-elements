@@ -7,7 +7,8 @@ import _ from 'lodash';
 const MaterialMixin = {
     materialDesign,
     componentDidMount() {
-        componentHandler.upgradeDom();
+        const comp = findDOMNode(this);
+        componentHandler.upgradeElements(comp);
     },
     componentWillUnmount() {
         const comp = findDOMNode(this);
