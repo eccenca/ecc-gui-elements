@@ -1,6 +1,5 @@
 import React from 'react';
 import _ from 'lodash';
-import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
 import Button from './elements/Button/Button';
 import classNames from 'classnames';
