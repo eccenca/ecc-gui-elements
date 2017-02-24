@@ -3,11 +3,9 @@ import {
     Button,
     ConfirmationDialog,
     BaseDialog,
-    PerformanceMixin,
 } from '../../index.js';
 
 const TestDialogs = React.createClass({
-    mixin: [PerformanceMixin],
 
     getInitialState() {
         return {

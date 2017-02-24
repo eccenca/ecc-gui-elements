@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 ### Fixed
 - improve rendering of `ContextMenu`, prevent re-rendering cascade (replace react-mdl element)
+- add prop `valign` to `ContextMenu`
 
 ### Added
 - `PerformanceMixin` provides default checks for shouldComponentUpdate() to prevent unnecessary renderings
