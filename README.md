@@ -26,6 +26,7 @@ In GUI elments import it directly from the source file, use the include path rel
 ```js
 import PerformanceMixin from '../mixins/PerformanceMixin';
 ```
+**Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
 
 ## GUI elements
 

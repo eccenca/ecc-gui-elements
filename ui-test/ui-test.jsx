@@ -13,7 +13,7 @@ import TestDialogs from './tests/Dialogs';
 import TestIcons from './tests/Icons';
 import TestButtons from './tests/Buttons';
 import TestInputs from './tests/Inputs';
-import TestTimeline from './tests/Timeline';
+// import TestTimeline from './tests/Timeline';
 import TestTabs from './tests/Tabs';
 import TestPagination from './tests/Pagination';
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
@@ -28,6 +28,8 @@ import {
 import {
     Layout, Content, Header
 } from 'react-mdl';
+
+window.enablePerformanceMixingLog = true;
 
 const Page = React.createClass({
     mixins: [PerformanceMixin],
@@ -67,8 +69,8 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestInputs />,
             <hr className="mdl-layout-spacer"/>,
-            <TestTimeline />,
-            <hr className="mdl-layout-spacer"/>,
+            // <TestTimeline />,
+            // <hr className="mdl-layout-spacer"/>,
             <TestTabs />,
             <hr className="mdl-layout-spacer"/>,
             <TestPagination />,
@@ -81,7 +83,7 @@ const Page = React.createClass({
                     <ContextMenu
                         align="left"
                     >
-                        <MenuItem className="ownClassName">First First Item</MenuItem>
+                        <MenuItem className="ownClassName" key="no1">First First Item</MenuItem>
                         <MenuItem>First Second Item</MenuItem>
                         <MenuItem>First Menu Item 3</MenuItem>
                         <MenuItem>First Another Menu Item</MenuItem>

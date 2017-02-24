@@ -23,14 +23,14 @@ const PerformanceMixin = {
     shouldComponentUpdate(nextProps, nextState) {
 
         if (_.isEqual(nextState, this.state) === false) {
-            if (__DEBUG__) {
+            if (__DEBUG__ && window.enablePerformanceMixingLog) {
                 showDifferences(this, 'state', nextState);
             }
             return true;
         }
 
         if (_.isEqual(nextProps, this.props) === false) {
-            if (__DEBUG__) {
+            if (__DEBUG__ && window.enablePerformanceMixingLog) {
                 showDifferences(this, 'props', nextProps);
             }
             return true;
