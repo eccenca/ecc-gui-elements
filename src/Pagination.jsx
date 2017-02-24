@@ -2,10 +2,10 @@ import React from 'react';
 import _ from 'lodash';
 import Button from './elements/Button/Button';
 import SelectBox from './elements/SelectBox/SelectBox';
+import PerformanceMixin from './mixins/PerformanceMixin';
+
 const calculatePagination = ({limit, offset, totalResults}) => {
-
     const onLastPage = (offset + limit) >= totalResults;
-
     return {
         limit,
         offset,
@@ -23,6 +23,8 @@ const calculatePagination = ({limit, offset, totalResults}) => {
  * @type {[type]}
  */
 const Pagination = React.createClass({
+    mixins: [PerformanceMixin],
+
     // define property types
     propTypes: {
         /**

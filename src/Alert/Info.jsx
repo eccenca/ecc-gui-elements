@@ -1,9 +1,11 @@
 import React from 'react';
-import MaterialMixin from '../mixins/MaterialMixin';
 import Alert from './Alert';
+import PerformanceMixin from '../mixins/PerformanceMixin';
+
+
 
 const Info = React.createClass({
-    mixins: [MaterialMixin],
+    mixins: [PerformanceMixin],
 
     // define property types
     propTypes: {

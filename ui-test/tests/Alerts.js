@@ -7,12 +7,7 @@ import {
     Error
 } from '../../index.js';
 
-const TestAlerts = React.createClass({
-    getInitialState() {
-        return {
-        };
-    },
-
+class TestAlerts extends React.PureComponent {
     render() {
         return (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
@@ -40,6 +35,6 @@ const TestAlerts = React.createClass({
             </div>
         );
     }
-});
+};
 
 export default TestAlerts;

@@ -1,7 +1,6 @@
 /* eslint no-console: 0 */
 import React from 'react';
 import render from 'ecc-uitest-helpers';
-import _ from 'lodash';
 // test styles
 import '../style/test.scss';
 // test cases
@@ -16,6 +15,7 @@ import TestInputs from './tests/Inputs';
 import TestTimeline from './tests/Timeline';
 import TestTabs from './tests/Tabs';
 import TestPagination from './tests/Pagination';
+import PerformanceMixin from './../src/mixins/PerformanceMixin';
 
 // component
 import {
@@ -28,10 +28,23 @@ import {
     Layout, Content, Header
 } from 'react-mdl';
 
+window.enablePerformanceMixingLog = true;
+
 const Page = React.createClass({
-    getInitialState() {
-        return {
-        };
+    mixins: [PerformanceMixin],
+
+    addContextMenuItem() {
+        this.setState({
+            insertContextMenuItem: true,
+        });
+        console.log('insert MenuItem');
+    },
+
+    removeContextMenuItem() {
+        this.setState({
+            insertContextMenuItem: false,
+        });
+        console.log('remove MenuItem');
     },
 
     // template rendering
@@ -69,11 +82,16 @@ const Page = React.createClass({
                     <ContextMenu
                         align="left"
                     >
-                        <MenuItem className="ownClassName">First First Item</MenuItem>
+                        <MenuItem className="ownClassName" key="no1">First First Item</MenuItem>
                         <MenuItem>First Second Item</MenuItem>
                         <MenuItem>First Menu Item 3</MenuItem>
                         <MenuItem>First Another Menu Item</MenuItem>
-                        <MenuItem>First Alright</MenuItem>
+                        <MenuItem onClick={this.addContextMenuItem}>First Add Another</MenuItem>
+                        {
+                            (this.state && this.state.insertContextMenuItem) ?
+                                <MenuItem onClick={this.removeContextMenuItem}>Remove me</MenuItem> :
+                                false
+                        }
                     </ContextMenu>
                     <ContextMenu
                         align="right"
@@ -91,6 +109,11 @@ const Page = React.createClass({
                     >
                         <MenuItem>Only one menu item</MenuItem>
                     </ContextMenu>
+                    {
+                        (this.state && this.state.insertContextMenuItem) ?
+                            <ContextMenu><MenuItem>test</MenuItem></ContextMenu> :
+                            false
+                    }
                 </Header>
                 <Content>
                     {testcases}

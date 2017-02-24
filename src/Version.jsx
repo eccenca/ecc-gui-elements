@@ -1,10 +1,7 @@
 // react
 import React from 'react';
-import MaterialMixin from './mixins/MaterialMixin';
 
 const Version = React.createClass({
-
-    mixins: [MaterialMixin],
 
     // define property types
     propTypes: {

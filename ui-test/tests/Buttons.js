@@ -7,12 +7,7 @@ import {
     Icon
 } from '../../index.js';
 
-const TestButtons = React.createClass({
-    getInitialState() {
-        return {
-        };
-    },
-
+class TestButtons extends React.PureComponent {
     render() {
         return (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
@@ -70,6 +65,6 @@ const TestButtons = React.createClass({
             </div>
         );
     }
-});
+};
 
 export default TestButtons;
