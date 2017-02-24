@@ -45,26 +45,48 @@ const ContextMenu = React.createClass({
             ...otherProps
         } = this.props;
 
-        let menuItems = _.cloneDeep(children);
+        const menuItemsCopy = Array.isArray(children) ? children : [children];
         const menuId = target || _.uniqueId('app-contextmenu-');
 
-        if (typeof menuItems !== 'undefined') {
-            if (!Array.isArray(menuItems)) {
-                menuItems = [menuItems];
-            }
-            // check for classNames
-            menuItems = _.map(menuItems, (obj, idx) => {
-                if (obj) {
-                    // add className if none exist
-                    if (!_.has(obj, 'props.className') && (typeof obj.props.children !== 'undefined')) {
-                        obj.props.className = `item-${_.kebabCase(obj.props.children)}`;
-                    }
-                    obj.key = `MenuItem.${idx}`;
+        const menuItems = _.map(menuItemsCopy, (obj, idx) => {
+            if (obj) {
+                if (_.has(obj, 'props.className') && obj.key) {
                     return obj;
                 }
-            });
 
-        };
+                const objExtension = {};
+
+                // add className if none exist
+                if (!_.has(obj, 'props.className') && _.has(obj, 'props.children')) {
+                    objExtension.className = `item-${_.kebabCase(obj.props.children)}`;
+                }
+
+                // add key
+                if (!obj.key) {
+                    objExtension.key = `MenuItem.${idx}`;
+                }
+
+                const objResult = Object.assign(
+                    {},
+                    obj,
+                    (
+                        objExtension.key ?
+                            {key: objExtension.key} :
+                            {key: obj.key}
+                    ),
+                    (
+                        objExtension.className ?
+                            {props: Object.assign(
+                                {},
+                                obj.props,
+                                {className: objExtension.className}
+                            )} :
+                            {props: obj.props})
+                )
+
+                return objResult;
+            }
+        });
 
         /* we may switch back to Menu of react-mdl later */
         /*
