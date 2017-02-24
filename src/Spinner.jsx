@@ -1,10 +1,11 @@
 import React from 'react';
-import MaterialMixin from './mixins/MaterialMixin';
 import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
+import PerformanceMixin from './mixins/PerformanceMixin';
+
 
 const Spinner = React.createClass({
-    mixins: [MaterialMixin],
+    mixins: [PerformanceMixin],
 
     // define property types
     propTypes: {

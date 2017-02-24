@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Select from 'react-select/lib/Select.js';
 import Creatable from 'react-select/lib/Creatable.js';
 import _ from 'lodash';
+import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 // format value to lowercase string
 const stringCompare = function(value) {
@@ -10,6 +11,8 @@ const stringCompare = function(value) {
 };
 
 const SelectBox = React.createClass({
+    mixins: [PerformanceMixin],
+
     propTypes: {
         /**
          * contains values which are available in dropdown list
@@ -45,11 +48,6 @@ const SelectBox = React.createClass({
         // allow creation of new values
         creatable: React.PropTypes.bool,
     },
-    getInitialState() {
-        return {
-            focused: this.props.autofocus,
-        };
-    },
 
     onChange(value) {
         // If the options consist of plainvalues, we just want to return the plain value
@@ -81,6 +79,7 @@ const SelectBox = React.createClass({
     render() {
 
         const {
+            autofocus,
             creatable,
             placeholder = '',
             options,
@@ -118,12 +117,15 @@ const SelectBox = React.createClass({
             }
         }
 
+        const focused = (this.state && (typeof this.state.focused !== 'undefined')) ?
+                        this.state.focused : autofocus;
+
         const classes = classNames(
             {
                 'mdl-textfield mdl-js-textfield mdl-textfield--full-width': placeholder ? true : false,
                 'mdl-textfield--floating-label': placeholder ? true : false,
                 'is-dirty': (!_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value))) ? true : false,
-                'is-focused': (this.state.focused === true),
+                'is-focused': (focused === true),
                 'Select--optionsontop': (optionsOnTop === true),
             }
         );

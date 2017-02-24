@@ -3,12 +3,7 @@ import {
     Spinner,
 } from '../../index.js';
 
-const TestSpinner = React.createClass({
-    getInitialState() {
-        return {
-        };
-    },
-
+class TestSpinner extends React.PureComponent {
     render() {
         return (
             <div className="mdl-card mdl-shadow--2dp">
@@ -23,6 +18,6 @@ const TestSpinner = React.createClass({
             </div>
         );
     }
-});
+};
 
 export default TestSpinner;

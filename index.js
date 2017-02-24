@@ -8,6 +8,7 @@ if (__WEBPACK__) {
 // Mixins
 
 import MaterialMixin from './src/mixins/MaterialMixin';
+import PerformanceMixin from './src/mixins/PerformanceMixin';
 
 // MDL Elements
 
@@ -40,6 +41,7 @@ import TextField from './src/elements/TextField/TextField';
 
 export default {
     MaterialMixin,
+    PerformanceMixin,
     Alert,
     Button,
     AffirmativeButton,

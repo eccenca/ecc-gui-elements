@@ -3,12 +3,7 @@ import {
     Progressbar,
 } from '../../index.js';
 
-const TestProgressbar = React.createClass({
-    getInitialState() {
-        return {
-        };
-    },
-
+class TestProgressbar extends React.PureComponent {
     render() {
         return (
             <div className="mdl-card mdl-shadow--2dp">
@@ -23,6 +18,6 @@ const TestProgressbar = React.createClass({
             </div>
         );
     }
-});
+};
 
 export default TestProgressbar;

@@ -207,6 +207,7 @@ const TestInputs = React.createClass({
                         ]}
                         value={this.state.selectBox1}
                         onChange={this.selectBox1OnChange}
+                        autofocus
                     />
                     <h5>SelectBox with mixed strings and numbers</h5>
                     <SelectBox

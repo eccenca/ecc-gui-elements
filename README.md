@@ -1,12 +1,35 @@
 # Low-Level GUI Components (ecc-gui-elements)
 
-Collection of low-level GUI elements like Buttons, Icons or Alerts.
+Collection of shared GUI elements and mixins.
 
-## Elements
+## Mixins
 
-Consists of
+- `MaterialMixin`: A mixin which forces material design lite components to rerender if the React Component gets updated.
+- `PerformanceMixin`: A mixin that provides default functionality for shouldComponentUpdate() to prevent unnecessary renderings.
 
-- `MaterialMixin`: A Mixin which forces material design lite components to rerender if the React Component gets updated.
+### PerformanceMixin
+
+The performance mixin provides a default process to test if a component need to be updated before it is rendered. It may be used to improve performance by preventeing unnecessary re-renderings of child components that did not changed.
+
+Include mixin into your widget component:
+
+```js
+import {PerformanceMixin} from 'ecc-gui-elements';
+const Widget = React.createClass({
+    mixins: [PerformanceMixin],
+    // ...
+});
+```
+
+In GUI elments import it directly from the source file, use the include path relative to the folder of the widget:
+
+```js
+import PerformanceMixin from '../mixins/PerformanceMixin';
+```
+**Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
+
+## GUI elements
+
 - `Alert`: A message box which is optionally dismissable.
 - `Button`: A simple Button which also may contain icons
 - `Checkbox`: A checkbox with optional description
@@ -26,9 +49,7 @@ Consists of
 - `Pagination`: A page control element
 - `TextField`: A TextField with floating label. Wrapper around [React-MDL Textfield]()
 
-## Usage
-
-Usage is as simple as importing and rendering the components
+Usage is as simple as importing and rendering the components.
 
 ### Alert (Error, Info, Success and Warning)
 
