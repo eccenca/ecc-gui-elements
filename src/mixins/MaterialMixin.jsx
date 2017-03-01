@@ -7,8 +7,14 @@ import _ from 'lodash';
 const MaterialMixin = {
     materialDesign,
     componentDidMount() {
-        const comp = findDOMNode(this);
-        componentHandler.upgradeElements(comp);
+
+        if (__DEBUG__) {
+            console.debug(
+                `MaterialMixin is used in ${this.constructor.displayName}. ` +
+                `Please check if this usage is wanted and migrate old MDL Stuff to new gui-elements`
+            );
+        }
+        componentHandler.upgradeDom();
     },
     componentWillUnmount() {
         const comp = findDOMNode(this);
