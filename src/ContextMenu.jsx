@@ -1,9 +1,9 @@
 import React from 'react';
 import _ from 'lodash';
+import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
 import Button from './elements/Button/Button';
 import classNames from 'classnames';
-import MaterialMixin from './mixins/MaterialMixin';
 import PerformanceMixin from './mixins/PerformanceMixin';
 
 /**
@@ -11,7 +11,7 @@ import PerformanceMixin from './mixins/PerformanceMixin';
 * @type {[type]}
 */
 const ContextMenu = React.createClass({
-    mixins: [MaterialMixin, PerformanceMixin],
+    mixins: [PerformanceMixin],
 
     propTypes: {
         align: React.PropTypes.string,
@@ -34,10 +34,6 @@ const ContextMenu = React.createClass({
     render() {
         const {
             children,
-            className,
-            align,
-            valign,
-            ripple,
             iconName,
             tooltip,
             target,
@@ -87,32 +83,13 @@ const ContextMenu = React.createClass({
             }
         });
 
-        /* we may switch back to Menu of react-mdl later */
-        /*
-        <ReactMDLMenu
-            target={menuId}
-            {...otherProps}
-        >
-            {menuItems}
-        </ReactMDLMenu>
-        */
         const menulist = (menuItems.length > 0) ? (
-            <ul
-                className={
-                    classNames(
-                        'mdl-menu mdl-js-menu',
-                        'mdl-menu--' + valign + '-' + align,
-                        {
-                            'mdl-js-ripple-effect': ripple
-                        },
-                        className
-                    )
-                }
-                htmlFor={menuId}
+            <ReactMDLMenu
+                target={menuId}
                 {...otherProps}
             >
                 {menuItems}
-            </ul>
+            </ReactMDLMenu>
         ) : false;
 
         return (menulist) ? (
