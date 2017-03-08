@@ -10,7 +10,7 @@ const TestTabs = React.createClass({
             tabContent: [
                 {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
                 {tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab'},
-                {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
+                {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'},
             ],
         };
     },
