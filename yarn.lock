@@ -3728,6 +3728,10 @@ lodash.isempty@^4.2.1:
   version "4.4.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
 
+lodash.isequal@^4.4.0:
+  version "4.5.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
 lodash.isplainobject@^4.0.4:
   version "4.0.6"
   resolved "https://artifactory.eccenca.com/api/npm/npm/lodash.isplainobject/-/lodash.isplainobject-4.0.6.tgz#7c526a52d89b45c45cc690b88163be0497f550cb"
@@ -4877,6 +4881,14 @@ react-mdl@1.5.2:
   dependencies:
     clamp "^1.0.1"
     classnames "^2.2.3"
+
+react-mdl@1.9.0:
+  version "1.9.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/react-mdl/-/react-mdl-1.9.0.tgz#e7f285c68639cab40f0c9fff0e91ec605563c4e8"
+  dependencies:
+    clamp "^1.0.1"
+    classnames "^2.2.3"
+    lodash.isequal "^4.4.0"
 
 react-perf-tool@^0.2.0:
   version "0.2.0"
