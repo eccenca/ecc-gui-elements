@@ -3,8 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
-
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- revert to old Tabs workflow regarding to accidentally changes of behaviour with empty tabs content and non-avtive tabs
 
 ## [2.8.1] 2017-03-01 
 ### Fixed
