@@ -5,6 +5,10 @@ if (__WEBPACK__) {
     require('./style/style.scss');
 }
 
+// MDL Javascript
+
+import 'react-mdl/extra/material.js';
+
 // Mixins
 
 import MaterialMixin from './src/mixins/MaterialMixin';
