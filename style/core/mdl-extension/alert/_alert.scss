@@ -22,27 +22,27 @@
     }
 
     &.mdl-alert--success {
-        color: $palette-green-800;
-        background-color: $palette-green-50;
-        border-color: $palette-green-100;
+        color: unquote("rgb(#{$palette-green-800})");
+        background-color: unquote("rgb(#{$palette-green-50})");
+        border-color: unquote("rgb(#{$palette-green-100})");
     }
 
     &.mdl-alert--info {
-        color: $palette-blue-800;
-        background-color: $palette-blue-50;
-        border-color: $palette-blue-100;
+        color: unquote("rgb(#{$palette-blue-800})");
+        background-color: unquote("rgb(#{$palette-blue-50})");
+        border-color: unquote("rgb(#{$palette-blue-100})");
     }
 
     &.mdl-alert--warning {
-        color: $palette-orange-800;
-        background-color: $palette-orange-50;
-        border-color: $palette-orange-100;
+        color: unquote("rgb(#{$palette-orange-800})");
+        background-color: unquote("rgb(#{$palette-orange-50})");
+        border-color: unquote("rgb(#{$palette-orange-100})");
     }
 
     &.mdl-alert--danger {
-        color: $palette-red-800;
-        background-color: $palette-red-50;
-        border-color: $palette-red-100;
+        color: unquote("rgb(#{$palette-red-800})");
+        background-color: unquote("rgb(#{$palette-red-50})");
+        border-color: unquote("rgb(#{$palette-red-100})");
     }
 
     &.mdl-alert--dismissable {

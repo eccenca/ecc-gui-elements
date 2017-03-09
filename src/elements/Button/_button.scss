@@ -6,13 +6,13 @@
 
 .mdl-button {
     &.mdl-button--danger {
-        color: $palette-red-800;
+        color: unquote("rgb(#{$palette-red-800})");
     }
 }
 
 .mdl-button--raised {
     &.mdl-button--danger {
-        background-color: $palette-red-800;
-        color: $palette-red-50;
+        background-color: unquote("rgb(#{$palette-red-800})");
+        color: unquote("rgb(#{$palette-red-50})");
     }
 }
