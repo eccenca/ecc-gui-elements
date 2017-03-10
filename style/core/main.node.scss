@@ -17,6 +17,10 @@
 $image_path: "~material-design-lite/src/images" !default;
 @import "~material-design-lite/src/material-design-lite";
 
+// -- React MDL patch for MDL Layout container ---------------------------------
+
+@import "~react-mdl/extra/layout";
+
 // -- Material Design Stepper Polyfill -----------------------------------------
 
 //$stepper-box-shadow: none !default;
