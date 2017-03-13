@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import Button from '../elements/Button/Button';
+import Button from '../../elements/Button/Button';
 
 const Alert = React.createClass({
 

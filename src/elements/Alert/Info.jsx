@@ -1,9 +1,8 @@
 import React from 'react';
 import Alert from './Alert';
-import PerformanceMixin from '../mixins/PerformanceMixin';
+import PerformanceMixin from '../../mixins/PerformanceMixin';
 
-
-const Warning = React.createClass({
+const Info = React.createClass({
     mixins: [PerformanceMixin],
 
     // define property types
@@ -16,7 +15,7 @@ const Warning = React.createClass({
         const {children, ...otherProps} = this.props;
 
         return (
-            <Alert type="warning" {...otherProps}>
+            <Alert type="info" {...otherProps}>
                 {children}
             </Alert>
         );
@@ -24,4 +23,4 @@ const Warning = React.createClass({
     },
 });
 
-export default Warning;
+export default Info;

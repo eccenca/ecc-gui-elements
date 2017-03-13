@@ -4,7 +4,7 @@ import ReactMDLTabs from 'react-mdl/lib/Tabs/Tabs';
 import ReactMDLTab from 'react-mdl/lib/Tabs/Tab';
 //import ReactMDLTabBar from 'react-mdl/lib/Tabs/TabBar';
 import _ from 'lodash';
-import Info from './Alert/Info';
+import Info from './elements/Alert/Info';
 import PerformanceMixin from './mixins/PerformanceMixin';
 
 // get pure title names from i18n format

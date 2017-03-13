@@ -1,7 +1,6 @@
 import React from 'react';
 import Alert from './Alert';
-import PerformanceMixin from '../mixins/PerformanceMixin';
-
+import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const Success = React.createClass({
     mixins: [PerformanceMixin],
