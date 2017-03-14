@@ -1,5 +1,5 @@
 import React from 'react';
-import PerformanceMixin from '../mixins/PerformanceMixin';
+import PerformanceMixin from '../../mixins/PerformanceMixin';
 import BaseDialog from './BaseDialog';
 
 /**

@@ -24,8 +24,10 @@ import {
     Warning,
 } from './src/elements/Alert';
 
-import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
-import BaseDialog from './src/Dialog/BaseDialog';
+import {
+    BaseDialog,
+    ConfirmationDialog,
+} from './src/elements/Dialog';
 
 import Button from './src/elements/Button/Button';
 import AffirmativeButton from './src/elements/Button/AffirmativeButton';

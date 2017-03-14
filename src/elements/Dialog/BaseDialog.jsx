@@ -1,7 +1,7 @@
 import React from 'react';
-import PerformanceMixin from '../mixins/PerformanceMixin';
+import PerformanceMixin from '../../mixins/PerformanceMixin';
 import classNames from 'classnames';
-import Button from '../elements/Button/Button';
+import Button from '../../elements/Button/Button';
 
 /**
  * This Component creates a customizable dialog.
