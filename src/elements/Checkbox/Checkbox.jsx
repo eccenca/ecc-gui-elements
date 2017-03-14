@@ -5,7 +5,7 @@ import extendedOnChangeBoolean from '../../utils/extendedOnChangeBoolean';
 const Checkbox = (props) => {
     const {label, children, ripple = false, checked, onChange, ...otherProperties} = props;
 
-    let checkboxlabel = label ? label : false;
+    let checkboxlabel = label ? label : '';
     if (!checkboxlabel && children) {
         checkboxlabel = children;
     }
