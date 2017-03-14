@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
-import Icon from '../../Icon';
+import Icon from '../Icon/Icon';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 /* TODO:

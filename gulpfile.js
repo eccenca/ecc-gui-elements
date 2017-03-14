@@ -189,7 +189,7 @@ gulp.task('icontable', ['download-codepoints'], function(cb) {
 
         });
 
-        fs.writeFile('./icontable.json', JSON.stringify(result, null, 2) + '\n', cb);
+        fs.writeFile('./src/elements/Icon/icontable.json', JSON.stringify(result, null, 2) + '\n', cb);
     });
 
 });

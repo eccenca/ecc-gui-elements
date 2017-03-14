@@ -43,6 +43,10 @@ import {
     MenuItem,
 } from './src/elements/ContextMenu/ContextMenu';
 
+import Icon from './src/elements/Icon/Icon';
+
+import Nothing from './src/elements/Nothing/Nothing';
+
 import Pagination from './src/elements/Pagination/Pagination';
 
 import Progressbar from './src/elements/Progressbar/Progressbar';
@@ -52,17 +56,19 @@ import {
     RadioGroup,
 } from './src/elements/Radio';
 
+import SelectBox from './src/elements/SelectBox/SelectBox';
+
 import Spinner from './src/elements/Spinner/Spinner';
 
 import Switch from './src/elements/Switch/Switch';
 
-import Icon from './src/Icon';
-import Nothing from './src/Nothing';
-import Timeline from './src/Timeline';
-import Tabs from './src/Tabs';
-import Version from './src/Version';
-import SelectBox from './src/elements/SelectBox/SelectBox';
+import Tabs from './src/elements/Tabs/Tabs';
+
 import TextField from './src/elements/TextField/TextField';
+
+import Timeline from './src/Timeline';
+
+import Version from './src/elements/Version/Version';
 
 export default {
     MaterialMixin,

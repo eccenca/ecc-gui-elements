@@ -2,7 +2,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
-import PerformanceMixin from './mixins/PerformanceMixin';
+import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 
 const Icon = React.createClass({
@@ -61,7 +61,7 @@ const Icon = React.createClass({
         const {className, otherProps} = this.props;
 
         // change ligatures to char codes for browser compatibility (eg for IE9)
-        const ligaturcodes = require('../icontable.json');
+        const ligaturcodes = require('./icontable.json');
 
         let name = this.props.name;
         let tooltip = this.props.tooltip;
