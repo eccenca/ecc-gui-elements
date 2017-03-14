@@ -25,25 +25,34 @@ import {
 } from './src/elements/Alert';
 
 import {
+    Button,
+    AffirmativeButton,
+    DismissiveButton,
+    DisruptiveButton,
+} from './src/elements/Button';
+
+import {
     BaseDialog,
     ConfirmationDialog,
 } from './src/elements/Dialog';
 
 import Checkbox from './src/elements/Checkbox/Checkbox';
 
+import {
+    ContextMenu,
+    MenuItem,
+} from './src/elements/ContextMenu/ContextMenu';
+
+import {
+    Radio,
+    RadioGroup,
+} from './src/elements/Radio';
+
 import Switch from './src/elements/Switch/Switch';
 
-
-import Button from './src/elements/Button/Button';
-import AffirmativeButton from './src/elements/Button/AffirmativeButton';
-import DismissiveButton from './src/elements/Button/DismissiveButton';
-import DisruptiveButton from './src/elements/Button/DisruptiveButton';
 import Icon from './src/Icon';
-import {ContextMenu, MenuItem} from './src/ContextMenu';
 import Nothing from './src/Nothing';
 import Progressbar from './src/Progressbar';
-import Radio from './src/elements/Radio/RadioButton';
-import RadioGroup from './src/elements/Radio/RadioGroup';
 import Spinner from './src/Spinner';
 import Timeline from './src/Timeline';
 import Tabs from './src/Tabs';

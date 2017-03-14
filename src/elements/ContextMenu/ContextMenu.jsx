@@ -2,9 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import ReactMDLMenu from 'react-mdl/lib/Menu';
 import {MenuItem} from 'react-mdl/lib/Menu';
-import Button from './elements/Button/Button';
+import Button from './../../elements/Button/Button';
 import classNames from 'classnames';
-import PerformanceMixin from './mixins/PerformanceMixin';
+import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 /**
 * This component provides a context menu
