@@ -14,7 +14,7 @@ import 'react-mdl/extra/material.js';
 import MaterialMixin from './src/mixins/MaterialMixin';
 import PerformanceMixin from './src/mixins/PerformanceMixin';
 
-// MDL Elements
+// GUI Elements
 
 import {
     Alert,
@@ -29,11 +29,15 @@ import {
     ConfirmationDialog,
 } from './src/elements/Dialog';
 
+import Checkbox from './src/elements/Checkbox/Checkbox';
+
+import Switch from './src/elements/Switch/Switch';
+
+
 import Button from './src/elements/Button/Button';
 import AffirmativeButton from './src/elements/Button/AffirmativeButton';
 import DismissiveButton from './src/elements/Button/DismissiveButton';
 import DisruptiveButton from './src/elements/Button/DisruptiveButton';
-import Checkbox from './src/Input/Checkbox';
 import Icon from './src/Icon';
 import {ContextMenu, MenuItem} from './src/ContextMenu';
 import Nothing from './src/Nothing';
@@ -41,7 +45,6 @@ import Progressbar from './src/Progressbar';
 import Radio from './src/elements/Radio/RadioButton';
 import RadioGroup from './src/elements/Radio/RadioGroup';
 import Spinner from './src/Spinner';
-import Switch from './src/Input/Switch';
 import Timeline from './src/Timeline';
 import Tabs from './src/Tabs';
 import Version from './src/Version';
