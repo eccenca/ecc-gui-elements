@@ -45,17 +45,19 @@ import {
 
 import Pagination from './src/elements/Pagination/Pagination';
 
+import Progressbar from './src/elements/Progressbar/Progressbar';
+
 import {
     Radio,
     RadioGroup,
 } from './src/elements/Radio';
 
+import Spinner from './src/elements/Spinner/Spinner';
+
 import Switch from './src/elements/Switch/Switch';
 
 import Icon from './src/Icon';
 import Nothing from './src/Nothing';
-import Progressbar from './src/Progressbar';
-import Spinner from './src/Spinner';
 import Timeline from './src/Timeline';
 import Tabs from './src/Tabs';
 import Version from './src/Version';

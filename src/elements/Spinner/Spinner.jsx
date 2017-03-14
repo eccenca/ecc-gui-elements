@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
-import PerformanceMixin from './mixins/PerformanceMixin';
+import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 
 const Spinner = React.createClass({
