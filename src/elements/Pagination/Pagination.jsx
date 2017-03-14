@@ -1,8 +1,8 @@
 import React from 'react';
 import _ from 'lodash';
-import Button from './elements/Button/Button';
-import SelectBox from './elements/SelectBox/SelectBox';
-import PerformanceMixin from './mixins/PerformanceMixin';
+import Button from './../../elements/Button/Button';
+import SelectBox from './../../elements/SelectBox/SelectBox';
+import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 const calculatePagination = ({limit, offset, totalResults}) => {
     const onLastPage = (offset + limit) >= totalResults;

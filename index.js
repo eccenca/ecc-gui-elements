@@ -43,6 +43,8 @@ import {
     MenuItem,
 } from './src/elements/ContextMenu/ContextMenu';
 
+import Pagination from './src/elements/Pagination/Pagination';
+
 import {
     Radio,
     RadioGroup,
@@ -57,7 +59,6 @@ import Spinner from './src/Spinner';
 import Timeline from './src/Timeline';
 import Tabs from './src/Tabs';
 import Version from './src/Version';
-import Pagination from './src/Pagination';
 import SelectBox from './src/elements/SelectBox/SelectBox';
 import TextField from './src/elements/TextField/TextField';
 
