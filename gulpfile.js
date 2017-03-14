@@ -5,16 +5,15 @@ var fs = require('fs');
 var path = require('path');
 var _ = require('lodash');
 
-
-var visp = require('./lib/vis/package.json');
+//var visp = require('./lib/vis/package.json');
+//var visVersion = visp.version;
 
 var iconFontVersion = '3.0.1';
 var robotoFontVersion = 'v1.1.0';
-var visVersion = visp.version;
 
 gulp.task('default', ['debug']);
 
-gulp.task('full-build', gulpSequence(['vis', 'build-sass'], 'update-licenses', 'build'));
+gulp.task('full-build', gulpSequence([/*'vis',*/ 'build-sass'], 'update-licenses', 'build'));
 
 gulp.task('full-test', ['test', 'sass-compile']);
 
@@ -34,9 +33,10 @@ gulp.task('update-licenses', function(cb) {
 
             const oldVersion = new RegExp(_.toString(dependency.version).replace(/\./g, '\\.'), 'g');
 
-            if (dependency.name === 'vis') {
+            /*if (dependency.name === 'vis') {
                 doc = doc.replace(oldVersion, visVersion)
-            } else if (dependency.name === 'material-design-icons') {
+            } else*/
+            if (dependency.name === 'material-design-icons') {
                 doc = doc.replace(oldVersion, iconFontVersion)
             }
 
@@ -136,7 +136,7 @@ gulp.task('sass-compile', function(cb) {
     });
 });
 
-
+/*
 gulp.task('vis', function(cb) {
     var p = require('./package.json');
 
@@ -159,6 +159,7 @@ gulp.task('vis', function(cb) {
     // rewrite package.json (with newline in the end)
     fs.writeFile('./package.json', JSON.stringify(p, null, 2) + '\n', cb);
 });
+*/
 
 gulp.task('download-codepoints', function() {
     var download = require('gulp-download-stream');
