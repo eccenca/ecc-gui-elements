@@ -16,27 +16,31 @@ import PerformanceMixin from './src/mixins/PerformanceMixin';
 
 // MDL Elements
 
-import Alert from './src/elements/Alert/Alert';
+import {
+    Alert,
+    Error,
+    Info,
+    Success,
+    Warning,
+} from './src/elements/Alert';
+
+import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
+import BaseDialog from './src/Dialog/BaseDialog';
+
 import Button from './src/elements/Button/Button';
 import AffirmativeButton from './src/elements/Button/AffirmativeButton';
 import DismissiveButton from './src/elements/Button/DismissiveButton';
 import DisruptiveButton from './src/elements/Button/DisruptiveButton';
 import Checkbox from './src/Input/Checkbox';
-import Error from './src/elements/Alert/Error';
-import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
-import BaseDialog from './src/Dialog/BaseDialog';
 import Icon from './src/Icon';
-import Info from './src/elements/Alert/Info';
 import {ContextMenu, MenuItem} from './src/ContextMenu';
 import Nothing from './src/Nothing';
 import Progressbar from './src/Progressbar';
 import Radio from './src/elements/Radio/RadioButton';
 import RadioGroup from './src/elements/Radio/RadioGroup';
 import Spinner from './src/Spinner';
-import Success from './src/elements/Alert/Success';
 import Switch from './src/Input/Switch';
 import Timeline from './src/Timeline';
-import Warning from './src/elements/Alert/Warning';
 import Tabs from './src/Tabs';
 import Version from './src/Version';
 import Pagination from './src/Pagination';
