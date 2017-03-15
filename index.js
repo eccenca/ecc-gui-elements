@@ -5,39 +5,70 @@ if (__WEBPACK__) {
     require('./style/style.scss');
 }
 
+// MDL Javascript
+
+import 'react-mdl/extra/material.js';
+
 // Mixins
 
 import MaterialMixin from './src/mixins/MaterialMixin';
 import PerformanceMixin from './src/mixins/PerformanceMixin';
 
-// MDL Elements
+// GUI Elements
 
-import Alert from './src/Alert/Alert';
-import Button from './src/elements/Button/Button';
-import AffirmativeButton from './src/elements/Button/AffirmativeButton';
-import DismissiveButton from './src/elements/Button/DismissiveButton';
-import DisruptiveButton from './src/elements/Button/DisruptiveButton';
-import Checkbox from './src/Input/Checkbox';
-import Error from './src/Alert/Error';
-import ConfirmationDialog from './src/Dialog/ConfirmationDialog';
-import BaseDialog from './src/Dialog/BaseDialog';
-import Icon from './src/Icon';
-import Info from './src/Alert/Info';
-import {ContextMenu, MenuItem} from './src/ContextMenu';
-import Nothing from './src/Nothing';
-import Progressbar from './src/Progressbar';
-import Radio from './src/elements/Radio/RadioButton';
-import RadioGroup from './src/elements/Radio/RadioGroup';
-import Spinner from './src/Spinner';
-import Success from './src/Alert/Success';
-import Switch from './src/Input/Switch';
-import Timeline from './src/Timeline';
-import Warning from './src/Alert/Warning';
-import Tabs from './src/Tabs';
-import Version from './src/Version';
-import Pagination from './src/Pagination';
+import {
+    Alert,
+    Error,
+    Info,
+    Success,
+    Warning,
+} from './src/elements/Alert';
+
+import {
+    Button,
+    AffirmativeButton,
+    DismissiveButton,
+    DisruptiveButton,
+} from './src/elements/Button';
+
+import {
+    BaseDialog,
+    ConfirmationDialog,
+} from './src/elements/Dialog';
+
+import Checkbox from './src/elements/Checkbox/Checkbox';
+
+import {
+    ContextMenu,
+    MenuItem,
+} from './src/elements/ContextMenu/ContextMenu';
+
+import Icon from './src/elements/Icon/Icon';
+
+import Nothing from './src/elements/Nothing/Nothing';
+
+import Pagination from './src/elements/Pagination/Pagination';
+
+import Progressbar from './src/elements/Progressbar/Progressbar';
+
+import {
+    Radio,
+    RadioGroup,
+} from './src/elements/Radio';
+
 import SelectBox from './src/elements/SelectBox/SelectBox';
+
+import Spinner from './src/elements/Spinner/Spinner';
+
+import Switch from './src/elements/Switch/Switch';
+
+import Tabs from './src/elements/Tabs/Tabs';
+
 import TextField from './src/elements/TextField/TextField';
+
+import Timeline from './src/elements/Timeline/Timeline';
+
+import Version from './src/elements/Version/Version';
 
 export default {
     MaterialMixin,
