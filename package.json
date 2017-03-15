@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "2.8.2",
+  "version": "3.0.0-alpha.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
