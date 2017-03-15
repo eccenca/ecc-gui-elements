@@ -1,31 +1,29 @@
-/*global componentHandler */
-import materialDesign from 'material-design-lite/compiled/material';
+// import materialDesign from 'material-design-lite/compiled/material';
 import {findDOMNode} from 'react-dom';
-
 import _ from 'lodash';
 
 const MaterialMixin = {
-    materialDesign,
+    // materialDesign,
     componentDidMount() {
-
         if (__DEBUG__) {
             console.debug(
                 `MaterialMixin is used in ${this.constructor.displayName}. ` +
-                `Please check if this usage is wanted and migrate old MDL Stuff to new gui-elements`
+                `Please check if this usage is wanted and migrate old MDL Stuff to new gui-elements.` +
+                `MaterialMixin may get deprecated soon.`
             );
         }
-        componentHandler.upgradeDom();
+        window.componentHandler.upgradeDom();
     },
     componentWillUnmount() {
         const comp = findDOMNode(this);
         if (!_.isNull(comp)) {
-            componentHandler.downgradeElements(comp);
+            window.componentHandler.downgradeElements(comp);
         }
     },
     componentDidUpdate() {
         const comp = findDOMNode(this);
         if (!_.isNull(comp)) {
-            componentHandler.upgradeElements(comp);
+            window.componentHandler.upgradeElements(comp);
         }
     }
 };
