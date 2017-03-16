@@ -32,12 +32,14 @@ import PerformanceMixin from '../mixins/PerformanceMixin';
 
 - `Alert`: A message box which is optionally dismissable.
 - `Button`: A simple Button which also may contain icons
+- `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
 - `RadioGroup` and `Radio`: A radio button with optional label and grouping
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `ContextMenu`: A context menu with menu items
 - `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
+- `Layout`: container of the MDL application
 - `Nothing`: Literally Nothing
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
 - `SelectBox`: A selection box for choosing predefined values
@@ -130,6 +132,26 @@ const Page = React.createClass({
                 iconName="delete"
                 tooltip="Remove data"
             />
+        )
+    },
+    // ....
+});
+```
+
+### Content
+
+```js
+import {Content} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Content
+                component={'main'} // string, element or function that defines the (HTML) element used for the content, default: 'div'
+            >
+                <p>Your content is here.</p>
+            </Content>
         )
     },
     // ....
@@ -291,6 +313,29 @@ const Page = React.createClass({
                 <MenuItem>Another Menu Item</MenuItem>
                 <MenuItem>Alright</MenuItem>
             </ContextMenu>
+        )
+    },
+    // ....
+});
+
+```
+
+### Layout
+
+```js
+import { Layout } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Layout
+                fixedDrawer={false|true} // drawer always visible and open in larger screensdrawer always visible and open in larger screens, default: false
+                fixedHeader={false|true} // header always visible, even in small screens, default: false
+                fixedTabs={false|true} // fixed tabs instead of the default scrollable tabs, default: false
+            >
+                ...
+            </Layout>
         )
     },
     // ....

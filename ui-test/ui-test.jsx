@@ -23,9 +23,11 @@ import {
     MenuItem,
     Nothing,
     Version,
+    Layout,
+    Content,
 } from '../index.js';
 import {
-    Layout, Content, Header
+    Header
 } from 'react-mdl';
 
 window.enablePerformanceMixingLog = true;
