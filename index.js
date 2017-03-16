@@ -38,12 +38,16 @@ import {
 
 import Checkbox from './src/elements/Checkbox/Checkbox';
 
+import Content from 'react-mdl/lib/Layout/Content';
+
 import {
     ContextMenu,
     MenuItem,
 } from './src/elements/ContextMenu/ContextMenu';
 
 import Icon from './src/elements/Icon/Icon';
+
+import Layout from 'react-mdl/lib/Layout/Layout';
 
 import Nothing from './src/elements/Nothing/Nothing';
 
@@ -73,24 +77,27 @@ import Version from './src/elements/Version/Version';
 export default {
     MaterialMixin,
     PerformanceMixin,
+
     Alert,
     Button,
     AffirmativeButton,
     DismissiveButton,
     DisruptiveButton,
     Checkbox,
+    Content,
     ContextMenu,
-    SelectBox,
+    MenuItem,
     Error,
     ConfirmationDialog,
     BaseDialog,
     Icon,
     Info,
-    MenuItem,
+    Layout,
     Nothing,
     Progressbar,
     Radio,
     RadioGroup,
+    SelectBox,
     Spinner,
     Success,
     Switch,

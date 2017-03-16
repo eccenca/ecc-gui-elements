@@ -9,6 +9,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 - use visjs Timeline via import
 - restructure scss imports
 
+### Added
+- elements for `<Layout/>` and `<Content/>` containers
+
 ## [2.8.2] 2017-03-08
 ### Fixed
 - revert to old Tabs workflow regarding to accidentally changes of behaviour with empty tabs content and non-avtive tabs
