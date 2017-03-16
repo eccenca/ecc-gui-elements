@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [3.0.0] 2017-03-16
 ### Changed
 - update to MDL 1.3.0 and React-MDL 1.9.0
 - removed usage of eccenca clone of MDL, use JS directly from React-MDL
