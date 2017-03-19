@@ -24,11 +24,11 @@
     "classnames": "^2.2.5",
     "ecc-messagebus": "^3.3.2",
     "emitter-component": "^1.1.1",
-    "hammerjs": "^2.0.6",
+    "hammerjs": "^2.0.8",
     "keycharm": "^0.2.0",
     "lodash": "^4.16.4",
     "material-design-lite": "^1.3.0",
-    "moment": "^2.12.0",
+    "moment": "^2.17.1",
     "propagating-hammerjs": "^1.4.6",
     "react-mdl": "^1.9.0",
     "react-select": "^1.0.0-rc.2"
@@ -37,6 +37,8 @@
     "react": "*"
   },
   "devDependencies": {
+    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+    "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "ecc-dotfiles": "^1.11.0",
     "ecc-gulp-tasks": "^3.4.0-alpha.4",
     "ecc-resparqler": "^0.1.7",
