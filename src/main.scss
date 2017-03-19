@@ -37,8 +37,15 @@ $image_path: "~material-design-lite/src/images" !default;
 @import "./elements/SelectBox/selectbox";
 @import "./elements/Spinner/spinner";
 @import "./elements/TextField/textfield";
-@import "./elements/Timeline/timeline";
 @import "./elements/Tooltip/tooltip";
+
+// VIS.js
+
+@import "../lib/vis/dist/vis.css";
+
+// VIS Wrappers
+
+@import "./elements/Timeline/timeline";
 
 
 // -- Changes ------------------------------------------------------------------
