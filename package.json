@@ -1,6 +1,6 @@
 {
   "name": "ecc-gui-elements",
-  "version": "3.0.0",
+  "version": "2.9.0-alpha.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -24,19 +24,23 @@
     "classnames": "^2.2.5",
     "ecc-messagebus": "^3.3.2",
     "emitter-component": "^1.1.1",
+    "hammerjs": "^2.0.8",
+    "keycharm": "^0.2.0",
     "lodash": "^4.16.4",
-    "material-design-lite": "1.3.0",
-    "moment": "^2.12.0",
-    "react-mdl": "1.9.0",
-    "react-select": "^1.0.0-rc.2",
-    "vis": "4.17.0"
+    "material-design-lite": "^1.3.0",
+    "moment": "^2.17.1",
+    "propagating-hammerjs": "^1.4.6",
+    "react-mdl": "^1.9.0",
+    "react-select": "^1.0.0-rc.2"
   },
   "peerDependencies": {
     "react": "*"
   },
   "devDependencies": {
+    "babel-plugin-transform-es3-member-expression-literals": "^6.22.0",
+    "babel-plugin-transform-es3-property-literals": "^6.22.0",
     "ecc-dotfiles": "^1.11.0",
-    "ecc-gulp-tasks": "^3.2.0",
+    "ecc-gulp-tasks": "^3.4.0-alpha.4",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^15.0.0",
     "ecc-uitest-helpers": "^15.8.0-alpha.1",

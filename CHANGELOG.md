@@ -4,13 +4,24 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+This release includes all changes included in `3.0.0`
 
-## [3.0.0] 2017-03-16
 ### Changed
-- update to MDL 1.3.0 and React-MDL 1.9.0
+- `vis` dependency is managed as submodule again:
+    - update to `vis@4.19.1`
+    - update of `vis` license
+    - removal of `vis` dependency from package.json
+
+## [3.0.0] 2017-03-16 (deprecated)
+
+This release has been deprecated and should not be used. Please use the a release `>= 2.9.0` to include the changes listed below
+
+### Changed
+- update to `material-design-lite@1.3.0`
+    - with this update we use the official `material-design-lite` repo instead of an old fork
+- update to `react-mdl@1.9.0`
 - removed usage of eccenca clone of MDL, use JS directly from React-MDL
-- use visjs Timeline via import
+- use visjs Timeline via import from `package.json`
 - restructure scss imports
 
 ### Added
