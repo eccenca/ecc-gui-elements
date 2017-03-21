@@ -43,6 +43,3 @@ gulpfile.js
 .tmp/
 
 #END
-
-#Ignore submodules
-lib/
