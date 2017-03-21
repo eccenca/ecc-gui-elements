@@ -28,6 +28,39 @@ import PerformanceMixin from '../mixins/PerformanceMixin';
 ```
 **Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
 
+## Helpers
+
+Include helper function in your Sass files:
+
+```scss
+@import "~ecc-gui-elements/src/scss/helpers";
+```
+
+Helper automatically included if the default configuration is loaded.
+
+- `to_color()`: function to transform string into color value type
+
+### to_color($color_value)
+
+Returns correct Sass color value, even if `$color_value` parameter is a string value.
+
+Examples:
+
+```
+to_color("#fff") => white
+to_color("rgb(255, 255, 255)") => white
+to_color("255, 255, 255") => white
+```
+
+Parameters:
+
+* `$color_value` (Sass::Script::Value::String) or (Sass::Script::Value::Color)
+
+Returns:
+
+* (Sass::Script::Value::Color)
+
+
 ## GUI elements
 
 - `Alert`: A message box which is optionally dismissable.
