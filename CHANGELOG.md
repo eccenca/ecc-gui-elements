@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [2.9.1] 2017-03-21
 ### Fixed
 - Unignore lib folder in npmignore
 
