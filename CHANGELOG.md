@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.9.1] 2017-03-21
+### Fixed
+- Unignore lib folder in npmignore
+
 ## [2.9.0] 2017-03-20
 
 This release includes all changes included in `3.0.0`
