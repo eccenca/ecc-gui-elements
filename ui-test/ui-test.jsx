@@ -23,10 +23,6 @@ import {
     MenuItem,
     Nothing,
     Version,
-    Pagination,
-    SelectBox,
-    TextField,
-    Chip,
     Layout,
     Content,
 } from '../index.js';
@@ -56,26 +52,6 @@ const Page = React.createClass({
     // template rendering
     render() {
 
-        const testChip = (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Chip</h4>
-                </div>
-                <div className="mdl-card__content">
-                    <Chip
-                        label="clickable chip with customized icon"
-                        onClick={() => console.log('#1 chip clicked')}
-                        iconClassName={'bg-icon-denied tc-icon-white'}
-                        iconContent={'H'}
-                        className={'bg-chip-green tc-chip-blue'}
-                    />
-                    <Chip
-                        label="plain chip"
-                    />
-                </div>
-            </div>
-        );
-
         const testcases = [
             <Nothing />,
             <TestSpinner />,
@@ -91,8 +67,6 @@ const Page = React.createClass({
             <TestIcons />,
             <hr className="mdl-layout-spacer"/>,
             <TestButtons />,
-            <hr className="mdl-layout-spacer"/>,
-            <div>{testChip}</div>,
             <hr className="mdl-layout-spacer"/>,
             <TestInputs />,
             <hr className="mdl-layout-spacer"/>,

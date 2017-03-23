@@ -4,12 +4,13 @@ import {
     AffirmativeButton,
     DismissiveButton,
     DisruptiveButton,
-    Icon
+    Icon,
+    Chip
 } from '../../index.js';
 
 class TestButtons extends React.PureComponent {
     render() {
-        return (
+        const buttons = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
                     <h4 className="mdl-card__title-text">Test Buttons</h4>
@@ -62,6 +63,34 @@ class TestButtons extends React.PureComponent {
                     </Button>
                     <Button iconName="more_vert" />
                 </div>
+            </div>
+        );
+
+        const chips = (
+            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
+                <div className="mdl-card__title">
+                    <h4 className="mdl-card__title-text">Test Chip</h4>
+                </div>
+                <hr className="mdl-layout-spacer"/>
+                <div className="mdl-card__content">
+                    <Chip
+                        label="clickable chip with customized icon"
+                        onClick={() => console.log('#1 chip clicked')}
+                        iconClassName={'bg-icon-denied tc-icon-white'}
+                        iconContent={'H'}
+                        className={'bg-chip-green tc-chip-blue'}
+                    />
+                    <Chip
+                        label="plain chip"
+                    />
+                </div>
+            </div>
+        );
+
+        return (
+            <div>
+                {buttons}
+                {chips}
             </div>
         );
     }
