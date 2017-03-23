@@ -91,8 +91,8 @@ const Page = React.createClass({
             <TestIcons />,
             <hr className="mdl-layout-spacer"/>,
             <TestButtons />,
-            <hr className="mdl-layout-spacer"/>
-            {testChip}
+            <hr className="mdl-layout-spacer"/>,
+            <div>{testChip}</div>,
             <hr className="mdl-layout-spacer"/>,
             <TestInputs />,
             <hr className="mdl-layout-spacer"/>,
