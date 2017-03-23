@@ -1,7 +1,6 @@
 var path = require('path');
 
 module.exports = {
-    path: path.join(__dirname, 'ui-test'),
     testEntryPoint: path.join(__dirname, 'test', 'index.jsx'),
     webpackConfig: {
         common: {
@@ -10,7 +9,6 @@ module.exports = {
         debug: {
             entry: './ui-test/ui-test.jsx',
             output: {
-                path: path.join(__dirname, 'ui-test'),
                 filename: 'component.min.js',
             },
         },

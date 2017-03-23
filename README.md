@@ -1,19 +1,79 @@
 # Low-Level GUI Components (ecc-gui-elements)
 
-Collection of low-level GUI elements like Buttons, Icons or Alerts.
+Collection of shared GUI elements and mixins.
 
-## Elements
+## Mixins
 
-Consists of
+- `MaterialMixin`: A mixin which forces material design lite components to rerender if the React Component gets updated.
+- `PerformanceMixin`: A mixin that provides default functionality for shouldComponentUpdate() to prevent unnecessary renderings.
 
-- `MaterialMixin`: A Mixin which forces material design lite components to rerender if the React Component gets updated.
+### PerformanceMixin
+
+The performance mixin provides a default process to test if a component need to be updated before it is rendered. It may be used to improve performance by preventeing unnecessary re-renderings of child components that did not changed.
+
+Include mixin into your widget component:
+
+```js
+import {PerformanceMixin} from 'ecc-gui-elements';
+const Widget = React.createClass({
+    mixins: [PerformanceMixin],
+    // ...
+});
+```
+
+In GUI elments import it directly from the source file, use the include path relative to the folder of the widget:
+
+```js
+import PerformanceMixin from '../mixins/PerformanceMixin';
+```
+**Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
+
+## Helpers
+
+Include helper function in your Sass files:
+
+```scss
+@import "~ecc-gui-elements/src/scss/helpers";
+```
+
+Helper automatically included if the default configuration is loaded.
+
+- `to_color()`: function to transform string into color value type
+
+### to_color($color_value)
+
+Returns correct Sass color value, even if `$color_value` parameter is a string value.
+
+Examples:
+
+```
+to_color("#fff") => white
+to_color("rgb(255, 255, 255)") => white
+to_color("255, 255, 255") => white
+```
+
+Parameters:
+
+* `$color_value` (Sass::Script::Value::String) or (Sass::Script::Value::Color)
+
+Returns:
+
+* (Sass::Script::Value::Color)
+
+
+## GUI elements
+
 - `Alert`: A message box which is optionally dismissable.
 - `Button`: A simple Button which also may contain icons
+- `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
+- `Chip`: A chip element for visualized status
+- `RadioGroup` and `Radio`: A radio button with optional label and grouping
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `ContextMenu`: A context menu with menu items
 - `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
+- `Layout`: container of the MDL application
 - `Nothing`: Literally Nothing
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
 - `SelectBox`: A selection box for choosing predefined values
@@ -24,11 +84,8 @@ Consists of
 - `Version`: A normalised string output of product version
 - `Pagination`: A page control element
 - `TextField`: A TextField with floating label. Wrapper around [React-MDL Textfield]()
-- `Chip`: A chip element for visualized status
 
-## Usage
-
-Usage is as simple as importing and rendering the components
+Usage is as simple as importing and rendering the components.
 
 ### Alert (Error, Info, Success and Warning)
 
@@ -62,21 +119,92 @@ const Page = React.createClass({
 });
 ```
 
-### Button and Icon
+### Button
+
+Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
 
 ```js
-import {Button, Icon} from 'ecc-gui-elements';
+import {Button, AffirmativeButton, DismissiveButton, DisruptiveButton} from 'ecc-gui-elements';
 
 const Page = React.createClass({
     // template rendering
     render() {
         return (
-            <Button raised={true} accent ripple={false}>A Button</Button>
-            <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
-                <Icon name="mood" />
+            <Button>
+                Simple flat button
             </Button>
-            <Button iconName="more_vert" tooltip="more tooltip" />
-            <Icon name="cloud_download" tooltip="cloudy clouds" />
+
+            // according MDL-API, @see https://getmdl.io/components/index.html#buttons-section
+            <Button
+                raised={true} // true | false (default), use it in cases when flat buttons not exposed enough
+                accent={true} // true | false (default), use configured accent color
+                colored={true} // true | false (default), use configured primary color
+                ripple={false} // true | false (default), activate ripple effect on button
+            >
+                A Button
+            </Button>
+
+            // Icon button and Floating action button (FAB)
+            <Button
+                iconName="more_vert" // icon name, @see https://material.io/icons/
+                tooltip="This is a Test!" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
+                fabSize="mini" // use fabSize only if it is a FAB. "mini" | "large" (default)
+                // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
+            />
+
+            // use button elements to specify meaning of triggered action
+            // you can combine it with button properties like raised, iconName and ripple
+            <AffirmativeButton>
+                Affirmative action
+            </AffirmativeButton>
+            <DismissiveButton
+                raised={true}
+            >
+                Dismissive action
+            </DismissiveButton>
+            <DisruptiveButton
+                iconName="delete"
+                tooltip="Remove data"
+            />
+        )
+    },
+    // ....
+});
+```
+
+### Content
+
+```js
+import {Content} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Content
+                component={'main'} // string, element or function that defines the (HTML) element used for the content, default: 'div'
+            >
+                <p>Your content is here.</p>
+            </Content>
+        )
+    },
+    // ....
+});
+```
+
+### Icon
+
+```js
+import {Icon} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Icon
+                name="cloud_download" // icon name, @see https://material.io/icons/
+                tooltip="cloudy clouds" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
+            />
         )
     },
     // ....
@@ -124,6 +252,43 @@ const Page = React.createClass({
                 iconContent={'H'},
                 iconClassName={'tc-icon-white'}
             />
+        )
+    },
+    // ....
+});
+```
+
+### RadioGroup and Radio
+
+```js
+import { Radio, RadioGroup} from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <RadioGroup
+                onChange={this.updateRadio}
+                value={this.state.selectedRadio}
+                container="div" // default: "ul"
+                childContainer="div" // default "li"
+                ripple={true|false(default)}
+            >
+                <Radio
+                    value={1}
+                    label="Radio 1 Text"
+                />
+                <Radio
+                    disabled
+                    value={2}
+                >
+                    Radio 2 Text
+                </Radio>
+                <Radio
+                    value={3}
+                >
+                    <div className="test">Radio 3 Text <br/>Line 2</div>
+                </Radio>
+            </RadioGroup>
         )
     },
     // ....
@@ -193,6 +358,7 @@ const Page = React.createClass({
             <ContextMenu
                 align="left|right(default)"
                 valign="top|bottom(default)"
+                iconName="menu_more(default)"
                 tooltip="for menu button(currently not supported)"
                 target="idformymenu(auto generated if it is not given)"
             >
@@ -202,6 +368,29 @@ const Page = React.createClass({
                 <MenuItem>Another Menu Item</MenuItem>
                 <MenuItem>Alright</MenuItem>
             </ContextMenu>
+        )
+    },
+    // ....
+});
+
+```
+
+### Layout
+
+```js
+import { Layout } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Layout
+                fixedDrawer={false|true} // drawer always visible and open in larger screensdrawer always visible and open in larger screens, default: false
+                fixedHeader={false|true} // header always visible, even in small screens, default: false
+                fixedTabs={false|true} // fixed tabs instead of the default scrollable tabs, default: false
+            >
+                ...
+            </Layout>
         )
     },
     // ....
@@ -243,6 +432,7 @@ const Page = React.createClass({
                 handleNewOffset={handleNewPaginationOffset}
                 handleNewLimit={handleNewPaginationLimit}
                 offsetAsPage={false}
+                isTopPagination={true} // is pagination on top of the site (pages selection opens to bottom), default is false
             />
         )
     },
@@ -300,7 +490,6 @@ The SelectBox behaves like a [controlled input](https://facebook.github.io/react
 import { SelectBox } from 'ecc-gui-elements';
 
 const Page = React.createClass({
-
     getInitialState(){
       return {
           value: 8,
@@ -315,16 +504,28 @@ const Page = React.createClass({
     render() {
         return (
             <SelectBox
+                placeholder="Label for SelectBox"
                 options={['label1', 3]}
+                optionsOnTop={true} // option list opens up on top of select input (default: false)
                 value={this.state.value}
                 onChange={this.selectBoxOnChange}
+                creatable={true} // allow creation of new values
+                promptTextCreator={(newLabel) => ('New stuff: ' + newLabel)} // change default "Create option 'newLabel'" to "New stuff: 'newLabel'"
+                multi={true} // allow multi selection
+                clearable={false} // hide 'remove all selected values' button
             />
         )
     },
-    // ....
 });
 
 ```
+Note:
+
+- if objects are used in multi selectable options you can add {"clearableValue": false} to it to hide delete button for this specifc object
+
+- if "creatable" is set new values will be applied on Enter, Tab and Comma (",")
+
+- ``placeholder`` label is used within MDL floating label layout
 
 ### Tabs
 
@@ -368,6 +569,9 @@ const Page = React.createClass({
                 onChange={this.onChange}
                 value={this.state.value}
                 label="Textfield"
+                error="Please correct your input" // optional, error message
+                stretch={false} // do not use full width (default: true)
+                multiline={true} // use a text area (default: false)
             />
         )
     },

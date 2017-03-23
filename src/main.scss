@@ -1,1 +1,59 @@
-@import "../style/core/main.node";
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ *
+ * Create Stylesheet using Node imports via Webpack's require method.
+ * We need to repeat code because (at least libsass) test @import statements
+ * before conditionals and Sass itself do not allow variables in direct imports.
+ */
+
+// -- Configuration ------------------------------------------------------------
+
+@import "./configuration.default";
+
+// -- Material Design Lite -----------------------------------------------------
+
+$image_path: "~material-design-lite/src/images" !default;
+@import "~material-design-lite/src/material-design-lite";
+
+// -- React MDL patch for MDL Layout container ---------------------------------
+
+@import "~react-mdl/extra/layout";
+
+// -- Own MDL & GUI extensions -------------------------------------------------
+
+@import "./elements/Alert/alert";
+@import "./elements/Button/button";
+@import "./elements/Card/card";
+@import "./elements/DataTable/datatable";
+@import "./elements/Dialog/dialog";
+@import "./elements/Grid/grid";
+@import "./elements/Layout/layout";
+@import "./elements/ContextMenu/contextmenu";
+@import "./elements/Radio/radio";
+@import "./elements/Pagination/pagination";
+@import "./elements/Progressbar/progressbar";
+@import "./elements/SelectBox/selectbox";
+@import "./elements/Spinner/spinner";
+@import "./elements/TextField/textfield";
+@import "./elements/Tooltip/tooltip";
+
+// VIS.js
+
+@import "../lib/vis/dist/vis.css";
+
+// VIS Wrappers
+
+@import "./elements/Timeline/timeline";
+
+
+// -- Changes ------------------------------------------------------------------
+
+@import "./scss/adjustments";
+
+// -- Fonts --------------------------------------------------------------------
+
+$font_root: "~ecc-gui-elements/dist/fonts" !default;
+@import "./scss/roboto";
+@import "./scss/iconfont";

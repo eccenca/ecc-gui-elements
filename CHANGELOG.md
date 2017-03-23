@@ -4,16 +4,184 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 ### Added
-- own `Chip` element
+- provide own `<Chip/>` element
+
+## [2.10.0] 2017-03-21
+### Added
+- insert helper for justified usage of color definitions as strings and color types
+
+## [2.9.1] 2017-03-21
+### Fixed
+- Unignore lib folder in npmignore
+
+## [2.9.0] 2017-03-20
+
+This release includes all changes included in `3.0.0`
+
+### Changed
+- `vis` dependency is managed as submodule again:
+    - update to `vis@4.19.1`
+    - update of `vis` license
+    - removal of `vis` dependency from package.json
+
+## [3.0.0] 2017-03-16 (deprecated)
+
+This release has been deprecated and should not be used. Please use the a release `>= 2.9.0` to include the changes listed below
+
+### Changed
+- update to `material-design-lite@1.3.0`
+    - with this update we use the official `material-design-lite` repo instead of an old fork
+- update to `react-mdl@1.9.0`
+- removed usage of eccenca clone of MDL, use JS directly from React-MDL
+- use visjs Timeline via import from `package.json`
+- restructure scss imports
+
+### Added
+- elements for `<Layout/>` and `<Content/>` containers
+
+## [2.8.2] 2017-03-08
+### Fixed
+- revert to old Tabs workflow regarding to accidentally changes of behaviour with empty tabs content and non-avtive tabs
+
+## [2.8.1] 2017-03-01
+### Fixed
+- Re-enable mixin side effect
+
+## [2.8.0] 2017-02-24
+### Fixed
+- improve rendering of `ContextMenu`, prevent re-rendering cascade (replace react-mdl element)
+- add prop `valign` with defauly `bottom` to `ContextMenu`
+
+### Added
+- `PerformanceMixin` provides default checks for shouldComponentUpdate() to prevent unnecessary renderings
+
+## [2.7.0] 2017-02-13
+
+### Added
+- new elements for `<Radio/>` and `<RadioGroup/>`
+
+## [2.6.2] 2017-02-07
+
+### Fixed
+- `<ContextMenu/>` with only one MenuItem does not break the application anymore
+
+## [2.6.1] 2017-02-03
+
+### Fixed
+- use correct capitalization for fallback tooltips of icons and buttons
+
+## [2.6.0] 2017-01-31
+
+### Added
+- new button elements: `<AffirmativeButton/>`, `<DismissiveButton/>`, `<DisruptiveButton/>`
+
+## [2.5.0] 2017-01-24
+
+### Fixed
+- improve layout of multi select values to prevent box overflows
+
+### Changed
+- move remove button of multi select values to left side again
+
+## [2.4.0] 2017-01-23
+
+### Added
+-   add config option to overwrite default icon of context menu element
+
+## [2.3.1] 2017-01-11
+### Fixed
+-   Added missing licenses for `material-design-icons`, `roboto` and `vis`
+-   Tabs: No Error is thrown anymore if onTabClick is undefined
+
+## [2.3.0] 2017-01-09
+### Added
+-   classnames for `Pagination`, `ContextMenu` and `Dialog` buttons
+
+## [2.2.0] 2016-12-01
+### Changes
+-   add stretch option (default: true) to TextField element
+-   add multiline option (default: false) to TextField element
+
+## [2.1.0] 2016-12-01
+### Added
+-   SelectBox now has the `optionsOnTop` property (boolean, default `false`). If set to `true`, the dropdown will open to the top
+-   Pagination now has the `isTopPagination` property (boolean, default `false`). If set to `true`, the limit selector will open to the bottom
+
+### Changed
+-   SelectBox uses MDL floating label pattern
+
+## [2.0.0] 2016-11-28
+### Breaking
+-   Removed `<Dialog>`. Please use `<ConfirmationDialog>` or `<BaseDialog>` instead:
+
+    ```jsx
+    //Converting old Dialog to ConfirmationDialog:
+    <Dialog cancelButton={...} confirmButton={...}/>
+    // =>
+    <ConfirmationDialog cancelButton={...} confirmButton={...}/>
+
+    //If you used Dialog with just one button, please use BaseDialog instead:
+    <Dialog confirmButton={this.exampleButton}/>
+    // =>
+    <BaseDialog buttonRow={[this.exampleButton]}/>
+    ```
+
+-   Checkbox/Switch have been changed to a controlled input.
+
+    Furthermore the onChange function has been changed:
+
+    ```jsx
+    //New Usage
+
+    let isChecked = false;
+
+    const handleChange(data) => {
+
+        const {
+            //contains the react synthetic event
+            event,
+            //contains the content of the value prop
+            rawValue,
+            // contains true or false
+            value,
+        } = data;
+
+        isChecked = value;
+
+    }
+
+    <Checkbox
+        onChange={handleChange}
+        checked={isChecked}
+        value="foo"
+    />
+    ```
+
+-   Pagination has now a simpler onChange handler:
+
+    ```jsx
+    //before
+    <Pagination
+        handleNewLimit={(limit) => console.log(limit)}  
+        handleNewOffset={(offset) => console.log(offset)}
+    />
+    //after
+    <Pagination
+        onChange={({offset, limit}) => console.log(offset, limit)}  
+    />
+    ```
 
 ### Changed
 - Disabled buttons do not show their tooltip anymore
-- TODO: Describe Breaking CHANGE Checkbox and Switch
-- TODO: Describe Pagination Changes
+- `SelectBox` now support multi selection and new value creation
+
+## [1.17.3] 2016-11-24
+### Changed
+- Reverted Changes to Confirmation Dialog, as a Confirmation Dialog should always have two buttons [per spec](https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs).
 
 ## [1.17.1] 2016-11-15
 ### Fixed
-- Missing mdl icons are now shown again 
+- Missing mdl icons are now shown again
 
 ### Changed
 - bumped `ecc-uitest-helpers`

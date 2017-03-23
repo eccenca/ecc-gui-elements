@@ -1,0 +1,90 @@
+/**
+ * Copyright 2016 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+// react-select styles
+@import "~react-select/dist/react-select.css";
+
+.Select-control {
+    border-style: none none solid none;
+    border-radius: 0;
+    border-color: $input-text-bottom-border-color;
+
+    .is-focused:not(.is-open) > &,
+    .is-open > & {
+        border-color: $input-text-bottom-border-color;
+        box-shadow: none;
+    }
+
+    .is-focused:not(.mdl-textfield) > & {
+        border-color: $input-text-highlight-color;
+        border-bottom-width: 2px;
+    }
+}
+
+.Select--multi {
+    .Select-multi-value-wrapper {
+        white-space: normal;
+        max-width: calc(100% - 25px);
+        overflow: hidden;
+    }
+
+    .Select-value-label {
+        padding-left: 0;
+    }
+}
+
+.Select-value {
+
+    .Select--multi & {
+        margin-left: 0;
+        margin-right: 5px;
+        margin-top: 5px;
+        //display: inline-flex;
+        //flex-direction: row-reverse;
+        border-color: #ddd;
+        background: #f6f6f6;
+        border-radius: 3px;
+        color: inherit;
+        // white-space: nowrap;
+        max-width: 100%;
+    }
+
+    .Select--single > .Select-control & {
+        padding-left: 0;
+    }
+}
+
+.Select-value-icon {
+    .Select--multi & {
+        border: none;
+        display: inline-block;
+        padding: 0;
+        width: 1.5rem;
+        text-align: center;
+        vertical-align: middle;
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.Select-value-label {
+    .Select--multi & {
+        padding-left: 0;
+        max-width: calc(100% - 1.5rem);
+    }
+}
+
+.Select-menu-outer {
+    margin-top: 0;
+
+    .Select--optionsontop & {
+        top: auto;
+        bottom: 100%;
+        margin-bottom: -1px;
+    }
+}

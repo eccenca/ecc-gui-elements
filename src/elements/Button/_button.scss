@@ -1,0 +1,18 @@
+/**
+ * Copyright 2016 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.mdl-button {
+    &.mdl-button--danger {
+        color: to_color($palette-red-800);
+    }
+}
+
+.mdl-button--raised {
+    &.mdl-button--danger {
+        background-color: to_color($palette-red-800);
+        color: to_color($palette-red-50);
+    }
+}
