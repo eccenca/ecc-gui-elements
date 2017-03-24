@@ -1,10 +1,11 @@
 import React from 'react';
-import MaterialMixin from './mixins/MaterialMixin';
-import classnameSeperator from './utils/classnameSeperator';
+import PerformanceMixin from './../../mixins/PerformanceMixin';
+import classnameSeperator from './../../utils/classnameSeperator';
+import ReactMDLChip from 'react-mdl/lib/Chip';
 import _ from 'lodash';
 
 const Chip = React.createClass({
-    mixins: [MaterialMixin],
+    mixins: [PerformanceMixin],
 
     // define property types
     propTypes: {

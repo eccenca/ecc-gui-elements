@@ -33,7 +33,7 @@ import {
 
 import Checkbox from './src/elements/Checkbox/Checkbox';
 
-import Chip from './src/Chip';
+import Chip from './src/elements/Chip/Chip';
 
 import Content from 'react-mdl/lib/Layout/Content';
 
