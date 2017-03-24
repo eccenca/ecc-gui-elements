@@ -133,24 +133,3 @@ const BaseDialog = React.createClass({
 });
 
 export default BaseDialog;
-
-import {ChipVisual, Chip} from 'ecc-gui-elements';
-const Page = React.createClass({
-    // template rendering
-    render() {
-        return (
-            <div>
-                <Chip onClick={() => console.log('#1 chip clicked')}>
-                    <ChipVisual image="https://placekitten.com/500/500"/>
-                    clickable with image visual
-                </Chip>
-                <Chip onClick={() => console.log('#2 chip clicked')}>
-                    <ChipVisual label="AB"/>
-                    clickable with text visual
-                </Chip>
-                <Chip>plain chip</Chip>
-            </div>
-        )
-    },
-    // ....
-});
