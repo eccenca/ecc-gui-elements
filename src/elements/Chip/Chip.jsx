@@ -4,6 +4,20 @@ import classnameSeperator from './../../utils/classnameSeperator';
 import ReactMDLChip from 'react-mdl/lib/Chip';
 import _ from 'lodash';
 
+/* proposial:
+
+<Chip
+    onClick
+    className
+    label
+>
+    <ChipVisual>
+    </ChipVisual>
+    Irgendwas
+</Chip>
+
+*/
+
 const Chip = React.createClass({
     mixins: [PerformanceMixin],
 
@@ -83,13 +97,6 @@ const Chip = React.createClass({
             // custom class names
             (_.isEmpty(className) ? '' : ' ' + classnameSeperator(className, this.chipProperties))
         );
-
-        // add class additional classnames for icon
-        let additionalIconClassName = iconClassName;
-        // if more than one classname is set -> seperate it and try to find css styles
-        if (iconClassName) {
-            additionalIconClassName = classnameSeperator(iconClassName, this.contactProperties);
-        }
 
         // left-sided icon
         const icon = (
