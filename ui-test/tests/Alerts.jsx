@@ -15,7 +15,9 @@ class TestAlerts extends React.PureComponent {
                     <h4 className="mdl-card__title-text">Test Alerts</h4>
                 </div>
                 <div className="mdl-card__content">
-                    <Alert border={true} vertSpacing={true} handlerDismiss={function() {}}>
+                    <Alert border={true}
+                           vertSpacing={true}
+                           handlerDismiss={() => alert('dismiss handler')}>
                         <p>This is a</p>
                         <p>untyped message.</p>
                     </Alert>
@@ -28,13 +30,16 @@ class TestAlerts extends React.PureComponent {
                     <Warning border={true} vertSpacing={true}>
                         warning
                     </Warning>
-                    <Error handlerDismiss={function() {}} labelDismiss="remove error" vertSpacing={true}>
+                    <Error handlerDismiss={() => alert('dismiss handler')}
+                           labelDismiss="remove error"
+                           vertSpacing={true}>
                         error
                     </Error>
                 </div>
             </div>
         );
     }
-};
+}
+;
 
 export default TestAlerts;

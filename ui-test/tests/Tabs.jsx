@@ -32,12 +32,12 @@ const TestTabs = React.createClass({
                         onTabClick={this.tabClick}
                         activeTab={'kpiTab'}
                     />
-                    <Button onClick={() => this.setState({tabContent:
-                    [
-                        {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
-                        {tabTitle: 'discovery Tab', tabContent: false},
-                        {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
-                    ]
+                    <Button onClick={() => this.setState({
+                        tabContent: [
+                            {tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab'},
+                            {tabTitle: 'discovery Tab', tabContent: false},
+                            {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
+                        ]
                     })}>Remove content from discovery tab</Button>
                 </div>
             </div>

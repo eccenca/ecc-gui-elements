@@ -34,11 +34,12 @@ const TestDialogs = React.createClass({
         return (
             <div>
                 <ConfirmationDialog title="ConfirmationDialog Title"
-                        active={this.state.confirmationDialog}
-                        modal={true}
-                        size="mini"
-                        cancelButton={<Button onClick={this.closeConfirmationDialog.bind(null, 'Cancel')}>Cancel</Button>}
-                        confirmButton={<Button onClick={this.closeConfirmationDialog.bind(null, 'Yes')}>Yes</Button>}
+                                    active={this.state.confirmationDialog}
+                                    modal={true}
+                                    size="mini"
+                                    cancelButton={<Button onClick={this.closeConfirmationDialog.bind(null, 'Cancel')}>Cancel</Button>}
+                                    confirmButton={<Button
+                                        onClick={this.closeConfirmationDialog.bind(null, 'Yes')}>Yes</Button>}
                 >
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
@@ -61,15 +62,15 @@ const TestDialogs = React.createClass({
                     <p>ConfirmationDialog Content</p>
                 </ConfirmationDialog>
                 <BaseDialog title="DialogCustomActions Title"
-                        active={this.state.baseDialog}
-                        modal={true}
-                        titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
-                        size="large"
-                        buttonRow={[
-                            <Button onClick={this.closeBaseDialog.bind(null, 'Cancel')}>Cancel</Button>,
-                            <Button onClick={this.closeBaseDialog.bind(null, 'Yes')}>Yes</Button>,
-                            <Button onClick={this.closeBaseDialog.bind(null, 'Custom')}>Custom</Button>
-                        ]}
+                            active={this.state.baseDialog}
+                            modal={true}
+                            titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
+                            size="large"
+                            buttonRow={[
+                                <Button onClick={this.closeBaseDialog.bind(null, 'Cancel')}>Cancel</Button>,
+                                <Button onClick={this.closeBaseDialog.bind(null, 'Yes')}>Yes</Button>,
+                                <Button onClick={this.closeBaseDialog.bind(null, 'Custom')}>Custom</Button>
+                            ]}
                 >
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>

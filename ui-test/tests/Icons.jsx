@@ -5,8 +5,7 @@ import {
 
 const TestIcons = React.createClass({
     getInitialState() {
-        return {
-        };
+        return {};
     },
 
     render() {
@@ -17,23 +16,23 @@ const TestIcons = React.createClass({
                 </div>
                 <div className="mdl-card__content">
                     <h5>Basic Icons with Fallback tooltips</h5>
-                    <Icon name="edit" />
-                    <Icon name="delete" />
-                    <Icon name="arrow_firstpage" />
-                    <Icon name="arrow_prevpage" />
-                    <Icon name="arrow_nextpage" />
-                    <Icon name="arrow_lastpage" />
-                    <Icon name="arrow_dropdown" />
-                    <Icon name="expand_more" />
-                    <Icon name="expand_less" />
-                    <Icon name="menu_more" />
-                    <Icon name="filter" />
-                    <Icon name="sort" />
-                    <Icon name="hide" />
-                    <Icon name="access_forbidden" />
+                    <Icon name="edit"/>
+                    <Icon name="delete"/>
+                    <Icon name="arrow_firstpage"/>
+                    <Icon name="arrow_prevpage"/>
+                    <Icon name="arrow_nextpage"/>
+                    <Icon name="arrow_lastpage"/>
+                    <Icon name="arrow_dropdown"/>
+                    <Icon name="expand_more"/>
+                    <Icon name="expand_less"/>
+                    <Icon name="menu_more"/>
+                    <Icon name="filter"/>
+                    <Icon name="sort"/>
+                    <Icon name="hide"/>
+                    <Icon name="access_forbidden"/>
                     <h5>Other Icons</h5>
-                    <Icon name="widgets" tooltip="no tooltip on the next (canonical) icon" />
-                    <Icon name="access_forbidden" tooltip={false} />
+                    <Icon name="widgets" tooltip="no tooltip on the next (canonical) icon"/>
+                    <Icon name="access_forbidden" tooltip={false}/>
                 </div>
             </div>
         );
