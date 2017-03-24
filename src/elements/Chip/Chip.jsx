@@ -44,7 +44,7 @@ const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
 
 
 export const Chip = (props) => {
-    const {className, onClick, onClose, children, ...otherProps} = props;
+    const {className, onClick, onClose, style, children, ...otherProps} = props;
 
     const childrenArray = React.Children.toArray(children);
     const contactIndex = childrenArray.findIndex(c => c.type === ChipContact || c.type === ChipVisual);
@@ -90,6 +90,10 @@ export const Chip = (props) => {
             'mdl-chip--contact': contactIndex > -1,
             'mdl-chip--deletable': !!onClose,
         }, className),
+        style: {
+            ...style,
+            cursor: onClick ? 'pointer' : 'default',
+        },
         type: onClick ? 'button' : null,
         onClick,
         ...otherProps
