@@ -157,7 +157,12 @@ gulp.task('vis', function(cb) {
     });
 
     // rewrite package.json (with newline in the end)
-    fs.writeFile('./package.json', JSON.stringify(p, null, 2) + '\n', cb);
+    fs.writeFileSync('./package.json', JSON.stringify(p, null, 2) + '\n');
+    const result = fs.createWriteStream('./lib/vis.dist.css');
+    fs.createReadStream('./lib/vis/dist/vis.css').pipe(result);
+
+    result.on('close', cb)
+
 });
 
 gulp.task('download-codepoints', function() {
