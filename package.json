@@ -47,10 +47,12 @@
     "ecc-uitest-helpers": "^15.8.0-alpha.1",
     "gulp": "^3.9.0",
     "gulp-download-stream": "^0.0.13",
+    "gulp-postcss": "^6.4.0",
     "gulp-rename": "^1.2.2",
     "gulp-sequence": "^0.4.6",
     "js-yaml": "^3.7.0",
     "node-sass": "^3.4.0",
+    "perfectionist": "^2.4.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
   }

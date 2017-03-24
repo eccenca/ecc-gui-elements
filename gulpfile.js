@@ -137,7 +137,7 @@ gulp.task('sass-compile', function(cb) {
 });
 
 
-gulp.task('vis', function(cb) {
+gulp.task('vis', function() {
     var p = require('./package.json');
 
     console.log('The vis dependency is not managed normally, but as a submodule.')
@@ -158,10 +158,14 @@ gulp.task('vis', function(cb) {
 
     // rewrite package.json (with newline in the end)
     fs.writeFileSync('./package.json', JSON.stringify(p, null, 2) + '\n');
-    const result = fs.createWriteStream('./lib/vis.dist.css');
-    fs.createReadStream('./lib/vis/dist/vis.css').pipe(result);
 
-    result.on('close', cb)
+    return gulp.src('./lib/vis/dist/vis-timeline-graph2d.min.css')
+        .pipe(require('gulp-postcss')([
+            require('perfectionist'),
+            require('autoprefixer')({ add: false, browsers: [] })
+        ]))
+        .pipe(require('gulp-rename')('vis.dist.css'))
+        .pipe(gulp.dest('./lib/'))
 
 });
 
