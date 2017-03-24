@@ -1,126 +1,99 @@
-import React from 'react';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
-import classnameSeperator from './../../utils/classnameSeperator';
-import ReactMDLChip from 'react-mdl/lib/Chip';
+import React, {PropTypes} from 'react';
+import cx from 'classnames';
+import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 import _ from 'lodash';
 
-/* proposial:
+export const ChipVisual = (props) => {
 
-<Chip
-    onClick
-    className
-    label
->
-    <ChipVisual>
-    </ChipVisual>
-    Irgendwas
-</Chip>
+    const {
+        image = false,
+        label = false,
+        bgcolor = 'teal',
+        textcolor = 'white',
+    } = props;
 
-*/
-
-const Chip = React.createClass({
-    mixins: [PerformanceMixin],
-
-    // define property types
-    propTypes: {
-        /**
-        * click event
-        */
-        onClick: React.PropTypes.func,
-        /**
-        * content of main chip part
-        */
-        label: React.PropTypes.string,
-        /**
-        * content of left-sided 'icon'
-        */
-        iconContent: React.PropTypes.node,
-        /**
-        * add class names
-        */
-        className: React.PropTypes.string,
-        /**
-        * class name of left-sided icon
-        */
-        iconClassName: React.PropTypes.string,
-
-    },
-
-    contactProperties: {
-        // ----chip-icon-----
-        // background color
-        // --sketch colors--
-        'bg-icon-blue': 'chip-icon-blue',
-        'bg-icon-green': 'chip-icon-green',
-        // --subscription colors--
-        'bg-icon-subscribed': 'chip-icon-dark-green',
-        'bg-icon-unsubscribed': 'chip-icon-blue-grey',
-        'bg-icon-denied': 'chip-icon-red',
-        'bg-icon-requested': 'chip-icon-yellow',
-
-        // text color
-        //'tc-white': 'chip-icon-text-white',
-        'tc-icon-white': 'mdl-color-text--white',
-    },
-
-    chipProperties: {
-        // background color
-        'bg-chip-blue': 'mdl-chip--blue',
-        'bg-chip-green': 'mdl-chip--green',
-
-        // text color
-        'tc-chip-blue': 'mdl-chip--text-blue',
-        'tc-chip-green': 'mdl-chip--text-green',
-    },
-    render() {
-        const {
-            onClick = false,
-            label,
-            className,
-            iconContent,
-            iconClassName
-        } = this.props;
-
-        const chipLabel = (
-            label ? (
-                <span className="mdl-chip__text">
-                    {label}
-                </span>
-            ) : false
-        );
-
-        const chipClassName = (
-            'mdl-chip' +
-            // if left-sided content exist
-            (iconContent || iconClassName ? ' mdl-chip--contact' : '') +
-            (onClick ? ' cursor-as-hand' : '') +
-            // custom class names
-            (_.isEmpty(className) ? '' : ' ' + classnameSeperator(className, this.chipProperties))
-        );
-
-        // left-sided icon
-        const icon = (
-            iconContent || iconClassName ? (
-                <span className={'mdl-chip__contact ' + additionalIconClassName}>
-                    {iconContent}
-                </span>
-            )
-            : false
-        );
-
+    if (image) {
         return (
-            <div>
-                <button
-                    type="button"
-                    className={chipClassName}
-                    onClick={onClick ? onClick : false}
-                >
-                    {icon}
-                    {chipLabel}
-                </button>
-            </div>
-        );
-    },
-});
+            <ChipContact style={{background: `url("${image}") 0 0 / cover`}}/>
+        )
+    }
 
-export default Chip;
+    if (__DEBUG__) {
+        if (!_.isString(label) || label.length === 0 || label.length > 2) {
+            console.warn(`A ChipVisual label should be a string with a length of 1 or 2, and not ${label}`);
+        }
+    }
+
+    return (
+        <ChipContact className={`mdl-color--${bgcolor} mdl-color-text--${textcolor}`}>
+            {label}
+        </ChipContact>
+    )
+
+};
+
+
+const propTypes = {
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    onClose: PropTypes.func
+};
+
+const ChipContact = basicClassCreator('ChipContact', 'mdl-chip__contact', 'span');
+const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
+
+
+export const Chip = (props) => {
+    const {className, onClick, onClose, children, ...otherProps} = props;
+
+    const childrenArray = React.Children.toArray(children);
+    const contactIndex = childrenArray.findIndex(c => c.type === ChipContact || c.type === ChipVisual);
+
+    const chipContent = [];
+
+    if (contactIndex >= 0) {
+        chipContent.push(
+            childrenArray[contactIndex],
+            <ChipText key="text">
+                {childrenArray
+                    .slice(0, contactIndex)
+                    .concat(childrenArray.slice(contactIndex + 1))
+                }
+            </ChipText>
+        );
+    } else {
+        chipContent.push(
+            <ChipText key="text">
+                {children}
+            </ChipText>
+        );
+    }
+
+    if (__DEBUG__) {
+        if (onClose) {
+            console.warn(
+                "At the moment our chips do not allow for a chip action (like close)." +
+                "If you think, you need one please start a discussion around that topic."
+            );
+            // chipContent.push(
+            //     <button key="btn" type="button" className="mdl-chip__action" onClick={onClose}>
+            //         <Icon name="cancel" />
+            //     </button>
+            // );
+        }
+    }
+
+    const elt = onClick ? 'button' : 'span';
+
+    return React.createElement(elt, {
+        className: cx('mdl-chip', {
+            'mdl-chip--contact': contactIndex > -1,
+            'mdl-chip--deletable': !!onClose,
+        }, className),
+        type: onClick ? 'button' : null,
+        onClick,
+        ...otherProps
+    }, chipContent);
+};
+
+Chip.propTypes = propTypes;

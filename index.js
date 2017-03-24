@@ -33,7 +33,10 @@ import {
 
 import Checkbox from './src/elements/Checkbox/Checkbox';
 
-import Chip from './src/elements/Chip/Chip';
+import {
+    Chip,
+    ChipVisual
+} from './src/elements/Chip/Chip';
 
 import Content from 'react-mdl/lib/Layout/Content';
 
@@ -82,6 +85,7 @@ export default {
     DisruptiveButton,
     Checkbox,
     Chip,
+    ChipVisual,
     Content,
     ContextMenu,
     MenuItem,

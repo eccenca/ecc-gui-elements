@@ -5,7 +5,8 @@ import {
     DismissiveButton,
     DisruptiveButton,
     Icon,
-    Chip
+    Chip,
+    ChipVisual,
 } from '../../index.js';
 
 class TestButtons extends React.PureComponent {
@@ -74,15 +75,19 @@ class TestButtons extends React.PureComponent {
                 <hr className="mdl-layout-spacer"/>
                 <div className="mdl-card__content">
                     <Chip
-                        label="clickable chip with customized icon"
                         onClick={() => console.log('#1 chip clicked')}
-                        iconClassName={'bg-icon-denied tc-icon-white'}
-                        iconContent={'H'}
-                        className={'bg-chip-green tc-chip-blue'}
-                    />
-                    <Chip
-                        label="plain chip"
-                    />
+                    >
+        <ChipVisual image="https://placekitten.com/150/150"/>
+                            clickable with image visual
+                            </Chip>         <Chip
+                        onClick={() => console.log('#1 chip clicked')}
+                    >
+        <ChipVisual label="AB"/>
+            clickable with text visual
+                            </Chip>
+                    <Chip >
+                            plain chip
+                            </Chip>
                 </div>
             </div>
         );
