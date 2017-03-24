@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.11.0] 2017-03-24
+### Added
+- provide own `<Chip/>` and `<ChipVisual/>` element
+
 ## [2.10.0] 2017-03-21
 ### Added
 - insert helper for justified usage of color definitions as strings and color types
@@ -158,12 +162,12 @@ This release has been deprecated and should not be used. Please use the a releas
     ```jsx
     //before
     <Pagination
-        handleNewLimit={(limit) => console.log(limit)}  
+        handleNewLimit={(limit) => console.log(limit)}
         handleNewOffset={(offset) => console.log(offset)}
     />
     //after
     <Pagination
-        onChange={({offset, limit}) => console.log(offset, limit)}  
+        onChange={({offset, limit}) => console.log(offset, limit)}
     />
     ```
 

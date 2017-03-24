@@ -17,8 +17,7 @@ const TestTimeline = React.createClass({
                 {
                     id: 'http://example.com/2',
                     className: 'binding2',
-                    start:
-                    '2013-01-01 10:00',
+                    start: '2013-01-01 10:00',
                     end: '2013-01-01 10:45',
                     content: 'Second'
                 },

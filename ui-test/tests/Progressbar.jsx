@@ -12,12 +12,13 @@ class TestProgressbar extends React.PureComponent {
                 </div>
                 <div className="mdl-card__content">
                     <Progressbar progress={85}/>
-                    <Progressbar appearGlobal={true} indeterminate={true} />
+                    <Progressbar appearGlobal={true} indeterminate={true}/>
                 </div>
                 <Progressbar appearLocal={true} progress={15}/>
             </div>
         );
     }
-};
+}
+;
 
 export default TestProgressbar;

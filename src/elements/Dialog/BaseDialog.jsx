@@ -12,32 +12,32 @@ const BaseDialog = React.createClass({
     // define property types
     propTypes: {
         /**
-        * Define if dialog is displayed.
-        */
+         * Define if dialog is displayed.
+         */
         active: React.PropTypes.bool.isRequired,
         /**
-        * Custom dialog classname.
-        */
+         * Custom dialog classname.
+         */
         className: React.PropTypes.string,
         /**
-        * Defines dialog as modal.
-        */
+         * Defines dialog as modal.
+         */
         modal: React.PropTypes.bool,
         /**
-        * Size of dialog.
-        */
+         * Size of dialog.
+         */
         size: React.PropTypes.string,
         /**
-        * Contain buttons for action row.
-        */
+         * Contain buttons for action row.
+         */
         buttonRow: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
         /**
-        * Title of dialog.
-        */
+         * Title of dialog.
+         */
         title: React.PropTypes.node,
         /**
-        * Add cancel button to title.
-        */
+         * Add cancel button to title.
+         */
         titleCancelButton: React.PropTypes.func,
     },
 
@@ -133,3 +133,24 @@ const BaseDialog = React.createClass({
 });
 
 export default BaseDialog;
+
+import {ChipVisual, Chip} from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <div>
+                <Chip onClick={() => console.log('#1 chip clicked')}>
+                    <ChipVisual image="https://placekitten.com/500/500"/>
+                    clickable with image visual
+                </Chip>
+                <Chip onClick={() => console.log('#2 chip clicked')}>
+                    <ChipVisual label="AB"/>
+                    clickable with text visual
+                </Chip>
+                <Chip>plain chip</Chip>
+            </div>
+        )
+    },
+    // ....
+});

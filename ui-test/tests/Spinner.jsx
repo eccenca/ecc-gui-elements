@@ -18,6 +18,7 @@ class TestSpinner extends React.PureComponent {
             </div>
         );
     }
-};
+}
+;
 
 export default TestSpinner;
