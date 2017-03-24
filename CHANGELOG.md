@@ -3,8 +3,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Fixed
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+- made npm package ~3MB smaller by not including useless vis code
+- remove faulty code from BaseDialog
 
 ## [2.11.0] 2017-03-24
 ### Added
