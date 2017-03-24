@@ -77,7 +77,7 @@ class TestButtons extends React.PureComponent {
                     <Chip
                         onClick={() => console.log('#1 chip clicked')}
                     >
-        <ChipVisual image="https://placekitten.com/150/150"/>
+        <ChipVisual image="https://placekitten.com/500/500"/>
                             clickable with image visual
                             </Chip>         <Chip
                         onClick={() => console.log('#1 chip clicked')}

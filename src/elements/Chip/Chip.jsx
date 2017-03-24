@@ -8,8 +8,8 @@ export const ChipVisual = (props) => {
     const {
         image = false,
         label = false,
-        bgcolor = 'teal',
-        textcolor = 'white',
+        bgColor = 'teal',
+        textColor = 'white',
     } = props;
 
     if (image) {
@@ -25,7 +25,7 @@ export const ChipVisual = (props) => {
     }
 
     return (
-        <ChipContact className={`mdl-color--${bgcolor} mdl-color-text--${textcolor}`}>
+        <ChipContact className={`mdl-color--${bgColor} mdl-color-text--${textColor}`}>
             {label}
         </ChipContact>
     )

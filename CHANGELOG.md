@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 ### Added
-- provide own `<Chip/>` element
+- provide own `<Chip/>` and `<ChipVisual/>` element
 
 ## [2.10.0] 2017-03-21
 ### Added
@@ -162,12 +162,12 @@ This release has been deprecated and should not be used. Please use the a releas
     ```jsx
     //before
     <Pagination
-        handleNewLimit={(limit) => console.log(limit)}  
+        handleNewLimit={(limit) => console.log(limit)}
         handleNewOffset={(offset) => console.log(offset)}
     />
     //after
     <Pagination
-        onChange={({offset, limit}) => console.log(offset, limit)}  
+        onChange={({offset, limit}) => console.log(offset, limit)}
     />
     ```
 

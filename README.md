@@ -237,21 +237,31 @@ const Page = React.createClass({
 });
 ```
 
-### Chip
+### Chip and ChipVisual
 
-```js
-import { Chip} from 'ecc-gui-elements';
+Chip and ChipVisual are a wrapper around react-mdl's Chip and ChipContact.
+
+Chip is essentially the same as in react-mdl, but does not allow of `onClose`.
+
+ChipContact supports images and text. If both are defined, image is preferred.
+
+```jsx
+import { ChipVisual, Chip } from 'ecc-gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
         return (
-            <Chip
-                label={chip text}
-                onClick={() => console.log('chip clicked')}
-                className={'bg-chip-green'},
-                iconContent={'H'},
-                iconClassName={'tc-icon-white'}
-            />
+            <div>
+                <Chip>plain chip</Chip>
+                <Chip onClick={() => console.log('#1 chip clicked')}>
+                    <ChipVisual image="https://placekitten.com/500/500"/>
+                    clickable with image visual
+                </Chip>
+                <Chip onClick={() => console.log('#2 chip clicked')}>
+                    <ChipVisual label="AB" bgColor="teal" textColor="white"/>
+                    clickable with text visual
+                </Chip>
+            </div>
         )
     },
     // ....
