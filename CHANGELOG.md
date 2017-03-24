@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [Unreleased]
+
+TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+
 ## [2.11.0] 2017-03-24
 ### Added
 - provide own `<Chip/>` and `<ChipVisual/>` element
