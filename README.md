@@ -67,6 +67,7 @@ Returns:
 - `Button`: A simple Button which also may contain icons
 - `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
+- `Chip`: A chip element for visualized status
 - `RadioGroup` and `Radio`: A radio button with optional label and grouping
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `ContextMenu`: A context menu with menu items
@@ -230,6 +231,37 @@ const Page = React.createClass({
             <Checkbox checked>
                 <div className="test">Checkbox 3 Text</div>
             </Checkbox>
+        )
+    },
+    // ....
+});
+```
+
+### Chip and ChipVisual
+
+Chip and ChipVisual are a wrapper around react-mdl's Chip and ChipContact.
+
+Chip is essentially the same as in react-mdl, but does not allow of `onClose`.
+
+ChipContact supports images and text. If both are defined, image is preferred.
+
+```jsx
+import { ChipVisual, Chip } from 'ecc-gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <div>
+                <Chip>plain chip</Chip>
+                <Chip onClick={() => console.log('#1 chip clicked')}>
+                    <ChipVisual image="https://placekitten.com/500/500"/>
+                    clickable with image visual
+                </Chip>
+                <Chip onClick={() => console.log('#2 chip clicked')}>
+                    <ChipVisual label="AB" bgColor="teal" textColor="white"/>
+                    clickable with text visual
+                </Chip>
+            </div>
         )
     },
     // ....
