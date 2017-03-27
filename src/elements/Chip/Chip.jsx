@@ -11,6 +11,7 @@ export const ChipVisual = (props) => {
         className = '',
         bgColor = false,
         textColor = false,
+        children = false
     } = props;
 
     if (image) {
@@ -36,7 +37,7 @@ export const ChipVisual = (props) => {
                 className,
             )}
         >
-            {label}
+            {label || children}
         </ChipContact>
     )
 

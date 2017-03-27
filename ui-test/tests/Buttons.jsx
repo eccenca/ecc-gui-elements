@@ -97,7 +97,7 @@ class TestButtons extends React.PureComponent {
                     </Chip>
                     <Chip>
                         <ChipVisual>
-                            <img src="{image}" alt="" />
+                            <img src={image} alt="" />
                         </ChipVisual>
                         Plain chip with image (ChipVisual content)
                     </Chip>
