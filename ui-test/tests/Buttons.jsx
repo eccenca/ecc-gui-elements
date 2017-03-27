@@ -74,8 +74,45 @@ class TestButtons extends React.PureComponent {
                 <div className="mdl-card__title">
                     <h4 className="mdl-card__title-text">Test Chip</h4>
                 </div>
-                <hr className="mdl-layout-spacer"/>
                 <div className="mdl-card__content">
+                    <h5>Plain chips</h5>
+                    <Chip>
+                        Plain chip with only a simple but long label
+                    </Chip>
+                    <Chip>
+                        <ChipVisual image={image} alt="My alternative label for the image."/>
+                        Plain chip with image (ChipVisual property)
+                    </Chip>
+                    <Chip>
+                        <ChipVisual label="AB"/>
+                        Plain chip with text visual (ChipVisual property)
+                    </Chip>
+                    <Chip>
+                        <ChipVisual>
+                            <img src="{image}" alt="" />
+                        </ChipVisual>
+                        Plain chip with image (ChipVisual content)
+                    </Chip>
+                    <Chip>
+                        <ChipVisual>
+                            <Icon name="done" tooltip="test" />
+                        </ChipVisual>
+                        Plain chip with icon (ChipVisual content)
+                    </Chip>
+                    <Chip
+                        className="my-own-chip-class"
+                    >
+                        <ChipVisual label="C1"/>
+                        Plain chip with extra chip class
+                    </Chip>
+                    <Chip>
+                        <ChipVisual
+                            label="C2"
+                            className="my-own-visual-class"
+                        />
+                    Plain chip with extra chipvisual class
+                    </Chip>
+                    <h5>Clickable chips</h5>
                     <Chip onClick={() => alert('#1 chip clicked')}>
                         <ChipVisual image={image}/>
                         clickable with image visual
@@ -84,7 +121,6 @@ class TestButtons extends React.PureComponent {
                         <ChipVisual label="AB"/>
                         clickable with text visual
                     </Chip>
-                    <Chip>plain chip</Chip>
                 </div>
             </div>
         );
@@ -92,6 +128,7 @@ class TestButtons extends React.PureComponent {
         return (
             <div>
                 {buttons}
+                <hr className="mdl-layout-spacer"/>
                 {chips}
             </div>
         );
