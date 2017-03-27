@@ -100,10 +100,6 @@ export const Chip = (props) => {
             'mdl-chip--contact': contactIndex > -1,
             'mdl-chip--deletable': !!onClose,
         }, className),
-        style: {
-            ...style,
-            cursor: onClick ? 'pointer' : 'default',
-        },
         type: onClick ? 'button' : null,
         onClick,
         ...otherProps
