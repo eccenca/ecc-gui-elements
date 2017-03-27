@@ -88,6 +88,14 @@ class TestButtons extends React.PureComponent {
                         Plain chip with text visual (ChipVisual property)
                     </Chip>
                     <Chip>
+                        <ChipVisual
+                            label="AB"
+                            bgColor = 'teal'
+                            textColor = 'white'
+                        />
+                        Plain chip with colors (ChipVisual property)
+                    </Chip>
+                    <Chip>
                         <ChipVisual>
                             <img src="{image}" alt="" />
                         </ChipVisual>
@@ -109,6 +117,8 @@ class TestButtons extends React.PureComponent {
                         <ChipVisual
                             label="C2"
                             className="my-own-visual-class"
+                            bgColor = 'red'
+                            textColor = 'white'
                         />
                     Plain chip with extra chipvisual class
                     </Chip>
