@@ -1,0 +1,23 @@
+/**
+ * Copyright 2017 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+.mdl-chip {
+    margin-right: 4px;
+    background-color: rgba(0, 0, 0, 0.13);
+
+    &:hover {
+
+    }
+
+    &:active {
+        background-color: rgba(0, 0, 0, 0.17);
+    }
+}
+
+.mdl-chip__contact {
+    background-color: rgba(0, 0, 0, 0.54);
+    color: $chip-bg-color;
+}
