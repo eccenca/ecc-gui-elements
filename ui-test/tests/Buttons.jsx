@@ -69,6 +69,7 @@ class TestButtons extends React.PureComponent {
 
         const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.JPG';
 
+        const brokenImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.png';
         const chips = (
             <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
                 <div className="mdl-card__title">
@@ -84,6 +85,10 @@ class TestButtons extends React.PureComponent {
                         Plain chip with image (ChipVisual property)
                     </Chip>
                     <Chip>
+                        <ChipVisual image={brokenImage} alt="My alternative label for the image."/>
+                        Plain chip with broken image (ChipVisual property)
+                    </Chip>
+                    <Chip>
                         <ChipVisual label="AB"/>
                         Plain chip with text visual (ChipVisual property)
                     </Chip>
@@ -97,13 +102,19 @@ class TestButtons extends React.PureComponent {
                     </Chip>
                     <Chip>
                         <ChipVisual>
-                            <img src={image} alt="" />
+                            <img src={image} alt=""/>
                         </ChipVisual>
                         Plain chip with image (ChipVisual content)
                     </Chip>
                     <Chip>
                         <ChipVisual>
-                            <Icon name="done" tooltip="test" />
+                            <img src={brokenImage} alt=""/>
+                        </ChipVisual>
+                        Plain chip with broken image (ChipVisual content)
+                    </Chip>
+                    <Chip>
+                        <ChipVisual>
+                            <Icon name="done" tooltip="test"/>
                         </ChipVisual>
                         Plain chip with icon (ChipVisual content)
                     </Chip>
@@ -120,7 +131,7 @@ class TestButtons extends React.PureComponent {
                             bgColor="red"
                             textColor="white"
                         />
-                    Plain chip with extra chipvisual class
+                        Plain chip with extra chipvisual class
                     </Chip>
                     <h5>Clickable chips</h5>
                     <Chip onClick={() => alert('#1 chip clicked')}>
