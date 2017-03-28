@@ -2,15 +2,19 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [2.11.2] 2017-03-24
-
+## [2.11.3] 2017-03-28
 ### Fixed
+- use separated chip scss stylesheet to include patches
+- fix layout to use Chips on smaller spaces
+- allow additional class names for `<ChipVisual/>` elements
+- enable icons as content in `<ChipVisual/>` elements
 
+## [2.11.2] 2017-03-24
+### Fixed
 - Only use vis css which is really needed
 
 ## [2.11.1] 2017-03-24
 ### Fixed
-
 - made npm package ~3MB smaller by not including useless vis code
 - remove faulty code from BaseDialog
 

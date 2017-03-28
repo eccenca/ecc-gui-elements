@@ -239,11 +239,11 @@ const Page = React.createClass({
 
 ### Chip and ChipVisual
 
-Chip and ChipVisual are a wrapper around react-mdl's Chip and ChipContact.
+`<Chip/>` and `<ChipVisual/>` are a wrapper around react-mdl's `<Chip/>` and `<ChipContact/>`.
 
-Chip is essentially the same as in react-mdl, but does not allow of `onClose`.
+`<Chip/>` is essentially the same as in react-mdl, but does not allow of `onClose`.
 
-ChipContact supports images and text. If both are defined, image is preferred.
+`<ChipVisual/>` supports images, icons and text labels.
 
 ```jsx
 import { ChipVisual, Chip } from 'ecc-gui-elements';
@@ -253,13 +253,29 @@ const Page = React.createClass({
         return (
             <div>
                 <Chip>plain chip</Chip>
-                <Chip onClick={() => console.log('#1 chip clicked')}>
-                    <ChipVisual image="https://placekitten.com/500/500"/>
+                <Chip
+                    onClick={() => console.log('#1 chip clicked')} // click handler, default: false
+                >
+                    <ChipVisual
+                        image="https://placekitten.com/500/500" // image URL, default false
+                    />
                     clickable with image visual
                 </Chip>
-                <Chip onClick={() => console.log('#2 chip clicked')}>
-                    <ChipVisual label="AB" bgColor="teal" textColor="white"/>
+                <Chip
+                    onClick={() => console.log('#2 chip clicked')}
+                >
+                    <ChipVisual
+                        label="AB" // string with max. 2 chars, default: false
+                        bgColor="teal" // MD color names, e.g. red, red-50, ... @see https://material.io/guidelines/style/color.html
+                        textColor="white" // MD color names, e.g. red, red-50, ... @see https://material.io/guidelines/style/color.html
+                    />
                     clickable with text visual
+                </Chip>
+                <Chip>
+                    <ChipVisual>
+                        <Icon name="done" tooltip="test" />
+                    </ChipVisual>
+                    plain chip with icon
                 </Chip>
             </div>
         )
