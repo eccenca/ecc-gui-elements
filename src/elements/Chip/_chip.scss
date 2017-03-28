@@ -13,9 +13,11 @@
     box-sizing: border-box;
     max-width: 100%;
 
+
     &:active {
-        background-color: rgba(0, 0, 0, 0.17);
+        background-color: rgba(0, 0, 0, 0.13);
     }
+    
 }
 
 .mdl-chip__text {
@@ -53,4 +55,9 @@ button.mdl-chip {
     &:hover {
         @extend .mdl-chip:focus;
     }
+
+    &:active {
+        background-color: rgba(0, 0, 0, 0.17);
+    }
+
 }
