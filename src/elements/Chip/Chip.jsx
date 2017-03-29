@@ -21,8 +21,8 @@ export const ChipVisual = (props) => {
     }
 
     if (__DEBUG__) {
-        if (!_.isString(label) || label.length === 0 || label.length > 2) {
-            console.warn(`A ChipVisual label should be a string with a length of 1 or 2, and not ${label}`);
+        if (label !== false && (!_.isString(label) || label.length === 0 || label.length > 2)) {
+            console.warn(`A ChipVisual label should be a string with a length of 1 or 2, and not "${label}"`);
         }
     }
 

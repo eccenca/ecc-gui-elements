@@ -89,8 +89,20 @@ class TestButtons extends React.PureComponent {
                         Plain chip with broken image (ChipVisual property)
                     </Chip>
                     <Chip>
+                        <ChipVisual label=""/>
+                        Plain chip with 0 char text visual (ChipVisual property)
+                    </Chip>
+                    <Chip>
+                        <ChipVisual label="A"/>
+                        Plain chip with 1 char text visual (ChipVisual property)
+                    </Chip>
+                    <Chip>
                         <ChipVisual label="AB"/>
-                        Plain chip with text visual (ChipVisual property)
+                        Plain chip with 2 chars text visual (ChipVisual property)
+                    </Chip>
+                    <Chip>
+                        <ChipVisual label="ABC"/>
+                        Plain chip with 3 chars text visual (ChipVisual property)
                     </Chip>
                     <Chip>
                         <ChipVisual
