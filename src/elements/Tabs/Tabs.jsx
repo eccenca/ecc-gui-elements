@@ -43,6 +43,10 @@ const Tabs = React.createClass({
     },
     handleSelect(tabSelect) {
         tabSelect = this.state.tabs[tabSelect].tabTitle;
+        // do nothing if tab not changed
+        if (_.isEqual(tabSelect, this.state.activeTab)) {
+            return;
+        }
         this.setState({activeTab: tabSelect});
         if(_.isFunction(this.state.onTabClick)){
             this.state.onTabClick(tabSelect);
