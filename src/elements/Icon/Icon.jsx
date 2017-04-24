@@ -53,7 +53,7 @@ const Icon = React.createClass({
         'filter': 'Filter data',
         'sort': 'Sort data',
         'hide': 'Hide',
-        'access_forbidden': 'No access',
+        'access_forbidden': 'No write access',
     },
 
     // template rendering
