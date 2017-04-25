@@ -17,6 +17,9 @@
     &.has-contextblock {
         padding-right: calc(1.5rem + 24px);
     }
+
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .mdl-menu__item-contextmenu {
