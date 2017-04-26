@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.11.7] 2017-04-26
+
+### Fixed
+- prevent overflow of hovered menu items
+
 ## [2.11.6] 2017-04-24
 
 ### Fixed
