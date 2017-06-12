@@ -70,8 +70,6 @@ import Tabs from './src/elements/Tabs/Tabs';
 
 import TextField from './src/elements/TextField/TextField';
 
-import Timeline from './src/elements/Timeline/Timeline';
-
 import Version from './src/elements/Version/Version';
 
 export default {
@@ -103,7 +101,6 @@ export default {
     Spinner,
     Success,
     Switch,
-    Timeline,
     Warning,
     Tabs,
     Version,

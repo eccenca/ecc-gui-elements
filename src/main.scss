@@ -40,15 +40,6 @@ $image_path: "~material-design-lite/src/images" !default;
 @import "./elements/TextField/textfield";
 @import "./elements/Tooltip/tooltip";
 
-// VIS.js
-
-@import "../lib/vis.dist.css";
-
-// VIS Wrappers
-
-@import "./elements/Timeline/timeline";
-
-
 // -- Changes ------------------------------------------------------------------
 
 @import "./scss/adjustments";

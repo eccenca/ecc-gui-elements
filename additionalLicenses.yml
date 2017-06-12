@@ -19,15 +19,3 @@ ecc-gui-elements:
         - name: Apache 2.0
           url: https://raw.githubusercontent.com/google/roboto/v2.136/LICENSE
       downloadUrl: https://github.com/google/roboto/archive/v2.136.zip
-    # Not imported using npm. It has a dual license. See more:
-    # https://github.com/almende/vis/issues/285
-    - name: vis
-      version: 4.19.1
-      url: https://github.com/almende/vis
-      licenses:
-        - name: (MIT OR Apache-2.0)
-          url: https://raw.githubusercontent.com/almende/vis/v4.19.1/README.md
-        - name: MIT
-          url: https://raw.githubusercontent.com/almende/vis/v4.19.1/LICENSE-MIT
-        - name: Apache 2.0
-          url: https://raw.githubusercontent.com/almende/vis/v4.19.1/LICENSE-APACHE-2.0
