@@ -1,20 +1,17 @@
 var gulp = require('ecc-gulp-tasks')(require('./buildConfig.js'));
+
+gulp.task('default', ['debug']);
+
 var gulpSequence = require('gulp-sequence');
 
 var fs = require('fs');
 var path = require('path');
 var _ = require('lodash');
 
-
-var visp = require('./lib/vis/package.json');
-
 var iconFontVersion = '3.0.1';
 var robotoFontVersion = 'v1.1.0';
-var visVersion = visp.version;
 
-gulp.task('default', ['debug']);
-
-gulp.task('full-build', gulpSequence(['vis', 'build-sass'], 'update-licenses', 'build'));
+gulp.task('full-build', gulpSequence('build-sass', 'update-licenses', 'build'));
 
 gulp.task('full-test', ['test', 'sass-compile']);
 
@@ -34,9 +31,7 @@ gulp.task('update-licenses', function(cb) {
 
             const oldVersion = new RegExp(_.toString(dependency.version).replace(/\./g, '\\.'), 'g');
 
-            if (dependency.name === 'vis') {
-                doc = doc.replace(oldVersion, visVersion)
-            } else if (dependency.name === 'material-design-icons') {
+            if (dependency.name === 'material-design-icons') {
                 doc = doc.replace(oldVersion, iconFontVersion)
             }
 
@@ -134,39 +129,6 @@ gulp.task('sass-compile', function(cb) {
         fs.writeFile('./dist/style-core.css', res.css, cb);
 
     });
-});
-
-
-gulp.task('vis', function() {
-    var p = require('./package.json');
-
-    console.log('The vis dependency is not managed normally, but as a submodule.')
-    console.log('Please forward the submodule if you want to make updates');
-
-    p.dependencies = _.mapValues(p.dependencies, (value, key) => {
-
-        if (_.includes(_.keys(visp.devDependencies), key)) {
-            return visp.devDependencies[key];
-        }
-
-        if (_.includes(_.keys(visp.dependencies), key)) {
-            return visp.dependencies[key];
-        }
-
-        return value;
-    });
-
-    // rewrite package.json (with newline in the end)
-    fs.writeFileSync('./package.json', JSON.stringify(p, null, 2) + '\n');
-
-    return gulp.src('./lib/vis/dist/vis-timeline-graph2d.min.css')
-        .pipe(require('gulp-postcss')([
-            require('perfectionist'),
-            require('autoprefixer')({ add: false, browsers: [] })
-        ]))
-        .pipe(require('gulp-rename')('vis.dist.css'))
-        .pipe(gulp.dest('./lib/'))
-
 });
 
 gulp.task('download-codepoints', function() {

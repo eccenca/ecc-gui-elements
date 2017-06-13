@@ -1,3 +1,0 @@
-[submodule "lib/vis"]
-	path = lib/vis
-	url = https://github.com/almende/vis.git
