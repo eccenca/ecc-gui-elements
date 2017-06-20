@@ -47,15 +47,28 @@ acorn@^4.0.3, acorn@^4.0.4:
   version "4.0.11"
   resolved "https://artifactory.eccenca.com/api/npm/npm/acorn/-/acorn-4.0.11.tgz#edcda3bd937e7556410d42ed5860f67399c794c0"
 
+acorn@^5.0.0:
+  version "5.0.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/acorn/-/acorn-5.0.3.tgz#c460df08491463f028ccb82eab3730bf01087b3d"
+
 ajv-keywords@^1.0.0, ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
 
-ajv@^4.11.2, ajv@^4.7.0, ajv@^4.9.1:
+ajv@^4.7.0, ajv@^4.9.1:
   version "4.11.5"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ajv/-/ajv-4.11.5.tgz#b6ee74657b993a01dce44b7944d56f485828d5bd"
   dependencies:
     co "^4.6.0"
+    json-stable-stringify "^1.0.1"
+
+ajv@^5.0.0:
+  version "5.2.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ajv/-/ajv-5.2.0.tgz#c1735024c5da2ef75cc190713073d44f098bf486"
+  dependencies:
+    co "^4.6.0"
+    fast-deep-equal "^0.1.0"
+    json-schema-traverse "^0.3.0"
     json-stable-stringify "^1.0.1"
 
 align-text@^0.1.1, align-text@^0.1.3:
@@ -264,20 +277,20 @@ babel-code-frame@^6.16.0, babel-code-frame@^6.22.0:
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-babel-core@^6.21.0, babel-core@^6.24.0:
-  version "6.24.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-core/-/babel-core-6.24.0.tgz#8f36a0a77f5c155aed6f920b844d23ba56742a02"
+babel-core@^6.24.1, babel-core@^6.25.0:
+  version "6.25.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-core/-/babel-core-6.25.0.tgz#7dd42b0463c742e9d5296deb3ec67a9322dad729"
   dependencies:
     babel-code-frame "^6.22.0"
-    babel-generator "^6.24.0"
-    babel-helpers "^6.23.0"
+    babel-generator "^6.25.0"
+    babel-helpers "^6.24.1"
     babel-messages "^6.23.0"
-    babel-register "^6.24.0"
+    babel-register "^6.24.1"
     babel-runtime "^6.22.0"
-    babel-template "^6.23.0"
-    babel-traverse "^6.23.1"
-    babel-types "^6.23.0"
-    babylon "^6.11.0"
+    babel-template "^6.25.0"
+    babel-traverse "^6.25.0"
+    babel-types "^6.25.0"
+    babylon "^6.17.2"
     convert-source-map "^1.1.0"
     debug "^2.1.1"
     json5 "^0.5.0"
@@ -288,22 +301,22 @@ babel-core@^6.21.0, babel-core@^6.24.0:
     slash "^1.0.0"
     source-map "^0.5.0"
 
-babel-eslint@^7.2.1:
-  version "7.2.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-eslint/-/babel-eslint-7.2.1.tgz#079422eb73ba811e3ca0865ce87af29327f8c52f"
+babel-eslint@^7.2.3:
+  version "7.2.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-eslint/-/babel-eslint-7.2.3.tgz#b2fe2d80126470f5c19442dc757253a897710827"
   dependencies:
     babel-code-frame "^6.22.0"
     babel-traverse "^6.23.1"
     babel-types "^6.23.0"
-    babylon "^6.16.1"
+    babylon "^6.17.0"
 
-babel-generator@^6.24.0:
-  version "6.24.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-generator/-/babel-generator-6.24.0.tgz#eba270a8cc4ce6e09a61be43465d7c62c1f87c56"
+babel-generator@^6.25.0:
+  version "6.25.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-generator/-/babel-generator-6.25.0.tgz#33a1af70d5f2890aeb465a4a7793c1df6a9ea9fc"
   dependencies:
     babel-messages "^6.23.0"
     babel-runtime "^6.22.0"
-    babel-types "^6.23.0"
+    babel-types "^6.25.0"
     detect-indent "^4.0.0"
     jsesc "^1.3.0"
     lodash "^4.2.0"
@@ -430,16 +443,16 @@ babel-helper-replace-supers@^6.22.0, babel-helper-replace-supers@^6.23.0:
     babel-traverse "^6.23.0"
     babel-types "^6.23.0"
 
-babel-helpers@^6.23.0:
-  version "6.23.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-helpers/-/babel-helpers-6.23.0.tgz#4f8f2e092d0b6a8808a4bde79c27f1e2ecf0d992"
+babel-helpers@^6.24.1:
+  version "6.24.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-helpers/-/babel-helpers-6.24.1.tgz#3471de9caec388e5c850e597e58a26ddf37602b2"
   dependencies:
     babel-runtime "^6.22.0"
-    babel-template "^6.23.0"
+    babel-template "^6.24.1"
 
-babel-loader@^7.0.0-beta.1:
-  version "7.0.0-beta.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-loader/-/babel-loader-7.0.0-beta.1.tgz#1318888dfcbbd5f05750ba2d72c744cc07815ce2"
+babel-loader@^7.0.0:
+  version "7.0.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-loader/-/babel-loader-7.0.0.tgz#2e43a66bee1fff4470533d0402c8a4532fafbaf7"
   dependencies:
     find-cache-dir "^0.1.1"
     loader-utils "^1.0.2"
@@ -742,6 +755,18 @@ babel-plugin-transform-es2015-unicode-regex@^6.22.0:
     babel-runtime "^6.22.0"
     regexpu-core "^2.0.0"
 
+babel-plugin-transform-es3-member-expression-literals@^6.22.0:
+  version "6.22.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-plugin-transform-es3-member-expression-literals/-/babel-plugin-transform-es3-member-expression-literals-6.22.0.tgz#733d3444f3ecc41bef8ed1a6a4e09657b8969ebb"
+  dependencies:
+    babel-runtime "^6.22.0"
+
+babel-plugin-transform-es3-property-literals@^6.22.0:
+  version "6.22.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-plugin-transform-es3-property-literals/-/babel-plugin-transform-es3-property-literals-6.22.0.tgz#b2078d5842e22abf40f73e8cde9cd3711abd5758"
+  dependencies:
+    babel-runtime "^6.22.0"
+
 babel-plugin-transform-exponentiation-operator@^6.22.0:
   version "6.22.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/babel-plugin-transform-exponentiation-operator/-/babel-plugin-transform-exponentiation-operator-6.22.0.tgz#d57c8335281918e54ef053118ce6eb108468084d"
@@ -924,11 +949,11 @@ babel-preset-stage-3@^6.22.0:
     babel-plugin-transform-exponentiation-operator "^6.22.0"
     babel-plugin-transform-object-rest-spread "^6.22.0"
 
-babel-register@^6.24.0:
-  version "6.24.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-register/-/babel-register-6.24.0.tgz#5e89f8463ba9970356d02eb07dabe3308b080cfd"
+babel-register@^6.24.1:
+  version "6.24.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-register/-/babel-register-6.24.1.tgz#7e10e13a2f71065bdfad5a1787ba45bca6ded75f"
   dependencies:
-    babel-core "^6.24.0"
+    babel-core "^6.24.1"
     babel-runtime "^6.22.0"
     core-js "^2.4.0"
     home-or-tmp "^2.0.0"
@@ -936,49 +961,49 @@ babel-register@^6.24.0:
     mkdirp "^0.5.1"
     source-map-support "^0.4.2"
 
-babel-runtime@^6.0.0, babel-runtime@^6.18.0, babel-runtime@^6.2.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0:
+babel-runtime@^6.18.0, babel-runtime@^6.2.0, babel-runtime@^6.20.0, babel-runtime@^6.22.0, babel-runtime@^6.23.0:
   version "6.23.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/babel-runtime/-/babel-runtime-6.23.0.tgz#0a9489f144de70efb3ce4300accdb329e2fc543b"
   dependencies:
     core-js "^2.4.0"
     regenerator-runtime "^0.10.0"
 
-babel-template@^6.22.0, babel-template@^6.23.0, babel-template@^6.3.0:
-  version "6.23.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-template/-/babel-template-6.23.0.tgz#04d4f270adbb3aa704a8143ae26faa529238e638"
+babel-template@^6.22.0, babel-template@^6.23.0, babel-template@^6.24.1, babel-template@^6.25.0, babel-template@^6.3.0:
+  version "6.25.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-template/-/babel-template-6.25.0.tgz#665241166b7c2aa4c619d71e192969552b10c071"
   dependencies:
     babel-runtime "^6.22.0"
-    babel-traverse "^6.23.0"
-    babel-types "^6.23.0"
-    babylon "^6.11.0"
+    babel-traverse "^6.25.0"
+    babel-types "^6.25.0"
+    babylon "^6.17.2"
     lodash "^4.2.0"
 
-babel-traverse@^6.22.0, babel-traverse@^6.23.0, babel-traverse@^6.23.1:
-  version "6.23.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-traverse/-/babel-traverse-6.23.1.tgz#d3cb59010ecd06a97d81310065f966b699e14f48"
+babel-traverse@^6.22.0, babel-traverse@^6.23.0, babel-traverse@^6.23.1, babel-traverse@^6.25.0:
+  version "6.25.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-traverse/-/babel-traverse-6.25.0.tgz#2257497e2fcd19b89edc13c4c91381f9512496f1"
   dependencies:
     babel-code-frame "^6.22.0"
     babel-messages "^6.23.0"
     babel-runtime "^6.22.0"
-    babel-types "^6.23.0"
-    babylon "^6.15.0"
+    babel-types "^6.25.0"
+    babylon "^6.17.2"
     debug "^2.2.0"
     globals "^9.0.0"
     invariant "^2.2.0"
     lodash "^4.2.0"
 
-babel-types@^6.19.0, babel-types@^6.22.0, babel-types@^6.23.0:
-  version "6.23.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-types/-/babel-types-6.23.0.tgz#bb17179d7538bad38cd0c9e115d340f77e7e9acf"
+babel-types@^6.19.0, babel-types@^6.22.0, babel-types@^6.23.0, babel-types@^6.25.0:
+  version "6.25.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babel-types/-/babel-types-6.25.0.tgz#70afb248d5660e5d18f811d91c8303b54134a18e"
   dependencies:
     babel-runtime "^6.22.0"
     esutils "^2.0.2"
     lodash "^4.2.0"
     to-fast-properties "^1.0.1"
 
-babylon@^6.11.0, babylon@^6.15.0, babylon@^6.16.1:
-  version "6.16.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/babylon/-/babylon-6.16.1.tgz#30c5a22f481978a9e7f8cdfdf496b11d94b404d3"
+babylon@^6.17.0, babylon@^6.17.2:
+  version "6.17.4"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/babylon/-/babylon-6.17.4.tgz#3e8b7402b88d22c3423e137a1577883b15ff869a"
 
 balanced-match@^0.4.1, balanced-match@^0.4.2:
   version "0.4.2"
@@ -1024,20 +1049,20 @@ bn.js@^4.0.0, bn.js@^4.1.0, bn.js@^4.1.1, bn.js@^4.4.0:
   version "4.11.6"
   resolved "https://artifactory.eccenca.com/api/npm/npm/bn.js/-/bn.js-4.11.6.tgz#53344adb14617a13f6e8dd2ce28905d1c0ba3215"
 
-body-parser@^1.13.3:
-  version "1.17.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/body-parser/-/body-parser-1.17.1.tgz#75b3bc98ddd6e7e0d8ffe750dfaca5c66993fa47"
+body-parser@^1.17.2:
+  version "1.17.2"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/body-parser/-/body-parser-1.17.2.tgz#f8892abc8f9e627d42aedafbca66bf5ab99104ee"
   dependencies:
     bytes "2.4.0"
     content-type "~1.0.2"
-    debug "2.6.1"
+    debug "2.6.7"
     depd "~1.1.0"
     http-errors "~1.6.1"
     iconv-lite "0.4.15"
     on-finished "~2.3.0"
     qs "6.4.0"
     raw-body "~2.2.0"
-    type-is "~1.6.14"
+    type-is "~1.6.15"
 
 boolbase@~1.0.0:
   version "1.0.0"
@@ -1213,9 +1238,9 @@ caniuse-db@^1.0.30000346, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000646"
   resolved "https://artifactory.eccenca.com/api/npm/npm/caniuse-db/-/caniuse-db-1.0.30000646.tgz#c724b90d61df24286e015fc528d062073c00def4"
 
-case-sensitive-paths-webpack-plugin@^1.1.4:
-  version "1.1.4"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-1.1.4.tgz#8aaedd5699a86cac2b34cf40d9b4145758978472"
+case-sensitive-paths-webpack-plugin@^2.1.1:
+  version "2.1.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/case-sensitive-paths-webpack-plugin/-/case-sensitive-paths-webpack-plugin-2.1.1.tgz#3d29ced8c1f124bf6f53846fb3f5894731fdc909"
 
 caseless@~0.12.0:
   version "0.12.0"
@@ -1362,14 +1387,13 @@ cliui@^3.2.0:
     strip-ansi "^3.0.1"
     wrap-ansi "^2.0.0"
 
-clone-deep@^0.2.4:
-  version "0.2.4"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/clone-deep/-/clone-deep-0.2.4.tgz#4e73dd09e9fb971cc38670c5dced9c1896481cc6"
+clone-deep@^0.3.0:
+  version "0.3.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/clone-deep/-/clone-deep-0.3.0.tgz#348c61ae9cdbe0edfe053d91ff4cc521d790ede8"
   dependencies:
-    for-own "^0.1.3"
+    for-own "^1.0.0"
     is-plain-object "^2.0.1"
-    kind-of "^3.0.2"
-    lazy-cache "^1.0.3"
+    kind-of "^3.2.2"
     shallow-clone "^0.1.2"
 
 clone-stats@^0.0.1:
@@ -1661,7 +1685,7 @@ css-what@2.1:
   version "2.1.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
 
-cssnano@^3.4.0, cssnano@^3.7.5:
+cssnano@^3.7.5:
   version "3.10.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/cssnano/-/cssnano-3.10.0.tgz#4f38f6cea2b9b17fa01490f23f1dc68ea65c1c38"
   dependencies:
@@ -1741,19 +1765,25 @@ dateformat@^2.0.0:
   version "2.0.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/dateformat/-/dateformat-2.0.0.tgz#2743e3abb5c3fc2462e527dca445e04e9f4dee17"
 
-debug@2.2.0:
-  version "2.2.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/debug/-/debug-2.2.0.tgz#f87057e995b1a1f6ae6a4960664137bc56f039da"
-  dependencies:
-    ms "0.7.1"
-
-debug@2.6.1, debug@^2.1.1:
-  version "2.6.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/debug/-/debug-2.6.1.tgz#79855090ba2c4e3115cc7d8769491d58f0491351"
+debug@2.6.0:
+  version "2.6.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/debug/-/debug-2.6.0.tgz#bc596bcabe7617f11d9fa15361eded5608b8499b"
   dependencies:
     ms "0.7.2"
 
-debug@2.6.3, debug@^2.2.0:
+debug@2.6.7:
+  version "2.6.7"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/debug/-/debug-2.6.7.tgz#92bad1f6d05bbb6bba22cca88bcd0ec894c2861e"
+  dependencies:
+    ms "2.0.0"
+
+debug@2.6.8, debug@^2.2.0:
+  version "2.6.8"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/debug/-/debug-2.6.8.tgz#e731531ca2ede27d188222427da17821d68ff4fc"
+  dependencies:
+    ms "2.0.0"
+
+debug@^2.1.1:
   version "2.6.3"
   resolved "https://artifactory.eccenca.com/api/npm/npm/debug/-/debug-2.6.3.tgz#0f7eb8c30965ec08c72accfa0130c8b79984141d"
   dependencies:
@@ -1850,9 +1880,9 @@ dezalgo@^1.0.0:
     asap "^2.0.0"
     wrappy "1"
 
-diff@1.4.0:
-  version "1.4.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/diff/-/diff-1.4.0.tgz#7f28d2eb9ee7b15a97efd89ce63dcfdaa3ccbabf"
+diff@3.2.0:
+  version "3.2.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
 diffie-hellman@^5.0.0:
   version "5.0.2"
@@ -1953,19 +1983,21 @@ ecc-gui-elements@^2.2.0:
     react-select "^1.0.0-rc.2"
     sassyjson "^1.1.8"
 
-ecc-gulp-tasks@^3.5.0:
-  version "3.5.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gulp-tasks/-/ecc-gulp-tasks-3.5.0.tgz#1d05ff4eaaafb4a9101834a45e6cf205bfe4d7e5"
+ecc-gulp-tasks@^3.7.0:
+  version "3.7.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gulp-tasks/-/ecc-gulp-tasks-3.7.0.tgz#ef38a546aad02db980152b0b5fcb81bdb11c4023"
   dependencies:
     autoprefixer "^6.6.0"
-    babel-core "^6.21.0"
-    babel-eslint "^7.2.1"
-    babel-loader "^7.0.0-beta.1"
+    babel-core "^6.25.0"
+    babel-eslint "^7.2.3"
+    babel-loader "^7.0.0"
+    babel-plugin-transform-es3-member-expression-literals "^6.22.0"
+    babel-plugin-transform-es3-property-literals "^6.22.0"
     babel-plugin-transform-runtime "^6.3.13"
     babel-preset-eccenca "^2.0.1"
-    babel-runtime "^6.0.0"
-    body-parser "^1.13.3"
-    case-sensitive-paths-webpack-plugin "^1.1.4"
+    babel-runtime "^6.23.0"
+    body-parser "^1.17.2"
+    case-sensitive-paths-webpack-plugin "^2.1.1"
     clean-webpack-plugin "^0.1.16"
     copy-webpack-plugin "^4.0.1"
     css-loader "^0.14.0"
@@ -1973,34 +2005,34 @@ ecc-gulp-tasks@^3.5.0:
     ecc-license-checker "^2.5.2"
     eslint "^3.18.0"
     eslint-plugin-react "^6.10.3"
-    express "^4.13.3"
-    extract-text-webpack-plugin "^2.1.0"
-    file-loader "^0.10.0"
+    express "^4.15.3"
+    extract-text-webpack-plugin "^2.1.2"
+    file-loader "^0.11.2"
     fs-extra "^2.1.2"
     globby "^6.1.0"
     gulp "^3.9.0"
     gulp-change "^1.0.0"
     gulp-eslint "^3.0.1"
     gulp-rename "^1.2.2"
-    gulp-spawn-mocha "^3.1.0"
+    gulp-spawn-mocha "^3.3.0"
     gulp-util "^3.0.8"
     html-webpack-plugin "^2.25.0"
     istanbul "^0.4.5"
     json-loader "^0.5.2"
-    less "^2.7.1"
     lodash "^4.17.4"
-    method-override "^2.3.8"
-    mocha "^3.0.2"
-    node-sass "^4.5.1"
-    optimize-css-assets-webpack-plugin "^1.3.0"
+    method-override "^2.3.9"
+    mocha "^3.4.2"
+    node-sass "^4.5.3"
+    optimize-css-assets-webpack-plugin "^2.0.0"
     postcss-loader "^1.1.1"
     raw-loader "^0.5.1"
-    sass-loader "^6.0.3"
+    sass-loader "^6.0.5"
+    sassyjson "^1.1.8"
     semver "^5.3.0"
     slash "^1.0.0"
-    style-loader "^0.16.0"
-    url-loader "^0.5.6"
-    webpack "^2.3.2"
+    style-loader "^0.17.0"
+    url-loader "^0.5.9"
+    webpack "^2.6.1"
     webpack-sources "^0.2.3"
     yaml-loader "^0.4.0"
 
@@ -2182,7 +2214,7 @@ entities@~1.1.1:
   version "1.1.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
-errno@^0.1.1, errno@^0.1.3:
+errno@^0.1.3:
   version "0.1.4"
   resolved "https://artifactory.eccenca.com/api/npm/npm/errno/-/errno-0.1.4.tgz#b896e23a9e5e8ba33871fc996abd3635fc9a1c7d"
   dependencies:
@@ -2440,9 +2472,9 @@ expand-tilde@^1.2.1, expand-tilde@^1.2.2:
   dependencies:
     os-homedir "^1.0.1"
 
-express@^4.13.3:
-  version "4.15.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/express/-/express-4.15.2.tgz#af107fc148504457f2dca9a6f2571d7129b97b35"
+express@^4.15.3:
+  version "4.15.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/express/-/express-4.15.3.tgz#bab65d0f03aa80c358408972fc700f916944b662"
   dependencies:
     accepts "~1.3.3"
     array-flatten "1.1.1"
@@ -2450,28 +2482,28 @@ express@^4.13.3:
     content-type "~1.0.2"
     cookie "0.3.1"
     cookie-signature "1.0.6"
-    debug "2.6.1"
+    debug "2.6.7"
     depd "~1.1.0"
     encodeurl "~1.0.1"
     escape-html "~1.0.3"
     etag "~1.8.0"
-    finalhandler "~1.0.0"
+    finalhandler "~1.0.3"
     fresh "0.5.0"
     merge-descriptors "1.0.1"
     methods "~1.1.2"
     on-finished "~2.3.0"
     parseurl "~1.3.1"
     path-to-regexp "0.1.7"
-    proxy-addr "~1.1.3"
+    proxy-addr "~1.1.4"
     qs "6.4.0"
     range-parser "~1.2.0"
-    send "0.15.1"
-    serve-static "1.12.1"
+    send "0.15.3"
+    serve-static "1.12.3"
     setprototypeof "1.0.3"
     statuses "~1.3.1"
-    type-is "~1.6.14"
+    type-is "~1.6.15"
     utils-merge "1.0.0"
-    vary "~1.1.0"
+    vary "~1.1.1"
 
 extend@^3.0.0, extend@~3.0.0:
   version "3.0.0"
@@ -2491,14 +2523,14 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
-extract-text-webpack-plugin@^2.1.0:
-  version "2.1.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/extract-text-webpack-plugin/-/extract-text-webpack-plugin-2.1.0.tgz#69315b885f876dbf96d3819f6a9f1cca7aebf159"
+extract-text-webpack-plugin@^2.1.2:
+  version "2.1.2"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/extract-text-webpack-plugin/-/extract-text-webpack-plugin-2.1.2.tgz#756ef4efa8155c3681833fbc34da53b941746d6c"
   dependencies:
-    ajv "^4.11.2"
     async "^2.1.2"
     loader-utils "^1.0.2"
-    webpack-sources "^0.1.0"
+    schema-utils "^0.3.0"
+    webpack-sources "^1.0.1"
 
 extsprintf@1.0.2:
   version "1.0.2"
@@ -2510,6 +2542,10 @@ fancy-log@^1.1.0:
   dependencies:
     chalk "^1.1.1"
     time-stamp "^1.0.0"
+
+fast-deep-equal@^0.1.0:
+  version "0.1.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/fast-deep-equal/-/fast-deep-equal-0.1.0.tgz#5c6f4599aba6b333ee3342e2ed978672f1001f8d"
 
 fast-levenshtein@~2.0.4:
   version "2.0.6"
@@ -2555,9 +2591,9 @@ file-entry-cache@^2.0.0:
     flat-cache "^1.2.1"
     object-assign "^4.0.1"
 
-file-loader@^0.10.0:
-  version "0.10.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/file-loader/-/file-loader-0.10.1.tgz#815034119891fc6441fb5a64c11bc93c22ddd842"
+file-loader@^0.11.2:
+  version "0.11.2"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/file-loader/-/file-loader-0.11.2.tgz#4ff1df28af38719a6098093b88c82c71d1794a34"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -2575,11 +2611,11 @@ fill-range@^2.1.0:
     repeat-element "^1.1.2"
     repeat-string "^1.5.2"
 
-finalhandler@~1.0.0:
-  version "1.0.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/finalhandler/-/finalhandler-1.0.1.tgz#bcd15d1689c0e5ed729b6f7f541a6df984117db8"
+finalhandler@~1.0.3:
+  version "1.0.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/finalhandler/-/finalhandler-1.0.3.tgz#ef47e77950e999780e86022a560e3217e0d0cc89"
   dependencies:
-    debug "2.6.3"
+    debug "2.6.7"
     encodeurl "~1.0.1"
     escape-html "~1.0.3"
     on-finished "~2.3.0"
@@ -2663,9 +2699,15 @@ for-in@^1.0.1:
   version "1.0.2"
   resolved "https://artifactory.eccenca.com/api/npm/npm/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
 
-for-own@^0.1.3, for-own@^0.1.4:
+for-own@^0.1.4:
   version "0.1.5"
   resolved "https://artifactory.eccenca.com/api/npm/npm/for-own/-/for-own-0.1.5.tgz#5265c681a4f294dabbf17c9509b6763aa84510ce"
+  dependencies:
+    for-in "^1.0.1"
+
+for-own@^1.0.0:
+  version "1.0.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/for-own/-/for-own-1.0.0.tgz#c63332f415cedc4b04dbfe70cf836494c53cb44b"
   dependencies:
     for-in "^1.0.1"
 
@@ -2839,9 +2881,9 @@ glob2base@^0.0.12:
   dependencies:
     find-index "^0.1.1"
 
-glob@7.0.5:
-  version "7.0.5"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/glob/-/glob-7.0.5.tgz#b4202a69099bbb4d292a7c1b95b6682b67ebdc95"
+glob@7.1.1, glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@~7.1.1:
+  version "7.1.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
   dependencies:
     fs.realpath "^1.0.0"
     inflight "^1.0.4"
@@ -2876,17 +2918,6 @@ glob@^6.0.4:
     inflight "^1.0.4"
     inherits "2"
     minimatch "2 || 3"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
-
-glob@^7.0.0, glob@^7.0.3, glob@^7.0.5, glob@^7.1.1, glob@~7.1.1:
-  version "7.1.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/glob/-/glob-7.1.1.tgz#805211df04faaf1c63a3600306cdf5ade50b2ec8"
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.0.2"
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
@@ -3017,9 +3048,9 @@ gulp-sequence@^0.4.6:
     gulp-util ">=3.0.0"
     thunks "^4.5.1"
 
-gulp-spawn-mocha@^3.1.0:
-  version "3.1.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/gulp-spawn-mocha/-/gulp-spawn-mocha-3.1.0.tgz#b11e3b8e3b3d3ed1c88de5624de42a9e780c27c3"
+gulp-spawn-mocha@^3.3.0:
+  version "3.3.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/gulp-spawn-mocha/-/gulp-spawn-mocha-3.3.0.tgz#d0a930161b9242b95b7b60b05ae2c75283839454"
   dependencies:
     gulp-util "~3.0.7"
     lodash "^4.11.1"
@@ -3257,10 +3288,6 @@ ignore@^3.2.0:
   version "3.2.6"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ignore/-/ignore-3.2.6.tgz#26e8da0644be0bb4cb39516f6c79f0e0f4ffe48c"
 
-image-size@~0.5.0:
-  version "0.5.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/image-size/-/image-size-0.5.1.tgz#28eea8548a4b1443480ddddc1e083ae54652439f"
-
 imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://artifactory.eccenca.com/api/npm/npm/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
@@ -3386,7 +3413,7 @@ is-binary-path@^1.0.0:
   dependencies:
     binary-extensions "^1.0.0"
 
-is-buffer@^1.0.2:
+is-buffer@^1.0.2, is-buffer@^1.1.5:
   version "1.1.5"
   resolved "https://artifactory.eccenca.com/api/npm/npm/is-buffer/-/is-buffer-1.1.5.tgz#1f3b26ef613b214b88cbca23cc6c01d87961eecc"
 
@@ -3691,6 +3718,10 @@ json-parse-helpfulerror@^1.0.2:
   dependencies:
     jju "^1.1.0"
 
+json-schema-traverse@^0.3.0:
+  version "0.3.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/json-schema-traverse/-/json-schema-traverse-0.3.0.tgz#0016c0b1ca1efe46d44d37541bcdfc19dcfae0db"
+
 json-schema@0.2.3:
   version "0.2.3"
   resolved "https://artifactory.eccenca.com/api/npm/npm/json-schema/-/json-schema-0.2.3.tgz#b480c892e59a2f05954ce727bd3f2a4e882f9e13"
@@ -3709,7 +3740,7 @@ json3@3.3.2:
   version "3.3.2"
   resolved "https://artifactory.eccenca.com/api/npm/npm/json3/-/json3-3.3.2.tgz#3c0434743df93e2f5c42aee7b19bcb483575f4e1"
 
-json5@^0.5.0:
+json5@^0.5.0, json5@^0.5.1:
   version "0.5.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
 
@@ -3756,11 +3787,11 @@ kind-of@^2.0.1:
   dependencies:
     is-buffer "^1.0.2"
 
-kind-of@^3.0.2:
-  version "3.1.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/kind-of/-/kind-of-3.1.0.tgz#475d698a5e49ff5e53d14e3e732429dc8bf4cf47"
+kind-of@^3.0.2, kind-of@^3.2.2:
+  version "3.2.2"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
   dependencies:
-    is-buffer "^1.0.2"
+    is-buffer "^1.1.5"
 
 klaw@^1.0.0:
   version "1.3.1"
@@ -3785,19 +3816,6 @@ lcid@^1.0.0:
 legalize@^1.0.0:
   version "1.3.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/legalize/-/legalize-1.3.0.tgz#2bda686704c1cdc6189b221101d979a0294dbd14"
-
-less@^2.7.1:
-  version "2.7.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/less/-/less-2.7.2.tgz#368d6cc73e1fb03981183280918743c5dcf9b3df"
-  optionalDependencies:
-    errno "^0.1.1"
-    graceful-fs "^4.1.2"
-    image-size "~0.5.0"
-    mime "^1.2.11"
-    mkdirp "^0.5.0"
-    promise "^7.1.1"
-    request "^2.72.0"
-    source-map "^0.5.3"
 
 levn@^0.3.0, levn@~0.3.0:
   version "0.3.0"
@@ -4135,14 +4153,14 @@ merge@^1.2.0:
   version "1.2.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/merge/-/merge-1.2.0.tgz#7531e39d4949c281a66b8c5a6e0265e8b05894da"
 
-method-override@^2.3.8:
-  version "2.3.8"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/method-override/-/method-override-2.3.8.tgz#178234bf4bab869f89df9444b06fc6147b44828c"
+method-override@^2.3.9:
+  version "2.3.9"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/method-override/-/method-override-2.3.9.tgz#bd151f2ce34cf01a76ca400ab95c012b102d8f71"
   dependencies:
-    debug "2.6.3"
+    debug "2.6.8"
     methods "~1.1.2"
     parseurl "~1.3.1"
-    vary "~1.1.0"
+    vary "~1.1.1"
 
 methods@^1.1.1, methods@^1.1.2, methods@~1.1.2:
   version "1.1.2"
@@ -4177,13 +4195,13 @@ mime-db@~1.27.0:
   version "1.27.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/mime-db/-/mime-db-1.27.0.tgz#820f572296bbd20ec25ed55e5b5de869e5436eb1"
 
-mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.13, mime-types@~2.1.7:
+mime-types@^2.1.12, mime-types@~2.1.11, mime-types@~2.1.15, mime-types@~2.1.7:
   version "2.1.15"
   resolved "https://artifactory.eccenca.com/api/npm/npm/mime-types/-/mime-types-2.1.15.tgz#a4ebf5064094569237b8cf70046776d09fc92aed"
   dependencies:
     mime-db "~1.27.0"
 
-mime@1.3.4, mime@1.3.x, mime@^1.2.11, mime@^1.3.4:
+mime@1.3.4, mime@1.3.x, mime@^1.3.4:
   version "1.3.4"
   resolved "https://artifactory.eccenca.com/api/npm/npm/mime/-/mime-1.3.4.tgz#115f9e3b6b3daf2959983cb38f149a2d40eb5d53"
 
@@ -4239,16 +4257,16 @@ mkdirp@^0.3.5:
   version "0.3.5"
   resolved "https://artifactory.eccenca.com/api/npm/npm/mkdirp/-/mkdirp-0.3.5.tgz#de3e5f8961c88c787ee1368df849ac4413eca8d7"
 
-mocha@^3.0.2:
-  version "3.2.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/mocha/-/mocha-3.2.0.tgz#7dc4f45e5088075171a68896814e6ae9eb7a85e3"
+mocha@^3.4.2:
+  version "3.4.2"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/mocha/-/mocha-3.4.2.tgz#d0ef4d332126dbf18d0d640c9b382dd48be97594"
   dependencies:
     browser-stdout "1.3.0"
     commander "2.9.0"
-    debug "2.2.0"
-    diff "1.4.0"
+    debug "2.6.0"
+    diff "3.2.0"
     escape-string-regexp "1.0.5"
-    glob "7.0.5"
+    glob "7.1.1"
     growl "1.9.2"
     json3 "3.3.2"
     lodash.create "3.1.1"
@@ -4259,13 +4277,13 @@ moment@^2.10.6, moment@^2.17.1:
   version "2.18.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/moment/-/moment-2.18.1.tgz#c36193dd3ce1c2eed2adb7c802dbbc77a81b1c0f"
 
-ms@0.7.1:
-  version "0.7.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
-
 ms@0.7.2:
   version "0.7.2"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ms/-/ms-0.7.2.tgz#ae25cf2512b3885a1d95d7f037868d8431124765"
+
+ms@2.0.0:
+  version "2.0.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
 multipipe@^0.1.2:
   version "0.1.2"
@@ -4403,9 +4421,9 @@ node-sass@^3.4.0:
     request "^2.61.0"
     sass-graph "^2.1.1"
 
-node-sass@^4.5.1:
-  version "4.5.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/node-sass/-/node-sass-4.5.2.tgz#4012fa2bd129b1d6365117e88d9da0500d99da64"
+node-sass@^4.5.3:
+  version "4.5.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/node-sass/-/node-sass-4.5.3.tgz#d09c9d1179641239d1b97ffc6231fdcec53e1568"
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -4558,11 +4576,10 @@ optimist@^0.6.1:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
-optimize-css-assets-webpack-plugin@^1.3.0:
-  version "1.3.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-1.3.0.tgz#331b3dc7ac0b2b3597f68d18fd555f5a0c81b15c"
+optimize-css-assets-webpack-plugin@^2.0.0:
+  version "2.0.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-2.0.0.tgz#51cae71230ec91a4c157649715e47498e0cb460b"
   dependencies:
-    cssnano "^3.4.0"
     underscore "^1.8.3"
     webpack-sources "^0.1.0"
 
@@ -4729,9 +4746,13 @@ performance-now@^0.2.0:
   version "0.2.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/performance-now/-/performance-now-0.2.0.tgz#33ef30c5c77d4ea21c5a53869d91b56d8f2555e5"
 
-pify@^2.0.0, pify@^2.3.0:
+pify@^2.0.0:
   version "2.3.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
+
+pify@^3.0.0:
+  version "3.0.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/pify/-/pify-3.0.0.tgz#e5a4acd2c101fdf3d9a4d07f0dbc4db49dd28176"
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
@@ -5047,7 +5068,7 @@ propagating-hammerjs@^1.4.6:
   dependencies:
     hammerjs "^2.0.6"
 
-proxy-addr@~1.1.3:
+proxy-addr@~1.1.4:
   version "1.1.4"
   resolved "https://artifactory.eccenca.com/api/npm/npm/proxy-addr/-/proxy-addr-1.1.4.tgz#27e545f6960a44a627d9b44467e35c1b6b4ce2f3"
   dependencies:
@@ -5394,7 +5415,7 @@ replace-ext@0.0.1:
   version "0.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/replace-ext/-/replace-ext-0.0.1.tgz#29bbd92078a739f0bcce2b4ee41e837953522924"
 
-request@2, request@^2.61.0, request@^2.67.0, request@^2.72.0, request@^2.79.0, request@^2.81.0:
+request@2, request@^2.61.0, request@^2.67.0, request@^2.79.0, request@^2.81.0:
   version "2.81.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -5528,15 +5549,15 @@ sass-graph@^2.1.1:
     lodash "^4.0.0"
     yargs "^4.7.1"
 
-sass-loader@^6.0.3:
-  version "6.0.3"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/sass-loader/-/sass-loader-6.0.3.tgz#33983b1f90d27ddab0e57d0dac403dce9bc7ecfd"
+sass-loader@^6.0.5:
+  version "6.0.6"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/sass-loader/-/sass-loader-6.0.6.tgz#e9d5e6c1f155faa32a4b26d7a9b7107c225e40f9"
   dependencies:
     async "^2.1.5"
-    clone-deep "^0.2.4"
+    clone-deep "^0.3.0"
     loader-utils "^1.0.1"
     lodash.tail "^4.1.1"
-    pify "^2.3.0"
+    pify "^3.0.0"
 
 sassyjson@^1.1.8:
   version "1.1.8"
@@ -5546,6 +5567,12 @@ sax@^1.2.1, sax@~1.2.1:
   version "1.2.2"
   resolved "https://artifactory.eccenca.com/api/npm/npm/sax/-/sax-1.2.2.tgz#fd8631a23bc7826bef5d871bdb87378c95647828"
 
+schema-utils@^0.3.0:
+  version "0.3.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/schema-utils/-/schema-utils-0.3.0.tgz#f5877222ce3e931edae039f17eb3716e7137f8cf"
+  dependencies:
+    ajv "^5.0.0"
+
 "semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@~5.3.0:
   version "5.3.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
@@ -5554,11 +5581,11 @@ semver@^4.1.0:
   version "4.3.6"
   resolved "https://artifactory.eccenca.com/api/npm/npm/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
 
-send@0.15.1:
-  version "0.15.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/send/-/send-0.15.1.tgz#8a02354c26e6f5cca700065f5f0cdeba90ec7b5f"
+send@0.15.3:
+  version "0.15.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/send/-/send-0.15.3.tgz#5013f9f99023df50d1bd9892c19e3defd1d53309"
   dependencies:
-    debug "2.6.1"
+    debug "2.6.7"
     depd "~1.1.0"
     destroy "~1.0.4"
     encodeurl "~1.0.1"
@@ -5567,7 +5594,7 @@ send@0.15.1:
     fresh "0.5.0"
     http-errors "~1.6.1"
     mime "1.3.4"
-    ms "0.7.2"
+    ms "2.0.0"
     on-finished "~2.3.0"
     range-parser "~1.2.0"
     statuses "~1.3.1"
@@ -5576,14 +5603,14 @@ sequencify@~0.0.7:
   version "0.0.7"
   resolved "https://artifactory.eccenca.com/api/npm/npm/sequencify/-/sequencify-0.0.7.tgz#90cff19d02e07027fd767f5ead3e7b95d1e7380c"
 
-serve-static@1.12.1:
-  version "1.12.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/serve-static/-/serve-static-1.12.1.tgz#7443a965e3ced647aceb5639fa06bf4d1bbe0039"
+serve-static@1.12.3:
+  version "1.12.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/serve-static/-/serve-static-1.12.3.tgz#9f4ba19e2f3030c547f8af99107838ec38d5b1e2"
   dependencies:
     encodeurl "~1.0.1"
     escape-html "~1.0.3"
     parseurl "~1.3.1"
-    send "0.15.1"
+    send "0.15.3"
 
 set-blocking@^2.0.0, set-blocking@~2.0.0:
   version "2.0.0"
@@ -5687,6 +5714,10 @@ source-list-map@^0.1.4, source-list-map@~0.1.7:
 source-list-map@^1.1.1:
   version "1.1.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/source-list-map/-/source-list-map-1.1.1.tgz#1a33ac210ca144d1e561f906ebccab5669ff4cb4"
+
+source-list-map@^2.0.0:
+  version "2.0.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/source-list-map/-/source-list-map-2.0.0.tgz#aaa47403f7b245a92fbc97ea08f250d6087ed085"
 
 source-map-support@^0.4.2:
   version "0.4.14"
@@ -5878,9 +5909,9 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
-style-loader@^0.16.0:
-  version "0.16.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/style-loader/-/style-loader-0.16.1.tgz#50e325258d4e78421dd9680636b41e8661595d10"
+style-loader@^0.17.0:
+  version "0.17.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/style-loader/-/style-loader-0.17.0.tgz#e8254bccdb7af74bd58274e36107b4d5ab4df310"
   dependencies:
     loader-utils "^1.0.2"
 
@@ -6101,12 +6132,12 @@ type-check@~0.3.2:
   dependencies:
     prelude-ls "~1.1.2"
 
-type-is@~1.6.14:
-  version "1.6.14"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/type-is/-/type-is-1.6.14.tgz#e219639c17ded1ca0789092dd54a03826b817cb2"
+type-is@~1.6.15:
+  version "1.6.15"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/type-is/-/type-is-1.6.15.tgz#cab10fb4909e441c82842eafe1ad646c81804410"
   dependencies:
     media-typer "0.3.0"
-    mime-types "~2.1.13"
+    mime-types "~2.1.15"
 
 typedarray@^0.0.6:
   version "0.0.6"
@@ -6120,9 +6151,9 @@ ua-parser-js@^0.7.9:
   version "0.7.12"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ua-parser-js/-/ua-parser-js-0.7.12.tgz#04c81a99bdd5dc52263ea29d24c6bf8d4818a4bb"
 
-uglify-js@2.8.x, uglify-js@^2.6, uglify-js@^2.8.5:
-  version "2.8.18"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/uglify-js/-/uglify-js-2.8.18.tgz#925d14bae48ab62d1883b41afe6e2261662adb8e"
+uglify-js@2.8.x, uglify-js@^2.6, uglify-js@^2.8.27:
+  version "2.8.29"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/uglify-js/-/uglify-js-2.8.29.tgz#29c5733148057bb4e1f75df35b7a9cb72e6a59dd"
   dependencies:
     source-map "~0.5.1"
     yargs "~3.10.0"
@@ -6175,9 +6206,9 @@ urijs@^1.18.4:
   version "1.18.9"
   resolved "https://artifactory.eccenca.com/api/npm/npm/urijs/-/urijs-1.18.9.tgz#06d503d4f1907dcbd906fbd808b38457ec40dee6"
 
-url-loader@^0.5.6:
-  version "0.5.8"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/url-loader/-/url-loader-0.5.8.tgz#b9183b1801e0f847718673673040bc9dc1c715c5"
+url-loader@^0.5.9:
+  version "0.5.9"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/url-loader/-/url-loader-0.5.9.tgz#cc8fea82c7b906e7777019250869e569e995c295"
   dependencies:
     loader-utils "^1.0.2"
     mime "1.3.x"
@@ -6242,7 +6273,7 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
 
-vary@~1.1.0:
+vary@~1.1.1:
   version "1.1.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/vary/-/vary-1.1.1.tgz#67535ebb694c1d52257457984665323f587e8d37"
 
@@ -6320,11 +6351,18 @@ webpack-sources@^0.2.3:
     source-list-map "^1.1.1"
     source-map "~0.5.3"
 
-webpack@^2.3.2:
-  version "2.3.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/webpack/-/webpack-2.3.2.tgz#7d521e6f0777a3a58985c69425263fdfe977b458"
+webpack-sources@^1.0.1:
+  version "1.0.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/webpack-sources/-/webpack-sources-1.0.1.tgz#c7356436a4d13123be2e2426a05d1dad9cbe65cf"
   dependencies:
-    acorn "^4.0.4"
+    source-list-map "^2.0.0"
+    source-map "~0.5.3"
+
+webpack@^2.6.1:
+  version "2.6.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/webpack/-/webpack-2.6.1.tgz#2e0457f0abb1ac5df3ab106c69c672f236785f07"
+  dependencies:
+    acorn "^5.0.0"
     acorn-dynamic-import "^2.0.0"
     ajv "^4.7.0"
     ajv-keywords "^1.1.1"
@@ -6332,6 +6370,7 @@ webpack@^2.3.2:
     enhanced-resolve "^3.0.0"
     interpret "^1.0.0"
     json-loader "^0.5.4"
+    json5 "^0.5.1"
     loader-runner "^2.3.0"
     loader-utils "^0.2.16"
     memory-fs "~0.4.1"
@@ -6340,7 +6379,7 @@ webpack@^2.3.2:
     source-map "^0.5.3"
     supports-color "^3.1.0"
     tapable "~0.2.5"
-    uglify-js "^2.8.5"
+    uglify-js "^2.8.27"
     watchpack "^1.3.1"
     webpack-sources "^0.2.3"
     yargs "^6.0.0"

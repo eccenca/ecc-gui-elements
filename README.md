@@ -74,6 +74,7 @@ Returns:
 - `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Layout`: container of the MDL application
+- `NotAvailable`: very simple element to use as "not available" placeholder information
 - `Nothing`: Literally Nothing
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
 - `SelectBox`: A selection box for choosing predefined values
@@ -417,6 +418,30 @@ const Page = React.createClass({
             >
                 ...
             </Layout>
+        )
+    },
+    // ....
+});
+
+```
+
+### NotAvailable
+
+Use that element as very simple "not available" placeholder information, e.g. in empty table cells or statistic overviews.
+It currently only supports short label strings and long descriptions using the title attribute.
+
+```js
+import { NotAvailable } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <NotAvailable
+                label="N/A" // short label that is shown, default: 'n/a'
+                description="Not available element" // long description that is only shown on hover
+                inline={false|true} // show it as inline text element, default: false
+            />
         )
     },
     // ....

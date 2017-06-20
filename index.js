@@ -51,6 +51,8 @@ import Layout from 'react-mdl/lib/Layout/Layout';
 
 import Nothing from './src/elements/Nothing/Nothing';
 
+import NotAvailable from './src/elements/NotAvailable/NotAvailable';
+
 import Pagination from './src/elements/Pagination/Pagination';
 
 import Progressbar from './src/elements/Progressbar/Progressbar';
@@ -94,6 +96,7 @@ export default {
     Info,
     Layout,
     Nothing,
+    NotAvailable,
     Progressbar,
     Radio,
     RadioGroup,
