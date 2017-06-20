@@ -21,6 +21,7 @@ import {
     ContextMenu,
     MenuItem,
     Nothing,
+    NotAvailable,
     Version,
     Layout,
     Content,
@@ -54,6 +55,14 @@ const Page = React.createClass({
         const testcases = [
             <Nothing />,
             <TestSpinner />,
+            <div>
+                <p>
+                    This is a test with a block <NotAvailable label="N/A" description="Not available element" /> information.
+                </p>
+                <p>
+                    This is a test with a inline <NotAvailable inline={true} /> information.
+                </p>
+            </div>,
             <hr className="mdl-layout-spacer"/>,
             <TestProgressbar />,
             <hr className="mdl-layout-spacer"/>,
