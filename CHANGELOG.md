@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- provide very simple <NotAvailable /> element for configurable "not available" placeholder information
 
 ## [2.12.1] 2017-06-14
 ### Removed
