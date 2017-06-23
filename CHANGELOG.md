@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.14.0] 2017-06-23
+
+### Added
+
+- SelectBox can now be async
+
+### Fixed
+- optical adjustment of margin/padding for textarea textfields compared to single line textfields
+
 ## [2.13.0] 2017-06-20
 
 ### Added
