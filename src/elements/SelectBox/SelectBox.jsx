@@ -2,6 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 import Select from 'react-select/lib/Select.js';
 import Creatable from 'react-select/lib/Creatable.js';
+import Async from 'react-select/lib/Async';
+import AsyncCreatable from 'react-select/lib/AsyncCreatable';
 import _ from 'lodash';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 
@@ -85,6 +87,7 @@ const SelectBox = React.createClass({
             options,
             optionsOnTop,
             value,
+            async = false,
             ...passProps
         } = this.props;
 
@@ -94,13 +97,20 @@ const SelectBox = React.createClass({
         passProps.onFocus = this.onFocus;
         passProps.onBlur = this.onBlur;
 
-        // parse values to object format if needed
-        const parsedOptions = _.isPlainObject(options[0]) ? options :
-            (
-                _.map(options, it => {
-                    return {value: it, label: it, $plainValue: true};
-                })
-            );
+
+
+        const focused = (this.state && (typeof this.state.focused !== 'undefined')) ?
+                        this.state.focused : autofocus;
+
+        const classes = classNames(
+            {
+                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': placeholder ? true : false,
+                'mdl-textfield--floating-label': placeholder ? true : false,
+                'is-dirty': (!_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value))) ? true : false,
+                'is-focused': (focused === true),
+                'Select--optionsontop': (optionsOnTop === true),
+            }
+        );
 
         let parsedValue = null;
 
@@ -117,42 +127,67 @@ const SelectBox = React.createClass({
             }
         }
 
-        const focused = (this.state && (typeof this.state.focused !== 'undefined')) ?
-                        this.state.focused : autofocus;
+        let component = null;
 
-        const classes = classNames(
-            {
-                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': placeholder ? true : false,
-                'mdl-textfield--floating-label': placeholder ? true : false,
-                'is-dirty': (!_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value))) ? true : false,
-                'is-focused': (focused === true),
-                'Select--optionsontop': (optionsOnTop === true),
+        if(async){
+            if(creatable) {
+                component = (
+                    <AsyncCreatable
+                        {...passProps}
+                        value={parsedValue}
+                        onChange={this.onChange}
+                        isOptionUnique={this.uniqueOptions}
+                        placeholder=""
+                    />
+                )
+            } else {
+                component = (
+                    <Async
+                        {...passProps}
+                        value={parsedValue}
+                        onChange={this.onChange}
+                        placeholder=""
+                    />
+                )
             }
-        );
+        } else {
+
+            // parse values to object format if needed
+            const parsedOptions = _.isPlainObject(options[0]) ? options :
+                (
+                    _.map(options, it => {
+                        return {value: it, label: it, $plainValue: true};
+                    })
+                );
+
+            if(creatable){
+                component = (
+                    <Creatable
+                        {...passProps}
+                        value={parsedValue}
+                        options={parsedOptions}
+                        onChange={this.onChange}
+                        isOptionUnique={this.uniqueOptions}
+                        placeholder=""
+                    />
+                )
+            } else {
+                component = (
+                    <Select
+                        {...passProps}
+                        value={parsedValue}
+                        options={parsedOptions}
+                        onChange={this.onChange}
+                        placeholder=""
+                    />
+                )
+            }
+
+        }
 
         return (
             <div className={classes}>
-                {
-                    creatable ?
-                    (
-                        <Creatable
-                            {...passProps}
-                            value={parsedValue}
-                            options={parsedOptions}
-                            onChange={this.onChange}
-                            isOptionUnique={this.uniqueOptions}
-                            placeholder=""
-                        />
-                    ) : (
-                        <Select
-                            {...passProps}
-                            value={parsedValue}
-                            options={parsedOptions}
-                            onChange={this.onChange}
-                            placeholder=""
-                        />
-                    )
-                }
+                { component }
                 {
                     placeholder &&
                     <label className="mdl-textfield__label">

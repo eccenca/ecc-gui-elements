@@ -15,6 +15,7 @@ const TestInputs = React.createClass({
             selectBox1: {label: 'labelz', value: 'valuez'},
             selectBox2: 8,
             selectBox3: '',
+            selectBox4: '',
             switches: [false, true, undefined, undefined, true, false],
             textInput: ['5'],
             selectedRadio: ''
@@ -32,6 +33,10 @@ const TestInputs = React.createClass({
     selectBox3OnChange(value) {
         console.log('SelectBox onChange: ', value);
         this.setState({selectBox3: value});
+    },
+    selectBox4OnChange(value) {
+        console.log('SelectBox onChange: ', value);
+        this.setState({selectBox4: value});
     },
 
     updateSwitch(index, {value}) {
@@ -225,6 +230,7 @@ const TestInputs = React.createClass({
                     />
                     <h5>Multiple selections with option to create new entries</h5>
                     <SelectBox
+                        placeholder={'Multiselect wit hcreate'}
                         options={[
                             'label1',
                             3,
@@ -241,7 +247,27 @@ const TestInputs = React.createClass({
                             (newLabel) => `New freaking Stuff called: ${newLabel}`
                         }
                     />
-
+                    <h5>Async Selectbox</h5>
+                    <SelectBox
+                        placeholder={'Multiselect with async'}
+                        value={this.state.selectBox4}
+                        onChange={this.selectBox4OnChange}
+                        loadOptions={function(input, callback) {
+                            setTimeout(function() {
+                                callback(null, {
+                                    options: [
+                                        { value: 'one', label: 'One' },
+                                        { value: 'two', label: 'Two' }
+                                    ],
+                                    // CAREFUL! Only set this to true when there are no more options,
+                                    // or more specific queries will not be sent to the server.
+                                    complete: true
+                                });
+                            }, 500);
+                        }}
+                        multi={true}
+                        async={true}
+                    />
                     <hr />
 
                     <h5>Textfields</h5>
