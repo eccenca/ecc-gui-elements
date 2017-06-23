@@ -4,6 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
+
+- SelectBox can now be async
+
 ### Fixed
 - optical adjustment of margin/padding for textarea textfields compared to single line textfields
 
