@@ -289,6 +289,12 @@ const TestInputs = React.createClass({
                         value={this.state.textInput[1]}
                         onChange={this.updateTextInput.bind(null, 1)}
                     />
+                    <TextField
+                        value={this.state.textInput[0]}
+                        label="Test Input"
+                        error="Something went wrong, so this error is shown."
+                        onChange={this.updateTextInput.bind(null, 0)}
+                    />
                 </div>
             </div>
         );
