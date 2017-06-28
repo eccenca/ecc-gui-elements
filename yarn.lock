@@ -35,17 +35,13 @@ acorn-jsx@^3.0.0:
   dependencies:
     acorn "^3.0.4"
 
-acorn@4.0.4:
+acorn@4.0.4, acorn@^4.0.3, acorn@^4.0.4:
   version "4.0.4"
   resolved "https://artifactory.eccenca.com/api/npm/npm/acorn/-/acorn-4.0.4.tgz#17a8d6a7a6c4ef538b814ec9abac2779293bf30a"
 
 acorn@^3.0.4:
   version "3.3.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/acorn/-/acorn-3.3.0.tgz#45e37fb39e8da3f25baee3ff5369e2bb5f22017a"
-
-acorn@^4.0.3, acorn@^4.0.4:
-  version "4.0.11"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/acorn/-/acorn-4.0.11.tgz#edcda3bd937e7556410d42ed5860f67399c794c0"
 
 acorn@^5.0.0:
   version "5.0.3"
@@ -1631,6 +1627,14 @@ create-hmac@^1.1.0, create-hmac@^1.1.2:
     create-hash "^1.1.0"
     inherits "^2.0.1"
 
+create-react-class@^15.6.0:
+  version "15.6.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/create-react-class/-/create-react-class-15.6.0.tgz#ab448497c26566e1e29413e883207d57cfe7bed4"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+    object-assign "^4.1.1"
+
 cross-spawn@^3.0.0:
   version "3.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/cross-spawn/-/cross-spawn-3.0.1.tgz#1256037ecb9f0c5f79e3d6ef135e30770184b982"
@@ -2112,17 +2116,16 @@ ecc-superagent@^1.0.0, ecc-superagent@^1.1.0:
     superagent "^3.3.1"
     superagent-rx "^0.3.0"
 
-ecc-test-helpers@^15.0.0:
-  version "15.1.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-test-helpers/-/ecc-test-helpers-15.1.0.tgz#edc71e19548a9c2213e21138777772fff3c551fb"
+ecc-test-helpers@^15.2.0:
+  version "15.2.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-test-helpers/-/ecc-test-helpers-15.2.0.tgz#1e5313e304f28857f960c42c709db62cd215f8ef"
   dependencies:
-    intl "^1.0.0"
-    jsdom "^9.0.0"
+    intl "^1.2.5"
+    jsdom "^9.12.0"
     localStorage "^1.0.3"
-    react "^15.0.0"
-    react-addons-test-utils "^15.0.0"
-    react-dom "^15.0.0"
-    should "^10.0.0"
+    react "^15.6.1"
+    react-dom "^15.6.1"
+    should "^11.2.1"
 
 ecc-uitest-helpers@^15.8.0-alpha.1:
   version "15.8.0-alpha.1"
@@ -2555,7 +2558,7 @@ fastparse@^1.1.1:
   version "1.1.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/fastparse/-/fastparse-1.1.1.tgz#d1e2643b38a94d7583b479060e6c4affc94071f8"
 
-fbjs@^0.8.1, fbjs@^0.8.4:
+fbjs@^0.8.4, fbjs@^0.8.9:
   version "0.8.11"
   resolved "https://artifactory.eccenca.com/api/npm/npm/fbjs/-/fbjs-0.8.11.tgz#340b590b8a2278a01ef7467c07a16da9b753db24"
   dependencies:
@@ -3374,7 +3377,7 @@ interpret@^1.0.0:
   version "1.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/interpret/-/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
 
-intl@^1.0.0:
+intl@^1.0.0, intl@^1.2.5:
   version "1.2.5"
   resolved "https://artifactory.eccenca.com/api/npm/npm/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
 
@@ -3658,9 +3661,9 @@ js-tokens@^3.0.0:
   version "3.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/js-tokens/-/js-tokens-3.0.1.tgz#08e9f132484a2c45a30907e9dc4d5567b7f114d7"
 
-js-yaml@3.x, js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.5.2, js-yaml@^3.7.0:
-  version "3.8.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/js-yaml/-/js-yaml-3.8.2.tgz#02d3e2c0f6beab20248d412c352203827d786721"
+js-yaml@3.x, js-yaml@^3.4.3, js-yaml@^3.5.1, js-yaml@^3.5.2, js-yaml@^3.8.4:
+  version "3.8.4"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/js-yaml/-/js-yaml-3.8.4.tgz#520b4564f86573ba96662af85a8cafa7b4b5a6f6"
   dependencies:
     argparse "^1.0.7"
     esprima "^3.1.1"
@@ -3676,7 +3679,7 @@ jsbn@~0.1.0:
   version "0.1.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
 
-jsdom@^9.0.0:
+jsdom@^9.12.0:
   version "9.12.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/jsdom/-/jsdom-9.12.0.tgz#e8c546fffcb06c00d4833ca84410fed7f8a097d4"
   dependencies:
@@ -4063,7 +4066,7 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
 
-loose-envify@^1.0.0, loose-envify@^1.1.0:
+loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   version "1.3.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/loose-envify/-/loose-envify-1.3.1.tgz#d1a8ad33fa9ce0e713d65fdd0ac8b748d478c848"
   dependencies:
@@ -4399,27 +4402,6 @@ node-pre-gyp@^0.6.29:
     semver "^5.3.0"
     tar "^2.2.1"
     tar-pack "^3.4.0"
-
-node-sass@^3.4.0:
-  version "3.13.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/node-sass/-/node-sass-3.13.1.tgz#7240fbbff2396304b4223527ed3020589c004fc2"
-  dependencies:
-    async-foreach "^0.1.3"
-    chalk "^1.1.1"
-    cross-spawn "^3.0.0"
-    gaze "^1.0.0"
-    get-stdin "^4.0.1"
-    glob "^7.0.3"
-    in-publish "^2.0.0"
-    lodash.assign "^4.2.0"
-    lodash.clonedeep "^4.3.2"
-    meow "^3.7.0"
-    mkdirp "^0.5.1"
-    nan "^2.3.2"
-    node-gyp "^3.3.1"
-    npmlog "^4.0.0"
-    request "^2.61.0"
-    sass-graph "^2.1.1"
 
 node-sass@^4.5.3:
   version "4.5.3"
@@ -5062,6 +5044,13 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@^15.5.10:
+  version "15.5.10"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/prop-types/-/prop-types-15.5.10.tgz#2797dfc3126182e3a95e3dfbb2e893ddd7456154"
+  dependencies:
+    fbjs "^0.8.9"
+    loose-envify "^1.3.1"
+
 propagating-hammerjs@^1.4.6:
   version "1.4.6"
   resolved "https://artifactory.eccenca.com/api/npm/npm/propagating-hammerjs/-/propagating-hammerjs-1.4.6.tgz#fed00e9b00767ffd42d14f5b531bc493eb672e37"
@@ -5167,20 +5156,14 @@ react-addons-perf@^15.4.2:
     fbjs "^0.8.4"
     object-assign "^4.1.0"
 
-react-addons-test-utils@^15.0.0:
-  version "15.4.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/react-addons-test-utils/-/react-addons-test-utils-15.4.2.tgz#93bcaa718fcae7360d42e8fb1c09756cc36302a2"
+react-dom@^15.0.0, react-dom@^15.6.1:
+  version "15.6.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/react-dom/-/react-dom-15.6.1.tgz#2cb0ed4191038e53c209eb3a79a23e2a4cf99470"
   dependencies:
-    fbjs "^0.8.4"
-    object-assign "^4.1.0"
-
-react-dom@^15.0.0:
-  version "15.4.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/react-dom/-/react-dom-15.4.2.tgz#015363f05b0a1fd52ae9efdd3a0060d90695208f"
-  dependencies:
-    fbjs "^0.8.1"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "^15.5.10"
 
 react-input-autosize@^1.1.0:
   version "1.1.0"
@@ -5209,13 +5192,15 @@ react-select@^1.0.0-rc.2:
     classnames "^2.2.4"
     react-input-autosize "^1.1.0"
 
-react@^15.0.0:
-  version "15.4.2"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/react/-/react-15.4.2.tgz#41f7991b26185392ba9bae96c8889e7e018397ef"
+react@^15.0.0, react@^15.6.1:
+  version "15.6.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/react/-/react-15.6.1.tgz#baa8434ec6780bde997cdc380b79cd33b96393df"
   dependencies:
-    fbjs "^0.8.4"
+    create-react-class "^15.6.0"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
+    prop-types "^15.5.10"
 
 read-installed@~4.0.3:
   version "4.0.3"
@@ -5415,7 +5400,7 @@ replace-ext@0.0.1:
   version "0.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/replace-ext/-/replace-ext-0.0.1.tgz#29bbd92078a739f0bcce2b4ee41e837953522924"
 
-request@2, request@^2.61.0, request@^2.67.0, request@^2.79.0, request@^2.81.0:
+request@2, request@^2.67.0, request@^2.79.0, request@^2.81.0:
   version "2.81.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/request/-/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -5657,23 +5642,37 @@ should-equal@^1.0.0:
   dependencies:
     should-type "^1.0.0"
 
-should-format@^2.0.0:
-  version "2.0.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/should-format/-/should-format-2.0.0.tgz#d9426801e8e32d5bfc65c7e4709cd7548b2be5c8"
+should-format@^3.0.2:
+  version "3.0.3"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/should-format/-/should-format-3.0.3.tgz#9bfc8f74fa39205c53d38c34d717303e277124f1"
   dependencies:
-    should-type "^1.0.0"
+    should-type "^1.3.0"
+    should-type-adaptors "^1.0.1"
 
-should-type@^1.0.0:
+should-type-adaptors@^1.0.1:
+  version "1.0.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/should-type-adaptors/-/should-type-adaptors-1.0.1.tgz#efe5553cdf68cff66e5c5f51b712dc351c77beaa"
+  dependencies:
+    should-type "^1.3.0"
+    should-util "^1.0.0"
+
+should-type@^1.0.0, should-type@^1.3.0, should-type@^1.4.0:
   version "1.4.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/should-type/-/should-type-1.4.0.tgz#0756d8ce846dfd09843a6947719dfa0d4cff5cf3"
 
-should@^10.0.0:
-  version "10.0.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/should/-/should-10.0.0.tgz#863b82c792260a7aa6da55032bd0d854a63163fe"
+should-util@^1.0.0:
+  version "1.0.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/should-util/-/should-util-1.0.0.tgz#c98cda374aa6b190df8ba87c9889c2b4db620063"
+
+should@^11.2.1:
+  version "11.2.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/should/-/should-11.2.1.tgz#90f55145552d01cfc200666e4e818a1c9670eda2"
   dependencies:
     should-equal "^1.0.0"
-    should-format "^2.0.0"
-    should-type "^1.0.0"
+    should-format "^3.0.2"
+    should-type "^1.4.0"
+    should-type-adaptors "^1.0.1"
+    should-util "^1.0.0"
 
 sigmund@~1.0.0:
   version "1.0.1"
