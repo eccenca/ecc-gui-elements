@@ -230,7 +230,7 @@ const TestInputs = React.createClass({
                     />
                     <h5>Multiple selections with option to create new entries</h5>
                     <SelectBox
-                        placeholder={'Multiselect wit hcreate'}
+                        placeholder={'Multiselect with create'}
                         options={[
                             'label1',
                             3,
@@ -288,6 +288,12 @@ const TestInputs = React.createClass({
                         className="mdl-textfield--full-width"
                         value={this.state.textInput[1]}
                         onChange={this.updateTextInput.bind(null, 1)}
+                    />
+                    <TextField
+                        value={this.state.textInput[0]}
+                        label="Test Input"
+                        error="Something went wrong, so this error is shown."
+                        onChange={this.updateTextInput.bind(null, 0)}
                     />
                 </div>
             </div>

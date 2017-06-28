@@ -2,6 +2,18 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.15.0] 2017-06-28
+
+### Added
+- add `<Alert/>` parameter to set icon used for handler button
+
+### Changed
+- update react-mdl and react-select to newest version
+- Async Selects do not normalize input per default
+
+### Fixed
+- correct icon size and alignment in textfield label
+
 ## [2.14.0] 2017-06-23
 
 ### Added
@@ -14,7 +26,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [2.13.0] 2017-06-20
 
 ### Added
-- provide very simple <NotAvailable /> element for configurable "not available" placeholder information
+- provide very simple `<NotAvailable />` element for configurable "not available" placeholder information
 
 ## [2.12.1] 2017-06-14
 ### Removed

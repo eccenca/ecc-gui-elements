@@ -84,7 +84,6 @@ const SelectBox = React.createClass({
             autofocus,
             creatable,
             placeholder = '',
-            options,
             optionsOnTop,
             value,
             async = false,
@@ -130,27 +129,36 @@ const SelectBox = React.createClass({
         let component = null;
 
         if(async){
+
+            const {ignoreCase = false, ignoreAccents = false, ...passAsyncProps} = passProps;
+
             if(creatable) {
                 component = (
                     <AsyncCreatable
-                        {...passProps}
+                        {...passAsyncProps}
                         value={parsedValue}
                         onChange={this.onChange}
                         isOptionUnique={this.uniqueOptions}
+                        ignoreAccents={ignoreAccents}
+                        ignoreCase={ignoreCase}
                         placeholder=""
                     />
                 )
             } else {
                 component = (
                     <Async
-                        {...passProps}
+                        {...passAsyncProps}
                         value={parsedValue}
                         onChange={this.onChange}
+                        ignoreAccents={ignoreAccents}
+                        ignoreCase={ignoreCase}
                         placeholder=""
                     />
                 )
             }
         } else {
+
+            const {options, ...passSyncProps} = passProps;
 
             // parse values to object format if needed
             const parsedOptions = _.isPlainObject(options[0]) ? options :
@@ -163,7 +171,7 @@ const SelectBox = React.createClass({
             if(creatable){
                 component = (
                     <Creatable
-                        {...passProps}
+                        {...passSyncProps}
                         value={parsedValue}
                         options={parsedOptions}
                         onChange={this.onChange}
@@ -174,7 +182,7 @@ const SelectBox = React.createClass({
             } else {
                 component = (
                     <Select
-                        {...passProps}
+                        {...passSyncProps}
                         value={parsedValue}
                         options={parsedOptions}
                         onChange={this.onChange}

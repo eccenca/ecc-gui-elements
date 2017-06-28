@@ -10,6 +10,7 @@ const Alert = React.createClass({
         className: React.PropTypes.string,
         handlerDismiss: React.PropTypes.func,
         labelDismiss: React.PropTypes.string,
+        iconDismiss: React.PropTypes.string,
         type: React.PropTypes.string,
         border: React.PropTypes.bool,
         vertSpacing: React.PropTypes.bool,
@@ -22,6 +23,7 @@ const Alert = React.createClass({
             border,
             handlerDismiss,
             labelDismiss,
+            iconDismiss,
             type,
             vertSpacing,
             children,
@@ -44,8 +46,8 @@ const Alert = React.createClass({
                 <div className="mdl-alert__dismiss">
                     <Button
                         type="button"
-                        iconName="close"
-                        tooltip={labelDismiss ? labelDismiss : false}
+                        iconName={iconDismiss ? iconDismiss : 'close'}
+                        tooltip={labelDismiss ? labelDismiss : 'Hide'}
                         onClick={handlerDismiss}
                     />
                 </div>
