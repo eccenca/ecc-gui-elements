@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
+- add `<Alert/>` parameter to set icon used for handler button
+
 ### Fixed
 - correct icon size and alignment in textfield label
 
@@ -19,7 +22,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [2.13.0] 2017-06-20
 
 ### Added
-- provide very simple <NotAvailable /> element for configurable "not available" placeholder information
+- provide very simple `<NotAvailable />` element for configurable "not available" placeholder information
 
 ## [2.12.1] 2017-06-14
 ### Removed

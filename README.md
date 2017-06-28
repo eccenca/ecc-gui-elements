@@ -98,7 +98,13 @@ const Page = React.createClass({
     onDismiss(){ },
     render() {
         return (
-            <Alert border={true} vertSpacing={true} handlerDismiss={this.onDismiss}>
+            <Alert
+                border={true} // true|false, default is false
+                vertSpacing={true} // true|false, default is false
+                handlerDismiss={this.onDismiss} // function, onClick handler, necessary if icon button should be rendered
+                labelDismiss="label for handler" // string, default: "Hide"
+                iconDismiss="expand_less" // string, default: "close"
+            >
                 <p>This is a</p>
                 <p>untyped message.</p>
             </Alert>
