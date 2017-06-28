@@ -230,7 +230,7 @@ const TestInputs = React.createClass({
                     />
                     <h5>Multiple selections with option to create new entries</h5>
                     <SelectBox
-                        placeholder={'Multiselect wit hcreate'}
+                        placeholder={'Multiselect with create'}
                         options={[
                             'label1',
                             3,

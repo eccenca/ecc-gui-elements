@@ -7,6 +7,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - add `<Alert/>` parameter to set icon used for handler button
 
+### Changed
+- update react-mdl and react-select to newest version
+- Async Selects do not normalize input per default
+
 ### Fixed
 - correct icon size and alignment in textfield label
 
