@@ -482,13 +482,12 @@ const Page = React.createClass({
     render() {
         return (
             <Pagination
-                offset={0}
-                limit={10}
-                actualResults={10}
-                totalResults={31}
-                handleNewOffset={handleNewPaginationOffset}
-                handleNewLimit={handleNewPaginationLimit}
-                offsetAsPage={false}
+                offset={0} // initial first shown element
+                limit={10} // initial number of shown elements per page
+                totalResults={31} // max elements
+                offsetAsPage={false} // display number of pages instead number of elements
+                newLimitText={'Elements per page'} // if not set number of elements selection is hidden
+                limitRange={[10, 25, 50, 100]} // possible number of elements selections, default: [5, 10, 25, 50, 100, 200]
                 isTopPagination={true} // is pagination on top of the site (pages selection opens to bottom), default is false
             />
         )
