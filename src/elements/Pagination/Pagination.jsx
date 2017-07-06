@@ -49,6 +49,18 @@ const Pagination = React.createClass({
          * the page output gets wierd for the last page
          */
         offsetAsPage: React.PropTypes.bool,
+        /**
+         * define position of page change dropdown/dropup
+         */
+        isTopPagination: React.PropTypes.bool,
+        /**
+         * text displayed next to limit changer selectbox
+         */
+        newLimitText: React.PropTypes.string,
+        /**
+         * possible page sizes
+         */
+        limitRange: React.PropTypes.array,
     },
     getDefaultProps() {
         return {
