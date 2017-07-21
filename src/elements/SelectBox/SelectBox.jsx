@@ -138,7 +138,7 @@ const SelectBox = React.createClass({
                         {...passAsyncProps}
                         value={parsedValue}
                         onChange={this.onChange}
-                        isOptionUnique={this.uniqueOptions}
+                        isOptionUnique={this.props.isOptionUnique || this.uniqueOptions}
                         ignoreAccents={ignoreAccents}
                         ignoreCase={ignoreCase}
                         placeholder=""
@@ -175,7 +175,7 @@ const SelectBox = React.createClass({
                         value={parsedValue}
                         options={parsedOptions}
                         onChange={this.onChange}
-                        isOptionUnique={this.uniqueOptions}
+                        isOptionUnique={this.props.isOptionUnique || this.uniqueOptions}
                         placeholder=""
                     />
                 )
