@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.15.2] 2017-07-21
+### Fixed
+- `SelectBox` now pass `isOptionUnique` correctly
+
 ## [2.15.1] 2017-07-06
 ### Fixed
 - documentation of `<Pagination />`
