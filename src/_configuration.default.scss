@@ -10,23 +10,40 @@
 
 @import "scss/helpers";
 
-// -- Load MDL colors ----------------------------------------------------------
+// -- Load MDL color definitions -----------------------------------------------
 
 @import "~material-design-lite/src/color-definitions";
+
+// -- Configuration stack of colors --------------------------------------------
+
+/*
+    We use ecc- prefix here to have an distinction on native MDL color
+    variables. Variables only defined if they are not set before. Use those
+    variables to overwrite the default look of the application.
+*/
+
+$ecc-color-primary: rgb(254, 143, 1) !default;
+$ecc-color-primary-contrast: $color-dark-contrast !default;
+$ecc-color-accent: rgb(10,103,163) !default;
+$ecc-color-accent-contrast: $color-dark-contrast !default;
+
+$ecc-color-application-background: #f6f6f6 !default; // TODO: use MDL color stack definition
+$ecc-color-application-text: #f6f6f6 !default; // unused, TODO: use MDL color
+
 
 // -- Environment --------------------------------------------------------------
 
 $image_path: "~material-design-lite/src/images" !default;
 
-// -- Color Configuration ------------------------------------------------------
+// -- Overwrite default MDL color variables ------------------------------------
 
-$color-primary: "254,143,1" !default;
-$color-primary-dark: "254,106,1" !default;
-$color-accent: "10,103,163" !default;
-$color-primary-contrast: $color-dark-contrast !default;
-$color-accent-contrast: $color-dark-contrast !default;
+$color-primary: $ecc-color-primary !default;
+$color-primary-dark: "254,106,1" !default; @debug "Do not use $color-primary-dark anymore, it is deprecated.";
+$color-accent: $ecc-color-accent !default;
+$color-primary-contrast: $ecc-color-primary-contrast !default;
+$color-accent-contrast: $ecc-color-accent-contrast !default;
 
-$layout-bg-color: #f6f6f6;
+$layout-bg-color: $ecc-color-application-background !default;
 $layout-header-bg-color: to_color($color-white) !default;
 $layout-header-text-color: to_color($color-black) !default;
 $layout-header-nav-hover-color: rgba(to_color($palette-grey-700), 0.6) !default;
