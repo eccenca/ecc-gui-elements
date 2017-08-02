@@ -13,7 +13,7 @@
     }
 
     &.mdl-alert--spacing {
-        margin: 1rem 0;
+        margin: $ecc-size-blockelement-margin-vertical 0;
     }
 
     &.mdl-alert--border {
@@ -68,7 +68,7 @@
 }
 
 .mdl-alert__content {
-    padding: 1rem;
+    padding: $ecc-size-blockelement-padding-vertical $ecc-size-blockelement-padding-horizontal;
 
     & > *:last-child {
         margin-bottom: 0;

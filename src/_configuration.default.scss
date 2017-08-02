@@ -17,8 +17,8 @@
 // -- Configuration stack of colors --------------------------------------------
 
 /*
-    We use ecc- prefix here to have an distinction on native MDL color
-    variables. Variables only defined if they are not set before. Use those
+    We use ecc- prefix here to have an distinction to native MDL color
+    variables. Variables are only defined if they are not set before. Use those
     variables to overwrite the default look of the application.
 */
 
@@ -39,6 +39,30 @@ $ecc-color-warning-text: $palette-orange-800 !default;
 $ecc-color-danger-background: $palette-red-50 !default;
 $ecc-color-danger-text: $palette-red-800 !default;
 
+// -- Configuration stack of sizes ---------------------------------------------
+
+/*
+    We use ecc- prefix here to have an distinction to native MDL variables. All
+    variables are only defined if they are not set before. Use those
+    variables to overwrite the default look of the application.
+*/
+
+$ecc-size-typo-display-3: 42px !default;
+$ecc-size-typo-display-2: 35px !default;
+$ecc-size-typo-display-1: 28px !default;
+$ecc-size-typo-headline: 21px !default;
+$ecc-size-typo-title: 18px !default;
+$ecc-size-typo-subtitle: 16px !default;
+
+$ecc-size-blockelement-margin-vertical: 1rem !default;
+$ecc-size-blockelement-margin-horizontal: 1rem !default;
+$ecc-size-blockelement-padding-vertical: 0.5rem !default;
+$ecc-size-blockelement-padding-horizontal: 0.5rem !default;
+
+$ecc-size-inlineelement-margin-vertical: 0.5rem !default; // currently unused
+$ecc-size-inlineelement-margin-horizontal: 0.5rem !default; // currently unused
+$ecc-size-inlineelement-padding-vertical: 0.25rem !default; // currently unused
+$ecc-size-inlineelement-padding-horizontal: 0.25rem !default; // currently unused
 
 
 // -- Environment --------------------------------------------------------------
@@ -82,12 +106,12 @@ $card-title-font-size: 21px !default;
    We need to add own prefix here as long it is not implemented in MDL
  */
 
-$ecc-typo-display-3-font-size: 42px;
-$ecc-typo-display-2-font-size: 35px;
-$ecc-typo-display-1-font-size: 28px;
-$ecc-typo-headline-font-size:  21px;
-$ecc-typo-title-font-size:     18px;
-$ecc-typo-subhead-font-size:   16px;
+$ecc-typo-display-3-font-size: $ecc-size-typo-display-3; @debug "Do not use $ecc-typo-display-3-font-size anymore, it is deprecated.";
+$ecc-typo-display-2-font-size: $ecc-size-typo-display-2; @debug "Do not use $ecc-typo-display-2-font-size anymore, it is deprecated.";
+$ecc-typo-display-1-font-size: $ecc-size-typo-display-1; @debug "Do not use $ecc-typo-display-1-font-size anymore, it is deprecated.";
+$ecc-typo-headline-font-size:  $ecc-size-typo-headline; @debug "Do not use $ecc-typo-headline-font-size anymore, it is deprecated.";
+$ecc-typo-title-font-size:     $ecc-size-typo-title; @debug "Do not use $ecc-typo-title-font-size anymore, it is deprecated.";
+$ecc-typo-subhead-font-size:   $ecc-size-typo-subtitle; @debug "Do not use $ecc-typo-subhead-font-size anymore, it is deprecated.";
 
 // -- Load MDL variables and mixins --------------------------------------------
 

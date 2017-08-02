@@ -11,31 +11,31 @@ html, body {
 }
 
 html {
-    background-color: $layout-bg-color
+    background-color: $layout-bg-color;
 }
 
 h1 {
-    font-size: $ecc-typo-display-3-font-size;
+    font-size: $ecc-size-typo-display-3;
 }
 
 h2 {
-    font-size: $ecc-typo-display-2-font-size;
+    font-size: $ecc-size-typo-display-2;
 }
 
 h3 {
-    font-size: $ecc-typo-display-1-font-size;
+    font-size: $ecc-size-typo-display-1;
 }
 
 h4 {
-    font-size: $ecc-typo-headline-font-size;
+    font-size: $ecc-size-typo-headline;
 }
 
 h5 {
-    font-size: $ecc-typo-title-font-size;
+    font-size: $ecc-size-typo-title;
 }
 
 h6 {
-    font-size: $ecc-typo-subhead-font-size;
+    font-size: $ecc-size-typo-subtitle;
 }
 
 // -- Other patches ------------------------------------------------------------
