@@ -27,8 +27,18 @@ $ecc-color-primary-contrast: $color-dark-contrast !default;
 $ecc-color-accent: rgb(10,103,163) !default;
 $ecc-color-accent-contrast: $color-dark-contrast !default;
 
-$ecc-color-application-background: #f6f6f6 !default; // TODO: use MDL color stack definition
-$ecc-color-application-text: #f6f6f6 !default; // unused, TODO: use MDL color
+$ecc-color-application-background: $palette-grey-100 !default;
+$ecc-color-application-text: $palette-grey-600 !default; // currently unused
+
+$ecc-color-success-background: $palette-green-50 !default;
+$ecc-color-success-text: $palette-green-800 !default;
+$ecc-color-info-background: $palette-blue-50 !default;
+$ecc-color-info-text: $palette-blue-800 !default;
+$ecc-color-warning-background: $palette-orange-50 !default;
+$ecc-color-warning-text: $palette-orange-800 !default;
+$ecc-color-danger-background: $palette-red-50 !default;
+$ecc-color-danger-text: $palette-red-800 !default;
+
 
 
 // -- Environment --------------------------------------------------------------
@@ -43,7 +53,7 @@ $color-accent: $ecc-color-accent !default;
 $color-primary-contrast: $ecc-color-primary-contrast !default;
 $color-accent-contrast: $ecc-color-accent-contrast !default;
 
-$layout-bg-color: $ecc-color-application-background !default;
+$layout-bg-color: to_color($ecc-color-application-background) !default;
 $layout-header-bg-color: to_color($color-white) !default;
 $layout-header-text-color: to_color($color-black) !default;
 $layout-header-nav-hover-color: rgba(to_color($palette-grey-700), 0.6) !default;

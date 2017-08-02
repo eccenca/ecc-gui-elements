@@ -22,27 +22,27 @@
     }
 
     &.mdl-alert--success {
-        color: to_color($palette-green-800);
-        background-color: to_color($palette-green-50);
-        border-color: to_color($palette-green-100);
+        color: to_color($ecc-color-success-text);
+        background-color: to_color($ecc-color-success-background);
+        border-color: darken(to_color($ecc-color-success-background), 5%);
     }
 
     &.mdl-alert--info {
-        color: to_color($palette-blue-800);
-        background-color: to_color($palette-blue-50);
-        border-color: to_color($palette-blue-100);
+        color: to_color($ecc-color-info-text);
+        background-color: to_color($ecc-color-info-background);
+        border-color: darken(to_color($ecc-color-info-background), 5%);
     }
 
     &.mdl-alert--warning {
-        color: to_color($palette-orange-800);
-        background-color: to_color($palette-orange-50);
-        border-color: to_color($palette-orange-100);
+        color: to_color($ecc-color-warning-text);
+        background-color: to_color($ecc-color-warning-background);
+        border-color: darken(to_color($ecc-color-warning-background), 5%);
     }
 
     &.mdl-alert--danger {
-        color: to_color($palette-red-800);
-        background-color: to_color($palette-red-50);
-        border-color: to_color($palette-red-100);
+        color: to_color($ecc-color-danger-text);
+        background-color: to_color($ecc-color-danger-background);
+        border-color: darken(to_color($ecc-color-danger-background), 5%);
     }
 
     &.mdl-alert--dismissable {
@@ -67,20 +67,10 @@
     }
 }
 
-.mdl-alert__title {
-    // TODO
-}
-
 .mdl-alert__content {
     padding: 1rem;
 
     & > *:last-child {
         margin-bottom: 0;
-    }
-}
-
-.mdl-alert__actions {
-    // TODO
-    &.mdl-alert--border {
     }
 }
