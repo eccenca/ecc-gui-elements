@@ -28,6 +28,36 @@ import PerformanceMixin from '../mixins/PerformanceMixin';
 ```
 **Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
 
+## Core styles
+
+Style core for all projects.
+Includes libraries from:
+
+- [Material Design Lite](https://github.com/google/material-design-lite/)
+- [Material Design icons](http://google.github.io/material-design-icons/)
+- [Roboto Font](https://github.com/FontFaceKit/roboto)
+
+### Include full SCSS into application
+
+Add this into your main scss.
+
+```scss
+@import '~ecc-gui-elements/src/main';
+```
+
+### Use configuration in SCSS
+
+You can import the global default configuration by using it from `ecc-gui-elements`:
+
+```scss
+@import '~ecc-gui-elements/src/configuration.default';
+```
+
+### Include ready to use CSS
+
+- Copy `/dist` folder and use `style-core.css`
+
+
 ## Helpers
 
 Include helper function in your Sass files:
@@ -63,24 +93,23 @@ Returns:
 
 ## GUI elements
 
-- `Alert`: A message box which is optionally dismissable.
+- `Alert`: A message box which is optionally dismissable, includes `Error`, `Info`, `Success` and `Warning`.
+- `BaseDialog`: A custom message box with optional Buttons
 - `Button`: A simple Button which also may contain icons
 - `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
 - `Chip`: A chip element for visualized status
-- `RadioGroup` and `Radio`: A radio button with optional label and grouping
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `ContextMenu`: A context menu with menu items
-- `BaseDialog`: A custom message box with optional Buttons
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Layout`: container of the MDL application
 - `NotAvailable`: very simple element to use as "not available" placeholder information
 - `Nothing`: Literally Nothing
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
+- `RadioGroup` and `Radio`: A radio button with optional label and grouping
 - `SelectBox`: A selection box for choosing predefined values
 - `Spinner`: Progressbar which may be placed globally or locally in a component
 - `Switch`: A simple binary switch (a nicer checkbox)
-- `Error`, `Info`, `Success` and `Warning` are wrappers around `Alert` which already set the appropriate styles for that kind of Alert.
 - `Tabs`: A tabs container which manages tabbing behaviour
 - `Version`: A normalised string output of product version
 - `Pagination`: A page control element
@@ -653,32 +682,3 @@ const Page = React.createClass({
     // ....
 });
 ```
-
-## Usage of core styles
-
-Style core for all projects.
-Includes libraries from:
-
-- [Material Design Lite (forked)](https://github.com/eccenca/material-design-lite)
-- [Material Design icons](http://google.github.io/material-design-icons/)
-- [Roboto Font](https://github.com/FontFaceKit/roboto)
-
-### via scss
-
-Add this into your main scss.
-
-```scss
-@import '~ecc-gui-elements/src/main';
-```
-
-### configuration via scss
-
-You can import the global default configuration by using it from `ecc-gui-elements`:
-
-```scss
-@import '~ecc-gui-elements/src/configuration.default';
-```
-
-### via css
-
-- Copy `/dist` folder and use `style-core.css`

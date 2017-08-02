@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- introduce `ecc` prefixed variables for global configuration stack of colors and sizes
 
 ## [2.15.2] 2017-07-21
 ### Fixed
