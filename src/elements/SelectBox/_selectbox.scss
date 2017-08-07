@@ -44,10 +44,10 @@
         margin-top: 5px;
         //display: inline-flex;
         //flex-direction: row-reverse;
-        border-color: #ddd;
-        background: #f6f6f6;
+        border-color: darken($chip-bg-color, 5%);
+        background: $chip-bg-color;
         border-radius: 3px;
-        color: inherit;
+        color: $text-color-primary;
         // white-space: nowrap;
         max-width: 100%;
     }
