@@ -55,6 +55,10 @@
     .Select--single > .Select-control & {
         padding-left: 0;
     }
+
+    .Select--single.is-focused:not(.is-pseudo-focused) & {
+        opacity: 0.39;
+    }
 }
 
 .Select-value-icon {
@@ -76,6 +80,23 @@
     .Select--multi & {
         padding-left: 0;
         max-width: calc(100% - 1.5rem);
+    }
+}
+
+.Select-input {
+    padding-left: 0;
+    padding-right: 35px;
+
+    .Select.is-clearable & {
+        padding-right: 55px;
+    }
+
+    .Select--multi & {
+        margin-left: 0;
+    }
+
+    .Select.is-pseudo-focused & {
+        caret-color: transparent;
     }
 }
 
