@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [2.15.3] 2017-08-08
 
 ### Added
 - introduce `ecc` prefixed variables for global configuration stack of colors and sizes
