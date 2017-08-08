@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - introduce `ecc` prefixed variables for global configuration stack of colors and sizes
 
+### Fixed
+- improve cursor position on focused `<SelectBox />` elements and narrow active select option
+
 ## [2.15.2] 2017-07-21
 ### Fixed
 - `SelectBox` now pass `isOptionUnique` correctly
