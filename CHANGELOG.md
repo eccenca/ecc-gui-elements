@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.16.1] 2017-08-10
+
+### Fixed
+- reset margin of alerts to 1 REM (https://www.youtube.com/watch?v=xwtdhWltSIg)
+
 ## [2.16.0] 2017-08-10
 
 ## Changed
