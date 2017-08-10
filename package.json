@@ -29,7 +29,8 @@
     "sassyjson": "^1.1.8"
   },
   "peerDependencies": {
-    "react": "*"
+    "react": "*",
+    "ecc-gulp-tasks": "^3.9.0"
   },
   "devDependencies": {
     "ecc-dotfiles": "^1.11.0",

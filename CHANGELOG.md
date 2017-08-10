@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+## Changed
+- Added patched versions of MDL libraries that are using real colors
+
+### Fixed
+- Resolve gui-elements to itself with the help of webpack aliases
 
 ## [2.15.3] 2017-08-08
 
