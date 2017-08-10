@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.16.0] 2017-08-10
+
+## Changed
+- Added patched versions of MDL libraries that are using real colors
+
+### Fixed
+- Resolve gui-elements to itself with the help of webpack aliases
+
 ## [2.15.3] 2017-08-08
 
 ### Added
