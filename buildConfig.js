@@ -7,6 +7,10 @@ module.exports = {
             context: path.resolve(__dirname),
             resolve: {
                 alias: {
+                    'material-design-lite/src/_color-definitions.scss': 'ecc-gui-elements/src/scss/patched/_color-definitions.scss',
+                    'material-design-lite/src/_variables.scss': 'ecc-gui-elements/src/scss/patched/_variables.scss',
+                    'material-design-lite/src/data-table/_data-table.scss': 'ecc-gui-elements/src/scss/patched/data-table/_data-table.scss',
+                    'material-design-lite/src/palette/_palette.scss': 'ecc-gui-elements/src/scss/patched/palette/_palette.scss',
                     'ecc-gui-elements': path.resolve(__dirname),
                 }
             }

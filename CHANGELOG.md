@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+## Changed
+- Added patched versions of MDL libraries that are using real colors
+
 ### Fixed
 - Resolve gui-elements to itself with the help of webpack aliases
 
