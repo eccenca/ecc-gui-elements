@@ -1,10 +1,15 @@
-var path = require('path');
+const path = require('path');
 
 module.exports = {
     testEntryPoint: path.join(__dirname, 'test', 'index.jsx'),
     webpackConfig: {
         common: {
             context: path.resolve(__dirname),
+            resolve: {
+                alias: {
+                    'ecc-gui-elements': path.resolve(__dirname),
+                }
+            }
         },
         debug: {
             entry: './ui-test/ui-test.jsx',
