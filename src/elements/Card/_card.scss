@@ -17,11 +17,11 @@
 }
 
 .mdl-card__content {
-    margin: 1rem;
+    margin: $ecc-size-blockelement-margin-vertical $ecc-size-blockelement-margin-horizontal;
     padding: 0;
 
     .mdl-grid + & {
-        margin-top: -1rem;
+        margin-top: -1 * $ecc-size-blockelement-margin-vertical;
     }
 }
 
@@ -41,7 +41,7 @@
 .mdl-card--reduced {
     .mdl-card__title {
         padding: 0;
-        margin-bottom: 1rem;
+        margin-bottom: $ecc-size-blockelement-margin-vertical;
     }
 
     .mdl-card__content {
