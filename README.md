@@ -96,6 +96,7 @@ Returns:
 - `Alert`: A message box which is optionally dismissable, includes `Error`, `Info`, `Success` and `Warning`.
 - `BaseDialog`: A custom message box with optional Buttons
 - `Button`: A simple Button which also may contain icons
+- `Card`: An application card section including title, menu, content section and button row
 - `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
 - `Chip`: A chip element for visualized status
@@ -202,6 +203,59 @@ const Page = React.createClass({
                 iconName="delete"
                 tooltip="Remove data"
             />
+        )
+    },
+    // ....
+});
+```
+### Card
+
+```js
+import {
+    Card,
+    CardTitle,
+    CardMenu,
+    CardContent,
+    CardActions
+} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Card
+                className={'my-own-class'} // string, element can be enhanced with additional CSS classes
+                stretch={false|true} // boolean, should the card element use full width of available space, default: true
+                shadow={0..8} // integer, z-coordinate of card, amount of shadow applied to the card, 0 (off), 1 (2dp) to 8 {24dp}, default: 1
+            >
+                <CardTitle
+                    className="my-own-class"
+                    border={false|true} // boolean, horizontal border under title, default: true
+                    documentLevel={1..6} // integer, headline level of title, parameter only used if title content is a string (not a react/dom element), default: 2
+                >
+                    Card title
+                </CardTitle>
+                <CardMenu
+                    className="my-own-class"
+                >
+                    <!-- use the ContextMenu element here, or simple one or more icon buttons, no restrictions here -->
+                    <ContextMenu>
+                        <MenuItem>Menu item 1</MenuItem>
+                        <MenuItem>Menu item 2</MenuItem>
+                    </ContextMenu>
+                </CardMenu>
+                <CardContent
+                    className="my-own-class"
+                >
+                    <!-- the content of the application card, no restriction here -->
+                </CardContent>
+                <CardActions
+                    className="my-own-class"
+                    border={false|true} // boolean, horizontal border under title, default: true
+                >
+                    <!-- no restrictions on action buttons here -->
+                </CardActions>
+            </Card>
         )
     },
     // ....

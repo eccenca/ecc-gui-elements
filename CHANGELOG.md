@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- `<Card />` element including sub elements to insert application card sections, see readme doc
 
 ## [2.16.2] 2017-08-10
 

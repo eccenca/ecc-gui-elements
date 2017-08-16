@@ -1,21 +1,24 @@
 import React from 'react';
 import {
+    Card,
+    CardTitle,
+    CardContent,
     Spinner,
 } from '../../index.js';
 
 class TestSpinner extends React.PureComponent {
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Spinner</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card className="my-own-class" shadow={0} stretch={false}>
+                <CardTitle className="my-own-class" border={false} documentLevel={7}>
+                    Test Spinner
+                </CardTitle>
+                <CardContent className="my-own-class">
                     <Spinner appearInline={true}/>
                     <Spinner appearLocal={true}/>
-                </div>
+                </CardContent>
                 <Spinner />
-            </div>
+            </Card>
         );
     }
 }

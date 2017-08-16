@@ -1,6 +1,9 @@
 import React from 'react';
 import {
     Alert,
+    Card,
+    CardTitle,
+    CardContent,
     Info,
     Success,
     Warning,
@@ -10,11 +13,11 @@ import {
 class TestAlerts extends React.PureComponent {
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
+            <Card>
+                <CardTitle>
                     <h4 className="mdl-card__title-text">Test Alerts</h4>
-                </div>
-                <div className="mdl-card__content">
+                </CardTitle>
+                <CardContent>
                     <Info border={true} vertSpacing={true}>
                         info
                     </Info>
@@ -39,8 +42,8 @@ class TestAlerts extends React.PureComponent {
                         <p>This is a</p>
                         <p>untyped message.</p>
                     </Alert>
-                </div>
-            </div>
+                </CardContent>
+            </Card>
         );
     }
 }

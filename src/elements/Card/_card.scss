@@ -36,6 +36,10 @@
             margin-right: 0;
         }
     }
+
+    .mdl-card__title.mdl-card--border + &.mdl-card--border {
+        border-top: none;
+    }
 }
 
 .mdl-card--reduced {
