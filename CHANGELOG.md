@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - `<Card />` element including sub elements to insert application card sections, see readme doc
 
+### Fixed
+- size of large Floating Action Button (FAB) is now rendered corrently
+
 ## [2.16.2] 2017-08-10
 
 ### Fixed

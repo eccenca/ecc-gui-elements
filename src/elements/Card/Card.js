@@ -11,12 +11,14 @@ const Card = React.createClass({
         className: React.PropTypes.string,
         shadow: React.PropTypes.number,
         stretch: React.PropTypes.bool,
+        fixedActions: React.PropTypes.bool,
     },
 
     getDefaultProps() {
         return {
             shadow: 1,
             stretch: true,
+            fixedActions: false,
         };
     },
 
@@ -26,13 +28,15 @@ const Card = React.createClass({
             className,
             stretch,
             shadow,
+            fixedActions,
             children,
             ...otherProps
         } = this.props;
 
         const classes = classNames(
             {
-                'mdl-card--stretch': (stretch === true)
+                'mdl-card--stretch': (stretch === true),
+                'mdl-card--has-fixed-actions': (fixedActions === true)
             },
             className
         );

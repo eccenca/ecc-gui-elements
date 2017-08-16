@@ -227,6 +227,7 @@ const Page = React.createClass({
                 className={'my-own-class'} // string, element can be enhanced with additional CSS classes
                 stretch={false|true} // boolean, should the card element use full width of available space, default: true
                 shadow={0..8} // integer, z-coordinate of card, amount of shadow applied to the card, 0 (off), 1 (2dp) to 8 {24dp}, default: 1
+                fixedActions={false|true} // boolean, if the card contains a fixed CardActions button row, default: false
             >
                 <CardTitle
                     className="my-own-class"
@@ -251,7 +252,8 @@ const Page = React.createClass({
                 </CardContent>
                 <CardActions
                     className="my-own-class"
-                    border={false|true} // boolean, horizontal border under title, default: true
+                    border={false|true} // boolean, horizontal border top of button row, default: true
+                    fixed={false|true} // boolean, if button row should be always visible sticky on botton when card is partly shown, default: false
                 >
                     <!-- no restrictions on action buttons here -->
                 </CardActions>

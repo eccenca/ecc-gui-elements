@@ -9,11 +9,13 @@ const CardActions = React.createClass({
     // define property types
     propTypes: {
         border: React.PropTypes.bool,
+        fixed: React.PropTypes.bool,
     },
 
     getDefaultProps() {
         return {
             border: true,
+            fixed: false,
         };
     },
 
@@ -21,10 +23,20 @@ const CardActions = React.createClass({
 
         const {
             children,
+            className,
+            fixed,
             ...otherProps
         } = this.props;
 
+        const classes = classNames(
+            {
+                'mdl-card__actions--fixed': (fixed=== true)
+            },
+            className
+        );
+
         return <ReactMDLCardActions
+            className={classes}
             {...otherProps}
         >
             {children}

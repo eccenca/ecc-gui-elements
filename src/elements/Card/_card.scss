@@ -23,11 +23,17 @@
     .mdl-grid + & {
         margin-top: -1 * $ecc-size-blockelement-margin-vertical;
     }
+
+    .mdl-card--has-fixed-actions > .mdl-card__title ~ &:nth-last-child(-n+2) {
+        margin-bottom: calc(#{$ecc-size-blockelement-margin-vertical} - 56px);
+    }
 }
 
 .mdl-card__actions {
     display: flex;
     justify-content: flex-start;
+    background-color: rgba(to_color($card-background-color), 0.90);
+    z-index: 1;
 
     & > * {
         margin-right: 8px;
@@ -39,6 +45,19 @@
 
     .mdl-card__title.mdl-card--border + &.mdl-card--border {
         border-top: none;
+    }
+}
+
+.mdl-card__actions--fixed {
+    position: sticky;
+    bottom: 0;
+
+    .mdl-layout__content & {
+        bottom: -2rem;
+    }
+
+    .mdl-card__title ~ & {
+        margin-top: 56px;
     }
 }
 

@@ -1,6 +1,10 @@
 import React from 'react';
 import {
     Button,
+    Card,
+    CardTitle,
+    CardContent,
+    CardActions,
     AffirmativeButton,
     DismissiveButton,
     DisruptiveButton,
@@ -12,11 +16,13 @@ import {
 class TestButtons extends React.PureComponent {
     render() {
         const buttons = (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Buttons</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card
+                fixedActions={true}
+            >
+                <CardTitle documentLevel={4}>
+                    Test Buttons
+                </CardTitle>
+                <CardContent>
                     <h5>MDL button types</h5>
                     <Button>Normal</Button>
                     <Button accent>Accented</Button>
@@ -24,6 +30,8 @@ class TestButtons extends React.PureComponent {
                     <Button raised>Raised</Button>
                     <Button raised accent>Accent Raised</Button>
                     <Button raised colored>Colored Raised</Button>
+                </CardContent>
+                <CardContent>
                     <h5>Semantic button types</h5>
                     <DismissiveButton accent>Dismissive</DismissiveButton>
                     <AffirmativeButton accent>Affirmative</AffirmativeButton>
@@ -38,6 +46,8 @@ class TestButtons extends React.PureComponent {
                     <DismissiveButton raised iconName="hide"/>
                     <AffirmativeButton raised iconName="hide"/>
                     <DisruptiveButton raised iconName="hide"/>
+                </CardContent>
+                <CardContent>
                     <h5>Buttons using canonical icons</h5>
                     <Button colored iconName="edit" tooltip="own tooltip"/>
                     <Button accent iconName="delete" tooltip={false}/>
@@ -53,8 +63,8 @@ class TestButtons extends React.PureComponent {
                     <Button iconName="sort"/>
                     <Button iconName="hide"/>
                     <Button iconName="access_forbidden"/>
-                </div>
-                <div className="mdl-card__actions">
+                </CardContent>
+                <CardActions fixed={true}>
                     <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
                         <Icon name="mood"/>
                     </Button>
@@ -63,8 +73,8 @@ class TestButtons extends React.PureComponent {
                         Hide
                     </Button>
                     <Button iconName="more_vert"/>
-                </div>
-            </div>
+                </CardActions>
+            </Card>
         );
 
         const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.JPG';
