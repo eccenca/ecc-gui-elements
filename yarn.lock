@@ -2084,9 +2084,9 @@ ecc-gui-elements@^2.2.0:
     react-select "^1.0.0-rc.5"
     sassyjson "^1.1.8"
 
-ecc-gulp-tasks@^3.9.0:
-  version "3.9.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gulp-tasks/-/ecc-gulp-tasks-3.9.0.tgz#08ead7428e2e93cb93e5ee4b9f338d5128decd47"
+ecc-gulp-tasks@^3.10.0:
+  version "3.10.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-gulp-tasks/-/ecc-gulp-tasks-3.10.0.tgz#cca3cc13669d7c09a91b97d8847df5d810ff108d"
   dependencies:
     ajv "^5.2.2"
     autoprefixer "^6.6.0"

@@ -10,6 +10,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Fixed
 - size of large Floating Action Button (FAB) is now rendered corrently
+- use MDL color syntax and revert prior fixes using double MDL files
 
 ## [2.16.2] 2017-08-10
 
