@@ -22,9 +22,9 @@
     variables to overwrite the default look of the application.
 */
 
-$ecc-color-primary: rgb(254, 143, 1) !default;
+$ecc-color-primary: "254, 143, 1" !default;
 $ecc-color-primary-contrast: $color-dark-contrast !default;
-$ecc-color-accent: rgb(10,103,163) !default;
+$ecc-color-accent: "10, 103, 163" !default;
 $ecc-color-accent-contrast: $color-dark-contrast !default;
 
 $ecc-color-application-background: $palette-grey-100 !default;
