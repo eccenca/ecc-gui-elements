@@ -1,6 +1,9 @@
 import React from 'react';
 import {
     Button,
+    Card,
+    CardTitle,
+    CardContent,
     Tabs,
 } from '../../index.js';
 
@@ -21,11 +24,11 @@ const TestTabs = React.createClass({
 
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Tabs</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card>
+                <CardTitle documentLevel={4}>
+                    Test Tabs
+                </CardTitle>
+                <CardContent>
                     <Tabs
                         prefixTabNames={'tab-container'}
                         tabs={this.state.tabContent}
@@ -39,8 +42,8 @@ const TestTabs = React.createClass({
                             {tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab'}
                         ]
                     })}>Remove content from discovery tab</Button>
-                </div>
-            </div>
+            </CardContent>
+            </Card>
         );
     }
 });

@@ -1,21 +1,24 @@
 import React from 'react';
 import {
+    Card,
+    CardTitle,
+    CardContent,
     Progressbar,
 } from '../../index.js';
 
 class TestProgressbar extends React.PureComponent {
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Progressbars</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card stretch={false} shadow={4}>
+                <CardTitle documentLevel={4}>
+                    Test Progressbars
+                </CardTitle>
+                <CardContent>
                     <Progressbar progress={85}/>
                     <Progressbar appearGlobal={true} indeterminate={true}/>
-                </div>
+                </CardContent>
                 <Progressbar appearLocal={true} progress={15}/>
-            </div>
+            </Card>
         );
     }
 }

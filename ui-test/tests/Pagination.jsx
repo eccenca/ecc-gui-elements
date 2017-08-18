@@ -1,5 +1,8 @@
 import React from 'react';
 import {
+    Card,
+    CardTitle,
+    CardContent,
     Pagination
 } from '../../index.js';
 
@@ -21,11 +24,11 @@ const TestPagination = React.createClass({
 
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Pagination</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card>
+                <CardTitle documentLevel={4}>
+                    Test Pagination
+                </CardTitle>
+                <CardContent>
                     <h5>Pagination with Elements</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
@@ -57,8 +60,8 @@ const TestPagination = React.createClass({
                         onChange={this.handlePaginationChange}
                         offsetAsPage={true}
                     />
-                </div>
-            </div>
+                </CardContent>
+            </Card>
         );
     }
 });

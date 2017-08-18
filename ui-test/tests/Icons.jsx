@@ -1,5 +1,8 @@
 import React from 'react';
 import {
+    Card,
+    CardTitle,
+    CardContent,
     Icon
 } from '../../index.js';
 
@@ -10,11 +13,11 @@ const TestIcons = React.createClass({
 
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Icons</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card>
+                <CardTitle documentLevel={4}>
+                    Test Icons
+                </CardTitle>
+                <CardContent>
                     <h5>Basic Icons with Fallback tooltips</h5>
                     <Icon name="edit"/>
                     <Icon name="delete"/>
@@ -33,8 +36,8 @@ const TestIcons = React.createClass({
                     <h5>Other Icons</h5>
                     <Icon name="widgets" tooltip="no tooltip on the next (canonical) icon"/>
                     <Icon name="access_forbidden" tooltip={false}/>
-                </div>
-            </div>
+                </CardContent>
+            </Card>
         );
     }
 });
