@@ -5,6 +5,7 @@ import {
     CardTitle,
     CardContent,
     CardActions,
+    FloatingActionList,
     AffirmativeButton,
     DismissiveButton,
     DisruptiveButton,
@@ -65,6 +66,17 @@ class TestButtons extends React.PureComponent {
                     <Button iconName="access_forbidden"/>
                 </CardContent>
                 <CardActions fixed={true}>
+                    <FloatingActionList
+                        actions={
+                            [
+                                {
+                                    icon: 'edit',
+                                    label: 'Something',
+                                    handler: function(){alert('You clicked the FAB.');}
+                                }
+                            ]
+                        }
+                    />
                     <Button raised={true} ripple={false} tooltip="This is a Test!" fabSize="mini">
                         <Icon name="mood"/>
                     </Button>
@@ -81,11 +93,11 @@ class TestButtons extends React.PureComponent {
 
         const brokenImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.png';
         const chips = (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Chip</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card>
+                <CardTitle documentLevel={4}>
+                    Test Chip
+                </CardTitle>
+                <CardContent>
                     <h5>Plain chips</h5>
                     <Chip>
                         Plain chip with only a simple but long label
@@ -164,8 +176,20 @@ class TestButtons extends React.PureComponent {
                         <ChipVisual label="AB"/>
                         clickable with text visual
                     </Chip>
-                </div>
-            </div>
+                </CardContent>
+                <FloatingActionList
+                    fixed={true}
+                    actions={
+                        [
+                            {
+                                icon: 'add',
+                                label: 'Something',
+                                handler: function(){alert('You clicked the FAB.');}
+                            }
+                        ]
+                    }
+                />
+            </Card>
         );
 
         return (

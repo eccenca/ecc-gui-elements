@@ -2,6 +2,7 @@ import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 import Card from './Card.js';
 import CardTitle from './CardTitle.js';
 import CardActions from './CardActions.js';
+import FloatingActionList from './FloatingActionList.js';
 
 import {
     CardMenu
@@ -15,4 +16,5 @@ export {
     CardMenu,
     CardContent,
     CardActions,
+    FloatingActionList
 };

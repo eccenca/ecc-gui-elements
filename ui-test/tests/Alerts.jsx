@@ -4,6 +4,7 @@ import {
     Card,
     CardTitle,
     CardContent,
+    FloatingActionList,
     Info,
     Success,
     Warning,
@@ -43,6 +44,18 @@ class TestAlerts extends React.PureComponent {
                         <p>untyped message.</p>
                     </Alert>
                 </CardContent>
+                <FloatingActionList
+                    actions={
+                        [
+                            {
+                                icon: 'edit',
+                                label: 'Something',
+                                handler: function(){alert('You clicked the FAB.');}
+                            }
+                        ]
+                    }
+                    fabSize={'mini'}
+                />
             </Card>
         );
     }

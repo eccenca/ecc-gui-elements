@@ -8,6 +8,7 @@ import {
     CardMenu,
     CardContent,
     CardActions,
+    FloatingActionList,
     ConfirmationDialog,
     BaseDialog,
 } from '../../index.js';
@@ -100,6 +101,22 @@ const TestDialogs = React.createClass({
                             <MenuItem onClick={this.openBaseDialog}>Open BaseDialog</MenuItem>
                         </ContextMenu>
                     </CardMenu>
+                    <FloatingActionList
+                        actions={
+                            [
+                                {
+                                    icon: 'info',
+                                    label: 'Open ConfirmationDialog',
+                                    handler: this.openConfirmationDialog
+                                },
+                                {
+                                    icon: 'info',
+                                    label: 'Open BaseDialog',
+                                    handler: this.openBaseDialog
+                                },
+                            ]
+                        }
+                    />
                     <CardActions className="my-own-class">
                         <Button raised accent onClick={this.openConfirmationDialog}>Open ConfirmationDialog</Button>
                         <Button raised accent onClick={this.openBaseDialog}>Open BaseDialog</Button>

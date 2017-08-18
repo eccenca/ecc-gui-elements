@@ -5,9 +5,8 @@
  */
 
 .mdl-card {
-    z-index: auto; // TODO: check if this value brings up problems
-    overflow: visible; // TODO: watch that behaviour
-    // occuring problems should be solved by more exact definition of child elements
+    z-index: auto;
+    overflow: visible;
     min-height: 0;
 }
 
@@ -72,4 +71,86 @@
         margin-right: 0;
         margin-top: 0;
     }
+}
+
+.ecc-floatingactionlist {
+    position: absolute;
+    bottom: calc(56px - 28px);
+    right: 4rem;
+
+    .mdl-card__actions & {
+        right: calc(4rem - 8px);
+    }
+}
+
+.ecc-floatingactionlist__wrapper--fixed {
+    position: sticky;
+    bottom: 0;
+    height: 0;
+
+    .mdl-layout__content & {
+        bottom: -2rem;
+    }
+}
+
+.ecc-floatingactionlist__button {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    transition: opacity .2s, width .2s, height .2s, border-radius .2s;
+
+    &.is-active {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+.ecc-floatingactionlist__menu {
+    position: relative;
+    bottom: 3px;
+    right: 3px;
+    top: auto;
+    left: auto;
+    height: auto;
+    overflow: hidden;
+    width: 50px;
+    min-width: 0;
+    max-height: 50px;
+    padding: 0;
+    opacity: 0;
+    border-radius: 50%;
+    z-index: 0;
+    transition: opacity .2s, width .2s, max-height .2s, border-radius .2s;
+
+    .mdl-menu__item {
+        opacity: 1;
+    }
+
+    .material-icons {
+        vertical-align: middle;
+        margin-right: 0.5em
+    }
+
+    .ecc-floatingactionlist__button.is-active + & {
+        bottom: 0;
+        right: 0;
+        width: 20em;
+        max-height: 20em;
+        background-color: white;
+        opacity: 1;
+        border-radius: 0;
+        z-index: 2;
+    }
+}
+
+.ecc-floatingactionlist__menu--backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
 }

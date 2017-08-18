@@ -102,6 +102,7 @@ Returns:
 - `Chip`: A chip element for visualized status
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `ContextMenu`: A context menu with menu items
+- `FloatingActionList`: provides FAB functionality for one and more actions, mainly for usage within cards
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Layout`: container of the MDL application
 - `NotAvailable`: very simple element to use as "not available" placeholder information
@@ -278,6 +279,85 @@ const Page = React.createClass({
             >
                 <p>Your content is here.</p>
             </Content>
+        )
+    },
+    // ....
+});
+```
+
+### FloatingActionList
+
+The `<FloatingActionList />` element provides functionality for a quick adaption of the floating action button (FAB) pattern from Material Design.
+It can be configured with a single action handler or a list of them. Then it opens a list of provided actions when activated, with a single action it will trigger the configured event handler immediately.
+The position of the FAB is always the right bottom corner within the card but there is an `fixed` option to made it always visible in case the card is not fully shown in the viewport.
+When there is already a fixed `<CardActions />` element in use put the `<FloatingActionList />` in it to use it fixed.
+
+```js
+import {
+    Card,
+    CardTitle,
+    CardContent,
+    CardActions,
+    FloatingActionList
+} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <div>
+                <Card>
+                    <CardTitle>
+                        Card title
+                    </CardTitle>
+                    <CardContent>
+                        <!-- ... -->
+                    </CardContent>
+                    <FloatingActionList
+                        className={'my-own-class'} // string, element can be enhanced with additional CSS classes
+                        fabSize={'mini|larege'} // string, what FAB size should be used, default: 'large'
+                        fixedActions={false|true} // boolean, if FAB should be always visible sticky on botton when card is only partly shown, default: false
+                        iconName={'add'} // string, name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given the action icon is used.
+                        actions={
+                            [
+                                // array of objects that define icon, label and handler method of each action
+                                {
+                                    icon: 'info',
+                                    label: 'Open ConfirmationDialog',
+                                    handler: this.openConfirmationDialog
+                                },
+                                {
+                                    icon: 'info',
+                                    label: 'Open BaseDialog',
+                                    handler: this.openBaseDialog
+                                },
+                            ]
+                        }
+                    />
+                </Card>
+                <Card fixedActions={true}>
+                    <CardTitle>
+                        Card title
+                    </CardTitle>
+                    <CardContent>
+                        <!-- ... -->
+                    </CardContent>
+                    <CardActions fixed={true}>
+                        <!-- if a fixed button row is used then include the action list there if it need to be fixed, too. -->
+                        <FloatingActionList
+                            actions={
+                                [
+                                    {
+                                        icon: 'info',
+                                        label: 'Open ConfirmationDialog',
+                                        handler: this.openConfirmationDialog
+                                    },
+                                ]
+                            }
+                        />
+                    </CardActions>
+                </Card>
+            </div>
         )
     },
     // ....

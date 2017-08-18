@@ -32,6 +32,7 @@ import {
     CardMenu,
     CardContent,
     CardActions,
+    FloatingActionList,
 } from './src/elements/Card';
 
 import {
@@ -103,6 +104,7 @@ export default {
     ContextMenu,
     MenuItem,
     Error,
+    FloatingActionList,
     ConfirmationDialog,
     BaseDialog,
     Icon,
