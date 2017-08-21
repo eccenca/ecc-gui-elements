@@ -2,6 +2,9 @@ import React from 'react';
 import _ from 'lodash';
 import {
     Checkbox,
+    Card,
+    CardTitle,
+    CardContent,
     Radio,
     RadioGroup,
     SelectBox,
@@ -65,11 +68,11 @@ const TestInputs = React.createClass({
 
     render() {
         return (
-            <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                <div className="mdl-card__title">
-                    <h4 className="mdl-card__title-text">Test Inputfields</h4>
-                </div>
-                <div className="mdl-card__content">
+            <Card>
+                <CardTitle documentLevel={'h4'}>
+                    Test Inputfields
+                </CardTitle>
+                <CardContent>
                     <Switch
                         id="test_id_666"
                         ripple={true}
@@ -295,8 +298,8 @@ const TestInputs = React.createClass({
                         error="Something went wrong, so this error is shown."
                         onChange={this.updateTextInput.bind(null, 0)}
                     />
-                </div>
-            </div>
+                </CardContent>
+            </Card>
         );
     }
 });

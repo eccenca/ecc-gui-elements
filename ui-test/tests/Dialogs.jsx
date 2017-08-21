@@ -1,6 +1,14 @@
 import React from 'react';
 import {
     Button,
+    ContextMenu,
+    MenuItem,
+    Card,
+    CardTitle,
+    CardMenu,
+    CardContent,
+    CardActions,
+    FloatingActionList,
     ConfirmationDialog,
     BaseDialog,
 } from '../../index.js';
@@ -83,15 +91,37 @@ const TestDialogs = React.createClass({
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>
                 </BaseDialog>
-                <div className="mdl-card mdl-shadow--2dp mdl-card--stretch">
-                    <div className="mdl-card__title">
-                        <h4 className="mdl-card__title-text">Test Dialogs</h4>
-                    </div>
-                    <div className="mdl-card__actions">
+                <Card className="my-own-class">
+                    <CardTitle className="my-own-class" documentLevel={'h4'}>
+                        Test Dialogs
+                    </CardTitle>
+                    <CardMenu className="my-own-class">
+                        <ContextMenu>
+                            <MenuItem onClick={this.openConfirmationDialog}>Open ConfirmationDialog</MenuItem>
+                            <MenuItem onClick={this.openBaseDialog}>Open BaseDialog</MenuItem>
+                        </ContextMenu>
+                    </CardMenu>
+                    <FloatingActionList
+                        actions={
+                            [
+                                {
+                                    icon: 'info',
+                                    label: 'Open ConfirmationDialog',
+                                    handler: this.openConfirmationDialog
+                                },
+                                {
+                                    icon: 'info',
+                                    label: 'Open BaseDialog',
+                                    handler: this.openBaseDialog
+                                },
+                            ]
+                        }
+                    />
+                    <CardActions className="my-own-class">
                         <Button raised accent onClick={this.openConfirmationDialog}>Open ConfirmationDialog</Button>
                         <Button raised accent onClick={this.openBaseDialog}>Open BaseDialog</Button>
-                    </div>
-                </div>
+                    </CardActions>
+                </Card>
             </div>
         );
     }

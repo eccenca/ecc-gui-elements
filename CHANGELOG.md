@@ -2,6 +2,16 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.17.0] 2017-08-21
+
+### Added
+- `<Card />` element including sub elements to insert application card sections, see readme doc
+- `<FloatingActionList />` element that provides simple FAB functionality, e.g. for cards
+
+### Fixed
+- size of large Floating Action Button (FAB) is now rendered corrently
+- use MDL color syntax and revert prior fixes using double MDL files
+
 ## [2.16.2] 2017-08-10
 
 ### Fixed

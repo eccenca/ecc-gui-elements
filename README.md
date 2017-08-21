@@ -96,11 +96,13 @@ Returns:
 - `Alert`: A message box which is optionally dismissable, includes `Error`, `Info`, `Success` and `Warning`.
 - `BaseDialog`: A custom message box with optional Buttons
 - `Button`: A simple Button which also may contain icons
+- `Card`: An application card section including title, menu, content section and button row
 - `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
 - `Chip`: A chip element for visualized status
 - `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
 - `ContextMenu`: A context menu with menu items
+- `FloatingActionList`: provides FAB functionality for one and more actions, mainly for usage within cards
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Layout`: container of the MDL application
 - `NotAvailable`: very simple element to use as "not available" placeholder information
@@ -207,6 +209,61 @@ const Page = React.createClass({
     // ....
 });
 ```
+### Card
+
+```js
+import {
+    Card,
+    CardTitle,
+    CardMenu,
+    CardContent,
+    CardActions
+} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Card
+                className={'my-own-class'} // string, element can be enhanced with additional CSS classes
+                stretch={false|true} // boolean, should the card element use full width of available space, default: true
+                shadow={0..8} // integer, z-coordinate of card, amount of shadow applied to the card, 0 (off), 1 (2dp) to 8 {24dp}, default: 1
+                fixedActions={false|true} // boolean, if the card contains a fixed CardActions button row, default: false
+            >
+                <CardTitle
+                    className="my-own-class"
+                    border={false|true} // boolean, horizontal border under title, default: true
+                    documentLevel={'h1'..'h6'} // string, headline level of title, parameter only used if title content is a string (not a react/dom element), default: 'h2'
+                >
+                    Card title
+                </CardTitle>
+                <CardMenu
+                    className="my-own-class"
+                >
+                    <!-- use the ContextMenu element here, or simple one or more icon buttons, no restrictions here -->
+                    <ContextMenu>
+                        <MenuItem>Menu item 1</MenuItem>
+                        <MenuItem>Menu item 2</MenuItem>
+                    </ContextMenu>
+                </CardMenu>
+                <CardContent
+                    className="my-own-class"
+                >
+                    <!-- the content of the application card, no restriction here -->
+                </CardContent>
+                <CardActions
+                    className="my-own-class"
+                    border={false|true} // boolean, horizontal border top of button row, default: true
+                    fixed={false|true} // boolean, if button row should be always visible sticky on botton when card is partly shown, default: false
+                >
+                    <!-- no restrictions on action buttons here -->
+                </CardActions>
+            </Card>
+        )
+    },
+    // ....
+});
+```
 
 ### Content
 
@@ -222,6 +279,85 @@ const Page = React.createClass({
             >
                 <p>Your content is here.</p>
             </Content>
+        )
+    },
+    // ....
+});
+```
+
+### FloatingActionList
+
+The `<FloatingActionList />` element provides functionality for a quick adaption of the floating action button (FAB) pattern from Material Design.
+It can be configured with a single action handler or a list of them. Then it opens a list of provided actions when activated, with a single action it will trigger the configured event handler immediately.
+The position of the FAB is always the right bottom corner within the card but there is an `fixed` option to made it always visible in case the card is not fully shown in the viewport.
+When there is already a fixed `<CardActions />` element in use put the `<FloatingActionList />` in it to use it fixed.
+
+```js
+import {
+    Card,
+    CardTitle,
+    CardContent,
+    CardActions,
+    FloatingActionList
+} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <div>
+                <Card>
+                    <CardTitle>
+                        Card title
+                    </CardTitle>
+                    <CardContent>
+                        <!-- ... -->
+                    </CardContent>
+                    <FloatingActionList
+                        className={'my-own-class'} // string, element can be enhanced with additional CSS classes
+                        fabSize={'mini|larege'} // string, what FAB size should be used, default: 'large'
+                        fixedActions={false|true} // boolean, if FAB should be always visible sticky on botton when card is only partly shown, default: false
+                        iconName={'add'} // string, name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given the action icon is used.
+                        actions={
+                            [
+                                // array of objects that define icon, label and handler method of each action
+                                {
+                                    icon: 'info',
+                                    label: 'Open ConfirmationDialog',
+                                    handler: this.openConfirmationDialog
+                                },
+                                {
+                                    icon: 'info',
+                                    label: 'Open BaseDialog',
+                                    handler: this.openBaseDialog
+                                },
+                            ]
+                        }
+                    />
+                </Card>
+                <Card fixedActions={true}>
+                    <CardTitle>
+                        Card title
+                    </CardTitle>
+                    <CardContent>
+                        <!-- ... -->
+                    </CardContent>
+                    <CardActions fixed={true}>
+                        <!-- if a fixed button row is used then include the action list there if it need to be fixed, too. -->
+                        <FloatingActionList
+                            actions={
+                                [
+                                    {
+                                        icon: 'info',
+                                        label: 'Open ConfirmationDialog',
+                                        handler: this.openConfirmationDialog
+                                    },
+                                ]
+                            }
+                        />
+                    </CardActions>
+                </Card>
+            </div>
         )
     },
     // ....
