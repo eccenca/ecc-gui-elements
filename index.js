@@ -27,6 +27,15 @@ import {
 } from './src/elements/Button';
 
 import {
+    Card,
+    CardTitle,
+    CardMenu,
+    CardContent,
+    CardActions,
+    FloatingActionList,
+} from './src/elements/Card';
+
+import {
     BaseDialog,
     ConfirmationDialog,
 } from './src/elements/Dialog';
@@ -80,6 +89,11 @@ export default {
 
     Alert,
     Button,
+    Card,
+    CardTitle,
+    CardMenu,
+    CardContent,
+    CardActions,
     AffirmativeButton,
     DismissiveButton,
     DisruptiveButton,
@@ -90,6 +104,7 @@ export default {
     ContextMenu,
     MenuItem,
     Error,
+    FloatingActionList,
     ConfirmationDialog,
     BaseDialog,
     Icon,
