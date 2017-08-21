@@ -69,7 +69,7 @@ const TestInputs = React.createClass({
     render() {
         return (
             <Card>
-                <CardTitle documentLevel={4}>
+                <CardTitle documentLevel={'h4'}>
                     Test Inputfields
                 </CardTitle>
                 <CardContent>

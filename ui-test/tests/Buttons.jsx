@@ -20,7 +20,7 @@ class TestButtons extends React.PureComponent {
             <Card
                 fixedActions={true}
             >
-                <CardTitle documentLevel={4}>
+                <CardTitle documentLevel={'h4'}>
                     Test Buttons
                 </CardTitle>
                 <CardContent>
@@ -94,7 +94,7 @@ class TestButtons extends React.PureComponent {
         const brokenImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.png';
         const chips = (
             <Card>
-                <CardTitle documentLevel={4}>
+                <CardTitle documentLevel={'h4'}>
                     Test Chip
                 </CardTitle>
                 <CardContent>

@@ -10,7 +10,7 @@ class TestProgressbar extends React.PureComponent {
     render() {
         return (
             <Card stretch={false} shadow={4}>
-                <CardTitle documentLevel={4}>
+                <CardTitle documentLevel={'h4'}>
                     Test Progressbars
                 </CardTitle>
                 <CardContent>

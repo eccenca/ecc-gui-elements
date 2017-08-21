@@ -233,7 +233,7 @@ const Page = React.createClass({
                 <CardTitle
                     className="my-own-class"
                     border={false|true} // boolean, horizontal border under title, default: true
-                    documentLevel={1..6} // integer, headline level of title, parameter only used if title content is a string (not a react/dom element), default: 2
+                    documentLevel={'h1'..'h6'} // string, headline level of title, parameter only used if title content is a string (not a react/dom element), default: 'h2'
                 >
                     Card title
                 </CardTitle>

@@ -10,7 +10,7 @@ const CardTitle = React.createClass({
     propTypes: {
         className: React.PropTypes.string,
         border: React.PropTypes.bool,
-        documentLevel: React.PropTypes.number,
+        documentLevel: React.PropTypes.string,
     },
 
     getDefaultProps() {
@@ -39,22 +39,22 @@ const CardTitle = React.createClass({
         let title = children;
         if ((typeof documentLevel !== 'undefinded') && (typeof children === 'string')) {
             switch (documentLevel) {
-                case 1:
+                case 'h1':
                     title = <h1 className="mdl-card__title-text">{children}</h1>;
                     break;
-                case 2:
+                case 'h2':
                     title = <h2 className="mdl-card__title-text">{children}</h2>;
                     break;
-                case 3:
+                case 'h3':
                     title = <h3 className="mdl-card__title-text">{children}</h3>;
                     break;
-                case 4:
+                case 'h4':
                     title = <h4 className="mdl-card__title-text">{children}</h4>;
                     break;
-                case 5:
+                case 'h5':
                     title = <h5 className="mdl-card__title-text">{children}</h5>;
                     break;
-                case 6:
+                case 'h6':
                     title = <h6 className="mdl-card__title-text">{children}</h6>;
                     break;
                 default:
