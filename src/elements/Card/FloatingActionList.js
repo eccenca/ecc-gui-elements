@@ -81,7 +81,7 @@ const FloatingActionList = React.createClass({
                 {actions.length > 1
                     ? <ul className="mdl-menu mdl-shadow--2dp ecc-floatingactionlist__menu">
                           {_.map(actions, (action, idx) =>
-                              <li key={`FloatingAction_${idx}`}>
+                              <li key={`FloatingAction_${idx}_${action.label}`}>
                                   <button
                                       className="mdl-menu__item"
                                       onClick={action.handler}>
