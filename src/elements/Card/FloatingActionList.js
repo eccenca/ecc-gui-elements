@@ -1,9 +1,8 @@
 import React from 'react';
 import classNames from 'classnames';
-import {
-    Button,
-    Icon
-} from 'ecc-gui-elements';
+import Button from '../Button/Button';
+import Icon from '../Icon/Icon';
+import Nothing from '../Nothing/Nothing';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const FloatingActionList = React.createClass({
@@ -49,7 +48,7 @@ const FloatingActionList = React.createClass({
         } = this.props;
 
         if (!actions || actions.length < 1) {
-            return false;
+            return <Nothing />;
         }
 
         const classes = classNames(
@@ -104,9 +103,9 @@ const FloatingActionList = React.createClass({
         );
 
         if (fixed === true) {
-            return <div className="ecc-floatingactionlist__wrapper--fixed">
+            return (<div className="ecc-floatingactionlist__wrapper--fixed">
                 {floatinglist}
-            </div>;
+            </div>);
         }
 
         return floatinglist;
