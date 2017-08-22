@@ -3538,11 +3538,11 @@ husky@^0.14.3:
     normalize-path "^1.0.0"
     strip-indent "^2.0.0"
 
-iconv-lite@0.4.13, iconv-lite@~0.4.13:
+iconv-lite@0.4.13:
   version "0.4.13"
   resolved "https://artifactory.eccenca.com/api/npm/npm/iconv-lite/-/iconv-lite-0.4.13.tgz#1f88aba4ab0b1508e8312acc39345f36e992e2f2"
 
-iconv-lite@0.4.15:
+iconv-lite@0.4.15, iconv-lite@~0.4.13:
   version "0.4.15"
   resolved "https://artifactory.eccenca.com/api/npm/npm/iconv-lite/-/iconv-lite-0.4.15.tgz#fe265a218ac6a57cfe854927e9d04c19825eddeb"
 
@@ -5598,11 +5598,11 @@ q@^1.1.2:
   version "1.5.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/q/-/q-1.5.0.tgz#dd01bac9d06d30e6f219aecb8253ee9ebdc308f1"
 
-qs@6.4.0, qs@^6.1.0, qs@~6.4.0:
+qs@6.4.0, qs@~6.4.0:
   version "6.4.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/qs/-/qs-6.4.0.tgz#13e26d28ad6b0ffaa91312cd3bf708ed351e7233"
 
-qs@6.5.0:
+qs@6.5.0, qs@^6.1.0:
   version "6.5.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/qs/-/qs-6.5.0.tgz#8d04954d364def3efc55b5a0793e1e2c8b1e6e49"
 
@@ -5992,11 +5992,11 @@ resolve-from@^1.0.0:
   version "1.0.1"
   resolved "https://artifactory.eccenca.com/api/npm/npm/resolve-from/-/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
 
-resolve@1.1.x, resolve@^1.1.6, resolve@^1.1.7:
+resolve@1.1.x, resolve@^1.1.7:
   version "1.1.7"
   resolved "https://artifactory.eccenca.com/api/npm/npm/resolve/-/resolve-1.1.7.tgz#203114d82ad2c5ed9e8e0411b3932875e889e97b"
 
-resolve@^1.2.0:
+resolve@^1.1.6, resolve@^1.2.0:
   version "1.4.0"
   resolved "https://artifactory.eccenca.com/api/npm/npm/resolve/-/resolve-1.4.0.tgz#a75be01c53da25d934a98ebd0e4c4a7312f92a86"
   dependencies:
@@ -6116,17 +6116,17 @@ scss-tokenizer@^0.2.3:
     js-base64 "^2.1.8"
     source-map "^0.4.2"
 
-"semver@2 || 3 || 4 || 5", semver@~5.3.0:
-  version "5.3.0"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
+"semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1:
+  version "5.4.1"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
 
 semver@^4.1.0:
   version "4.3.6"
   resolved "https://artifactory.eccenca.com/api/npm/npm/semver/-/semver-4.3.6.tgz#300bc6e0e86374f7ba61068b5b1ecd57fc6532da"
 
-semver@^5.3.0, semver@^5.4.1:
-  version "5.4.1"
-  resolved "https://artifactory.eccenca.com/api/npm/npm/semver/-/semver-5.4.1.tgz#e059c09d8571f0540823733433505d3a2f00b18e"
+semver@~5.3.0:
+  version "5.3.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/semver/-/semver-5.3.0.tgz#9b2ce5d3de02d17c6012ad326aa6b4d0cf54f94f"
 
 send@0.15.4:
   version "0.15.4"
