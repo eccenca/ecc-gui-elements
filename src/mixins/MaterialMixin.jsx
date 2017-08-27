@@ -1,4 +1,3 @@
-// import materialDesign from 'material-design-lite/compiled/material';
 import {findDOMNode} from 'react-dom';
 import _ from 'lodash';
 
