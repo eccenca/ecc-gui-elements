@@ -24,6 +24,7 @@ import {
     AffirmativeButton,
     DismissiveButton,
     DisruptiveButton,
+    ProgressButton,
 } from './src/elements/Button';
 
 import {
@@ -89,14 +90,15 @@ export default {
 
     Alert,
     Button,
+    AffirmativeButton,
+    DismissiveButton,
+    DisruptiveButton,
+    ProgressButton,
     Card,
     CardTitle,
     CardMenu,
     CardContent,
     CardActions,
-    AffirmativeButton,
-    DismissiveButton,
-    DisruptiveButton,
     Checkbox,
     Chip,
     ChipVisual,

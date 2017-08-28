@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import ProgressButton from './ProgressButton';
 
 const DisruptiveButton = React.createClass({
     // template rendering
@@ -25,6 +26,16 @@ const DisruptiveButton = React.createClass({
 
         // render button
         return (
+            typeof otherProps.progress !== 'undefined' ||
+            typeof otherProps.progressTopic !== 'undefined'
+        ) ? (
+            <ProgressButton
+                {...otherProps}
+                disruptive = {true}
+            >
+                {children}
+            </ProgressButton>
+        ) : (
             <Button
                 {...otherProps}
                 disruptive = {true}

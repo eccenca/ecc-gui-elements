@@ -209,6 +209,36 @@ const Page = React.createClass({
     // ....
 });
 ```
+
+#### ProgressButton
+
+There is a special version of the Button element that can be used to visualize a running process. `<ProgressButton/>` elements are shown as raised disabled buttons but this behaviour can be overwritten.
+
+```js
+import {ProgressButton} from 'ecc-gui-elements';
+import rxmq from 'ecc-messagebus';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <ProgressButton
+                progress={0..100} // integer, if not set or 0 then an infinite progress bar is used, default: 0
+                progressTopic={rxmq.channel('yourchannel').subject('progressNumber')} // message queue subject, if given that the button element listens to it for update objects that include `progressNumber` property with a value between 0 and 100
+                tooltip={'running'} // string, tooltip for progress bar, if a progress number is known (via option or message queue) then the tooltip is extenden by a colon, the value and a percent char
+                raised={true|false} // boolean, default: true
+                disabled={true|false} // boolean, default: true
+            >
+                Working!
+            </ProgressButton>
+        )
+    },
+    // ....
+});
+```
+
+You can use `progress` and `progressTopic` options directly on `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements.
+
 ### Card
 
 ```js
