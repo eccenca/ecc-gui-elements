@@ -2178,6 +2178,15 @@ ecc-messagebus@^3.0.0, ecc-messagebus@^3.3.0, ecc-messagebus@^3.6.0:
     rxmq "^0.9.3"
     rxmq.middleware "^0.2.1"
 
+ecc-mixins@^1.9.0:
+  version "1.9.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-mixins/-/ecc-mixins-1.9.0.tgz#0bf12df6828fb843f05649d501fba9117e21e839"
+  dependencies:
+    ecc-gui-elements "^2.2.0"
+    intl-format-cache "2.0.5"
+    intl-messageformat "1.3.0"
+    lodash "^4.13.1"
+
 ecc-resparqler@^0.1.1, ecc-resparqler@^0.1.7:
   version "0.1.8"
   resolved "https://artifactory.eccenca.com/api/npm/npm/ecc-resparqler/-/ecc-resparqler-0.1.8.tgz#8ed62eacf00dfd0a67fdc49917af47326b64cad8"
@@ -3657,6 +3666,20 @@ inquirer@^1.0.2:
 interpret@^1.0.0:
   version "1.0.3"
   resolved "https://artifactory.eccenca.com/api/npm/npm/interpret/-/interpret-1.0.3.tgz#cbc35c62eeee73f19ab7b10a801511401afc0f90"
+
+intl-format-cache@2.0.5:
+  version "2.0.5"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/intl-format-cache/-/intl-format-cache-2.0.5.tgz#b484cefcb9353f374f25de389a3ceea1af18d7c9"
+
+intl-messageformat-parser@1.2.0:
+  version "1.2.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/intl-messageformat-parser/-/intl-messageformat-parser-1.2.0.tgz#5906b7f953ab7470e0dc8549097b648b991892ff"
+
+intl-messageformat@1.3.0:
+  version "1.3.0"
+  resolved "https://artifactory.eccenca.com/api/npm/npm/intl-messageformat/-/intl-messageformat-1.3.0.tgz#f7d926aded7a3ab19b2dc601efd54e99a4bd4eae"
+  dependencies:
+    intl-messageformat-parser "1.2.0"
 
 intl@^1.0.0, intl@^1.2.5:
   version "1.2.5"
