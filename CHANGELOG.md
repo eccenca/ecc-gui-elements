@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Removed
+- Circular dependency on ecc-mixins
+
+### Fixed
+- How subscriptions in progress buttons are handled
 
 ## [2.18.0] 2017-08-29
 
