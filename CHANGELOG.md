@@ -6,6 +6,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Added
 - `<Chip/>` element support `href` option now, if given it is rendered as HTML link anchor
+- `<ProgressButton />` element to show feedback of running backround processes to user in button
+- `progress` and `progressTopic` for `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements
 
 ## [2.17.1] 2017-08-22
 

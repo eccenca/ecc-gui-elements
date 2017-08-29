@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import ProgressButton from './ProgressButton';
 
 const AffirmativeButton = React.createClass({
     // template rendering
@@ -25,6 +26,16 @@ const AffirmativeButton = React.createClass({
 
         // render button
         return (
+            typeof otherProps.progress !== 'undefined' ||
+            typeof otherProps.progressTopic !== 'undefined'
+        ) ? (
+            <ProgressButton
+                {...otherProps}
+                affirmative = {true}
+            >
+                {children}
+            </ProgressButton>
+        ) : (
             <Button
                 {...otherProps}
                 affirmative = {true}

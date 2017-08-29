@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import ProgressButton from './ProgressButton';
 
 const DismissiveButton = React.createClass({
     // template rendering
@@ -25,6 +26,16 @@ const DismissiveButton = React.createClass({
 
         // render button
         return (
+            typeof otherProps.progress !== 'undefined' ||
+            typeof otherProps.progressTopic !== 'undefined'
+        ) ? (
+            <ProgressButton
+                {...otherProps}
+                dismissive = {true}
+            >
+                {children}
+            </ProgressButton>
+        ) : (
             <Button
                 {...otherProps}
                 dismissive = {true}
