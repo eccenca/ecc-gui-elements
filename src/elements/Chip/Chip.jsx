@@ -3,6 +3,9 @@ import cx from 'classnames';
 import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 import _ from 'lodash';
 
+const ChipContact = basicClassCreator('ChipContact', 'mdl-chip__contact', 'span');
+const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
+
 export const ChipVisual = (props) => {
 
     const {
@@ -47,15 +50,12 @@ export const ChipVisual = (props) => {
 const propTypes = {
     className: PropTypes.string,
     onClick: PropTypes.func,
-    onClose: PropTypes.func
+    onClose: PropTypes.func,
+    href: PropTypes.string,
 };
 
-const ChipContact = basicClassCreator('ChipContact', 'mdl-chip__contact', 'span');
-const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
-
-
 export const Chip = (props) => {
-    const {className, onClick, onClose, style, children, ...otherProps} = props;
+    const {className, onClose, children, ...otherProps} = props;
 
     const childrenArray = React.Children.toArray(children);
     const contactIndex = childrenArray.findIndex(c => c.type === ChipContact || c.type === ChipVisual);
@@ -94,17 +94,24 @@ export const Chip = (props) => {
         }
     }
 
-    const elt = onClick ? 'button' : 'span';
+    let chipType = otherProps.onClick ? 'button' : 'span';
+    chipType = otherProps.href ? 'a' : chipType;
 
-    return React.createElement(elt, {
-        className: cx('mdl-chip', {
-            'mdl-chip--contact': contactIndex > -1,
-            'mdl-chip--deletable': !!onClose,
-        }, className),
-        type: onClick ? 'button' : null,
-        onClick,
-        ...otherProps
-    }, chipContent);
+    return React.createElement(
+        chipType,
+        {
+            className: cx(
+                'mdl-chip',
+                {
+                    'mdl-chip--contact': contactIndex > -1,
+                    'mdl-chip--deletable': !!onClose,
+                },
+                className
+            ),
+            ...otherProps
+        },
+        chipContent
+    );
 };
 
 Chip.propTypes = propTypes;

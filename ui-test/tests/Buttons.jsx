@@ -176,6 +176,17 @@ class TestButtons extends React.PureComponent {
                         <ChipVisual label="AB"/>
                         clickable with text visual
                     </Chip>
+                    <Chip
+                        href={'http://example.com/'}
+                    >
+                        single href
+                    </Chip>
+                    <Chip
+                        href={'http://example.com/'}
+                        onClick={() => alert('#4 chip clicked')}
+                    >
+                        href and onclick event
+                    </Chip>
                 </CardContent>
                 <FloatingActionList
                     fixed={true}
