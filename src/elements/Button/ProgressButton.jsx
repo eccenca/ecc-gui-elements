@@ -2,13 +2,12 @@ import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
-import UseMessageBus from 'ecc-mixins/src/messagebus/UseMessageBus';
 import Button from './Button';
 import Progressbar from '../Progressbar/Progressbar';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const ProgressButton = React.createClass({
-    mixins: [PerformanceMixin, UseMessageBus],
+    mixins: [PerformanceMixin],
 
     // define property types
     propTypes: {
@@ -27,11 +26,17 @@ const ProgressButton = React.createClass({
     },
 
     componentDidMount() {
-        if (_.get(this.props, 'progressTopic', null)) {
-            this.subscribe(
-                _.get(this.props, 'progressTopic'),
-                this.handleProgressUpdates
-            );
+        if (_.has(this.props, 'progressTopic')){
+            const topic =  _.get(this.props, 'progressTopic');
+            if(_.isFunction(topic.subscribe)){
+                this.subscription = topic.subscribe(this.handleProgressUpdates);
+            }
+        }
+    },
+
+    componentWillUnmount(){
+        if(_.has(this, 'subscription')){
+            this.subscription.dispose();
         }
     },
 

@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.18.1] 2017-08-29
+
+### Removed
+- Circular dependency on ecc-mixins
+
+### Fixed
+- How subscriptions in progress buttons are handled
+
 ## [2.18.0] 2017-08-29
 
 ### Added
