@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- `<Chip/>` element support `href` option now, if given it is rendered as HTML link anchor
 
 ## [2.17.1] 2017-08-22
 

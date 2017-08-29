@@ -426,6 +426,11 @@ const Page = React.createClass({
             <div>
                 <Chip>plain chip</Chip>
                 <Chip
+                    href={'http://example.com/'} // string, Chip is now rendered as HTML link anchor, can be combined with onClick
+                >
+                    Chip with URI
+                </Chip>
+                <Chip
                     onClick={() => console.log('#1 chip clicked')} // click handler, default: false
                 >
                     <ChipVisual

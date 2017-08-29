@@ -13,11 +13,12 @@
     box-sizing: border-box;
     max-width: 100%;
 
+    text-decoration: none;
+    font-weight: inherit;
 
     &:active {
         background-color: rgba(0, 0, 0, 0.13);
     }
-
 }
 
 .mdl-chip__text {
