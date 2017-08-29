@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- `<ProgressButton />` element to show feedback of running backround processes to user in button
+- `progress` and `progressTopic` for `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements
 
 ## [2.17.1] 2017-08-22
 
