@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.18.0] 2017-08-29
+
+### Added
+- `<Chip/>` element support `href` option now, if given it is rendered as HTML link anchor
+- `<ProgressButton />` element to show feedback of running backround processes to user in button
+- `progress` and `progressTopic` for `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements
+
 ## [2.17.1] 2017-08-22
 
 ### Fixed
