@@ -28,6 +28,10 @@ const TestProgressbar = React.createClass({
             progressTestChannel.subject('number').onNext({
                 progressNumber: this.progress,
             });
+            progressTestChannel.subject('numberAndDate').onNext({
+                progressNumber: this.progress,
+                lastUpdate: 'Last update 13:37.',
+            });
             window.setTimeout(this.updateProgress, 1000);
         }
     },
@@ -83,6 +87,18 @@ const TestProgressbar = React.createClass({
                     >
                         Disrupt
                     </DisruptiveButton>
+                    <DismissiveButton
+                        progressTopic={progressTestChannel.subject('number')}
+                        tooltip="Last update 13:27. Working"
+                    >
+                        other tooltip
+                    </DismissiveButton>
+                    <DismissiveButton
+                        progressTopic={progressTestChannel.subject('numberAndDate')}
+                        tooltip="Working"
+                    >
+                        tooltip with lastUpdate
+                    </DismissiveButton>
                 </CardContent>
                 <Progressbar appearLocal={true} progress={15}/>
             </Card>
