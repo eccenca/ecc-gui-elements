@@ -22,6 +22,7 @@ const ProgressButton = React.createClass({
     getInitialState() {
         return {
             progress: _.get(this.props, 'progress', 0),
+            lastUpdate: _.get(this.props, 'lastUpdate', false),
         };
     },
 
@@ -40,10 +41,11 @@ const ProgressButton = React.createClass({
         }
     },
 
-    handleProgressUpdates({progressNumber}) {
+    handleProgressUpdates({progressNumber, lastUpdate = false}) {
         if (_.isNumber(progressNumber)) {
             this.setState({
-                progress: progressNumber
+                progress: progressNumber,
+                lastUpdate,
             })
         }
     },
@@ -51,7 +53,9 @@ const ProgressButton = React.createClass({
     // template rendering
     render() {
         // split 'normal' props from button content
-        const {children, className, tooltip, progressTopic, ...otherProps} = this.props;
+        const {children, className, tooltip, ...otherProps} = this.props;
+        delete otherProps.progress;
+        delete otherProps.progressTopic;
 
         const classes = classNames(
             'mdl-progress mdl-js-progress',
@@ -61,15 +65,16 @@ const ProgressButton = React.createClass({
         let progressbar = (
             <Progressbar
                 appearLocal
-                indeterminate={this.state.progress ? false : true}
+                indeterminate={!this.state.progress}
                 progress={this.state.progress ? this.state.progress : 0}
             />
         );
 
         if (typeof tooltip !== 'undefined' && tooltip) {
+            const lastUpdate = this.state.lastUpdate ? this.state.lastUpdate + ' ' : '';
             progressbar = (
                 <ReactMDLTooltip
-                    label={this.state.progress ? tooltip + ': ' + this.state.progress + '%' : tooltip}
+                    label={this.state.progress ? `${lastUpdate}${tooltip}: ${this.state.progress}%` : lastUpdate + tooltip}
                 >
                     {progressbar}
                 </ReactMDLTooltip>
