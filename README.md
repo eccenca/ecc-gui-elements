@@ -218,6 +218,12 @@ There is a special version of the Button element that can be used to visualize a
 import {ProgressButton} from 'ecc-gui-elements';
 import rxmq from 'ecc-messagebus';
 
+// channel event which updates progressTopic
+rxmq.channel('yourchannel').subject('progressNumber').onNext({
+    progress: 30, // integer, progress in percentage
+    lastUpdate: 'August 31st 2017, 9:48:24 am.', // string which should be a date, require tooltip to be set 
+});
+
 const Page = React.createClass({
     // template rendering
     render() {
