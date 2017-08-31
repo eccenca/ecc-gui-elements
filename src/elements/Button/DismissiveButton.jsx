@@ -7,6 +7,16 @@ const DismissiveButton = React.createClass({
     render() {
         // split 'normal' props from button content
         const {children, ...otherProps} = this.props;
+        const useProgressButton = (
+            typeof otherProps.progress !== 'undefined' ||
+            typeof otherProps.progressTopic !== 'undefined'
+        );
+
+        // remove unused propTypes from button
+        if (!useProgressButton) {
+            delete otherProps.progress;
+            delete otherProps.progressTopic;
+        }
 
         if (__DEBUG__ && (typeof otherProps.accent !== 'undefined')) {
             console.warn('Do not use <DismissiveButton/>  with accent property.'); // eslint-disable-line no-console
@@ -26,8 +36,7 @@ const DismissiveButton = React.createClass({
 
         // render button
         return (
-            typeof otherProps.progress !== 'undefined' ||
-            typeof otherProps.progressTopic !== 'undefined'
+            useProgressButton
         ) ? (
             <ProgressButton
                 {...otherProps}
