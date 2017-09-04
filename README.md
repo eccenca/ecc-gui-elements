@@ -44,7 +44,9 @@ const Widget = React.createClass({
         const options = {
             animationTime: 500, // (optional) integer, time in milliseconds
             topOffset: 0, // (optional) integer, pixels to offset top alignment
-            callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed'
+            callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed',
+            scrollX: true // (optional) boolean, whether overflowX should be checked to decide whether an element is scrollable,
+            scrollY: true // (optional) boolean, whether overflowY should be checked to decide whether an element is scrollable,
         }
         this.scrollIntoView(
             options // optional

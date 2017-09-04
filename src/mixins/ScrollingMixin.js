@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
-import scrollIntoView from 'scroll-into-view';
+import scrollIntoViewExternal from 'scroll-into-view';
 import _ from 'lodash';
 
 const ScrollingMixin = {
@@ -28,7 +28,7 @@ const ScrollingMixin = {
         }
         else if (_.get(element, 'props', false) !== false) {
             // await a mounted react element or component
-            // TODO: improve test, 'props' is only a weach check, findDOMNode still can fail
+            // TODO: improve test, 'props' is only a weak check, findDOMNode still can fail
             domElement = ReactDOM.findDOMNode(element);
             if (__DEBUG__) {
                 console.log('scrolling react element with a height of ' + domElement.scrollHeight);
@@ -42,18 +42,48 @@ const ScrollingMixin = {
             return false;
         }
 
-        scrollIntoView(
+        scrollIntoViewExternal(
             domElement,
             {
                 time: _.get(options, 'animationTime', 500),
                 align: {
                     topOffset: _.get(options, 'topOffset', 0),
+                },
+                /*
+                    We replace the standard isScrollable with a function which also checks
+                    overflowX and overflowY, as only checking overflow is not enough in IE/Edge,
+                    because if the following is set:
+                    .foo {
+                        overflow-x: hidden;
+                        overflow-y: auto;
+                    }
+                    `getComputedStyle(element).overflow` will yield `'hidden'`
+                 */
+                isScrollable: function(element) {
+
+                    if (element === window) {
+                        return true
+                    }
+
+                    if (
+                        element.scrollHeight !== element.clientHeight ||
+                        element.scrollWidth !== element.clientWidth
+                    ) {
+
+                        const css = getComputedStyle(element);
+
+                        return css && (css.overflow !== 'hidden' ||
+                            (_.get(options, 'scrollY', true) && css.overflowY !== 'hidden') ||
+                            (_.get(options, 'scrollX', true) && css.overflowX !== 'hidden'));
+                    }
+                    return false;
                 }
             },
             function(result) {
                 if (__DEBUG__) {
                     console.log('element scrolling ' + result + ', now at ' + domElement.getBoundingClientRect().top);
                 }
+
                 if (_.isFunction(options.callbackFinished)) {
                     options.callbackFinished(result);
                 }
