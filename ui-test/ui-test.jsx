@@ -13,6 +13,7 @@ import TestIcons from './tests/Icons';
 import TestButtons from './tests/Buttons';
 import TestInputs from './tests/Inputs';
 import TestTabs from './tests/Tabs';
+import TestScrolling from './tests/Scrolling';
 import TestPagination from './tests/Pagination';
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
 
@@ -79,6 +80,8 @@ const Page = React.createClass({
             <TestInputs />,
             <hr className="mdl-layout-spacer"/>,
             <TestTabs />,
+            <hr className="mdl-layout-spacer"/>,
+            <TestScrolling />,
             <hr className="mdl-layout-spacer"/>,
             <TestPagination />,
             <hr className="mdl-layout-spacer"/>,
