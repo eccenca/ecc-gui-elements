@@ -18,6 +18,8 @@ import PerformanceMixin from './../src/mixins/PerformanceMixin';
 
 // component
 import {
+    BreadcrumbList,
+    BreadcrumbItem,
     ContextMenu,
     MenuItem,
     Nothing,
@@ -124,6 +126,18 @@ const Page = React.createClass({
                     }
                 </Header>
                 <Content>
+                    <BreadcrumbList className="my-own-class">
+                        <BreadcrumbItem onClick={function() {alert('Click on breadcrumb item.');}}>
+                            Button
+                        </BreadcrumbItem>
+                        <BreadcrumbItem href="#">
+                            Link
+                        </BreadcrumbItem>
+                        <BreadcrumbItem>
+                            Span
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                    <hr className="mdl-layout-spacer"/>
                     {testcases}
                 </Content>
                 <footer className="mdl-mini-footer">

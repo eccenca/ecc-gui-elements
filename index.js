@@ -28,6 +28,11 @@ import {
 } from './src/elements/Button';
 
 import {
+    BreadcrumbList,
+    BreadcrumbItem,
+} from './src/elements/Breadcrumbs';
+
+import {
     Card,
     CardTitle,
     CardMenu,
@@ -89,6 +94,8 @@ export default {
     PerformanceMixin,
 
     Alert,
+    BreadcrumbList,
+    BreadcrumbItem,
     Button,
     AffirmativeButton,
     DismissiveButton,

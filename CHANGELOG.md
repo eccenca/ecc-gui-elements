@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- provide `<BreadcrumbList/>` and `<BreadcrumbItem/>` to create breadcrumb navigations
 
 ## [2.18.2] 2017-08-31
 ### Added
