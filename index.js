@@ -29,6 +29,11 @@ import {
 } from './src/elements/Button';
 
 import {
+    BreadcrumbList,
+    BreadcrumbItem,
+} from './src/elements/Breadcrumbs';
+
+import {
     Card,
     CardTitle,
     CardMenu,
@@ -91,6 +96,8 @@ export default {
     ScrollingMixin,
 
     Alert,
+    BreadcrumbList,
+    BreadcrumbItem,
     Button,
     AffirmativeButton,
     DismissiveButton,

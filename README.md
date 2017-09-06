@@ -160,6 +160,7 @@ Returns:
 - `Alert`: A message box which is optionally dismissable, includes `Error`, `Info`, `Success` and `Warning`.
 - `BaseDialog`: A custom message box with optional Buttons
 - `Button`: A simple Button which also may contain icons
+- `BreadcrumbList`: A simple element to create breadcrumb navigation
 - `Card`: An application card section including title, menu, content section and button row
 - `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
@@ -308,6 +309,43 @@ const Page = React.createClass({
 ```
 
 You can use `progress` and `progressTopic` options directly on `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements.
+
+### Breadcrumb
+
+The are two simple React elements to create breadcrumb navigation.
+
+```js
+import {
+    BreadcrumbList,
+    BreadcrumbItem,
+} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <BreadcrumbList
+                className={'my-own-class'} // (optional) string, element can be enhanced with additional CSS classes
+            >
+                <BreadcrumbItem
+                    onClick={function(){}} // (optional) function, breadcrumb is rendered as HTML button element
+                >
+                    Button
+                </BreadcrumbItem>
+                <BreadcrumbItem
+                    href="#" // (optional) string, breadcrumb is rendered as HTML link anchor
+                >
+                    Link
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    Span
+                </BreadcrumbItem>
+            </BreadcrumbList>
+        )
+    },
+    // ....
+});
+```
 
 ### Card
 
