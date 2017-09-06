@@ -8,6 +8,7 @@ import 'react-mdl/extra/material.js';
 
 import MaterialMixin from './src/mixins/MaterialMixin';
 import PerformanceMixin from './src/mixins/PerformanceMixin';
+import ScrollingMixin from './src/mixins/ScrollingMixin';
 
 // GUI Elements
 
@@ -26,6 +27,11 @@ import {
     DisruptiveButton,
     ProgressButton,
 } from './src/elements/Button';
+
+import {
+    BreadcrumbList,
+    BreadcrumbItem,
+} from './src/elements/Breadcrumbs';
 
 import {
     Card,
@@ -87,8 +93,11 @@ import Version from './src/elements/Version/Version';
 export default {
     MaterialMixin,
     PerformanceMixin,
+    ScrollingMixin,
 
     Alert,
+    BreadcrumbList,
+    BreadcrumbItem,
     Button,
     AffirmativeButton,
     DismissiveButton,
