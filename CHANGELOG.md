@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 
 ### Added
+- 'ScrollingMixin' mixin to scroll elements into the visible viewport of scrollable areas
 - provide `<BreadcrumbList/>` and `<BreadcrumbItem/>` to create breadcrumb navigations
 
 ## [2.18.2] 2017-08-31

@@ -6,6 +6,7 @@ Collection of shared GUI elements and mixins.
 
 - `MaterialMixin`: A mixin which forces material design lite components to rerender if the React Component gets updated.
 - `PerformanceMixin`: A mixin that provides default functionality for shouldComponentUpdate() to prevent unnecessary renderings.
+- `ScrollingMixin`: A mixin that provides methods to scroll mounted React components into the viewport.
 
 ### PerformanceMixin
 
@@ -27,6 +28,69 @@ In GUI elments import it directly from the source file, use the include path rel
 import PerformanceMixin from '../mixins/PerformanceMixin';
 ```
 **Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
+
+### ScrollingMixin
+
+The scrolling mixin provides methods to scroll a mounted React element or component into the visible viewport of a scrollable area:
+
+* `scrollIntoView()`: use this method within a component to scroll it into the visible viewport
+* `ScrollingMixin.scrollElementIntoView(ReactOrDomElement)`: use this method from outside an element to scroll it into the visible viewport
+
+```js
+import {ScrollingMixin} from 'ecc-gui-elements';
+const Widget = React.createClass({
+    mixins: [ScrollingMixin],
+    componentDidMount() {
+        const options = {
+            animationTime: 500, // (optional) integer, time in milliseconds
+            topOffset: 0, // (optional) integer, pixels to offset top alignment
+            callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed',
+            scrollX: true // (optional) boolean, whether overflowX should be checked to decide whether an element is scrollable,
+            scrollY: true // (optional) boolean, whether overflowY should be checked to decide whether an element is scrollable,
+        }
+        this.scrollIntoView(
+            options // optional
+        );
+    },
+    // ...
+});
+```
+
+It is important that the component height can be calculated correctly, `scrollIntoView()` should be used after all contents are loaded.
+
+Use another method from the mixin to scroll other elements into the viewport.
+It's important to use references to active DOM elements or mounted React components, e.g. by using the React ref pattern.
+
+```js
+// use it from outside of the component that needs to be scrolled into the visible viewport
+import {Card, Button, ScrollingMixin} from 'ecc-gui-elements';
+const Widget = React.createClass({
+    handleScroll() {
+        const options = {
+            // animationTime: 500, // (optional) integer, time in milliseconds
+            // topOffset: 0, // (optional) integer, pixels to offset top alignment
+            // callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed'
+        }
+        ScrollingMixin.scrollElementIntoView(
+            this.myCard,
+            options, // optional parameter
+        );
+    },
+    // ...
+    render() {
+        return <div>
+            <Card ref={card => this.myCard = card}>
+                <!-- ... -->
+            </Card>
+            <Button
+                onClick
+            >
+                Scroll card into viewport
+            </Button>
+        </div>
+    },
+});
+```
 
 ## Core styles
 
