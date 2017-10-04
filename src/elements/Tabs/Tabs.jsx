@@ -66,6 +66,7 @@ const Tabs = React.createClass({
                 <ReactMDLTab
                     className={this.state.prefixTabNames + '-header-' + _.kebabCase(it.tabTitle)}
                     key={_.kebabCase(it.tabTitle)}
+                    href="javascript:void(0)"
                 >
                     {it.tabTitle}
                 </ReactMDLTab>

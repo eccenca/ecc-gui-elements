@@ -12,7 +12,7 @@
 
 // -- Load MDL color definitions -----------------------------------------------
 
-@import "~material-design-lite/src/color-definitions";
+@import "~@eccenca/material-design-lite/src/color-definitions";
 
 // -- Configuration stack of colors --------------------------------------------
 
@@ -22,9 +22,9 @@
     variables to overwrite the default look of the application.
 */
 
-$ecc-color-primary: "254, 143, 1" !default;
+$ecc-color-primary: rgb(254, 143, 1) !default;
 $ecc-color-primary-contrast: $color-dark-contrast !default;
-$ecc-color-accent: "10, 103, 163" !default;
+$ecc-color-accent: rgb(10, 103, 163) !default;
 $ecc-color-accent-contrast: $color-dark-contrast !default;
 
 $ecc-color-application-background: $palette-grey-100 !default;
@@ -67,12 +67,12 @@ $ecc-size-inlineelement-padding-horizontal: 0.25rem !default; // currently unuse
 
 // -- Environment --------------------------------------------------------------
 
-$image_path: "~material-design-lite/src/images" !default;
+$image_path: "~@eccenca/material-design-lite/src/images" !default;
 
 // -- Overwrite default MDL color variables ------------------------------------
 
 $color-primary: $ecc-color-primary !default;
-$color-primary-dark: "254,106,1" !default; @debug "Do not use $color-primary-dark anymore, it is deprecated.";
+$color-primary-dark: rgb(254,106,1) !default; @debug "Do not use $color-primary-dark anymore, it is deprecated.";
 $color-accent: $ecc-color-accent !default;
 $color-primary-contrast: $ecc-color-primary-contrast !default;
 $color-accent-contrast: $ecc-color-accent-contrast !default;
@@ -115,5 +115,5 @@ $ecc-typo-subhead-font-size:   $ecc-size-typo-subtitle; @debug "Do not use $ecc-
 
 // -- Load MDL variables and mixins --------------------------------------------
 
-@import '~material-design-lite/src/variables';
-@import '~material-design-lite/src/mixins';
+@import '~@eccenca/material-design-lite/src/variables';
+@import '~@eccenca/material-design-lite/src/mixins';
