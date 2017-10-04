@@ -105,7 +105,7 @@ gulp.task('download-roboto', function() {
 });
 
 gulp.task('sass-assets', function() {
-    return gulp.src('node_modules/material-design-lite/src/images/*')
+    return gulp.src('node_modules/@eccenca/material-design-lite/src/images/*')
         .pipe(gulp.dest('./dist/images'));
 });
 

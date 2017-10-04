@@ -2,6 +2,27 @@ import React from 'react';
 import Button from './Button';
 import ProgressButton from './ProgressButton';
 
+/**
+Use the `<AffirmativeButton />` element for all buttons that trigger affirmative actions, e.g. confirming "Save data."
+For more information read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
+It is possible to combine it with `<Button />` parameters like `disabled`, `raised`, `iconName` and `ripple`.
+
+```js
+import {AffirmativeButton} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <AffirmativeButton>
+                Affirmative action
+            </AffirmativeButton>
+        )
+    },
+    // ....
+});
+```
+*/
 const AffirmativeButton = React.createClass({
     // template rendering
     render() {

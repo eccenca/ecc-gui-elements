@@ -1,10 +1,49 @@
 import React from 'react';
 import cx from 'classnames';
 
+/**
+The are two simple React elements to create breadcrumb navigation.
+
+```js
+import {
+    BreadcrumbList,
+    BreadcrumbItem,
+} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <BreadcrumbList
+                className={'my-own-class'}
+            >
+                <BreadcrumbItem
+                    onClick={function(){}} // (optional) function, breadcrumb is rendered as HTML button element
+                >
+                    Button
+                </BreadcrumbItem>
+                <BreadcrumbItem
+                    href="#" // (optional) string, breadcrumb is rendered as HTML link anchor
+                >
+                    Link
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    Span
+                </BreadcrumbItem>
+            </BreadcrumbList>
+        )
+    },
+    // ....
+});
+```
+*/
 export const BreadcrumbList = React.createClass({
 
     // define property types
     propTypes: {
+        /**
+            string (optional): additional CSS class name
+        */
         className: React.PropTypes.string,
     },
 
@@ -31,6 +70,9 @@ export const BreadcrumbItem = React.createClass({
 
     // define property types
     propTypes: {
+        /**
+            string (optional): additional CSS class name
+        */
         className: React.PropTypes.string,
     },
 

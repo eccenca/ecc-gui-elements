@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.20.0] 2017-10-04
+
+### Changed
+- Migrate to new fork of mdl
+
 ## [2.19.0] 2017-09-06
 
 ### Added

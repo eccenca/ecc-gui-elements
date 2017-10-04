@@ -2,6 +2,29 @@ import React from 'react';
 import Button from './Button';
 import ProgressButton from './ProgressButton';
 
+/**
+Use the `<DismissiveButton />` element for all buttons that trigger dismissive actions, e.g. cancelling edit forms.
+For more information read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
+It is possible to combine it with `<Button />` parameters like `disabled`, `raised`, `iconName` and `ripple`.
+
+```js
+import {DismissiveButton} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <DismissiveButton
+                raised={true}
+            >
+                Dismissive action
+            </DismissiveButton>
+        )
+    },
+    // ....
+});
+```
+*/
 const DismissiveButton = React.createClass({
     // template rendering
     render() {

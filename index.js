@@ -2,7 +2,7 @@
 
 // MDL Javascript
 
-import 'react-mdl/extra/material.js';
+import '@eccenca/material-design-lite';
 
 // Mixins
 
