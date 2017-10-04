@@ -13,11 +13,15 @@ import TestIcons from './tests/Icons';
 import TestButtons from './tests/Buttons';
 import TestInputs from './tests/Inputs';
 import TestTabs from './tests/Tabs';
+import TestScrolling from './tests/Scrolling';
 import TestPagination from './tests/Pagination';
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
+import ScrollingMixin from './../src/mixins/ScrollingMixin';
 
 // component
 import {
+    BreadcrumbList,
+    BreadcrumbItem,
     ContextMenu,
     MenuItem,
     Nothing,
@@ -49,12 +53,16 @@ const Page = React.createClass({
         console.log('remove MenuItem');
     },
 
+    handleScrollTo(ref) {
+        ScrollingMixin.scrollElementIntoView(this[ref], {topOffset: 100});
+    },
+
     // template rendering
     render() {
 
         const testcases = [
             <Nothing />,
-            <TestSpinner />,
+            <TestSpinner ref={spinner => this.testSpinner = spinner} />,
             <div>
                 <p>
                     This is a test with a block <NotAvailable label="N/A" description="Not available element" /> information.
@@ -66,7 +74,7 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestProgressbar />,
             <hr className="mdl-layout-spacer"/>,
-            <TestAlerts />,
+            <TestAlerts ref={alerts => this.testAlerts = alerts} />,
             <hr className="mdl-layout-spacer"/>,
             <TestDialogs />,
             <hr className="mdl-layout-spacer"/>,
@@ -74,11 +82,33 @@ const Page = React.createClass({
             // <hr className="mdl-layout-spacer"/>,
             <TestIcons />,
             <hr className="mdl-layout-spacer"/>,
-            <TestButtons />,
+            <TestButtons ref={buttons => this.testButtons = buttons} />,
             <hr className="mdl-layout-spacer"/>,
             <TestInputs />,
             <hr className="mdl-layout-spacer"/>,
             <TestTabs />,
+            <hr className="mdl-layout-spacer"/>,
+            <TestScrolling
+                scrollTestCases={
+                    [
+                        {
+                            label: 'Scroll to spinner test',
+                            handleScroll: this.handleScrollTo,
+                            handleRef: 'testSpinner',
+                        },
+                        {
+                            label: 'Scroll to alert test',
+                            handleScroll: this.handleScrollTo,
+                            handleRef: 'testAlerts',
+                        },
+                        {
+                            label: 'Scroll to button test',
+                            handleScroll: this.handleScrollTo,
+                            handleRef: 'testButtons',
+                        },
+                    ]
+                }
+            />,
             <hr className="mdl-layout-spacer"/>,
             <TestPagination />,
             <hr className="mdl-layout-spacer"/>,
@@ -124,6 +154,18 @@ const Page = React.createClass({
                     }
                 </Header>
                 <Content>
+                    <BreadcrumbList className="my-own-class">
+                        <BreadcrumbItem onClick={function() {alert('Click on breadcrumb item.');}}>
+                            Button
+                        </BreadcrumbItem>
+                        <BreadcrumbItem href="#">
+                            Link
+                        </BreadcrumbItem>
+                        <BreadcrumbItem>
+                            Span
+                        </BreadcrumbItem>
+                    </BreadcrumbList>
+                    <hr className="mdl-layout-spacer"/>
                     {testcases}
                 </Content>
                 <footer className="mdl-mini-footer">

@@ -1,11 +1,45 @@
 import React from 'react';
 import Button from './Button';
+import ProgressButton from './ProgressButton';
 
+/**
+Use the `<DismissiveButton />` element for all buttons that trigger dismissive actions, e.g. cancelling edit forms.
+For more information read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
+It is possible to combine it with `<Button />` parameters like `disabled`, `raised`, `iconName` and `ripple`.
+
+```js
+import {DismissiveButton} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <DismissiveButton
+                raised={true}
+            >
+                Dismissive action
+            </DismissiveButton>
+        )
+    },
+    // ....
+});
+```
+*/
 const DismissiveButton = React.createClass({
     // template rendering
     render() {
         // split 'normal' props from button content
         const {children, ...otherProps} = this.props;
+        const useProgressButton = (
+            typeof otherProps.progress !== 'undefined' ||
+            typeof otherProps.progressTopic !== 'undefined'
+        );
+
+        // remove unused propTypes from button
+        if (!useProgressButton) {
+            delete otherProps.progress;
+            delete otherProps.progressTopic;
+        }
 
         if (__DEBUG__ && (typeof otherProps.accent !== 'undefined')) {
             console.warn('Do not use <DismissiveButton/>  with accent property.'); // eslint-disable-line no-console
@@ -25,6 +59,15 @@ const DismissiveButton = React.createClass({
 
         // render button
         return (
+            useProgressButton
+        ) ? (
+            <ProgressButton
+                {...otherProps}
+                dismissive = {true}
+            >
+                {children}
+            </ProgressButton>
+        ) : (
             <Button
                 {...otherProps}
                 dismissive = {true}

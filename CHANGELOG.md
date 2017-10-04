@@ -6,6 +6,31 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
 
+## [2.19.0] 2017-09-06
+
+### Added
+- 'ScrollingMixin' mixin to scroll elements into the visible viewport of scrollable areas
+- provide `<BreadcrumbList/>` and `<BreadcrumbItem/>` to create breadcrumb navigations
+
+## [2.18.2] 2017-08-31
+### Added
+- `<ProgressButton />` event `progressTopic` can now additionally contain param `lastUpdate`.
+
+## [2.18.1] 2017-08-29
+
+### Removed
+- Circular dependency on ecc-mixins
+
+### Fixed
+- How subscriptions in progress buttons are handled
+
+## [2.18.0] 2017-08-29
+
+### Added
+- `<Chip/>` element support `href` option now, if given it is rendered as HTML link anchor
+- `<ProgressButton />` element to show feedback of running backround processes to user in button
+- `progress` and `progressTopic` for `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements
+
 ## [2.17.1] 2017-08-22
 
 ### Fixed

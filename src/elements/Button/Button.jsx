@@ -6,13 +6,43 @@ import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
 import Icon from '../Icon/Icon';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
 
-/* TODO:
+/**
+Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
 
-* add label/content as tooltip for icon/fab buttons
-* add label as tooltip if children content is available
+```js
+import {Button} from 'ecc-gui-elements';
 
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Button>
+                Flat button
+            </Button>
+
+            // use the button parameters according to MDL-API, @see https://getmdl.io/components/index.html#buttons-section
+            <Button
+                raised
+                accent
+                colored
+                ripple
+                disabled
+            >
+                Button label
+            </Button>
+
+            // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
+            <Button
+                iconName="more_vert"
+                tooltip="This is a Test!"
+                fabSize="mini"
+            />
+        )
+    },
+    // ....
+});
+```
 */
-
 const Button = React.createClass({
     mixins: [PerformanceMixin],
 
@@ -21,14 +51,55 @@ const Button = React.createClass({
         children: React.PropTypes.oneOfType([
             React.PropTypes.node
         ]),
+        /**
+            string (optional): additional CSS class name
+        */
         className: React.PropTypes.string,
+        /**
+            boolean (default: false): button is disabled and cannot get used to trigger an action
+        */
+        disabled: React.PropTypes.bool,
+        /**
+            string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
+        */
+        fabSize: React.PropTypes.string,
+        /**
+            string (optional): icon name if it is an Material Design icon button
+
+            We defined some canonical names for icons and their meanings:
+
+            - 'edit': edit data
+            - 'delete': remove data
+            - 'arrow_nextpage': go to next page
+            - 'arrow_prevpage': go to previous page
+            - 'arrow_lastpage': go to last page
+            - 'arrow_firstpage': go to first page
+            - 'arrow_dropdown': open dropdown select
+            - 'expand_more': expand GUI element to show more details
+            - 'expand_less': reduce GUI element to show less details
+            - 'menu_more': open context menu
+            - 'filter': filter data
+            - 'sort': sort data
+            - 'hide': hide (or close/remove) GUI elements
+            - 'access_forbidden': no access to read and write data
+
+            For other symbols and icon names @see https://material.io/icons/
+        */
+        iconName: React.PropTypes.string,
+        /**
+            boolean (default: false): activate ripple effect on button
+        */
+        ripple: React.PropTypes.bool,
+        /**
+            React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
+        */
         tooltip: React.PropTypes.oneOfType([
             React.PropTypes.node,
             React.PropTypes.bool
         ]),
-        fabSize: React.PropTypes.string,
-        iconName: React.PropTypes.string,
-        ripple: React.PropTypes.bool,
+
+        // internal properties, used by button sub types
+
         affirmative: React.PropTypes.bool,
         dismissive: React.PropTypes.bool,
         disruptive: React.PropTypes.bool,
@@ -55,6 +126,13 @@ const Button = React.createClass({
 
     // template rendering
     render() {
+
+        /* TODO:
+
+        * add label/content as tooltip for icon/fab buttons
+        * add label as tooltip if children content is available
+
+        */
 
         const {
             className,

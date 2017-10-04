@@ -1,0 +1,47 @@
+.ecc-breadcrumbs {
+    @include typo-caption();
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: wrap;
+}
+
+.ecc-breadcrumbs__item {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    opacity: 0.61;
+
+    &:after {
+        display: inline-block;
+        content: '>';
+    }
+
+    &:last-child {
+        opacity: 1;
+        font-weight: bolder;
+
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.ecc-breadcrumbs__button {
+    display: inline-block;
+    border: 0;
+    margin: 0;
+    padding: $ecc-size-blockelement-padding-vertical / 2 $ecc-size-blockelement-padding-horizontal / 2;
+    font: inherit;
+    background-color: transparent;
+    color: inherit;
+    outline: none;
+    text-decoration: none;
+
+    &:not(span) {
+        cursor: pointer;
+    }
+}

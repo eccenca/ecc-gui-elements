@@ -8,6 +8,7 @@ import '@eccenca/material-design-lite';
 
 import MaterialMixin from './src/mixins/MaterialMixin';
 import PerformanceMixin from './src/mixins/PerformanceMixin';
+import ScrollingMixin from './src/mixins/ScrollingMixin';
 
 // GUI Elements
 
@@ -24,7 +25,13 @@ import {
     AffirmativeButton,
     DismissiveButton,
     DisruptiveButton,
+    ProgressButton,
 } from './src/elements/Button';
+
+import {
+    BreadcrumbList,
+    BreadcrumbItem,
+} from './src/elements/Breadcrumbs';
 
 import {
     Card,
@@ -86,17 +93,21 @@ import Version from './src/elements/Version/Version';
 export default {
     MaterialMixin,
     PerformanceMixin,
+    ScrollingMixin,
 
     Alert,
+    BreadcrumbList,
+    BreadcrumbItem,
     Button,
+    AffirmativeButton,
+    DismissiveButton,
+    DisruptiveButton,
+    ProgressButton,
     Card,
     CardTitle,
     CardMenu,
     CardContent,
     CardActions,
-    AffirmativeButton,
-    DismissiveButton,
-    DisruptiveButton,
     Checkbox,
     Chip,
     ChipVisual,
