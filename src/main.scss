@@ -12,14 +12,11 @@
 
 @import "./configuration.default";
 
-// -- Material Design Lite -----------------------------------------------------
+// -- Eccenca Material Design Lite -----------------------------------------------------
 
+// This also includes the react-mdl layout patch
 $image_path: "~@eccenca/material-design-lite/src/images" !default;
 @import "~@eccenca/material-design-lite/src/material-design-lite";
-
-// -- React MDL patch for MDL Layout container ---------------------------------
-
-@import "~react-mdl/extra/layout";
 
 // -- Own MDL & GUI extensions -------------------------------------------------
 
