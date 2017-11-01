@@ -23,7 +23,7 @@ const Icon = React.createClass({
     // @see https://github.com/google/material-design-icons/issues/311
     canonicalIcons: {
         'edit': 'mode_edit',
-        'delete': 'delete',
+        'remove': 'delete',
         'arrow_nextpage': 'navigate_next',
         'arrow_prevpage': 'navigate_before',
         'arrow_lastpage': 'skip_next', // TODO: workaround for 'last_page',
@@ -36,12 +36,13 @@ const Icon = React.createClass({
         'sort': 'swap_vert',
         'hide': 'close',
         'access_forbidden': 'lock_outline',
+        'delete': 'delete', // 'delete' is deprecated
     },
 
     // TODO: use translations
     canonicalTooltips: {
         'edit': 'Edit',
-        'delete': 'Delete',
+        'remove': 'Remove',
         'arrow_nextpage': 'Next page',
         'arrow_prevpage': 'Previous page',
         'arrow_lastpage': 'Last page',
@@ -54,6 +55,7 @@ const Icon = React.createClass({
         'sort': 'Sort data',
         'hide': 'Hide',
         'access_forbidden': 'No write access',
+        'delete': 'Remove', // 'delete' is deprecated
     },
 
     // template rendering

@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- fix the fallback tooltip for the delete/remove icon to "Remove."
 
 ## [2.20.1] 2017-10-16
 
