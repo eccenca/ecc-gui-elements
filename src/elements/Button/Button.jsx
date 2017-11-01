@@ -110,6 +110,9 @@ const Button = React.createClass({
     canonicalTooltips: {
         'edit': 'Edit',
         'remove': 'Remove',
+        'save': 'Save',
+        'confirm': 'Confirm',
+        'cancel': 'Cancel',
         'arrow_nextpage': 'Next page',
         'arrow_prevpage': 'Previous page',
         'arrow_lastpage': 'Last page',
@@ -118,11 +121,13 @@ const Button = React.createClass({
         'expand_more': 'Show more',
         'expand_less': 'Show less',
         'menu_more': 'Open menu',
+        'adjust': 'Adjust settings',
         'filter': 'Filter data',
         'sort': 'Sort data',
-        'hide': 'hide',
+        'hide': 'Hide',
+        'settings': 'Administrate settings',
         'access_forbidden': 'No write access',
-        'delete': 'Remove',
+        'delete': 'Remove', // 'delete' is deprecated
     },
 
     // template rendering

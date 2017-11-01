@@ -21,6 +21,9 @@ const TestIcons = React.createClass({
                     <h5>Basic Icons with Fallback tooltips</h5>
                     <Icon name="edit"/>
                     <Icon name="remove"/>
+                    <Icon name="save"/>
+                    <Icon name="confirm"/>
+                    <Icon name="cancel"/>
                     <Icon name="arrow_firstpage"/>
                     <Icon name="arrow_prevpage"/>
                     <Icon name="arrow_nextpage"/>
@@ -29,9 +32,11 @@ const TestIcons = React.createClass({
                     <Icon name="expand_more"/>
                     <Icon name="expand_less"/>
                     <Icon name="menu_more"/>
+                    <Icon name="adjust"/>
                     <Icon name="filter"/>
                     <Icon name="sort"/>
                     <Icon name="hide"/>
+                    <Icon name="settings"/>
                     <Icon name="access_forbidden"/>
                     <Icon name="delete"/>
                     <h5>Other Icons</h5>

@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Fixed
 - fix the fallback tooltip for the delete/remove icon to "Remove."
 
+### Added
+- insert canonical icons and fallback tooltips for 'save', 'confirm', 'cancel', 'adjust' and 'settings'
+
 ## [2.20.1] 2017-10-16
 
 ### Fixed
