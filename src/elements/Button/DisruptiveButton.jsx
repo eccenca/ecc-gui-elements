@@ -15,7 +15,7 @@ const Page = React.createClass({
     render() {
         return (
             <DisruptiveButton
-                iconName="delete"
+                iconName="remove"
                 tooltip="Remove data"
             />
         )
