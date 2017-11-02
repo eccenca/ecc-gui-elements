@@ -18,9 +18,7 @@ const Icon = React.createClass({
         ]),
     },
 
-    // cononical icons
-    // TODO: some icons are broken, probably because of bug in material icons release
-    // @see https://github.com/google/material-design-icons/issues/311
+    // cononical icon names
     canonicalIcons: {
         'edit': 'mode_edit',
         'remove': 'delete',
@@ -44,6 +42,7 @@ const Icon = React.createClass({
         'delete': 'delete', // 'delete' is deprecated
     },
 
+    // fallback tooltips for all canonocal icon names
     // TODO: use translations
     canonicalTooltips: {
         'edit': 'Edit',
@@ -86,13 +85,25 @@ const Icon = React.createClass({
 
         if (typeof this.canonicalIcons[name] !== 'undefined') {
             name = this.canonicalIcons[name];
+            if (name === 'delete' && __DEBUG__) {
+                console.warn('Do not us "delete" as icon name. Please use "remove" instead.');
+            }
         } else {
-            // TODO: add warning about usage of non-canonical icons
+            if (__DEBUG__) {
+                console.log(
+                    '%cFound usage of "' + name + '" as icon name. Use canonical icon names if possible.',
+                    'color: orange'
+                );
+            }
         }
         if (typeof ligaturcodes[name] !== 'undefined') {
             name = ligaturcodes[name];
         } else {
-            // TODO: add error about unknown ligature code/icon name
+            if (__DEBUG__) {
+                console.error(
+                    '"' + name + '" is not a valid icon name.'
+                );
+            }
         }
 
         const classes = classNames('material-icons', className);

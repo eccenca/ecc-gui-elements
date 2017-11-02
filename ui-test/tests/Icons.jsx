@@ -42,6 +42,7 @@ const TestIcons = React.createClass({
                     <h5>Other Icons</h5>
                     <Icon name="widgets" tooltip="no tooltip on the next (canonical) icon"/>
                     <Icon name="access_forbidden" tooltip={false}/>
+                    <Icon name="non_existing_icon_name" tooltip="Icon with non existent icon name"/>
                 </CardContent>
             </Card>
         );
