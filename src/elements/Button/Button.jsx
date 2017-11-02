@@ -69,7 +69,7 @@ const Button = React.createClass({
             We defined some canonical names for icons and their meanings:
 
             - 'edit': edit data
-            - 'delete': remove data
+            - 'remove': remove data
             - 'arrow_nextpage': go to next page
             - 'arrow_prevpage': go to previous page
             - 'arrow_lastpage': go to last page
@@ -109,7 +109,10 @@ const Button = React.createClass({
     /*eslint camelcase: 0 */
     canonicalTooltips: {
         'edit': 'Edit',
-        'delete': 'Delete',
+        'remove': 'Remove',
+        'save': 'Save',
+        'confirm': 'Confirm',
+        'cancel': 'Cancel',
         'arrow_nextpage': 'Next page',
         'arrow_prevpage': 'Previous page',
         'arrow_lastpage': 'Last page',
@@ -118,10 +121,13 @@ const Button = React.createClass({
         'expand_more': 'Show more',
         'expand_less': 'Show less',
         'menu_more': 'Open menu',
+        'adjust': 'Adjust settings',
         'filter': 'Filter data',
         'sort': 'Sort data',
-        'hide': 'hide',
+        'hide': 'Hide',
+        'settings': 'Administrate settings',
         'access_forbidden': 'No write access',
+        'delete': 'Remove', // 'delete' is deprecated
     },
 
     // template rendering
