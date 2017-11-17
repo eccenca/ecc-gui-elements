@@ -165,22 +165,24 @@ Returns:
 - `Content`: container for all page content elements beside header, drawer and footer
 - `Checkbox`: A checkbox with optional description
 - `Chip`: A chip element for visualized status
-- `ConfirmationDialog`: A message box with Buttons for confirmation and cancelation
+- `ConfirmationDialog`: A message box with Buttons for confirmation and cancellation
 - `ContextMenu`: A context menu with menu items
+- `DateField`: A date field input with calendar picker
+- `DateTimeField`: A date and time field input with calendar picker
 - `FloatingActionList`: provides FAB functionality for one and more actions, mainly for usage within cards
 - `Icon`: Icons with optional tooltips. Uses [mdl icons](https://design.google.com/icons/) which can be used with their ligature names.
 - `Layout`: container of the MDL application
 - `NotAvailable`: very simple element to use as "not available" placeholder information
 - `Nothing`: Literally Nothing
+- `Pagination`: A page control element
 - `Progressbar`: Progressbar which may be placed globally or locally in a component
 - `RadioGroup` and `Radio`: A radio button with optional label and grouping
 - `SelectBox`: A selection box for choosing predefined values
 - `Spinner`: Progressbar which may be placed globally or locally in a component
 - `Switch`: A simple binary switch (a nicer checkbox)
 - `Tabs`: A tabs container which manages tabbing behaviour
+- `TextField`: A text field with floating label. Wrapper around [React-MDL Textfield]()
 - `Version`: A normalised string output of product version
-- `Pagination`: A page control element
-- `TextField`: A TextField with floating label. Wrapper around [React-MDL Textfield]()
 
 Usage is as simple as importing and rendering the components.
 
@@ -555,7 +557,7 @@ const Page = React.createClass({
 
 `<ChipVisual/>` supports images, icons and text labels.
 
-```jsx
+```js
 import { ChipVisual, Chip } from 'ecc-gui-elements';
 const Page = React.createClass({
     // template rendering
@@ -709,6 +711,77 @@ const Page = React.createClass({
                 <MenuItem>Another Menu Item</MenuItem>
                 <MenuItem>Alright</MenuItem>
             </ContextMenu>
+        )
+    },
+    // ....
+});
+
+```
+
+### DateField
+
+```js
+import { DateField } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // value is the date shown to the user
+    // rawValue is the ISO 8601 representation if value is valid
+    // isValid indicates if given value matches the defined representation
+    onChange({value, rawValue, isValid}) {
+        this.setState({
+            value,
+        })
+    },
+    // template rendering
+    render() {
+        return (
+            <DateField
+                onChange={this.onChange}
+                value={this.state.value}
+                placeholder="Pls set a date" // optional (default: '')                
+                dateFormat="DD-MM-YYYY" // validate date format, optional (default 'DD-MM-YYYY')
+                initialFormat="MM-DD-YYYY" // transform the initial input value, optional (default undefined)
+                closeOnSelect={true} // auto close picker when a date is selected, optional (default: false) 
+                input={false} // hide the input element (picker will be always displayed), optional (default: true) 
+                disabled={true} // prevent selecting a date, optional (default: false) 
+                inputClassName="customDateName"// extra class name on input element, optional (default: '') 
+            />
+        )
+    },
+    // ....
+});
+
+```
+
+### DateTimeField
+
+```js
+import { DateTimeField } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // value is the date shown to the user
+        // rawValue is the ISO 8601 representation if value is valid
+        // isValid indicates if given value matches the defined representation
+        onChange({value, rawValue, isValid}) {
+            this.setState({
+                value,
+            })
+        },
+    // template rendering
+    render() {
+        return (
+            <DateTimeField
+                onChange={this.onChange}
+                value={this.state.value}
+                placeholder="Pls set a date" // optional (default: '')                
+                dateFormat="DD-MM-YYYY" // validate date format, optional (default 'DD-MM-YYYY')
+                timeFormat="hh:mm a Z", // validate time format, optional (default 'hh:mm a')
+                initialFormat="MM-DD-YYYY" // transform the initial input value, optional (default undefined)
+                closeOnSelect={true} // auto close picker when a date is selected, optional (default: false) 
+                input={false} // hide the input element (picker will be always displayed), optional (default: true) 
+                disabled={true} // prevent selecting a date, optional (default: false) 
+                inputClassName="customDateName"// extra class name on input element, optional (default: '') 
+            />
         )
     },
     // ....
