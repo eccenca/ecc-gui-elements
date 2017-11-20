@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.22.0] 2017-11-20
+
+### Fixed
+- use icon from `<FloatingActionList/>` on one item lists as fallback if the single action item has no icon configured
+
 ## [2.21.0] 2017-11-02
 
 ### Fixed

@@ -67,10 +67,10 @@ class TestButtons extends React.PureComponent {
                 </CardContent>
                 <CardActions fixed={true}>
                     <FloatingActionList
+                        iconName="edit"
                         actions={
                             [
                                 {
-                                    icon: 'edit',
                                     label: 'Something',
                                     handler: function(){alert('You clicked the FAB.');}
                                 }
