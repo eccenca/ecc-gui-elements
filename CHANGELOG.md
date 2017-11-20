@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- use icon from `<FloatingActionList/>` on one item lists as fallback if the single action item has no icon configured
 
 ## [2.21.0] 2017-11-02
 
