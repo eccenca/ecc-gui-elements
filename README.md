@@ -453,8 +453,8 @@ const Page = React.createClass({
                     </CardContent>
                     <FloatingActionList
                         className={'my-own-class'} // string, element can be enhanced with additional CSS classes
-                        fabSize={'mini|larege'} // string, what FAB size should be used, default: 'large'
-                        fixedActions={false|true} // boolean, if FAB should be always visible sticky on botton when card is only partly shown, default: false
+                        fabSize={'mini|large'} // string, what FAB size should be used, default: 'large'
+                        fixed={false|true} // boolean, if FAB should be always visible sticky on botton when card is only partly shown, default: false
                         iconName={'add'} // string, name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given the action icon is used.
                         actions={
                             [
