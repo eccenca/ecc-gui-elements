@@ -69,7 +69,7 @@ const FloatingActionList = React.createClass({
                             }
                         )
                     }
-                    iconName={actions.length > 1 ? iconName : actions[0].icon}
+                    iconName={(actions.length > 1 || !actions[0].icon) ? iconName : actions[0].icon}
                     fabSize={fabSize}
                     colored
                     tooltip={actions.length > 1 ? false : actions[0].label}
