@@ -741,10 +741,10 @@ const Page = React.createClass({
                 placeholder="Pls set a date" // optional (default: '')                
                 dateFormat="DD-MM-YYYY" // validate date format, optional (default 'DD-MM-YYYY')
                 initialFormat="MM-DD-YYYY" // transform the initial input value, optional (default undefined)
-                closeOnSelect={true} // auto close picker when a date is selected, optional (default: false) 
-                input={false} // hide the input element (picker will be always displayed), optional (default: true) 
-                disabled={true} // prevent selecting a date, optional (default: false) 
-                inputClassName="customDateName"// extra class name on input element, optional (default: '') 
+                closeOnSelect={true} // auto close picker when a date is selected, optional (default: false)
+                input={false} // hide the input element (picker will be always displayed), optional (default: true)
+                disabled={true} // prevent selecting a date, optional (default: false)
+                inputClassName="customDateName"// extra class name on input element, optional (default: '')
             />
         )
     },
@@ -773,14 +773,17 @@ const Page = React.createClass({
             <DateTimeField
                 onChange={this.onChange}
                 value={this.state.value}
-                placeholder="Pls set a date" // optional (default: '')                
+                label="Label for DateTime input" // optional
+                placeholder="Pls set a date" // optional (default: '') and only used if there is no label
                 dateFormat="DD-MM-YYYY" // validate date format, optional (default 'DD-MM-YYYY')
                 timeFormat="hh:mm a Z", // validate time format, optional (default 'hh:mm a')
                 initialFormat="MM-DD-YYYY" // transform the initial input value, optional (default undefined)
-                closeOnSelect={true} // auto close picker when a date is selected, optional (default: false) 
-                input={false} // hide the input element (picker will be always displayed), optional (default: true) 
-                disabled={true} // prevent selecting a date, optional (default: false) 
-                inputClassName="customDateName"// extra class name on input element, optional (default: '') 
+                closeOnSelect={true} // auto close picker when a date is selected, optional (default: false)
+                input={false} // hide the input element (picker will be always displayed), optional (default: true)
+                disabled={true} // prevent selecting a date, optional (default: false)
+                stretch={false} // use full width for input field (default: true)
+                error="This is a error message" // optional string
+                inputClassName="customDateName"// extra class name on input element, optional (default: '')
             />
         )
     },
