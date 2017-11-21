@@ -9,6 +9,7 @@ const DateField = React.createClass({
     mixins: [PerformanceMixin],
 
     propTypes: {
+        label: React.PropTypes.string, // input label as string
         value: React.PropTypes.oneOfType([
             React.PropTypes.string, // date value as string
             React.PropTypes.object, // can be a moment object as well
@@ -86,8 +87,8 @@ const DateField = React.createClass({
     renderInput: function(props) {
         return (
             <TextField
-                className="my-class"
-                onChange={this.extendedOnChange}
+                stretch={this.props.stretch}
+                //onChange={this.extendedOnChange}
                 {...props}
             />
         );
@@ -96,7 +97,7 @@ const DateField = React.createClass({
     render() {
         const {
             // outer props
-            value, onChange, dateFormat, timeFormat,
+            label, value, onChange, dateFormat, timeFormat,
             // inner props
             placeholder, disabled, inputClassName,
             // rest outer props
@@ -105,7 +106,7 @@ const DateField = React.createClass({
         delete otherProps.initialFormat;
 
         const inputProps = {
-            placeholder: placeholder,
+            label: label || placeholder,
             disabled: disabled,
             className: inputClassName,
         };

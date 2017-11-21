@@ -328,10 +328,14 @@ const TestInputs = React.createClass({
                     <h5>Datefields</h5>
                     date only fields (8th, February 2017)<br/>
                     <DateField
+                        label="Date label"
+                        stretch={false}
                         value={this.state.dateInput[0]}
                         onChange={this.updateDateInput.bind(null, 0)}
                     />
                     <DateField
+                        placeholder="Date placeholder"
+                        stretch={false}
                         value={this.state.dateInput[1]}
                         onChange={this.updateDateInput.bind(null, 1)}
                     />
