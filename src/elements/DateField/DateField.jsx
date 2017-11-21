@@ -84,12 +84,23 @@ const DateField = React.createClass({
         }
     },
 
+    textfieldOnChange({rawValue}) {
+        if (rawValue !== this.props.value && _.isFunction(this.props.onChange)) {
+            this.extendedOnChange(
+                {
+                    onChange: this.props.onChange,
+                    value: rawValue
+                }
+            );
+        }
+    },
+
     renderInput: function(props) {
         return (
             <TextField
-                stretch={this.props.stretch}
-                //onChange={this.extendedOnChange}
                 {...props}
+                stretch={this.props.stretch}
+                onChange={this.textfieldOnChange}
             />
         );
     },
