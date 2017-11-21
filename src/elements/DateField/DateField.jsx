@@ -109,7 +109,7 @@ const DateField = React.createClass({
     render() {
         const {
             // outer props
-            label, value, onChange, dateFormat, timeFormat,
+            label, value, onChange, dateFormat, timeFormat, className,
             // inner props
             placeholder, disabled, inputClassName,
             // rest outer props
@@ -120,7 +120,7 @@ const DateField = React.createClass({
         const inputProps = {
             label: label || placeholder,
             disabled: disabled,
-            className: inputClassName,
+            className: className || inputClassName,
         };
 
         // try to convert value to moment object

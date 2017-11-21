@@ -333,6 +333,7 @@ const TestInputs = React.createClass({
                         error="This error is shown."
                         value={this.state.dateInput[0]}
                         onChange={this.updateDateInput.bind(null, 0)}
+                        className="my-uitest-class"
                     />
                     <DateField
                         placeholder="Date placeholder"
