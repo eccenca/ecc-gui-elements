@@ -100,6 +100,7 @@ const DateField = React.createClass({
             <TextField
                 {...props}
                 stretch={this.props.stretch}
+                error={this.props.error}
                 onChange={this.textfieldOnChange}
             />
         );

@@ -1,7 +1,7 @@
 // -- Import CSS from react-datetime -------------------------------------------------
 @import "~react-datetime/css/react-datetime.css";
 
-.rdtOpen {
+.rdt {
     .mdl-textfield {
         padding-bottom: 0;
     }
@@ -9,6 +9,8 @@
     .mdl-textfield__label:after {
         bottom: 0;
     }
+
+    padding-bottom: $input-text-vertical-spacing;
 }
 
 .rdtPicker {
@@ -35,11 +37,6 @@
         color: $button-secondary-color-disabled;
     }
 
-    td.rdtActive, td.rdtActive:hover {
-        color: $ecc-color-accent-contrast;
-        background-color: $ecc-color-accent;
-    }
-
     td.rdtToday:before {
         border-bottom-color: $ecc-color-accent;
     }
@@ -52,6 +49,11 @@
         &:hover, &:focus {
             background-color: $button-hover-color;
         }
+    }
+
+    td.rdtActive, td.rdtActive:hover {
+        color: $ecc-color-accent-contrast;
+        background-color: $ecc-color-accent;
     }
 
     .rdtStatic & {

@@ -330,6 +330,7 @@ const TestInputs = React.createClass({
                     <DateField
                         label="Date label"
                         stretch={false}
+                        error="This error is shown."
                         value={this.state.dateInput[0]}
                         onChange={this.updateDateInput.bind(null, 0)}
                     />
