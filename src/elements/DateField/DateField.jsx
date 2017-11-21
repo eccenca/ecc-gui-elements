@@ -2,6 +2,7 @@ import React from 'react';
 import Datetime from 'react-datetime';
 import _ from 'lodash';
 import moment from 'moment';
+import TextField from './../TextField/TextField';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 const DateField = React.createClass({
@@ -82,6 +83,16 @@ const DateField = React.createClass({
         }
     },
 
+    renderInput: function(props) {
+        return (
+            <TextField
+                className="my-class"
+                onChange={this.extendedOnChange}
+                {...props}
+            />
+        );
+    },
+
     render() {
         const {
             // outer props
@@ -103,17 +114,16 @@ const DateField = React.createClass({
         const inputValue = moment(value, this.getFormatting(), true);
 
         return (
-            <div>
-                <Datetime
-                    value={moment(inputValue).isValid() ? inputValue : value}
-                    onChange={newValue => {this.extendedOnChange({onChange, value: newValue})}}
-                    dateFormat={dateFormat}
-                    timeFormat={timeFormat}
-                    strictParsing
-                    inputProps={inputProps}
-                    {...otherProps}
-                />
-            </div>
+            <Datetime
+                value={moment(inputValue).isValid() ? inputValue : value}
+                onChange={newValue => {this.extendedOnChange({onChange, value: newValue})}}
+                dateFormat={dateFormat}
+                timeFormat={timeFormat}
+                strictParsing
+                inputProps={inputProps}
+                renderInput={this.renderInput}
+                {...otherProps}
+            />
         );
     },
 });
