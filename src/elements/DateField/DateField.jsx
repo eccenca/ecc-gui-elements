@@ -33,7 +33,7 @@ const DateField = React.createClass({
     getDefaultProps() {
         return {
             timeFormat: false,
-            dateFormat: 'DD-MM-YYYY',
+            dateFormat: 'YYYY-MM-DD',
         };
     },
 
@@ -47,43 +47,57 @@ const DateField = React.createClass({
     },
 
     // construct the date/time for moment
-    getFormatting() {
+    getFormats() {
         const {dateFormat, timeFormat} = this.props;
         // set format output
-        let format = '';
-        // of only time is given
-        if (!dateFormat && timeFormat) {
-            format = timeFormat;
-            // if only date is given
-        } else if (dateFormat && !timeFormat) {
-            format = dateFormat;
-            // if time and date is given
-        } else if (dateFormat && timeFormat) {
-            format = dateFormat + ', ' + timeFormat;
+        let fullFormat = [];
+        let date = false;
+        let time = false;
+
+        if(dateFormat) {
+            date = _.isString(dateFormat) ? dateFormat : 'YYYY-MM-DD';
+            fullFormat.push(date);
         }
-        return format;
+
+        if(timeFormat) {
+            time = _.isString(timeFormat) ? timeFormat : 'HH:mm:ss';
+            fullFormat.push(time);
+        }
+
+        if(_.isEmpty(fullFormat)){
+            throw new Error('Datefield: Please define dateFormat, timeFormat or both.');
+        }
+
+        return {
+            date,
+            time,
+            full: fullFormat.join(' '),
+        };
     },
-
+    convertToMoment(value, format){
+        if(moment.isMoment(value)){
+            return value;
+        }
+        return moment(value, format, true);
+    },
     extendedOnChange ({onChange, value}) {
-        // try to strict format moment object to date
-        const formattedValue = moment(value).format(this.getFormatting());
 
-        // check if date is a correct moment object
-        const isValid = moment(value, this.getFormatting(), true).isValid();
+        const format = this.getFormats().full;
+
+        const newValue = this.convertToMoment(value, format);
+        const oldValue = this.convertToMoment(this.props.value, format);
 
         // only return value if value is a new one
-        if (formattedValue !== this.props.value && _.isFunction(onChange)) {
+        if (!oldValue.isSame(newValue) && _.isFunction(onChange)) {
             onChange({
-                value: _.isString(value) ? value : formattedValue,
-                // FIXME: should we return the moment object as raw value (that's the true raw) or just full datetime format (as it is now)?
-                // if valid return ISO 8601 format else plain string
-                rawValue: isValid ? moment(value).format() : value,
-                isValid,
+                value: newValue,
+                rawValue: newValue,
+                isValid: newValue.isValid(),
             });
         }
     },
 
-    textfieldOnChange({rawValue}) {
+    textFieldOnChange({rawValue}) {
         if (rawValue !== this.props.value && _.isFunction(this.props.onChange)) {
             this.extendedOnChange(
                 {
@@ -100,7 +114,7 @@ const DateField = React.createClass({
                 {...props}
                 stretch={this.props.stretch}
                 error={this.props.error}
-                onChange={this.textfieldOnChange}
+                onChange={this.textFieldOnChange}
             />
         );
     },
@@ -108,13 +122,15 @@ const DateField = React.createClass({
     render() {
         const {
             // outer props
-            label, value, onChange, dateFormat, timeFormat, className,
+            label, value, onChange , className,
             // inner props
             placeholder, disabled, inputClassName,
             // rest outer props
             ...otherProps
         } = this.props;
         delete otherProps.initialFormat;
+        delete otherProps.dateFormat;
+        delete otherProps.timeFormat;
 
         const inputProps = {
             label: label || placeholder,
@@ -122,15 +138,17 @@ const DateField = React.createClass({
             className: className || inputClassName,
         };
 
+        const formats = this.getFormats();
+
         // try to convert value to moment object
-        const inputValue = moment(value, this.getFormatting(), true);
+        const inputValue = this.convertToMoment(value, formats.full);
 
         return (
             <Datetime
                 value={inputValue.isValid() ? inputValue : inputValue.creationData().input}
                 onChange={newValue => {this.extendedOnChange({onChange, value: newValue})}}
-                dateFormat={dateFormat}
-                timeFormat={timeFormat}
+                dateFormat={formats.date}
+                timeFormat={formats.time}
                 strictParsing
                 inputProps={inputProps}
                 renderInput={this.renderInput}
