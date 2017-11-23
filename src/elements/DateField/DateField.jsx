@@ -15,7 +15,6 @@ const DateField = React.createClass({
             React.PropTypes.object, // can be a moment object as well
         ]),
         onChange: React.PropTypes.func.isRequired, // on change function
-        initialFormat: React.PropTypes.string, // only applied for initial given value
         timeFormat: React.PropTypes.oneOfType([
             React.PropTypes.string, // time format as string
             React.PropTypes.bool, // time select can be disabled
@@ -24,7 +23,6 @@ const DateField = React.createClass({
             React.PropTypes.string, // date format as string
             React.PropTypes.bool, // date select can be disabled
         ]),
-        initialFormat: React.PropTypes.string, // initial time and/or date format as string
         placeholder: React.PropTypes.string, // text shown on empty input element
         disabled: React.PropTypes.bool, // prevent change of input element
         inputClassName: React.PropTypes.string, // class name of input element
@@ -40,10 +38,11 @@ const DateField = React.createClass({
     },
 
     componentWillMount() {
-        const {value, onChange, dateFormat, timeFormat, initialFormat = ''} = this.props;
+        const {value, onChange} = this.props;
         // initial input formatting
-        if (!_.isEmpty(value)) {
-            this.extendedOnChange({onChange, dateFormat, timeFormat, value: moment(value, initialFormat)});
+        if (!moment.isMoment(value)) {
+            console.warn('Datefield: Please provide the value as a Moment Object, otherwise it could result in false value conversions');
+            this.extendedOnChange({onChange, value});
         }
     },
 
@@ -128,7 +127,7 @@ const DateField = React.createClass({
 
         return (
             <Datetime
-                value={moment(inputValue).isValid() ? inputValue : value}
+                value={inputValue.isValid() ? inputValue : inputValue.creationData().input}
                 onChange={newValue => {this.extendedOnChange({onChange, value: newValue})}}
                 dateFormat={dateFormat}
                 timeFormat={timeFormat}

@@ -13,6 +13,7 @@ import {
     DateField,
     DateTimefield,
 } from '../../index.js';
+import moment from 'moment';
 
 const TestInputs = React.createClass({
     getInitialState() {
@@ -26,18 +27,18 @@ const TestInputs = React.createClass({
             selectedRadio: '',
             dateInput:[
                 // date only
-                '2017-02-08',
-                '2017-02-08 09:30:26',
-                '08-02-2017',
-                '02-08-2017',
-                '',
+                moment('2017-02-08'),
+                moment('2017-02-08 09:30:26'),
+                moment('08-02-2017', 'DD-MM-YYYY'),
+                moment('02-08-2017', 'MM-DD-YYYY'),
+                moment(''),
                 // time only
-                '14:23',
-                '02:23 pm',
-                '2:23 pm',
+                moment('14:23', 'HH:mm'),
+                moment('02:23 pm', 'hh:mm a'),
+                moment('2:23 pm', 'hh:mm:a'),
                 // combined
-                '2017-02-08 09:30:26',
-                '',
+                moment('2017-02-08 09:30:26'),
+                moment(''),
             ],
         };
     },
@@ -344,12 +345,10 @@ const TestInputs = React.createClass({
                     <DateField
                         value={this.state.dateInput[2]}
                         onChange={this.updateDateInput.bind(null, 2)}
-                        initialFormat="DD-MM-YYYY"
                     />
                     <DateField
                         value={this.state.dateInput[3]}
                         onChange={this.updateDateInput.bind(null, 3)}
-                        initialFormat="MM-DD-YYYY"
                     />
                     <DateField
                         value={this.state.dateInput[4]}
@@ -362,19 +361,16 @@ const TestInputs = React.createClass({
                         value={this.state.dateInput[5]}
                         onChange={this.updateDateInput.bind(null, 5)}
                         dateFormat={false}
-                        initialFormat="HH:mm"
                     />
                     <DateTimefield
                         value={this.state.dateInput[6]}
                         onChange={this.updateDateInput.bind(null, 6)}
                         dateFormat={false}
-                        initialFormat="hh:mm a"
                     />
                     <DateTimefield
                         value={this.state.dateInput[7]}
                         onChange={this.updateDateInput.bind(null, 7)}
                         dateFormat={false}
-                        initialFormat="hh:mm a"
                     />
                     date and time
                     <DateTimefield
@@ -383,7 +379,7 @@ const TestInputs = React.createClass({
                     />
                     no manual input
                     <br/>
-                    Selected date: {this.state.dateInput[9]}
+                    Selected date: {this.state.dateInput[9].format()}
                     <DateTimefield
                         value={this.state.dateInput[9]}
                         onChange={this.updateDateInput.bind(null, 9)}
