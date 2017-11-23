@@ -4,13 +4,16 @@ import {
     Card,
     CardTitle,
     CardContent,
+    CardActions,
 } from '../../index.js';
 import ScrollingMixin from '../../src/mixins/ScrollingMixin';
 
 const TestScrolling = React.createClass({
     mixins: [ScrollingMixin],
     componentDidMount() {
-        this.scrollIntoView();
+        this.scrollIntoView({
+            topOffset: 10,
+        });
     },
     render() {
 
@@ -32,9 +35,16 @@ const TestScrolling = React.createClass({
                 <CardTitle documentLevel="h4">
                     Test scrolling support
                 </CardTitle>
-                <CardContent>
-                    {scrollHandlerButtons}
+                <CardContent
+                    className="uitest-highred"
+                >
+                    <p>
+                        Content is higher than the viewport. Can you see the top part of this section?
+                    </p>
                 </CardContent>
+                <CardActions>
+                    {scrollHandlerButtons}
+                </CardActions>
             </Card>
         );
     }

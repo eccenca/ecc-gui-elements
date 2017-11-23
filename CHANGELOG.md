@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.23.1] 2017-11-23
+
+### Fixed
+- auto scroll always to top of element to prevent problems in cases when the element is higher than the viewport
+
 ## [2.23.0] 2017-11-23
 
 ### Added
