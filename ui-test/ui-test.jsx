@@ -76,18 +76,6 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestAlerts ref={alerts => this.testAlerts = alerts} />,
             <hr className="mdl-layout-spacer"/>,
-            <TestDialogs />,
-            <hr className="mdl-layout-spacer"/>,
-            // <TestStepper />,
-            // <hr className="mdl-layout-spacer"/>,
-            <TestIcons />,
-            <hr className="mdl-layout-spacer"/>,
-            <TestButtons ref={buttons => this.testButtons = buttons} />,
-            <hr className="mdl-layout-spacer"/>,
-            <TestInputs />,
-            <hr className="mdl-layout-spacer"/>,
-            <TestTabs />,
-            <hr className="mdl-layout-spacer"/>,
             <TestScrolling
                 scrollTestCases={
                     [
@@ -109,6 +97,18 @@ const Page = React.createClass({
                     ]
                 }
             />,
+            <hr className="mdl-layout-spacer"/>,
+            <TestDialogs />,
+            <hr className="mdl-layout-spacer"/>,
+            // <TestStepper />,
+            // <hr className="mdl-layout-spacer"/>,
+            <TestIcons />,
+            <hr className="mdl-layout-spacer"/>,
+            <TestButtons ref={buttons => this.testButtons = buttons} />,
+            <hr className="mdl-layout-spacer"/>,
+            <TestInputs />,
+            <hr className="mdl-layout-spacer"/>,
+            <TestTabs />,
             <hr className="mdl-layout-spacer"/>,
             <TestPagination />,
             <hr className="mdl-layout-spacer"/>,
