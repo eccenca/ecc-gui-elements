@@ -10,7 +10,10 @@ import {
     SelectBox,
     Switch,
     TextField,
+    DateField,
+    DateTimefield,
 } from '../../index.js';
+import moment from 'moment';
 
 const TestInputs = React.createClass({
     getInitialState() {
@@ -21,7 +24,22 @@ const TestInputs = React.createClass({
             selectBox4: '',
             switches: [false, true, undefined, undefined, true, false],
             textInput: ['5'],
-            selectedRadio: ''
+            selectedRadio: '',
+            dateInput:[
+                // date only
+                moment('2017-02-08'),
+                moment('2017-02-08 09:30:26'),
+                moment('08-02-2017', 'DD-MM-YYYY'),
+                moment('02-08-2017', 'MM-DD-YYYY'),
+                moment(''),
+                // time only
+                moment('14:23', 'HH:mm'),
+                moment('02:23 pm', 'hh:mm a'),
+                moment('2:23 pm', 'hh:mm:a'),
+                // combined
+                moment('2017-02-08 09:30:26'),
+                moment(''),
+            ],
         };
     },
 
@@ -63,6 +81,15 @@ const TestInputs = React.createClass({
         textInput[index] = value;
         this.setState({
             textInput,
+        });
+    },
+
+    updateDateInput(index, {rawValue, value, isValid}) {
+        console.log('New Date is:', value, '(' + (isValid ? 'valid' : 'invalid') + ')', 'Raw:', rawValue);
+        const dateInput = this.state.dateInput;
+        dateInput[index] = value;
+        this.setState({
+            dateInput,
         });
     },
 
@@ -297,6 +324,66 @@ const TestInputs = React.createClass({
                         label="Test Input"
                         error="Something went wrong, so this error is shown."
                         onChange={this.updateTextInput.bind(null, 0)}
+                    />
+
+                    <h5>Datefields</h5>
+                    date only fields (8th, February 2017)<br/>
+                    <DateField
+                        label="Date label"
+                        stretch={false}
+                        error="This error is shown."
+                        value={this.state.dateInput[0]}
+                        onChange={this.updateDateInput.bind(null, 0)}
+                        className="my-uitest-class"
+                    />
+                    <DateField
+                        placeholder="Date placeholder"
+                        stretch={false}
+                        value={this.state.dateInput[1]}
+                        onChange={this.updateDateInput.bind(null, 1)}
+                    />
+                    <DateField
+                        value={this.state.dateInput[2]}
+                        onChange={this.updateDateInput.bind(null, 2)}
+                    />
+                    <DateField
+                        value={this.state.dateInput[3]}
+                        onChange={this.updateDateInput.bind(null, 3)}
+                    />
+                    <DateField
+                        value={this.state.dateInput[4]}
+                        onChange={this.updateDateInput.bind(null, 4)}
+                        closeOnSelect
+                        placeholder="picker disappear on select"
+                    />
+                    time only fields (14:23)<br/>
+                    <DateTimefield
+                        value={this.state.dateInput[5]}
+                        onChange={this.updateDateInput.bind(null, 5)}
+                        dateFormat={false}
+                    />
+                    <DateTimefield
+                        value={this.state.dateInput[6]}
+                        onChange={this.updateDateInput.bind(null, 6)}
+                        dateFormat={false}
+                    />
+                    <DateTimefield
+                        value={this.state.dateInput[7]}
+                        onChange={this.updateDateInput.bind(null, 7)}
+                        dateFormat={false}
+                    />
+                    date and time
+                    <DateTimefield
+                        value={this.state.dateInput[8]}
+                        onChange={this.updateDateInput.bind(null, 8)}
+                    />
+                    no manual input
+                    <br/>
+                    Selected date: {this.state.dateInput[9].format()}
+                    <DateTimefield
+                        value={this.state.dateInput[9]}
+                        onChange={this.updateDateInput.bind(null, 9)}
+                        input={false}
                     />
                 </CardContent>
             </Card>
