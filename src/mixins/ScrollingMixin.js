@@ -47,6 +47,7 @@ const ScrollingMixin = {
             {
                 time: _.get(options, 'animationTime', 500),
                 align: {
+                    top: 0, // align it to the top, or user cannot see top part if element is higher than the viewport
                     topOffset: _.get(options, 'topOffset', 0),
                 },
                 /*
