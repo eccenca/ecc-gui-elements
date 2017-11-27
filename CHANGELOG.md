@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.23.2] 2017-11-27
+
+### Fixed
+- calculation of current page in case of 0 results
+
 ## [2.23.1] 2017-11-23
 
 ### Fixed
