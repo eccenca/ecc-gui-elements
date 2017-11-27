@@ -10,9 +10,9 @@ const calculatePagination = ({limit, offset, totalResults}) => {
         limit,
         offset,
         totalResults,
-        onFirstPage: offset === 0,
+        onFirstPage: offset === 0 || totalResults === 0,
         onLastPage,
-        currentPage: _.floor(offset / limit),
+        currentPage: Math.min(_.ceil(totalResults / limit), _.floor(1+ offset / limit)),
         totalPages: _.ceil(totalResults / limit),
         lastItemOnPage: onLastPage ? totalResults : offset + limit,
     };
@@ -158,7 +158,7 @@ const Pagination = React.createClass({
         let pageInfo = '';
 
         if (offsetAsPage) {
-            pageInfo = `${currentPage + 1} of ${totalPages}`;
+            pageInfo = `${currentPage} of ${totalPages}`;
         } else {
             const start = offset + 1 === lastItemOnPage ? lastItemOnPage : `${offset + 1} - ${lastItemOnPage}`;
             pageInfo = `${start} of ${totalResults}`;
