@@ -29,27 +29,28 @@ const TestPagination = React.createClass({
                     Test Pagination
                 </CardTitle>
                 <CardContent>
-                    <h5>Pagination with Elements</h5>
+                    <h5>Pagination of 81 elements displaying elements</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
                         limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
-                        totalResults={88}
+                        totalResults={81}
                         newLimitText="Elements per Page"
                         onChange={this.handlePaginationChange}
                         offsetAsPage={false}
-                        isTopPagination={true}
                     />
+                    <h5>Pagination of 81 elements displaying pages</h5>
+                    Note: if offset is not a multiple of limit the page can be shown wrong
+                    because page have to change offset by itself to fit "one page" instead
+                    of e.g. show last elements from page 2 and first elements form page 3.
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
-                        totalResults={88}
-                        newLimitText="Elements per Page"
+                        totalResults={81}
                         onChange={this.handlePaginationChange}
-                        offsetAsPage={false}
+                        offsetAsPage={true}
                     />
-                    <h5>Pagination without elements</h5>
+                    <h5>Pagination of 0 elements displaying elements</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
@@ -57,21 +58,7 @@ const TestPagination = React.createClass({
                         onChange={this.handlePaginationChange}
                         offsetAsPage={false}
                     />
-                    <h5>Pagination with Page</h5>
-                    Note: if offset is not a multiple of limit the page can be shown wrong
-                    because page have to change offset by itself to fit "one page" instead
-                    of e.g. show last elements from page 2 and first elements form page 3
-                    <Pagination
-                        offset={this.state.paginationOffset}
-                        limit={this.state.paginationLimit}
-                        totalResults={88}
-                        onChange={this.handlePaginationChange}
-                        offsetAsPage={true}
-                    />
-                    <h5>Pagination without elements and with Page</h5>
-                    Note: if offset is not a multiple of limit the page can be shown wrong
-                    because page have to change offset by itself to fit "one page" instead
-                    of e.g. show last elements from page 2 and first elements form page 3
+                    <h5>Pagination of 0 elements displaying pages</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
