@@ -15,7 +15,6 @@ import TestInputs from './tests/Inputs';
 import TestTabs from './tests/Tabs';
 import TestScrolling from './tests/Scrolling';
 import TestPagination from './tests/Pagination';
-import TestTooltips from './tests/Tooltips';
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
 import ScrollingMixin from './../src/mixins/ScrollingMixin';
 
@@ -101,8 +100,8 @@ const Page = React.createClass({
             <hr className="mdl-layout-spacer"/>,
             <TestDialogs />,
             <hr className="mdl-layout-spacer"/>,
-            <TestTooltips />,
-            <hr className="mdl-layout-spacer"/>,
+            // <TestStepper />,
+            // <hr className="mdl-layout-spacer"/>,
             <TestIcons />,
             <hr className="mdl-layout-spacer"/>,
             <TestButtons ref={buttons => this.testButtons = buttons} />,

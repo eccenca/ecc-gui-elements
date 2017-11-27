@@ -88,8 +88,6 @@ import Tabs from './src/elements/Tabs/Tabs';
 
 import TextField from './src/elements/TextField/TextField';
 
-import Tooltip from './src/elements/Tooltip/Tooltip';
-
 import {DateField, DateTimefield} from './src/elements/DateField';
 
 import Version from './src/elements/Version/Version';
@@ -141,5 +139,4 @@ export default {
     TextField,
     DateField,
     DateTimefield,
-    Tooltip,
 };
