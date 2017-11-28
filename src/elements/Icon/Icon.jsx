@@ -97,20 +97,21 @@ const Icon = React.createClass({
             }
         }
         if (typeof ligaturcodes[name] !== 'undefined') {
-            name = ligaturcodes[name];
+            name = '&#x' + ligaturcodes[name] + ';';
         } else {
             if (__DEBUG__) {
                 console.error(
                     '"' + name + '" is not a valid icon name.'
                 );
             }
+            name = '&#x' + ligaturcodes['error'] + ';';
         }
 
         const classes = classNames('material-icons', className);
 
         let icon = (
                 <i className={classes} {...otherProps}
-                  dangerouslySetInnerHTML={{__html: `&#x${name};`}} />
+                  dangerouslySetInnerHTML={{__html: name}} />
         );
 
         if (tooltip) {
