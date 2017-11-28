@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
-import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
+import Tooltip from '../Tooltip/Tooltip';
 import Button from './Button';
 import Progressbar from '../Progressbar/Progressbar';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
@@ -123,11 +123,11 @@ const ProgressButton = React.createClass({
         if (typeof tooltip !== 'undefined' && tooltip) {
             const lastUpdate = this.state.lastUpdate ? this.state.lastUpdate + ' ' : '';
             progressbar = (
-                <ReactMDLTooltip
+                <Tooltip
                     label={this.state.progress ? `${lastUpdate}${tooltip}: ${this.state.progress}%` : lastUpdate + tooltip}
                 >
                     {progressbar}
-                </ReactMDLTooltip>
+                </Tooltip>
             )
         }
 

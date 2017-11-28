@@ -1,7 +1,7 @@
 /*eslint camelcase: 0 */
 import React from 'react';
 import classNames from 'classnames';
-import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
+import Tooltip from '../Tooltip/Tooltip';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 
@@ -77,6 +77,10 @@ const Icon = React.createClass({
         let name = this.props.name;
         let tooltip = this.props.tooltip;
 
+        if (name==="add" && otherProps && otherProps.id) {
+            console.log(otherProps);
+        }
+
         if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[name] !== 'undefined')) {
             tooltip = this.canonicalTooltips[name];
         } else {
@@ -116,7 +120,7 @@ const Icon = React.createClass({
 
         if (tooltip) {
             icon = (
-                <ReactMDLTooltip label={tooltip}>{icon}</ReactMDLTooltip>
+                <Tooltip label={tooltip}>{icon}</Tooltip>
             );
         }
 
