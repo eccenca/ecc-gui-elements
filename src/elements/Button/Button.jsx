@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
-import ReactMDLTooltip from 'react-mdl/lib/Tooltip';
+import Tooltip from '../Tooltip/Tooltip';
 import Icon from '../Icon/Icon';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
 
@@ -217,7 +217,7 @@ const Button = React.createClass({
 
         if (tooltip && !this.props.disabled) {
             button = (
-                <ReactMDLTooltip label={tooltip}>{button}</ReactMDLTooltip>
+                <Tooltip label={tooltip}>{button}</Tooltip>
             );
         }
 

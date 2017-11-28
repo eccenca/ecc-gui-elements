@@ -4,7 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- provide <Tooltip /> element for separate tooltips, usable in combination with all other elements independently
+- use tooltip element for buttons, icons and n/a elements
+
+### Fixed
+- use error icon for icons with unknown icon name
 
 ## [2.23.2] 2017-11-27
 

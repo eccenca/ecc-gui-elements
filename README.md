@@ -1018,6 +1018,30 @@ const Page = React.createClass({
 
 ```
 
+### Tooltip
+
+You need to add wrapper to some elements, e.g. icons or checkboxes, to prevent unexepected behaviour. Use `<span>` for inline elements and `<div>` for block elments. If you have `tooltip` options, e.g. on icons, then use that parameter instead of the `<Tooltip/>` element.
+
+```js
+import {Tooltip} from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Tooltip
+                label="This is the tooltip text." // content used for tooltip, string or dom/react element
+                position="bottom" // string: top|left|bottom|right, default: bottom
+                large={false} // true or false, default: false
+            >
+                <p>I have a tooltip.</p>
+            </Tooltip>
+        )
+    },
+    // ....
+});
+```
+
 ### Version
 
 ```js

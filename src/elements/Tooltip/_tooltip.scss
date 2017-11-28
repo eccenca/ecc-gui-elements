@@ -10,6 +10,7 @@
     will-change: unset;
     background: darken(rgba(to_color($tooltip-background-color), 1), 10%);
     border: 1px solid rgba(to_color($tooltip-text-color), 0.39);
+    text-transform: none;
 }
 
 .mdl-tooltip.is-active {
