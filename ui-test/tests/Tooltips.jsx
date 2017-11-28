@@ -1,11 +1,12 @@
 import React from 'react';
 import {
-    Button,
+    AffirmativeButton,
     Card,
     CardTitle,
     CardContent,
     Checkbox,
     Icon,
+    TextField,
     Tooltip,
 } from '../../index.js';
 
@@ -66,14 +67,21 @@ class TestTooltips extends React.PureComponent {
                     <Tooltip label="Tooltip for paragraph">
                         <p>Paragraph.</p>
                     </Tooltip>
+                    &nbsp;/&nbsp;
                     <Tooltip label="Tooltip for icon">
-                        <Icon name="add" />
+                        <span><Icon name="add" /></span>
                     </Tooltip>
+                    &nbsp;/&nbsp;
                     <Tooltip label="Tooltip for button">
-                        <Button>Button</Button>
+                        <AffirmativeButton>Button</AffirmativeButton>
                     </Tooltip>
+                    &nbsp;/&nbsp;
                     <Tooltip label="Tooltip for checkbox">
-                        <Checkbox label="checkbox label" />
+                        <span><Checkbox label="checkbox label" /></span>
+                    </Tooltip>
+                    &nbsp;/&nbsp;
+                    <Tooltip label="Tooltip for text input">
+                        <div><TextField label="textfield label" value="textfield value"/></div>
                     </Tooltip>
                 </CardContent>
             </Card>
