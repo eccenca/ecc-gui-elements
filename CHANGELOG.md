@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.24.0] 2017-11-28
+
+### Added
+- provide <Tooltip /> element for separate tooltips, usable in combination with all other elements independently
+- use tooltip element for buttons, icons and n/a elements
+
+### Fixed
+- use error icon for icons with unknown icon name
+
 ## [2.23.2] 2017-11-27
 
 ### Fixed
