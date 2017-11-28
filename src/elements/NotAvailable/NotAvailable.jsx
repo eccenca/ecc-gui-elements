@@ -1,11 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+import Tooltip from '../Tooltip/Tooltip';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 /* TODO:
 
 * add option `iconName` to use icon
-* use MDL Tooltip instead of simple title attribute
 
 */
 
@@ -44,12 +44,15 @@ const Button = React.createClass({
             <span
                 className={classes}
             >
-                <span
-                    className="ecc-gui-elements__notavailable-label"
-                    title={description ? description : (label ? '' : 'not available')}
+                <Tooltip
+                    label={description ? description : (label ? '' : 'not available')}
                 >
-                    {label ? label : 'n/a'}
-                </span>
+                    <span
+                        className="ecc-gui-elements__notavailable-label"
+                    >
+                        {label ? label : 'n/a'}
+                    </span>
+                </Tooltip>
             </span>
         );
     },
