@@ -18,42 +18,94 @@
     background: $default-dropdown-bg-color;
     color: $button-secondary-color;
     border: none;
+    padding: 0; //.5 * $ecc-size-blockelement-padding-vertical;
     font-size: 1rem;
     width: 7 * 3em;
-    padding: 0.5 * $ecc-size-blockelement-padding-vertical;
 
-    th, td {
-        height: 2em;
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border: none;
+        font-size: 1rem;
+        width: 7 * 3em;
     }
 
-    th.rdtNext, th.rdtPrev {
-        font-size: 2em;
-        height: 1em;
-        vertical-align: middle;
-        font-weight: 300;
-    }
+    thead, tbody, tfoot {
+        tr {
+            transition: none;
+            height: auto;
 
-    td.rdtOld, td.rdtNew {
-        color: $button-secondary-color-disabled;
-    }
+            &:hover {
+                background-color: transparent;
+            }
+        }
 
-    td.rdtToday:before {
-        border-bottom-color: $ecc-color-accent;
-    }
+        th, td {
+            font-size: 1em;
+            text-align: center;
+            vertical-align: middle;
+            padding: 0;
+            height: 2.5em;
+            line-height: 1;
+            border: none;
+            color: $button-secondary-color;
 
-    td.rdtActive.rdtToday:before {
-        border-bottom-color: $default-dropdown-bg-color;
-    }
+            &:first-of-type,
+            &:last-of-type {
+                padding: 0;
+            }
 
-    td.rdtDay, td.rdtHour, td.rdtMinute, td.rdtSecond, .rdtTimeToggle {
-        &:hover, &:focus {
-            background-color: $button-hover-color;
+        }
+
+        th.rdtNext, th.rdtPrev {
+            font-size: 2em;
+            height: 1em;
+            vertical-align: middle;
+            font-weight: 300;
+        }
+
+        td.rdtOld, td.rdtNew {
+            color: $button-secondary-color-disabled;
+        }
+
+        td.rdtToday:before {
+            border-bottom-color: $ecc-color-accent;
+        }
+
+        td.rdtActive.rdtToday:before {
+            border-bottom-color: $default-dropdown-bg-color;
+        }
+
+        td.rdtDay, td.rdtHour, td.rdtMinute, td.rdtSecond, .rdtTimeToggle {
+            &:hover, &:focus {
+                background-color: $button-hover-color;
+            }
+        }
+
+        td.rdtActive, td.rdtActive:hover {
+            color: $ecc-color-accent-contrast;
+            background-color: $ecc-color-accent;
         }
     }
 
-    td.rdtActive, td.rdtActive:hover {
-        color: $ecc-color-accent-contrast;
-        background-color: $ecc-color-accent;
+    thead {
+        tr:first-child {
+            th {
+                height: 1em;
+                border-bottom: $data-table-dividers;
+
+                &.rdtSwitch {
+                    height: 3em;
+                }
+            }
+        }
+    }
+
+    tfoot {
+        td {
+            height: 3em;
+            border-top: $data-table-dividers;
+        }
     }
 
     .rdtStatic & {
