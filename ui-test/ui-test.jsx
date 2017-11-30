@@ -155,19 +155,21 @@ const Page = React.createClass({
                     }
                 </Header>
                 <Content>
-                    <BreadcrumbList className="my-own-class">
-                        <BreadcrumbItem onClick={function() {alert('Click on breadcrumb item.');}}>
-                            Button
-                        </BreadcrumbItem>
-                        <BreadcrumbItem href="#">
-                            Link
-                        </BreadcrumbItem>
-                        <BreadcrumbItem>
-                            Span
-                        </BreadcrumbItem>
-                    </BreadcrumbList>
-                    <hr className="mdl-layout-spacer"/>
-                    {testcases}
+                    <div className="ecc-application__workspace">
+                        <BreadcrumbList className="my-own-class">
+                            <BreadcrumbItem onClick={function() {alert('Click on breadcrumb item.');}}>
+                                Button
+                            </BreadcrumbItem>
+                            <BreadcrumbItem href="#">
+                                Link
+                            </BreadcrumbItem>
+                            <BreadcrumbItem>
+                                Span
+                            </BreadcrumbItem>
+                        </BreadcrumbList>
+                        <hr className="mdl-layout-spacer"/>
+                        {testcases}
+                    </div>
                 </Content>
                 <footer className="mdl-mini-footer">
                     <Version
