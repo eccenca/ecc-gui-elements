@@ -102,6 +102,7 @@
 
 .Select-menu-outer {
     margin-top: 0;
+    z-index: 9999;
 
     .Select--optionsontop & {
         top: auto;

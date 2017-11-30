@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.24.2] 2017-11-30
+
+### Fixed
+- render `<SelectBox/>` options over other elements
+
 ## [2.24.1] 2017-11-29
 
 ### Fixed
