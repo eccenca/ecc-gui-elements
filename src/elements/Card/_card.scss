@@ -51,10 +51,6 @@
     position: sticky;
     bottom: 0;
 
-    .mdl-layout__content & {
-        bottom: -2rem;
-    }
-
     .mdl-card__title ~ & {
         margin-top: 56px;
     }
@@ -87,10 +83,6 @@
     position: sticky;
     bottom: 0;
     height: 0;
-
-    .mdl-layout__content & {
-        bottom: -2rem;
-    }
 }
 
 .ecc-floatingactionlist__button {
