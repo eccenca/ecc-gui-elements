@@ -1,7 +1,7 @@
 // -- Import CSS from react-datetime -------------------------------------------------
 @import "~react-datetime/css/react-datetime.css";
 
-.rdt {
+div.rdt {
     .mdl-textfield {
         padding-bottom: 0;
     }
@@ -12,12 +12,12 @@
 
     padding-bottom: $input-text-vertical-spacing;
 
-    .rdtPicker {
+    div.rdtPicker {
         @include shadow-2dp();
         background: $default-dropdown-bg-color;
         color: $button-secondary-color;
         border: none;
-        padding: 0; //.5 * $ecc-size-blockelement-padding-vertical;
+        padding: 0;
         font-size: 1rem;
         width: 7 * 3em;
 
@@ -45,6 +45,7 @@
                 vertical-align: middle;
                 padding: 0;
                 height: 2.5em;
+                width: 3em;
                 line-height: 1;
                 border: none;
                 color: $button-secondary-color;
@@ -52,6 +53,7 @@
                 &:first-of-type,
                 &:last-of-type {
                     padding: 0;
+                    text-align: center;
                 }
 
             }
@@ -59,6 +61,7 @@
             th.rdtNext, th.rdtPrev {
                 font-size: 2em;
                 height: 1em;
+                width: auto;
                 vertical-align: middle;
                 font-weight: 300;
             }
@@ -101,7 +104,7 @@
         }
 
         tfoot {
-            td {
+            td, td:first-of-type, td:last-of-type {
                 height: 3em;
                 border-top: $data-table-dividers;
             }
