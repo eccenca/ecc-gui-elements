@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.24.3] 2017-12-04
+
+### Fixed
+- adjust position of fixed <CardActions> regarding wrapping layout classes from applications
+- increase specifity of DateTime element styles
+
 ## [2.24.2] 2017-11-30
 
 ### Fixed
