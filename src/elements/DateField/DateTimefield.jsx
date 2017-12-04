@@ -10,7 +10,7 @@ const DateTimefield = React.createClass({
 
     getDefaultProps() {
         return {
-            timeFormat: 'hh:mm a',
+            timeFormat: 'HH:mm',
             dateFormat: 'DD-MM-YYYY',
         };
     },
