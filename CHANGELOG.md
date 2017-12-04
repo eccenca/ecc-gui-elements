@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Fixed
 - adjust position of fixed <CardActions> regarding wrapping layout classes from applications
+- increase specifity of DateTime element styles
 
 ## [2.24.2] 2017-11-30
 
