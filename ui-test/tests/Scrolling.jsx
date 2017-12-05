@@ -5,6 +5,7 @@ import {
     CardTitle,
     CardContent,
     CardActions,
+    FloatingActionList
 } from '../../index.js';
 import ScrollingMixin from '../../src/mixins/ScrollingMixin';
 
@@ -14,6 +15,65 @@ const TestScrolling = React.createClass({
         this.scrollIntoView({
             topOffset: 10,
         });
+    },
+    getInitialState() {
+        return {
+            actionsList: [
+                {
+                    icon: 'confirm',
+                    label: 'Reduce to one action with icon',
+                    handler: this.makeActionsSingle1
+                },
+                {
+                    icon: 'cancel',
+                    label: 'Reduce to one action without icon',
+                    handler: this.makeActionsSingle2
+                },
+            ],
+        };
+    },
+    makeActionsSingle1() {
+        this.setState(
+            {
+                actionsList: [
+                    {
+                        icon: 'add',
+                        label: 'Add multiple action list',
+                        handler: this.makeActionsMultiple
+                    },
+                ],
+            }
+        );
+    },
+    makeActionsSingle2() {
+        this.setState(
+            {
+                actionsList: [
+                    {
+                        label: 'Add multiple action list',
+                        handler: this.makeActionsMultiple
+                    },
+                ],
+            }
+        );
+    },
+    makeActionsMultiple() {
+        this.setState(
+            {
+                actionsList: [
+                    {
+                        icon: 'confirm',
+                        label: 'Reduce to one action with icon',
+                        handler: this.makeActionsSingle1
+                    },
+                    {
+                        icon: 'cancel',
+                        label: 'Reduce to one action without icon',
+                        handler: this.makeActionsSingle2
+                    },
+                ],
+            }
+        );
     },
     render() {
 
@@ -31,7 +91,7 @@ const TestScrolling = React.createClass({
         )
 
         return (
-            <Card>
+            <Card fixedActions>
                 <CardTitle documentLevel="h4">
                     Test scrolling support
                 </CardTitle>
@@ -42,8 +102,12 @@ const TestScrolling = React.createClass({
                         Content is higher than the viewport. Can you see the top part of this section?
                     </p>
                 </CardContent>
-                <CardActions>
+                <CardActions fixed>
                     {scrollHandlerButtons}
+                    <FloatingActionList
+                        iconName={'edit'}
+                        actions={this.state.actionsList}
+                    />
                 </CardActions>
             </Card>
         );
