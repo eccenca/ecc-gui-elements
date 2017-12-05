@@ -29,6 +29,11 @@ const TestScrolling = React.createClass({
                     label: 'Reduce to one action without icon',
                     handler: this.makeActionsSingle2
                 },
+                {
+                    icon: 'edit',
+                    label: 'Load multiple items',
+                    handler: this.makeActionsMultiple
+                },
             ],
         };
     },
@@ -70,6 +75,11 @@ const TestScrolling = React.createClass({
                         icon: 'cancel',
                         label: 'Reduce to one action without icon',
                         handler: this.makeActionsSingle2
+                    },
+                    {
+                        icon: 'confirm',
+                        label: 'Reduce to one action with icon',
+                        handler: this.makeActionsSingle1
                     },
                 ],
             }
