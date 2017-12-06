@@ -30,6 +30,14 @@ const FloatingActionList = React.createClass({
         };
     },
 
+    componentWillReceiveProps() {
+        if (this.state.activeFAB) {
+            this.setState({
+                activeFAB: false,
+            });
+        }
+    },
+
     handleFAB(event) {
         event.stopPropagation();
         this.setState({
