@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.25.2] 2017-12-06
+
+### Fixed
+- `<FloatingActionList/>`: remove active state before re-rendering with new options
+
 ## [2.25.1] 2017-12-04
 
 ### Fixed
