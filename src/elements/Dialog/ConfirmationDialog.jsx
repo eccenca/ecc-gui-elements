@@ -14,11 +14,11 @@ const ConfirmationDialog = React.createClass({
         className: React.PropTypes.string,
         modal: React.PropTypes.bool,
         size: React.PropTypes.string,
-        //a Confirmation Dialog should always have two buttons per spec:
+        // a Confirmation Dialog should always have two buttons per spec:
         // https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs
         cancelButton: React.PropTypes.element.isRequired,
         confirmButton: React.PropTypes.element.isRequired,
-        title: React.PropTypes.node
+        title: React.PropTypes.node,
     },
     // template rendering
     render() {
@@ -28,6 +28,11 @@ const ConfirmationDialog = React.createClass({
             return false;
         }
 
+        const buttonRow = [
+            React.cloneElement(this.props.cancelButton, {key: 'cancel'}),
+            React.cloneElement(this.props.confirmButton, {key: 'confirm'}),
+        ];
+
         // push data with formatted buttons to base dialog
         return (
             <BaseDialog
@@ -36,11 +41,7 @@ const ConfirmationDialog = React.createClass({
                 modal={this.props.modal}
                 size={this.props.size}
                 title={this.props.title}
-                buttonRow={[
-                    this.props.cancelButton,
-                    this.props.confirmButton
-                ]}
-            >
+                buttonRow={buttonRow}>
                 {this.props.children}
             </BaseDialog>
         );

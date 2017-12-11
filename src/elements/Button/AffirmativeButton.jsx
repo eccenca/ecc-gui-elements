@@ -28,10 +28,9 @@ const AffirmativeButton = React.createClass({
     render() {
         // split 'normal' props from button content
         const {children, ...otherProps} = this.props;
-        const useProgressButton = (
+        const useProgressButton =
             typeof otherProps.progress !== 'undefined' ||
-            typeof otherProps.progressTopic !== 'undefined'
-        );
+            typeof otherProps.progressTopic !== 'undefined';
 
         // remove unused propTypes from button
         if (!useProgressButton) {
@@ -39,37 +38,37 @@ const AffirmativeButton = React.createClass({
             delete otherProps.progressTopic;
         }
 
-        if (__DEBUG__ && (typeof otherProps.accent !== 'undefined')) {
-            console.warn('Do not use <AffirmativeButton/> with accent property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.accent !== 'undefined') {
+            console.warn(
+                'Do not use <AffirmativeButton/> with accent property.'
+            ); // eslint-disable-line no-console
         }
 
-        if (__DEBUG__ && (typeof otherProps.colored !== 'undefined')) {
-            console.warn('Do not use <AffirmativeButton/> with colored property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.colored !== 'undefined') {
+            console.warn(
+                'Do not use <AffirmativeButton/> with colored property.'
+            ); // eslint-disable-line no-console
         }
 
-        if (__DEBUG__ && (typeof otherProps.dismissive !== 'undefined')) {
-            console.warn('Do not use <AffirmativeButton/> with dismissive property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.dismissive !== 'undefined') {
+            console.warn(
+                'Do not use <AffirmativeButton/> with dismissive property.'
+            ); // eslint-disable-line no-console
         }
 
-        if (__DEBUG__ && (typeof otherProps.disruptive !== 'undefined')) {
-            console.warn('Do not use <AffirmativeButton/> with disruptive property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.disruptive !== 'undefined') {
+            console.warn(
+                'Do not use <AffirmativeButton/> with disruptive property.'
+            ); // eslint-disable-line no-console
         }
 
         // render button
-        return (
-            useProgressButton
-        ) ? (
-            <ProgressButton
-                {...otherProps}
-                affirmative = {true}
-            >
+        return useProgressButton ? (
+            <ProgressButton {...otherProps} affirmative>
                 {children}
             </ProgressButton>
         ) : (
-            <Button
-                {...otherProps}
-                affirmative = {true}
-            >
+            <Button {...otherProps} affirmative>
                 {children}
             </Button>
         );

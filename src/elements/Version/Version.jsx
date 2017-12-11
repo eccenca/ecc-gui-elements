@@ -2,7 +2,6 @@
 import React from 'react';
 
 const Version = React.createClass({
-
     // define property types
     propTypes: {
         version: React.PropTypes.string.isRequired,
@@ -12,10 +11,12 @@ const Version = React.createClass({
         // return state
         return this.props;
     },
- // template rendering
+    // template rendering
     render() {
         return (
-            <span className="version-info" style={{marginLeft: '5px', marginRight: '5px'}}>
+            <span
+                className="version-info"
+                style={{marginLeft: '5px', marginRight: '5px'}}>
                 {this.state.version}
             </span>
         );

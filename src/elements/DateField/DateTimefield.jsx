@@ -17,11 +17,7 @@ const DateTimefield = React.createClass({
 
     // template rendering
     render() {
-        return (
-            <Datefield
-                {...this.props}
-            />
-        );
+        return <Datefield {...this.props} />;
     },
 });
 

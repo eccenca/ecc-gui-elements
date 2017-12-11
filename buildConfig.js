@@ -8,8 +8,8 @@ module.exports = {
             resolve: {
                 alias: {
                     'ecc-gui-elements': path.resolve(__dirname),
-                }
-            }
+                },
+            },
         },
         debug: {
             entry: './ui-test/ui-test.jsx',
@@ -26,10 +26,5 @@ module.exports = {
             },
         },
     },
-    lintingFiles: [
-        './src/**/*',
-        './test/**/*',
-        './ui-test/**/*',
-        './index.js',
-    ],
+    lintingFiles: ['./src/**/*', './test/**/*', './ui-test/**/*', './index.js'],
 };

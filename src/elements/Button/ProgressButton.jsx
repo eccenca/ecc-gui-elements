@@ -66,8 +66,7 @@ const ProgressButton = React.createClass({
         lastUpdate: React.PropTypes.string,
     },
     getDefaultProps() {
-        return {
-        };
+        return {};
     },
     getInitialState() {
         return {
@@ -77,16 +76,16 @@ const ProgressButton = React.createClass({
     },
 
     componentDidMount() {
-        if (_.has(this.props, 'progressTopic')){
-            const topic =  _.get(this.props, 'progressTopic');
-            if(_.isFunction(topic.subscribe)){
+        if (_.has(this.props, 'progressTopic')) {
+            const topic = _.get(this.props, 'progressTopic');
+            if (_.isFunction(topic.subscribe)) {
                 this.subscription = topic.subscribe(this.handleProgressUpdates);
             }
         }
     },
 
-    componentWillUnmount(){
-        if(_.has(this, 'subscription')){
+    componentWillUnmount() {
+        if (_.has(this, 'subscription')) {
             this.subscription.dispose();
         }
     },
@@ -96,7 +95,7 @@ const ProgressButton = React.createClass({
             this.setState({
                 progress: progressNumber,
                 lastUpdate,
-            })
+            });
         }
     },
 
@@ -107,10 +106,7 @@ const ProgressButton = React.createClass({
         delete otherProps.progress;
         delete otherProps.progressTopic;
 
-        const classes = classNames(
-            'mdl-progress mdl-js-progress',
-            className
-        );
+        const classes = classNames('mdl-progress mdl-js-progress', className);
 
         let progressbar = (
             <Progressbar
@@ -121,23 +117,24 @@ const ProgressButton = React.createClass({
         );
 
         if (typeof tooltip !== 'undefined' && tooltip) {
-            const lastUpdate = this.state.lastUpdate ? this.state.lastUpdate + ' ' : '';
+            const lastUpdate = this.state.lastUpdate
+                ? `${this.state.lastUpdate} `
+                : '';
             progressbar = (
                 <Tooltip
-                    label={this.state.progress ? `${lastUpdate}${tooltip}: ${this.state.progress}%` : lastUpdate + tooltip}
-                >
+                    label={
+                        this.state.progress
+                            ? `${lastUpdate}${tooltip}: ${this.state.progress}%`
+                            : lastUpdate + tooltip
+                    }>
                     {progressbar}
                 </Tooltip>
-            )
+            );
         }
 
         // render button
         return (
-            <Button
-                raised
-                disabled
-                {...otherProps}
-            >
+            <Button raised disabled {...otherProps}>
                 {children}
                 {progressbar}
             </Button>

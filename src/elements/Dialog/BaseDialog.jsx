@@ -1,6 +1,8 @@
 import React from 'react';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import _ from 'lodash';
 import classNames from 'classnames';
+
+import PerformanceMixin from '../../mixins/PerformanceMixin';
 import Button from '../../elements/Button/Button';
 
 /**
@@ -43,24 +45,37 @@ const BaseDialog = React.createClass({
 
     // template rendering
     render() {
-        const {active, className, modal, size, buttonRow, title, titleCancelButton, ...otherProps} = this.props;
+        const {
+            active,
+            className,
+            modal,
+            size,
+            buttonRow,
+            title,
+            titleCancelButton,
+            ...otherProps
+        } = this.props;
 
         if (active !== true) {
             return false;
         }
 
         // set classname
-        const classes = classNames('mdl-dialog mdl-shadow--16dp', {
-            'is-activated': active === true,
-            'mdl-dialog--modal': modal === true,
-            'mdl-dialog--mini': size === 'mini',
-            'mdl-dialog--large': size === 'large',
-        }, className);
+        const classes = classNames(
+            'mdl-dialog mdl-shadow--16dp',
+            {
+                'is-activated': active === true,
+                'mdl-dialog--modal': modal === true,
+                'mdl-dialog--mini': size === 'mini',
+                'mdl-dialog--large': size === 'large',
+            },
+            className
+        );
 
         // set modal
         let modalbg = false;
         if (modal === true) {
-            modalbg = <div className="mdl-dialog__modalbackground"></div>;
+            modalbg = <div className="mdl-dialog__modalbackground" />;
         }
 
         // set title cancel Button
@@ -71,44 +86,45 @@ const BaseDialog = React.createClass({
                 iconName="hide"
                 onClick={titleCancelButton}
             />
-        ) : false;
+        ) : (
+            false
+        );
         // set title
         const dialogTitle = title ? (
             <div className="mdl-dialog__title">
-                <strong className="mdl-dialog__title-text">
-                    {title}
-                </strong>
+                <strong className="mdl-dialog__title-text">{title}</strong>
                 {cancelButton}
             </div>
-        ) : false;
+        ) : (
+            false
+        );
 
         // set content
         let content = false;
         if (this.props.children) {
             content = (
-                <div className="mdl-dialog__content">
-                    {this.props.children}
-                </div>
+                <div className="mdl-dialog__content">{this.props.children}</div>
             );
         }
         // set button main layout
         const buttonLayout = {
             accent: true,
             colored: false,
-            fabSize: ''
+            fabSize: '',
         };
         // set buttons
-        const rowActions = buttonRow.reverse().map((button, idx) => (
-            <span className={`mdl-dialog__actions__${idx}-button`} key={'Button_' + idx}>
-                {React.cloneElement(button, buttonLayout)}
-            </span>
-        ));
+        const rowActions = buttonRow.reverse().map((button, idx) => {
+            const key = `Button_${_.get(button, 'key', idx)}`;
+            return (
+                <span
+                    className={`mdl-dialog__actions__${idx}-button`}
+                    key={key}>
+                    {React.cloneElement(button, buttonLayout)}
+                </span>
+            );
+        });
 
-        const actions = (
-            <div className="mdl-dialog__actions">
-                {rowActions}
-            </div>
-        );
+        const actions = <div className="mdl-dialog__actions">{rowActions}</div>;
 
         let containerClass = '';
         if (active === true) {
@@ -128,7 +144,6 @@ const BaseDialog = React.createClass({
         );
 
         return dialog;
-
     },
 });
 

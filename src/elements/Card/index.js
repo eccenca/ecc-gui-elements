@@ -1,12 +1,10 @@
+import {CardMenu} from 'react-mdl/lib/Card';
 import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
-import Card from './Card.js';
-import CardTitle from './CardTitle.js';
-import CardActions from './CardActions.js';
-import FloatingActionList from './FloatingActionList.js';
 
-import {
-    CardMenu
-} from 'react-mdl/lib/Card';
+import Card from './Card';
+import CardTitle from './CardTitle';
+import CardActions from './CardActions';
+import FloatingActionList from './FloatingActionList';
 
 const CardContent = basicClassCreator('CardContent', 'mdl-card__content');
 
@@ -16,5 +14,5 @@ export {
     CardMenu,
     CardContent,
     CardActions,
-    FloatingActionList
+    FloatingActionList,
 };
