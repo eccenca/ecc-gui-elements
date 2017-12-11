@@ -65,6 +65,22 @@ class TestButtons extends React.PureComponent {
                     <Button iconName="hide"/>
                     <Button iconName="access_forbidden"/>
                 </CardContent>
+                <CardContent>
+                    <h5>Clearance buttons</h5>
+                    <Button iconName="hide" tooltip="clear input" className="mdl-button--clearance" />
+                    <Button accent iconName="hide" tooltip="clear input" className="mdl-button--clearance" />
+                    <Button colored iconName="hide" tooltip="clear input" className="mdl-button--clearance" />
+                    <Button raised iconName="hide" tooltip="clear input" className="mdl-button--clearance" />
+                    <Button raised accent iconName="hide" tooltip="clear input" className="mdl-button--clearance" />
+                    <Button raised colored iconName="hide" tooltip="clear input" className="mdl-button--clearance" />
+                    <br/>
+                    <Button className="mdl-button--clearance">Clear</Button>
+                    <Button accent className="mdl-button--clearance">Clear</Button>
+                    <Button colored className="mdl-button--clearance">Clear</Button>
+                    <Button raised className="mdl-button--clearance">Clear</Button>
+                    <Button raised accent className="mdl-button--clearance">Clear</Button>
+                    <Button raised colored className="mdl-button--clearance">Clear</Button>                    
+                </CardContent>
                 <CardActions fixed={true}>
                     <FloatingActionList
                         iconName="edit"
