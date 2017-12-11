@@ -19,7 +19,6 @@ const Info = React.createClass({
                 {children}
             </Alert>
         );
-
     },
 });
 

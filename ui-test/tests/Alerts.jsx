@@ -8,8 +8,8 @@ import {
     Info,
     Success,
     Warning,
-    Error
-} from '../../index.js';
+    Error,
+} from '../../index';
 
 class TestAlerts extends React.PureComponent {
     render() {
@@ -19,47 +19,45 @@ class TestAlerts extends React.PureComponent {
                     <h4 className="mdl-card__title-text">Test Alerts</h4>
                 </CardTitle>
                 <CardContent>
-                    <Info border={true} vertSpacing={true}>
+                    <Info border vertSpacing>
                         info
                     </Info>
-                    <Success border={true} vertSpacing={true}>
+                    <Success border vertSpacing>
                         success
                     </Success>
-                    <Warning border={true} vertSpacing={true}>
+                    <Warning border vertSpacing>
                         warning
                     </Warning>
-                    <Error handlerDismiss={() => alert('dismiss handler')}
-                           labelDismiss="remove error"
-                           vertSpacing={true}>
+                    <Error
+                        handlerDismiss={() => alert('dismiss handler')}
+                        labelDismiss="remove error"
+                        vertSpacing>
                         error
                     </Error>
                     <Alert
-                        border={true}
-                        vertSpacing={true}
+                        border
+                        vertSpacing
                         handlerDismiss={() => alert('dismiss handler')}
                         labelDismiss="label for handler"
-                        iconDismiss="help"
-                    >
+                        iconDismiss="help">
                         <p>This is a</p>
                         <p>untyped message.</p>
                     </Alert>
                 </CardContent>
                 <FloatingActionList
-                    actions={
-                        [
-                            {
-                                icon: 'edit',
-                                label: 'Something',
-                                handler: function(){alert('You clicked the FAB.');}
-                            }
-                        ]
-                    }
+                    actions={[
+                        {
+                            icon: 'edit',
+                            label: 'Something',
+                            handler() {
+                                alert('You clicked the FAB.');
+                            },
+                        },
+                    ]}
                     fabSize={'mini'}
                 />
             </Card>
         );
     }
 }
-;
-
 export default TestAlerts;

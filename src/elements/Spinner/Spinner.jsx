@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 
-
 const Spinner = React.createClass({
     mixins: [PerformanceMixin],
 
@@ -24,16 +23,27 @@ const Spinner = React.createClass({
 
     // template rendering
     render() {
-        const {className, appearGlobal, appearInline, appearLocal, ...otherProps} = this.props;
+        const {
+            className,
+            appearGlobal,
+            appearInline,
+            appearLocal,
+            ...otherProps
+        } = this.props;
         const classes = classNames(
             {
-                'mdl-spinner--global': (appearGlobal === true && appearInline === false && appearLocal === false),
-                'mdl-spinner--inline': (appearInline === true),
+                'mdl-spinner--global':
+                    appearGlobal === true &&
+                    appearInline === false &&
+                    appearLocal === false,
+                'mdl-spinner--inline': appearInline === true,
                 'mdl-spinner--local': appearLocal === true,
             },
             className
         );
-        return <ReactMDLSpinner singleColor={true} className={classes} {...otherProps} />;
+        return (
+            <ReactMDLSpinner singleColor className={classes} {...otherProps} />
+        );
     },
 });
 

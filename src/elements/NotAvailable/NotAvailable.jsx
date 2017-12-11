@@ -23,14 +23,7 @@ const Button = React.createClass({
 
     // template rendering
     render() {
-
-        const {
-            className,
-            description,
-            inline,
-            label,
-            ...otherProps
-        } = this.props;
+        const {className, description, inline, label} = this.props;
 
         const classes = classNames(
             {
@@ -41,16 +34,10 @@ const Button = React.createClass({
         );
 
         return (
-            <span
-                className={classes}
-            >
-                <Tooltip
-                    label={description ? description : (label ? '' : 'not available')}
-                >
-                    <span
-                        className="ecc-gui-elements__notavailable-label"
-                    >
-                        {label ? label : 'n/a'}
+            <span className={classes}>
+                <Tooltip label={description || (label ? '' : 'not available')}>
+                    <span className="ecc-gui-elements__notavailable-label">
+                        {label || 'n/a'}
                     </span>
                 </Tooltip>
             </span>

@@ -19,7 +19,6 @@ const Error = React.createClass({
                 {children}
             </Alert>
         );
-
     },
 });
 

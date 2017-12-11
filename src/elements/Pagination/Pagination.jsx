@@ -5,14 +5,17 @@ import SelectBox from './../../elements/SelectBox/SelectBox';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 const calculatePagination = ({limit, offset, totalResults}) => {
-    const onLastPage = (offset + limit) >= totalResults;
+    const onLastPage = offset + limit >= totalResults;
     return {
         limit,
         offset,
         totalResults,
         onFirstPage: offset === 0 || totalResults === 0,
         onLastPage,
-        currentPage: Math.min(_.ceil(totalResults / limit), _.floor(1+ offset / limit)),
+        currentPage: Math.min(
+            _.ceil(totalResults / limit),
+            _.floor(1 + offset / limit)
+        ),
         totalPages: _.ceil(totalResults / limit),
         lastItemOnPage: onLastPage ? totalResults : offset + limit,
     };
@@ -76,57 +79,62 @@ const Pagination = React.createClass({
     },
     // trigger event to show first results
     onClickFirst() {
-
         const {limit, totalResults} = this.props;
 
-        this.props.onChange(calculatePagination({
-            limit,
-            offset: 0,
-            totalResults,
-        }));
+        this.props.onChange(
+            calculatePagination({
+                limit,
+                offset: 0,
+                totalResults,
+            })
+        );
     },
     // trigger event to show previous results (regarding to limit)
     onClickBack() {
-
         const {limit, totalResults, offset} = this.props;
 
-        this.props.onChange(calculatePagination({
-            limit,
-            offset: offset < limit ? 0 : offset - limit,
-            totalResults,
-        }));
+        this.props.onChange(
+            calculatePagination({
+                limit,
+                offset: offset < limit ? 0 : offset - limit,
+                totalResults,
+            })
+        );
     },
     // trigger event to show next results (regarding to limit)
     onClickForward() {
-
         const {limit, totalResults, offset} = this.props;
 
-        this.props.onChange(calculatePagination({
-            limit,
-            offset: offset + limit,
-            totalResults,
-        }));
-
+        this.props.onChange(
+            calculatePagination({
+                limit,
+                offset: offset + limit,
+                totalResults,
+            })
+        );
     },
     // trigger event to show last results (regarding to limit)
     onClickLast() {
-
         const {limit, totalResults} = this.props;
 
-        this.props.onChange(calculatePagination({
-            limit,
-            offset: (_.ceil(totalResults / limit) - 1 ) * limit,
-            totalResults,
-        }));
+        this.props.onChange(
+            calculatePagination({
+                limit,
+                offset: (_.ceil(totalResults / limit) - 1) * limit,
+                totalResults,
+            })
+        );
     },
     onNewLimit(limit) {
         const {offset, totalResults} = this.props;
 
-        this.props.onChange(calculatePagination({
-            limit,
-            offset: _.floor(offset / limit) * limit,
-            totalResults,
-        }));
+        this.props.onChange(
+            calculatePagination({
+                limit,
+                offset: _.floor(offset / limit) * limit,
+                totalResults,
+            })
+        );
     },
     // template rendering
     render() {
@@ -146,7 +154,6 @@ const Pagination = React.createClass({
             .sortedUniq()
             .value();
 
-
         const {
             currentPage,
             totalPages,
@@ -160,9 +167,12 @@ const Pagination = React.createClass({
         if (offsetAsPage) {
             pageInfo = `${currentPage} of ${totalPages}`;
         } else {
-            const firstItem =  Math.min(totalResults, offset+1)
+            const firstItem = Math.min(totalResults, offset + 1);
             const lastItem = lastItemOnPage;
-            const start = firstItem ===  lastItem ? lastItem : `${firstItem} - ${lastItem}`;
+            const start =
+                firstItem === lastItem
+                    ? lastItem
+                    : `${firstItem} - ${lastItem}`;
             pageInfo = `${start} of ${totalResults}`;
         }
 
@@ -186,11 +196,13 @@ const Pagination = React.createClass({
                                 clearable={false}
                                 searchable={false}
                                 onChange={this.onNewLimit}
-                                optionsOnTop={(isTopPagination !== true)}
+                                optionsOnTop={isTopPagination !== true}
                             />
                         </div>
                     </div>
-                ) : ''}
+                ) : (
+                    ''
+                )}
                 <div className="ecc-gui-elements__pagination-actions">
                     <Button
                         className="ecc-gui-elements__pagination-actions__first-page-button"

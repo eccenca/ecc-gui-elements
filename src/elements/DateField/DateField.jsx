@@ -41,7 +41,9 @@ const DateField = React.createClass({
         const {value, onChange} = this.props;
         // initial input formatting
         if (!moment.isMoment(value)) {
-            console.warn('Datefield: Please provide the value as a Moment Object, otherwise it could result in false value conversions');
+            console.warn(
+                'Datefield: Please provide the value as a Moment Object, otherwise it could result in false value conversions'
+            );
             this.extendedOnChange({onChange, value});
         }
     },
@@ -50,22 +52,24 @@ const DateField = React.createClass({
     getFormats() {
         const {dateFormat, timeFormat} = this.props;
         // set format output
-        let fullFormat = [];
+        const fullFormat = [];
         let date = false;
         let time = false;
 
-        if(dateFormat) {
+        if (dateFormat) {
             date = _.isString(dateFormat) ? dateFormat : 'YYYY-MM-DD';
             fullFormat.push(date);
         }
 
-        if(timeFormat) {
+        if (timeFormat) {
             time = _.isString(timeFormat) ? timeFormat : 'HH:mm:ss';
             fullFormat.push(time);
         }
 
-        if(_.isEmpty(fullFormat)){
-            throw new Error('Datefield: Please define dateFormat, timeFormat or both.');
+        if (_.isEmpty(fullFormat)) {
+            throw new Error(
+                'Datefield: Please define dateFormat, timeFormat or both.'
+            );
         }
 
         return {
@@ -74,14 +78,13 @@ const DateField = React.createClass({
             full: fullFormat.join(' '),
         };
     },
-    convertToMoment(value, format){
-        if(moment.isMoment(value)){
+    convertToMoment(value, format) {
+        if (moment.isMoment(value)) {
             return value;
         }
         return moment(value, format, true);
     },
-    extendedOnChange ({onChange, value}) {
-
+    extendedOnChange({onChange, value}) {
         const format = this.getFormats().full;
 
         const newValue = this.convertToMoment(value, format);
@@ -98,17 +101,18 @@ const DateField = React.createClass({
     },
 
     textFieldOnChange({rawValue}) {
-        if (rawValue !== this.props.value && _.isFunction(this.props.onChange)) {
-            this.extendedOnChange(
-                {
-                    onChange: this.props.onChange,
-                    value: rawValue
-                }
-            );
+        if (
+            rawValue !== this.props.value &&
+            _.isFunction(this.props.onChange)
+        ) {
+            this.extendedOnChange({
+                onChange: this.props.onChange,
+                value: rawValue,
+            });
         }
     },
 
-    renderInput: function(props) {
+    renderInput(props) {
         return (
             <TextField
                 {...props}
@@ -122,9 +126,14 @@ const DateField = React.createClass({
     render() {
         const {
             // outer props
-            label, value, onChange , className,
+            label,
+            value,
+            onChange,
+            className,
             // inner props
-            placeholder, disabled, inputClassName,
+            placeholder,
+            disabled,
+            inputClassName,
             // rest outer props
             ...otherProps
         } = this.props;
@@ -134,7 +143,7 @@ const DateField = React.createClass({
 
         const inputProps = {
             label: label || placeholder,
-            disabled: disabled,
+            disabled,
             className: className || inputClassName,
         };
 
@@ -145,8 +154,14 @@ const DateField = React.createClass({
 
         return (
             <Datetime
-                value={inputValue.isValid() ? inputValue : inputValue.creationData().input}
-                onChange={newValue => {this.extendedOnChange({onChange, value: newValue})}}
+                value={
+                    inputValue.isValid()
+                        ? inputValue
+                        : inputValue.creationData().input
+                }
+                onChange={newValue => {
+                    this.extendedOnChange({onChange, value: newValue});
+                }}
                 dateFormat={formats.date}
                 timeFormat={formats.time}
                 strictParsing

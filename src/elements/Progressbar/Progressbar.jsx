@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import ReactMDLProgressBar from 'react-mdl/lib/ProgressBar';
 
 const Progressbar = React.createClass({
-
     // define property types
     propTypes: {
         appearGlobal: React.PropTypes.bool,
@@ -19,7 +18,12 @@ const Progressbar = React.createClass({
 
     // template rendering
     render() {
-        const {className, appearGlobal, appearLocal, ...otherProps} = this.props;
+        const {
+            className,
+            appearGlobal,
+            appearLocal,
+            ...otherProps
+        } = this.props;
         const classes = classNames(
             {
                 'mdl-progress--global': appearGlobal === true,

@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+
 import rxmq from 'ecc-messagebus';
 import {
     Card,
@@ -10,12 +10,11 @@ import {
     DisruptiveButton,
     ProgressButton,
     Progressbar,
-} from '../../index.js';
+} from '../../index';
 
 const progressTestChannel = rxmq.channel('ui-test.progresstest');
 
 const TestProgressbar = React.createClass({
-
     progress: 0,
 
     componentDidMount() {
@@ -39,68 +38,56 @@ const TestProgressbar = React.createClass({
     render() {
         return (
             <Card stretch={false} shadow={4}>
-                <CardTitle documentLevel={'h4'}>
-                    Test Progressbars
-                </CardTitle>
+                <CardTitle documentLevel={'h4'}>Test Progressbars</CardTitle>
                 <CardContent>
-                    <Progressbar progress={85}/>
-                    <Progressbar appearGlobal={true} indeterminate={true}/>
-                <CardContent>
-                </CardContent>
+                    <Progressbar progress={85} />
+                    <Progressbar appearGlobal indeterminate />
+                    <CardContent />
                     <ProgressButton
                         raised
                         disabled={false}
-                        tooltip="some more info about the running progress"
-                    >
+                        tooltip="some more info about the running progress">
                         Run
                     </ProgressButton>
                     <ProgressButton
                         disruptive
                         disabled={false}
                         tooltip="working"
-                        progress={0}
-                    >
+                        progress={0}>
                         Run 2
                     </ProgressButton>
                     <ProgressButton
                         progress={66}
                         tooltip="working"
-                        progressTopic={progressTestChannel.subject('number')}
-                    >
+                        progressTopic={progressTestChannel.subject('number')}>
                         Run 3
                     </ProgressButton>
                 </CardContent>
                 <CardContent>
                     <AffirmativeButton
-                        progressTopic={progressTestChannel.subject('number')}
-                    >
+                        progressTopic={progressTestChannel.subject('number')}>
                         Affirm
                     </AffirmativeButton>
                     <DismissiveButton
                         progress={4}
-                        progressTopic={progressTestChannel.subject('number')}
-                    >
+                        progressTopic={progressTestChannel.subject('number')}>
                         Dismiss
                     </DismissiveButton>
-                    <DisruptiveButton
-                        progress={66}
-                    >
-                        Disrupt
-                    </DisruptiveButton>
+                    <DisruptiveButton progress={66}>Disrupt</DisruptiveButton>
                     <DismissiveButton
                         progressTopic={progressTestChannel.subject('number')}
-                        tooltip="Last update 13:27. Working"
-                    >
+                        tooltip="Last update 13:27. Working">
                         other tooltip
                     </DismissiveButton>
                     <DismissiveButton
-                        progressTopic={progressTestChannel.subject('numberAndDate')}
-                        tooltip="Working"
-                    >
+                        progressTopic={progressTestChannel.subject(
+                            'numberAndDate'
+                        )}
+                        tooltip="Working">
                         tooltip with lastUpdate
                     </DismissiveButton>
                 </CardContent>
-                <Progressbar appearLocal={true} progress={15}/>
+                <Progressbar appearLocal progress={15} />
             </Card>
         );
     },

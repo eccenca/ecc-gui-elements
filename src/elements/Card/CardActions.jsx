@@ -20,27 +20,20 @@ const CardActions = React.createClass({
     },
 
     render() {
-
-        const {
-            children,
-            className,
-            fixed,
-            ...otherProps
-        } = this.props;
+        const {children, className, fixed, ...otherProps} = this.props;
 
         const classes = classNames(
             {
-                'mdl-card__actions--fixed': (fixed=== true)
+                'mdl-card__actions--fixed': fixed === true,
             },
             className
         );
 
-        return <ReactMDLCardActions
-            className={classes}
-            {...otherProps}
-        >
-            {children}
-        </ReactMDLCardActions>;
+        return (
+            <ReactMDLCardActions className={classes} {...otherProps}>
+                {children}
+            </ReactMDLCardActions>
+        );
     },
 });
 

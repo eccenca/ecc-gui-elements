@@ -1,5 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
+import _ from 'lodash';
+
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import Nothing from '../Nothing/Nothing';
@@ -61,23 +63,22 @@ const FloatingActionList = React.createClass({
 
         const classes = classNames(
             {
-                'ecc-floatingactionlist': true
+                'ecc-floatingactionlist': true,
             },
             className
         );
 
-        const floatinglist =  (
+        const floatinglist = (
             <div className={classes} {...otherProps}>
                 <Button
-                    className={
-                        classNames(
-                            'ecc-floatingactionlist__button',
-                            {
-                                'is-active': this.state.activeFAB === true
-                            }
-                        )
+                    className={classNames('ecc-floatingactionlist__button', {
+                        'is-active': this.state.activeFAB === true,
+                    })}
+                    iconName={
+                        actions.length > 1 || !actions[0].icon
+                            ? iconName
+                            : actions[0].icon
                     }
-                    iconName={(actions.length > 1 || !actions[0].icon) ? iconName : actions[0].icon}
                     fabSize={fabSize}
                     colored
                     tooltip={actions.length > 1 ? false : actions[0].label}
@@ -85,35 +86,43 @@ const FloatingActionList = React.createClass({
                         actions.length > 1 ? this.handleFAB : actions[0].handler
                     }
                 />
-                {actions.length > 1
-                    ? <ul className="mdl-menu mdl-shadow--2dp ecc-floatingactionlist__menu">
-                          {_.map(actions, (action, idx) =>
-                              <li key={`FloatingAction_${idx}_${action.label}`}>
-                                  <button
-                                      className="mdl-menu__item"
-                                      onClick={action.handler}>
-                                      {action.icon
-                                          ? <Icon name={action.icon} />
-                                          : false}
-                                      {action.label}
-                                  </button>
-                              </li>,
-                          )}
-                      </ul>
-                    : false}
-                {actions.length > 1 && this.state.activeFAB
-                    ? <div
-                          className="ecc-floatingactionlist__menu--backdrop"
-                          onMouseOver={this.handleFAB}
-                      />
-                    : false}
+                {actions.length > 1 ? (
+                    <ul className="mdl-menu mdl-shadow--2dp ecc-floatingactionlist__menu">
+                        {_.map(actions, (action, idx) => (
+                            <li key={`FloatingAction_${idx}_${action.label}`}>
+                                <button
+                                    className="mdl-menu__item"
+                                    onClick={action.handler}>
+                                    {action.icon ? (
+                                        <Icon name={action.icon} />
+                                    ) : (
+                                        false
+                                    )}
+                                    {action.label}
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    false
+                )}
+                {actions.length > 1 && this.state.activeFAB ? (
+                    <div
+                        className="ecc-floatingactionlist__menu--backdrop"
+                        onMouseOver={this.handleFAB}
+                    />
+                ) : (
+                    false
+                )}
             </div>
         );
 
         if (fixed === true) {
-            return (<div className="ecc-floatingactionlist__wrapper--fixed">
-                {floatinglist}
-            </div>);
+            return (
+                <div className="ecc-floatingactionlist__wrapper--fixed">
+                    {floatinglist}
+                </div>
+            );
         }
 
         return floatinglist;

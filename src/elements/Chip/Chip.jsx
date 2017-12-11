@@ -3,49 +3,50 @@ import cx from 'classnames';
 import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 import _ from 'lodash';
 
-const ChipContact = basicClassCreator('ChipContact', 'mdl-chip__contact', 'span');
+const ChipContact = basicClassCreator(
+    'ChipContact',
+    'mdl-chip__contact',
+    'span'
+);
 const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
 
-export const ChipVisual = (props) => {
-
+export const ChipVisual = props => {
     const {
         image = false,
         label = false,
         className = '',
         bgColor = false,
         textColor = false,
-        children = false
+        children = false,
     } = props;
 
     if (image) {
         return (
-            <ChipContact style={{background: `url("${image}") 0 0 / cover`}}/>
-        )
+            <ChipContact style={{background: `url("${image}") 0 0 / cover`}} />
+        );
     }
 
     if (__DEBUG__) {
-        if (label !== false && (!_.isString(label) || label.length === 0 || label.length > 2)) {
-            console.warn(`A ChipVisual label should be a string with a length of 1 or 2, and not "${label}"`);
+        if (
+            label !== false &&
+            (!_.isString(label) || label.length === 0 || label.length > 2)
+        ) {
+            console.warn(
+                `A ChipVisual label should be a string with a length of 1 or 2, and not "${label}"`
+            );
         }
     }
 
     const classColors = {};
-    classColors['mdl-color--' + bgColor] = bgColor;
-    classColors['mdl-color-text--' + textColor] = textColor;
+    classColors[`mdl-color--${bgColor}`] = bgColor;
+    classColors[`mdl-color-text--${textColor}`] = textColor;
 
     return (
-        <ChipContact
-            className={cx(
-                classColors,
-                className,
-            )}
-        >
+        <ChipContact className={cx(classColors, className)}>
             {label || children}
         </ChipContact>
-    )
-
+    );
 };
-
 
 const propTypes = {
     className: PropTypes.string,
@@ -54,11 +55,13 @@ const propTypes = {
     href: PropTypes.string,
 };
 
-export const Chip = (props) => {
+export const Chip = props => {
     const {className, onClose, children, ...otherProps} = props;
 
     const childrenArray = React.Children.toArray(children);
-    const contactIndex = childrenArray.findIndex(c => c.type === ChipContact || c.type === ChipVisual);
+    const contactIndex = childrenArray.findIndex(
+        c => c.type === ChipContact || c.type === ChipVisual
+    );
 
     const chipContent = [];
 
@@ -68,23 +71,18 @@ export const Chip = (props) => {
             <ChipText key="text">
                 {childrenArray
                     .slice(0, contactIndex)
-                    .concat(childrenArray.slice(contactIndex + 1))
-                }
+                    .concat(childrenArray.slice(contactIndex + 1))}
             </ChipText>
         );
     } else {
-        chipContent.push(
-            <ChipText key="text">
-                {children}
-            </ChipText>
-        );
+        chipContent.push(<ChipText key="text">{children}</ChipText>);
     }
 
     if (__DEBUG__) {
         if (onClose) {
             console.warn(
-                "At the moment our chips do not allow for a chip action (like close)." +
-                "If you think, you need one please start a discussion around that topic."
+                'At the moment our chips do not allow for a chip action (like close).' +
+                    'If you think, you need one please start a discussion around that topic.'
             );
             // chipContent.push(
             //     <button key="btn" type="button" className="mdl-chip__action" onClick={onClose}>
@@ -108,7 +106,7 @@ export const Chip = (props) => {
                 },
                 className
             ),
-            ...otherProps
+            ...otherProps,
         },
         chipContent
     );
