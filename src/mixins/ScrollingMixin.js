@@ -11,10 +11,7 @@ const ScrollingMixin = {
                 callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed'
             }
         */
-        this.scrollElementIntoView(
-            ReactDOM.findDOMNode(this),
-            options
-        );
+        this.scrollElementIntoView(ReactDOM.findDOMNode(this), options);
     },
 
     scrollElementIntoView(element, options = {}) {
@@ -23,26 +20,35 @@ const ScrollingMixin = {
             // is already a DOM element
             domElement = element;
             if (__DEBUG__) {
-                console.log('scrolling DOM element with a height of ' + domElement.scrollHeight);
+                console.log(
+                    `scrolling DOM element with a height of ${
+                        domElement.scrollHeight
+                    }`
+                );
             }
-        }
-        else if (_.get(element, 'props', false) !== false) {
+        } else if (_.get(element, 'props', false) !== false) {
             // await a mounted react element or component
             // TODO: improve test, 'props' is only a weak check, findDOMNode still can fail
             domElement = ReactDOM.findDOMNode(element);
             if (__DEBUG__) {
-                console.log('scrolling react element with a height of ' + domElement.scrollHeight);
+                console.log(
+                    `scrolling react element with a height of ${
+                        domElement.scrollHeight
+                    }`
+                );
             }
         }
 
         if (!domElement) {
             if (__DEBUG__) {
-                console.warn('Cannot scroll element that is not part of the DOM.');
+                console.warn(
+                    'Cannot scroll element that is not part of the DOM.'
+                );
             }
             return false;
         }
 
-        scrollIntoViewExternal(
+        return scrollIntoViewExternal(
             domElement,
             {
                 time: _.get(options, 'animationTime', 500),
@@ -60,29 +66,36 @@ const ScrollingMixin = {
                     }
                     `getComputedStyle(element).overflow` will yield `'hidden'`
                  */
-                isScrollable: function(element) {
-
-                    if (element === window) {
-                        return true
+                isScrollable(el) {
+                    if (el === window) {
+                        return true;
                     }
 
                     if (
-                        element.scrollHeight !== element.clientHeight ||
-                        element.scrollWidth !== element.clientWidth
+                        el.scrollHeight !== el.clientHeight ||
+                        el.scrollWidth !== el.clientWidth
                     ) {
+                        const css = getComputedStyle(el);
 
-                        const css = getComputedStyle(element);
-
-                        return css && (css.overflow !== 'hidden' ||
-                            (_.get(options, 'scrollY', true) && css.overflowY !== 'hidden') ||
-                            (_.get(options, 'scrollX', true) && css.overflowX !== 'hidden'));
+                        return (
+                            css &&
+                            (css.overflow !== 'hidden' ||
+                                (_.get(options, 'scrollY', true) &&
+                                    css.overflowY !== 'hidden') ||
+                                (_.get(options, 'scrollX', true) &&
+                                    css.overflowX !== 'hidden'))
+                        );
                     }
                     return false;
-                }
+                },
             },
-            function(result) {
+            result => {
                 if (__DEBUG__) {
-                    console.log('element scrolling ' + result + ', now at ' + domElement.getBoundingClientRect().top);
+                    console.log(
+                        `element scrolling ${result}, now at ${
+                            domElement.getBoundingClientRect().top
+                        }`
+                    );
                 }
 
                 if (_.isFunction(options.callbackFinished)) {
@@ -91,6 +104,6 @@ const ScrollingMixin = {
             }
         );
     },
-}
+};
 
 export default ScrollingMixin;

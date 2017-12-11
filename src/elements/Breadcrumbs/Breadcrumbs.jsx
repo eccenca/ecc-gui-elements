@@ -38,7 +38,6 @@ const Page = React.createClass({
 ```
 */
 export const BreadcrumbList = React.createClass({
-
     // define property types
     propTypes: {
         /**
@@ -51,15 +50,7 @@ export const BreadcrumbList = React.createClass({
         const {children, className, ...otherProps} = this.props;
 
         return (
-            <ol
-                className={
-                    cx(
-                        'ecc-breadcrumbs',
-                        className
-                    )
-                }
-                {...otherProps}
-            >
+            <ol className={cx('ecc-breadcrumbs', className)} {...otherProps}>
                 {children}
             </ol>
         );
@@ -67,7 +58,6 @@ export const BreadcrumbList = React.createClass({
 });
 
 export const BreadcrumbItem = React.createClass({
-
     // define property types
     propTypes: {
         /**
@@ -78,7 +68,6 @@ export const BreadcrumbItem = React.createClass({
 
     render() {
         const {children, className, ...otherProps} = this.props;
-
 
         let crumbType = otherProps.onClick ? 'button' : 'span';
         crumbType = otherProps.href ? 'a' : crumbType;
@@ -87,20 +76,13 @@ export const BreadcrumbItem = React.createClass({
             crumbType,
             {
                 className: 'ecc-breadcrumbs__button',
-                ...otherProps
+                ...otherProps,
             },
             children
         );
 
         return (
-            <li
-                className={
-                    cx(
-                        'ecc-breadcrumbs__item',
-                        className
-                    )
-                }
-            >
+            <li className={cx('ecc-breadcrumbs__item', className)}>
                 {crumbButton}
             </li>
         );

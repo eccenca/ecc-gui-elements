@@ -7,19 +7,21 @@
   "es6": "index.js",
   "scripts": {
     "test": "gulp full-test",
-    "lint": "gulp lint",
+    "lint": "eslint --ignore-path .gitignore '**/*.{js,jsx}' --fix",
     "cover": "gulp cover",
     "start": "gulp",
     "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
-    "prepublish": "git submodule update --init --recursive && ecc-link-dotfiles && gulp full-build"
+    "prepare": "git submodule update --init --recursive && ecc-link-dotfiles && gulp full-build",
+    "docs": "gulp docs",
+    "precommit": "lint-staged"
   },
   "repository": {
     "type": "git",
     "url": "https://gitlab.eccenca.com/elds-ui/ecc-gui-elements"
   },
-  "author": "Michael Haschke <michael.haschke@eccenca.com>",
-  "license": "ISC",
+  "author": "eccenca GmbH <opensource@eccenca.com> (http://eccenca.com)",
+  "license": "MIT",
   "dependencies": {
     "@eccenca/material-design-lite": "^1.3.0-beta3",
     "classnames": "^2.2.5",
@@ -27,7 +29,7 @@
     "moment": "^2.19.2",
     "react-datetime": "^2.11.0",
     "react-mdl": "^1.10.3",
-    "react-select": "^1.0.0-rc.5",
+    "react-select": "^1.1.0",
     "sassyjson": "^1.1.8",
     "scroll-into-view": "^1.9.0"
   },
@@ -36,8 +38,9 @@
     "react-dom": "*"
   },
   "devDependencies": {
-    "ecc-dotfiles": "^2.1.0",
-    "ecc-gulp-tasks": "^3.10.0",
+    "@eccenca/dotfiles": "^2.3.1",
+    "@eccenca/gulp-tasks": "^3.14.0",
+    "ecc-messagebus": "^3.6.0",
     "ecc-resparqler": "^0.1.7",
     "ecc-test-helpers": "^15.2.0",
     "ecc-uitest-helpers": "^15.8.0-alpha.1",
@@ -49,5 +52,8 @@
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": "eslint"
   }
 }

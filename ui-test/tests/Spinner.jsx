@@ -1,27 +1,16 @@
 import React from 'react';
-import {
-    Card,
-    CardTitle,
-    CardContent,
-    Spinner,
-} from '../../index.js';
+import {Card, CardTitle, CardContent, Spinner} from '../../index';
 
-class TestSpinner extends React.PureComponent {
-    render() {
-        return (
-            <Card className="my-own-class" shadow={0} stretch={false}>
-                <CardTitle className="my-own-class" border={false} documentLevel={'h7'}>
-                    Test Spinner
-                </CardTitle>
-                <CardContent className="my-own-class">
-                    <Spinner appearInline={true}/>
-                    <Spinner appearLocal={true}/>
-                </CardContent>
-                <Spinner />
-            </Card>
-        );
-    }
-}
-;
-
+const TestSpinner = () => (
+    <Card className="my-own-class" shadow={0} stretch={false}>
+        <CardTitle className="my-own-class" border={false} documentLevel={'h7'}>
+            Test Spinner
+        </CardTitle>
+        <CardContent className="my-own-class">
+            <Spinner appearInline />
+            <Spinner appearLocal />
+        </CardContent>
+        <Spinner />
+    </Card>
+);
 export default TestSpinner;

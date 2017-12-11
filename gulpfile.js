@@ -1,15 +1,17 @@
-var gulp = require('ecc-gulp-tasks')(require('./buildConfig.js'));
+/* eslint global-require: 0 */
+
+const gulp = require('@eccenca/gulp-tasks')(require('./buildConfig.js'));
 
 gulp.task('default', ['debug']);
 
-var gulpSequence = require('gulp-sequence');
+const gulpSequence = require('gulp-sequence');
 
-var fs = require('fs');
-var path = require('path');
-var _ = require('lodash');
+const fs = require('fs');
+const path = require('path');
+const _ = require('lodash');
 
-var iconFontVersion = '3.0.1';
-var robotoFontVersion = 'v1.1.0';
+const iconFontVersion = '3.0.1';
+const robotoFontVersion = 'v1.1.0';
 
 gulp.task('full-build', gulpSequence('build-sass', 'update-licenses', 'build'));
 
@@ -17,9 +19,13 @@ gulp.task('full-test', ['test', 'sass-compile']);
 
 gulp.task('build-sass', ['sass-compile', 'sass-assets']);
 
-gulp.task('download-fonts', ['download-iconfont', 'download-roboto', 'icontable']);
+gulp.task('download-fonts', [
+    'download-iconfont',
+    'download-roboto',
+    'icontable',
+]);
 
-gulp.task('update-licenses', function(cb) {
+gulp.task('update-licenses', cb => {
     const yaml = require('js-yaml');
 
     const licenseFile = path.join(__dirname, 'additionalLicenses.yml');
@@ -27,25 +33,28 @@ gulp.task('update-licenses', function(cb) {
     try {
         let doc = fs.readFileSync(licenseFile, 'utf8');
 
-        dependencies = _.forEach(yaml.safeLoad(doc)['ecc-gui-elements']['dependencies'], (dependency) => {
+        _.forEach(
+            yaml.safeLoad(doc)['ecc-gui-elements'].dependencies,
+            dependency => {
+                const oldVersion = new RegExp(
+                    _.toString(dependency.version).replace(/\./g, '\\.'),
+                    'g'
+                );
 
-            const oldVersion = new RegExp(_.toString(dependency.version).replace(/\./g, '\\.'), 'g');
-
-            if (dependency.name === 'material-design-icons') {
-                doc = doc.replace(oldVersion, iconFontVersion)
+                if (dependency.name === 'material-design-icons') {
+                    doc = doc.replace(oldVersion, iconFontVersion);
+                }
             }
+        );
 
-        });
-
-        fs.writeFile(licenseFile, doc, cb)
-
+        fs.writeFile(licenseFile, doc, cb);
     } catch (e) {
         cb(e);
     }
 });
 
-gulp.task('download-iconfont', function() {
-    var download = require('gulp-download-stream');
+gulp.task('download-iconfont', () => {
+    const download = require('gulp-download-stream');
 
     return download([
         `https://github.com/google/material-design-icons/raw/${iconFontVersion}/iconfont/MaterialIcons-Regular.eot`,
@@ -55,9 +64,9 @@ gulp.task('download-iconfont', function() {
     ]).pipe(gulp.dest('./dist/fonts/iconfont'));
 });
 
-gulp.task('download-roboto', function() {
-    var download = require('gulp-download-stream');
-    var rename = require("gulp-rename");
+gulp.task('download-roboto', () => {
+    const download = require('gulp-download-stream');
+    const rename = require('gulp-rename');
 
     return download([
         `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Black/Roboto-Black.ttf`,
@@ -97,70 +106,82 @@ gulp.task('download-roboto', function() {
         `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/ThinItalic/Roboto-ThinItalic.woff`,
         `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/ThinItalic/Roboto-ThinItalic.woff2`,
     ])
-        .pipe(rename(function(paths) {
-            paths.dirname += '/'
-            paths.dirname += paths.basename.replace(/Roboto-/, '')
-        }))
+        .pipe(
+            rename(paths => {
+                const newPaths = paths;
+                newPaths.dirname += '/';
+                newPaths.dirname += newPaths.basename.replace(/Roboto-/, '');
+                return newPaths;
+            })
+        )
         .pipe(gulp.dest('./dist/fonts/roboto'));
 });
 
-gulp.task('sass-assets', function() {
-    return gulp.src('node_modules/@eccenca/material-design-lite/src/images/*')
-        .pipe(gulp.dest('./dist/images'));
-});
+gulp.task('sass-assets', () =>
+    gulp
+        .src('node_modules/@eccenca/material-design-lite/src/images/*')
+        .pipe(gulp.dest('./dist/images'))
+);
 
-gulp.task('sass-compile', function(cb) {
-    var sass = require('node-sass');
-    sass.render({
-        file: './src/scss/main.build-css.scss',
-        importer: function importer(url, prev, done) {
-            if (url[0] === '~') {
-                url = path.resolve(path.join(__dirname, 'node_modules'), url.substr(1));
+gulp.task('sass-compile', cb => {
+    const sass = require('node-sass');
+    sass.render(
+        {
+            file: './src/scss/main.build-css.scss',
+            importer: url => {
+                if (url[0] === '~') {
+                    return {
+                        file: path.resolve(
+                            path.join(__dirname, 'node_modules'),
+                            url.substr(1)
+                        ),
+                    };
+                }
+
+                return {file: url};
+            },
+        },
+        (err, res) => {
+            if (err) {
+                cb(err);
+                return;
             }
 
-            return {file: url};
+            fs.writeFile('./dist/style-core.css', res.css, cb);
         }
-    }, function(err, res) {
-        if (err) {
-            cb(err);
-            return;
-        }
-
-        fs.writeFile('./dist/style-core.css', res.css, cb);
-
-    });
+    );
 });
 
-gulp.task('download-codepoints', function() {
-    var download = require('gulp-download-stream');
+gulp.task('download-codepoints', () => {
+    const download = require('gulp-download-stream');
 
     return download([
         `https://github.com/google/material-design-icons/raw/${iconFontVersion}/iconfont/codepoints`,
     ]).pipe(gulp.dest('./dist/fonts/iconfont'));
 });
 
-gulp.task('icontable', ['download-codepoints'], function(cb) {
-
-    fs.readFile('./dist/fonts/iconfont/codepoints', 'utf8', function(err, data) {
-
+gulp.task('icontable', ['download-codepoints'], cb => {
+    fs.readFile('./dist/fonts/iconfont/codepoints', 'utf8', (err, data) => {
         if (err) {
             cb(err);
             return;
         }
 
-        var result = {};
+        const result = {};
 
-        data.split('\n').forEach(function(line) {
+        data.split('\n').forEach(line => {
             if (/^\s*$/.test(line)) {
                 return;
             }
-            var split = line.split(' ');
+            const split = line.split(' ');
 
             result[split[0]] = split[1];
-
         });
 
-        fs.writeFile('./src/elements/Icon/icontable.json', JSON.stringify(result, null, 2) + '\n', cb);
+        fs.writeFile(
+            './src/elements/Icon/icontable.json',
+            `${JSON.stringify(result, null, 2)}\n`,
+            cb
+        );
     });
-
 });

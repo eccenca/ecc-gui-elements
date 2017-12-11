@@ -6,15 +6,13 @@ import {
     Card,
     CardTitle,
     CardMenu,
-    CardContent,
     CardActions,
     FloatingActionList,
     ConfirmationDialog,
     BaseDialog,
-} from '../../index.js';
+} from '../../index';
 
 const TestDialogs = React.createClass({
-
     getInitialState() {
         return {
             baseDialog: false,
@@ -41,14 +39,29 @@ const TestDialogs = React.createClass({
     render() {
         return (
             <div>
-                <ConfirmationDialog title="ConfirmationDialog Title"
-                                    active={this.state.confirmationDialog}
-                                    modal={true}
-                                    size="mini"
-                                    cancelButton={<Button onClick={this.closeConfirmationDialog.bind(null, 'Cancel')}>Cancel</Button>}
-                                    confirmButton={<Button
-                                        onClick={this.closeConfirmationDialog.bind(null, 'Yes')}>Yes</Button>}
-                >
+                <ConfirmationDialog
+                    title="ConfirmationDialog Title"
+                    active={this.state.confirmationDialog}
+                    modal
+                    size="mini"
+                    cancelButton={
+                        <Button
+                            onClick={this.closeConfirmationDialog.bind(
+                                null,
+                                'Cancel'
+                            )}>
+                            Cancel
+                        </Button>
+                    }
+                    confirmButton={
+                        <Button
+                            onClick={this.closeConfirmationDialog.bind(
+                                null,
+                                'Yes'
+                            )}>
+                            Yes
+                        </Button>
+                    }>
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
@@ -69,17 +82,29 @@ const TestDialogs = React.createClass({
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
                 </ConfirmationDialog>
-                <BaseDialog title="DialogCustomActions Title"
-                            active={this.state.baseDialog}
-                            modal={true}
-                            titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
-                            size="large"
-                            buttonRow={[
-                                <Button onClick={this.closeBaseDialog.bind(null, 'Cancel')}>Cancel</Button>,
-                                <Button onClick={this.closeBaseDialog.bind(null, 'Yes')}>Yes</Button>,
-                                <Button onClick={this.closeBaseDialog.bind(null, 'Custom')}>Custom</Button>
-                            ]}
-                >
+                <BaseDialog
+                    title="DialogCustomActions Title"
+                    active={this.state.baseDialog}
+                    modal
+                    titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
+                    size="large"
+                    buttonRow={[
+                        <Button
+                            key="Cancel"
+                            onClick={this.closeBaseDialog.bind(null, 'Cancel')}>
+                            Cancel
+                        </Button>,
+                        <Button
+                            key="Yes"
+                            onClick={this.closeBaseDialog.bind(null, 'Yes')}>
+                            Yes
+                        </Button>,
+                        <Button
+                            key="Custom"
+                            onClick={this.closeBaseDialog.bind(null, 'Custom')}>
+                            Custom
+                        </Button>,
+                    ]}>
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>
@@ -97,34 +122,43 @@ const TestDialogs = React.createClass({
                     </CardTitle>
                     <CardMenu className="my-own-class">
                         <ContextMenu>
-                            <MenuItem onClick={this.openConfirmationDialog}>Open ConfirmationDialog</MenuItem>
-                            <MenuItem onClick={this.openBaseDialog}>Open BaseDialog</MenuItem>
+                            <MenuItem onClick={this.openConfirmationDialog}>
+                                Open ConfirmationDialog
+                            </MenuItem>
+                            <MenuItem onClick={this.openBaseDialog}>
+                                Open BaseDialog
+                            </MenuItem>
                         </ContextMenu>
                     </CardMenu>
                     <FloatingActionList
-                        actions={
-                            [
-                                {
-                                    icon: 'info',
-                                    label: 'Open ConfirmationDialog',
-                                    handler: this.openConfirmationDialog
-                                },
-                                {
-                                    icon: 'info',
-                                    label: 'Open BaseDialog',
-                                    handler: this.openBaseDialog
-                                },
-                            ]
-                        }
+                        actions={[
+                            {
+                                icon: 'info',
+                                label: 'Open ConfirmationDialog',
+                                handler: this.openConfirmationDialog,
+                            },
+                            {
+                                icon: 'info',
+                                label: 'Open BaseDialog',
+                                handler: this.openBaseDialog,
+                            },
+                        ]}
                     />
                     <CardActions className="my-own-class">
-                        <Button raised accent onClick={this.openConfirmationDialog}>Open ConfirmationDialog</Button>
-                        <Button raised accent onClick={this.openBaseDialog}>Open BaseDialog</Button>
+                        <Button
+                            raised
+                            accent
+                            onClick={this.openConfirmationDialog}>
+                            Open ConfirmationDialog
+                        </Button>
+                        <Button raised accent onClick={this.openBaseDialog}>
+                            Open BaseDialog
+                        </Button>
                     </CardActions>
                 </Card>
             </div>
         );
-    }
+    },
 });
 
 export default TestDialogs;

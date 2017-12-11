@@ -7,8 +7,8 @@ const MaterialMixin = {
         if (__DEBUG__) {
             console.debug(
                 `MaterialMixin is used in ${this.constructor.displayName}. ` +
-                `Please check if this usage is wanted and migrate old MDL Stuff to new gui-elements.` +
-                `MaterialMixin may get deprecated soon.`
+                    `Please check if this usage is wanted and migrate old MDL Stuff to new gui-elements.` +
+                    `MaterialMixin may get deprecated soon.`
             );
         }
         window.componentHandler.upgradeDom();
@@ -24,7 +24,7 @@ const MaterialMixin = {
         if (!_.isNull(comp)) {
             window.componentHandler.upgradeElements(comp);
         }
-    }
+    },
 };
 
 export default MaterialMixin;

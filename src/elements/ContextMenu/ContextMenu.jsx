@@ -1,15 +1,14 @@
 import React from 'react';
 import _ from 'lodash';
-import ReactMDLMenu from 'react-mdl/lib/Menu';
-import {MenuItem} from 'react-mdl/lib/Menu';
+import ReactMDLMenu, {MenuItem} from 'react-mdl/lib/Menu';
+
 import Button from './../../elements/Button/Button';
-import classNames from 'classnames';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 /**
-* This component provides a context menu
-* @type {[type]}
-*/
+ * This component provides a context menu
+ * @type {[type]}
+ */
 const ContextMenu = React.createClass({
     mixins: [PerformanceMixin],
 
@@ -32,13 +31,7 @@ const ContextMenu = React.createClass({
     },
 
     render() {
-        const {
-            children,
-            iconName,
-            tooltip,
-            target,
-            ...otherProps
-        } = this.props;
+        const {children, iconName, tooltip, target, ...otherProps} = this.props;
 
         const menuItemsCopy = Array.isArray(children) ? children : [children];
         const menuId = target || _.uniqueId('app-contextmenu-');
@@ -52,8 +45,13 @@ const ContextMenu = React.createClass({
                 const objExtension = {};
 
                 // add className if none exist
-                if (!_.has(obj, 'props.className') && _.has(obj, 'props.children')) {
-                    objExtension.className = `item-${_.kebabCase(obj.props.children)}`;
+                if (
+                    !_.has(obj, 'props.className') &&
+                    _.has(obj, 'props.children')
+                ) {
+                    objExtension.className = `item-${_.kebabCase(
+                        obj.props.children
+                    )}`;
                 }
 
                 // add key
@@ -61,51 +59,47 @@ const ContextMenu = React.createClass({
                     objExtension.key = `MenuItem.${idx}`;
                 }
 
-                const objResult = Object.assign(
+                return Object.assign(
                     {},
                     obj,
-                    (
-                        objExtension.key ?
-                            {key: objExtension.key} :
-                            {key: obj.key}
-                    ),
-                    (
-                        objExtension.className ?
-                            {props: Object.assign(
-                                {},
-                                obj.props,
-                                {className: objExtension.className}
-                            )} :
-                            {props: obj.props})
-                )
-
-                return objResult;
+                    objExtension.key ? {key: objExtension.key} : {key: obj.key},
+                    objExtension.className
+                        ? {
+                              props: Object.assign({}, obj.props, {
+                                  className: objExtension.className,
+                              }),
+                          }
+                        : {props: obj.props}
+                );
             }
+            return null;
         });
 
-        const menulist = (menuItems.length > 0) ? (
-            <ReactMDLMenu
-                target={menuId}
-                {...otherProps}
-            >
-                {menuItems}
-            </ReactMDLMenu>
-        ) : false;
+        const menulist =
+            menuItems.length > 0 ? (
+                <ReactMDLMenu target={menuId} {...otherProps}>
+                    {menuItems}
+                </ReactMDLMenu>
+            ) : (
+                false
+            );
 
-        return (menulist) ? (
+        return menulist ? (
             <div className={'contextmenu-container'}>
                 <Button
-                    iconName={iconName ? iconName : 'menu_more'}
+                    iconName={iconName || 'menu_more'}
                     id={menuId}
-                    tooltip={tooltip ? false : false}
+                    tooltip={false}
                 />
                 {menulist}
             </div>
-        ) : false;
-    }
+        ) : (
+            false
+        );
+    },
 });
 
 export default {
     ContextMenu,
-    MenuItem
+    MenuItem,
 };

@@ -1,7 +1,6 @@
 import _ from 'lodash';
 
 const extendedOnChangeBoolean = (onChangeFn, event) => {
-
     if (_.isFunction(onChangeFn)) {
         onChangeFn({
             event,

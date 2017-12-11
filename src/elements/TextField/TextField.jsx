@@ -14,7 +14,7 @@ const extendedOnChange = (onChangeFn, event) => {
     }
 };
 
-const TextField = (props) => {
+const TextField = props => {
     const {
         className,
         label = '',
@@ -25,21 +25,18 @@ const TextField = (props) => {
         ...otherProps
     } = props;
 
-    const classes = classNames(
-        className,
-        {
-            'mdl-textfield--full-width': (stretch === true),
-        },
-    );
+    const classes = classNames(className, {
+        'mdl-textfield--full-width': stretch === true,
+    });
 
     return (
         <ReactMDLTextField
             className={classes}
-            floatingLabel={true}
+            floatingLabel
             value={value}
             label={label}
             onChange={extendedOnChange.bind(null, onChange)}
-            rows={(multiline === true) ? 3 : 0}
+            rows={multiline === true ? 3 : 0}
             {...otherProps}
         />
     );

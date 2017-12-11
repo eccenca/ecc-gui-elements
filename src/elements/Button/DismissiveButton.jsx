@@ -30,10 +30,9 @@ const DismissiveButton = React.createClass({
     render() {
         // split 'normal' props from button content
         const {children, ...otherProps} = this.props;
-        const useProgressButton = (
+        const useProgressButton =
             typeof otherProps.progress !== 'undefined' ||
-            typeof otherProps.progressTopic !== 'undefined'
-        );
+            typeof otherProps.progressTopic !== 'undefined';
 
         // remove unused propTypes from button
         if (!useProgressButton) {
@@ -41,37 +40,37 @@ const DismissiveButton = React.createClass({
             delete otherProps.progressTopic;
         }
 
-        if (__DEBUG__ && (typeof otherProps.accent !== 'undefined')) {
-            console.warn('Do not use <DismissiveButton/>  with accent property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.accent !== 'undefined') {
+            console.warn(
+                'Do not use <DismissiveButton/>  with accent property.'
+            ); // eslint-disable-line no-console
         }
 
-        if (__DEBUG__ && (typeof otherProps.colored !== 'undefined')) {
-            console.warn('Do not use <DismissiveButton/>  with colored property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.colored !== 'undefined') {
+            console.warn(
+                'Do not use <DismissiveButton/>  with colored property.'
+            ); // eslint-disable-line no-console
         }
 
-        if (__DEBUG__ && (typeof otherProps.affirmative !== 'undefined')) {
-            console.warn('Do not use <DismissiveButton/>  with affirmative property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.affirmative !== 'undefined') {
+            console.warn(
+                'Do not use <DismissiveButton/>  with affirmative property.'
+            ); // eslint-disable-line no-console
         }
 
-        if (__DEBUG__ && (typeof otherProps.disruptive !== 'undefined')) {
-            console.warn('Do not use <DismissiveButton/>  with disruptive property.'); // eslint-disable-line no-console
+        if (__DEBUG__ && typeof otherProps.disruptive !== 'undefined') {
+            console.warn(
+                'Do not use <DismissiveButton/>  with disruptive property.'
+            ); // eslint-disable-line no-console
         }
 
         // render button
-        return (
-            useProgressButton
-        ) ? (
-            <ProgressButton
-                {...otherProps}
-                dismissive = {true}
-            >
+        return useProgressButton ? (
+            <ProgressButton {...otherProps} dismissive>
                 {children}
             </ProgressButton>
         ) : (
-            <Button
-                {...otherProps}
-                dismissive = {true}
-            >
+            <Button {...otherProps} dismissive>
                 {children}
             </Button>
         );

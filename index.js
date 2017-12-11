@@ -4,6 +4,10 @@
 
 import '@eccenca/material-design-lite';
 
+// React-MDL
+import Layout from 'react-mdl/lib/Layout/Layout';
+import Content from 'react-mdl/lib/Layout/Content';
+
 // Mixins
 
 import MaterialMixin from './src/mixins/MaterialMixin';
@@ -12,13 +16,7 @@ import ScrollingMixin from './src/mixins/ScrollingMixin';
 
 // GUI Elements
 
-import {
-    Alert,
-    Error,
-    Info,
-    Success,
-    Warning,
-} from './src/elements/Alert';
+import {Alert, Error, Info, Success, Warning} from './src/elements/Alert';
 
 import {
     Button,
@@ -31,7 +29,7 @@ import {
 import {
     BreadcrumbList,
     BreadcrumbItem,
-} from './src/elements/Breadcrumbs';
+} from './src/elements/Breadcrumbs/Breadcrumbs';
 
 import {
     Card,
@@ -42,28 +40,15 @@ import {
     FloatingActionList,
 } from './src/elements/Card';
 
-import {
-    BaseDialog,
-    ConfirmationDialog,
-} from './src/elements/Dialog';
+import {BaseDialog, ConfirmationDialog} from './src/elements/Dialog';
 
 import Checkbox from './src/elements/Checkbox/Checkbox';
 
-import {
-    Chip,
-    ChipVisual
-} from './src/elements/Chip/Chip';
+import {Chip, ChipVisual} from './src/elements/Chip/Chip';
 
-import Content from 'react-mdl/lib/Layout/Content';
-
-import {
-    ContextMenu,
-    MenuItem,
-} from './src/elements/ContextMenu/ContextMenu';
+import {ContextMenu, MenuItem} from './src/elements/ContextMenu/ContextMenu';
 
 import Icon from './src/elements/Icon/Icon';
-
-import Layout from 'react-mdl/lib/Layout/Layout';
 
 import Nothing from './src/elements/Nothing/Nothing';
 
@@ -73,10 +58,7 @@ import Pagination from './src/elements/Pagination/Pagination';
 
 import Progressbar from './src/elements/Progressbar/Progressbar';
 
-import {
-    Radio,
-    RadioGroup,
-} from './src/elements/Radio';
+import {Radio, RadioGroup} from './src/elements/Radio';
 
 import SelectBox from './src/elements/SelectBox/SelectBox';
 
