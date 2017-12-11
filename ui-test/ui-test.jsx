@@ -10,7 +10,6 @@ import TestSpinner from './tests/Spinner';
 import TestProgressbar from './tests/Progressbar';
 import TestAlerts from './tests/Alerts';
 import TestDialogs from './tests/Dialogs';
-// import TestStepper from './tests/Stepper';
 import TestIcons from './tests/Icons';
 import TestButtons from './tests/Buttons';
 import TestInputs from './tests/Inputs';

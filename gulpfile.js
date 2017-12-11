@@ -15,7 +15,7 @@ const robotoFontVersion = 'v1.1.0';
 
 gulp.task('full-build', gulpSequence('build-sass', 'update-licenses', 'build'));
 
-gulp.task('full-test', ['test', 'sass-compile']);
+gulp.task('full-test', ['sass-compile']);
 
 gulp.task('build-sass', ['sass-compile', 'sass-assets']);
 
