@@ -5,8 +5,8 @@ import {
     CardTitle,
     CardContent,
     CardActions,
-    FloatingActionList
-} from '../../index.js';
+    FloatingActionList,
+} from '../../index';
 import ScrollingMixin from '../../src/mixins/ScrollingMixin';
 
 const TestScrolling = React.createClass({
@@ -22,94 +22,84 @@ const TestScrolling = React.createClass({
                 {
                     icon: 'confirm',
                     label: 'Reduce to one action with icon',
-                    handler: this.makeActionsSingle1
+                    handler: this.makeActionsSingle1,
                 },
                 {
                     icon: 'cancel',
                     label: 'Reduce to one action without icon',
-                    handler: this.makeActionsSingle2
+                    handler: this.makeActionsSingle2,
                 },
                 {
                     icon: 'edit',
                     label: 'Load multiple items',
-                    handler: this.makeActionsMultiple
+                    handler: this.makeActionsMultiple,
                 },
             ],
         };
     },
     makeActionsSingle1() {
-        this.setState(
-            {
-                actionsList: [
-                    {
-                        icon: 'add',
-                        label: 'Add multiple action list',
-                        handler: this.makeActionsMultiple
-                    },
-                ],
-            }
-        );
+        this.setState({
+            actionsList: [
+                {
+                    icon: 'add',
+                    label: 'Add multiple action list',
+                    handler: this.makeActionsMultiple,
+                },
+            ],
+        });
     },
     makeActionsSingle2() {
-        this.setState(
-            {
-                actionsList: [
-                    {
-                        label: 'Add multiple action list',
-                        handler: this.makeActionsMultiple
-                    },
-                ],
-            }
-        );
+        this.setState({
+            actionsList: [
+                {
+                    label: 'Add multiple action list',
+                    handler: this.makeActionsMultiple,
+                },
+            ],
+        });
     },
     makeActionsMultiple() {
-        this.setState(
-            {
-                actionsList: [
-                    {
-                        icon: 'confirm',
-                        label: 'Reduce to one action with icon',
-                        handler: this.makeActionsSingle1
-                    },
-                    {
-                        icon: 'cancel',
-                        label: 'Reduce to one action without icon',
-                        handler: this.makeActionsSingle2
-                    },
-                    {
-                        icon: 'confirm',
-                        label: 'Reduce to one action with icon',
-                        handler: this.makeActionsSingle1
-                    },
-                ],
-            }
-        );
+        this.setState({
+            actionsList: [
+                {
+                    icon: 'confirm',
+                    label: 'Reduce to one action with icon',
+                    handler: this.makeActionsSingle1,
+                },
+                {
+                    icon: 'cancel',
+                    label: 'Reduce to one action without icon',
+                    handler: this.makeActionsSingle2,
+                },
+                {
+                    icon: 'confirm',
+                    label: 'Reduce to one action with icon',
+                    handler: this.makeActionsSingle1,
+                },
+            ],
+        });
     },
     render() {
-
         const scrollHandlerButtons = this.props.scrollTestCases.map(
-            function(testobject) {
-                return (
-                    <Button
-                        raised
-                        onClick={function(){testobject.handleScroll(testobject.handleRef);}}
-                    >
-                        {testobject.label}
-                    </Button>
-                );
-            }
-        )
+            testobject => (
+                <Button
+                    raised
+                    key={testobject.label}
+                    onClick={function() {
+                        testobject.handleScroll(testobject.handleRef);
+                    }}>
+                    {testobject.label}
+                </Button>
+            )
+        );
 
         return (
             <Card fixedActions>
-                <CardTitle documentLevel="h4">
-                    Test scrolling support
-                </CardTitle>
-                <CardContent
-                    className="uitest-highred"
-                >
+                <CardTitle documentLevel="h4">Test scrolling support</CardTitle>
+                <CardContent className="uitest-highred">
                     <p>
-                        Content is higher than the viewport. Can you see the top part of this section?
+                        Content is higher than the viewport. Can you see the top
+                        part of this section?
                     </p>
                 </CardContent>
                 <CardActions fixed>
@@ -121,7 +111,7 @@ const TestScrolling = React.createClass({
                 </CardActions>
             </Card>
         );
-    }
+    },
 });
 
 export default TestScrolling;

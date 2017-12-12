@@ -33,4 +33,26 @@ rules:
       semi: true
   no-plusplus: ["error", { "allowForLoopAfterthoughts": true }]
   no-use-before-define: ["warn"]
-  no-warning-comments: ["warn", { "terms": ["todo", "fixme", "xxx", "to do", "fix me"] }]
+  no-warning-comments: [
+    "warn",
+    {
+      "terms": ["todo", "fixme", "xxx", "to do", "fix me"]
+    }
+  ]
+  import/no-extraneous-dependencies: [
+    "error",
+    {
+      "devDependencies": [
+        "**/*.test.js",
+        "**/*.spec.js",
+        "ui-test/**/*",
+        "test/**/*"
+      ]
+    }
+  ]
+  react/jsx-no-bind: ["warn"]
+  react/forbid-prop-types: ["warn"]
+  react/prefer-es6-class: ["warn"]
+  react/prop-types: ["warn"]
+  react/require-default-props: ["warn"]
+  react/sort-comp: ["warn"]

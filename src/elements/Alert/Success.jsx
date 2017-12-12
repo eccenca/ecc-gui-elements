@@ -19,7 +19,6 @@ const Success = React.createClass({
                 {children}
             </Alert>
         );
-
     },
 });
 

@@ -19,7 +19,6 @@ const Warning = React.createClass({
                 {children}
             </Alert>
         );
-
     },
 });
 

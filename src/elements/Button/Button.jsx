@@ -48,9 +48,7 @@ const Button = React.createClass({
 
     // define property types
     propTypes: {
-        children: React.PropTypes.oneOfType([
-            React.PropTypes.node
-        ]),
+        children: React.PropTypes.oneOfType([React.PropTypes.node]),
         /**
             string (optional): additional CSS class name
         */
@@ -95,7 +93,7 @@ const Button = React.createClass({
         */
         tooltip: React.PropTypes.oneOfType([
             React.PropTypes.node,
-            React.PropTypes.bool
+            React.PropTypes.bool,
         ]),
 
         // internal properties, used by button sub types
@@ -106,33 +104,32 @@ const Button = React.createClass({
     },
 
     // TODO: use translations
-    /*eslint camelcase: 0 */
+    /* eslint camelcase: 0 */
     canonicalTooltips: {
-        'edit': 'Edit',
-        'remove': 'Remove',
-        'save': 'Save',
-        'confirm': 'Confirm',
-        'cancel': 'Cancel',
-        'arrow_nextpage': 'Next page',
-        'arrow_prevpage': 'Previous page',
-        'arrow_lastpage': 'Last page',
-        'arrow_firstpage': 'First page',
-        'arrow_dropdown': 'Open',
-        'expand_more': 'Show more',
-        'expand_less': 'Show less',
-        'menu_more': 'Open menu',
-        'adjust': 'Adjust settings',
-        'filter': 'Filter data',
-        'sort': 'Sort data',
-        'hide': 'Hide',
-        'settings': 'Administrate settings',
-        'access_forbidden': 'No write access',
-        'delete': 'Remove', // 'delete' is deprecated
+        edit: 'Edit',
+        remove: 'Remove',
+        save: 'Save',
+        confirm: 'Confirm',
+        cancel: 'Cancel',
+        arrow_nextpage: 'Next page',
+        arrow_prevpage: 'Previous page',
+        arrow_lastpage: 'Last page',
+        arrow_firstpage: 'First page',
+        arrow_dropdown: 'Open',
+        expand_more: 'Show more',
+        expand_less: 'Show less',
+        menu_more: 'Open menu',
+        adjust: 'Adjust settings',
+        filter: 'Filter data',
+        sort: 'Sort data',
+        hide: 'Hide',
+        settings: 'Administrate settings',
+        access_forbidden: 'No write access',
+        delete: 'Remove', // 'delete' is deprecated
     },
 
     // template rendering
     render() {
-
         /* TODO:
 
         * add label/content as tooltip for icon/fab buttons
@@ -176,7 +173,11 @@ const Button = React.createClass({
 
         let tooltip = defaultTooltip;
         // if tooltip is empty check for default one
-        if (!tooltip && tooltip !== false && (typeof this.canonicalTooltips[iconName] !== 'undefined')) {
+        if (
+            !tooltip &&
+            tooltip !== false &&
+            typeof this.canonicalTooltips[iconName] !== 'undefined'
+        ) {
             tooltip = this.canonicalTooltips[iconName];
         }
 
@@ -185,7 +186,10 @@ const Button = React.createClass({
         if (iconName) {
             buttonContent = (
                 // if tooltip already exist send 'false' to prevent adding additional default tooltip in <Icon/>
-                <Icon name={iconName} tooltip={(tooltip || tooltip === false) ? false : ''}/>
+                <Icon
+                    name={iconName}
+                    tooltip={tooltip || tooltip === false ? false : ''}
+                />
             );
         }
 
@@ -196,29 +200,24 @@ const Button = React.createClass({
                     ripple={ripple}
                     mini={fabSize === 'mini'}
                     {...otherProps}
-                    {...semanticConfig}
-                >
+                    {...semanticConfig}>
                     {buttonContent}
                 </ReactMDLFabButton>
             );
-        }
-        else {
+        } else {
             button = (
                 <ReactMDLButton
                     className={classes}
                     ripple={ripple}
                     {...otherProps}
-                    {...semanticConfig}
-                >
+                    {...semanticConfig}>
                     {buttonContent}
                 </ReactMDLButton>
             );
         }
 
         if (tooltip && !this.props.disabled) {
-            button = (
-                <Tooltip label={tooltip}>{button}</Tooltip>
-            );
+            button = <Tooltip label={tooltip}>{button}</Tooltip>;
         }
 
         return button;

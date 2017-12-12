@@ -19,7 +19,6 @@ import _ from 'lodash';
  */
 const uniqueId = (WrappedComponent, {prefix = '', targetProp = 'id'}) => {
     class uniqueIdComponent extends React.Component {
-
         id = {};
 
         componentWillMount() {
@@ -27,7 +26,7 @@ const uniqueId = (WrappedComponent, {prefix = '', targetProp = 'id'}) => {
         }
 
         render() {
-            return <WrappedComponent {...this.props} {...this.id}/>;
+            return <WrappedComponent {...this.props} {...this.id} />;
         }
     }
 

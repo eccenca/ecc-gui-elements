@@ -1,16 +1,22 @@
 import React from 'react';
 import classNames from 'classnames';
-import Select from 'react-select/lib/Select.js';
-import Creatable from 'react-select/lib/Creatable.js';
+import Select from 'react-select/lib/Select';
+import Creatable from 'react-select/lib/Creatable';
 import Async from 'react-select/lib/Async';
 import AsyncCreatable from 'react-select/lib/AsyncCreatable';
 import _ from 'lodash';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
+import UniqueIdWrapper from '../../utils/uniqueId';
+import Button from '../Button/Button';
 
 // format value to lowercase string
 const stringCompare = function(value) {
     return _.toLower(_.toString(value));
 };
+
+const clearRenderer = () => (
+    <Button iconName="clear" className="mdl-button--clearance" />
+);
 
 const SelectBox = React.createClass({
     mixins: [PerformanceMixin],
@@ -20,20 +26,27 @@ const SelectBox = React.createClass({
          * contains values which are available in dropdown list
          * options is an array of objects or strings and/or numbers
          */
-        options: React.PropTypes.arrayOf(function(propValue, key, componentName, location, propFullName) {
-            const containObjects = _.isPlainObject(_.head(propValue));
+        options: React.PropTypes.arrayOf(
+            (propValue, key, componentName, location, propFullName) => {
+                const containObjects = _.isPlainObject(_.head(propValue));
 
-            const isObject = _.isPlainObject(propValue[key]);
+                const isObject = _.isPlainObject(propValue[key]);
 
-            const isNumberOrString = _.isString(propValue[key]) || _.isNumber(propValue[key]);
+                const isNumberOrString =
+                    _.isString(propValue[key]) || _.isNumber(propValue[key]);
 
-            if (!containObjects && !isNumberOrString || containObjects && !isObject) {
-                return new Error(
-                    'Invalid prop `' + propFullName + '` supplied to' +
-                    ' `' + componentName + '`. No mixed content (object vs string/number) allowed.'
-                );
+                if (
+                    (!containObjects && !isNumberOrString) ||
+                    (containObjects && !isObject)
+                ) {
+                    return new Error(
+                        `Invalid prop \`${propFullName}\` supplied to` +
+                            ` \`${componentName}\`. No mixed content (object vs string/number) allowed.`
+                    );
+                }
+                return false;
             }
-        }),
+        ),
         /**
          * contains selected value
          * value is an object or a strings a numbers
@@ -61,11 +74,11 @@ const SelectBox = React.createClass({
     // default check for value creation
     // prevent double values (check case insensitive, and handle numbers as string)
     uniqueOptions({option: newObject, options}) {
-        return (
-            !_.some(options, ({value, label}) => (
+        return !_.some(
+            options,
+            ({value, label}) =>
                 stringCompare(value) === stringCompare(newObject.value) &&
                 stringCompare(label) === stringCompare(newObject.label)
-            ))
         );
     },
     onFocus() {
@@ -79,7 +92,6 @@ const SelectBox = React.createClass({
         });
     },
     render() {
-
         const {
             autofocus,
             creatable,
@@ -87,6 +99,7 @@ const SelectBox = React.createClass({
             optionsOnTop,
             value,
             async = false,
+            uniqueId,
             ...passProps
         } = this.props;
 
@@ -96,20 +109,29 @@ const SelectBox = React.createClass({
         passProps.onFocus = this.onFocus;
         passProps.onBlur = this.onBlur;
 
+        passProps.clearable = _.isUndefined(passProps.clearable)
+            ? true
+            : passProps.clearable;
 
+        if (passProps.clearable) {
+            passProps.clearRenderer = clearRenderer;
+        }
 
-        const focused = (this.state && (typeof this.state.focused !== 'undefined')) ?
-                        this.state.focused : autofocus;
+        const focused =
+            this.state && typeof this.state.focused !== 'undefined'
+                ? this.state.focused
+                : autofocus;
 
-        const classes = classNames(
-            {
-                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': placeholder ? true : false,
-                'mdl-textfield--floating-label': placeholder ? true : false,
-                'is-dirty': (!_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value))) ? true : false,
-                'is-focused': (focused === true),
-                'Select--optionsontop': (optionsOnTop === true),
-            }
-        );
+        const classes = classNames({
+            'mdl-textfield mdl-js-textfield mdl-textfield--full-width': !!placeholder,
+            'mdl-textfield--floating-label': !!placeholder,
+            'is-dirty': !!(
+                !_.isNil(value) &&
+                (_.isNumber(value) || !_.isEmpty(value))
+            ),
+            'is-focused': focused === true,
+            'Select--optionsontop': optionsOnTop === true,
+        });
 
         let parsedValue = null;
 
@@ -117,94 +139,108 @@ const SelectBox = React.createClass({
         if (!_.isEmpty(value) || _.isNumber(value)) {
             // in case of multi select is used
             if (_.isArray(value)) {
-                parsedValue = _.map(value, (it) => (
-                    _.isPlainObject(it) ? it : {value: it, label: it}
-                ));
-            }
-            else {
-                parsedValue = _.isPlainObject(value) ? value : {value, label: value};
+                parsedValue = _.map(
+                    value,
+                    it => (_.isPlainObject(it) ? it : {value: it, label: it})
+                );
+            } else {
+                parsedValue = _.isPlainObject(value)
+                    ? value
+                    : {value, label: value};
             }
         }
 
         let component = null;
 
-        if(async){
+        if (async) {
+            const {
+                ignoreCase = false,
+                ignoreAccents = false,
+                ...passAsyncProps
+            } = passProps;
 
-            const {ignoreCase = false, ignoreAccents = false, ...passAsyncProps} = passProps;
-
-            if(creatable) {
+            if (creatable) {
                 component = (
                     <AsyncCreatable
                         {...passAsyncProps}
                         value={parsedValue}
+                        id={uniqueId}
                         onChange={this.onChange}
-                        isOptionUnique={this.props.isOptionUnique || this.uniqueOptions}
+                        isOptionUnique={
+                            this.props.isOptionUnique || this.uniqueOptions
+                        }
                         ignoreAccents={ignoreAccents}
                         ignoreCase={ignoreCase}
                         placeholder=""
                     />
-                )
+                );
             } else {
                 component = (
                     <Async
                         {...passAsyncProps}
+                        id={uniqueId}
                         value={parsedValue}
                         onChange={this.onChange}
                         ignoreAccents={ignoreAccents}
                         ignoreCase={ignoreCase}
                         placeholder=""
                     />
-                )
+                );
             }
         } else {
-
             const {options, ...passSyncProps} = passProps;
 
             // parse values to object format if needed
-            const parsedOptions = _.isPlainObject(options[0]) ? options :
-                (
-                    _.map(options, it => {
-                        return {value: it, label: it, $plainValue: true};
-                    })
-                );
+            const parsedOptions = _.isPlainObject(options[0])
+                ? options
+                : _.map(options, it => ({
+                      value: it,
+                      label: it,
+                      $plainValue: true,
+                  }));
 
-            if(creatable){
+            if (creatable) {
                 component = (
                     <Creatable
                         {...passSyncProps}
+                        id={uniqueId}
                         value={parsedValue}
                         options={parsedOptions}
                         onChange={this.onChange}
-                        isOptionUnique={this.props.isOptionUnique || this.uniqueOptions}
+                        isOptionUnique={
+                            this.props.isOptionUnique || this.uniqueOptions
+                        }
                         placeholder=""
                     />
-                )
+                );
             } else {
                 component = (
                     <Select
                         {...passSyncProps}
+                        id={uniqueId}
                         value={parsedValue}
                         options={parsedOptions}
                         onChange={this.onChange}
                         placeholder=""
                     />
-                )
+                );
             }
-
         }
 
         return (
             <div className={classes}>
-                { component }
-                {
-                    placeholder &&
-                    <label className="mdl-textfield__label">
+                {component}
+                {placeholder && (
+                    <label className="mdl-textfield__label" htmlFor={uniqueId}>
                         {placeholder}
                     </label>
-                }
+                )}
             </div>
         );
-    }
+    },
 });
 
-export default SelectBox;
+export default UniqueIdWrapper(SelectBox, {
+    prefix: 'selectBox',
+    targetProp: 'uniqueId',
+});

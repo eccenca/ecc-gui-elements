@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.26.0] 2017-12-12
+
+### Added
+- provide class `.mdl-button-clearance` for buttons, see `README.md` for more info
+
+### Fixed
+- react-select version set to `v1.0.1`, waiting for [this PR](https://github.com/JedWatson/react-select/pull/2198) to land
+
 ## [2.25.2] 2017-12-06
 
 ### Fixed

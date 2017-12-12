@@ -1,5 +1,7 @@
 import React from 'react';
+import moment from 'moment';
 import _ from 'lodash';
+
 import {
     Checkbox,
     Card,
@@ -12,8 +14,7 @@ import {
     TextField,
     DateField,
     DateTimefield,
-} from '../../index.js';
-import moment from 'moment';
+} from '../../index';
 
 const TestInputs = React.createClass({
     getInitialState() {
@@ -25,7 +26,7 @@ const TestInputs = React.createClass({
             switches: [false, true, undefined, undefined, true, false],
             textInput: ['5'],
             selectedRadio: '',
-            dateInput:[
+            dateInput: [
                 // date only
                 moment('2017-02-08'),
                 moment('2017-02-08 09:30:26'),
@@ -69,11 +70,9 @@ const TestInputs = React.createClass({
     },
 
     updateRadio({value}) {
-
         this.setState({
             selectedRadio: value,
-        })
-
+        });
     },
 
     updateTextInput(index, {value}) {
@@ -85,7 +84,13 @@ const TestInputs = React.createClass({
     },
 
     updateDateInput(index, {rawValue, value, isValid}) {
-        console.log('New Date is:', value, '(' + (isValid ? 'valid' : 'invalid') + ')', 'Raw:', rawValue);
+        console.log(
+            'New Date is:',
+            value,
+            `(${isValid ? 'valid' : 'invalid'})`,
+            'Raw:',
+            rawValue
+        );
         const dateInput = this.state.dateInput;
         dateInput[index] = value;
         this.setState({
@@ -96,28 +101,23 @@ const TestInputs = React.createClass({
     render() {
         return (
             <Card>
-                <CardTitle documentLevel={'h4'}>
-                    Test Inputfields
-                </CardTitle>
+                <CardTitle documentLevel={'h4'}>Test Inputfields</CardTitle>
                 <CardContent>
                     <Switch
                         id="test_id_666"
-                        ripple={true}
+                        ripple
                         checked={this.state.switches[0]}
                         onChange={this.updateSwitch.bind(null, 0)}
                     />
                     <Switch
                         checked={this.state.switches[1]}
-                        onChange={this.updateSwitch.bind(null, 1)}
-                    >
+                        onChange={this.updateSwitch.bind(null, 1)}>
                         Switch with Ripple
                     </Switch>
-
                     <hr />
-
                     <Checkbox
                         id="test_id_667"
-                        ripple={true}
+                        ripple
                         checked={this.state.switches[2]}
                         onChange={this.updateSwitch.bind(null, 2)}
                     />
@@ -129,48 +129,34 @@ const TestInputs = React.createClass({
                     <Checkbox
                         disabled
                         checked={this.state.switches[4]}
-                        onChange={this.updateSwitch.bind(null, 4)}
-                    >
+                        onChange={this.updateSwitch.bind(null, 4)}>
                         Checkbox 2 Text
                     </Checkbox>
                     <Checkbox
                         checked={this.state.switches[5]}
-                        onChange={this.updateSwitch.bind(null, 5)}
-                    >
+                        onChange={this.updateSwitch.bind(null, 5)}>
                         <div className="test">Checkbox 3 Text</div>
                     </Checkbox>
-
                     <hr />
-
                     <RadioGroup
                         name="testradio1"
                         onChange={this.updateRadio}
-                        value={this.state.selectedRadio}
-                    >
-                        <Radio
-                            value="one"
-                        />
-                        <Radio
-                            value="two"
-                            label="Radio 2 Text"
-                        />
+                        value={this.state.selectedRadio}>
+                        <Radio value="one" />
+                        <Radio value="two" label="Radio 2 Text" />
                     </RadioGroup>
                     <RadioGroup
                         childContainer="div"
                         name="testradio2"
                         onChange={this.updateRadio}
-                        value={this.state.selectedRadio}
-                    >
-                        <Radio
-                            disabled
-                            value="three"
-                        >
+                        value={this.state.selectedRadio}>
+                        <Radio disabled value="three">
                             Radio 3 Text
                         </Radio>
-                        <Radio
-                            value="four"
-                        >
-                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        <Radio value="four">
+                            <div className="test">
+                                Radio 4 Text <br />Line 2
+                            </div>
                         </Radio>
                     </RadioGroup>
                     <div>
@@ -181,64 +167,45 @@ const TestInputs = React.createClass({
                     </div>
                     <RadioGroup
                         container="div"
-                        value={this.state.selectedRadio}
-                    >
-                        <Radio
-                            value="one"
-                        />
-                        <Radio
-                            value="two"
-                            label="Radio 2 Text"
-                        />
-                        <Radio
-                            disabled
-                            value="three"
-                        >
+                        value={this.state.selectedRadio}>
+                        <Radio value="one" />
+                        <Radio value="two" label="Radio 2 Text" />
+                        <Radio disabled value="three">
                             Radio 3 Text
                         </Radio>
-                        <Radio
-                            value="four"
-                        >
-                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        <Radio value="four">
+                            <div className="test">
+                                Radio 4 Text <br />Line 2
+                            </div>
                         </Radio>
-                        <Radio
-                            value="one"
-                        />
-                        <Radio
-                            value="two"
-                            label="Radio 2 Text"
-                        />
-                        <Radio
-                            disabled
-                            value="three"
-                        >
+                        <Radio value="one" />
+                        <Radio value="two" label="Radio 2 Text" />
+                        <Radio disabled value="three">
                             Radio 3 Text
                         </Radio>
-                        <Radio
-                            value="four"
-                        >
-                            <div className="test">Radio 4 Text <br/>Line 2</div>
+                        <Radio value="four">
+                            <div className="test">
+                                Radio 4 Text <br />Line 2
+                            </div>
                         </Radio>
                     </RadioGroup>
-
                     <hr />
-
                     <h5>SelectBox with objects</h5>
                     <SelectBox
                         placeholder={'Value deleted'}
                         options={[
                             {
                                 label: 'labelz',
-                                value: 'valuez'
+                                value: 'valuez',
                             },
                             {
                                 label: 'label1',
-                                value: 'value1'
+                                value: 'value1',
                             },
                             {
                                 label: 'label2',
-                                value: 'value2'
-                            }
+                                value: 'value2',
+                            },
                         ]}
                         value={this.state.selectBox1}
                         onChange={this.selectBox1OnChange}
@@ -256,9 +223,11 @@ const TestInputs = React.createClass({
                         options={['label1', 3, 8]}
                         value={this.state.selectBox2}
                         onChange={this.selectBox2OnChange}
-                        optionsOnTop={true}
+                        optionsOnTop
                     />
-                    <h5>Multiple selections with option to create new entries</h5>
+                    <h5>
+                        Multiple selections with option to create new entries
+                    </h5>
                     <SelectBox
                         placeholder={'Multiselect with create'}
                         options={[
@@ -266,15 +235,15 @@ const TestInputs = React.createClass({
                             3,
                             'Andelsselskab med begrænset ansvar, Denmark',
                             'Akcionersko Društvo / Акционерско друштво, Republic of Macedonia',
-                            8
+                            8,
                         ]}
                         value={this.state.selectBox3}
                         onChange={this.selectBox3OnChange}
-                        multi={true}
+                        multi
                         clearable={false}
-                        creatable={true}
-                        promptTextCreator={
-                            (newLabel) => `New freaking Stuff called: ${newLabel}`
+                        creatable
+                        promptTextCreator={newLabel =>
+                            `New freaking Stuff called: ${newLabel}`
                         }
                     />
                     <h5>Async Selectbox</h5>
@@ -283,23 +252,22 @@ const TestInputs = React.createClass({
                         value={this.state.selectBox4}
                         onChange={this.selectBox4OnChange}
                         loadOptions={function(input, callback) {
-                            setTimeout(function() {
+                            setTimeout(() => {
                                 callback(null, {
                                     options: [
-                                        { value: 'one', label: 'One' },
-                                        { value: 'two', label: 'Two' }
+                                        {value: 'one', label: 'One'},
+                                        {value: 'two', label: 'Two'},
                                     ],
                                     // CAREFUL! Only set this to true when there are no more options,
                                     // or more specific queries will not be sent to the server.
-                                    complete: true
+                                    complete: true,
                                 });
                             }, 500);
                         }}
-                        multi={true}
-                        async={true}
+                        multi
+                        async
                     />
                     <hr />
-
                     <h5>Textfields</h5>
                     <TextField
                         value={this.state.textInput[0]}
@@ -313,7 +281,7 @@ const TestInputs = React.createClass({
                         stretch={false}
                     />
                     <TextField
-                        multiline={true}
+                        multiline
                         label="Multiline input"
                         className="mdl-textfield--full-width"
                         value={this.state.textInput[1]}
@@ -325,9 +293,8 @@ const TestInputs = React.createClass({
                         error="Something went wrong, so this error is shown."
                         onChange={this.updateTextInput.bind(null, 0)}
                     />
-
                     <h5>Datefields</h5>
-                    date only fields (8th, February 2017)<br/>
+                    date only fields (8th, February 2017)<br />
                     <DateField
                         label="Date label"
                         stretch={false}
@@ -356,7 +323,7 @@ const TestInputs = React.createClass({
                         closeOnSelect
                         placeholder="picker disappear on select"
                     />
-                    time only fields (14:23)<br/>
+                    time only fields (14:23)<br />
                     <DateTimefield
                         value={this.state.dateInput[5]}
                         onChange={this.updateDateInput.bind(null, 5)}
@@ -378,7 +345,7 @@ const TestInputs = React.createClass({
                         onChange={this.updateDateInput.bind(null, 8)}
                     />
                     no manual input
-                    <br/>
+                    <br />
                     Selected date: {this.state.dateInput[9].format()}
                     <DateTimefield
                         value={this.state.dateInput[9]}
@@ -388,7 +355,7 @@ const TestInputs = React.createClass({
                 </CardContent>
             </Card>
         );
-    }
+    },
 });
 
 export default TestInputs;
