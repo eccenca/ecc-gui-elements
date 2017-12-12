@@ -7,11 +7,16 @@ import AsyncCreatable from 'react-select/lib/AsyncCreatable';
 import _ from 'lodash';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 import UniqueIdWrapper from '../../utils/uniqueId';
+import Button from '../Button/Button';
 
 // format value to lowercase string
 const stringCompare = function(value) {
     return _.toLower(_.toString(value));
 };
+
+const clearRenderer = () => (
+    <Button iconName="clear" className="mdl-button--clearance" />
+);
 
 const SelectBox = React.createClass({
     mixins: [PerformanceMixin],
@@ -39,6 +44,7 @@ const SelectBox = React.createClass({
                             ` \`${componentName}\`. No mixed content (object vs string/number) allowed.`
                     );
                 }
+                return false;
             }
         ),
         /**
@@ -102,6 +108,14 @@ const SelectBox = React.createClass({
 
         passProps.onFocus = this.onFocus;
         passProps.onBlur = this.onBlur;
+
+        passProps.clearable = _.isUndefined(passProps.clearable)
+            ? true
+            : passProps.clearable;
+
+        if (passProps.clearable) {
+            passProps.clearRenderer = clearRenderer;
+        }
 
         const focused =
             this.state && typeof this.state.focused !== 'undefined'

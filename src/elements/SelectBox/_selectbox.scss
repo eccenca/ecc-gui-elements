@@ -83,6 +83,12 @@
     }
 }
 
+.Select-clear-zone .mdl-button.mdl-button--clearance {
+    bottom: auto;
+    position: relative;
+    color: $text-color-primary;
+}
+
 .Select-input {
     padding-left: 0;
     padding-right: 35px;

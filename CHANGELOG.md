@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- provide class `.mdl-button-clearance` for buttons, see `README.md` for more info
+
+### Fixed
+- react-select version set to `v1.0.1`, waiting for [this PR](https://github.com/JedWatson/react-select/pull/2198) to land
 
 ## [2.25.2] 2017-12-06
 

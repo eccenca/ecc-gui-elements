@@ -8,12 +8,28 @@
     &.mdl-button--danger {
         color: to_color($palette-red-800);
     }
+
+    &.mdl-button--clearance:not(.mdl-button--raised) {
+        opacity: 0.39;
+
+        &:focus, &:hover, &:active {
+            opacity: 1;
+            color: to_color($palette-red-800);
+        }
+    }
 }
 
 .mdl-button--raised {
     &.mdl-button--danger {
         background-color: to_color($palette-red-800);
         color: to_color($palette-red-50);
+    }
+
+    &.mdl-button--clearance {
+        &:focus, &:hover, &:active {
+            background-color: $button-primary-color;
+            color: to_color($palette-red-800);
+        }
     }
 }
 

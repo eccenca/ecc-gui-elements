@@ -277,6 +277,10 @@ const Page = React.createClass({
 });
 ```
 
+Some special class names provide extra functionality:
+
+* `mdl-button--clearance`: add it to buttons that clear input fields or whole input blocks, works with all button types.
+
 #### ProgressButton
 
 There is a special version of the Button element that can be used to visualize a running process. `<ProgressButton/>` elements are shown as raised disabled buttons but this behaviour can be overwritten.
