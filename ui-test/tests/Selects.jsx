@@ -11,22 +11,9 @@ const TestInputs = React.createClass({
             selectBox4: '',
         };
     },
-
-    selectBox1OnChange(value) {
+    handleChange(value, key) {
         console.log('SelectBox onChange: ', value);
-        this.setState({selectBox1: value});
-    },
-    selectBox2OnChange(value) {
-        console.log('SelectBox onChange: ', value);
-        this.setState({selectBox2: value});
-    },
-    selectBox3OnChange(value) {
-        console.log('SelectBox onChange: ', value);
-        this.setState({selectBox3: value});
-    },
-    selectBox4OnChange(value) {
-        console.log('SelectBox onChange: ', value);
-        this.setState({selectBox4: value});
+        this.setState({[key]: value});
     },
     render() {
         return (
@@ -50,22 +37,25 @@ const TestInputs = React.createClass({
                                 value: 'value2',
                             },
                         ]}
+                        name="selectBox1"
                         value={this.state.selectBox1}
-                        onChange={this.selectBox1OnChange}
+                        onChange={this.handleChange}
                         autofocus
                     />
                     <h5>SelectBox with mixed strings and numbers</h5>
                     <SelectBox
                         placeholder={'No Value'}
                         options={['label1', 3, 8]}
+                        name="selectBox2"
                         value={this.state.selectBox2}
-                        onChange={this.selectBox2OnChange}
+                        onChange={this.handleChange}
                     />
                     <SelectBox
                         placeholder={'Open option to top'}
                         options={['label1', 3, 8]}
+                        name="selectBox2"
                         value={this.state.selectBox2}
-                        onChange={this.selectBox2OnChange}
+                        onChange={this.handleChange}
                         optionsOnTop
                     />
                     <h5>
@@ -80,8 +70,9 @@ const TestInputs = React.createClass({
                             'Akcionersko Društvo / Акционерско друштво, Republic of Macedonia',
                             8,
                         ]}
+                        name="selectBox3"
                         value={this.state.selectBox3}
-                        onChange={this.selectBox3OnChange}
+                        onChange={this.handleChange}
                         multi
                         clearable={false}
                         creatable
@@ -92,8 +83,9 @@ const TestInputs = React.createClass({
                     <h5>Async Selectbox</h5>
                     <SelectBox
                         placeholder={'Multiselect with async'}
+                        name="selectBox4"
                         value={this.state.selectBox4}
-                        onChange={this.selectBox4OnChange}
+                        onChange={this.handleChange}
                         loadOptions={function(input, callback) {
                             setTimeout(() => {
                                 callback(null, {

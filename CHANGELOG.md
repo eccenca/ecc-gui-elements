@@ -4,7 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- `name` property to `SelectBox`, which is also returned in the onChange event as a second parameter:
+    ```
+    <SelectBox
+        name="selectBoxValue"
+        value={this.state.selectBoxValue}
+        onChange={(value, key) => this.setState({[key]: value})}
+    >
+    ```
 
 ## [2.26.0] 2017-12-12
 
