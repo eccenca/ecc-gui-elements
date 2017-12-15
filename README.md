@@ -158,6 +158,7 @@ Returns:
 ## GUI elements
 
 - `Alert`: A message box which is optionally dismissable, includes `Error`, `Info`, `Success` and `Warning`.
+- `AutoCompleteBox`: A auto-completion box (wrapper around `SelectBox`) which renders label, value and an optional description.
 - `BaseDialog`: A custom message box with optional Buttons
 - `Button`: A simple Button which also may contain icons
 - `BreadcrumbList`: A simple element to create breadcrumb navigation
@@ -222,6 +223,49 @@ const Page = React.createClass({
     },
     // ....
 });
+```
+
+### AutoCompleteBox
+
+The AutoCompleteBox wraps `SelectBox`, it takes the same properties. The key differences are:
+
+- rendering of multi-line options with label, value and description.
+    - If value and label are the same, only one is rendered
+    - descriptions are optional
+- the options have to be an array of objects
+- it is always searchable, while a SelectBox can be de-activated
+
+```js
+import { AutoCompleteBox } from 'ecc-gui-elements';
+
+const Page = React.createClass({
+    getInitialState(){
+      return {
+          value: null,
+      };
+    },
+    selectBoxOnChange(value){
+       this.setState({
+           value
+       });
+    },
+    // template rendering
+    render() {
+        return (
+            <AutoCompleteBox
+                placeholder="Label for AutoCompleteBox"
+                options={[{label: 'Label', description: 'This is a description', value: '5000 Examples'}]}
+                optionsOnTop={true} // option list opens up on top of select input (default: false)
+                value={this.state.value}
+                onChange={this.selectBoxOnChange}
+                creatable={true} // allow creation of new values
+                multi={true} // allow multi selection
+                clearable={false} // hide 'remove all selected values' button
+            />
+        )
+    },
+});
+
 ```
 
 ### Button
@@ -731,9 +775,9 @@ const Page = React.createClass({
     // value is the date shown to the user
     // rawValue is the ISO 8601 representation if value is valid
     // isValid indicates if given value matches the defined representation
-    onChange({value, rawValue, isValid}) {
+    onChange({value, rawValue, isValid, name}) {
         this.setState({
-            value,
+            [name]: value,
         })
     },
     // template rendering
@@ -741,7 +785,8 @@ const Page = React.createClass({
         return (
             <DateField
                 onChange={this.onChange}
-                value={this.state.value} // Should be a moment.js value for consistent handling
+                name="dateValue"
+                value={this.state.dateValue} // Should be a moment.js value for consistent handling
                 placeholder="Please set a date" // optional (default: '')
                 dateFormat="DD-MM-YYYY" // validate date format, optional (default 'DD-MM-YYYY')
                 closeOnSelect={true} // auto close picker when a date is selected, optional (default: false)
@@ -763,19 +808,20 @@ import { DateTimeField } from 'ecc-gui-elements';
 
 const Page = React.createClass({
     // value is the date shown to the user
-        // rawValue is the ISO 8601 representation if value is valid
-        // isValid indicates if given value matches the defined representation
-        onChange({value, rawValue, isValid}) {
-            this.setState({
-                value,
-            })
-        },
+    // rawValue is the ISO 8601 representation if value is valid
+    // isValid indicates if given value matches the defined representation
+    onChange({value, rawValue, isValid, name}) {
+        this.setState({
+            [name]: value,
+        })
+    },
     // template rendering
     render() {
         return (
             <DateTimeField
                 onChange={this.onChange}
-                value={this.state.value} // Should be a moment.js value for consistent handling
+                name="dateTimeValue"
+                value={this.state.dateTimeValue} // Should be a moment.js value for consistent handling
                 label="Label for DateTime input" // optional
                 placeholder="Pls set a date" // optional (default: '') and only used if there is no label
                 dateFormat="DD-MM-YYYY" // validate date format, optional (default 'DD-MM-YYYY')
@@ -925,6 +971,7 @@ const Page = React.createClass({
 ### SelectBox
 
 The SelectBox wraps [react-select](https://github.com/JedWatson/react-select) to use mixed content of strings and numbers as well as the default object type.
+Please refer to all available properties in the linked documentation.
 
 The SelectBox behaves like a [controlled input](https://facebook.github.io/react/docs/forms.html#controlled-components)
 
@@ -955,6 +1002,7 @@ const Page = React.createClass({
                 promptTextCreator={(newLabel) => ('New stuff: ' + newLabel)} // change default "Create option 'newLabel'" to "New stuff: 'newLabel'"
                 multi={true} // allow multi selection
                 clearable={false} // hide 'remove all selected values' button
+                searchable={true} // whether to behave like a type-ahead or not
             />
         )
     },
@@ -999,9 +1047,9 @@ import { TextField } from 'ecc-gui-elements';
 const Page = React.createClass({
     // event is the original react onChange event
     // value is event.target.value (a shortcut for convienience)
-    onChange({value, event}) {
+    onChange({value, event, value}) {
         this.setState({
-            value,
+            [name]: value,
         })
     },
     // template rendering
@@ -1009,7 +1057,8 @@ const Page = React.createClass({
         return (
             <TextField
                 onChange={this.onChange}
-                value={this.state.value}
+                name="textfield"
+                value={this.state.textfield} // Should be a moment.js value for consistent handling
                 label="Textfield"
                 error="Please correct your input" // optional, error message
                 stretch={false} // do not use full width (default: true)

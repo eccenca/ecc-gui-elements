@@ -94,6 +94,7 @@ const SelectBox = React.createClass({
     render() {
         const {
             autofocus,
+            className,
             creatable,
             placeholder = '',
             optionsOnTop,
@@ -124,16 +125,17 @@ const SelectBox = React.createClass({
                 ? this.state.focused
                 : autofocus;
 
-        const classes = classNames({
-            'mdl-textfield mdl-js-textfield mdl-textfield--full-width': !!placeholder,
-            'mdl-textfield--floating-label': !!placeholder,
-            'is-dirty': !!(
-                !_.isNil(value) &&
-                (_.isNumber(value) || !_.isEmpty(value))
-            ),
-            'is-focused': focused === true,
-            'Select--optionsontop': optionsOnTop === true,
-        });
+        const classes = classNames(
+            {
+                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': !!placeholder,
+                'mdl-textfield--floating-label': !!placeholder,
+                'is-dirty':
+                    !_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value)),
+                'is-focused': focused === true,
+                'Select--optionsontop': optionsOnTop === true,
+            },
+            className
+        );
 
         let parsedValue = null;
 

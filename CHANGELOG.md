@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 
 ### Added
+- `AutoCompleteBox` wrapper around `SelectBox`
 - `name` property to `SelectBox`, which is also returned in the onChange event as a second parameter:
     ```
     <SelectBox

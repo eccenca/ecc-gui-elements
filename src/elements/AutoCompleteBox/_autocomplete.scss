@@ -1,0 +1,32 @@
+.Select--AutoComplete {
+
+    .Select-option__label,
+    .Select-option__value,
+    .Select-option__description {
+        display: block;
+        white-space: nowrap;
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.25;
+    }
+
+    .Select-option__description {
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+    .Select-option__label {
+        font-weight: 500;
+    }
+
+    .Select-option__value {
+        font-size: 0.8em;
+    }
+
+    .Select-option__description {
+        font-size: 0.9em;
+    }
+
+}
