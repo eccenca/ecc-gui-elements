@@ -10,7 +10,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
     <SelectBox
         name="selectBoxValue"
         value={this.state.selectBoxValue}
-        onChange={(value, key) => this.setState({[key]: value})}
+        onChange={(value, name) => this.setState({[name]: value})}
+    >
+    ```
+- `name` property support to `Checkbox`, `RadioGroup`, `Switch`, `TextField` and `DateField`, which is also returned in the onChange event:
+    ```
+    <Checkbox
+        name="checkbox"
+        value={this.state.checkbox}
+        onChange={({value, name}) => this.setState({[name]: value})}
     >
     ```
 

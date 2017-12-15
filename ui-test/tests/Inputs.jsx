@@ -38,42 +38,16 @@ const TestInputs = React.createClass({
             ],
         };
     },
-    updateSwitch(index, {value}) {
-        const switches = _.clone(this.state.switches);
-        switches[index] = value;
-        this.setState({
-            switches,
-        });
-    },
-
-    updateRadio({value}) {
-        this.setState({
-            selectedRadio: value,
-        });
-    },
-    updateTextInput(index, {value}) {
-        const textInput = _.clone(this.state.textInput);
-        textInput[index] = value;
-        this.setState({
-            textInput,
-        });
-    },
-
-    updateDateInput(index, {rawValue, value, isValid}) {
+    updateSwitch({name, rawValue, value, isValid}) {
         console.log(
-            'New Date is:',
-            value,
+            `Changing value of ${name} to: ${value}`,
             `(${isValid ? 'valid' : 'invalid'})`,
-            'Raw:',
-            rawValue
+            ` | Raw: ${rawValue}`
         );
-        const dateInput = this.state.dateInput;
-        dateInput[index] = value;
-        this.setState({
-            dateInput,
-        });
+        const currentState = this.state;
+        _.set(currentState, name, value);
+        this.setState(currentState);
     },
-
     render() {
         return (
             <Card>
@@ -81,50 +55,56 @@ const TestInputs = React.createClass({
                 <CardContent>
                     <Switch
                         id="test_id_666"
+                        name="switches[0]"
                         ripple
                         checked={this.state.switches[0]}
-                        onChange={this.updateSwitch.bind(null, 0)}
+                        onChange={this.updateSwitch}
                     />
                     <Switch
+                        name="switches[1]"
                         checked={this.state.switches[1]}
-                        onChange={this.updateSwitch.bind(null, 1)}>
+                        onChange={this.updateSwitch}>
                         Switch with Ripple
                     </Switch>
                     <hr />
                     <Checkbox
+                        name="switches[2]"
                         id="test_id_667"
                         ripple
                         checked={this.state.switches[2]}
-                        onChange={this.updateSwitch.bind(null, 2)}
+                        onChange={this.updateSwitch}
                     />
                     <Checkbox
+                        name="switches[3]"
                         label="Checkbox 1 Text"
                         checked={this.state.switches[3]}
-                        onChange={this.updateSwitch.bind(null, 3)}
+                        onChange={this.updateSwitch}
                     />
                     <Checkbox
+                        name="switches[4]"
                         disabled
                         checked={this.state.switches[4]}
-                        onChange={this.updateSwitch.bind(null, 4)}>
+                        onChange={this.updateSwitch}>
                         Checkbox 2 Text
                     </Checkbox>
                     <Checkbox
+                        name="switches[5]"
                         checked={this.state.switches[5]}
-                        onChange={this.updateSwitch.bind(null, 5)}>
+                        onChange={this.updateSwitch}>
                         <div className="test">Checkbox 3 Text</div>
                     </Checkbox>
                     <hr />
                     <RadioGroup
-                        name="testradio1"
-                        onChange={this.updateRadio}
+                        name="selectedRadio"
+                        onChange={this.updateSwitch}
                         value={this.state.selectedRadio}>
                         <Radio value="one" />
                         <Radio value="two" label="Radio 2 Text" />
                     </RadioGroup>
                     <RadioGroup
                         childContainer="div"
-                        name="testradio2"
-                        onChange={this.updateRadio}
+                        name="selectedRadio"
+                        onChange={this.updateSwitch}
                         value={this.state.selectedRadio}>
                         <Radio disabled value="three">
                             Radio 3 Text
@@ -168,28 +148,32 @@ const TestInputs = React.createClass({
                     <hr />
                     <h5>Textfields</h5>
                     <TextField
+                        name="textInput[0]"
                         value={this.state.textInput[0]}
                         label="Test Input"
-                        onChange={this.updateTextInput.bind(null, 0)}
+                        onChange={this.updateSwitch}
                     />
                     <TextField
+                        name="textInput[0]"
                         value={this.state.textInput[0]}
                         label="Test Input (not full width)"
-                        onChange={this.updateTextInput.bind(null, 0)}
+                        onChange={this.updateSwitch}
                         stretch={false}
                     />
                     <TextField
                         multiline
+                        name="textInput[1]"
                         label="Multiline input"
                         className="mdl-textfield--full-width"
                         value={this.state.textInput[1]}
-                        onChange={this.updateTextInput.bind(null, 1)}
+                        onChange={this.updateSwitch}
                     />
                     <TextField
+                        name="textInput[0]"
                         value={this.state.textInput[0]}
                         label="Test Input"
                         error="Something went wrong, so this error is shown."
-                        onChange={this.updateTextInput.bind(null, 0)}
+                        onChange={this.updateSwitch}
                     />
                     <h5>Datefields</h5>
                     date only fields (8th, February 2017)<br />
@@ -198,56 +182,66 @@ const TestInputs = React.createClass({
                         stretch={false}
                         error="This error is shown."
                         value={this.state.dateInput[0]}
-                        onChange={this.updateDateInput.bind(null, 0)}
+                        name="dateInput[0]"
+                        onChange={this.updateSwitch}
                         className="my-uitest-class"
                     />
                     <DateField
                         placeholder="Date placeholder"
                         stretch={false}
                         value={this.state.dateInput[1]}
-                        onChange={this.updateDateInput.bind(null, 1)}
+                        name="dateInput[1]"
+                        onChange={this.updateSwitch}
                     />
                     <DateField
                         value={this.state.dateInput[2]}
-                        onChange={this.updateDateInput.bind(null, 2)}
+                        name="dateInput[2]"
+                        onChange={this.updateSwitch}
                     />
                     <DateField
                         value={this.state.dateInput[3]}
-                        onChange={this.updateDateInput.bind(null, 3)}
+                        name="dateInput[3]"
+                        onChange={this.updateSwitch}
                     />
                     <DateField
                         value={this.state.dateInput[4]}
-                        onChange={this.updateDateInput.bind(null, 4)}
+                        name="dateInput[4]"
+                        onChange={this.updateSwitch}
                         closeOnSelect
                         placeholder="picker disappear on select"
                     />
                     time only fields (14:23)<br />
                     <DateTimefield
                         value={this.state.dateInput[5]}
-                        onChange={this.updateDateInput.bind(null, 5)}
+                        name="dateInput[5]"
+                        onChange={this.updateSwitch}
                         dateFormat={false}
                     />
                     <DateTimefield
                         value={this.state.dateInput[6]}
-                        onChange={this.updateDateInput.bind(null, 6)}
+                        name="dateInput[6]"
+                        onChange={this.updateSwitch}
                         dateFormat={false}
                     />
                     <DateTimefield
                         value={this.state.dateInput[7]}
-                        onChange={this.updateDateInput.bind(null, 7)}
+                        name="dateInput[7]"
+                        onChange={this.updateSwitch}
                         dateFormat={false}
                     />
                     date and time
                     <DateTimefield
                         value={this.state.dateInput[8]}
-                        onChange={this.updateDateInput.bind(null, 8)}
+                        name="dateInput[8]"
+                        onChange={this.updateSwitch}
                     />
                     no manual input
                     <br />
                     Selected date: {this.state.dateInput[9].format()}
                     <DateTimefield
                         value={this.state.dateInput[9]}
-                        onChange={this.updateDateInput.bind(null, 9)}
+                        name="dateInput[9]"
+                        onChange={this.updateSwitch}
                         input={false}
                     />
                 </CardContent>

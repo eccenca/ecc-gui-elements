@@ -8,6 +8,7 @@ const extendedOnChange = (onChangeFn, event) => {
     if (_.isFunction(onChangeFn)) {
         onChangeFn({
             event,
+            name: event.target.name,
             value: event.target.value,
             rawValue: event.target.value,
         });
