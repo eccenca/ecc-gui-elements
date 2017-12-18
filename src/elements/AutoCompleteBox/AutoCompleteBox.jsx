@@ -43,12 +43,14 @@ class AutoCompleteBox extends React.Component {
             );
 
         const optionDescription = description ? (
-            <Highlight
+            <span
                 key="autoCompleteDescription"
-                className="Select-option__description"
-                textToHighlight={description}
-                searchWord={this.currentInputValue}
-            />
+                className="Select-option__description">
+                <Highlight
+                    textToHighlight={description}
+                    searchWord={this.currentInputValue}
+                />
+            </span>
         ) : (
             false
         );
