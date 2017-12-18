@@ -1,0 +1,31 @@
+.Select--AutoComplete {
+
+    .Select-option__label,
+    .Select-option__value,
+    .Select-option__description {
+        display: block;
+        white-space: nowrap;
+        max-width: 100%;
+        width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: 1.25rem;
+    }
+
+    .Select-option__label {
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    .Select-option__value {
+        font-family: "Roboto Mono", monospace;
+        font-size: $ecc-size-typo-caption;
+    }
+
+    .Select-option__description {
+        font-size: $ecc-size-typo-caption;
+        overflow-wrap: break-word;
+        white-space: normal;
+    }
+
+}

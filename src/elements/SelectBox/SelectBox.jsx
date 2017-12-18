@@ -64,12 +64,12 @@ const SelectBox = React.createClass({
         creatable: React.PropTypes.bool,
     },
 
-    onChange(value) {
+    onChange(newValue) {
         // If the options consist of plainvalues, we just want to return the plain value
-        if (_.get(value, '$plainValue', false)) {
-            return this.props.onChange(value.value);
+        if (_.get(newValue, '$plainValue', false)) {
+            return this.props.onChange(newValue.value, this.props.name);
         }
-        return this.props.onChange(value);
+        return this.props.onChange(newValue, this.props.name);
     },
     // default check for value creation
     // prevent double values (check case insensitive, and handle numbers as string)
@@ -94,6 +94,7 @@ const SelectBox = React.createClass({
     render() {
         const {
             autofocus,
+            className,
             creatable,
             placeholder = '',
             optionsOnTop,
@@ -105,6 +106,8 @@ const SelectBox = React.createClass({
 
         // we do not want to pass onChange, as we wrap onChange ourselves
         delete passProps.onChange;
+        // we do not want to pass name, as we use it ourselves
+        delete passProps.name;
 
         passProps.onFocus = this.onFocus;
         passProps.onBlur = this.onBlur;
@@ -122,16 +125,17 @@ const SelectBox = React.createClass({
                 ? this.state.focused
                 : autofocus;
 
-        const classes = classNames({
-            'mdl-textfield mdl-js-textfield mdl-textfield--full-width': !!placeholder,
-            'mdl-textfield--floating-label': !!placeholder,
-            'is-dirty': !!(
-                !_.isNil(value) &&
-                (_.isNumber(value) || !_.isEmpty(value))
-            ),
-            'is-focused': focused === true,
-            'Select--optionsontop': optionsOnTop === true,
-        });
+        const classes = classNames(
+            {
+                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': !!placeholder,
+                'mdl-textfield--floating-label': !!placeholder,
+                'is-dirty':
+                    !_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value)),
+                'is-focused': focused === true,
+                'Select--optionsontop': optionsOnTop === true,
+            },
+            className
+        );
 
         let parsedValue = null;
 

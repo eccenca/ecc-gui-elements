@@ -61,6 +61,7 @@ import Progressbar from './src/elements/Progressbar/Progressbar';
 import {Radio, RadioGroup} from './src/elements/Radio';
 
 import SelectBox from './src/elements/SelectBox/SelectBox';
+import AutoCompleteBox from './src/elements/AutoCompleteBox/AutoCompleteBox';
 
 import Spinner from './src/elements/Spinner/Spinner';
 
@@ -112,6 +113,7 @@ export default {
     Progressbar,
     Radio,
     RadioGroup,
+    AutoCompleteBox,
     SelectBox,
     Spinner,
     Success,

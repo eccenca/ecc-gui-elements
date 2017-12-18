@@ -13,6 +13,7 @@ import TestDialogs from './tests/Dialogs';
 import TestIcons from './tests/Icons';
 import TestButtons from './tests/Buttons';
 import TestInputs from './tests/Inputs';
+import TestSelects from './tests/Selects';
 import TestTabs from './tests/Tabs';
 import TestScrolling from './tests/Scrolling';
 import TestPagination from './tests/Pagination';
@@ -125,6 +126,8 @@ const Page = React.createClass({
             />,
             <hr key="spacer8" className="mdl-layout-spacer" />,
             <TestInputs key="inputs" />,
+            <hr key="spacerB" className="mdl-layout-spacer" />,
+            <TestSelects key="selects" />,
             <hr key="spacer9" className="mdl-layout-spacer" />,
             <TestTabs key="tabs" />,
             <hr key="spacer0" className="mdl-layout-spacer" />,
