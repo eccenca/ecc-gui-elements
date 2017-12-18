@@ -9,24 +9,23 @@
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-height: 1.25;
-    }
-
-    .Select-option__description {
-        overflow-wrap: break-word;
-        white-space: normal;
+        line-height: 1.25rem;
     }
 
     .Select-option__label {
+        font-size: 1rem;
         font-weight: 500;
     }
 
     .Select-option__value {
-        font-size: 0.8em;
+        font-family: "Roboto Mono", monospace;
+        font-size: $ecc-size-typo-caption;
     }
 
     .Select-option__description {
-        font-size: 0.9em;
+        font-size: $ecc-size-typo-caption;
+        overflow-wrap: break-word;
+        white-space: normal;
     }
 
 }
