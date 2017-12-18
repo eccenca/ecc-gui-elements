@@ -4,7 +4,24 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- `AutoCompleteBox` wrapper around `SelectBox`
+- `name` property to `SelectBox`, which is also returned in the onChange event as a second parameter:
+    ```
+    <SelectBox
+        name="selectBoxValue"
+        value={this.state.selectBoxValue}
+        onChange={(value, name) => this.setState({[name]: value})}
+    >
+    ```
+- `name` property support to `Checkbox`, `RadioGroup`, `Switch`, `TextField` and `DateField`, which is also returned in the onChange event:
+    ```
+    <Checkbox
+        name="checkbox"
+        value={this.state.checkbox}
+        onChange={({value, name}) => this.setState({[name]: value})}
+    >
+    ```
 
 ## [2.26.0] 2017-12-12
 

@@ -96,6 +96,7 @@ const DateField = React.createClass({
                 value: newValue,
                 rawValue: newValue,
                 isValid: newValue.isValid(),
+                name: this.props.name,
             });
         }
     },
@@ -140,6 +141,7 @@ const DateField = React.createClass({
         delete otherProps.initialFormat;
         delete otherProps.dateFormat;
         delete otherProps.timeFormat;
+        delete otherProps.name;
 
         const inputProps = {
             label: label || placeholder,

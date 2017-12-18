@@ -12,15 +12,16 @@
     border-radius: 0;
     border-color: $input-text-bottom-border-color;
 
-    .is-focused:not(.is-open) > &,
-    .is-open > & {
-        border-color: $input-text-bottom-border-color;
-        box-shadow: none;
-    }
-
-    .is-focused:not(.mdl-textfield) > & {
+    .Select.is-focused > & {
+        outline: none;
         border-color: $input-text-highlight-color;
         border-bottom-width: 2px;
+    }
+
+    .Select.is-focused:not(.is-open) > &,
+    .Select.is-open > & {
+        border-color: $input-text-bottom-border-color;
+        box-shadow: none;
     }
 }
 
@@ -115,4 +116,8 @@
         bottom: 100%;
         margin-bottom: -1px;
     }
+}
+
+.Select-option {
+    @include typo-body-1();
 }
