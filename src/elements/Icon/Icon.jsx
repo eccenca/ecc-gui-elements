@@ -69,38 +69,36 @@ const Icon = React.createClass({
 
     // template rendering
     render() {
-        const {className, otherProps} = this.props;
+        const {className, badge = false, ...otherProps} = this.props;
 
-        let name = this.props.name;
-        let tooltip = this.props.tooltip;
+        let name = otherProps.name;
+        delete otherProps.name;
 
-        if (name === 'add' && otherProps && otherProps.id) {
-            console.log(otherProps);
-        }
+        let tooltip = otherProps.tooltip;
+        delete otherProps.tooltip;
 
-        if (
-            !tooltip &&
-            tooltip !== false &&
-            typeof this.canonicalTooltips[name] !== 'undefined'
-        ) {
-            tooltip = this.canonicalTooltips[name];
-        } else {
-            // TODO: add debug warning about missing tooltip
+        if (!tooltip && tooltip !== false) {
+            if (typeof this.canonicalTooltips[name] !== 'undefined') {
+                tooltip = this.canonicalTooltips[name];
+            } else if (__DEBUG__) {
+                console.warn(`Icon "${name}" has no canonical tooltip defined`);
+            }
         }
 
         if (typeof this.canonicalIcons[name] !== 'undefined') {
-            name = this.canonicalIcons[name];
             if (name === 'delete' && __DEBUG__) {
                 console.warn(
                     'Do not us "delete" as icon name. Please use "remove" instead.'
                 );
             }
+            name = this.canonicalIcons[name];
         } else if (__DEBUG__) {
             console.log(
                 `%cFound usage of "${name}" as icon name. Use canonical icon names if possible.`,
                 'color: orange'
             );
         }
+
         if (typeof ligatureCodes[name] !== 'undefined') {
             name = `&#x${ligatureCodes[name]};`;
         } else {
@@ -110,11 +108,16 @@ const Icon = React.createClass({
             name = `&#x${ligatureCodes.error};`;
         }
 
-        const classes = classNames('material-icons', className);
+        const classes = classNames(
+            'material-icons',
+            {'mdl-badge mdl-badge--overlap': badge},
+            className
+        );
 
         let icon = (
             <i
                 className={classes}
+                data-badge={badge}
                 {...otherProps}
                 dangerouslySetInnerHTML={{__html: name}}
             />

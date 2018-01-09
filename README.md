@@ -564,6 +564,7 @@ const Page = React.createClass({
             <Icon
                 name="cloud_download" // icon name, @see https://material.io/icons/
                 tooltip="cloudy clouds" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
+                badge="5" // Badge, as shown in https://getmdl.io/components/index.html#badges-section
             />
         )
     },

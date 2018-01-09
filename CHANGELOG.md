@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- Support for badges on icons (`badge`)
+
+### Fixed
+- Disable false warnings, if deprecated `delete` Icon is used
 
 ## [2.27.0] 2017-12-18
 
