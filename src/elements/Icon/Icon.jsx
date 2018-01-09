@@ -69,7 +69,7 @@ const Icon = React.createClass({
 
     // template rendering
     render() {
-        const {className, otherProps} = this.props;
+        const {className, badge = false, ...otherProps} = this.props;
 
         let name = this.props.name;
         let tooltip = this.props.tooltip;
@@ -110,11 +110,16 @@ const Icon = React.createClass({
             name = `&#x${ligatureCodes.error};`;
         }
 
-        const classes = classNames('material-icons', className);
+        const classes = classNames(
+            'material-icons',
+            {'mdl-badge mdl-badge--overlap': badge},
+            className
+        );
 
         let icon = (
             <i
                 className={classes}
+                data-badge={badge}
                 {...otherProps}
                 dangerouslySetInnerHTML={{__html: name}}
             />

@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
+- Support for badges on icons (`badge`)
+
 ### Fixed
 - Disable false warnings, if deprecated `delete` Icon is used
 
