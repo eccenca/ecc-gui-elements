@@ -71,21 +71,18 @@ const Icon = React.createClass({
     render() {
         const {className, badge = false, ...otherProps} = this.props;
 
-        let name = this.props.name;
-        let tooltip = this.props.tooltip;
+        let name = otherProps.name;
+        delete otherProps.name;
 
-        if (name === 'add' && otherProps && otherProps.id) {
-            console.log(otherProps);
-        }
+        let tooltip = otherProps.tooltip;
+        delete otherProps.tooltip;
 
-        if (
-            !tooltip &&
-            tooltip !== false &&
-            typeof this.canonicalTooltips[name] !== 'undefined'
-        ) {
-            tooltip = this.canonicalTooltips[name];
-        } else {
-            // TODO: add debug warning about missing tooltip
+        if (!tooltip && tooltip !== false) {
+            if (typeof this.canonicalTooltips[name] !== 'undefined') {
+                tooltip = this.canonicalTooltips[name];
+            } else if (__DEBUG__) {
+                console.warn(`Icon "${name}" has no canonical tooltip defined`);
+            }
         }
 
         if (typeof this.canonicalIcons[name] !== 'undefined') {
@@ -101,6 +98,7 @@ const Icon = React.createClass({
                 'color: orange'
             );
         }
+
         if (typeof ligatureCodes[name] !== 'undefined') {
             name = `&#x${ligatureCodes[name]};`;
         } else {
