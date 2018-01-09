@@ -89,12 +89,12 @@ const Icon = React.createClass({
         }
 
         if (typeof this.canonicalIcons[name] !== 'undefined') {
-            name = this.canonicalIcons[name];
             if (name === 'delete' && __DEBUG__) {
                 console.warn(
                     'Do not us "delete" as icon name. Please use "remove" instead.'
                 );
             }
+            name = this.canonicalIcons[name];
         } else if (__DEBUG__) {
             console.log(
                 `%cFound usage of "${name}" as icon name. Use canonical icon names if possible.`,
