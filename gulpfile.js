@@ -11,7 +11,13 @@ const path = require('path');
 const _ = require('lodash');
 
 const iconFontVersion = '3.0.1';
-const robotoFontVersion = 'v1.1.0';
+/*
+    Unfortunately roboto does not provide woff files, therefore we are downloading from
+    https://github.com/FontFaceKit/roboto.
+    If you update roboto there, please have a look at the commit history and find out the real roboto version.
+*/
+const robotoFromFontFaceKit = 'v1.5.0';
+const realRobotoVersion = '2.137';
 
 gulp.task(
     'full-build',
@@ -24,11 +30,11 @@ gulp.task('build-sass', ['sass-compile', 'sass-assets']);
 
 gulp.task(
     'download-fonts',
-    ['download-iconfont', 'download-roboto', 'icontable'],
+    ['download-iconfont', 'download-roboto', 'icontable', 'update-licenses'],
     cb => {
         fs.writeFile(
             '.cached-fonts',
-            `${iconFontVersion}|${robotoFontVersion}`,
+            `${iconFontVersion}|${realRobotoVersion}`,
             cb
         );
     }
@@ -53,6 +59,10 @@ gulp.task('update-licenses', cb => {
                 if (dependency.name === 'material-design-icons') {
                     doc = doc.replace(oldVersion, iconFontVersion);
                 }
+
+                if (dependency.name === 'roboto') {
+                    doc = doc.replace(oldVersion, realRobotoVersion);
+                }
             }
         );
 
@@ -72,7 +82,7 @@ const areFontsUpToDate = () => {
     try {
         const cachedFonts = fs.readFileSync('.cached-fonts');
         if (
-            cachedFonts.toString() === `${iconFontVersion}|${robotoFontVersion}`
+            cachedFonts.toString() === `${iconFontVersion}|${realRobotoVersion}`
         ) {
             fontStatus = true;
             return fontStatus;
@@ -108,30 +118,30 @@ gulp.task('download-roboto', () => {
     fs.removeSync('./dist/fonts/roboto');
 
     return download([
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Black/Roboto-Black.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Black/Roboto-Black.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/BlackItalic/Roboto-BlackItalic.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/BlackItalic/Roboto-BlackItalic.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Bold/Roboto-Bold.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Bold/Roboto-Bold.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/BoldItalic/Roboto-BoldItalic.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/BoldItalic/Roboto-BoldItalic.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Italic/Roboto-Italic.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Italic/Roboto-Italic.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Light/Roboto-Light.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Light/Roboto-Light.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/LightItalic/Roboto-LightItalic.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/LightItalic/Roboto-LightItalic.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Medium/Roboto-Medium.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Medium/Roboto-Medium.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/MediumItalic/Roboto-MediumItalic.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/MediumItalic/Roboto-MediumItalic.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Regular/Roboto-Regular.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Regular/Roboto-Regular.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Thin/Roboto-Thin.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Thin/Roboto-Thin.woff2`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/ThinItalic/Roboto-ThinItalic.woff`,
-        `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/ThinItalic/Roboto-ThinItalic.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Black/Roboto-Black.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Black/Roboto-Black.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/BlackItalic/Roboto-BlackItalic.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/BlackItalic/Roboto-BlackItalic.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Bold/Roboto-Bold.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Bold/Roboto-Bold.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/BoldItalic/Roboto-BoldItalic.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/BoldItalic/Roboto-BoldItalic.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Italic/Roboto-Italic.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Italic/Roboto-Italic.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Light/Roboto-Light.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Light/Roboto-Light.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/LightItalic/Roboto-LightItalic.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/LightItalic/Roboto-LightItalic.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Medium/Roboto-Medium.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Medium/Roboto-Medium.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/MediumItalic/Roboto-MediumItalic.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/MediumItalic/Roboto-MediumItalic.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Regular/Roboto-Regular.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Regular/Roboto-Regular.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Thin/Roboto-Thin.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/Thin/Roboto-Thin.woff2`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/ThinItalic/Roboto-ThinItalic.woff`,
+        `https://github.com/FontFaceKit/roboto/raw/${robotoFromFontFaceKit}/fonts/ThinItalic/Roboto-ThinItalic.woff2`,
     ])
         .pipe(
             rename(paths => {
