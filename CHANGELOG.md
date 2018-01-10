@@ -7,8 +7,14 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - Support for badges on icons (`badge`)
 
+### Changed
+- Updated roboto
+
 ### Fixed
 - Disable false warnings, if deprecated `delete` Icon is used
+
+### Removed
+- removed eot and ttf versions of fonts
 
 ## [2.27.0] 2017-12-18
 
