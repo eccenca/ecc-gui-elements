@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Changed
 - Updated roboto
+- Switched from code points to ligatures for icon font
 
 ### Fixed
 - Disable false warnings, if deprecated `delete` Icon is used

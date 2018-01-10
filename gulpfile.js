@@ -208,7 +208,7 @@ gulp.task('icontable', ['download-codepoints'], cb => {
             return;
         }
 
-        const result = {};
+        const result = [];
 
         data.split('\n').forEach(line => {
             if (/^\s*$/.test(line)) {
@@ -216,7 +216,7 @@ gulp.task('icontable', ['download-codepoints'], cb => {
             }
             const split = line.split(' ');
 
-            result[split[0]] = split[1];
+            result.push(split[0]);
         });
 
         fs.writeFile(
