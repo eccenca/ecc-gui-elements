@@ -99,13 +99,11 @@ const Icon = React.createClass({
             );
         }
 
-        if (typeof ligatureCodes[name] !== 'undefined') {
-            name = `&#x${ligatureCodes[name]};`;
-        } else {
+        if (!ligatureCodes.includes(name)) {
             if (__DEBUG__) {
                 console.error(`"${name}" is not a valid icon name.`);
             }
-            name = `&#x${ligatureCodes.error};`;
+            name = 'error';
         }
 
         const classes = classNames(
@@ -115,12 +113,9 @@ const Icon = React.createClass({
         );
 
         let icon = (
-            <i
-                className={classes}
-                data-badge={badge}
-                {...otherProps}
-                dangerouslySetInnerHTML={{__html: name}}
-            />
+            <i className={classes} data-badge={badge} {...otherProps}>
+                {name}
+            </i>
         );
 
         if (tooltip) {
