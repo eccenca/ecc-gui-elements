@@ -2,6 +2,21 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.28.0] 2018-01-10
+
+### Added
+- Support for badges on icons (`badge`)
+
+### Changed
+- Updated roboto
+- Switched from code points to ligatures for icon font
+
+### Fixed
+- Disable false warnings, if deprecated `delete` Icon is used
+
+### Removed
+- removed eot and ttf versions of fonts
+
 ## [2.27.0] 2017-12-18
 
 ### Added

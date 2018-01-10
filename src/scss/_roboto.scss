@@ -4,8 +4,7 @@ $font_root: "fonts" !default;
     @font-face {
         font-family: Roboto;
         src: url('#{$font_root}/roboto/#{$font_type}/Roboto-#{$font_type}.woff2') format('woff2'),
-        url('#{$font_root}/roboto/#{$font_type}/Roboto-#{$font_type}.woff') format('woff'),
-        url('#{$font_root}/roboto/#{$font_type}/Roboto-#{$font_type}.ttf') format('truetype');
+             url('#{$font_root}/roboto/#{$font_type}/Roboto-#{$font_type}.woff') format('woff');
         font-weight: $font_weight;
         font-style: $font_style;
     }

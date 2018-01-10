@@ -42,6 +42,16 @@ const TestIcons = React.createClass({
                         name="non_existing_icon_name"
                         tooltip="Icon with non existent icon name"
                     />
+                    <Icon
+                        name="account_box"
+                        badge="5"
+                        tooltip="Icon with badge"
+                    />
+                    <Icon
+                        name="account"
+                        badge="673"
+                        tooltip="Icon with three digit badge"
+                    />
                 </CardContent>
             </Card>
         );
