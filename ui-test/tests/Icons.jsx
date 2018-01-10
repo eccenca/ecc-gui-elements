@@ -47,6 +47,11 @@ const TestIcons = React.createClass({
                         badge="5"
                         tooltip="Icon with badge"
                     />
+                    <Icon
+                        name="account"
+                        badge="673"
+                        tooltip="Icon with three digit badge"
+                    />
                 </CardContent>
             </Card>
         );
