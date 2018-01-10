@@ -6,24 +6,33 @@ gulp.task('default', ['debug']);
 
 const gulpSequence = require('gulp-sequence');
 
-const fs = require('fs');
+const fs = require('fs-extra');
 const path = require('path');
 const _ = require('lodash');
 
 const iconFontVersion = '3.0.1';
 const robotoFontVersion = 'v1.1.0';
 
-gulp.task('full-build', gulpSequence('build-sass', 'update-licenses', 'build'));
+gulp.task(
+    'full-build',
+    gulpSequence('download-fonts', 'build-sass', 'update-licenses', 'build')
+);
 
 gulp.task('full-test', ['sass-compile']);
 
 gulp.task('build-sass', ['sass-compile', 'sass-assets']);
 
-gulp.task('download-fonts', [
-    'download-iconfont',
-    'download-roboto',
-    'icontable',
-]);
+gulp.task(
+    'download-fonts',
+    ['download-iconfont', 'download-roboto', 'icontable'],
+    cb => {
+        fs.writeFile(
+            '.cached-fonts',
+            `${iconFontVersion}|${robotoFontVersion}`,
+            cb
+        );
+    }
+);
 
 gulp.task('update-licenses', cb => {
     const yaml = require('js-yaml');
@@ -53,8 +62,34 @@ gulp.task('update-licenses', cb => {
     }
 });
 
+let fontStatus = null;
+
+const areFontsUpToDate = () => {
+    if (fontStatus !== null) {
+        return fontStatus;
+    }
+
+    try {
+        const cachedFonts = fs.readFileSync('.cached-fonts');
+        if (
+            cachedFonts.toString() === `${iconFontVersion}|${robotoFontVersion}`
+        ) {
+            fontStatus = true;
+            return fontStatus;
+        }
+    } catch (e) {}
+    fontStatus = false;
+    return fontStatus;
+};
+
 gulp.task('download-iconfont', () => {
+    if (areFontsUpToDate()) {
+        console.warn(`Fonts are up to date, no need to download`);
+        return true;
+    }
     const download = require('gulp-download-stream');
+
+    fs.removeSync('./dist/fonts/iconfont');
 
     return download([
         `https://github.com/google/material-design-icons/raw/${iconFontVersion}/iconfont/MaterialIcons-Regular.eot`,
@@ -65,8 +100,14 @@ gulp.task('download-iconfont', () => {
 });
 
 gulp.task('download-roboto', () => {
+    if (areFontsUpToDate()) {
+        console.warn(`Fonts are up to date, no need to download`);
+        return true;
+    }
     const download = require('gulp-download-stream');
     const rename = require('gulp-rename');
+
+    fs.removeSync('./dist/fonts/roboto');
 
     return download([
         `https://github.com/FontFaceKit/roboto/raw/${robotoFontVersion}/fonts/Black/Roboto-Black.ttf`,
@@ -152,7 +193,11 @@ gulp.task('sass-compile', cb => {
     );
 });
 
-gulp.task('download-codepoints', () => {
+gulp.task('download-codepoints', ['download-iconfont'], () => {
+    if (areFontsUpToDate()) {
+        console.warn(`Fonts are up to date, no need to download`);
+        return true;
+    }
     const download = require('gulp-download-stream');
 
     return download([
