@@ -12,10 +12,10 @@ ecc-gui-elements:
           url: https://raw.githubusercontent.com/google/material-design-icons/3.0.1/LICENSE
     # Not imported using npm because it is very big
     - name: roboto
-      version: '2.136'
+      version: '2.137'
       url: https://github.com/google/roboto
       spdx: Apache-2.0
       licenses:
         - name: Apache 2.0
-          url: https://raw.githubusercontent.com/google/roboto/v2.136/LICENSE
-      downloadUrl: https://github.com/google/roboto/archive/v2.136.zip
+          url: https://raw.githubusercontent.com/google/roboto/v2.137/LICENSE
+      downloadUrl: https://github.com/google/roboto/archive/v2.137.zip
