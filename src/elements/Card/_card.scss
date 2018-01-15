@@ -130,7 +130,8 @@
         bottom: 0;
         right: 0;
         width: 20em;
-        max-height: 20em;
+        max-height: 6 * 48px;
+        overflow-y: auto;
         background-color: white;
         opacity: 1;
         border-radius: 0;

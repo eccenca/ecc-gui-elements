@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- use correct max height on scroll bars for FloatingActionList menus with more than six action items
 
 ## [2.28.0] 2018-01-10
 
