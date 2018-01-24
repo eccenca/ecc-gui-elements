@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Changed
+- Fixed registry to be `https://registry.npmjs.org/`
+- Name to `@eccenca/gui-elements`
 
 ## [2.28.1] 2018-01-15
 
