@@ -10,7 +10,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
 
 ```js
-import {Button} from 'ecc-gui-elements';
+import {Button} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering

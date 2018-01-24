@@ -47,6 +47,6 @@ $image_path: "~@eccenca/material-design-lite/src/images" !default;
 
 // -- Fonts --------------------------------------------------------------------
 
-$font_root: "~ecc-gui-elements/dist/fonts" !default;
+$font_root: "~@eccenca/gui-elements/dist/fonts" !default;
 @import "./scss/roboto";
 @import "./scss/iconfont";

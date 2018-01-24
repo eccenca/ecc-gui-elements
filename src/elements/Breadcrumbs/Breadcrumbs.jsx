@@ -8,7 +8,7 @@ The are two simple React elements to create breadcrumb navigation.
 import {
     BreadcrumbList,
     BreadcrumbItem,
-} from 'ecc-gui-elements';
+} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering

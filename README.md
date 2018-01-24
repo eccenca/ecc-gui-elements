@@ -1,4 +1,4 @@
-# Low-Level GUI Components (ecc-gui-elements)
+# Low-Level GUI Components (@eccenca/gui-elements)
 
 Collection of shared GUI elements and mixins.
 
@@ -15,7 +15,7 @@ The performance mixin provides a default process to test if a component need to 
 Include mixin into your widget component:
 
 ```js
-import {PerformanceMixin} from 'ecc-gui-elements';
+import {PerformanceMixin} from '@eccenca/gui-elements';
 const Widget = React.createClass({
     mixins: [PerformanceMixin],
     // ...
@@ -37,7 +37,7 @@ The scrolling mixin provides methods to scroll a mounted React element or compon
 * `ScrollingMixin.scrollElementIntoView(ReactOrDomElement)`: use this method from outside an element to scroll it into the visible viewport
 
 ```js
-import {ScrollingMixin} from 'ecc-gui-elements';
+import {ScrollingMixin} from '@eccenca/gui-elements';
 const Widget = React.createClass({
     mixins: [ScrollingMixin],
     componentDidMount() {
@@ -63,7 +63,7 @@ It's important to use references to active DOM elements or mounted React compone
 
 ```js
 // use it from outside of the component that needs to be scrolled into the visible viewport
-import {Card, Button, ScrollingMixin} from 'ecc-gui-elements';
+import {Card, Button, ScrollingMixin} from '@eccenca/gui-elements';
 const Widget = React.createClass({
     handleScroll() {
         const options = {
@@ -106,15 +106,15 @@ Includes libraries from:
 Add this into your main scss.
 
 ```scss
-@import '~ecc-gui-elements/src/main';
+@import '~@eccenca/gui-elements/src/main';
 ```
 
 ### Use configuration in SCSS
 
-You can import the global default configuration by using it from `ecc-gui-elements`:
+You can import the global default configuration by using it from `@eccenca/gui-elements`:
 
 ```scss
-@import '~ecc-gui-elements/src/configuration.default';
+@import '~@eccenca/gui-elements/src/configuration.default';
 ```
 
 ### Include ready to use CSS
@@ -127,7 +127,7 @@ You can import the global default configuration by using it from `ecc-gui-elemen
 Include helper function in your Sass files:
 
 ```scss
-@import "~ecc-gui-elements/src/scss/helpers";
+@import "~@eccenca/gui-elements/src/scss/helpers";
 ```
 
 Helper automatically included if the default configuration is loaded.
@@ -190,7 +190,7 @@ Usage is as simple as importing and rendering the components.
 ### Alert (Error, Info, Success and Warning)
 
 ```js
-import { Alert, Error, Info, Success, Warning } from 'ecc-gui-elements';
+import { Alert, Error, Info, Success, Warning } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -236,7 +236,7 @@ The AutoCompleteBox wraps `SelectBox`, it takes the same properties. The key dif
 - it is always searchable, while a SelectBox can be de-activated
 
 ```js
-import { AutoCompleteBox } from 'ecc-gui-elements';
+import { AutoCompleteBox } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     getInitialState(){
@@ -273,7 +273,7 @@ const Page = React.createClass({
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
 
 ```js
-import {Button, AffirmativeButton, DismissiveButton, DisruptiveButton} from 'ecc-gui-elements';
+import {Button, AffirmativeButton, DismissiveButton, DisruptiveButton} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -330,7 +330,7 @@ Some special class names provide extra functionality:
 There is a special version of the Button element that can be used to visualize a running process. `<ProgressButton/>` elements are shown as raised disabled buttons but this behaviour can be overwritten.
 
 ```js
-import {ProgressButton} from 'ecc-gui-elements';
+import {ProgressButton} from '@eccenca/gui-elements';
 import rxmq from 'ecc-messagebus';
 
 // channel event which updates progressTopic
@@ -368,7 +368,7 @@ The are two simple React elements to create breadcrumb navigation.
 import {
     BreadcrumbList,
     BreadcrumbItem,
-} from 'ecc-gui-elements';
+} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -406,7 +406,7 @@ import {
     CardMenu,
     CardContent,
     CardActions
-} from 'ecc-gui-elements';
+} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -456,7 +456,7 @@ const Page = React.createClass({
 ### Content
 
 ```js
-import {Content} from 'ecc-gui-elements';
+import {Content} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -487,7 +487,7 @@ import {
     CardContent,
     CardActions,
     FloatingActionList
-} from 'ecc-gui-elements';
+} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -555,7 +555,7 @@ const Page = React.createClass({
 ### Icon
 
 ```js
-import {Icon} from 'ecc-gui-elements';
+import {Icon} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -575,7 +575,7 @@ const Page = React.createClass({
 ### Checkbox and Switch
 
 ```js
-import { Checkbox, Switch} from 'ecc-gui-elements';
+import { Checkbox, Switch} from '@eccenca/gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
@@ -607,7 +607,7 @@ const Page = React.createClass({
 `<ChipVisual/>` supports images, icons and text labels.
 
 ```js
-import { ChipVisual, Chip } from 'ecc-gui-elements';
+import { ChipVisual, Chip } from '@eccenca/gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
@@ -653,7 +653,7 @@ const Page = React.createClass({
 ### RadioGroup and Radio
 
 ```js
-import { Radio, RadioGroup} from 'ecc-gui-elements';
+import { Radio, RadioGroup} from '@eccenca/gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
@@ -690,7 +690,7 @@ const Page = React.createClass({
 ### ConfirmationDialog
 
 ```js
-import { Button, ConfirmationDialog } from 'ecc-gui-elements';
+import { Button, ConfirmationDialog } from '@eccenca/gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
@@ -714,7 +714,7 @@ const Page = React.createClass({
 ### BaseDialog
 
 ```js
-import { Button, BaseDialog } from 'ecc-gui-elements';
+import { Button, BaseDialog } from '@eccenca/gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
@@ -742,7 +742,7 @@ const Page = React.createClass({
 ### ContextMenu
 
 ```js
-import { ContextMenu, MenuItem } from 'ecc-gui-elements';
+import { ContextMenu, MenuItem } from '@eccenca/gui-elements';
 const Page = React.createClass({
     // template rendering
     render() {
@@ -770,7 +770,7 @@ const Page = React.createClass({
 ### DateField
 
 ```js
-import { DateField } from 'ecc-gui-elements';
+import { DateField } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // value is the date shown to the user
@@ -805,7 +805,7 @@ const Page = React.createClass({
 ### DateTimeField
 
 ```js
-import { DateTimeField } from 'ecc-gui-elements';
+import { DateTimeField } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // value is the date shown to the user
@@ -844,7 +844,7 @@ const Page = React.createClass({
 ### Layout
 
 ```js
-import { Layout } from 'ecc-gui-elements';
+import { Layout } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -870,7 +870,7 @@ Use that element as very simple "not available" placeholder information, e.g. in
 It currently only supports short label strings and long descriptions using the title attribute.
 
 ```js
-import { NotAvailable } from 'ecc-gui-elements';
+import { NotAvailable } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -891,7 +891,7 @@ const Page = React.createClass({
 ### Nothing
 
 ```js
-import { Nothing } from 'ecc-gui-elements';
+import { Nothing } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -908,7 +908,7 @@ const Page = React.createClass({
 ### Pagination
 
 ```js
-import { Pagination } from 'ecc-gui-elements';
+import { Pagination } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -933,7 +933,7 @@ const Page = React.createClass({
 ### Progressbar
 
 ```js
-import { Progressbar } from 'ecc-gui-elements';
+import { Progressbar } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -953,7 +953,7 @@ const Page = React.createClass({
 The Spinner is global by default.
 
 ```js
-import { Spinner } from 'ecc-gui-elements';
+import { Spinner } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -977,7 +977,7 @@ Please refer to all available properties in the linked documentation.
 The SelectBox behaves like a [controlled input](https://facebook.github.io/react/docs/forms.html#controlled-components)
 
 ```js
-import { SelectBox } from 'ecc-gui-elements';
+import { SelectBox } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     getInitialState(){
@@ -1021,7 +1021,7 @@ Note:
 ### Tabs
 
 ```js
-import { Tabs } from 'ecc-gui-elements';
+import { Tabs } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -1043,7 +1043,7 @@ const Page = React.createClass({
 ### TextField
 
 ```js
-import { TextField } from 'ecc-gui-elements';
+import { TextField } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // event is the original react onChange event
@@ -1077,7 +1077,7 @@ const Page = React.createClass({
 You need to add wrapper to some elements, e.g. icons or checkboxes, to prevent unexepected behaviour. Use `<span>` for inline elements and `<div>` for block elments. If you have `tooltip` options, e.g. on icons, then use that parameter instead of the `<Tooltip/>` element.
 
 ```js
-import {Tooltip} from 'ecc-gui-elements';
+import {Tooltip} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering
@@ -1099,7 +1099,7 @@ const Page = React.createClass({
 ### Version
 
 ```js
-import { Version } from 'ecc-gui-elements';
+import { Version } from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering

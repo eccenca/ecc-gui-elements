@@ -11,7 +11,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 It is shown as a raised disabled button but this behaviour can be overwritten, using the `raised` and `disabled` paramters from the `<Button/>` element.
 
 ```js
-import {ProgressButton} from 'ecc-gui-elements';
+import {ProgressButton} from '@eccenca/gui-elements';
 import rxmq from 'ecc-messagebus';
 
 // channel event which updates progressTopic
