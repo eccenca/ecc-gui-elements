@@ -1,6 +1,7 @@
 /* eslint no-console: 0 */
 import React from 'react';
-import render from 'ecc-uitest-helpers';
+import ReactDOM from 'react-dom';
+
 import {Header} from 'react-mdl';
 
 // test styles
@@ -201,4 +202,4 @@ const Page = React.createClass({
     },
 });
 
-render({Component: Page, importCoreStyles: false});
+ReactDOM.render(<Page />, document.getElementById('react'));
