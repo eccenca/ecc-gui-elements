@@ -43,6 +43,8 @@ rules:
     "error",
     {
       "devDependencies": [
+        "./buildConfig.js",
+        "./gulpfile.js",
         "**/*.test.js",
         "**/*.spec.js",
         "ui-test/**/*",
