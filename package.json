@@ -1,5 +1,5 @@
 {
-  "name": "ecc-gui-elements",
+  "name": "@eccenca/gui-elements",
   "version": "2.28.1",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
@@ -18,7 +18,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.eccenca.com/elds-ui/ecc-gui-elements"
+    "url": "https://github.com/eccenca/ecc-gui-elements.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "bugs": {
+    "url": "https://github.com/eccenca/ecc-gui-elements/issues"
   },
   "author": "eccenca GmbH <opensource@eccenca.com> (http://eccenca.com)",
   "license": "MIT",
