@@ -5,11 +5,6 @@ module.exports = {
     webpackConfig: {
         common: {
             context: path.resolve(__dirname),
-            resolve: {
-                alias: {
-                    'ecc-gui-elements': path.resolve(__dirname),
-                },
-            },
         },
         debug: {
             entry: './ui-test/ui-test.jsx',

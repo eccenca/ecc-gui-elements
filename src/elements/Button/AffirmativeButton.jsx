@@ -8,7 +8,7 @@ For more information read the [GUI spec about button usage](https://confluence.b
 It is possible to combine it with `<Button />` parameters like `disabled`, `raised`, `iconName` and `ripple`.
 
 ```js
-import {AffirmativeButton} from 'ecc-gui-elements';
+import {AffirmativeButton} from '@eccenca/gui-elements';
 
 const Page = React.createClass({
     // template rendering

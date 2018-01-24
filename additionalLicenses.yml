@@ -1,4 +1,4 @@
-ecc-gui-elements:
+'@eccenca/gui-elements':
   description: GUI Elements
   language: javascript
   dependencies:

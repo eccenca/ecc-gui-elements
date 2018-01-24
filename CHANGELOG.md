@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- Fonts can now be resolved correctly (still pointed `ecc-gui-elements`)
+- Examples and README still pointed to `ecc-gui-elements` 
 
 ## [2.29.0] 2018-01-24
 

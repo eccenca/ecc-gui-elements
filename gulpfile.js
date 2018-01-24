@@ -49,7 +49,7 @@ gulp.task('update-licenses', cb => {
         let doc = fs.readFileSync(licenseFile, 'utf8');
 
         _.forEach(
-            yaml.safeLoad(doc)['ecc-gui-elements'].dependencies,
+            yaml.safeLoad(doc)['@eccenca/gui-elements'].dependencies,
             dependency => {
                 const oldVersion = new RegExp(
                     _.toString(dependency.version).replace(/\./g, '\\.'),
