@@ -6,6 +6,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Added
 - make option for <Card /> available to get rendered with reduced size, paddings, margins
+- flex layout support for CardMenu that is part of CardTitle
+- CardMenu layout for reduced Cards
+
+### Changed
+- small adjustment od CardMenu position (littlebit more right and top)
 
 ## [2.29.1] 2018-01-24
 
