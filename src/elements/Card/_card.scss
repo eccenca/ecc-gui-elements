@@ -58,8 +58,8 @@
 
 .mdl-card--reduced {
     .mdl-card__title {
-        padding: 0;
-        margin-bottom: $ecc-size-blockelement-margin-vertical;
+        padding: $ecc-size-blockelement-margin-vertical / 4 0;
+        margin-bottom: $ecc-size-blockelement-margin-vertical / 2;
     }
 
     .mdl-card__content {

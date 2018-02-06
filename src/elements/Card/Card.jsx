@@ -12,6 +12,7 @@ const Card = React.createClass({
         shadow: React.PropTypes.number,
         stretch: React.PropTypes.bool,
         fixedActions: React.PropTypes.bool,
+        reducedSize: React.PropTypes.bool,
     },
 
     getDefaultProps() {
@@ -19,6 +20,7 @@ const Card = React.createClass({
             shadow: 1,
             stretch: true,
             fixedActions: false,
+            reducedSize: false,
         };
     },
 
@@ -28,6 +30,7 @@ const Card = React.createClass({
             stretch,
             shadow,
             fixedActions,
+            reducedSize,
             children,
             ...otherProps
         } = this.props;
@@ -36,6 +39,7 @@ const Card = React.createClass({
             {
                 'mdl-card--stretch': stretch === true,
                 'mdl-card--has-fixed-actions': fixedActions === true,
+                'mdl-card--reduced': reducedSize === true,
             },
             className
         );

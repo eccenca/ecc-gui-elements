@@ -417,6 +417,7 @@ const Page = React.createClass({
                 stretch={false|true} // boolean, should the card element use full width of available space, default: true
                 shadow={0..8} // integer, z-coordinate of card, amount of shadow applied to the card, 0 (off), 1 (2dp) to 8 {24dp}, default: 1
                 fixedActions={false|true} // boolean, if the card contains a fixed CardActions button row, default: false
+                reducedSize={false|true} // boolean, renders the card with reduced paddings and marging, default: false
             >
                 <CardTitle
                     className="my-own-class"
