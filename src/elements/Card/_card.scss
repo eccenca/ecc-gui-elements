@@ -15,6 +15,26 @@
     width: auto;
 }
 
+.mdl-card__title {
+    .mdl-card__menu {
+        position: relative;
+        top: (24px - 36px) / 2;
+        right: 0;
+        height: 1px;
+        overflow: visible;
+        white-space: nowrap;
+        flex-shrink: 0;
+        flex-grow: 0;
+        align-self: flex-start;
+    }
+}
+
+.mdl-card__title-text {
+    flex-grow: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .mdl-card__content {
     margin: $ecc-size-blockelement-margin-vertical $ecc-size-blockelement-margin-horizontal;
     padding: 0;
