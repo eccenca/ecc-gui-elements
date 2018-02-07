@@ -1,8 +1,10 @@
 import React from 'react';
 import {
     AffirmativeButton,
+    Button,
     Card,
     CardTitle,
+    CardMenu,
     CardContent,
     Checkbox,
     Icon,
@@ -25,7 +27,13 @@ const TestTooltips = () => {
     return (
         <Card>
             <CardTitle>
-                <h4 className="mdl-card__title-text">Test Alerts</h4>
+                <h4 className="mdl-card__title-text">
+                    Test Tooltips (with a longer title to test overflowing)
+                </h4>
+                <CardMenu>
+                    <Button>Test</Button>
+                    <Button iconName="more_vert" tooltip="Test" />
+                </CardMenu>
             </CardTitle>
             <CardContent>
                 <h5>Positions</h5>

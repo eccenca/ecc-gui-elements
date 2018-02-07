@@ -2,11 +2,21 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [2.30.0] 2018-02-07
+
+### Added
+- make option for <Card /> available to get rendered with reduced size, paddings, margins
+- flex layout support for CardMenu that is part of CardTitle
+- CardMenu layout for reduced Cards
+
+### Changed
+- small adjustment od CardMenu position (littlebit more right and top)
+
 ## [2.29.1] 2018-01-24
 
 ### Fixed
 - Fonts can now be resolved correctly (still pointed `ecc-gui-elements`)
-- Examples and README still pointed to `ecc-gui-elements` 
+- Examples and README still pointed to `ecc-gui-elements`
 
 ## [2.29.0] 2018-01-24
 
