@@ -9,7 +9,7 @@ const TestIcons = React.createClass({
     render() {
         return (
             <Card>
-                <CardTitle documentLevel={'h4'}>Test Icons</CardTitle>
+                <CardTitle documentLevel="h4">Test Icons</CardTitle>
                 <CardContent>
                     <h5>Basic Icons with Fallback tooltips</h5>
                     <Icon name="edit" />

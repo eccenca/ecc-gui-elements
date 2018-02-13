@@ -19,13 +19,13 @@ const TestTabs = React.createClass({
     render() {
         return (
             <Card>
-                <CardTitle documentLevel={'h4'}>Test Tabs</CardTitle>
+                <CardTitle documentLevel="h4">Test Tabs</CardTitle>
                 <CardContent>
                     <Tabs
-                        prefixTabNames={'tab-container'}
+                        prefixTabNames="tab-container"
                         tabs={this.state.tabContent}
                         onTabClick={this.tabClick}
-                        activeTab={'kpiTab'}
+                        activeTab="kpiTab"
                     />
                     <Button
                         onClick={() =>

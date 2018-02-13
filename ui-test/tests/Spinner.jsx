@@ -3,7 +3,7 @@ import {Card, CardTitle, CardContent, Spinner} from '../../index';
 
 const TestSpinner = () => (
     <Card className="my-own-class" shadow={0} stretch={false} reducedSize>
-        <CardTitle className="my-own-class" border={false} documentLevel={'h7'}>
+        <CardTitle className="my-own-class" border={false} documentLevel="h7">
             Test Spinner
         </CardTitle>
         <CardContent className="my-own-class">

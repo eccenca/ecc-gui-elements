@@ -61,11 +61,11 @@ const TestSelects = React.createClass({
 
         return (
             <Card>
-                <CardTitle documentLevel={'h4'}>Test Selects</CardTitle>
+                <CardTitle documentLevel="h4">Test Selects</CardTitle>
                 <CardContent>
                     <h5>Select Boxes</h5>
                     <SelectBox
-                        placeholder={'Sync select box'}
+                        placeholder="Sync select box"
                         options={selectOptions}
                         name="selectBox1"
                         value={this.state.selectBox1}
@@ -73,7 +73,7 @@ const TestSelects = React.createClass({
                         {...selectSettings}
                     />
                     <SelectBox
-                        placeholder={'Async select box'}
+                        placeholder="Async select box"
                         name="selectBox2"
                         value={this.state.selectBox2}
                         onChange={this.handleSelectChange}
@@ -105,7 +105,7 @@ const TestSelects = React.createClass({
                     <hr />
                     <h5>Auto Complete Box</h5>
                     <AutoCompleteBox
-                        placeholder={'Sync select box'}
+                        placeholder="Sync select box"
                         options={selectOptions}
                         name="autoCompleteBox"
                         value={this.state.autoCompleteBox}

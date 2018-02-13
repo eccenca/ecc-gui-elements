@@ -195,7 +195,7 @@ const Page = React.createClass({
                     </div>
                 </Content>
                 <footer className="mdl-mini-footer">
-                    <Version version={'v0.1.0'} />
+                    <Version version="v0.1.0" />
                 </footer>
             </Layout>
         );

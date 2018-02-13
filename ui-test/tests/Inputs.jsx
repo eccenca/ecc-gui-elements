@@ -51,7 +51,7 @@ const TestInputs = React.createClass({
     render() {
         return (
             <Card>
-                <CardTitle documentLevel={'h4'}>Test Inputfields</CardTitle>
+                <CardTitle documentLevel="h4">Test Inputfields</CardTitle>
                 <CardContent>
                     <Switch
                         id="test_id_666"

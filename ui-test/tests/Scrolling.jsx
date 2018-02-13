@@ -135,7 +135,7 @@ const TestScrolling = React.createClass({
                 <CardActions fixed>
                     {scrollHandlerButtons}
                     <FloatingActionList
-                        iconName={'edit'}
+                        iconName="edit"
                         actions={this.state.actionsList}
                     />
                 </CardActions>
