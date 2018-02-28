@@ -117,7 +117,7 @@ const TestDialogs = React.createClass({
                     <p>DialogCustomActions Content</p>
                 </BaseDialog>
                 <Card className="my-own-class" reducedSize>
-                    <CardTitle className="my-own-class" documentLevel={'h4'}>
+                    <CardTitle className="my-own-class" documentLevel="h4">
                         Test Dialogs
                     </CardTitle>
                     <CardMenu className="my-own-class">

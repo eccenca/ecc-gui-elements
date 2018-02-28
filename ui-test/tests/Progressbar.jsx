@@ -38,7 +38,7 @@ const TestProgressbar = React.createClass({
     render() {
         return (
             <Card stretch={false} shadow={4}>
-                <CardTitle documentLevel={'h4'}>Test Progressbars</CardTitle>
+                <CardTitle documentLevel="h4">Test Progressbars</CardTitle>
                 <CardContent>
                     <Progressbar progress={85} />
                     <Progressbar appearGlobal indeterminate />

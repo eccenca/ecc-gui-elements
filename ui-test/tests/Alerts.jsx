@@ -54,7 +54,7 @@ class TestAlerts extends React.PureComponent {
                             },
                         },
                     ]}
-                    fabSize={'mini'}
+                    fabSize="mini"
                 />
             </Card>
         );

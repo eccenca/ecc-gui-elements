@@ -77,6 +77,8 @@ import {DateField, DateTimefield} from './src/elements/DateField';
 
 import Version from './src/elements/Version/Version';
 
+import Footer from './src/elements/Footer/Footer';
+
 export default {
     MaterialMixin,
     PerformanceMixin,
@@ -100,6 +102,7 @@ export default {
     ChipVisual,
     Content,
     ContextMenu,
+    Footer,
     MenuItem,
     Error,
     FloatingActionList,

@@ -31,6 +31,7 @@ rules:
       tabWidth: 4
       printWidth: 80
       semi: true
+  prefer-destructuring: ["warn"]
   no-plusplus: ["error", { "allowForLoopAfterthoughts": true }]
   no-use-before-define: ["warn"]
   no-warning-comments: [
@@ -58,3 +59,4 @@ rules:
   react/prop-types: ["warn"]
   react/require-default-props: ["warn"]
   react/sort-comp: ["warn"]
+  react/jsx-boolean-value: ["off"]

@@ -20,7 +20,7 @@ const TestPagination = React.createClass({
     render() {
         return (
             <Card>
-                <CardTitle documentLevel={'h4'}>Test Pagination</CardTitle>
+                <CardTitle documentLevel="h4">Test Pagination</CardTitle>
                 <CardContent>
                     <h5>Pagination of 81 elements displaying elements</h5>
                     <Pagination

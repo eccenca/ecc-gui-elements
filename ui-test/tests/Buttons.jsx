@@ -18,7 +18,7 @@ class TestButtons extends React.PureComponent {
     render() {
         const buttons = (
             <Card fixedActions>
-                <CardTitle documentLevel={'h4'}>Test Buttons</CardTitle>
+                <CardTitle documentLevel="h4">Test Buttons</CardTitle>
                 <CardContent>
                     <h5>MDL button types</h5>
                     <Button>Normal</Button>
@@ -163,7 +163,7 @@ class TestButtons extends React.PureComponent {
             'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.png';
         const chips = (
             <Card>
-                <CardTitle documentLevel={'h4'}>Test Chip</CardTitle>
+                <CardTitle documentLevel="h4">Test Chip</CardTitle>
                 <CardContent>
                     <h5>Plain chips</h5>
                     <Chip>Plain chip with only a simple but long label</Chip>
@@ -247,9 +247,9 @@ class TestButtons extends React.PureComponent {
                         <ChipVisual label="AB" />
                         clickable with text visual
                     </Chip>
-                    <Chip href={'http://example.com/'}>single href</Chip>
+                    <Chip href="http://example.com/">single href</Chip>
                     <Chip
-                        href={'http://example.com/'}
+                        href="http://example.com/"
                         onClick={() => alert('#4 chip clicked')}>
                         href and onclick event
                     </Chip>
