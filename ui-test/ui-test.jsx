@@ -30,9 +30,9 @@ import {
     MenuItem,
     Nothing,
     NotAvailable,
-    Version,
     Layout,
     Content,
+    Footer,
 } from '../index';
 
 window.enablePerformanceMixingLog = true;
@@ -194,9 +194,11 @@ const Page = React.createClass({
                         {testcases}
                     </div>
                 </Content>
-                <footer className="mdl-mini-footer">
-                    <Version version="v0.1.0" />
-                </footer>
+                <Footer
+                    company="Eccenca"
+                    version="v0.1.0"
+                    companyUrl="http://eccenca.com"
+                />
             </Layout>
         );
     },
