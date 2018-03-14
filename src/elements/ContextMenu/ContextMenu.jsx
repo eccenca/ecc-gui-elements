@@ -7,7 +7,6 @@ import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 /**
  * This component provides a context menu
- * @type {[type]}
  */
 const ContextMenu = React.createClass({
     mixins: [PerformanceMixin],
