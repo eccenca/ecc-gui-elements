@@ -12,7 +12,7 @@
     "start": "gulp",
     "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
-    "prepare": "ecc-link-dotfiles && gulp full-build",
+    "prepare": "ecc-link-dotfiles && gulp full-build && npm run docs",
     "docs": "gulp docs",
     "precommit": "lint-staged"
   },
