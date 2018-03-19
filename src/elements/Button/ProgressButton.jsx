@@ -86,7 +86,7 @@ const ProgressButton = React.createClass({
 
     componentWillUnmount() {
         if (_.has(this, 'subscription')) {
-            this.subscription.dispose();
+            this.subscription.unsubscribe();
         }
     },
 

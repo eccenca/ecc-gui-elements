@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+- use unsubscribe instead of dispose (breaking change in rx)
 
 ## [2.31.0] 2018-02-28
 
