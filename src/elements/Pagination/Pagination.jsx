@@ -23,7 +23,6 @@ const calculatePagination = ({limit, offset, totalResults}) => {
 
 /**
  * This component provides a pagination for switching through lists of results
- * @type {[type]}
  */
 const Pagination = React.createClass({
     mixins: [PerformanceMixin],

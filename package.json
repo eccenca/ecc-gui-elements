@@ -1,6 +1,6 @@
 {
   "name": "@eccenca/gui-elements",
-  "version": "2.31.0",
+  "version": "2.31.1",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -12,7 +12,7 @@
     "start": "gulp",
     "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
-    "prepare": "ecc-link-dotfiles && gulp full-build",
+    "prepare": "ecc-link-dotfiles && gulp full-build && npm run docs",
     "docs": "gulp docs",
     "precommit": "lint-staged"
   },
