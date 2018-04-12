@@ -3,8 +3,9 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Fixed
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+- replace native array method for IE11 compatibility
 
 ## [2.31.1] 2018-03-19
 
