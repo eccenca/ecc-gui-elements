@@ -5,6 +5,24 @@ import Tooltip from '../Tooltip/Tooltip';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 import ligatureCodes from './icontable.json';
 
+/**
+import {Icon} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Icon
+                name="cloud_download" // icon name, @see https://material.io/icons/
+                tooltip="cloudy clouds" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
+                badge="5" // Badge, as shown in https://getmdl.io/components/index.html#badges-section
+            />
+        )
+    },
+    // ....
+});
+```
+*/
 const Icon = React.createClass({
     mixins: [PerformanceMixin],
 
