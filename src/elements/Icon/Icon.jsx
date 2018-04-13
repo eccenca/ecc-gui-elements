@@ -1,6 +1,7 @@
 /* eslint camelcase: 0 */
 import React from 'react';
 import classNames from 'classnames';
+import { includes } from 'lodash';
 import Tooltip from '../Tooltip/Tooltip';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 import ligatureCodes from './icontable.json';
@@ -117,7 +118,7 @@ const Icon = React.createClass({
             );
         }
 
-        if (!ligatureCodes.includes(name)) {
+        if (!includes(ligatureCodes, name)) {
             if (__DEBUG__) {
                 console.error(`"${name}" is not a valid icon name.`);
             }
