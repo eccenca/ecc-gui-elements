@@ -157,10 +157,10 @@ Returns:
 
 ## GUI elements
 
-<!-- <<Component_Head>> ->
+<!-- <<Component_Head>> -->
 
 ## Channels
 
 Currently we do not provide public channels by the gui elements.
 
-<!-- <<Component_Channels>> ->
+<!-- <<Component_Channels>> -->
