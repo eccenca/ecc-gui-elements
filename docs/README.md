@@ -418,6 +418,15 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 - **lastUpdate** (string) - string (optional): text info that shows information about the last known update on the process
 
 
+## Checkbox
+
+
+
+### Properties
+- **checked** (bool, *required*) - 
+- **onChange** (func, *required*) - 
+
+
 
 ## undefined
 
@@ -457,15 +466,6 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 - **fabSize** (string, default: 'large') - 
 - **fixed** (bool, default: false) - 
 - **iconName** (string, default: 'add') - 
-
-
-## Checkbox
-
-
-
-### Properties
-- **checked** (bool, *required*) - 
-- **onChange** (func, *required*) - 
 
 
 
