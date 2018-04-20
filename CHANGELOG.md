@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 ### Fixed
-- fresh release to actually publishes gui-elements
+- replace native array method for IE11 compatibility
 
 ## [2.31.2] 2018-04-16
 ### Fixed

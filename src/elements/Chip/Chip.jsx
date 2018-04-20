@@ -59,7 +59,7 @@ export const Chip = props => {
     const {className, onClose, children, ...otherProps} = props;
 
     const childrenArray = React.Children.toArray(children);
-    const contactIndex = childrenArray.findIndex(
+    const contactIndex = _.findIndex(childrenArray,
         c => c.type === ChipContact || c.type === ChipVisual
     );
 
