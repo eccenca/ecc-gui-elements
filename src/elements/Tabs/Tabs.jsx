@@ -19,6 +19,7 @@ const clearTabTitles = tabs =>
 
 const Tabs = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Tabs',
 
     propTypes: {
         prefixTabNames: React.PropTypes.string, // html class prefix

@@ -7,6 +7,7 @@ import BaseDialog from './BaseDialog';
  */
 const ConfirmationDialog = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'ConfirmationDialog',
 
     // define property types
     propTypes: {

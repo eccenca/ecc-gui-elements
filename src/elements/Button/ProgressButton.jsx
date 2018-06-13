@@ -43,6 +43,7 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 */
 const ProgressButton = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'ProgressButton',
 
     // define property types
     propTypes: {

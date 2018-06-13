@@ -7,6 +7,7 @@ import Datefield from './DateField';
  */
 const DateTimefield = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'DateTimefield',
 
     getDefaultProps() {
         return {

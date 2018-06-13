@@ -10,6 +10,7 @@ import Button from '../../elements/Button/Button';
  */
 const BaseDialog = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'BaseDialog',
 
     // define property types
     propTypes: {

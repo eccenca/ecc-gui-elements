@@ -4,6 +4,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const Error = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Error',
 
     // define property types
     propTypes: {

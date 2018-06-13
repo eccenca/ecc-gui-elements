@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import ReactMDLProgressBar from 'react-mdl/lib/ProgressBar';
 
 const Progressbar = React.createClass({
+    displayName: 'Progressbar',
     // define property types
     propTypes: {
         appearGlobal: React.PropTypes.bool,

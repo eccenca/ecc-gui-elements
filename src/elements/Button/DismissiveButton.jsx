@@ -26,6 +26,7 @@ const Page = React.createClass({
 ```
 */
 const DismissiveButton = React.createClass({
+    displayName: 'DismissiveButton',
     // template rendering
     render() {
         // split 'normal' props from button content

@@ -2,13 +2,24 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [2.31.2] 2018-04-16
-### Fixed
+## [2.31.3] 2018-06-13
 
+### Added
+- possibility for `AutoCompleteBox` to directly pass user input to parent component with `handleValueChange`
+
+## [2.31.3] 2018-04-20
+
+### Fixed
+- replace native array method for IE11 compatibility
+
+## [2.31.2] 2018-04-16
+
+### Fixed
 - replace native array method for IE11 compatibility
 
 ## [2.31.1] 2018-03-19
 
+### Changed
 - use unsubscribe instead of dispose (breaking change in rx)
 
 ## [2.31.0] 2018-02-28

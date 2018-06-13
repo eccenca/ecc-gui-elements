@@ -4,6 +4,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const Warning = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Warning',
 
     // define property types
     propTypes: {

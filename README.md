@@ -261,6 +261,7 @@ const Page = React.createClass({
                 creatable={true} // allow creation of new values
                 multi={true} // allow multi selection
                 clearable={false} // hide 'remove all selected values' button
+                handleValueChange={(value) => console.log(value)} // pass user input directly to parrent
             />
         )
     },

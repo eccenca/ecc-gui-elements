@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Highlighter from 'react-highlight-words';
 import cx from 'classnames';
@@ -24,7 +25,25 @@ const Highlight = props => {
 };
 
 class AutoCompleteBox extends React.Component {
-    currentInputValue = null;
+    static propTypes = {
+        /**
+         * pass Textfield user input to parent component (e.g. to update options)
+         */
+        handleValueChange: PropTypes.func, // query which returns options
+        /**
+         * Insert a custom className to element
+         */
+        className: PropTypes.string,
+        // rest will be validated by `SelectBox`
+    };
+
+    constructor(props) {
+        super(props);
+        this.displayName = 'AutoCompleteBox';
+        this.handleInputChange = this.handleInputChange.bind(this);
+
+        this.currentInputValue = '';
+    }
 
     optionRender = option => {
         const {label, value, description} = option;
@@ -66,15 +85,25 @@ class AutoCompleteBox extends React.Component {
             optionDescription,
         ];
     };
+    // will only be triggered when the user type something in textfield
+    handleInputChange(inputValue) {
+        // check if value really changed
+        if (!_.isEqual(inputValue, this.currentInputValue)) {
+            this.currentInputValue = _.clone(inputValue);
+            // directly pass the current value to parent component (e.g. to update external options)
+            if (_.isFunction(this.props.handleValueChange)) {
+                this.props.handleValueChange(inputValue);
+            }
+        }
+
+        return inputValue;
+    }
 
     render = () => (
         <SelectBox
             {...this.props}
             className={cx(this.props.className, 'Select--AutoComplete')}
-            onInputChange={inputValue => {
-                this.currentInputValue = _.clone(inputValue);
-                return inputValue;
-            }}
+            onInputChange={this.handleInputChange}
             searchable
             optionRenderer={this.optionRender}
         />

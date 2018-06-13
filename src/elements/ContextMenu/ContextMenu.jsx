@@ -10,6 +10,7 @@ import PerformanceMixin from './../../mixins/PerformanceMixin';
  */
 const ContextMenu = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'ContextMenu',
 
     propTypes: {
         align: React.PropTypes.string,

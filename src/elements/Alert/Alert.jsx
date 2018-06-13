@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Button from '../../elements/Button/Button';
 
 const Alert = React.createClass({
+    displayName: 'Alert',
     // define property types
     propTypes: {
         children: React.PropTypes.node.isRequired,
