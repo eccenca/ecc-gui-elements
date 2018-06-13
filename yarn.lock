@@ -8,9 +8,9 @@
   dependencies:
     fs-extra "^5.0.0"
 
-"@eccenca/gulp-tasks@^3.16.7":
-  version "3.16.7"
-  resolved "https://registry.yarnpkg.com/@eccenca/gulp-tasks/-/gulp-tasks-3.16.7.tgz#1610cd04867aa5e2c554d92842214ed876e93b3b"
+"@eccenca/gulp-tasks@^3.16.8":
+  version "3.16.8"
+  resolved "https://registry.yarnpkg.com/@eccenca/gulp-tasks/-/gulp-tasks-3.16.8.tgz#e26df88c05dee949450dac5e5bd42c54ca02bea1"
   dependencies:
     ajv "^6.1.1"
     ansi-colors "^1.0.1"

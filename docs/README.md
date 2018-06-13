@@ -155,44 +155,6 @@ Returns:
 
 ## GUI elements
 
-### Alert
-
-#### Properties
-- **children** (node, *required*) - 
-- **className** (string) - 
-- **handlerDismiss** (func) - 
-- **labelDismiss** (string) - 
-- **iconDismiss** (string) - 
-- **type** (string) - 
-- **border** (bool) - 
-- **vertSpacing** (bool) - 
-
-### Error
-
-#### Properties
-- **children** (node, *required*) - 
-
-### Info
-
-#### Properties
-- **children** (node, *required*) - 
-
-### Success
-
-#### Properties
-- **children** (node, *required*) - 
-
-### Warning
-
-#### Properties
-- **children** (node, *required*) - 
-
-### AutoCompleteBox
-
-#### Properties
-- **handleValueChange** (func) - pass Textfield user input to parent component (e.g. to update options)
-- **className** (string) - Insert a custom className to element
-
 ### AffirmativeButton
 
 Use the `<AffirmativeButton />` element for all buttons that trigger affirmative actions, e.g. confirming "Save data."
@@ -216,6 +178,37 @@ const Page = React.createClass({
 ```
 
 #### Properties
+
+### Alert
+
+#### Properties
+- **children** (node, *required*) - 
+- **className** (string) - 
+- **handlerDismiss** (func) - 
+- **labelDismiss** (string) - 
+- **iconDismiss** (string) - 
+- **type** (string) - 
+- **border** (bool) - 
+- **vertSpacing** (bool) - 
+
+### AutoCompleteBox
+
+#### Properties
+- **handleValueChange** (func) - pass Textfield user input to parent component (e.g. to update options)
+- **className** (string) - Insert a custom className to element
+
+### BaseDialog
+
+This Component creates a customizable dialog.
+
+#### Properties
+- **active** (bool, *required*) - Define if dialog is displayed.
+- **className** (string) - Custom dialog classname.
+- **modal** (bool) - Defines dialog as modal.
+- **size** (string) - Size of dialog.
+- **buttonRow** (, *required*) - Contain buttons for action row.
+- **title** (node) - Title of dialog.
+- **titleCancelButton** (func) - Add cancel button to title.
 
 ### Button
 
@@ -286,6 +279,69 @@ const Page = React.createClass({
 - **dismissive** (bool) - 
 - **disruptive** (bool) - 
 
+### Card
+
+#### Properties
+- **className** (string) - 
+- **shadow** (number, default: 1) - 
+- **stretch** (bool, default: true) - 
+- **fixedActions** (bool, default: false) - 
+- **reducedSize** (bool, default: false) - 
+
+### CardActions
+
+#### Properties
+- **border** (bool, default: true) - 
+- **fixed** (bool, default: false) - 
+
+### CardTitle
+
+#### Properties
+- **className** (string) - 
+- **border** (bool, default: true) - 
+- **documentLevel** (string) - 
+
+### Checkbox
+
+#### Properties
+- **checked** (bool, *required*) - 
+- **onChange** (func, *required*) - 
+
+### ConfirmationDialog
+
+This Component creates a confirmation dialog based on BaseDialog.
+
+#### Properties
+- **active** (bool, *required*) - 
+- **className** (string) - 
+- **modal** (bool) - 
+- **size** (string) - 
+- **cancelButton** (element, *required*) - 
+- **confirmButton** (element, *required*) - 
+- **title** (node) - 
+
+### DateField
+
+#### Properties
+- **label** (string) - 
+- **value** (string|object) - 
+- **onChange** (func, *required*) - 
+- **timeFormat** (string|bool, default: false) - 
+- **dateFormat** (string|bool, default: 'YYYY-MM-DD') - 
+- **placeholder** (string) - 
+- **disabled** (bool) - 
+- **inputClassName** (string) - 
+- **input** (bool) - 
+- **closeOnSelect** (bool) - 
+
+### DateTimefield
+
+This Component creates a date and time input field based on DateField.
+
+#### Properties
+- **timeFormat** (, default: 'HH:mm') - 
+- **dateFormat** (, default: 'DD-MM-YYYY') - 
+
 ### DismissiveButton
 
 Use the `<DismissiveButton />` element for all buttons that trigger dismissive actions, e.g. cancelling edit forms.
@@ -337,6 +393,85 @@ const Page = React.createClass({
 
 #### Properties
 
+### Error
+
+#### Properties
+- **children** (node, *required*) - 
+
+### FloatingActionList
+
+#### Properties
+- **actions** (array, *required*) - 
+- **className** (string) - 
+- **fabSize** (string, default: 'large') - 
+- **fixed** (bool, default: false) - 
+- **iconName** (string, default: 'add') - 
+
+### Footer
+
+#### Properties
+- **company** (string, *required*) - 
+- **version** (string, *required*) - 
+- **companyUrl** (string, *required*) - 
+- **workspace** (string) - 
+
+### Icon
+
+import {Icon} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Icon
+                name="cloud_download" // icon name, @see https://material.io/icons/
+                tooltip="cloudy clouds" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
+                badge="5" // Badge, as shown in https://getmdl.io/components/index.html##badges-section
+            />
+        )
+    },
+    // ....
+});
+```
+
+#### Properties
+- **className** (string) - 
+- **name** (string, *required*) - 
+- **tooltip** (node|bool) - 
+
+### Info
+
+#### Properties
+- **children** (node, *required*) - 
+
+### NotAvailable
+
+#### Properties
+- **className** (string) - 
+- **description** (string) - 
+- **inline** (bool) - 
+- **label** (string) - 
+
+### Nothing
+
+#### Properties
+
+### Pagination
+
+This component provides a pagination for switching through lists of results
+
+#### Properties
+- **offset** (number, *required*) - contains actual start value which is shown
+- **limit** (number, *required*) - contains number of max shown elements per page
+- **totalResults** (number, *required*) - contains total number of results
+- **onChange** (func, *required*) - contains method which is called if offset have to change by user
+- **offsetAsPage** (bool, default: false) - if true provides site information as "pages" instead of "numbers of elements"
+Note: if offsetAsPage=true and offset is not a multiple from limit
+the page output gets wierd for the last page
+- **isTopPagination** (bool) - define position of page change dropdown/dropup
+- **newLimitText** (string) - text displayed next to limit changer selectbox
+- **limitRange** (array, default: [5, 10, 25, 50, 100, 200]) - possible page sizes
+
 ### ProgressButton
 
 `<ProgressButton/>` is a special version of the `<Button/>` element that can be used to visualize a running process.
@@ -380,151 +515,6 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
     if a progress number is known (via option or message queue) then the tooltip is extenden by a colon, the value and a percent char
 - **lastUpdate** (string) - string (optional): text info that shows information about the last known update on the process
 
-### Card
-
-#### Properties
-- **className** (string) - 
-- **shadow** (number, default: 1) - 
-- **stretch** (bool, default: true) - 
-- **fixedActions** (bool, default: false) - 
-- **reducedSize** (bool, default: false) - 
-
-### CardActions
-
-#### Properties
-- **border** (bool, default: true) - 
-- **fixed** (bool, default: false) - 
-
-### CardTitle
-
-#### Properties
-- **className** (string) - 
-- **border** (bool, default: true) - 
-- **documentLevel** (string) - 
-
-### FloatingActionList
-
-#### Properties
-- **actions** (array, *required*) - 
-- **className** (string) - 
-- **fabSize** (string, default: 'large') - 
-- **fixed** (bool, default: false) - 
-- **iconName** (string, default: 'add') - 
-
-### Checkbox
-
-#### Properties
-- **checked** (bool, *required*) - 
-- **onChange** (func, *required*) - 
-
-### DateField
-
-#### Properties
-- **label** (string) - 
-- **value** (string|object) - 
-- **onChange** (func, *required*) - 
-- **timeFormat** (string|bool, default: false) - 
-- **dateFormat** (string|bool, default: 'YYYY-MM-DD') - 
-- **placeholder** (string) - 
-- **disabled** (bool) - 
-- **inputClassName** (string) - 
-- **input** (bool) - 
-- **closeOnSelect** (bool) - 
-
-### DateTimefield
-
-This Component creates a date and time input field based on DateField.
-
-#### Properties
-- **timeFormat** (, default: 'HH:mm') - 
-- **dateFormat** (, default: 'DD-MM-YYYY') - 
-
-### BaseDialog
-
-This Component creates a customizable dialog.
-
-#### Properties
-- **active** (bool, *required*) - Define if dialog is displayed.
-- **className** (string) - Custom dialog classname.
-- **modal** (bool) - Defines dialog as modal.
-- **size** (string) - Size of dialog.
-- **buttonRow** (, *required*) - Contain buttons for action row.
-- **title** (node) - Title of dialog.
-- **titleCancelButton** (func) - Add cancel button to title.
-
-### ConfirmationDialog
-
-This Component creates a confirmation dialog based on BaseDialog.
-
-#### Properties
-- **active** (bool, *required*) - 
-- **className** (string) - 
-- **modal** (bool) - 
-- **size** (string) - 
-- **cancelButton** (element, *required*) - 
-- **confirmButton** (element, *required*) - 
-- **title** (node) - 
-
-### Footer
-
-#### Properties
-- **company** (string, *required*) - 
-- **version** (string, *required*) - 
-- **companyUrl** (string, *required*) - 
-- **workspace** (string) - 
-
-### Icon
-
-import {Icon} from '@eccenca/gui-elements';
-
-const Page = React.createClass({
-    // template rendering
-    render() {
-        return (
-            <Icon
-                name="cloud_download" // icon name, @see https://material.io/icons/
-                tooltip="cloudy clouds" // tooltip, some icons have fallback tooltips, set it to false if you need to prevent them
-                badge="5" // Badge, as shown in https://getmdl.io/components/index.html##badges-section
-            />
-        )
-    },
-    // ....
-});
-```
-
-#### Properties
-- **className** (string) - 
-- **name** (string, *required*) - 
-- **tooltip** (node|bool) - 
-
-### NotAvailable
-
-#### Properties
-- **className** (string) - 
-- **description** (string) - 
-- **inline** (bool) - 
-- **label** (string) - 
-
-### Nothing
-
-#### Properties
-
-### Pagination
-
-This component provides a pagination for switching through lists of results
-
-#### Properties
-- **offset** (number, *required*) - contains actual start value which is shown
-- **limit** (number, *required*) - contains number of max shown elements per page
-- **totalResults** (number, *required*) - contains total number of results
-- **onChange** (func, *required*) - contains method which is called if offset have to change by user
-- **offsetAsPage** (bool, default: false) - if true provides site information as "pages" instead of "numbers of elements"
-Note: if offsetAsPage=true and offset is not a multiple from limit
-the page output gets wierd for the last page
-- **isTopPagination** (bool) - define position of page change dropdown/dropup
-- **newLimitText** (string) - text displayed next to limit changer selectbox
-- **limitRange** (array, default: [5, 10, 25, 50, 100, 200]) - possible page sizes
-
 ### Progressbar
 
 #### Properties
@@ -548,6 +538,11 @@ the page output gets wierd for the last page
 - **appearLocal** (bool, default: false) - 
 - **className** (string) - 
 
+### Success
+
+#### Properties
+- **children** (node, *required*) - 
+
 ### Switch
 
 #### Properties
@@ -566,6 +561,11 @@ the page output gets wierd for the last page
 
 #### Properties
 - **version** (string, *required*) - 
+
+### Warning
+
+#### Properties
+- **children** (node, *required*) - 
 
 ## Channels
 
