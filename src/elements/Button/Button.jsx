@@ -45,6 +45,7 @@ const Page = React.createClass({
 */
 const Button = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Button',
 
     // define property types
     propTypes: {

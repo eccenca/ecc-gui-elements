@@ -9,6 +9,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const FloatingActionList = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'FloatingActionList',
 
     propTypes: {
         actions: React.PropTypes.array.isRequired,

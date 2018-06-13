@@ -26,6 +26,7 @@ const Page = React.createClass({
 */
 const Icon = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Icon',
 
     // define property types
     propTypes: {

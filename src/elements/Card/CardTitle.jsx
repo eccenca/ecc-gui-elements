@@ -7,6 +7,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const CardTitle = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'CardTitle',
 
     // define property types
     propTypes: {

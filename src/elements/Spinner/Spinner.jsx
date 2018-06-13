@@ -5,6 +5,7 @@ import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 const Spinner = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Spinner',
 
     // define property types
     propTypes: {

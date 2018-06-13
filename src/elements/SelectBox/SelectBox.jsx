@@ -20,6 +20,7 @@ const clearRenderer = () => (
 
 const SelectBox = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'SelectBox',
 
     propTypes: {
         /**

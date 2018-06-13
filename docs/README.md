@@ -155,37 +155,37 @@ Returns:
 
 ## GUI elements
 
-### undefined
+### Alert
 
 #### Properties
-- **children** (node, *required*) -
-- **className** (string) -
-- **handlerDismiss** (func) -
-- **labelDismiss** (string) -
-- **iconDismiss** (string) -
-- **type** (string) -
-- **border** (bool) -
-- **vertSpacing** (bool) -
+- **children** (node, *required*) - 
+- **className** (string) - 
+- **handlerDismiss** (func) - 
+- **labelDismiss** (string) - 
+- **iconDismiss** (string) - 
+- **type** (string) - 
+- **border** (bool) - 
+- **vertSpacing** (bool) - 
 
-### undefined
-
-#### Properties
-- **children** (node, *required*) -
-
-### undefined
+### Error
 
 #### Properties
-- **children** (node, *required*) -
+- **children** (node, *required*) - 
 
-### undefined
-
-#### Properties
-- **children** (node, *required*) -
-
-### undefined
+### Info
 
 #### Properties
-- **children** (node, *required*) -
+- **children** (node, *required*) - 
+
+### Success
+
+#### Properties
+- **children** (node, *required*) - 
+
+### Warning
+
+#### Properties
+- **children** (node, *required*) - 
 
 ### AutoCompleteBox
 
@@ -193,7 +193,7 @@ Returns:
 - **handleValueChange** (func) - pass Textfield user input to parent component (e.g. to update options)
 - **className** (string) - Insert a custom className to element
 
-### undefined
+### AffirmativeButton
 
 Use the `<AffirmativeButton />` element for all buttons that trigger affirmative actions, e.g. confirming "Save data."
 For more information read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications##GUISpecifications-Buttons).
@@ -217,7 +217,7 @@ const Page = React.createClass({
 
 #### Properties
 
-### undefined
+### Button
 
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications##GUISpecifications-Buttons).
 
@@ -256,7 +256,7 @@ const Page = React.createClass({
 ```
 
 #### Properties
-- **children** (node) -
+- **children** (node) - 
 - **className** (string) - string (optional): additional CSS class name
 - **disabled** (bool) - boolean (default: false): button is disabled and cannot get used to trigger an action
 - **fabSize** (string) - string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
@@ -282,11 +282,11 @@ const Page = React.createClass({
     For other symbols and icon names @see https://material.io/icons/
 - **ripple** (bool) - boolean (default: false): activate ripple effect on button
 - **tooltip** (node|bool) - React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
-- **affirmative** (bool) -
-- **dismissive** (bool) -
-- **disruptive** (bool) -
+- **affirmative** (bool) - 
+- **dismissive** (bool) - 
+- **disruptive** (bool) - 
 
-### undefined
+### DismissiveButton
 
 Use the `<DismissiveButton />` element for all buttons that trigger dismissive actions, e.g. cancelling edit forms.
 For more information read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications##GUISpecifications-Buttons).
@@ -312,7 +312,7 @@ const Page = React.createClass({
 
 #### Properties
 
-### undefined
+### DisruptiveButton
 
 Use the `<DisruptiveButton />` element for all buttons that trigger disruptive actions, e.g. confirming "Remove data."
 For more information read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications##GUISpecifications-Buttons).
@@ -337,7 +337,7 @@ const Page = React.createClass({
 
 #### Properties
 
-### undefined
+### ProgressButton
 
 `<ProgressButton/>` is a special version of the `<Button/>` element that can be used to visualize a running process.
 It is shown as a raised disabled button but this behaviour can be overwritten, using the `raised` and `disabled` paramters from the `<Button/>` element.
@@ -380,66 +380,66 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
     if a progress number is known (via option or message queue) then the tooltip is extenden by a colon, the value and a percent char
 - **lastUpdate** (string) - string (optional): text info that shows information about the last known update on the process
 
-### undefined
+### Card
 
 #### Properties
-- **className** (string) -
-- **shadow** (number, default: 1) -
-- **stretch** (bool, default: true) -
-- **fixedActions** (bool, default: false) -
-- **reducedSize** (bool, default: false) -
+- **className** (string) - 
+- **shadow** (number, default: 1) - 
+- **stretch** (bool, default: true) - 
+- **fixedActions** (bool, default: false) - 
+- **reducedSize** (bool, default: false) - 
 
-### undefined
-
-#### Properties
-- **border** (bool, default: true) -
-- **fixed** (bool, default: false) -
-
-### undefined
+### CardActions
 
 #### Properties
-- **className** (string) -
-- **border** (bool, default: true) -
-- **documentLevel** (string) -
+- **border** (bool, default: true) - 
+- **fixed** (bool, default: false) - 
 
-### undefined
+### CardTitle
 
 #### Properties
-- **actions** (array, *required*) -
-- **className** (string) -
-- **fabSize** (string, default: 'large') -
-- **fixed** (bool, default: false) -
-- **iconName** (string, default: 'add') -
+- **className** (string) - 
+- **border** (bool, default: true) - 
+- **documentLevel** (string) - 
+
+### FloatingActionList
+
+#### Properties
+- **actions** (array, *required*) - 
+- **className** (string) - 
+- **fabSize** (string, default: 'large') - 
+- **fixed** (bool, default: false) - 
+- **iconName** (string, default: 'add') - 
 
 ### Checkbox
 
 #### Properties
-- **checked** (bool, *required*) -
-- **onChange** (func, *required*) -
+- **checked** (bool, *required*) - 
+- **onChange** (func, *required*) - 
 
-### undefined
+### DateField
 
 #### Properties
-- **label** (string) -
-- **value** (string|object) -
-- **onChange** (func, *required*) -
-- **timeFormat** (string|bool, default: false) -
-- **dateFormat** (string|bool, default: 'YYYY-MM-DD') -
-- **placeholder** (string) -
-- **disabled** (bool) -
-- **inputClassName** (string) -
-- **input** (bool) -
-- **closeOnSelect** (bool) -
+- **label** (string) - 
+- **value** (string|object) - 
+- **onChange** (func, *required*) - 
+- **timeFormat** (string|bool, default: false) - 
+- **dateFormat** (string|bool, default: 'YYYY-MM-DD') - 
+- **placeholder** (string) - 
+- **disabled** (bool) - 
+- **inputClassName** (string) - 
+- **input** (bool) - 
+- **closeOnSelect** (bool) - 
 
-### undefined
+### DateTimefield
 
 This Component creates a date and time input field based on DateField.
 
 #### Properties
-- **timeFormat** (, default: 'HH:mm') -
-- **dateFormat** (, default: 'DD-MM-YYYY') -
+- **timeFormat** (, default: 'HH:mm') - 
+- **dateFormat** (, default: 'DD-MM-YYYY') - 
 
-### undefined
+### BaseDialog
 
 This Component creates a customizable dialog.
 
@@ -452,28 +452,28 @@ This Component creates a customizable dialog.
 - **title** (node) - Title of dialog.
 - **titleCancelButton** (func) - Add cancel button to title.
 
-### undefined
+### ConfirmationDialog
 
 This Component creates a confirmation dialog based on BaseDialog.
 
 #### Properties
-- **active** (bool, *required*) -
-- **className** (string) -
-- **modal** (bool) -
-- **size** (string) -
-- **cancelButton** (element, *required*) -
-- **confirmButton** (element, *required*) -
-- **title** (node) -
+- **active** (bool, *required*) - 
+- **className** (string) - 
+- **modal** (bool) - 
+- **size** (string) - 
+- **cancelButton** (element, *required*) - 
+- **confirmButton** (element, *required*) - 
+- **title** (node) - 
 
 ### Footer
 
 #### Properties
-- **company** (string, *required*) -
-- **version** (string, *required*) -
-- **companyUrl** (string, *required*) -
-- **workspace** (string) -
+- **company** (string, *required*) - 
+- **version** (string, *required*) - 
+- **companyUrl** (string, *required*) - 
+- **workspace** (string) - 
 
-### undefined
+### Icon
 
 import {Icon} from '@eccenca/gui-elements';
 
@@ -493,23 +493,23 @@ const Page = React.createClass({
 ```
 
 #### Properties
-- **className** (string) -
-- **name** (string, *required*) -
-- **tooltip** (node|bool) -
+- **className** (string) - 
+- **name** (string, *required*) - 
+- **tooltip** (node|bool) - 
 
-### undefined
-
-#### Properties
-- **className** (string) -
-- **description** (string) -
-- **inline** (bool) -
-- **label** (string) -
-
-### undefined
+### NotAvailable
 
 #### Properties
+- **className** (string) - 
+- **description** (string) - 
+- **inline** (bool) - 
+- **label** (string) - 
 
-### undefined
+### Nothing
+
+#### Properties
+
+### Pagination
 
 This component provides a pagination for switching through lists of results
 
@@ -525,12 +525,12 @@ the page output gets wierd for the last page
 - **newLimitText** (string) - text displayed next to limit changer selectbox
 - **limitRange** (array, default: [5, 10, 25, 50, 100, 200]) - possible page sizes
 
-### undefined
+### Progressbar
 
 #### Properties
-- **appearGlobal** (bool, default: false) -
-- **appearLocal** (bool, default: false) -
-- **className** (string) -
+- **appearGlobal** (bool, default: false) - 
+- **appearLocal** (bool, default: false) - 
+- **className** (string) - 
 
 ### Radio
 
@@ -540,32 +540,32 @@ the page output gets wierd for the last page
 
 #### Properties
 
-### undefined
+### Spinner
 
 #### Properties
-- **appearGlobal** (bool, default: true) -
-- **appearInline** (bool, default: false) -
-- **appearLocal** (bool, default: false) -
-- **className** (string) -
-
-### undefined
-
-#### Properties
-- **prefixTabNames** (string, default: 'tabBar') -
-- **activeTab** (string) -
-- **tabs** (array) -
-- **onTabClick** (func) -
+- **appearGlobal** (bool, default: true) - 
+- **appearInline** (bool, default: false) - 
+- **appearLocal** (bool, default: false) - 
+- **className** (string) - 
 
 ### Switch
 
 #### Properties
-- **checked** (bool, *required*) -
-- **onChange** (func, *required*) -
+- **checked** (bool, *required*) - 
+- **onChange** (func, *required*) - 
 
-### undefined
+### Tabs
 
 #### Properties
-- **version** (string, *required*) -
+- **prefixTabNames** (string, default: 'tabBar') - 
+- **activeTab** (string) - 
+- **tabs** (array) - 
+- **onTabClick** (func) - 
+
+### Version
+
+#### Properties
+- **version** (string, *required*) - 
 
 ## Channels
 

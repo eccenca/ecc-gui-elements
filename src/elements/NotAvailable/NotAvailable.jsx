@@ -11,6 +11,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const Button = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'NotAvailable',
 
     // define property types
     propTypes: {

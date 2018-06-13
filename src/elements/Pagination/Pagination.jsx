@@ -26,6 +26,7 @@ const calculatePagination = ({limit, offset, totalResults}) => {
  */
 const Pagination = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Pagination',
 
     // define property types
     propTypes: {

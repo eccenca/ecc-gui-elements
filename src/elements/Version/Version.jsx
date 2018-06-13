@@ -2,6 +2,7 @@
 import React from 'react';
 
 const Version = React.createClass({
+    displayName: 'Version',
     // define property types
     propTypes: {
         version: React.PropTypes.string.isRequired,

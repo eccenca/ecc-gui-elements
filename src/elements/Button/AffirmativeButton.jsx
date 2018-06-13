@@ -24,6 +24,7 @@ const Page = React.createClass({
 ```
 */
 const AffirmativeButton = React.createClass({
+    displayName: 'AffirmativeButton',
     // template rendering
     render() {
         // split 'normal' props from button content

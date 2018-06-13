@@ -5,6 +5,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const CardActions = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'CardActions',
 
     // define property types
     propTypes: {

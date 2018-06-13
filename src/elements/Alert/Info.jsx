@@ -4,6 +4,7 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 const Info = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'Info',
 
     // define property types
     propTypes: {

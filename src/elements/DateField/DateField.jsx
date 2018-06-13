@@ -7,6 +7,7 @@ import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 const DateField = React.createClass({
     mixins: [PerformanceMixin],
+    displayName: 'DateField',
 
     propTypes: {
         label: React.PropTypes.string, // input label as string
