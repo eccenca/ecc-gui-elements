@@ -158,34 +158,34 @@ Returns:
 ### undefined
 
 #### Properties
-- **children** (node, *required*) - 
-- **className** (string) - 
-- **handlerDismiss** (func) - 
-- **labelDismiss** (string) - 
-- **iconDismiss** (string) - 
-- **type** (string) - 
-- **border** (bool) - 
-- **vertSpacing** (bool) - 
+- **children** (node, *required*) -
+- **className** (string) -
+- **handlerDismiss** (func) -
+- **labelDismiss** (string) -
+- **iconDismiss** (string) -
+- **type** (string) -
+- **border** (bool) -
+- **vertSpacing** (bool) -
 
 ### undefined
 
 #### Properties
-- **children** (node, *required*) - 
+- **children** (node, *required*) -
 
 ### undefined
 
 #### Properties
-- **children** (node, *required*) - 
+- **children** (node, *required*) -
 
 ### undefined
 
 #### Properties
-- **children** (node, *required*) - 
+- **children** (node, *required*) -
 
 ### undefined
 
 #### Properties
-- **children** (node, *required*) - 
+- **children** (node, *required*) -
 
 ### AutoCompleteBox
 
@@ -256,7 +256,7 @@ const Page = React.createClass({
 ```
 
 #### Properties
-- **children** (node) - 
+- **children** (node) -
 - **className** (string) - string (optional): additional CSS class name
 - **disabled** (bool) - boolean (default: false): button is disabled and cannot get used to trigger an action
 - **fabSize** (string) - string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
@@ -282,9 +282,9 @@ const Page = React.createClass({
     For other symbols and icon names @see https://material.io/icons/
 - **ripple** (bool) - boolean (default: false): activate ripple effect on button
 - **tooltip** (node|bool) - React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
-- **affirmative** (bool) - 
-- **dismissive** (bool) - 
-- **disruptive** (bool) - 
+- **affirmative** (bool) -
+- **dismissive** (bool) -
+- **disruptive** (bool) -
 
 ### undefined
 
@@ -383,61 +383,61 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 ### undefined
 
 #### Properties
-- **className** (string) - 
-- **shadow** (number, default: 1) - 
-- **stretch** (bool, default: true) - 
-- **fixedActions** (bool, default: false) - 
-- **reducedSize** (bool, default: false) - 
+- **className** (string) -
+- **shadow** (number, default: 1) -
+- **stretch** (bool, default: true) -
+- **fixedActions** (bool, default: false) -
+- **reducedSize** (bool, default: false) -
 
 ### undefined
 
 #### Properties
-- **border** (bool, default: true) - 
-- **fixed** (bool, default: false) - 
+- **border** (bool, default: true) -
+- **fixed** (bool, default: false) -
 
 ### undefined
 
 #### Properties
-- **className** (string) - 
-- **border** (bool, default: true) - 
-- **documentLevel** (string) - 
+- **className** (string) -
+- **border** (bool, default: true) -
+- **documentLevel** (string) -
 
 ### undefined
 
 #### Properties
-- **actions** (array, *required*) - 
-- **className** (string) - 
-- **fabSize** (string, default: 'large') - 
-- **fixed** (bool, default: false) - 
-- **iconName** (string, default: 'add') - 
+- **actions** (array, *required*) -
+- **className** (string) -
+- **fabSize** (string, default: 'large') -
+- **fixed** (bool, default: false) -
+- **iconName** (string, default: 'add') -
 
 ### Checkbox
 
 #### Properties
-- **checked** (bool, *required*) - 
-- **onChange** (func, *required*) - 
+- **checked** (bool, *required*) -
+- **onChange** (func, *required*) -
 
 ### undefined
 
 #### Properties
-- **label** (string) - 
-- **value** (string|object) - 
-- **onChange** (func, *required*) - 
-- **timeFormat** (string|bool, default: false) - 
-- **dateFormat** (string|bool, default: 'YYYY-MM-DD') - 
-- **placeholder** (string) - 
-- **disabled** (bool) - 
-- **inputClassName** (string) - 
-- **input** (bool) - 
-- **closeOnSelect** (bool) - 
+- **label** (string) -
+- **value** (string|object) -
+- **onChange** (func, *required*) -
+- **timeFormat** (string|bool, default: false) -
+- **dateFormat** (string|bool, default: 'YYYY-MM-DD') -
+- **placeholder** (string) -
+- **disabled** (bool) -
+- **inputClassName** (string) -
+- **input** (bool) -
+- **closeOnSelect** (bool) -
 
 ### undefined
 
 This Component creates a date and time input field based on DateField.
 
 #### Properties
-- **timeFormat** (, default: 'HH:mm') - 
-- **dateFormat** (, default: 'DD-MM-YYYY') - 
+- **timeFormat** (, default: 'HH:mm') -
+- **dateFormat** (, default: 'DD-MM-YYYY') -
 
 ### undefined
 
@@ -457,21 +457,21 @@ This Component creates a customizable dialog.
 This Component creates a confirmation dialog based on BaseDialog.
 
 #### Properties
-- **active** (bool, *required*) - 
-- **className** (string) - 
-- **modal** (bool) - 
-- **size** (string) - 
-- **cancelButton** (element, *required*) - 
-- **confirmButton** (element, *required*) - 
-- **title** (node) - 
+- **active** (bool, *required*) -
+- **className** (string) -
+- **modal** (bool) -
+- **size** (string) -
+- **cancelButton** (element, *required*) -
+- **confirmButton** (element, *required*) -
+- **title** (node) -
 
 ### Footer
 
 #### Properties
-- **company** (string, *required*) - 
-- **version** (string, *required*) - 
-- **companyUrl** (string, *required*) - 
-- **workspace** (string) - 
+- **company** (string, *required*) -
+- **version** (string, *required*) -
+- **companyUrl** (string, *required*) -
+- **workspace** (string) -
 
 ### undefined
 
@@ -493,17 +493,17 @@ const Page = React.createClass({
 ```
 
 #### Properties
-- **className** (string) - 
-- **name** (string, *required*) - 
-- **tooltip** (node|bool) - 
+- **className** (string) -
+- **name** (string, *required*) -
+- **tooltip** (node|bool) -
 
 ### undefined
 
 #### Properties
-- **className** (string) - 
-- **description** (string) - 
-- **inline** (bool) - 
-- **label** (string) - 
+- **className** (string) -
+- **description** (string) -
+- **inline** (bool) -
+- **label** (string) -
 
 ### undefined
 
@@ -528,9 +528,9 @@ the page output gets wierd for the last page
 ### undefined
 
 #### Properties
-- **appearGlobal** (bool, default: false) - 
-- **appearLocal** (bool, default: false) - 
-- **className** (string) - 
+- **appearGlobal** (bool, default: false) -
+- **appearLocal** (bool, default: false) -
+- **className** (string) -
 
 ### Radio
 
@@ -543,29 +543,29 @@ the page output gets wierd for the last page
 ### undefined
 
 #### Properties
-- **appearGlobal** (bool, default: true) - 
-- **appearInline** (bool, default: false) - 
-- **appearLocal** (bool, default: false) - 
-- **className** (string) - 
+- **appearGlobal** (bool, default: true) -
+- **appearInline** (bool, default: false) -
+- **appearLocal** (bool, default: false) -
+- **className** (string) -
+
+### undefined
+
+#### Properties
+- **prefixTabNames** (string, default: 'tabBar') -
+- **activeTab** (string) -
+- **tabs** (array) -
+- **onTabClick** (func) -
 
 ### Switch
 
 #### Properties
-- **checked** (bool, *required*) - 
-- **onChange** (func, *required*) - 
+- **checked** (bool, *required*) -
+- **onChange** (func, *required*) -
 
 ### undefined
 
 #### Properties
-- **prefixTabNames** (string, default: 'tabBar') - 
-- **activeTab** (string) - 
-- **tabs** (array) - 
-- **onTabClick** (func) - 
-
-### undefined
-
-#### Properties
-- **version** (string, *required*) - 
+- **version** (string, *required*) -
 
 ## Channels
 
