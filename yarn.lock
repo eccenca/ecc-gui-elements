@@ -2,15 +2,15 @@
 # yarn lockfile v1
 
 
-"@eccenca/dotfiles@^2.5.0":
-  version "2.5.0"
-  resolved "https://registry.yarnpkg.com/@eccenca/dotfiles/-/dotfiles-2.5.0.tgz#8040d03f2b339ab0da48b50bf346d25afcdaa0bd"
+"@eccenca/dotfiles@^2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@eccenca/dotfiles/-/dotfiles-2.5.1.tgz#e34485cef2b5ff9e3de1013aeab515d839a45285"
   dependencies:
     fs-extra "^5.0.0"
 
-"@eccenca/gulp-tasks@^3.16.2":
-  version "3.16.5"
-  resolved "https://registry.yarnpkg.com/@eccenca/gulp-tasks/-/gulp-tasks-3.16.5.tgz#fc00d72d7c7670db95c0600df2d3cfa858bde35c"
+"@eccenca/gulp-tasks@^3.16.7":
+  version "3.16.7"
+  resolved "https://registry.yarnpkg.com/@eccenca/gulp-tasks/-/gulp-tasks-3.16.7.tgz#1610cd04867aa5e2c554d92842214ed876e93b3b"
   dependencies:
     ajv "^6.1.1"
     ansi-colors "^1.0.1"
