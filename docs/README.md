@@ -549,6 +549,32 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 - **checked** (bool, *required*) - 
 - **onChange** (func, *required*) - 
 
+### Table
+
+#### Properties
+- **tableHead** (|) - table head information which is a pure string or a react html element
+- **tableColumns** () - plain table column names. only needed if tableHead contains react html
+- **headPrepend** () - prepended column head
+- **headAppend** () - appended column head
+- **tableContent** () - table content for each row
+- **contentPrepend** () - prepended row column
+- **contentAppend** () - appended row column
+
+### Table body
+
+#### Properties
+- **tableHead** () - 
+- **tableContent** () - 
+- **prepend** (, default: []) - 
+- **append** (, default: []) - 
+
+### Table head
+
+#### Properties
+- **prepend** (, default: []) - 
+- **tableHead** (|) - 
+- **append** (, default: []) - 
+
 ### Tabs
 
 #### Properties

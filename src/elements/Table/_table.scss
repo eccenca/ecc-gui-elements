@@ -1,0 +1,160 @@
+.ecc-component-gui-elements__table {
+    overflow: auto;
+
+    .mdl-data-table {
+
+        // TODO: this may be moved to the table styles of the GUI elements
+
+        min-width: 100%;
+        border-left: none;
+        border-right: none;
+
+        tbody {
+            tr {
+                height: 32px; // lower min height of row
+            }
+        }
+
+        th, td {
+
+            &, &:first-of-type, &:last-of-type {
+                height: 32px;
+                text-align: left;
+                padding: $ecc-size-inlineelement-padding-vertical 2 * $ecc-size-inlineelement-padding-vertical;
+            }
+
+            &.mdl-data-table__cell-extendcontrol {
+                padding: 0;
+                width: 32px;
+            }
+
+            &.mdl-data-table__cell-radio {
+                padding-left: 1rem;
+                padding-bottom: 0;
+                width: 32px;
+            }
+
+            &.mdl-data-table__cell-controls {
+                text-align: right;
+                min-width: 110px;
+            }
+        }
+
+        .mdl-chip, .mdl-chip__text {
+            font-size: inherit;
+        }
+    }
+
+    table.ecc-component-gui-elements__table__dataoverview {
+
+        tr {
+            &.is-clickable {
+                cursor: pointer;
+                cursor: hand;
+            }
+
+            &.is-extended {
+                background-color: to_color($palette-grey-50);
+
+                &:hover {
+                    background-color: to_color($palette-grey-200);
+                }
+
+                & > td {
+                    border-bottom: none;
+
+                    & > * {
+                        opacity: 0.39;
+                    }
+
+                    &.mdl-data-table__cell-extendcontrol {
+                        & > * {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+                & + tr.ecc-component-resourcelist2__datadetails {
+                    background-color: to_color($palette-grey-50);
+                    & > td {
+                        border: none;
+                    }
+                }
+            }
+        }
+
+        td, th {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+            white-space: nowrap;
+            max-width: 10rem;
+
+            & > * {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                vertical-align: middle;
+            }
+
+            img {
+                height: $button-height;
+            }
+
+            .is-sortable {
+                cursor: pointer;
+                cursor: hand;
+
+                .material-icons {
+                    margin-left: $ecc-size-inlineelement-margin-horizontal;
+                    vertical-align: middle;
+                }
+            }
+        }
+
+        thead {
+            .mdl-data-table__header {
+                & > * {
+                    vertical-align: middle;
+                }
+
+                .mdl-chip {
+                    max-width: calc(99% - 32px);
+                }
+            }
+        }
+    }
+
+    .mdl-data-table--highdensity {
+
+        tbody {
+            tr {
+                height: auto; // no min-height
+            }
+        }
+
+        th, td {
+            height: auto;
+            padding: 0.5 * $ecc-size-inlineelement-padding-vertical $ecc-size-inlineelement-padding-vertical;
+        }
+
+    }
+
+    .mdl-data-table--lowdensity {
+
+        tbody {
+            tr {
+                height: 48px; // no min-height
+            }
+        }
+
+        th, td {
+            height: 48px;
+            padding: 2 * $ecc-size-inlineelement-padding-vertical 2 * $ecc-size-inlineelement-padding-vertical;
+        }
+
+    }
+
+    @media (min-width: 60rem) {
+        flex-grow: 1;
+    }
+}
