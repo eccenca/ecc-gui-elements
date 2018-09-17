@@ -42,7 +42,9 @@ Table.propTypes = {
     tableHead: Proptypes.arrayOf(
         Proptypes.oneOfType([
             Proptypes.string,
-            Proptypes.arrayOf(Proptypes.element),
+            Proptypes.arrayOf(
+                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
+            ),
         ])
     ),
     /**
@@ -52,11 +54,25 @@ Table.propTypes = {
     /**
      * prepended column head
      */
-    headPrepend: Proptypes.arrayOf(Proptypes.string),
+    headPrepend: Proptypes.arrayOf(
+        Proptypes.oneOfType([
+            Proptypes.string,
+            Proptypes.arrayOf(
+                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
+            ),
+        ])
+    ),
     /**
      * appended column head
      */
-    headAppend: Proptypes.arrayOf(Proptypes.string),
+    headAppend: Proptypes.arrayOf(
+        Proptypes.oneOfType([
+            Proptypes.string,
+            Proptypes.arrayOf(
+                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
+            ),
+        ])
+    ),
     /**
      * table content for each row
      */

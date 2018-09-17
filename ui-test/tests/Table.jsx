@@ -13,9 +13,11 @@ class TestTable extends React.Component {
                 [
                     <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>vocabularies</Chip>,
                     <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
-                ],[
+                ],
+                [
                     'modified',
-                    <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />],
+                    <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
+                ],
                 [
                     <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>description</Chip>,
                     <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />

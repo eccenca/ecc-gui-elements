@@ -22,9 +22,7 @@ const TableBody = props => {
 };
 
 TableBody.propTypes = {
-    // FIXME: or react element
     tableHead: Proptypes.arrayOf(Proptypes.string),
-    // FIXME: should be object or node (react element)
     tableContent: Proptypes.arrayOf(Proptypes.object),
     prepend: Proptypes.arrayOf(Proptypes.object),
     append: Proptypes.arrayOf(Proptypes.object),

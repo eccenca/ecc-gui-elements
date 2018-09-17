@@ -17,15 +17,30 @@ const TableHead = props => {
 };
 
 TableHead.propTypes = {
-    // FIXME: should be string or node (react element)
-    prepend: Proptypes.arrayOf(Proptypes.string),
+    prepend: Proptypes.arrayOf(
+        Proptypes.oneOfType([
+            Proptypes.string,
+            Proptypes.arrayOf(
+                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
+            ),
+        ])
+    ),
     tableHead: Proptypes.arrayOf(
         Proptypes.oneOfType([
             Proptypes.string,
-            Proptypes.arrayOf(Proptypes.element),
+            Proptypes.arrayOf(
+                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
+            ),
         ])
     ),
-    append: Proptypes.arrayOf(Proptypes.string),
+    append: Proptypes.arrayOf(
+        Proptypes.oneOfType([
+            Proptypes.string,
+            Proptypes.arrayOf(
+                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
+            ),
+        ])
+    ),
 };
 
 TableHead.defaultProps = {
