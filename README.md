@@ -181,6 +181,7 @@ Returns:
 - `SelectBox`: A selection box for choosing predefined values
 - `Spinner`: Progressbar which may be placed globally or locally in a component
 - `Switch`: A simple binary switch (a nicer checkbox)
+- `Table`: A simple table which can be enriched with react elements as content.
 - `Tabs`: A tabs container which manages tabbing behaviour
 - `TextField`: A text field with floating label. Wrapper around [React-MDL Textfield]()
 - `Version`: A normalised string output of product version
@@ -1019,6 +1020,31 @@ Note:
 - if "creatable" is set new values will be applied on Enter, Tab and Comma (",")
 
 - ``placeholder`` label is used within MDL floating label layout
+
+### Table
+
+```js
+ import {Table} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <Table>
+                tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
+                headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
+                headAppend={['checkboxColumn']} // allow to add additional columns after `tableHead` (optional, default: [])
+                tableColumns={['firstColumn', 'secondColumn']} // contains an array of strings (mandatory if `tableHead` contains react elements)
+                tableContent={[{firstColumn: 'hello', secondColumn: 'world'}, {firstColumn: 'hello', secondColumn: 'eccenca'}]} // contains an array of objects containing strings or react elements
+                contentPrepend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
+                contentAppend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
+            </Table>
+        )
+    },
+    // ....
+};
+ ```
 
 ### Tabs
 

@@ -4,6 +4,34 @@ import Proptypes from 'prop-types';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 
+/**
+
+ Provides a simple table which can be enriched with react elements as content.
+
+ ```js
+ import {Table} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <Table>
+                tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
+                headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
+                headAppend={['checkboxColumn']} // allow to add additional columns after `tableHead` (optional, default: [])
+                tableColumns={['firstColumn', 'secondColumn']} // contains an array of strings (mandatory if `tableHead` contains react elements)
+                tableContent={[{firstColumn: 'hello', secondColumn: 'world'}, {firstColumn: 'hello', secondColumn: 'eccenca'}]} // contains an array of objects containing strings or react elements
+                contentPrepend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
+                contentAppend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
+            </Table>
+        )
+    },
+    // ....
+};
+ ```
+ */
+
 const Table = props => {
     const {
         tableHead,

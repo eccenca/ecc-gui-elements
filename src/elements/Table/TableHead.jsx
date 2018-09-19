@@ -17,6 +17,9 @@ const TableHead = props => {
 };
 
 TableHead.propTypes = {
+    /**
+     * prepended column head
+     */
     prepend: Proptypes.arrayOf(
         Proptypes.oneOfType([
             Proptypes.string,
@@ -25,6 +28,9 @@ TableHead.propTypes = {
             ),
         ])
     ),
+    /**
+     * table head information which is a pure string or a react html element
+     */
     tableHead: Proptypes.arrayOf(
         Proptypes.oneOfType([
             Proptypes.string,
@@ -33,6 +39,9 @@ TableHead.propTypes = {
             ),
         ])
     ),
+    /**
+     * appended column head
+     */
     append: Proptypes.arrayOf(
         Proptypes.oneOfType([
             Proptypes.string,

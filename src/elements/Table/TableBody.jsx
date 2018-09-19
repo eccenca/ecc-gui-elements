@@ -22,9 +22,21 @@ const TableBody = props => {
 };
 
 TableBody.propTypes = {
+    /**
+     * table head information to show and order row data
+     */
     tableHead: Proptypes.arrayOf(Proptypes.string),
+    /**
+     * table content for each row
+     */
     tableContent: Proptypes.arrayOf(Proptypes.object),
+    /**
+     * prepended row column
+     */
     prepend: Proptypes.arrayOf(Proptypes.object),
+    /**
+     * appended row column
+     */
     append: Proptypes.arrayOf(Proptypes.object),
 };
 

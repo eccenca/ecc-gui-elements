@@ -551,11 +551,36 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 
 ### Table
 
+Provides a simple table which can be enriched with react elements as content.
+
+ ```js
+ import {Table} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <Table>
+                tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
+                headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
+                headAppend={['checkboxColumn']} // allow to add additional columns after `tableHead` (optional, default: [])
+                tableColumns={['firstColumn', 'secondColumn']} // contains an array of strings (mandatory if `tableHead` contains react elements)
+                tableContent={[{firstColumn: 'hello', secondColumn: 'world'}, {firstColumn: 'hello', secondColumn: 'eccenca'}]} // contains an array of objects containing strings or react elements
+                contentPrepend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
+                contentAppend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
+            </Table>
+        )
+    },
+    // ....
+};
+ ```
+
 #### Properties
 - **tableHead** (|) - table head information which is a pure string or a react html element
 - **tableColumns** () - plain table column names. only needed if tableHead contains react html
-- **headPrepend** () - prepended column head
-- **headAppend** () - appended column head
+- **headPrepend** (|) - prepended column head
+- **headAppend** (|) - appended column head
 - **tableContent** () - table content for each row
 - **contentPrepend** () - prepended row column
 - **contentAppend** () - appended row column
@@ -563,17 +588,17 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 ### Table body
 
 #### Properties
-- **tableHead** () - 
-- **tableContent** () - 
-- **prepend** (, default: []) - 
-- **append** (, default: []) - 
+- **tableHead** () - table head information to show and order row data
+- **tableContent** () - table content for each row
+- **prepend** (, default: []) - prepended row column
+- **append** (, default: []) - appended row column
 
 ### Table head
 
 #### Properties
-- **prepend** (, default: []) - 
-- **tableHead** (|) - 
-- **append** (, default: []) - 
+- **prepend** (|, default: []) - prepended column head
+- **tableHead** (|) - table head information which is a pure string or a react html element
+- **append** (|, default: []) - appended column head
 
 ### Tabs
 
