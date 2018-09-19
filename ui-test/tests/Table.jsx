@@ -8,27 +8,42 @@ class TestTable extends React.Component {
         super();
 
         this.state = {
-            tableHead: ['vocabularies', 'modified', 'description', 'keywords', 'installed'],
-            tableHeadReact: [
-                [
-                    <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>vocabularies</Chip>,
-                    <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
-                ],
-                [
-                    'modified',
-                    <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
-                ],
-                [
-                    <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>description</Chip>,
-                    <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
-                ],
-                [
-                    <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>keywords</Chip>,
-                ],
-                [
-                    <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>installed</Chip>,
-                    <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
-                ],
+            tableHead: [
+                {
+                    identifier: "vocabularies",
+                    content: [
+                        <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>vocabularies</Chip>,
+                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
+                    ],
+                },
+                {
+                    identifier: 'modified',
+                    content: [
+                        'modified',
+                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
+                    ],
+                },
+                {
+                    identifier: "description",
+                    content: [
+                        <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>description</Chip>,
+                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'}/>
+                    ],
+                },
+                {
+                    identifier: "keywords",
+                    content: [
+                        <Chip key='chip' type="button" tooltip={false} onClick={() => {
+                        }}>keywords</Chip>,
+                    ],
+                },
+                {
+                    identifier: "installed",
+                    content: [
+                        <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>installed</Chip>,
+                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
+                    ],
+                },
             ],
             tableContent: [
                 {
@@ -60,8 +75,8 @@ class TestTable extends React.Component {
                     modified: <span>2017-08-07</span>,
                     description:
                         'The FIBO Securities specification provides a model of concepts that are common to financial instrumants that are also securities, including but not limited to exchange-traded securities, as a part of the overall FIBO family of specifications. High-level concepts relevant to securities classification, identification, issuance, and registration of securities generally are covered, as well as additional detail for equities and debt instruments.',
-                    keywords:  'Finance',
-                    installed:  'no',
+                    keywords: 'Finance',
+                    installed: 'no',
                 },
                 {
                     vocabularies: <Chip onClick={() => {}}>FIBO (loan)</Chip>,
@@ -103,8 +118,7 @@ class TestTable extends React.Component {
                     <h5> React header and content</h5>
                     <Table
                         headPrepend={['prefixColumn']}
-                        tableHead={this.state.tableHeadReact}
-                        tableColumns={this.state.tableHead}
+                        tableHead={this.state.tableHead}
                         tableContent={this.state.tableContentReact}
                         contentPrepend={[<Button disabled>Pre</Button>]}
                     />

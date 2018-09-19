@@ -1,6 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-
+import _ from 'lodash';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 
@@ -20,7 +20,6 @@ import TableBody from './TableBody';
                 tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
                 headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
                 headAppend={['checkboxColumn']} // allow to add additional columns after `tableHead` (optional, default: [])
-                tableColumns={['firstColumn', 'secondColumn']} // contains an array of strings (mandatory if `tableHead` contains react elements)
                 tableContent={[{firstColumn: 'hello', secondColumn: 'world'}, {firstColumn: 'hello', secondColumn: 'eccenca'}]} // contains an array of objects containing strings or react elements
                 contentPrepend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
                 contentAppend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
@@ -37,23 +36,33 @@ const Table = props => {
         tableHead,
         headPrepend,
         headAppend,
-        tableColumns,
         tableContent,
         contentPrepend,
         contentAppend,
     } = props;
+
+    const identifiers =
+        _.isEmpty(tableHead) || _.isString(tableHead[0])
+            ? tableHead
+            : tableHead.map(item => item.identifier);
+
+    const headerContent =
+        _.isEmpty(tableHead) || _.isString(tableHead[0])
+            ? tableHead
+            : tableHead.map(item => item.content);
+
     return (
         <div className="ecc-component-gui-elements__table">
             <table className="mdl-data-table ecc-component-gui-elements__table__dataoverview">
                 <thead>
                     <TableHead
                         prepend={headPrepend}
-                        tableHead={tableHead}
+                        tableHead={headerContent}
                         append={headAppend}
                     />
                 </thead>
                 <TableBody
-                    tableHead={tableColumns || tableHead}
+                    tableHead={identifiers}
                     prepend={contentPrepend}
                     tableContent={tableContent}
                     append={contentAppend}
@@ -67,18 +76,15 @@ Table.propTypes = {
     /**
      * table head information which is a pure string or a react html element
      */
-    tableHead: Proptypes.arrayOf(
-        Proptypes.oneOfType([
-            Proptypes.string,
-            Proptypes.arrayOf(
-                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
-            ),
-        ])
+    tableHead: Proptypes.oneOfType(
+        Proptypes.arrayOf(
+            Proptypes.shape({
+                identifier: Proptypes.string,
+                content: Proptypes.element,
+            })
+        ),
+        Proptypes.arrayOf(Proptypes.string)
     ),
-    /**
-     * plain table column names. only needed if tableHead contains react html
-     */
-    tableColumns: Proptypes.arrayOf(Proptypes.string),
     /**
      * prepended column head
      */
