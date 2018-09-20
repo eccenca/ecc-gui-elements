@@ -1,11 +1,107 @@
 /**
  * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ * We fully duplicate the MDL rules here to have our own simplified definitions!
  *
  * @author Michael Haschke
  */
 
 .mdl-data-table {
+    position: relative;
+    border-top: $data-table-dividers;
+    border-bottom: $data-table-dividers;
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: $data-table-font-size;
+    text-align: left;
+    background-color: $color-white;
 
+    thead {
+        .mdl-data-table__select {}
+    }
+
+    tbody {
+        tr {
+            @include material-animation-default(0.28s);
+            transition-property: background-color;
+
+            &.is-selected {
+                background-color: $data-table-selection-color;
+            }
+
+            &:hover {
+                background-color: $data-table-hover-color;
+            }
+        }
+    }
+
+    tr {
+        position: relative;
+        // height: $data-table-row-height;
+    }
+
+    td,
+    th {
+        position: relative;
+        padding: $ecc-size-inlineelement-padding-vertical;
+        vertical-align: middle;
+        box-sizing: border-box;
+    }
+
+    td {
+        // height: $data-table-row-height;
+        border-top: $data-table-dividers;
+        border-bottom: $data-table-dividers;
+        // padding-top: $data-table-cell-top;
+
+        .mdl-data-table__select {
+            // vertical-align: middle;
+        }
+    }
+
+    th {
+        @include typo-body-2();
+        // height: $data-table-row-height;
+        font-size: $data-table-header-font-size;
+        color: $data-table-header-color;
+
+        /*
+        &.mdl-data-table__header--sorted-ascending,
+        &.mdl-data-table__header--sorted-descending {
+            color: $data-table-header-sorted-color;
+
+            &:before {
+                @include typo-icon;
+                font-size: $data-table-header-sort-icon-size;
+                content: "\e5d8";
+                margin-right: 5px;
+                vertical-align: sub;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                &:before {
+                    color: $data-table-header-sorted-icon-hover-color;
+                }
+            }
+        }
+
+        &.mdl-data-table__header--sorted-descending:before {
+            content: "\e5db";
+        }
+        */
+    }
+}
+
+.mdl-data-table__select {
+    //width: 16px;
+}
+
+.mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
+    text-align: left;
+}
+
+.mdl-data-table {
     th {
         .material-icons {
             font-size: 16px;
@@ -21,8 +117,8 @@
     }
 }
 
-.mdl-data-table--stretch,
-.mdl-data-table--full-width {
+.mdl-data-table--full-width,
+.mdl-data-table--stretch {
     width: 100%;
 }
 
@@ -31,7 +127,8 @@
         opacity: 0.54;
         font-size: 18px;
 
-        &:focus, &:hover {
+        &:focus,
+        &:hover {
             opacity: 1;
             background-color: transparent;
         }
@@ -50,7 +147,8 @@
     font-size: inherit;
     color: inherit;
 
-    &:focus, &:hover {
+    &:focus,
+    &:hover {
         background-color: transparent;
         color: #000; // TODO: fix this later with configured value
     }
