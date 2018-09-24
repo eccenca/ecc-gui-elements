@@ -1,3 +1,13 @@
+/**
+ * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ * We fully duplicate the MDL rules here to have our own simplified definitions!
+ *
+ * @author Michael Haschke
+ */
+
+// we use MDL data table rules as basic styles
+@import "datatable";
+
 .ecc-table__wrapper {
     // only necessary for scrolling issues, e.g. when table is too wide for viewport
     overflow: auto;

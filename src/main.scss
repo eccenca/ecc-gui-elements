@@ -60,7 +60,6 @@ $image_path: "~@eccenca/material-design-lite/src/images" !default;
 @import "./elements/Card/card";
 @import "./elements/Chip/chip";
 @import "./elements/ContextMenu/contextmenu";
-@import "./elements/DataTable/datatable";
 @import "./elements/DateField/datefield";
 @import "./elements/Dialog/dialog";
 @import "./elements/Grid/grid";
@@ -73,9 +72,9 @@ $image_path: "~@eccenca/material-design-lite/src/images" !default;
 @import "./elements/SelectBox/selectbox";
 @import "./elements/AutoCompleteBox/autocomplete";
 @import "./elements/Spinner/spinner";
+@import "./elements/Table/table";
 @import "./elements/TextField/textfield";
 @import "./elements/Tooltip/tooltip";
-@import "elements/Table/table";
 
 // -- Changes ------------------------------------------------------------------
 
