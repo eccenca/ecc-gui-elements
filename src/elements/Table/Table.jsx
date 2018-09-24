@@ -36,6 +36,7 @@ import TableBody from './TableBody';
 const Table = props => {
     const {
         fullWidth,
+        className,
         tableHead,
         headPrepend,
         headAppend,
@@ -59,7 +60,8 @@ const Table = props => {
         'mdl-data-table',
         {
             'mdl-data-table--full-width': fullWidth === true,
-        }
+        },
+        className
     );
 
     return (
@@ -133,7 +135,7 @@ Table.propTypes = {
     /**
      * use full width even for smaller tables
      */
-    fullWidth: Proptypes.boolean,
+    fullWidth: Proptypes.bool,
 };
 
 Table.defaultProps = {

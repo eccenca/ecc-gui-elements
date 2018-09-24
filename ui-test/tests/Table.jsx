@@ -103,6 +103,7 @@ class TestTable extends React.Component {
                 <CardContent>
                     <h5> Empty cell</h5>
                     <Table
+                        className="my-own-table-class"
                         tableHead={this.state.tableHead}
                         tableContent={this.state.tableContent}
                     />
@@ -117,6 +118,7 @@ class TestTable extends React.Component {
                     />
                     <h5> React header and content</h5>
                     <Table
+                        className="my-other-table-class"
                         fullWidth={false}
                         headPrepend={['prefixColumn']}
                         tableHead={this.state.tableHead}
