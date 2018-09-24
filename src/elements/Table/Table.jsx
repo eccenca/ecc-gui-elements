@@ -52,8 +52,8 @@ const Table = props => {
             : tableHead.map(item => item.content);
 
     return (
-        <div className="ecc-component-gui-elements__table">
-            <table className="mdl-data-table ecc-component-gui-elements__table__dataoverview">
+        <div className="ecc-table__wrapper">
+            <table className="mdl-data-table">
                 <thead>
                     <TableHead
                         prepend={headPrepend}

@@ -1,160 +1,224 @@
-.ecc-component-gui-elements__table {
+.ecc-table__wrapper {
+    // only necessary for scrolling issues, e.g. when table is too wide for viewport
     overflow: auto;
 
-    .mdl-data-table {
-
-        // TODO: this may be moved to the table styles of the GUI elements
-
-        min-width: 100%;
-        border-left: none;
-        border-right: none;
-
-        tbody {
-            tr {
-                height: 32px; // lower min height of row
-            }
-        }
-
-        th, td {
-
-            &, &:first-of-type, &:last-of-type {
-                height: 32px;
-                text-align: left;
-                padding: $ecc-size-inlineelement-padding-vertical 2 * $ecc-size-inlineelement-padding-vertical;
-            }
-
-            &.mdl-data-table__cell-extendcontrol {
-                padding: 0;
-                width: 32px;
-            }
-
-            &.mdl-data-table__cell-radio {
-                padding-left: 1rem;
-                padding-bottom: 0;
-                width: 32px;
-            }
-
-            &.mdl-data-table__cell-controls {
-                text-align: right;
-                min-width: 110px;
-            }
-        }
-
-        .mdl-chip, .mdl-chip__text {
-            font-size: inherit;
-        }
-    }
-
-    table.ecc-component-gui-elements__table__dataoverview {
-
-        tr {
-            &.is-clickable {
-                cursor: pointer;
-                cursor: hand;
-            }
-
-            &.is-extended {
-                background-color: to_color($palette-grey-50);
-
-                &:hover {
-                    background-color: to_color($palette-grey-200);
-                }
-
-                & > td {
-                    border-bottom: none;
-
-                    & > * {
-                        opacity: 0.39;
-                    }
-
-                    &.mdl-data-table__cell-extendcontrol {
-                        & > * {
-                            opacity: 1;
-                        }
-                    }
-                }
-
-                & + tr.ecc-component-resourcelist2__datadetails {
-                    background-color: to_color($palette-grey-50);
-                    & > td {
-                        border: none;
-                    }
-                }
-            }
-        }
-
-        td, th {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            vertical-align: middle;
-            white-space: nowrap;
-            max-width: 10rem;
-
-            & > * {
-                overflow: hidden;
-                text-overflow: ellipsis;
-                vertical-align: middle;
-            }
-
-            img {
-                height: $button-height;
-            }
-
-            .is-sortable {
-                cursor: pointer;
-                cursor: hand;
-
-                .material-icons {
-                    margin-left: $ecc-size-inlineelement-margin-horizontal;
-                    vertical-align: middle;
-                }
-            }
-        }
-
-        thead {
-            .mdl-data-table__header {
-                & > * {
-                    vertical-align: middle;
-                }
-
-                .mdl-chip {
-                    max-width: calc(99% - 32px);
-                }
-            }
-        }
-    }
-
-    .mdl-data-table--highdensity {
-
-        tbody {
-            tr {
-                height: auto; // no min-height
-            }
-        }
-
-        th, td {
-            height: auto;
-            padding: 0.5 * $ecc-size-inlineelement-padding-vertical $ecc-size-inlineelement-padding-vertical;
-        }
-
-    }
-
-    .mdl-data-table--lowdensity {
-
-        tbody {
-            tr {
-                height: 48px; // no min-height
-            }
-        }
-
-        th, td {
-            height: 48px;
-            padding: 2 * $ecc-size-inlineelement-padding-vertical 2 * $ecc-size-inlineelement-padding-vertical;
-        }
-
-    }
-
+    /*
+    TODO: part of resourcetable combined with layout for settings, etc ...
     @media (min-width: 60rem) {
         flex-grow: 1;
     }
+    */
 }
+
+.mdl-data-table {
+    // we do not use onw class here but extend already existing data table className
+
+    tr {
+        &.is-clickable {
+            cursor: pointer;
+            cursor: hand;
+        }
+    }
+
+    // Justify Chips: alter size of mdl chip inside a cell, otherwise they lead to increased table cells
+    .mdl-chip__text {
+        font-size: inherit;
+    }
+    td, th {
+        & > .mdl-chip {
+            font-size: inherit;
+            height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
+            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+        }
+    }
+    thead {
+        .mdl-chip {
+            margin-right: 0;
+        }
+    }
+
+    // Justify Buttons
+    td, th {
+        & > .mdl-button {
+            font-size: inherit;
+            height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
+            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+        }
+        & > .mdl-button--icon {
+            min-width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+        }
+    }
+    thead {
+        .material-icons {
+            font-size: inherit;
+        }
+    }
+}
+
+/*
+TODO: evaluate every part
+.mdl-data-table {
+
+    th, td {
+
+        &.mdl-data-table__cell-extendcontrol {
+            padding: 0;
+            width: 32px;
+        }
+
+        &.mdl-data-table__cell-radio {
+            padding-left: 1rem;
+            padding-bottom: 0;
+            width: 32px;
+        }
+
+        &.mdl-data-table__cell-controls {
+            text-align: right;
+            min-width: 110px;
+        }
+    }
+
+    tr {
+        &.is-extended {
+            background-color: to_color($palette-grey-50);
+
+            &:hover {
+                background-color: to_color($palette-grey-200);
+            }
+
+            & > td {
+                border-bottom: none;
+
+                & > * {
+                    opacity: 0.39;
+                }
+
+                &.mdl-data-table__cell-extendcontrol {
+                    & > * {
+                        opacity: 1;
+                    }
+                }
+            }
+
+            & + tr.ecc-component-resourcelist2__datadetails {
+                background-color: to_color($palette-grey-50);
+                & > td {
+                    border: none;
+                }
+            }
+        }
+    }
+
+}
+
+table.ecc-component-gui-elements__table__dataoverview {
+
+    // TODO: .ecc-component-gui-elements__table__dataoverview class may only important for resourcetable, not for data tables itselves
+
+    td, th {
+
+        & > * {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            vertical-align: middle;
+        }
+
+        img {
+            height: $button-height;
+        }
+
+        .is-sortable {
+            cursor: pointer;
+            cursor: hand;
+
+            .material-icons {
+                margin-left: $ecc-size-inlineelement-margin-horizontal;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    thead {
+        .mdl-data-table__header {
+            & > * {
+                vertical-align: middle;
+            }
+    }
+}
+
+.mdl-data-table--highdensity {
+
+    tbody {
+        tr {
+            height: auto; // no min-height
+        }
+    }
+
+    th, td {
+        height: auto;
+        padding: 0.5 * $ecc-size-inlineelement-padding-vertical $ecc-size-inlineelement-padding-vertical;
+    }
+
+}
+
+.mdl-data-table--lowdensity {
+
+    tbody {
+        tr {
+            height: 48px; // no min-height
+        }
+    }
+
+    th, td {
+        height: 48px;
+        padding: 2 * $ecc-size-inlineelement-padding-vertical 2 * $ecc-size-inlineelement-padding-vertical;
+    }
+
+}
+
+*/
+
+/* TODO evaluate, how we use it further?
+.mdl-data-table__cell-controls {
+    .mdl-button--icon {
+        opacity: 0.54;
+        font-size: 18px;
+
+        &:focus,
+        &:hover {
+            opacity: 1;
+            background-color: transparent;
+        }
+
+        .material-icons {
+            font-size: 1em;
+        }
+    }
+}
+// */
+
+/* TODO evaluate, how we use it further?
+.mdl-data-table__header-button {
+    text-transform: none;
+    padding: 0;
+    min-width: 0;
+    text-align: left;
+    font-size: inherit;
+    color: inherit;
+
+    &:focus,
+    &:hover {
+        background-color: transparent;
+        color: #000; // TODO: fix this later with configured value
+    }
+
+    .material-icons {
+        opacity: 0.26;
+    }
+}
+// */

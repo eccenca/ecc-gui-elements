@@ -12,8 +12,10 @@
     border-collapse: collapse;
     white-space: nowrap;
     font-size: $data-table-font-size;
+    line-height: 1.5; // TODO use config parameter
     text-align: left;
     background-color: $color-white;
+    table-layout: fixed;
 
     thead {
         .mdl-data-table__select {}
@@ -42,16 +44,20 @@
     td,
     th {
         position: relative;
-        padding: $ecc-size-inlineelement-padding-vertical;
+        padding: 2 * $ecc-size-inlineelement-padding-horizontal 2 * $ecc-size-inlineelement-padding-vertical;
         vertical-align: middle;
-        box-sizing: border-box;
+        height: 1.5em; // TODO use config parameter
+        box-sizing: content-box;
     }
 
     td {
         // height: $data-table-row-height;
+        min-width: 5rem;
+        max-width: 15rem;
         border-top: $data-table-dividers;
         border-bottom: $data-table-dividers;
-        // padding-top: $data-table-cell-top;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         .mdl-data-table__select {
             // vertical-align: middle;
@@ -59,12 +65,14 @@
     }
 
     th {
-        @include typo-body-2();
+        // @include typo-body-2();
         // height: $data-table-row-height;
-        font-size: $data-table-header-font-size;
+        // font-size: $data-table-header-font-size;
         color: $data-table-header-color;
+        font-weight: bold;
 
         /*
+        // we may use this later, or maybe not, not decided
         &.mdl-data-table__header--sorted-ascending,
         &.mdl-data-table__header--sorted-descending {
             color: $data-table-header-sorted-color;
@@ -93,67 +101,11 @@
     }
 }
 
-.mdl-data-table__select {
-    //width: 16px;
-}
-
-.mdl-data-table__cell--non-numeric.mdl-data-table__cell--non-numeric {
-    text-align: left;
-}
-
-.mdl-data-table {
-    th {
-        .material-icons {
-            font-size: 16px;
-        }
-    }
-
-    .mdl-data-table__cell--simple {
-        text-align: left;
-        white-space: normal;
-        vertical-align: top;
-        padding: 0.5rem 1rem;
-        line-height: inherit;
-    }
-}
-
 .mdl-data-table--full-width,
 .mdl-data-table--stretch {
-    width: 100%;
+    min-width: 100%;
 }
 
-.mdl-data-table__cell-controls {
-    .mdl-button--icon {
-        opacity: 0.54;
-        font-size: 18px;
-
-        &:focus,
-        &:hover {
-            opacity: 1;
-            background-color: transparent;
-        }
-
-        .material-icons {
-            font-size: 1em;
-        }
-    }
-}
-
-.mdl-data-table__header-button {
-    text-transform: none;
-    padding: 0;
-    min-width: 0;
-    text-align: left;
-    font-size: inherit;
-    color: inherit;
-
-    &:focus,
-    &:hover {
-        background-color: transparent;
-        color: #000; // TODO: fix this later with configured value
-    }
-
-    .material-icons {
-        opacity: 0.26;
-    }
+.mdl-data-table__select {
+    //width: 16px;
 }
