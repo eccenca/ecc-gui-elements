@@ -1,6 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import _ from 'lodash';
+import classNames from 'classnames';
 import TableHead from './TableHead';
 import TableBody from './TableBody';
 
@@ -16,14 +17,15 @@ import TableBody from './TableBody';
     // template rendering
     render() {
         return (
-            <Table>
+            <Table
+                fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: true)
                 tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
                 headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
                 headAppend={['checkboxColumn']} // allow to add additional columns after `tableHead` (optional, default: [])
                 tableContent={[{firstColumn: 'hello', secondColumn: 'world'}, {firstColumn: 'hello', secondColumn: 'eccenca'}]} // contains an array of objects containing strings or react elements
                 contentPrepend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
                 contentAppend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
-            </Table>
+            />
         )
     },
     // ....
@@ -33,6 +35,7 @@ import TableBody from './TableBody';
 
 const Table = props => {
     const {
+        fullWidth,
         tableHead,
         headPrepend,
         headAppend,
@@ -51,9 +54,17 @@ const Table = props => {
             ? tableHead
             : tableHead.map(item => item.content);
 
+    // set classname
+    const tableClassNames = classNames(
+        'mdl-data-table',
+        {
+            'mdl-data-table--full-width': fullWidth === true,
+        }
+    );
+
     return (
         <div className="ecc-table__wrapper">
-            <table className="mdl-data-table">
+            <table className={tableClassNames}>
                 <thead>
                     <TableHead
                         prepend={headPrepend}
@@ -119,7 +130,16 @@ Table.propTypes = {
      * appended row column
      */
     contentAppend: Proptypes.arrayOf(Proptypes.object),
+    /**
+     * use full width even for smaller tables
+     */
+    fullWidth: Proptypes.boolean,
 };
+
+Table.defaultProps = {
+    fullWidth: true,
+};
+
 
 Table.displayName = 'Table';
 

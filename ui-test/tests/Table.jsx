@@ -117,6 +117,7 @@ class TestTable extends React.Component {
                     />
                     <h5> React header and content</h5>
                     <Table
+                        fullWidth={false}
                         headPrepend={['prefixColumn']}
                         tableHead={this.state.tableHead}
                         tableContent={this.state.tableContentReact}
