@@ -136,12 +136,20 @@ class TestTable extends React.Component {
                         <TableHead
                             className="my-table-head-class"
                         >
-                            <th>test 1</th>
-                            <th>test 2</th>
+                            <th>testhead 1</th>
+                            <th>testhead 2</th>
                         </TableHead>
                         <TableBody
                             className="my-table-body-class"
                         >
+                            <tr>
+                                <td>testcontent 1.1</td>
+                                <td>testcontent 1.2</td>
+                            </tr>
+                            <tr>
+                                <td>testcontent 2.1</td>
+                                <td>testcontent 2.2</td>
+                            </tr>
                         </TableBody>
                     </Table>
                 </CardContent>

@@ -4,22 +4,26 @@ import _ from 'lodash';
 
 /**
 
- Provides table head which can be enriched by properties.
+ Provides table head element that can be enriched by properties and sub elements.
+ Child elements are inserted after the `tableHead` structures but before the `append` element.
 
  ```js
- import {Table} from '@eccenca/gui-elements';
+ import {TableHead} from '@eccenca/gui-elements';
 
  class Page extends React.Component {
     // ....
     // template rendering
     render() {
         return (
-            <Table
+            <TableHead
                 className="my-own-class" // string, used for CSS class descriptions
                 prepend={[]} // TODO description
                 tableHead={[]} // TODO description
                 append={[]} // TODO description
-            />
+            >
+                <!-- optional head cells -->
+                <th>Optional Head Content</th>
+            </TableHead>
         )
     },
     // ....

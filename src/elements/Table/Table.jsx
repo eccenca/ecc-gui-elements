@@ -26,7 +26,9 @@ import TableBody from './TableBody';
                 tableContent={[{firstColumn: 'hello', secondColumn: 'world'}, {firstColumn: 'hello', secondColumn: 'eccenca'}]} // contains an array of objects containing strings or react elements
                 contentPrepend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
                 contentAppend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
-            />
+            >
+                <!-- your table content (optional) -->
+            </table>
         )
     },
     // ....

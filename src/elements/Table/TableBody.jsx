@@ -2,9 +2,37 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import _ from 'lodash';
 
+/**
+
+ Provides table body element that can be enriched by properties and sub elements.
+
+ ```js
+ import {TableBody} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <TableBody
+                className="my-own-class" // string, used for CSS class descriptions
+                prepend={[]} // TODO description
+                tableHead={[]} // TODO description
+                tableContent={[]} // TODO description
+                append={[]} // TODO description
+            >
+                <tr><!-- optional table rows --></tr>
+            </TableBody>
+        )
+    },
+    // ....
+};
+ ```
+ */
+
 const TableBody = props => {
-    const {prepend, tableContent, append, tableHead} = props;
-    if (_.isEmpty(tableContent)) return false;
+    const {prepend, tableContent, append, tableHead, children, ...otherProps} = props;
+    if (_.isEmpty(tableContent) && _.isEmpty(children)) return false;
     const rows = _.map(tableContent, (row, idxRow) => (
         <tr key={idxRow}>
             {_.concat(
@@ -18,10 +46,16 @@ const TableBody = props => {
             )}
         </tr>
     ));
-    return <tbody>{rows}</tbody>;
+    return (
+        <tbody {...otherProps}>
+            {rows}
+            {children}
+        </tbody>
+    );
 };
 
 TableBody.propTypes = {
+    children: Proptypes.oneOfType([Proptypes.node]),
     /**
      * table head information to show and order row data
      */
