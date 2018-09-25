@@ -7,8 +7,8 @@
 
 .mdl-data-table {
     position: relative;
-    border-top: $data-table-dividers;
-    border-bottom: $data-table-dividers;
+    //border-top: $data-table-dividers;
+    //border-bottom: $data-table-dividers;
     border-collapse: collapse;
     white-space: nowrap;
     font-size: $data-table-font-size;
@@ -48,14 +48,14 @@
         vertical-align: middle;
         height: 1.5em; // TODO use config parameter
         box-sizing: content-box;
+        border-top: $data-table-dividers;
+        border-bottom: $data-table-dividers;
     }
 
     td {
         // height: $data-table-row-height;
         min-width: 5rem;
         max-width: 15rem;
-        border-top: $data-table-dividers;
-        border-bottom: $data-table-dividers;
         overflow: hidden;
         text-overflow: ellipsis;
 
@@ -64,13 +64,16 @@
         }
     }
 
-    th {
+    th,
+    .mdl-data-table__header {
         // @include typo-body-2();
         // height: $data-table-row-height;
         // font-size: $data-table-header-font-size;
         color: $data-table-header-color;
         font-weight: bold;
+    }
 
+    th {
         /*
         // we may use this later, or maybe not, not decided
         &.mdl-data-table__header--sorted-ascending,

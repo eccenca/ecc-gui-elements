@@ -1,6 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import _ from 'lodash';
+import TableCell from './TableCell';
 
 /**
 
@@ -22,7 +23,6 @@ import _ from 'lodash';
                 append={[]} // TODO description
             >
                 <!-- optional head cells -->
-                <th>Optional Head Content</th>
             </TableHead>
         )
     },
@@ -38,11 +38,11 @@ const TableHead = props => {
         <thead {...otherProps}>
             <tr>
                 {_.map(_.concat(prepend, tableHead), (column, idx) => (
-                    <th key={idx}>{column}</th>
+                    <TableCell isHead key={idx}>{column}</TableCell>
                 ))}
                 {children}
                 {_.map(append, (column, idx) => (
-                    <th key={idx}>{column}</th>
+                    <TableCell isHead key={idx}>{column}</TableCell>
                 ))}
             </tr>
         </thead>

@@ -70,6 +70,7 @@ import Switch from './src/elements/Switch/Switch';
 import Table from './src/elements/Table/Table';
 import TableHead from './src/elements/Table/TableHead';
 import TableBody from './src/elements/Table/TableBody';
+import TableCell from './src/elements/Table/TableCell';
 
 import Tabs from './src/elements/Tabs/Tabs';
 
@@ -129,6 +130,7 @@ export default {
     Table,
     TableHead,
     TableBody,
+    TableCell,
     Tabs,
     Version,
     Pagination,

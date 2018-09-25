@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Table, TableHead, TableBody,
+    Table, TableHead, TableBody, TableCell,
     Card, CardTitle, CardContent, Button, Chip,
 } from '../../index';
 
@@ -136,19 +136,23 @@ class TestTable extends React.Component {
                         <TableHead
                             className="my-table-head-class"
                         >
-                            <th>testhead 1</th>
-                            <th>testhead 2</th>
+                            <TableCell isHead>testhead 1</TableCell>
+                            <TableCell isHead>testhead 2</TableCell>
                         </TableHead>
                         <TableBody
                             className="my-table-body-class"
                         >
                             <tr>
-                                <td>testcontent 1.1</td>
-                                <td>testcontent 1.2</td>
+                                <TableCell isHead className="my-cell-class">testcontent 1.1</TableCell>
+                                <TableCell>testcontent 1.2</TableCell>
                             </tr>
                             <tr>
-                                <td>testcontent 2.1</td>
-                                <td>testcontent 2.2</td>
+                                <TableCell>testcontent 2.1</TableCell>
+                                <TableCell className="my-cell-class">testcontent 2.2</TableCell>
+                            </tr>
+                            <tr>
+                                <TableCell likeHead className="my-cell-class">testcontent 3.1</TableCell>
+                                <TableCell>testcontent 3.2</TableCell>
                             </tr>
                         </TableBody>
                     </Table>
