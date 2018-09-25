@@ -19,6 +19,7 @@ import TableBody from './TableBody';
         return (
             <Table
                 fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: true)
+                className="my-table-class" // string, additional CSS classes (optional, default: "")
                 tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
                 headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
                 headAppend={['checkboxColumn']} // allow to add additional columns after `tableHead` (optional, default: [])
@@ -43,6 +44,7 @@ const Table = props => {
         tableContent,
         contentPrepend,
         contentAppend,
+        children,
     } = props;
 
     const identifiers =
@@ -67,25 +69,29 @@ const Table = props => {
     return (
         <div className="ecc-table__wrapper">
             <table className={tableClassNames}>
-                <thead>
-                    <TableHead
-                        prepend={headPrepend}
-                        tableHead={headerContent}
-                        append={headAppend}
-                    />
-                </thead>
+                <TableHead
+                    prepend={headPrepend}
+                    tableHead={headerContent}
+                    append={headAppend}
+                />
                 <TableBody
                     tableHead={identifiers}
                     prepend={contentPrepend}
                     tableContent={tableContent}
                     append={contentAppend}
                 />
+                {children}
             </table>
         </div>
     );
 };
 
 Table.propTypes = {
+    children: Proptypes.oneOfType([Proptypes.node]),
+    /**
+        string (optional): additional CSS class name
+    */
+    className: Proptypes.string,
     /**
      * table head information which is a pure string or a react html element
      */
@@ -141,7 +147,6 @@ Table.propTypes = {
 Table.defaultProps = {
     fullWidth: true,
 };
-
 
 Table.displayName = 'Table';
 

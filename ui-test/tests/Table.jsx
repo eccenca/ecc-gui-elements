@@ -1,5 +1,8 @@
 import React from 'react';
-import {Table, Card, CardTitle, CardContent, Button, Chip} from '../../index';
+import {
+    Table, TableHead, TableBody,
+    Card, CardTitle, CardContent, Button, Chip,
+} from '../../index';
 
 // FIXME: add documentation
 
@@ -125,6 +128,22 @@ class TestTable extends React.Component {
                         tableContent={this.state.tableContentReact}
                         contentPrepend={[<Button disabled>Pre</Button>]}
                     />
+                    <h5>Manual Table</h5>
+                    <Table
+                        fullWidth={false}
+                        className="my-table-class"
+                    >
+                        <TableHead
+                            className="my-table-head-class"
+                        >
+                            <th>test 1</th>
+                            <th>test 2</th>
+                        </TableHead>
+                        <TableBody
+                            className="my-table-body-class"
+                        >
+                        </TableBody>
+                    </Table>
                 </CardContent>
             </Card>
         );

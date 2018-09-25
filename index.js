@@ -68,6 +68,8 @@ import Spinner from './src/elements/Spinner/Spinner';
 import Switch from './src/elements/Switch/Switch';
 
 import Table from './src/elements/Table/Table';
+import TableHead from './src/elements/Table/TableHead';
+import TableBody from './src/elements/Table/TableBody';
 
 import Tabs from './src/elements/Tabs/Tabs';
 
@@ -125,6 +127,8 @@ export default {
     Switch,
     Warning,
     Table,
+    TableHead,
+    TableBody,
     Tabs,
     Version,
     Pagination,
