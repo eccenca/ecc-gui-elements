@@ -1,6 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import _ from 'lodash';
+import classNames from 'classnames';
 import TableRow from './TableRow';
 import TableCell from './TableCell';
 
@@ -18,6 +19,7 @@ import TableCell from './TableCell';
     render() {
         return (
             <TableHead
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 className="my-own-class" // string, used for CSS class descriptions
                 prepend={[]} // TODO description
                 tableHead={[]} // TODO description
@@ -33,10 +35,17 @@ import TableCell from './TableCell';
  */
 
 const TableHead = props => {
-    const {children, prepend, tableHead, append, ...otherProps} = props;
+    const {children, prepend, tableHead, append, className, multiline, ...otherProps} = props;
     if (_.isEmpty(tableHead) && _.isEmpty(children)) return false;
+    // set classname
+    const headClassNames = classNames(
+        {
+            'mdl-data-table--multiline': multiline === true,
+        },
+        className
+    );
     return (
-        <thead {...otherProps}>
+        <thead className={headClassNames} {...otherProps}>
             <TableRow>
                 {_.map(_.concat(prepend, tableHead), (column, idx) => (
                     <TableCell isHead key={idx}>{column}</TableCell>
@@ -52,6 +61,10 @@ const TableHead = props => {
 
 TableHead.propTypes = {
     children: Proptypes.oneOfType([Proptypes.node]),
+    /**
+        string (optional): additional CSS class name
+    */
+    className: Proptypes.string,
     /**
      * prepended column head
      */
@@ -85,12 +98,17 @@ TableHead.propTypes = {
             ),
         ])
     ),
+    /**
+     * allow linebreaks and multilined content in table cells
+     */
+    multiline: Proptypes.bool,
 };
 
 TableHead.defaultProps = {
     prepend: [],
     tableHead: [],
     append: [],
+    multiline: false,
 };
 
 TableHead.displayName = 'Table head';

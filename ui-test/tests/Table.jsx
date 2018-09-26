@@ -110,7 +110,7 @@ class TestTable extends React.Component {
                         tableHead={this.state.tableHead}
                         tableContent={this.state.tableContent}
                     />
-                <h5> Append/Prepend (multiline allowed, full width)</h5>
+                    <h5> Append/Prepend (multiline allowed, full width)</h5>
                     <Table
                         multiline
                         fullWidth
@@ -135,6 +135,7 @@ class TestTable extends React.Component {
                         className="my-table-class"
                     >
                         <TableHead
+                            multiline
                             className="my-table-head-class"
                         >
                             <TableCell isHead>testhead 1</TableCell>

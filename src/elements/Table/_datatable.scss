@@ -10,7 +10,6 @@
     //border-top: $data-table-dividers;
     //border-bottom: $data-table-dividers;
     border-collapse: collapse;
-    white-space: nowrap;
     font-size: $data-table-font-size;
     line-height: 1.5; // TODO use config parameter
     text-align: left;
@@ -50,6 +49,7 @@
         box-sizing: content-box;
         border-top: $data-table-dividers;
         border-bottom: $data-table-dividers;
+        white-space: nowrap;
     }
 
     td {

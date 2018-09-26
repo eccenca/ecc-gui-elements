@@ -72,9 +72,9 @@
 
 // multilined table cells
 .mdl-data-table--multiline {
-    white-space: normal;
 
-    th, td {
+    td {
+        white-space: normal;
         vertical-align: top;
     }
 
@@ -87,13 +87,23 @@
         }
     }
 }
+thead.mdl-data-table--multiline {
+    th {
+        white-space: normal;
+        vertical-align: top;
+    }
+}
 .mdl-data-table {
     th, td {
         &.mdl-data-table--multiline {
+            white-space: normal;
             vertical-align: top;
         }
     }
 }
+
+
+
 /*
 TODO: evaluate every part
 .mdl-data-table {
