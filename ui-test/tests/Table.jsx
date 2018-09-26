@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    Table, TableHead, TableBody, TableCell,
+    Table, TableHead, TableBody, TableRow, TableCell,
     Card, CardTitle, CardContent, Button, Chip,
 } from '../../index';
 
@@ -110,8 +110,9 @@ class TestTable extends React.Component {
                         tableHead={this.state.tableHead}
                         tableContent={this.state.tableContent}
                     />
-                    <h5> Append/Prepend</h5>
+                <h5> Append/Prepend (multiline allowed)</h5>
                     <Table
+                        multiline
                         headPrepend={['prefixColumn']}
                         tableHead={this.state.tableHead}
                         headAppend={['suffixColumn']}
@@ -139,19 +140,16 @@ class TestTable extends React.Component {
                             <TableCell isHead>testhead 1</TableCell>
                             <TableCell isHead>testhead 2</TableCell>
                         </TableHead>
-                        <TableBody
-                            multiline
-                            className="my-table-body-class"
-                        >
-                            <tr>
+                        <TableBody multiline className="my-table-body-class">
+                            <TableRow>
                                 <TableCell isHead className="my-cell-class">testcontent 1.1</TableCell>
                                 <TableCell>testcontent 1.2</TableCell>
-                            </tr>
-                            <tr>
+                            </TableRow>
+                            <TableRow>
                                 <TableCell>testcontent 2.1a<br/>testcontent 2.1b</TableCell>
                                 <TableCell className="my-cell-class">testcontent 2.2</TableCell>
-                            </tr>
-                            <tr>
+                            </TableRow>
+                            <TableRow>
                                 <TableCell likeHead className="my-cell-class">testcontent 3.1</TableCell>
                                 <TableCell>
                                     <div>
@@ -159,20 +157,18 @@ class TestTable extends React.Component {
                                         <p>Paragraph 2.</p>
                                     </div>
                                 </TableCell>
-                            </tr>
+                            </TableRow>
                         </TableBody>
-                        <TableBody
-                            className="my-table-body-class"
-                        >
-                            <tr>
+                        <TableBody className="my-table-body-class">
+                            <TableRow>
                                 <TableCell isHead className="my-cell-class">testcontent 4.1</TableCell>
                                 <TableCell>testcontent 4.2</TableCell>
-                            </tr>
-                            <tr className="mdl-data-table--multiline">
+                            </TableRow>
+                            <TableRow multiline>
                                 <TableCell>testcontent 5.1a<br/>testcontent 5.1b</TableCell>
                                 <TableCell className="my-cell-class">testcontent 5.2</TableCell>
-                            </tr>
-                            <tr>
+                            </TableRow>
+                            <TableRow>
                                 <TableCell multiline likeHead className="my-cell-class">testcontent 6.1</TableCell>
                                 <TableCell>
                                     <div>
@@ -180,41 +176,7 @@ class TestTable extends React.Component {
                                         <p>Paragraph 2.</p>
                                     </div>
                                 </TableCell>
-                            </tr>
-                        </TableBody>
-                    </Table>
-                    <h5>Multiline Table</h5>
-                    <Table
-                        fullWidth={true}
-                        className="my-table-class"
-                        multiline
-                    >
-                        <TableHead
-                            className="my-table-head-class"
-                        >
-                            <TableCell isHead>testhead 1</TableCell>
-                            <TableCell isHead>testhead 2</TableCell>
-                        </TableHead>
-                        <TableBody
-                            className="my-table-body-class"
-                        >
-                            <tr>
-                                <TableCell isHead className="my-cell-class">testcontent 1.1</TableCell>
-                                <TableCell>testcontent 1.2</TableCell>
-                            </tr>
-                            <tr multiline>
-                                <TableCell>testcontent 2.1a<br/>testcontent 2.1b</TableCell>
-                                <TableCell className="my-cell-class">testcontent 2.2</TableCell>
-                            </tr>
-                            <tr>
-                                <TableCell multiline likeHead className="my-cell-class">testcontent 3.1</TableCell>
-                                <TableCell>
-                                    <div>
-                                        <p>Paragraph 1.</p>
-                                        <p>Paragraph 2.</p>
-                                    </div>
-                                </TableCell>
-                            </tr>
+                            </TableRow>
                         </TableBody>
                     </Table>
                 </CardContent>

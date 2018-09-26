@@ -2,6 +2,7 @@ import React from 'react';
 import Proptypes from 'prop-types';
 import _ from 'lodash';
 import classNames from 'classnames';
+import TableRow from './TableRow';
 import TableCell from './TableCell';
 
 /**
@@ -24,7 +25,7 @@ import TableCell from './TableCell';
                 tableContent={[]} // TODO description
                 append={[]} // TODO description
             >
-                <tr><!-- optional table rows --></tr>
+                <!-- optional table rows -->
             </TableBody>
         )
     },
@@ -37,7 +38,7 @@ const TableBody = props => {
     const {prepend, tableContent, append, tableHead, children, className, multiline, ...otherProps} = props;
     if (_.isEmpty(tableContent) && _.isEmpty(children)) return false;
     const rows = _.map(tableContent, (row, idxRow) => (
-        <tr key={idxRow}>
+        <TableRow key={idxRow}>
             {_.concat(
                 _.map(prepend, (pre, idxPre) => <TableCell key={`${idxRow}.pre-${idxPre}`}>{pre}</TableCell>),
                 _.map(tableHead, (column, idxColumn) => (
@@ -47,7 +48,7 @@ const TableBody = props => {
                 )),
                 _.map(append, (app, idxApp) => <TableCell key={`${idxRow}.app-${idxApp}`}>{app}</TableCell>),
             )}
-        </tr>
+        </TableRow>
     ));
     // set classname
     const bodyClassNames = classNames(

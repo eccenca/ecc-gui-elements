@@ -1,6 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import _ from 'lodash';
+import TableRow from './TableRow';
 import TableCell from './TableCell';
 
 /**
@@ -36,7 +37,7 @@ const TableHead = props => {
     if (_.isEmpty(tableHead) && _.isEmpty(children)) return false;
     return (
         <thead {...otherProps}>
-            <tr>
+            <TableRow>
                 {_.map(_.concat(prepend, tableHead), (column, idx) => (
                     <TableCell isHead key={idx}>{column}</TableCell>
                 ))}
@@ -44,7 +45,7 @@ const TableHead = props => {
                 {_.map(append, (column, idx) => (
                     <TableCell isHead key={idx}>{column}</TableCell>
                 ))}
-            </tr>
+            </TableRow>
         </thead>
     );
 };
