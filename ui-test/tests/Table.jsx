@@ -110,9 +110,10 @@ class TestTable extends React.Component {
                         tableHead={this.state.tableHead}
                         tableContent={this.state.tableContent}
                     />
-                <h5> Append/Prepend (multiline allowed)</h5>
+                <h5> Append/Prepend (multiline allowed, full width)</h5>
                     <Table
                         multiline
+                        fullWidth
                         headPrepend={['prefixColumn']}
                         tableHead={this.state.tableHead}
                         headAppend={['suffixColumn']}
@@ -131,7 +132,6 @@ class TestTable extends React.Component {
                     />
                     <h5>Manual Table</h5>
                     <Table
-                        fullWidth={false}
                         className="my-table-class"
                     >
                         <TableHead

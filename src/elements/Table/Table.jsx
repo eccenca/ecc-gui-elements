@@ -18,8 +18,8 @@ import TableBody from './TableBody';
     render() {
         return (
             <Table
-                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
-                fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: true)
+                multiline={true} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: false)
                 className="my-table-class" // string, additional CSS classes (optional, default: "")
                 tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
                 headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
@@ -154,7 +154,7 @@ Table.propTypes = {
 };
 
 Table.defaultProps = {
-    fullWidth: true,
+    fullWidth: false,
     multiline: false,
 };
 
