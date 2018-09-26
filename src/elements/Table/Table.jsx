@@ -18,6 +18,7 @@ import TableBody from './TableBody';
     render() {
         return (
             <Table
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: true)
                 className="my-table-class" // string, additional CSS classes (optional, default: "")
                 tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
@@ -40,6 +41,7 @@ const Table = props => {
     const {
         fullWidth,
         className,
+        multiline,
         tableHead,
         headPrepend,
         headAppend,
@@ -64,6 +66,7 @@ const Table = props => {
         'mdl-data-table',
         {
             'mdl-data-table--full-width': fullWidth === true,
+            'mdl-data-table--multiline': multiline === true,
         },
         className
     );
@@ -144,10 +147,15 @@ Table.propTypes = {
      * use full width even for smaller tables
      */
     fullWidth: Proptypes.bool,
+    /**
+     * allow linebreaks and multilined content in table cells
+     */
+    multiline: Proptypes.bool,
 };
 
 Table.defaultProps = {
     fullWidth: true,
+    multiline: false,
 };
 
 Table.displayName = 'Table';

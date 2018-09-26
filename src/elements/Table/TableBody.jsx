@@ -1,6 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 import _ from 'lodash';
+import classNames from 'classnames';
 import TableCell from './TableCell';
 
 /**
@@ -16,6 +17,7 @@ import TableCell from './TableCell';
     render() {
         return (
             <TableBody
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 className="my-own-class" // string, used for CSS class descriptions
                 prepend={[]} // TODO description
                 tableHead={[]} // TODO description
@@ -32,7 +34,7 @@ import TableCell from './TableCell';
  */
 
 const TableBody = props => {
-    const {prepend, tableContent, append, tableHead, children, ...otherProps} = props;
+    const {prepend, tableContent, append, tableHead, children, className, multiline, ...otherProps} = props;
     if (_.isEmpty(tableContent) && _.isEmpty(children)) return false;
     const rows = _.map(tableContent, (row, idxRow) => (
         <tr key={idxRow}>
@@ -47,8 +49,15 @@ const TableBody = props => {
             )}
         </tr>
     ));
+    // set classname
+    const bodyClassNames = classNames(
+        {
+            'mdl-data-table--multiline': multiline === true,
+        },
+        className
+    );
     return (
-        <tbody {...otherProps}>
+        <tbody className={bodyClassNames} {...otherProps}>
             {rows}
             {children}
         </tbody>
@@ -57,6 +66,10 @@ const TableBody = props => {
 
 TableBody.propTypes = {
     children: Proptypes.oneOfType([Proptypes.node]),
+    /**
+        string (optional): additional CSS class name
+    */
+    className: Proptypes.string,
     /**
      * table head information to show and order row data
      */
@@ -73,11 +86,16 @@ TableBody.propTypes = {
      * appended row column
      */
     append: Proptypes.arrayOf(Proptypes.object),
+    /**
+     * allow linebreaks and multilined content in table cells
+     */
+    multiline: Proptypes.bool,
 };
 
 TableBody.defaultProps = {
     prepend: [],
     append: [],
+    multiline: false,
 };
 
 TableBody.displayName = 'Table body';

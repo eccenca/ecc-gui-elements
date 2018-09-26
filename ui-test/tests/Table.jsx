@@ -140,6 +140,7 @@ class TestTable extends React.Component {
                             <TableCell isHead>testhead 2</TableCell>
                         </TableHead>
                         <TableBody
+                            multiline
                             className="my-table-body-class"
                         >
                             <tr>
@@ -147,12 +148,72 @@ class TestTable extends React.Component {
                                 <TableCell>testcontent 1.2</TableCell>
                             </tr>
                             <tr>
-                                <TableCell>testcontent 2.1</TableCell>
+                                <TableCell>testcontent 2.1a<br/>testcontent 2.1b</TableCell>
                                 <TableCell className="my-cell-class">testcontent 2.2</TableCell>
                             </tr>
                             <tr>
                                 <TableCell likeHead className="my-cell-class">testcontent 3.1</TableCell>
-                                <TableCell>testcontent 3.2</TableCell>
+                                <TableCell>
+                                    <div>
+                                        <p>Paragraph 1.</p>
+                                        <p>Paragraph 2.</p>
+                                    </div>
+                                </TableCell>
+                            </tr>
+                        </TableBody>
+                        <TableBody
+                            className="my-table-body-class"
+                        >
+                            <tr>
+                                <TableCell isHead className="my-cell-class">testcontent 4.1</TableCell>
+                                <TableCell>testcontent 4.2</TableCell>
+                            </tr>
+                            <tr className="mdl-data-table--multiline">
+                                <TableCell>testcontent 5.1a<br/>testcontent 5.1b</TableCell>
+                                <TableCell className="my-cell-class">testcontent 5.2</TableCell>
+                            </tr>
+                            <tr>
+                                <TableCell multiline likeHead className="my-cell-class">testcontent 6.1</TableCell>
+                                <TableCell>
+                                    <div>
+                                        <p>Paragraph 1.</p>
+                                        <p>Paragraph 2.</p>
+                                    </div>
+                                </TableCell>
+                            </tr>
+                        </TableBody>
+                    </Table>
+                    <h5>Multiline Table</h5>
+                    <Table
+                        fullWidth={true}
+                        className="my-table-class"
+                        multiline
+                    >
+                        <TableHead
+                            className="my-table-head-class"
+                        >
+                            <TableCell isHead>testhead 1</TableCell>
+                            <TableCell isHead>testhead 2</TableCell>
+                        </TableHead>
+                        <TableBody
+                            className="my-table-body-class"
+                        >
+                            <tr>
+                                <TableCell isHead className="my-cell-class">testcontent 1.1</TableCell>
+                                <TableCell>testcontent 1.2</TableCell>
+                            </tr>
+                            <tr multiline>
+                                <TableCell>testcontent 2.1a<br/>testcontent 2.1b</TableCell>
+                                <TableCell className="my-cell-class">testcontent 2.2</TableCell>
+                            </tr>
+                            <tr>
+                                <TableCell multiline likeHead className="my-cell-class">testcontent 3.1</TableCell>
+                                <TableCell>
+                                    <div>
+                                        <p>Paragraph 1.</p>
+                                        <p>Paragraph 2.</p>
+                                    </div>
+                                </TableCell>
                             </tr>
                         </TableBody>
                     </Table>

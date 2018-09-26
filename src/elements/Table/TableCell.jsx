@@ -18,6 +18,7 @@ import classNames from 'classnames';
             <TableCell
                 isHead={true} // boolean, if the table cell contains a table head for the column or row (optional, default: false)
                 likeHead={true} // boolean, if a normal table cell should be look like a head element (optional, default: false)
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 className="my-own-class" // string, used for additional CSS class descriptions
             >
                 <!-- content -->
@@ -30,11 +31,12 @@ import classNames from 'classnames';
  */
 
 const TableCell = props => {
-    const {isHead, likeHead, className, children, ...otherProps} = props;
+    const {isHead, likeHead, className, children, multiline, ...otherProps} = props;
     const TableCellType = isHead === true ? 'th' : 'td';
     const cellClassNames = classNames(
         {
             'mdl-data-table__header': isHead === false && likeHead === true,
+            'mdl-data-table--multiline': multiline === true,
         },
         className
     );
@@ -59,12 +61,17 @@ TableCell.propTypes = {
      * table cell looks like header cell
      */
     likeHead: Proptypes.bool,
+    /**
+     * allow linebreaks and multilined content in table cells
+     */
+    multiline: Proptypes.bool,
 };
 
 TableCell.defaultProps = {
     isHead: false,
     likeHead: false,
     className: '',
+    multiline: false,
 };
 
 TableCell.displayName = 'Table cell';

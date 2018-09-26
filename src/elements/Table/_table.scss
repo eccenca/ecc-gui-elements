@@ -67,8 +67,33 @@
             font-size: inherit;
         }
     }
+
 }
 
+// multilined table cells
+.mdl-data-table--multiline {
+    white-space: normal;
+
+    th, td {
+        vertical-align: top;
+    }
+
+    br {
+        content: normal;
+        display: block;
+
+        &:before, &:after {
+            content: normal;
+        }
+    }
+}
+.mdl-data-table {
+    th, td {
+        &.mdl-data-table--multiline {
+            vertical-align: top;
+        }
+    }
+}
 /*
 TODO: evaluate every part
 .mdl-data-table {

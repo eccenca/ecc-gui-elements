@@ -102,6 +102,15 @@
         }
         */
     }
+
+    br {
+        content: ' ';
+        display: inline;
+
+        &:before, &:after {
+            content: ' ';
+        }
+    }
 }
 
 .mdl-data-table--full-width,
