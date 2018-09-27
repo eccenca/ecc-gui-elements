@@ -75,6 +75,23 @@
         }
     }
 
+    // Justify checkbox
+    .mdl-checkbox {
+        font-size: inherit;
+        height: 1.5em; // TODO calculate with config values
+
+        .mdl-checkbox__input,
+        .mdl-checkbox__label {
+            font-size: inherit;
+            line-height: 1.5em;
+            vertical-align: middle;
+        }
+
+        .mdl-checkbox__box-outline,
+        .mdl-checkbox__focus-helper {
+            top: calc((1.5em - 16px) / 2);
+        }
+    }
 }
 
 // multilined table cells

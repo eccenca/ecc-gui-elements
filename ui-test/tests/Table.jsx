@@ -17,6 +17,7 @@ class TestTable extends React.Component {
                 },
                 {
                     identifier: 'selectrow',
+                    content: <Checkbox label="Select" />,
                 },
                 {
                     identifier: "vocabularies",
@@ -63,7 +64,7 @@ class TestTable extends React.Component {
             tableContent: [
                 {
                     expanding: <Button iconName={'expand_more'} />,
-                // selectrow: <Checkbox label="Select" />,
+                    selectrow: <Checkbox label="Select" />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (sec)</Chip>,
                     modified: <span>2017-08-07</span>,
                     description:
@@ -71,13 +72,10 @@ class TestTable extends React.Component {
                     keywords: 'Finance',
                     installed: 'no',
                     testbutton: <Button>Do it!</Button>,
-                    toolsetactions: [
-                            <Button key='edit' onClick={() => {}} iconName={'edit'} />,
-                            <Button key='remove' onClick={() => {}} iconName={'remove'} />,
-                            <Button key='more' onClick={() => {}} iconName={'menu_more'} />,
-                        ],
                 },
                 {
+                    expanding: <Button iconName={'expand_more'} />,
+                    selectrow: <Checkbox label="Select" />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (loan)</Chip>,
                     modified: '2017-08-07',
                     keywords: 'Finance',
@@ -85,12 +83,19 @@ class TestTable extends React.Component {
                     testbutton: <Button>Do it!</Button>
                 },
                 {
+                    expanding: <Button iconName={'expand_more'} />,
+                selectrow: <Checkbox checked label="Select" />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (ind)</Chip>,
                     modified: '2017-08-07',
                     description:
                         'FIBO Indices and Indicators consists of a set of business concepts representing the various forms of market indices, economic indicators and market-based interest rates. The ontologies cover quoted interest rates, economic measures such as employment rates, and quoted indices required to support baskets of securities, including specific kinds of securities in share indices or bond indices, as well as credit indices.',
                     keywords: 'Finance',
                     installed: 'no',
+                    toolsetactions: [
+                            <Button key='edit' onClick={() => {}} iconName={'edit'} />,
+                            <Button key='remove' onClick={() => {}} iconName={'remove'} />,
+                            <Button key='more' onClick={() => {}} iconName={'menu_more'} />,
+                        ],
                 },
             ],
         };
