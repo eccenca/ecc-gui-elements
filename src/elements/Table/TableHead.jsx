@@ -7,8 +7,7 @@ import TableCell from './TableCell';
 
 /**
 
- Provides table head element that can be enriched by properties and sub elements.
- Child elements are inserted after the `tableHead` structures but before the `append` element.
+ Provides table head element that can be enriched sub elements.
 
  ```js
  import {TableHead} from '@eccenca/gui-elements';
@@ -21,11 +20,8 @@ import TableCell from './TableCell';
             <TableHead
                 multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 className="my-own-class" // string, used for CSS class descriptions
-                prepend={[]} // TODO description
-                tableHead={[]} // TODO description
-                append={[]} // TODO description
             >
-                <!-- optional head cells -->
+                <!-- head row -->
             </TableHead>
         )
     },
@@ -35,8 +31,7 @@ import TableCell from './TableCell';
  */
 
 const TableHead = props => {
-    const {children, prepend, tableHead, append, className, multiline, ...otherProps} = props;
-    if (_.isEmpty(tableHead) && _.isEmpty(children)) return false;
+    const {children, className, multiline, ...otherProps} = props;
     // set classname
     const headClassNames = classNames(
         {
@@ -46,15 +41,7 @@ const TableHead = props => {
     );
     return (
         <thead className={headClassNames} {...otherProps}>
-            <TableRow>
-                {_.map(_.concat(prepend, tableHead), (column, idx) => (
-                    <TableCell isHead key={idx}>{column}</TableCell>
-                ))}
-                {children}
-                {_.map(append, (column, idx) => (
-                    <TableCell isHead key={idx}>{column}</TableCell>
-                ))}
-            </TableRow>
+            {children}
         </thead>
     );
 };
@@ -66,48 +53,12 @@ TableHead.propTypes = {
     */
     className: Proptypes.string,
     /**
-     * prepended column head
-     */
-    prepend: Proptypes.arrayOf(
-        Proptypes.oneOfType([
-            Proptypes.string,
-            Proptypes.arrayOf(
-                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
-            ),
-        ])
-    ),
-    /**
-     * table head information which is a pure string or a react html element
-     */
-    tableHead: Proptypes.arrayOf(
-        Proptypes.oneOfType([
-            Proptypes.string,
-            Proptypes.arrayOf(
-                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
-            ),
-        ])
-    ),
-    /**
-     * appended column head
-     */
-    append: Proptypes.arrayOf(
-        Proptypes.oneOfType([
-            Proptypes.string,
-            Proptypes.arrayOf(
-                Proptypes.oneOfType([Proptypes.string, Proptypes.element])
-            ),
-        ])
-    ),
-    /**
      * allow linebreaks and multilined content in table cells
      */
     multiline: Proptypes.bool,
 };
 
 TableHead.defaultProps = {
-    prepend: [],
-    tableHead: [],
-    append: [],
     multiline: false,
 };
 

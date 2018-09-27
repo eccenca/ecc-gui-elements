@@ -7,7 +7,7 @@ import TableCell from './TableCell';
 
 /**
 
- Provides table body element that can be enriched by properties and sub elements.
+ Provides table body element that can be enriched by sub elements.
 
  ```js
  import {TableBody} from '@eccenca/gui-elements';
@@ -20,12 +20,8 @@ import TableCell from './TableCell';
             <TableBody
                 multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 className="my-own-class" // string, used for CSS class descriptions
-                prepend={[]} // TODO description
-                tableHead={[]} // TODO description
-                tableContent={[]} // TODO description
-                append={[]} // TODO description
             >
-                <!-- optional table rows -->
+                <!-- table rows -->
             </TableBody>
         )
     },
@@ -35,21 +31,7 @@ import TableCell from './TableCell';
  */
 
 const TableBody = props => {
-    const {prepend, tableContent, append, tableHead, children, className, multiline, ...otherProps} = props;
-    if (_.isEmpty(tableContent) && _.isEmpty(children)) return false;
-    const rows = _.map(tableContent, (row, idxRow) => (
-        <TableRow key={idxRow}>
-            {_.concat(
-                _.map(prepend, (pre, idxPre) => <TableCell key={`${idxRow}.pre-${idxPre}`}>{pre}</TableCell>),
-                _.map(tableHead, (column, idxColumn) => (
-                    <TableCell key={`${idxRow}.${idxColumn}`}>
-                        {row[column] || false}
-                    </TableCell>
-                )),
-                _.map(append, (app, idxApp) => <TableCell key={`${idxRow}.app-${idxApp}`}>{app}</TableCell>),
-            )}
-        </TableRow>
-    ));
+    const {children, className, multiline, ...otherProps} = props;
     // set classname
     const bodyClassNames = classNames(
         {
@@ -59,7 +41,6 @@ const TableBody = props => {
     );
     return (
         <tbody className={bodyClassNames} {...otherProps}>
-            {rows}
             {children}
         </tbody>
     );
@@ -72,30 +53,12 @@ TableBody.propTypes = {
     */
     className: Proptypes.string,
     /**
-     * table head information to show and order row data
-     */
-    tableHead: Proptypes.arrayOf(Proptypes.string),
-    /**
-     * table content for each row
-     */
-    tableContent: Proptypes.arrayOf(Proptypes.object),
-    /**
-     * prepended row column
-     */
-    prepend: Proptypes.arrayOf(Proptypes.object),
-    /**
-     * appended row column
-     */
-    append: Proptypes.arrayOf(Proptypes.object),
-    /**
      * allow linebreaks and multilined content in table cells
      */
     multiline: Proptypes.bool,
 };
 
 TableBody.defaultProps = {
-    prepend: [],
-    append: [],
     multiline: false,
 };
 

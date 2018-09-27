@@ -50,30 +50,6 @@ class TestTable extends React.Component {
             ],
             tableContent: [
                 {
-                    vocabularies: 'FIBO (sec)',
-                    modified: '2017-08-07',
-                    description:
-                        'The FIBO Securities specification provides a model of concepts that are common to financial instrumants that are also securities, including but not limited to exchange-traded securities, as a part of the overall FIBO family of specifications. High-level concepts relevant to securities classification, identification, issuance, and registration of securities generally are covered, as well as additional detail for equities and debt instruments.',
-                    keywords: 'Finance',
-                    installed: 'no',
-                },
-                {
-                    vocabularies: 'FIBO (loan)',
-                    modified: '2017-08-07',
-                    keywords: 'Finance',
-                    installed: 'no',
-                },
-                {
-                    vocabularies: 'FIBO (ind)',
-                    modified: '2017-08-07',
-                    description:
-                        'FIBO Indices and Indicators consists of a set of business concepts representing the various forms of market indices, economic indicators and market-based interest rates. The ontologies cover quoted interest rates, economic measures such as employment rates, and quoted indices required to support baskets of securities, including specific kinds of securities in share indices or bond indices, as well as credit indices.',
-                    keywords: 'Finance',
-                    installed: 'no',
-                },
-            ],
-            tableContentReact: [
-                {
                     vocabularies: <Chip onClick={() => {}}>FIBO (sec)</Chip>,
                     modified: <span>2017-08-07</span>,
                     description:
@@ -104,13 +80,37 @@ class TestTable extends React.Component {
             <Card>
                 <CardTitle documentLevel="h4">Test Table</CardTitle>
                 <CardContent>
-                    <h5> Empty cell</h5>
-                    <Table
-                        className="my-own-table-class"
-                        tableHead={this.state.tableHead}
-                        tableContent={this.state.tableContent}
-                    />
-                    <h5> Append/Prepend (multiline allowed, full width)</h5>
+                    <h5>Standard</h5>
+                    <Table className="my-own-table-class">
+                        <TableHead>
+                            <TableRow>
+                                {
+                                    _.map(this.state.tableHead, (column, idxColumn) => (
+                                        <TableCell key={idxColumn}>
+                                            {column.content || false}
+                                        </TableCell>
+                                    ))
+                                }
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                                {
+                                    _.map(this.state.tableContent, (row, idxRow) => (
+                                        <TableRow key={idxRow}>
+                                            {
+                                                _.map(this.state.tableHead, (column, idxColumn) => (
+                                                    <TableCell key={idxRow + '.' + idxColumn}>
+                                                        {row[column.identifier] || false}
+                                                    </TableCell>
+                                                ))
+                                            }
+                                        </TableRow>
+                                    ))
+                                }
+
+                        </TableBody>
+                    </Table>
+                    <h5>Multilined, full width, extra buttons</h5>
                     <Table
                         multiline
                         fullWidth
@@ -121,15 +121,6 @@ class TestTable extends React.Component {
                         contentPrepend={[<Button disabled>Pre</Button>]}
                         contentAppend={[<Button>Append</Button>]}
                     />
-                    <h5> React header and content</h5>
-                    <Table
-                        className="my-other-table-class"
-                        fullWidth={false}
-                        headPrepend={['prefixColumn']}
-                        tableHead={this.state.tableHead}
-                        tableContent={this.state.tableContentReact}
-                        contentPrepend={[<Button disabled>Pre</Button>]}
-                    />
                     <h5>Manual Table</h5>
                     <Table
                         className="my-table-class"
@@ -138,8 +129,10 @@ class TestTable extends React.Component {
                             multiline
                             className="my-table-head-class"
                         >
-                            <TableCell isHead>testhead 1</TableCell>
-                            <TableCell isHead>testhead 2</TableCell>
+                            <TableRow>
+                                <TableCell isHead>testhead 1</TableCell>
+                                <TableCell isHead>testhead 2</TableCell>
+                            </TableRow>
                         </TableHead>
                         <TableBody multiline className="my-table-body-class">
                             <TableRow>
