@@ -10,7 +10,7 @@ class TestTable extends React.Component {
     constructor() {
         super();
 
-        this.state = {
+        this.data = {
             tableHead: [
                 {
                     identifier: 'expanding',
@@ -111,7 +111,7 @@ class TestTable extends React.Component {
                         <TableHead>
                             <TableRow>
                                 {
-                                    _.map(this.state.tableHead, (column, idxColumn) => (
+                                    _.map(this.data.tableHead, (column, idxColumn) => (
                                         <TableCell key={idxColumn}>
                                             {column.content || false}
                                         </TableCell>
@@ -121,10 +121,10 @@ class TestTable extends React.Component {
                         </TableHead>
                         <TableBody>
                                 {
-                                    _.map(this.state.tableContent, (row, idxRow) => (
+                                    _.map(this.data.tableContent, (row, idxRow) => (
                                         <TableRow key={idxRow}>
                                             {
-                                                _.map(this.state.tableHead, (column, idxColumn) => (
+                                                _.map(this.data.tableHead, (column, idxColumn) => (
                                                     <TableCell key={idxRow + '.' + idxColumn}>
                                                         {row[column.identifier] || false}
                                                     </TableCell>
@@ -151,10 +151,10 @@ class TestTable extends React.Component {
                             </TableHead>
                             <TableBody>
                                     {
-                                        _.map(this.state.tableContent, (row, idxRow) => (
+                                        _.map(this.data.tableContent, (row, idxRow) => (
                                             <TableRow key={idxRow}>
                                                 {
-                                                    _.map(this.state.tableHead, (column, idxColumn) => (
+                                                    _.map(this.data.tableHead, (column, idxColumn) => (
                                                         <TableCell key={idxRow + '.' + idxColumn}>
                                                             {row[column.identifier] || false}
                                                         </TableCell>
