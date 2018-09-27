@@ -137,16 +137,35 @@ class TestTable extends React.Component {
                         </TableBody>
                     </Table>
                     <h5>Multilined, full width, extra buttons</h5>
-                    <Table
-                        multiline
-                        fullWidth
-                        headPrepend={['prefixColumn']}
-                        tableHead={this.state.tableHead}
-                        headAppend={['suffixColumn']}
-                        tableContent={this.state.tableContent}
-                        contentPrepend={[<Button disabled>Pre</Button>]}
-                        contentAppend={[<Button>Append</Button>]}
-                    />
+                        <Table multiline fullWidth>
+                            <TableHead>
+                                <TableRow>
+                                    {
+                                        _.map(this.state.tableHead, (column, idxColumn) => (
+                                            <TableCell key={idxColumn}>
+                                                {column.content || false}
+                                            </TableCell>
+                                        ))
+                                    }
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                    {
+                                        _.map(this.state.tableContent, (row, idxRow) => (
+                                            <TableRow key={idxRow}>
+                                                {
+                                                    _.map(this.state.tableHead, (column, idxColumn) => (
+                                                        <TableCell key={idxRow + '.' + idxColumn}>
+                                                            {row[column.identifier] || false}
+                                                        </TableCell>
+                                                    ))
+                                                }
+                                            </TableRow>
+                                        ))
+                                    }
+
+                            </TableBody>
+                        </Table>
                     <h5>Manual Table</h5>
                     <Table
                         className="my-table-class"
