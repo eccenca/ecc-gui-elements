@@ -1023,7 +1023,9 @@ Note:
 
 ### Table
 
-```js
+Provides a simple table which can be enriched with react elements as content.
+
+ ```js
  import {Table} from '@eccenca/gui-elements';
 
  class Page extends React.Component {
@@ -1031,20 +1033,146 @@ Note:
     // template rendering
     render() {
         return (
-            <Table>
-                tableHead={['firstColumn', 'secondColumn']} // contains an array of strings or an array of array of react elements
-                headPrepend={['checkboxColumn']} // allow to add additional columns before `tableHead` (optional, default: [])
-                headAppend={['checkboxColumn']} // allow to add additional columns after `tableHead` (optional, default: [])
-                tableColumns={['firstColumn', 'secondColumn']} // contains an array of strings (mandatory if `tableHead` contains react elements)
-                tableContent={[{firstColumn: 'hello', secondColumn: 'world'}, {firstColumn: 'hello', secondColumn: 'eccenca'}]} // contains an array of objects containing strings or react elements
-                contentPrepend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
-                contentAppend={['checkbox']} // allow to add additional cells before `tableContent` (optional, default: [])
-            </Table>
+            <Table
+                multiline={true} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: false)
+                className="my-table-class" // string, additional CSS classes (optional, default: "")
+            >
+                <!-- your table content (optional) -->
+            </table>
         )
     },
     // ....
 };
  ```
+
+#### Properties
+- **children** (node) -
+- **className** (string) - string (optional): additional CSS class name
+- **fullWidth** (bool, default: false) - use full width even for smaller tables
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table body
+
+Provides table body element that can be enriched by sub elements.
+
+ ```js
+ import {TableBody} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <TableBody
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for CSS class descriptions
+            >
+                <!-- table rows -->
+            </TableBody>
+        )
+    },
+    // ....
+};
+ ```
+
+#### Properties
+- **children** (node) -
+- **className** (string) - string (optional): additional CSS class name
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table cell
+
+Provides table cell element that can be enriched by sub elements.
+
+ ```js
+ import {TableCell} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ...
+    // template rendering
+    // use it inside the correct Table elements
+    render() {
+        return (
+            <TableCell
+                isHead={true} // boolean, if the table cell contains a table head for the column or row (optional, default: false)
+                likeHead={true} // boolean, if a normal table cell should be look like a head element (optional, default: false)
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for additional CSS class descriptions
+            >
+                <!-- content -->
+            </TableCell>
+        )
+    },
+    // ...
+};
+ ```
+
+#### Properties
+- **children** (node) -
+- **className** (string, default: '') - optional CSS class
+- **isHead** (bool, default: false) - table cell is head for column or row
+- **likeHead** (bool, default: false) - table cell looks like header cell
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table head
+
+Provides table head element that can be enriched sub elements.
+
+ ```js
+ import {TableHead} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <TableHead
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for CSS class descriptions
+            >
+                <!-- head row -->
+            </TableHead>
+        )
+    },
+    // ....
+};
+ ```
+
+#### Properties
+- **children** (node) -
+- **className** (string) - string (optional): additional CSS class name
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table row
+
+Provides table row element that can be enriched by sub elements.
+
+ ```js
+ import {TableRow} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ...
+    // template rendering
+    // use it inside the correct Table elements
+    render() {
+        return (
+            <TableRow
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for additional CSS class descriptions
+            >
+                <!-- content -->
+            </TableRow>
+        )
+    },
+    // ...
+};
+ ```
+
+#### Properties
+- **children** (node) -
+- **className** (string, default: '') - optional CSS class
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
 
 ### Tabs
 
