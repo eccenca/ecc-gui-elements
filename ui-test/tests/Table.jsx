@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Table, TableHead, TableBody, TableRow, TableCell,
-    Card, CardTitle, CardContent, Button, Chip,
+    Card, CardTitle, CardContent, Button, Chip, Checkbox,
 } from '../../index';
 
 // FIXME: add documentation
@@ -12,6 +12,12 @@ class TestTable extends React.Component {
 
         this.state = {
             tableHead: [
+                {
+                    identifier: 'expanding',
+                },
+                {
+                    identifier: 'selectrow',
+                },
                 {
                     identifier: "vocabularies",
                     content: [
@@ -44,24 +50,39 @@ class TestTable extends React.Component {
                     identifier: "installed",
                     content: [
                         <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>installed</Chip>,
-                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
+                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} tooltip="sort" />
                     ],
+                },
+                {
+                    identifier: 'testbutton',
+                },
+                {
+                    identifier: 'toolsetactions'
                 },
             ],
             tableContent: [
                 {
+                    expanding: <Button iconName={'expand_more'} />,
+                // selectrow: <Checkbox label="Select" />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (sec)</Chip>,
                     modified: <span>2017-08-07</span>,
                     description:
                         'The FIBO Securities specification provides a model of concepts that are common to financial instrumants that are also securities, including but not limited to exchange-traded securities, as a part of the overall FIBO family of specifications. High-level concepts relevant to securities classification, identification, issuance, and registration of securities generally are covered, as well as additional detail for equities and debt instruments.',
                     keywords: 'Finance',
                     installed: 'no',
+                    testbutton: <Button>Do it!</Button>,
+                    toolsetactions: [
+                            <Button key='edit' onClick={() => {}} iconName={'edit'} />,
+                            <Button key='remove' onClick={() => {}} iconName={'remove'} />,
+                            <Button key='more' onClick={() => {}} iconName={'menu_more'} />,
+                        ],
                 },
                 {
                     vocabularies: <Chip onClick={() => {}}>FIBO (loan)</Chip>,
                     modified: '2017-08-07',
                     keywords: 'Finance',
                     installed: 'no',
+                    testbutton: <Button>Do it!</Button>
                 },
                 {
                     vocabularies: <Chip onClick={() => {}}>FIBO (ind)</Chip>,

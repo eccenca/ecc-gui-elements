@@ -50,14 +50,16 @@
 
     // Justify Buttons
     td, th {
-        & > .mdl-button {
+        & > .mdl-button,
+        & > div[style] > .mdl-button {
             font-size: inherit;
             height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
             margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
         }
-        & > .mdl-button--icon {
+        & > .mdl-button--icon,
+        & > div[style] > .mdl-button--icon {
             min-width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
         }
@@ -65,6 +67,11 @@
     thead {
         .material-icons {
             font-size: inherit;
+        }
+    }
+    tbody {
+        .material-icons {
+            font-size: 1.5rem; // TODO calculate with config values
         }
     }
 
