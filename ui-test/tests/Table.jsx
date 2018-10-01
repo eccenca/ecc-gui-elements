@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Table, TableHead, TableBody, TableRow, TableCell,
-    Card, CardTitle, CardContent, Button, Chip, Checkbox,
+    Card, CardTitle, CardContent, Button, Chip, Checkbox, Radio,
 } from '../../index';
 
 // FIXME: add documentation
@@ -175,12 +175,14 @@ class TestTable extends React.Component {
                             className="my-table-head-class"
                         >
                             <TableRow>
+                                <TableCell></TableCell>
                                 <TableCell isHead>testhead 1</TableCell>
                                 <TableCell isHead>testhead 2</TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody multiline className="my-table-body-class">
                             <TableRow>
+                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
                                 <TableCell isHead className="my-cell-class">
                                     <div className="ecc-component-objectview ecc-component-objectview--iri">
                                         <a className="mdl-chip" href="https://example.eccenca.com/035fb68b-4360-4f21-9812-dfd7e04dc94d">
@@ -195,10 +197,12 @@ class TestTable extends React.Component {
                                 <TableCell>testcontent 1.2</TableCell>
                             </TableRow>
                             <TableRow>
+                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
                                 <TableCell>testcontent 2.1a<br/>testcontent 2.1b</TableCell>
                                 <TableCell className="my-cell-class">testcontent 2.2</TableCell>
                             </TableRow>
                             <TableRow>
+                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
                                 <TableCell likeHead className="my-cell-class">testcontent 3.1</TableCell>
                                 <TableCell>
                                     <div>
@@ -210,14 +214,17 @@ class TestTable extends React.Component {
                         </TableBody>
                         <TableBody className="my-table-body-class">
                             <TableRow>
+                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
                                 <TableCell isHead className="my-cell-class">testcontent 4.1</TableCell>
                                 <TableCell>testcontent 4.2</TableCell>
                             </TableRow>
                             <TableRow multiline>
+                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
                                 <TableCell>testcontent 5.1a<br/>testcontent 5.1b</TableCell>
                                 <TableCell className="my-cell-class">testcontent 5.2</TableCell>
                             </TableRow>
                             <TableRow>
+                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
                                 <TableCell multiline likeHead className="my-cell-class">testcontent 6.1</TableCell>
                                 <TableCell>
                                     <div>
