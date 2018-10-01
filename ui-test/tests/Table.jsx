@@ -181,7 +181,17 @@ class TestTable extends React.Component {
                         </TableHead>
                         <TableBody multiline className="my-table-body-class">
                             <TableRow>
-                                <TableCell isHead className="my-cell-class">testcontent 1.1</TableCell>
+                                <TableCell isHead className="my-cell-class">
+                                    <div className="ecc-component-objectview ecc-component-objectview--iri">
+                                        <a className="mdl-chip" href="https://example.eccenca.com/035fb68b-4360-4f21-9812-dfd7e04dc94d">
+                                            <span className="mdl-chip__text">
+                                                <span className="ecc-component-objectview__content-inline">
+                                                    testcontent 1.1
+                                                </span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </TableCell>
                                 <TableCell>testcontent 1.2</TableCell>
                             </TableRow>
                             <TableRow>
