@@ -141,7 +141,7 @@ class TestTable extends React.Component {
                             <TableHead>
                                 <TableRow>
                                     {
-                                        _.map(this.state.tableHead, (column, idxColumn) => (
+                                        _.map(this.data.tableHead, (column, idxColumn) => (
                                             <TableCell key={idxColumn}>
                                                 {column.content || false}
                                             </TableCell>
