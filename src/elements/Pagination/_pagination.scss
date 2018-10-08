@@ -5,21 +5,32 @@
  */
 
 .ecc-gui-elements__pagination {
-    @include typo-body-1
-    flex-grow: 1;
+    @include typo-body-1;
+    font-size: $data-table-font-size;
+    line-height: 1.5rem; // like in table, TODO: use value from configuration
+    // flex-grow: 1;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: baseline;
+    flex-wrap: wrap;
+    // justify-content: flex-end;
+    align-items: center;
+    padding: $ecc-size-inlineelement-padding-vertical $ecc-size-inlineelement-padding-horizontal;
+
+    .mdl-button {
+        margin: calc((32px - 1.5rem) / -4) calc((32px - 1.5rem) / -2);
+    }
 }
 
 .ecc-gui-elements__pagination-limit {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
     margin-right: 1rem;
 }
 
 .ecc-gui-elements__pagination-limit_text {
     margin-right: 0.5rem;
+    white-space: nowrap;
 }
 
 .ecc-gui-elements__pagination-limit_size {
@@ -30,21 +41,28 @@
     }
 
     .Select-control {
+        height: auto;
         width: auto;
     }
 
     .Select-value {
         width: auto;
+        height: auto;
+        line-height: inherit !important;
     }
 
     .Select-input {
+        height: auto;
         min-width: 2.5em;
     }
 }
 
-.ecc-gui-elements__pagination-pageInfo {
+.ecc-gui-elements__pagination-actions {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-items: center;
 }
 
-.ecc-gui-elements__pagination-actions {
-    text-align: right;
+.ecc-gui-elements__pagination-pageInfo {
+    white-space: nowrap;
 }

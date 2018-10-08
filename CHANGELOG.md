@@ -4,7 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
 - add new GUI elements: Table, TableHead, TableBody, TableRow, TableCell
+### Changed
+- Pagination: left default alignement and smaller font sizes
 
 ## [2.31.4] 2018-06-13
 
