@@ -73,10 +73,18 @@ const TestInputs = React.createClass({
                         ripple
                         checked={this.state.switches[2]}
                         onChange={this.updateValue}
+                        className="my-checkbox"
                     />
                     <Checkbox
                         name="switches[3]"
                         label="Checkbox 1 Text"
+                        checked={this.state.switches[3]}
+                        onChange={this.updateValue}
+                    />
+                    <Checkbox
+                        name="switches[3b]"
+                        hideLabel
+                        label="Hidden string label"
                         checked={this.state.switches[3]}
                         onChange={this.updateValue}
                     />
@@ -92,6 +100,13 @@ const TestInputs = React.createClass({
                         checked={this.state.switches[5]}
                         onChange={this.updateValue}>
                         <div className="test">Checkbox 3 Text</div>
+                    </Checkbox>
+                    <Checkbox
+                        name="switches[5b]"
+                        hideLabel
+                        checked={this.state.switches[5]}
+                        onChange={this.updateValue}>
+                        <div className="test">Hidden children label</div>
                     </Checkbox>
                     <hr />
                     <RadioGroup
@@ -139,7 +154,7 @@ const TestInputs = React.createClass({
                         <Radio disabled value="three">
                             Radio 3 Text
                         </Radio>
-                        <Radio value="four">
+                        <Radio value="four" hideLabel>
                             <div className="test">
                                 Radio 4 Text <br />Line 2
                             </div>

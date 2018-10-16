@@ -1,8 +1,16 @@
 import React from 'react';
 import ReactMDLRadio from 'react-mdl/lib/Radio';
+import classNames from 'classnames';
 
 const Radio = props => {
-    const {children, label, ripple, ...otherProps} = props;
+    const {
+        children,
+        label,
+        className,
+        ripple,
+        hideLabel,
+        ...otherProps
+    } = props;
 
     let radioLabel = false;
 
@@ -24,8 +32,18 @@ const Radio = props => {
         );
     }
 
+    const classes = classNames(
+        {
+            'mdl-radio--hiddenlabel': hideLabel === true,
+        },
+        className
+    );
+
     return (
-        <ReactMDLRadio ripple={ripple || false} {...otherProps}>
+        <ReactMDLRadio
+            ripple={ripple || false}
+            className={classes}
+            {...otherProps}>
             {radioLabel || <span>&nbsp;</span>}
         </ReactMDLRadio>
     );
