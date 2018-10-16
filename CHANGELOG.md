@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
+- add `hideLabel` option to `<Checkbox/>` and `<Radio/>` elements, when true then labels are not visible but accessible
+
 ### Changed
 - Pagination: left default alignement and smaller font sizes
 

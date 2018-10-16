@@ -301,11 +301,40 @@ const Page = React.createClass({
 - **border** (bool, default: true) - 
 - **documentLevel** (string) - 
 
-### Checkbox
+### Checkbox input
+
+```js
+import { Checkbox } from '@eccenca/gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Checkbox
+                checked={true} // Boolean (required), describes the checked state of Checkbox, default: false
+                className="my-checkbox-class" // String (optional), additional CSS class names
+                disabled={true} // Boolean (optional), describes if Checkbox is disabled, default: false
+                hideLabel{true} // Boolean (optional), describes if Checkbox label is not visible, default: false
+                label={"My checkbox label"} // String (optional), label that describes the input checkbox for the user
+                onChange={this.myCheckboxHandlerMethod} // function (required), update handler for changes on Checkbox
+                ripple={true} // Boolean (optional), MDL ripple effect is used on Checkbox, default: false
+            />
+            <Checkbox>
+                <div className="my-checkbox-label"><p>Use child elements instead of a label property.</p></div>
+            </Checkbox>
+        )
+    },
+    // ....
+});
+```
 
 #### Properties
-- **checked** (bool, *required*) - 
-- **onChange** (func, *required*) - 
+- **checked** (bool, *required*) - describes the checked state of Checkbox
+- **className** (string, default: null) - additional CSS class names
+- **disabled** (bool, default: false) - describes if Checkbox is disabled
+- **hideLabel** (bool, default: false) - describes if Checkbox label is not visible
+- **label** (string|element, default: null) - label that describes the input checkbox for the user
+- **onChange** (func, *required*) - update handler for changes on Checkbox
+- **ripple** (bool, default: false) - MDL ripple effect is used on Checkbox
 
 ### ConfirmationDialog
 
@@ -522,9 +551,44 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 - **appearLocal** (bool, default: false) - 
 - **className** (string) - 
 
-### Radio
+### Radio select
+
+```js
+import { Radio } from '@eccenca/gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Radio
+                checked={true} // Boolean (required), describes the checked state of Radio, default: false
+                className="my-radioselect-class" // String (optional), additional CSS class names
+                disabled={true} // Boolean (optional), describes if Radio is disabled, default: false
+                hideLabel{true} // Boolean (optional), describes if Radio label is not visible, default: false
+                name="optionname" // String (required), name of input that Radio select is related to
+                label={"My radio label"} // String (optional), label that describes the Radio select for the user
+                onChange={this.myRadioSelectHandlerMethod} // function (required), update handler for changes on Radio select element
+                ripple={true} // Boolean (optional), MDL ripple effect is used on Radio element, default: false
+                value={1} // String or Number (required), value for input when Radio is selected
+            />
+            <Radio>
+                <div className="my-radioselect-label"><p>Use child elements instead of a label property.</p></div>
+            </Radio>
+        )
+    },
+    // ....
+});
+```
 
 #### Properties
+- **checked** (bool, *required*) - describes the selected state of Radio
+- **className** (string, default: null) - additional CSS class names
+- **disabled** (bool, default: false) - describes if Radio is disabled
+- **hideLabel** (bool, default: false) - describes if Radio label is not visible
+- **name** (string, *required*) - name of input that Radio select is related to
+- **label** (string|element, default: null) - label that describes the Radio select for the user
+- **onChange** (func, *required*) - update handler for changes on Radio select element
+- **ripple** (bool, default: false) - MDL ripple effect is used on Radio element
+- **value** (string|number, *required*) - value for input when Radio is selected
 
 ### RadioGroup
 
