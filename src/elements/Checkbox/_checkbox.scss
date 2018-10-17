@@ -1,5 +1,14 @@
 /**
- * Copyright 2015 eccenca GmbH. All Rights Reserved.
+ * Adjustments for Checkbox input element.
  *
  * @author Michael Haschke
  */
+
+.mdl-checkbox--hiddenlabel {
+    .mdl-checkbox__label {
+        display: block;
+        position: absolute;
+        bottom: 200vh;
+        right: 200vw;
+    }
+}
