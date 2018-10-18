@@ -2,6 +2,7 @@ import React from 'react';
 import {
     Table, TableHead, TableBody, TableRow, TableCell,
     Card, CardTitle, CardContent, Button, Chip, Checkbox, Radio,
+    ContextMenu, MenuItem
 } from '../../index';
 
 // FIXME: add documentation
@@ -80,7 +81,12 @@ class TestTable extends React.Component {
                     modified: '2017-08-07',
                     keywords: 'Finance',
                     installed: 'no',
-                    testbutton: <Button>Do it!</Button>
+                    testbutton: <Button>Do it!</Button>,
+                    toolsetactions: [
+                        <Button key='edit' onClick={() => {}} iconName={'edit'} />,
+                        <Button key='remove' onClick={() => {}} iconName={'remove'} />,
+                        <Button key='more' onClick={() => {}} iconName={'menu_more'} />,
+                    ],
                 },
                 {
                     expanding: <Button iconName={'expand_more'} />,
@@ -88,14 +94,17 @@ class TestTable extends React.Component {
                     vocabularies: <Chip onClick={() => {}}>FIBO (ind)</Chip>,
                     modified: '2017-08-07',
                     description:
-                        'FIBO Indices and Indicators consists of a set of business concepts representing the various forms of market indices, economic indicators and market-based interest rates. The ontologies cover quoted interest rates, economic measures such as employment rates, and quoted indices required to support baskets of securities, including specific kinds of securities in share indices or bond indices, as well as credit indices.',
+                        'FIBO Indices and Indicators consists of a set of business concepts representing the various forms of market indices, economic indicators and market-based interest rates. The ontologies cover quoted interest rates, economic measures such as employment rates, and quoted indices required to support baskets of securities, including specific kinds of securities in share indices or bond indices, as well as credit indices.'.split(' ').join(''),
                     keywords: 'Finance',
                     installed: 'no',
                     toolsetactions: [
-                            <Button key='edit' onClick={() => {}} iconName={'edit'} />,
-                            <Button key='remove' onClick={() => {}} iconName={'remove'} />,
-                            <Button key='more' onClick={() => {}} iconName={'menu_more'} />,
-                        ],
+                        <ContextMenu style={{display: 'inline-block'}}>
+                            <MenuItem>Menu item One</MenuItem>
+                            <MenuItem>Second Menu item</MenuItem>
+                            <MenuItem>Third</MenuItem>
+                            <MenuItem>The 4th and very last menu item</MenuItem>
+                        </ContextMenu>
+                    ],
                 },
             ],
         };
