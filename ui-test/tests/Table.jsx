@@ -77,7 +77,11 @@ class TestTable extends React.Component {
                 {
                     expanding: <Button iconName={'expand_more'} />,
                     selectrow: <Checkbox label="Select" />,
-                    vocabularies: <Chip onClick={() => {}}>FIBO (loan)</Chip>,
+                    vocabularies: [
+                        <Chip onClick={() => {}}>FIBO (loan)</Chip>,
+                        <Chip onClick={() => {}}>FIBO (sec)</Chip>,
+                        <Chip onClick={() => {}}>FIBO (ind)</Chip>,
+                    ],
                     modified: '2017-08-07',
                     keywords: 'Finance',
                     installed: 'no',

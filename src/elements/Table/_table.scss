@@ -37,22 +37,42 @@
     td, th {
         & > .mdl-chip,
         & > div[class] .mdl-chip {
-            height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-            line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-            margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
-            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+            & {
+                height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+                line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+                margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
+                margin-bottom: 2 * $ecc-size-inlineelement-padding-vertical;
+                margin-right: $ecc-size-inlineelement-padding-vertical;
+            }
+        }
+    }
+    &:not(.mdl-data-table--multiline) {
+        tbody {
+            tr:not(.mdl-data-table--multiline) {
+                th:not(.mdl-data-table--multiline),
+                td:not(.mdl-data-table--multiline) {
+                    & > .mdl-chip,
+                    & > div[class] .mdl-chip {
+                        & {
+                            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+                        }
+                    }
+                }
+            }
         }
     }
     thead {
         .mdl-chip {
             margin-right: 0;
+            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
         }
     }
 
     // Justify Buttons
     td, th {
         & > .mdl-button,
-        & > div[style] > .mdl-button {
+        & > div[style] > .mdl-button,
+        & > .contextmenu-container > .mdl-button {
             font-size: inherit;
             height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
@@ -60,7 +80,8 @@
             margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
         }
         & > .mdl-button--icon,
-        & > div[style] > .mdl-button--icon {
+        & > div[style] > .mdl-button--icon,
+        & > .contextmenu-container > .mdl-button--icon {
             min-width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
         }
