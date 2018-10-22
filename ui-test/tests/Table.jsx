@@ -125,7 +125,7 @@ class TestTable extends React.Component {
                             <TableRow>
                                 {
                                     _.map(this.data.tableHead, (column, idxColumn) => (
-                                        <TableCell key={idxColumn}>
+                                        <TableCell key={idxColumn} isHead>
                                             {column.content || false}
                                         </TableCell>
                                     ))
@@ -155,7 +155,7 @@ class TestTable extends React.Component {
                                 <TableRow>
                                     {
                                         _.map(this.data.tableHead, (column, idxColumn) => (
-                                            <TableCell key={idxColumn}>
+                                            <TableCell key={idxColumn} isHead>
                                                 {column.content || false}
                                             </TableCell>
                                         ))
