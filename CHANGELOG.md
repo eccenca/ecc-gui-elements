@@ -5,11 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 
 ### Added
-- add new GUI elements: Table, TableHead, TableBody, TableRow, TableCell
+- add new GUI elements: `<Table/>`, `<TableHead/>`, `<TableBody/>`, `<TableRow/>`, `<TableCell/>`
 - add `hideLabel` option to `<Checkbox/>` and `<Radio/>` elements, when true then labels are not visible but accessible
 
 ### Changed
 - Pagination: left default alignement and smaller font sizes
+- Data Table: styles now provided by new `<Table/>` element
 
 ## [2.31.4] 2018-06-13
 
