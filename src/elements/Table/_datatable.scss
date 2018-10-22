@@ -1,14 +1,11 @@
 /**
- * Copyright 2015 eccenca GmbH. All Rights Reserved.
  * We fully duplicate the MDL rules here to have our own simplified definitions!
  *
- * @author Michael Haschke
+ * @see https://github.com/eccenca/material-design-lite/blob/master/src/data-table/_data-table.scss
  */
 
 .mdl-data-table {
     position: relative;
-    //border-top: $data-table-dividers;
-    //border-bottom: $data-table-dividers;
     border-collapse: collapse;
     font-size: $data-table-font-size;
     line-height: 1.5; // TODO use config parameter
@@ -37,7 +34,6 @@
 
     tr {
         position: relative;
-        // height: $data-table-row-height;
     }
 
     td,
@@ -53,54 +49,15 @@
     }
 
     td {
-        // height: $data-table-row-height;
-        // min-width: 5rem;
         max-width: 15rem;
         overflow: hidden;
         text-overflow: ellipsis;
-
-        .mdl-data-table__select {
-            // vertical-align: middle;
-        }
     }
 
     th,
     .mdl-data-table__header {
-        // @include typo-body-2();
-        // height: $data-table-row-height;
-        // font-size: $data-table-header-font-size;
         color: $data-table-header-color;
         font-weight: bold;
-    }
-
-    th {
-        /*
-        // we may use this later, or maybe not, not decided
-        &.mdl-data-table__header--sorted-ascending,
-        &.mdl-data-table__header--sorted-descending {
-            color: $data-table-header-sorted-color;
-
-            &:before {
-                @include typo-icon;
-                font-size: $data-table-header-sort-icon-size;
-                content: "\e5d8";
-                margin-right: 5px;
-                vertical-align: sub;
-            }
-
-            &:hover {
-                cursor: pointer;
-
-                &:before {
-                    color: $data-table-header-sorted-icon-hover-color;
-                }
-            }
-        }
-
-        &.mdl-data-table__header--sorted-descending:before {
-            content: "\e5db";
-        }
-        */
     }
 
     br {
@@ -116,8 +73,4 @@
 .mdl-data-table--full-width,
 .mdl-data-table--stretch {
     min-width: 100%;
-}
-
-.mdl-data-table__select {
-    //width: 16px;
 }
