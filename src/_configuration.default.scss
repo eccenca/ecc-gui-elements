@@ -74,7 +74,6 @@ $image_path: "~@eccenca/material-design-lite/src/images" !default;
 // -- Overwrite default MDL color variables ------------------------------------
 
 $color-primary: $ecc-color-primary !default;
-$color-primary-dark: rgb(254,106,1) !default; @debug "Do not use $color-primary-dark anymore, it is deprecated.";
 $color-accent: $ecc-color-accent !default;
 $color-primary-contrast: $ecc-color-primary-contrast !default;
 $color-accent-contrast: $ecc-color-accent-contrast !default;
@@ -107,13 +106,6 @@ $card-title-font-size: 21px !default;
 /* Aftermath
    We need to add own prefix here as long it is not implemented in MDL
  */
-
-$ecc-typo-display-3-font-size: $ecc-size-typo-display-3; @debug "Do not use $ecc-typo-display-3-font-size anymore, it is deprecated.";
-$ecc-typo-display-2-font-size: $ecc-size-typo-display-2; @debug "Do not use $ecc-typo-display-2-font-size anymore, it is deprecated.";
-$ecc-typo-display-1-font-size: $ecc-size-typo-display-1; @debug "Do not use $ecc-typo-display-1-font-size anymore, it is deprecated.";
-$ecc-typo-headline-font-size:  $ecc-size-typo-headline; @debug "Do not use $ecc-typo-headline-font-size anymore, it is deprecated.";
-$ecc-typo-title-font-size:     $ecc-size-typo-title; @debug "Do not use $ecc-typo-title-font-size anymore, it is deprecated.";
-$ecc-typo-subhead-font-size:   $ecc-size-typo-subtitle; @debug "Do not use $ecc-typo-subhead-font-size anymore, it is deprecated.";
 
 // -- Load MDL variables and mixins --------------------------------------------
 
