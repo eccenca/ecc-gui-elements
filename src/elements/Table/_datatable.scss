@@ -1,0 +1,76 @@
+/**
+ * We fully duplicate the MDL rules here to have our own simplified definitions!
+ *
+ * @see https://github.com/eccenca/material-design-lite/blob/master/src/data-table/_data-table.scss
+ */
+
+.mdl-data-table {
+    position: relative;
+    border-collapse: collapse;
+    font-size: $data-table-font-size;
+    line-height: 1.5; // TODO use config parameter
+    text-align: left;
+    background-color: $color-white;
+    table-layout: fixed;
+
+    thead {
+        .mdl-data-table__select {}
+    }
+
+    tbody {
+        tr {
+            @include material-animation-default(0.28s);
+            transition-property: background-color;
+
+            &.is-selected {
+                background-color: $data-table-selection-color;
+            }
+
+            &:hover {
+                background-color: $data-table-hover-color;
+            }
+        }
+    }
+
+    tr {
+        position: relative;
+    }
+
+    td,
+    th {
+        position: relative;
+        padding: 2 * $ecc-size-inlineelement-padding-horizontal 2 * $ecc-size-inlineelement-padding-vertical;
+        vertical-align: middle;
+        height: 1.5em; // TODO use config parameter
+        box-sizing: content-box;
+        border-top: $data-table-dividers;
+        border-bottom: $data-table-dividers;
+        white-space: nowrap;
+    }
+
+    td {
+        max-width: 15rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    th,
+    .mdl-data-table__header {
+        color: $data-table-header-color;
+        font-weight: bold;
+    }
+
+    br {
+        content: ' ';
+        display: inline;
+
+        &:before, &:after {
+            content: ' ';
+        }
+    }
+}
+
+.mdl-data-table--full-width,
+.mdl-data-table--stretch {
+    min-width: 100%;
+}

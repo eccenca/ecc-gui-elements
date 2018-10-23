@@ -1,3 +1,9 @@
+/**
+ * Adjustments for Radio input element.
+ *
+ * @author Michael Haschke
+ */
+
 .mdl-radio-group {
     margin-bottom: 1rem;
 
@@ -21,5 +27,14 @@
 
         & > li {
         }
+    }
+}
+
+.mdl-radio--hiddenlabel {
+    .mdl-radio__label {
+        display: block;
+        position: absolute;
+        bottom: 200vh;
+        right: 200vw;
     }
 }
