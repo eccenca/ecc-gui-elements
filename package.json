@@ -46,7 +46,7 @@
     "react-dom": "*"
   },
   "devDependencies": {
-    "@eccenca/dotfiles": "^2.5.1",
+    "@eccenca/dotfiles": "^2.5.2",
     "@eccenca/gulp-tasks": "^3.16.8",
     "ecc-messagebus": "^3.6.0",
     "fs-extra": "^5.0.0",
