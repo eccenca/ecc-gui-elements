@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [3.0.0] 2018-10-23
+
+### Added
+- add new GUI elements: `<Table/>`, `<TableHead/>`, `<TableBody/>`, `<TableRow/>`, `<TableCell/>`
+- add `hideLabel` option to `<Checkbox/>` and `<Radio/>` elements, when true then labels are not visible but accessible
+
+### Changed
+- Pagination: left default alignement and smaller font sizes
+- Data Table: styles now provided by new `<Table/>` element
+
+### Removed
+- remove support for `$color-primary-dark`, `$ecc-typo-display-3-font-size`, `$ecc-typo-display-2-font-size`, `$ecc-typo-display-1-font-size`, `$ecc-typo-headline-font-size`, `$ecc-typo-title-font-size`, `$ecc-typo-subhead-font-size` and remove the info about their deprecation
+
 ## [2.31.4] 2018-06-13
 
 ### Added

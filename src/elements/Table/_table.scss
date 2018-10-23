@@ -1,0 +1,146 @@
+/**
+ * Copyright 2018 eccenca GmbH. All Rights Reserved.
+ *
+ * @author Michael Haschke
+ */
+
+// we use MDL data table rules as basic styles
+@import "datatable";
+
+.ecc-table__wrapper {
+    // only necessary for scrolling issues, e.g. when table is too wide for viewport
+    overflow: auto;
+}
+
+.mdl-data-table {
+    // we do not use onw class here but extend already existing data table className
+
+    tr {
+        &.is-clickable {
+            cursor: pointer;
+            cursor: hand;
+        }
+    }
+
+    // Justify Chips: alter size of mdl chip inside a cell, otherwise they lead to increased table cells
+    .mdl-chip__text,
+    .mdl-chip {
+        font-size: inherit;
+    }
+    td, th {
+        & > .mdl-chip,
+        & > div[class] .mdl-chip {
+            & {
+                height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+                line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+                margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
+                margin-bottom: 2 * $ecc-size-inlineelement-padding-vertical;
+                margin-right: $ecc-size-inlineelement-padding-vertical;
+            }
+        }
+    }
+    &:not(.mdl-data-table--multiline) {
+        tbody {
+            tr:not(.mdl-data-table--multiline) {
+                th:not(.mdl-data-table--multiline),
+                td:not(.mdl-data-table--multiline) {
+                    & > .mdl-chip,
+                    & > div[class] .mdl-chip {
+                        & {
+                            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    thead {
+        .mdl-chip {
+            margin-right: 0;
+            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+        }
+    }
+
+    // Justify Buttons
+    td, th {
+        & > .mdl-button,
+        & > div[style] > .mdl-button,
+        & > .contextmenu-container > .mdl-button {
+            font-size: inherit;
+            height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
+            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+        }
+        & > .mdl-button--icon,
+        & > div[style] > .mdl-button--icon,
+        & > .contextmenu-container > .mdl-button--icon {
+            min-width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+        }
+    }
+    thead {
+        .material-icons {
+            font-size: inherit;
+        }
+    }
+    tbody {
+        .material-icons {
+            font-size: 1.5rem; // TODO calculate with config values
+        }
+    }
+
+    // Justify checkbox select inputs
+    .mdl-checkbox {
+        font-size: inherit;
+        height: 1.5em; // TODO calculate with config values
+
+        .mdl-checkbox__input,
+        .mdl-checkbox__label {
+            font-size: inherit;
+            line-height: 1.5em;
+            vertical-align: middle;
+        }
+
+        .mdl-checkbox__box-outline,
+        .mdl-checkbox__focus-helper {
+            top: calc((1.5em - 16px) / 2);
+        }
+    }
+
+    // Justify radio select inputs
+    .mdl-radio {
+        font-size: inherit;
+        height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+        line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+        margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
+        margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+
+        .mdl-radio__input,
+        .mdl-radio__label {
+            font-size: inherit;
+            //line-height: 1.5em;
+            vertical-align: middle;
+        }
+    }
+}
+
+// multilined table cells
+.mdl-data-table--multiline td,
+thead.mdl-data-table--multiline th,
+th.mdl-data-table--multiline,
+td.mdl-data-table--multiline {
+    white-space: normal;
+    vertical-align: top;
+    overflow: unset;
+    overflow-x: hidden;
+
+    br {
+        content: normal;
+        display: block;
+
+        &:before, &:after {
+            content: normal;
+        }
+    }
+}

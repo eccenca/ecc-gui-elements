@@ -301,11 +301,40 @@ const Page = React.createClass({
 - **border** (bool, default: true) - 
 - **documentLevel** (string) - 
 
-### Checkbox
+### Checkbox input
+
+```js
+import { Checkbox } from '@eccenca/gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Checkbox
+                checked={true} // Boolean (required), describes the checked state of Checkbox, default: false
+                className="my-checkbox-class" // String (optional), additional CSS class names
+                disabled={true} // Boolean (optional), describes if Checkbox is disabled, default: false
+                hideLabel{true} // Boolean (optional), describes if Checkbox label is not visible, default: false
+                label={"My checkbox label"} // String (optional), label that describes the input checkbox for the user
+                onChange={this.myCheckboxHandlerMethod} // function (required), update handler for changes on Checkbox
+                ripple={true} // Boolean (optional), MDL ripple effect is used on Checkbox, default: false
+            />
+            <Checkbox>
+                <div className="my-checkbox-label"><p>Use child elements instead of a label property.</p></div>
+            </Checkbox>
+        )
+    },
+    // ....
+});
+```
 
 #### Properties
-- **checked** (bool, *required*) - 
-- **onChange** (func, *required*) - 
+- **checked** (bool, *required*) - describes the checked state of Checkbox
+- **className** (string, default: null) - additional CSS class names
+- **disabled** (bool, default: false) - describes if Checkbox is disabled
+- **hideLabel** (bool, default: false) - describes if Checkbox label is not visible
+- **label** (string|element, default: null) - label that describes the input checkbox for the user
+- **onChange** (func, *required*) - update handler for changes on Checkbox
+- **ripple** (bool, default: false) - MDL ripple effect is used on Checkbox
 
 ### ConfirmationDialog
 
@@ -522,9 +551,44 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 - **appearLocal** (bool, default: false) - 
 - **className** (string) - 
 
-### Radio
+### Radio select
+
+```js
+import { Radio } from '@eccenca/gui-elements';
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Radio
+                checked={true} // Boolean (required), describes the checked state of Radio, default: false
+                className="my-radioselect-class" // String (optional), additional CSS class names
+                disabled={true} // Boolean (optional), describes if Radio is disabled, default: false
+                hideLabel{true} // Boolean (optional), describes if Radio label is not visible, default: false
+                name="optionname" // String (required), name of input that Radio select is related to
+                label={"My radio label"} // String (optional), label that describes the Radio select for the user
+                onChange={this.myRadioSelectHandlerMethod} // function (required), update handler for changes on Radio select element
+                ripple={true} // Boolean (optional), MDL ripple effect is used on Radio element, default: false
+                value={1} // String or Number (required), value for input when Radio is selected
+            />
+            <Radio>
+                <div className="my-radioselect-label"><p>Use child elements instead of a label property.</p></div>
+            </Radio>
+        )
+    },
+    // ....
+});
+```
 
 #### Properties
+- **checked** (bool, *required*) - describes the selected state of Radio
+- **className** (string, default: null) - additional CSS class names
+- **disabled** (bool, default: false) - describes if Radio is disabled
+- **hideLabel** (bool, default: false) - describes if Radio label is not visible
+- **name** (string, *required*) - name of input that Radio select is related to
+- **label** (string|element, default: null) - label that describes the Radio select for the user
+- **onChange** (func, *required*) - update handler for changes on Radio select element
+- **ripple** (bool, default: false) - MDL ripple effect is used on Radio element
+- **value** (string|number, *required*) - value for input when Radio is selected
 
 ### RadioGroup
 
@@ -548,6 +612,159 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 #### Properties
 - **checked** (bool, *required*) - 
 - **onChange** (func, *required*) - 
+
+### Table
+
+Provides a simple table which can be enriched with react elements as content.
+
+ ```js
+ import {Table} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <Table
+                multiline={true} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: false)
+                className="my-table-class" // string, additional CSS classes (optional, default: "")
+            >
+                <!-- your table content (optional) -->
+            </table>
+        )
+    },
+    // ....
+};
+ ```
+
+#### Properties
+- **children** (node) - 
+- **className** (string) - string (optional): additional CSS class name
+- **fullWidth** (bool, default: false) - use full width even for smaller tables
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table body
+
+Provides table body element that can be enriched by sub elements.
+
+ ```js
+ import {TableBody} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <TableBody
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for CSS class descriptions
+            >
+                <!-- table rows -->
+            </TableBody>
+        )
+    },
+    // ....
+};
+ ```
+
+#### Properties
+- **children** (node) - 
+- **className** (string) - string (optional): additional CSS class name
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table cell
+
+Provides table cell element that can be enriched by sub elements.
+
+ ```js
+ import {TableCell} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ...
+    // template rendering
+    // use it inside the correct Table elements
+    render() {
+        return (
+            <TableCell
+                isHead={true} // boolean, if the table cell contains a table head for the column or row (optional, default: false)
+                likeHead={true} // boolean, if a normal table cell should be look like a head element (optional, default: false)
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for additional CSS class descriptions
+            >
+                <!-- content -->
+            </TableCell>
+        )
+    },
+    // ...
+};
+ ```
+
+#### Properties
+- **children** (node) - 
+- **className** (string, default: '') - optional CSS class
+- **isHead** (bool, default: false) - table cell is head for column or row
+- **likeHead** (bool, default: false) - table cell looks like header cell
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table head
+
+Provides table head element that can be enriched sub elements.
+
+ ```js
+ import {TableHead} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ....
+    // template rendering
+    render() {
+        return (
+            <TableHead
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for CSS class descriptions
+            >
+                <!-- head row -->
+            </TableHead>
+        )
+    },
+    // ....
+};
+ ```
+
+#### Properties
+- **children** (node) - 
+- **className** (string) - string (optional): additional CSS class name
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+
+### Table row
+
+Provides table row element that can be enriched by sub elements.
+
+ ```js
+ import {TableRow} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // ...
+    // template rendering
+    // use it inside the correct Table elements
+    render() {
+        return (
+            <TableRow
+                multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                className="my-own-class" // string, used for additional CSS class descriptions
+            >
+                <!-- content -->
+            </TableRow>
+        )
+    },
+    // ...
+};
+ ```
+
+#### Properties
+- **children** (node) - 
+- **className** (string, default: '') - optional CSS class
+- **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
 
 ### Tabs
 

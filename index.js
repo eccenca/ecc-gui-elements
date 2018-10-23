@@ -67,6 +67,12 @@ import Spinner from './src/elements/Spinner/Spinner';
 
 import Switch from './src/elements/Switch/Switch';
 
+import Table from './src/elements/Table/Table';
+import TableHead from './src/elements/Table/TableHead';
+import TableBody from './src/elements/Table/TableBody';
+import TableRow from './src/elements/Table/TableRow';
+import TableCell from './src/elements/Table/TableCell';
+
 import Tabs from './src/elements/Tabs/Tabs';
 
 import TextField from './src/elements/TextField/TextField';
@@ -122,6 +128,11 @@ export default {
     Success,
     Switch,
     Warning,
+    Table,
+    TableHead,
+    TableBody,
+    TableRow,
+    TableCell,
     Tabs,
     Version,
     Pagination,

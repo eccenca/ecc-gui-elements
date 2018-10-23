@@ -2,9 +2,9 @@
 # yarn lockfile v1
 
 
-"@eccenca/dotfiles@^2.5.1":
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/@eccenca/dotfiles/-/dotfiles-2.5.1.tgz#e34485cef2b5ff9e3de1013aeab515d839a45285"
+"@eccenca/dotfiles@^2.5.2":
+  version "2.5.2"
+  resolved "https://registry.npmjs.org/@eccenca/dotfiles/-/dotfiles-2.5.2.tgz#3262faae96ea7f80defe1a14a8f67f150da29f9e"
   dependencies:
     fs-extra "^5.0.0"
 
