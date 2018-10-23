@@ -12,9 +12,9 @@
     "start": "gulp",
     "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
-    "prepare": "ecc-link-dotfiles && gulp full-build && npm run docs",
+    "prepare": "ecc-link-dotfiles && gulp full-build",
     "docs": "gulp docs",
-    "precommit": "lint-staged"
+    "precommit": "lint-staged && npm run docs"
   },
   "repository": {
     "type": "git",
