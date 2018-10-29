@@ -25,7 +25,7 @@
     display: inline-flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin-right: 1rem;
+    margin-right: $ecc-size-blockelement-margin-horizontal;
 }
 
 .ecc-gui-elements__pagination-limit_text {
@@ -67,12 +67,18 @@
     white-space: nowrap;
 }
 
-.ecc-gui-elements__pagination-actions input.valid {
-    border: none;
-    border-bottom: 2px solid black;
-}
+.ecc-gui-elements__pagination__pagenumber {
+    font-size: inherit;
+    vertical-align: middle;
+    margin: 0 $ecc-size-blockelement-margin-horizontal / 2;
+    padding: 0;
 
-.ecc-gui-elements__pagination-actions input.invalid {
-    border: none;
-    border-bottom: 1px solid red;
+    .mdl-textfield__input {
+        font-size: inherit;
+        min-width: 2.5em;
+    }
+
+    .mdl-textfield__error {
+        white-space: nowrap;
+    }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import Button from './../../elements/Button/Button';
 import SelectBox from './../../elements/SelectBox/SelectBox';
+import TextField from './../../elements/TextField/TextField';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 const calculatePagination = ({limit, offset, totalResults}) => {
@@ -250,13 +251,14 @@ const Pagination = React.createClass({
                         iconName="arrow_prevpage"
                     />
                     {pageInformation}
-                    <input
+                    <TextField
+                        className="ecc-gui-elements__pagination__pagenumber"
                         disabled={disabled===true}
                         min={1}
                         max={totalResults}
                         type="number"
                         value={this.state.customOffset}
-                        className={valid?"valid":"invalid"}
+                        error={valid ? '': "invalid page number"}
                         onChange={
                             e => {
                                 this.onChangePage(e.target.value)
