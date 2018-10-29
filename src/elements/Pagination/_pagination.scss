@@ -66,3 +66,13 @@
 .ecc-gui-elements__pagination-pageInfo {
     white-space: nowrap;
 }
+
+.ecc-gui-elements__pagination-actions input.valid {
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.ecc-gui-elements__pagination-actions input.invalid {
+    border: none;
+    border-bottom: 1px solid red;
+}

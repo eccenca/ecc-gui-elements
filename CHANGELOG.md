@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- Number text field for select page
+- new prop to allow disabling the pagination controls.
 
 ## [3.0.0] 2018-10-23
 

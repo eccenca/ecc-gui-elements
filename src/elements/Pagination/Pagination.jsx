@@ -64,6 +64,12 @@ const Pagination = React.createClass({
          * possible page sizes
          */
         limitRange: React.PropTypes.array,
+        disabled: React.PropTypes.bool,
+    },
+    getInitialState() {
+        return {
+            customOffset: this.props.offset+1,
+        }
     },
     getDefaultProps() {
         return {
@@ -75,6 +81,7 @@ const Pagination = React.createClass({
              * predefined available range steps
              */
             limitRange: [5, 10, 25, 50, 100, 200],
+            disabled: false,
         };
     },
     // trigger event to show first results
@@ -125,6 +132,25 @@ const Pagination = React.createClass({
             })
         );
     },
+    // triggered when the input field is used
+    onChangePage(newPage) {
+        const {limit, totalResults} = this.props;
+        this.setState({
+            customOffset: parseInt(newPage),
+        });
+        if (newPage < 1 || newPage > totalResults) {
+            return;
+        }
+        this.props.onChange(
+            calculatePagination({
+                limit,
+                offset: parseInt(newPage)-1,
+                totalResults,
+            })
+        );
+
+
+    },
     onNewLimit(limit) {
         const {offset, totalResults} = this.props;
 
@@ -135,17 +161,22 @@ const Pagination = React.createClass({
                 totalResults,
             })
         );
+
     },
     // template rendering
     render() {
+
         const {
             offsetAsPage,
             offset,
             limit,
             totalResults,
             newLimitText,
+            disabled,
             isTopPagination = false,
         } = this.props;
+
+        const valid = this.state.customOffset > 0 && this.state.customOffset <= totalResults;
 
         const limitRange = _.chain(this.props.limitRange)
             .push(limit)
@@ -207,26 +238,39 @@ const Pagination = React.createClass({
                     <Button
                         className="ecc-gui-elements__pagination-actions__first-page-button"
                         onClick={this.onClickFirst}
-                        disabled={onFirstPage}
+                        disabled={onFirstPage || disabled}
+
                         iconName="arrow_firstpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__prev-page-button"
                         onClick={this.onClickBack}
-                        disabled={onFirstPage}
+                        disabled={onFirstPage || disabled}
                         iconName="arrow_prevpage"
                     />
                     {pageInformation}
+                    <input
+                        disabled={disabled}
+                        min={1}
+                        max={totalResults}
+                        type="number"
+                        value={this.state.customOffset}
+                        className={valid?"valid":"invalid"}
+                        onChange={
+                            e => {
+                                this.onChangePage(e.target.value)
+                            }
+                        }/>
                     <Button
                         className="ecc-gui-elements__pagination-actions__next-page-button"
                         onClick={this.onClickForward}
-                        disabled={onLastPage}
+                        disabled={onLastPage || disabled}
                         iconName="arrow_nextpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__last-page-button"
                         onClick={this.onClickLast}
-                        disabled={onLastPage}
+                        disabled={onLastPage || disabled}
                         iconName="arrow_lastpage"
                     />
                 </div>
