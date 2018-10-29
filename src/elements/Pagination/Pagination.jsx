@@ -172,9 +172,10 @@ const Pagination = React.createClass({
             limit,
             totalResults,
             newLimitText,
-            disabled,
             isTopPagination = false,
         } = this.props;
+
+        const disabled = this.props.disabled === true;
 
         const valid = this.state.customOffset > 0 && this.state.customOffset <= totalResults;
 
@@ -202,9 +203,9 @@ const Pagination = React.createClass({
             const lastItem = lastItemOnPage;
             const start =
                 firstItem === lastItem
-                    ? lastItem
-                    : `${firstItem} - ${lastItem}`;
-            pageInfo = `${start} of ${totalResults}`;
+                    ? lastItem.toLocaleString()
+                    : `${firstItem.toLocaleString()} - ${lastItem.toLocaleString()}`;
+            pageInfo = `${start} of ${totalResults.toLocaleString()}`;
         }
 
         // render actual site information
@@ -238,19 +239,19 @@ const Pagination = React.createClass({
                     <Button
                         className="ecc-gui-elements__pagination-actions__first-page-button"
                         onClick={this.onClickFirst}
-                        disabled={onFirstPage || disabled}
+                        disabled={onFirstPage || disabled===true}
 
                         iconName="arrow_firstpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__prev-page-button"
                         onClick={this.onClickBack}
-                        disabled={onFirstPage || disabled}
+                        disabled={onFirstPage || disabled===true}
                         iconName="arrow_prevpage"
                     />
                     {pageInformation}
                     <input
-                        disabled={disabled}
+                        disabled={disabled===true}
                         min={1}
                         max={totalResults}
                         type="number"
@@ -264,13 +265,13 @@ const Pagination = React.createClass({
                     <Button
                         className="ecc-gui-elements__pagination-actions__next-page-button"
                         onClick={this.onClickForward}
-                        disabled={onLastPage || disabled}
+                        disabled={onLastPage || disabled===true}
                         iconName="arrow_nextpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__last-page-button"
                         onClick={this.onClickLast}
-                        disabled={onLastPage || disabled}
+                        disabled={onLastPage || disabled===true}
                         iconName="arrow_lastpage"
                     />
                 </div>
