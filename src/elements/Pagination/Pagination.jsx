@@ -3,7 +3,6 @@ import _ from 'lodash';
 import Button from './../../elements/Button/Button';
 import SelectBox from './../../elements/SelectBox/SelectBox';
 import TextField from './../../elements/TextField/TextField';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
 
 const calculatePagination = ({limit, offset, totalResults}) => {
     const onLastPage = offset + limit >= totalResults;
@@ -25,12 +24,9 @@ const calculatePagination = ({limit, offset, totalResults}) => {
 /**
  * This component provides a pagination for switching through lists of results
  */
-const Pagination = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Pagination',
-
+class Pagination extends React.Component {
     // define property types
-    propTypes: {
+    static propTypes = {
         /**
          * contains actual start value which is shown
          */
@@ -66,12 +62,20 @@ const Pagination = React.createClass({
          */
         limitRange: React.PropTypes.array,
         disabled: React.PropTypes.bool,
-    },
-    getInitialState() {
-        return {
+    }
+    constructor(props) {
+        super(props);
+        this.displayName = 'Pagination';
+        this.onClickFirst = this.onClickFirst.bind(this);
+        this.onClickBack = this.onClickBack.bind(this);
+        this.onClickForward = this.onClickForward.bind(this);
+        this.onClickLast = this.onClickLast.bind(this);
+        this.onChangePage = this.onChangePage.bind(this);
+        this.onNewLimit = this.onNewLimit.bind(this);
+        this.state = {
             customOffset: this.props.offset+1,
         }
-    },
+    }
     getDefaultProps() {
         return {
             /**
@@ -84,7 +88,7 @@ const Pagination = React.createClass({
             limitRange: [5, 10, 25, 50, 100, 200],
             disabled: false,
         };
-    },
+    }
     // trigger event to show first results
     onClickFirst() {
         const {limit, totalResults} = this.props;
@@ -96,7 +100,7 @@ const Pagination = React.createClass({
                 totalResults,
             })
         );
-    },
+    }
     // trigger event to show previous results (regarding to limit)
     onClickBack() {
         const {limit, totalResults, offset} = this.props;
@@ -108,7 +112,7 @@ const Pagination = React.createClass({
                 totalResults,
             })
         );
-    },
+    }
     // trigger event to show next results (regarding to limit)
     onClickForward() {
         const {limit, totalResults, offset} = this.props;
@@ -120,7 +124,7 @@ const Pagination = React.createClass({
                 totalResults,
             })
         );
-    },
+    }
     // trigger event to show last results (regarding to limit)
     onClickLast() {
         const {limit, totalResults} = this.props;
@@ -132,7 +136,7 @@ const Pagination = React.createClass({
                 totalResults,
             })
         );
-    },
+    }
     // triggered when the input field is used
     onChangePage(newPage) {
         const {limit, totalResults} = this.props;
@@ -151,7 +155,7 @@ const Pagination = React.createClass({
         );
 
 
-    },
+    }
     onNewLimit(limit) {
         const {offset, totalResults} = this.props;
 
@@ -162,11 +166,9 @@ const Pagination = React.createClass({
                 totalResults,
             })
         );
-
-    },
+    }
     // template rendering
     render() {
-
         const {
             offsetAsPage,
             offset,
@@ -240,20 +242,20 @@ const Pagination = React.createClass({
                     <Button
                         className="ecc-gui-elements__pagination-actions__first-page-button"
                         onClick={this.onClickFirst}
-                        disabled={onFirstPage || disabled===true}
+                        disabled={onFirstPage || disabled === true}
 
                         iconName="arrow_firstpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__prev-page-button"
                         onClick={this.onClickBack}
-                        disabled={onFirstPage || disabled===true}
+                        disabled={onFirstPage || disabled === true}
                         iconName="arrow_prevpage"
                     />
                     {pageInformation}
                     <TextField
                         className="ecc-gui-elements__pagination__pagenumber"
-                        disabled={disabled===true}
+                        disabled={disabled === true}
                         min={1}
                         max={totalResults}
                         type="number"
@@ -267,19 +269,20 @@ const Pagination = React.createClass({
                     <Button
                         className="ecc-gui-elements__pagination-actions__next-page-button"
                         onClick={this.onClickForward}
-                        disabled={onLastPage || disabled===true}
+                        disabled={onLastPage || disabled === true}
                         iconName="arrow_nextpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__last-page-button"
                         onClick={this.onClickLast}
-                        disabled={onLastPage || disabled===true}
+                        disabled={onLastPage || disabled === true}
                         iconName="arrow_lastpage"
                     />
                 </div>
             </div>
         );
-    },
-});
+    }
+}
 
 export default Pagination;
+
