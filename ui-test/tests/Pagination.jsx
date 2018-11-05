@@ -27,7 +27,7 @@ const TestPagination = React.createClass({
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
                         limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
-                        totalResults={81}
+                        totalResults={10001}
                         newLimitText="Elements per Page"
                         onChange={this.handlePaginationChange}
                         offsetAsPage={false}
@@ -40,7 +40,7 @@ const TestPagination = React.createClass({
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        totalResults={81}
+                        totalResults={10001}
                         onChange={this.handlePaginationChange}
                         offsetAsPage
                     />
@@ -64,18 +64,18 @@ const TestPagination = React.createClass({
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        totalResults={81}
+                        totalResults={10001}
                         newLimitText="Elements per Page"
                         limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
                         onChange={this.handlePaginationChange}
-                        showOffsetInput={true}
+                        showPageInput={true}
                         offsetAsPage
                     />
                     <h5>Pagination with disabled controls</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
-                        totalResults={81}
+                        totalResults={10001}
                         onChange={this.handlePaginationChange}
                         disabled={true}
                     />

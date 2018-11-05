@@ -66,7 +66,7 @@ class Pagination extends React.Component {
          */
         disabled: React.PropTypes.bool,
         /**
-         * if true a field to select the offset will be shown
+         * if true the current page number will be displayed as a number input field
          */
         showPageInput: React.PropTypes.bool,
     }
@@ -234,11 +234,11 @@ class Pagination extends React.Component {
                                 this.onChangePage(e.value);
                             }}
                         />
-                        <span>of {totalPages}</span>
+                        <span>of {totalPages.toLocaleString()}</span>
                     </span>
                 );
             } else {
-                pageInfo = `${currentPage} of ${totalPages}`;
+                pageInfo = `${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
             }
         } else {
             const firstItem = Math.min(totalResults, offset + 1);
