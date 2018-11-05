@@ -61,7 +61,14 @@ class Pagination extends React.Component {
          * possible page sizes
          */
         limitRange: React.PropTypes.array,
+        /**
+         * if true all buttons are disabled
+         */
         disabled: React.PropTypes.bool,
+        /**
+         * if true a field to select the offset will be shown
+         */
+        showOffsetInput: React.PropTypes.bool,
     }
     constructor(props) {
         super(props);
@@ -140,9 +147,11 @@ class Pagination extends React.Component {
     // triggered when the input field is used
     onChangePage(newPage) {
         const {limit, totalResults} = this.props;
+
         this.setState({
             customOffset: parseInt(newPage),
         });
+        
         if (newPage < 1 || newPage > totalResults) {
             return;
         }
@@ -253,19 +262,20 @@ class Pagination extends React.Component {
                         iconName="arrow_prevpage"
                     />
                     {pageInformation}
-                    <TextField
-                        className="ecc-gui-elements__pagination__pagenumber"
-                        disabled={disabled === true}
-                        min={1}
-                        max={totalResults}
-                        type="number"
-                        value={this.state.customOffset}
-                        error={valid ? '': "invalid page number"}
-                        onChange={
-                            e => {
-                                this.onChangePage(e.target.value)
-                            }
-                        }/>
+                    {this.props.showOffsetInput && (
+                        <TextField
+                            className="ecc-gui-elements__pagination__pagenumber"
+                            disabled={disabled === true}
+                            min={1}
+                            max={totalResults}
+                            type="number"
+                            value={this.state.customOffset}
+                            error={valid ? '' : 'Invalid offset'}
+                            onChange={e => {
+                                this.onChangePage(e.value);
+                            }}
+                        />
+                    )}
                     <Button
                         className="ecc-gui-elements__pagination-actions__next-page-button"
                         onClick={this.onClickForward}

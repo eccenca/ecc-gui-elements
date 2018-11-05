@@ -60,6 +60,22 @@ const TestPagination = React.createClass({
                         onChange={this.handlePaginationChange}
                         offsetAsPage
                     />
+                    <h5>Pagination using field for offset</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        totalResults={90}
+                        onChange={this.handlePaginationChange}
+                        showOffsetInput={true}
+                    />
+                    <h5>Pagination with disabled controls</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        totalResults={177}
+                        onChange={this.handlePaginationChange}
+                        disabled={true}
+                    />
                 </CardContent>
             </Card>
         );
