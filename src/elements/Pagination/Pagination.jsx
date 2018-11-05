@@ -160,12 +160,11 @@ class Pagination extends React.Component {
     }
     onChangePage(newPage) {
         this.setState({
-            customPage: parseInt(newPage),
+            customPage: parseInt(newPage, 10),
         });
     }
     handleKeyPress(e) {
         const newPage = e.target.value
-        console.warn(newPage, e.charCode)
         if (e.charCode === 13) {
             const {limit, totalResults} = this.props;
 
