@@ -68,6 +68,7 @@
 }
 
 .ecc-gui-elements__pagination__pagenumber {
+    width: 32px;
     font-size: inherit;
     vertical-align: middle;
     margin: 0 $ecc-size-blockelement-margin-horizontal / 2;
@@ -75,7 +76,7 @@
 
     .mdl-textfield__input {
         font-size: inherit;
-        min-width: 2.5em;
+        width: 32px;
     }
 
     .mdl-textfield__error {
