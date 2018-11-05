@@ -69,7 +69,20 @@ class Pagination extends React.Component {
          * if true the current page number will be displayed as a number input field
          */
         showPageInput: React.PropTypes.bool,
-    }
+    };
+
+    static defaultProps = {
+        /**
+         * sets site information as "numbers of elements" as default
+         */
+        offsetAsPage: false,
+        /**
+         * predefined available range steps
+         */
+        limitRange: [5, 10, 25, 50, 100, 200],
+        disabled: false,
+    };
+
     constructor(props) {
         super(props);
         this.displayName = 'Pagination';
@@ -83,19 +96,6 @@ class Pagination extends React.Component {
 
         this.state = {
             customPage: undefined,
-        }
-    }
-    getDefaultProps() {
-        return {
-            /**
-             * sets site information as "numbers of elements" as default
-             */
-            offsetAsPage: false,
-            /**
-             * predefined available range steps
-             */
-            limitRange: [5, 10, 25, 50, 100, 200],
-            disabled: false,
         };
     }
     // trigger event to show first results
@@ -178,6 +178,7 @@ class Pagination extends React.Component {
                     totalResults,
                 })
             );
+            this.setState({customPage: undefined});
         }
     }
     // template rendering
