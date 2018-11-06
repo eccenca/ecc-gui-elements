@@ -22,7 +22,14 @@ const TestPagination = React.createClass({
             <Card>
                 <CardTitle documentLevel="h4">Test Pagination</CardTitle>
                 <CardContent>
-                    <h5>Pagination of 81 elements displaying elements</h5>
+                    <h5>Pagination only with default values</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        onChange={this.handlePaginationChange}
+                        totalResults={10001}
+                    />
+                    <h5>Pagination of displaying elements</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
