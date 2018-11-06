@@ -215,9 +215,11 @@ class Pagination extends React.Component {
             onFirstPage,
         } = calculatePagination(this.props);
 
-        const pageField = this.state.customPage || currentPage;
+        const pageField = !_.isUndefined(this.state.customPage)
+            ? this.state.customPage
+            : currentPage;
 
-        const valid = 0 < pageField && pageField <= totalPages;
+        const valid = pageField > 0 && pageField <= totalPages;
 
         let pageInfo = '';
 
