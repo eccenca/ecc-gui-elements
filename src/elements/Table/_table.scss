@@ -78,6 +78,10 @@
             min-width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
         }
+
+        .material-icons {
+            vertical-align: middle;
+        }
     }
     thead {
         .material-icons {
