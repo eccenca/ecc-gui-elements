@@ -18,6 +18,7 @@ import classNames from 'classnames';
                 multiline={true} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: false)
                 scrollTableOverflow={true} // boolean true or false, add scrollbars to table when it overflows available space (optional, default: false)
+                preventCellOverflow={true} // boolean true or false, prevent overflowing content in table cells (optional, default: false)
                 className="my-table-class" // string, additional CSS classes (optional, default: "")
             >
                 <!-- your table content (optional) -->
@@ -36,6 +37,7 @@ const Table = props => {
         multiline,
         children,
         scrollTableOverflow,
+        preventCellOverflow,
         ...otherProps
     } = props;
 
@@ -45,6 +47,7 @@ const Table = props => {
         {
             'mdl-data-table--full-width': fullWidth === true,
             'mdl-data-table--multiline': multiline === true,
+            'mdl-data-table--preventoverflow': preventCellOverflow === true,
         },
         className
     );
@@ -52,7 +55,7 @@ const Table = props => {
         'ecc-table__wrapper',
         {
             'ecc-table__wrapper--autoscroll': scrollTableOverflow === true,
-        },
+        }
     );
 
     return (
@@ -82,12 +85,17 @@ Table.propTypes = {
      * add scrollbars to table when it overflows available space
      */
     scrollTableOverflow: Proptypes.bool,
+    /**
+     * prevent overflowing content in table cells
+     */
+    preventCellOverflow: Proptypes.bool,
 };
 
 Table.defaultProps = {
     fullWidth: false,
     multiline: false,
     scrollTableOverflow: false,
+    preventCellOverflow: false,
 };
 
 Table.displayName = 'Table';

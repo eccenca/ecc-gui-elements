@@ -5,7 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 
 ### Added
-- `scrollTableOverflow` optin for `<Table />`, this is now not enabled by default
+- `scrollTableOverflow` option for `<Table />`, this is now not enabled by default
+- `preventCellOverflow` option for `<Table />`, this is now not enabled by default
 
 ## [3.0.0] 2018-10-23
 

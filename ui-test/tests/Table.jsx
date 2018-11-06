@@ -120,7 +120,7 @@ class TestTable extends React.Component {
                 <CardTitle documentLevel="h4">Test Table</CardTitle>
                 <CardContent>
                     <h5>Standard</h5>
-                    <Table className="my-own-table-class" scrollTableOverflow>
+                    <Table className="my-own-table-class" scrollTableOverflow preventCellOverflow>
                         <TableHead>
                             <TableRow>
                                 {
@@ -165,7 +165,7 @@ class TestTable extends React.Component {
                             <TableBody>
                                     {
                                         _.map(this.data.tableContent, (row, idxRow) => (
-                                            <TableRow key={idxRow}>
+                                            <TableRow key={idxRow} preventCellOverflow>
                                                 {
                                                     _.map(this.data.tableHead, (column, idxColumn) => (
                                                         <TableCell key={idxRow + '.' + idxColumn}>
