@@ -120,7 +120,7 @@ class TestTable extends React.Component {
                 <CardTitle documentLevel="h4">Test Table</CardTitle>
                 <CardContent>
                     <h5>Standard</h5>
-                    <Table className="my-own-table-class">
+                    <Table className="my-own-table-class" scrollTableOverflow>
                         <TableHead>
                             <TableRow>
                                 {

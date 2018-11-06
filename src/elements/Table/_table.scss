@@ -7,7 +7,7 @@
 // we use MDL data table rules as basic styles
 @import "datatable";
 
-.ecc-table__wrapper {
+.ecc-table__wrapper--autoscroll {
     // only necessary for scrolling issues, e.g. when table is too wide for viewport
     overflow: auto;
 }
