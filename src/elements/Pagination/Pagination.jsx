@@ -274,7 +274,7 @@ class Pagination extends React.Component {
             <div className={paginationClassNames}>
                 {this.props.hideTotalResults === false && (
                     <span className="ecc-gui-elements__pagination-summary">
-                        Found {totalResults} {totalResults === 1 ? 'result' : 'results'}.
+                        Found {totalResults.toLocaleString()} {totalResults === 1 ? 'result' : 'results'}.
                     </span>
                 )}
                 {newLimitText && !_.isEmpty(limitRange) ? (
