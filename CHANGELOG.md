@@ -5,8 +5,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 
 ### Added
-- Number text field for select page
-- new prop to allow disabling the pagination controls.
+- add `showPageInput` option to `<Pagination />`, enables direct jump to page number
+- add `disabled` option to `<Pagination />`, allows disabling the pagination controls
+- add number of results to `<Pagination />` and option to hide it
+
+### Changed
+- `<Pagination />` shows page offset by default now, can be changed by `showElementOffsetPagination` option
 
 ## [3.0.0] 2018-10-23
 
