@@ -69,6 +69,10 @@ class Pagination extends React.Component {
          * if true the current page number will be displayed as a number input field
          */
         showPageInput: React.PropTypes.bool,
+        /**
+         * hide info about number of total results
+         */
+        hideTotalResults: React.PropTypes.bool,
     };
 
     static defaultProps = {
@@ -81,6 +85,7 @@ class Pagination extends React.Component {
          */
         limitRange: [5, 10, 25, 50, 100, 200],
         disabled: false,
+        hideTotalResults: false
     };
 
     constructor(props) {
@@ -258,7 +263,11 @@ class Pagination extends React.Component {
         );
         return (
             <div className="ecc-gui-elements__pagination">
-
+                {this.props.hideTotalResults === false && (
+                    <span className="ecc-gui-elements__pagination-summary">
+                        Found {totalResults} {totalResults === 1 ? 'result' : 'results'}.
+                    </span>
+                )}
                 {newLimitText && !_.isEmpty(limitRange) ? (
                     <div className="ecc-gui-elements__pagination-limit">
                         <span className="ecc-gui-elements__pagination-limit_text">
@@ -274,9 +283,6 @@ class Pagination extends React.Component {
                                 optionsOnTop={isTopPagination !== true}
                             />
                         </div>
-                        {this.props.showPageInput && (
-                            <span> of {totalResults} total elements.</span>
-                        )}
                     </div>
                 ) : (
                     ''
@@ -315,4 +321,3 @@ class Pagination extends React.Component {
 }
 
 export default Pagination;
-

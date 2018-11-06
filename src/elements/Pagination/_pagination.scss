@@ -21,15 +21,19 @@
     }
 }
 
+.ecc-gui-elements__pagination-summary {
+    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+}
+
 .ecc-gui-elements__pagination-limit {
     display: inline-flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin-right: $ecc-size-blockelement-margin-horizontal;
+    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
 }
 
 .ecc-gui-elements__pagination-limit_text {
-    margin-right: 0.5rem;
+    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
     white-space: nowrap;
 }
 
