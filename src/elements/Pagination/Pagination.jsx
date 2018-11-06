@@ -44,11 +44,9 @@ class Pagination extends React.Component {
          */
         onChange: React.PropTypes.func.isRequired,
         /**
-         * if true provides site information as "pages" instead of "numbers of elements"
-         * Note: if offsetAsPage=true and offset is not a multiple from limit
-         * the page output gets wierd for the last page
+         * show element offset numbers as pagination information
          */
-        offsetAsPage: React.PropTypes.bool,
+        showElementOffsetPagination: React.PropTypes.bool,
         /**
          * define position of page change dropdown/dropup
          */
@@ -66,7 +64,7 @@ class Pagination extends React.Component {
          */
         disabled: React.PropTypes.bool,
         /**
-         * if true the current page number will be displayed as a number input field
+         * the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
          */
         showPageInput: React.PropTypes.bool,
         /**
@@ -79,13 +77,14 @@ class Pagination extends React.Component {
         /**
          * sets site information as "numbers of elements" as default
          */
-        offsetAsPage: false,
+        showElementOffsetPagination: false,
         /**
          * predefined available range steps
          */
         limitRange: [5, 10, 25, 50, 100, 200],
         disabled: false,
-        hideTotalResults: false
+        hideTotalResults: false,
+        showPageInput: false,
     };
 
     constructor(props) {
@@ -169,7 +168,7 @@ class Pagination extends React.Component {
         });
     }
     handleKeyPress(e) {
-        const newPage = e.target.value
+        const newPage = e.target.value;
         if (e.charCode === 13) {
             const {limit, totalResults} = this.props;
 
@@ -189,7 +188,7 @@ class Pagination extends React.Component {
     // template rendering
     render() {
         const {
-            offsetAsPage,
+            showElementOffsetPagination,
             offset,
             limit,
             totalResults,
@@ -198,8 +197,6 @@ class Pagination extends React.Component {
         } = this.props;
 
         const disabled = this.props.disabled === true;
-
-
 
         const limitRange = _.chain(this.props.limitRange)
             .push(limit)
@@ -222,10 +219,11 @@ class Pagination extends React.Component {
 
         let pageInfo = '';
 
-        if (offsetAsPage) {
+        if (showElementOffsetPagination === false) {
             if (this.props.showPageInput) {
                 pageInfo = (
                     <span>
+                        <span>Page</span>
                         <TextField
                             className="ecc-gui-elements__pagination__pagenumber"
                             onKeyPress={this.handleKeyPress}
@@ -243,7 +241,7 @@ class Pagination extends React.Component {
                     </span>
                 );
             } else {
-                pageInfo = `${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
+                pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
             }
         } else {
             const firstItem = Math.min(totalResults, offset + 1);
@@ -292,7 +290,6 @@ class Pagination extends React.Component {
                         className="ecc-gui-elements__pagination-actions__first-page-button"
                         onClick={this.onClickFirst}
                         disabled={onFirstPage || disabled === true}
-
                         iconName="arrow_firstpage"
                     />
                     <Button
