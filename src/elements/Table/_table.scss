@@ -71,6 +71,7 @@
             line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
             margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+            white-space: nowrap;
         }
         & > .mdl-button--icon,
         & > div[style] > .mdl-button--icon,
