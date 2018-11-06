@@ -21,6 +21,10 @@
     }
 }
 
+.ecc-gui-elements__pagination--disabled {
+    opacity: 0.61;
+}
+
 .ecc-gui-elements__pagination-summary {
     margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
+import classNames from 'classnames';
 import Button from './../../elements/Button/Button';
 import SelectBox from './../../elements/SelectBox/SelectBox';
 import TextField from './../../elements/TextField/TextField';
@@ -60,7 +61,7 @@ class Pagination extends React.Component {
          */
         limitRange: React.PropTypes.array,
         /**
-         * if true all buttons are disabled
+         * if true all buttons and inputs fields are disabled and visibility is decreased
          */
         disabled: React.PropTypes.bool,
         /**
@@ -85,6 +86,7 @@ class Pagination extends React.Component {
         disabled: false,
         hideTotalResults: false,
         showPageInput: false,
+        isTopPagination: false,
     };
 
     constructor(props) {
@@ -193,10 +195,10 @@ class Pagination extends React.Component {
             limit,
             totalResults,
             newLimitText,
-            isTopPagination = false,
+            isTopPagination,
+            disabled,
+            className,
         } = this.props;
-
-        const disabled = this.props.disabled === true;
 
         const limitRange = _.chain(this.props.limitRange)
             .push(limit)
@@ -259,8 +261,15 @@ class Pagination extends React.Component {
                 {pageInfo}
             </span>
         );
+        const paginationClassNames = classNames(
+            'ecc-gui-elements__pagination',
+            {
+                'ecc-gui-elements__pagination--disabled': disabled === true,
+            },
+            className
+        );
         return (
-            <div className="ecc-gui-elements__pagination">
+            <div className={paginationClassNames}>
                 {this.props.hideTotalResults === false && (
                     <span className="ecc-gui-elements__pagination-summary">
                         Found {totalResults} {totalResults === 1 ? 'result' : 'results'}.
@@ -279,6 +288,7 @@ class Pagination extends React.Component {
                                 searchable={false}
                                 onChange={this.onNewLimit}
                                 optionsOnTop={isTopPagination !== true}
+                                disabled={disabled === true}
                             />
                         </div>
                     </div>

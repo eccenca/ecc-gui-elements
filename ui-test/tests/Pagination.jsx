@@ -71,10 +71,12 @@ const TestPagination = React.createClass({
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
                         totalResults={10001}
+                        newLimitText="Elements per Page"
+                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
                         onChange={this.handlePaginationChange}
-                        showElementOffsetPagination
                         disabled={true}
                         hideTotalResults
+                        showPageInput={true}
                     />
                 </CardContent>
             </Card>
