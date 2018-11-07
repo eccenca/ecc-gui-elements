@@ -217,8 +217,9 @@ class Pagination extends React.Component {
         } = calculatePagination(this.props);
 
         const pageField = !_.isUndefined(this.state.customPage)
-            ? this.state.customPage
+            ? (isNaN(this.state.customPage) ? 0 : this.state.customPage)
             : currentPage;
+        console.log(pageField);
 
         const valid = pageField > 0 && pageField <= totalPages;
 
@@ -226,29 +227,28 @@ class Pagination extends React.Component {
 
         if (showElementOffsetPagination === false) {
             if (this.props.showPageInput) {
-                pageInfo = (
-                    <span>
-                        <span>Page</span>
-                        <TextField
-                            className="ecc-gui-elements__pagination__pagenumber"
-                            onKeyPress={this.handleKeyPress}
-                            disabled={disabled === true}
-                            style={{
-                                // the calculation can be improved
-                                width: `${Math.log(pageField) / (1.8 * Math.log(10))}rem`,
-                            }}
-                            min={1}
-                            max={totalPages}
-                            type="number"
-                            value={pageField}
-                            error={valid ? '' : 'Invalid page'}
-                            onChange={e => {
-                                this.onChangePage(e.value);
-                            }}
-                        />
-                        <span>of {totalPages.toLocaleString()}</span>
-                    </span>
-                );
+                pageInfo = [
+                    <span>Page</span>,
+                    <TextField
+                        className="ecc-gui-elements__pagination__pagenumber"
+                        onKeyPress={this.handleKeyPress}
+                        disabled={disabled === true}
+                        stretch={false}
+                        style={{
+                            // the calculation can be improved
+                            width: `calc(${Math.max(1, pageField.toString().length)}ex + 1rem)`,
+                        }}
+                        min={1}
+                        max={totalPages}
+                        type="number"
+                        value={pageField > 0 ? pageField : ''}
+                        error={valid ? '' : 'Invalid page'}
+                        onChange={e => {
+                            this.onChangePage(e.value);
+                        }}
+                    />,
+                    <span>of {totalPages.toLocaleString()}</span>
+                ];
             } else {
                 pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
             }
@@ -264,9 +264,9 @@ class Pagination extends React.Component {
 
         // render actual site information
         const pageInformation = (
-            <span className="ecc-gui-elements__pagination-pageInfo">
+            <div className="ecc-gui-elements__pagination-pageInfo">
                 {pageInfo}
-            </span>
+            </div>
         );
         const paginationClassNames = classNames(
             'ecc-gui-elements__pagination',

@@ -76,15 +76,17 @@
 }
 
 .ecc-gui-elements__pagination__pagenumber {
-    min-width: 32px;
+    min-width: 0;
     font-size: inherit;
     vertical-align: middle;
     margin: 0 $ecc-size-blockelement-margin-horizontal / 2;
     padding: 0;
+    width: auto;
 
     .mdl-textfield__input {
         font-size: inherit;
         width: 100%;
+        text-align: center;
     }
 
     .mdl-textfield__error {
