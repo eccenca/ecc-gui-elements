@@ -7,6 +7,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - `scrollTableOverflow` option for `<Table />`, this is now not enabled by default
 - `preventCellOverflow` option for `<Table />`, this is now not enabled by default
+- `showPageInput` option for `<Pagination />`, enables direct jump to page number
+- `disabled` option for `<Pagination />`, allows disabling the pagination controls
+- show number of results in `<Pagination />` and option to hide it
+
+### Changed
+- `<Pagination />` shows page offset by default now, can be changed by `showElementOffsetPagination` option
 
 ## [3.0.0] 2018-10-23
 

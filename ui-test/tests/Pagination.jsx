@@ -22,43 +22,61 @@ const TestPagination = React.createClass({
             <Card>
                 <CardTitle documentLevel="h4">Test Pagination</CardTitle>
                 <CardContent>
-                    <h5>Pagination of 81 elements displaying elements</h5>
+                    <h5>Pagination only with required options and default values</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        onChange={this.handlePaginationChange}
+                        totalResults={10001}
+                    />
+                <h5>Pagination with selection of page size and page jumper</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
                         limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
-                        totalResults={81}
+                        totalResults={10001}
                         newLimitText="Elements per Page"
                         onChange={this.handlePaginationChange}
-                        offsetAsPage={false}
+                        showPageInput={true}
                     />
-                    <h5>Pagination of 81 elements displaying pages</h5>
-                    Note: if offset is not a multiple of limit the page can be
-                    shown wrong because page have to change offset by itself to
-                    fit &quot;one page&quot; instead of e.g. show last elements
-                    from page 2 and first elements form page 3.
-                    <Pagination
-                        offset={this.state.paginationOffset}
-                        limit={this.state.paginationLimit}
-                        totalResults={81}
-                        onChange={this.handlePaginationChange}
-                        offsetAsPage
-                    />
-                    <h5>Pagination of 0 elements displaying elements</h5>
+                    <h5>Pagination of 0 elements</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
                         totalResults={0}
                         onChange={this.handlePaginationChange}
-                        offsetAsPage={false}
                     />
-                    <h5>Pagination of 0 elements displaying pages</h5>
+                <h5>Pagination of 0 elements displaying element offsets</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
                         totalResults={0}
                         onChange={this.handlePaginationChange}
-                        offsetAsPage
+                        showElementOffsetPagination
+                        hideTotalResults
+                    />
+                    <h5>Pagination using field for offset</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        totalResults={10001}
+                        newLimitText="Elements per Page"
+                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
+                        onChange={this.handlePaginationChange}
+                        showElementOffsetPagination
+                        hideTotalResults
+                    />
+                    <h5>Pagination with disabled controls</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        totalResults={10001}
+                        newLimitText="Elements per Page"
+                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
+                        onChange={this.handlePaginationChange}
+                        disabled={true}
+                        hideTotalResults
+                        showPageInput={true}
                     />
                 </CardContent>
             </Card>
