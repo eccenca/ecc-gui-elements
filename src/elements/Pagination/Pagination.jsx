@@ -219,7 +219,6 @@ class Pagination extends React.Component {
         const pageField = !_.isUndefined(this.state.customPage)
             ? (isNaN(this.state.customPage) ? 0 : this.state.customPage)
             : currentPage;
-        console.log(pageField);
 
         const valid = pageField > 0 && pageField <= totalPages;
 
