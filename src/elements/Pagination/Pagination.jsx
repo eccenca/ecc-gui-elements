@@ -1,35 +1,18 @@
 import React from 'react';
 import _ from 'lodash';
+import classNames from 'classnames';
 import Button from './../../elements/Button/Button';
 import SelectBox from './../../elements/SelectBox/SelectBox';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
+import TextField from './../../elements/TextField/TextField';
 
-const calculatePagination = ({limit, offset, totalResults}) => {
-    const onLastPage = offset + limit >= totalResults;
-    return {
-        limit,
-        offset,
-        totalResults,
-        onFirstPage: offset === 0 || totalResults === 0,
-        onLastPage,
-        currentPage: Math.min(
-            _.ceil(totalResults / limit),
-            _.floor(1 + offset / limit)
-        ),
-        totalPages: _.ceil(totalResults / limit),
-        lastItemOnPage: onLastPage ? totalResults : offset + limit,
-    };
-};
+
 
 /**
  * This component provides a pagination for switching through lists of results
  */
-const Pagination = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Pagination',
-
+class Pagination extends React.Component {
     // define property types
-    propTypes: {
+    static propTypes = {
         /**
          * contains actual start value which is shown
          */
@@ -47,11 +30,9 @@ const Pagination = React.createClass({
          */
         onChange: React.PropTypes.func.isRequired,
         /**
-         * if true provides site information as "pages" instead of "numbers of elements"
-         * Note: if offsetAsPage=true and offset is not a multiple from limit
-         * the page output gets wierd for the last page
+         * show element offset numbers as pagination information
          */
-        offsetAsPage: React.PropTypes.bool,
+        showElementOffsetPagination: React.PropTypes.bool,
         /**
          * define position of page change dropdown/dropup
          */
@@ -64,87 +45,163 @@ const Pagination = React.createClass({
          * possible page sizes
          */
         limitRange: React.PropTypes.array,
-    },
-    getDefaultProps() {
-        return {
-            /**
-             * sets site information as "numbers of elements" as default
-             */
-            offsetAsPage: false,
-            /**
-             * predefined available range steps
-             */
-            limitRange: [5, 10, 25, 50, 100, 200],
+        /**
+         * if true all buttons and inputs fields are disabled and visibility is decreased
+         */
+        disabled: React.PropTypes.bool,
+        /**
+         * the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
+         */
+        showPageInput: React.PropTypes.bool,
+        /**
+         * hide info about number of total results
+         */
+        hideTotalResults: React.PropTypes.bool,
+    };
+
+    static defaultProps = {
+        /**
+         * sets site information as "numbers of elements" as default
+         */
+        showElementOffsetPagination: false,
+        /**
+         * predefined available range steps
+         */
+        limitRange: [5, 10, 25, 50, 100, 200],
+        disabled: false,
+        hideTotalResults: false,
+        showPageInput: false,
+        isTopPagination: false,
+    };
+
+    constructor(props) {
+        super(props);
+        this.displayName = 'Pagination';
+        this.onClickFirst = this.onClickFirst.bind(this);
+        this.onClickBack = this.onClickBack.bind(this);
+        this.onClickForward = this.onClickForward.bind(this);
+        this.onClickLast = this.onClickLast.bind(this);
+        this.onNewLimit = this.onNewLimit.bind(this);
+        this.onChangePage = this.onChangePage.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+
+        this.state = {
+            customPage: undefined,
         };
-    },
+    }
+
+    calculatePagination = ({limit, offset, totalResults}) => {
+        const onLastPage = offset + limit >= totalResults;
+        return {
+            limit,
+            offset,
+            totalResults,
+            onFirstPage: offset === 0 || totalResults === 0,
+            onLastPage,
+            currentPage: Math.min(
+                _.ceil(totalResults / limit),
+                _.floor(1 + offset / limit)
+            ),
+            totalPages: _.ceil(totalResults / limit),
+            lastItemOnPage: onLastPage ? totalResults : offset + limit,
+        };
+    }
+
     // trigger event to show first results
     onClickFirst() {
         const {limit, totalResults} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: 0,
                 totalResults,
             })
         );
-    },
+    }
     // trigger event to show previous results (regarding to limit)
     onClickBack() {
         const {limit, totalResults, offset} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: offset < limit ? 0 : offset - limit,
                 totalResults,
             })
         );
-    },
+    }
     // trigger event to show next results (regarding to limit)
     onClickForward() {
         const {limit, totalResults, offset} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: offset + limit,
                 totalResults,
             })
         );
-    },
+    }
     // trigger event to show last results (regarding to limit)
     onClickLast() {
         const {limit, totalResults} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: (_.ceil(totalResults / limit) - 1) * limit,
                 totalResults,
             })
         );
-    },
+    }
+
     onNewLimit(limit) {
         const {offset, totalResults} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: _.floor(offset / limit) * limit,
                 totalResults,
             })
         );
-    },
+    }
+    onChangePage(newPage) {
+        this.setState({
+            customPage: parseInt(newPage, 10),
+        });
+    }
+    handleKeyPress(e) {
+        const newPage = e.target.value;
+        if (e.charCode === 13) {
+            const {limit, totalResults} = this.props;
+            const {totalPages} = this.calculatePagination(this.props);
+
+            if (newPage < 1 || newPage > totalPages) {
+                return;
+            }
+            this.props.onChange(
+                this.calculatePagination({
+                    limit,
+                    offset: limit * parseInt(newPage, 10) - 1,
+                    totalResults,
+                })
+            );
+            this.setState({customPage: undefined});
+        }
+    }
     // template rendering
     render() {
         const {
-            offsetAsPage,
+            showElementOffsetPagination,
             offset,
             limit,
             totalResults,
             newLimitText,
-            isTopPagination = false,
+            isTopPagination,
+            disabled,
+            className,
         } = this.props;
 
         const limitRange = _.chain(this.props.limitRange)
@@ -160,30 +217,73 @@ const Pagination = React.createClass({
             lastItemOnPage,
             onLastPage,
             onFirstPage,
-        } = calculatePagination(this.props);
+        } = this.calculatePagination(this.props);
+
+        const pageField = !_.isUndefined(this.state.customPage)
+            ? (isNaN(this.state.customPage) ? 0 : this.state.customPage)
+            : currentPage;
+
+        const valid = pageField > 0 && pageField <= totalPages;
 
         let pageInfo = '';
 
-        if (offsetAsPage) {
-            pageInfo = `${currentPage} of ${totalPages}`;
+        if (showElementOffsetPagination === false) {
+            if (this.props.showPageInput) {
+                pageInfo = [
+                    <span>Page</span>,
+                    <TextField
+                        className="ecc-gui-elements__pagination__pagenumber"
+                        onKeyPress={this.handleKeyPress}
+                        disabled={disabled === true}
+                        stretch={false}
+                        style={{
+                            // the calculation can be improved
+                            width: `calc(${Math.max(1, pageField.toString().length)}ex + 1rem)`,
+                        }}
+                        min={1}
+                        max={totalPages}
+                        type="number"
+                        value={pageField > 0 ? pageField : ''}
+                        error={valid ? '' : 'Invalid page'}
+                        onChange={e => {
+                            this.onChangePage(e.value);
+                        }}
+                    />,
+                    <span>of {totalPages.toLocaleString()}</span>
+                ];
+            } else {
+                pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
+            }
         } else {
             const firstItem = Math.min(totalResults, offset + 1);
             const lastItem = lastItemOnPage;
             const start =
                 firstItem === lastItem
-                    ? lastItem
-                    : `${firstItem} - ${lastItem}`;
-            pageInfo = `${start} of ${totalResults}`;
+                    ? lastItem.toLocaleString()
+                    : `${firstItem.toLocaleString()} - ${lastItem.toLocaleString()}`;
+            pageInfo = `${start} of ${totalResults.toLocaleString()}`;
         }
 
         // render actual site information
         const pageInformation = (
-            <span className="ecc-gui-elements__pagination-pageInfo">
+            <div className="ecc-gui-elements__pagination-pageInfo">
                 {pageInfo}
-            </span>
+            </div>
+        );
+        const paginationClassNames = classNames(
+            'ecc-gui-elements__pagination',
+            {
+                'ecc-gui-elements__pagination--disabled': disabled === true,
+            },
+            className
         );
         return (
-            <div className="ecc-gui-elements__pagination">
+            <div className={paginationClassNames}>
+                {this.props.hideTotalResults === false && (
+                    <span className="ecc-gui-elements__pagination-summary">
+                        Found {totalResults.toLocaleString()} {totalResults === 1 ? 'result' : 'results'}.
+                    </span>
+                )}
                 {newLimitText && !_.isEmpty(limitRange) ? (
                     <div className="ecc-gui-elements__pagination-limit">
                         <span className="ecc-gui-elements__pagination-limit_text">
@@ -197,6 +297,7 @@ const Pagination = React.createClass({
                                 searchable={false}
                                 onChange={this.onNewLimit}
                                 optionsOnTop={isTopPagination !== true}
+                                disabled={disabled === true}
                             />
                         </div>
                     </div>
@@ -207,32 +308,32 @@ const Pagination = React.createClass({
                     <Button
                         className="ecc-gui-elements__pagination-actions__first-page-button"
                         onClick={this.onClickFirst}
-                        disabled={onFirstPage}
+                        disabled={onFirstPage || disabled === true}
                         iconName="arrow_firstpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__prev-page-button"
                         onClick={this.onClickBack}
-                        disabled={onFirstPage}
+                        disabled={onFirstPage || disabled === true}
                         iconName="arrow_prevpage"
                     />
                     {pageInformation}
                     <Button
                         className="ecc-gui-elements__pagination-actions__next-page-button"
                         onClick={this.onClickForward}
-                        disabled={onLastPage}
+                        disabled={onLastPage || disabled === true}
                         iconName="arrow_nextpage"
                     />
                     <Button
                         className="ecc-gui-elements__pagination-actions__last-page-button"
                         onClick={this.onClickLast}
-                        disabled={onLastPage}
+                        disabled={onLastPage || disabled === true}
                         iconName="arrow_lastpage"
                     />
                 </div>
             </div>
         );
-    },
-});
+    }
+}
 
 export default Pagination;

@@ -494,12 +494,13 @@ This component provides a pagination for switching through lists of results
 - **limit** (number, *required*) - contains number of max shown elements per page
 - **totalResults** (number, *required*) - contains total number of results
 - **onChange** (func, *required*) - contains method which is called if offset have to change by user
-- **offsetAsPage** (bool, default: false) - if true provides site information as "pages" instead of "numbers of elements"
-Note: if offsetAsPage=true and offset is not a multiple from limit
-the page output gets wierd for the last page
-- **isTopPagination** (bool) - define position of page change dropdown/dropup
+- **showElementOffsetPagination** (bool, default: false) - show element offset numbers as pagination information
+- **isTopPagination** (bool, default: false) - define position of page change dropdown/dropup
 - **newLimitText** (string) - text displayed next to limit changer selectbox
 - **limitRange** (array, default: [5, 10, 25, 50, 100, 200]) - possible page sizes
+- **disabled** (bool, default: false) - if true all buttons and inputs fields are disabled and visibility is decreased
+- **showPageInput** (bool, default: false) - the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
+- **hideTotalResults** (bool, default: false) - hide info about number of total results
 
 ### ProgressButton
 
@@ -628,6 +629,8 @@ Provides a simple table which can be enriched with react elements as content.
             <Table
                 multiline={true} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: false)
+                scrollTableOverflow={true} // boolean true or false, add scrollbars to table when it overflows available space (optional, default: false)
+                preventCellOverflow={true} // boolean true or false, prevent overflowing content in table cells (optional, default: false)
                 className="my-table-class" // string, additional CSS classes (optional, default: "")
             >
                 <!-- your table content (optional) -->
@@ -643,6 +646,8 @@ Provides a simple table which can be enriched with react elements as content.
 - **className** (string) - string (optional): additional CSS class name
 - **fullWidth** (bool, default: false) - use full width even for smaller tables
 - **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+- **scrollTableOverflow** (bool, default: false) - add scrollbars to table when it overflows available space
+- **preventCellOverflow** (bool, default: false) - prevent overflowing content in table cells
 
 ### Table body
 
@@ -690,6 +695,7 @@ Provides table cell element that can be enriched by sub elements.
                 isHead={true} // boolean, if the table cell contains a table head for the column or row (optional, default: false)
                 likeHead={true} // boolean, if a normal table cell should be look like a head element (optional, default: false)
                 multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                preventCellOverflow={true} // boolean true or false, prevent overflowing content in table cells (optional, default: false)
                 className="my-own-class" // string, used for additional CSS class descriptions
             >
                 <!-- content -->
@@ -706,6 +712,7 @@ Provides table cell element that can be enriched by sub elements.
 - **isHead** (bool, default: false) - table cell is head for column or row
 - **likeHead** (bool, default: false) - table cell looks like header cell
 - **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+- **preventCellOverflow** (bool, default: false) - prevent overflowing content in table cells
 
 ### Table head
 
@@ -751,6 +758,7 @@ Provides table row element that can be enriched by sub elements.
         return (
             <TableRow
                 multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                preventCellOverflow={true} // boolean true or false, prevent overflowing content in table cells (optional, default: false)
                 className="my-own-class" // string, used for additional CSS class descriptions
             >
                 <!-- content -->
@@ -765,6 +773,7 @@ Provides table row element that can be enriched by sub elements.
 - **children** (node) - 
 - **className** (string, default: '') - optional CSS class
 - **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+- **preventCellOverflow** (bool, default: false) - prevent overflowing content in table cells
 
 ### Tabs
 

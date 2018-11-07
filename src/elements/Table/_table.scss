@@ -7,7 +7,7 @@
 // we use MDL data table rules as basic styles
 @import "datatable";
 
-.ecc-table__wrapper {
+.ecc-table__wrapper--autoscroll {
     // only necessary for scrolling issues, e.g. when table is too wide for viewport
     overflow: auto;
 }
@@ -71,12 +71,17 @@
             line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
             margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+            white-space: nowrap;
         }
         & > .mdl-button--icon,
         & > div[style] > .mdl-button--icon,
         & > .contextmenu-container > .mdl-button--icon {
             min-width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
             width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+        }
+
+        .material-icons {
+            vertical-align: middle;
         }
     }
     thead {
@@ -125,7 +130,7 @@
     }
 }
 
-// multilined table cells
+// multiline: add scrollbars to table when it overflows available space
 .mdl-data-table--multiline td,
 thead.mdl-data-table--multiline th,
 th.mdl-data-table--multiline,
@@ -133,7 +138,6 @@ td.mdl-data-table--multiline {
     white-space: normal;
     vertical-align: top;
     overflow: unset;
-    overflow-x: hidden;
 
     br {
         content: normal;
@@ -143,4 +147,13 @@ td.mdl-data-table--multiline {
             content: normal;
         }
     }
+}
+
+// preventCellOverflow: prevent overlowing content in table cells
+.mdl-data-table--preventoverflow td,
+.mdl-data-table--preventoverflow th,
+td.mdl-data-table--preventoverflow,
+th.mdl-data-table--preventoverflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

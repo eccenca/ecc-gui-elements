@@ -21,15 +21,23 @@
     }
 }
 
+.ecc-gui-elements__pagination--disabled {
+    opacity: 0.61;
+}
+
+.ecc-gui-elements__pagination-summary {
+    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+}
+
 .ecc-gui-elements__pagination-limit {
     display: inline-flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin-right: 1rem;
+    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
 }
 
 .ecc-gui-elements__pagination-limit_text {
-    margin-right: 0.5rem;
+    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
     white-space: nowrap;
 }
 
@@ -65,4 +73,23 @@
 
 .ecc-gui-elements__pagination-pageInfo {
     white-space: nowrap;
+}
+
+.ecc-gui-elements__pagination__pagenumber {
+    min-width: 0;
+    font-size: inherit;
+    vertical-align: middle;
+    margin: 0 $ecc-size-blockelement-margin-horizontal / 2;
+    padding: 0;
+    width: auto;
+
+    .mdl-textfield__input {
+        font-size: inherit;
+        width: 100%;
+        text-align: center;
+    }
+
+    .mdl-textfield__error {
+        white-space: nowrap;
+    }
 }
