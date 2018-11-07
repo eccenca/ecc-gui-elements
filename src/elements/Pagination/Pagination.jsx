@@ -232,6 +232,10 @@ class Pagination extends React.Component {
                             className="ecc-gui-elements__pagination__pagenumber"
                             onKeyPress={this.handleKeyPress}
                             disabled={disabled === true}
+                            style={{
+                                // the calculation can be improved
+                                width: `${Math.log(pageField) / (1.8 * Math.log(10))}rem`,
+                            }}
                             min={1}
                             max={totalPages}
                             type="number"
