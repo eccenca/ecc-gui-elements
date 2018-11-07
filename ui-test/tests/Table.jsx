@@ -2,7 +2,7 @@ import React from 'react';
 import {
     Table, TableHead, TableBody, TableRow, TableCell,
     Card, CardTitle, CardContent, Button, Chip, Checkbox, Radio,
-    ContextMenu, MenuItem
+    ContextMenu, MenuItem, Icon
 } from '../../index';
 
 // FIXME: add documentation
@@ -120,7 +120,7 @@ class TestTable extends React.Component {
                 <CardTitle documentLevel="h4">Test Table</CardTitle>
                 <CardContent>
                     <h5>Standard</h5>
-                    <Table className="my-own-table-class">
+                    <Table className="my-own-table-class" scrollTableOverflow preventCellOverflow>
                         <TableHead>
                             <TableRow>
                                 {
@@ -165,7 +165,7 @@ class TestTable extends React.Component {
                             <TableBody>
                                     {
                                         _.map(this.data.tableContent, (row, idxRow) => (
-                                            <TableRow key={idxRow}>
+                                            <TableRow key={idxRow} preventCellOverflow>
                                                 {
                                                     _.map(this.data.tableHead, (column, idxColumn) => (
                                                         <TableCell key={idxRow + '.' + idxColumn}>
@@ -189,8 +189,14 @@ class TestTable extends React.Component {
                         >
                             <TableRow>
                                 <TableCell></TableCell>
-                                <TableCell isHead>testhead 1</TableCell>
-                                <TableCell isHead>testhead 2</TableCell>
+                                <TableCell isHead>
+                                    <Icon name="help_outline" tooltip="This is a very long description, so any user can understand what it does." />
+                                    testhead 1
+                                </TableCell>
+                                <TableCell isHead>
+                                    <Icon name="help_outline" title="normal title, no tooltip" />
+                                    testhead 2
+                                </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody multiline className="my-table-body-class">

@@ -19,6 +19,7 @@ import classNames from 'classnames';
                 isHead={true} // boolean, if the table cell contains a table head for the column or row (optional, default: false)
                 likeHead={true} // boolean, if a normal table cell should be look like a head element (optional, default: false)
                 multiline={false} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
+                preventCellOverflow={true} // boolean true or false, prevent overflowing content in table cells (optional, default: false)
                 className="my-own-class" // string, used for additional CSS class descriptions
             >
                 <!-- content -->
@@ -31,12 +32,21 @@ import classNames from 'classnames';
  */
 
 const TableCell = props => {
-    const {isHead, likeHead, className, children, multiline, ...otherProps} = props;
+    const {
+        isHead,
+        likeHead,
+        className,
+        children,
+        multiline,
+        preventCellOverflow,
+        ...otherProps
+    } = props;
     const TableCellType = isHead === true ? 'th' : 'td';
     const cellClassNames = classNames(
         {
             'mdl-data-table__header': isHead === false && likeHead === true,
             'mdl-data-table--multiline': multiline === true,
+            'mdl-data-table--preventoverflow': preventCellOverflow === true,
         },
         className
     );
@@ -65,6 +75,10 @@ TableCell.propTypes = {
      * allow linebreaks and multilined content in table cells
      */
     multiline: Proptypes.bool,
+    /**
+     * prevent overflowing content in table cells
+     */
+    preventCellOverflow: Proptypes.bool,
 };
 
 TableCell.defaultProps = {
@@ -72,6 +86,7 @@ TableCell.defaultProps = {
     likeHead: false,
     className: '',
     multiline: false,
+    preventCellOverflow: false,
 };
 
 TableCell.displayName = 'Table cell';

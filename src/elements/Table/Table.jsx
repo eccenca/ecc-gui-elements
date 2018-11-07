@@ -1,9 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import _ from 'lodash';
 import classNames from 'classnames';
-import TableHead from './TableHead';
-import TableBody from './TableBody';
 
 /**
 
@@ -20,6 +17,8 @@ import TableBody from './TableBody';
             <Table
                 multiline={true} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: false)
+                scrollTableOverflow={true} // boolean true or false, add scrollbars to table when it overflows available space (optional, default: false)
+                preventCellOverflow={true} // boolean true or false, prevent overflowing content in table cells (optional, default: false)
                 className="my-table-class" // string, additional CSS classes (optional, default: "")
             >
                 <!-- your table content (optional) -->
@@ -32,7 +31,15 @@ import TableBody from './TableBody';
  */
 
 const Table = props => {
-    const {fullWidth, className, multiline, children, ...otherProps} = props;
+    const {
+        fullWidth,
+        className,
+        multiline,
+        children,
+        scrollTableOverflow,
+        preventCellOverflow,
+        ...otherProps
+    } = props;
 
     // set classname
     const tableClassNames = classNames(
@@ -40,12 +47,19 @@ const Table = props => {
         {
             'mdl-data-table--full-width': fullWidth === true,
             'mdl-data-table--multiline': multiline === true,
+            'mdl-data-table--preventoverflow': preventCellOverflow === true,
         },
         className
     );
+    const wrapperClassNames = classNames(
+        'ecc-table__wrapper',
+        {
+            'ecc-table__wrapper--autoscroll': scrollTableOverflow === true,
+        }
+    );
 
     return (
-        <div className="ecc-table__wrapper">
+        <div className={wrapperClassNames}>
             <table className={tableClassNames} {...otherProps}>
                 {children}
             </table>
@@ -67,11 +81,21 @@ Table.propTypes = {
      * allow linebreaks and multilined content in table cells
      */
     multiline: Proptypes.bool,
+    /**
+     * add scrollbars to table when it overflows available space
+     */
+    scrollTableOverflow: Proptypes.bool,
+    /**
+     * prevent overflowing content in table cells
+     */
+    preventCellOverflow: Proptypes.bool,
 };
 
 Table.defaultProps = {
     fullWidth: false,
     multiline: false,
+    scrollTableOverflow: false,
+    preventCellOverflow: false,
 };
 
 Table.displayName = 'Table';

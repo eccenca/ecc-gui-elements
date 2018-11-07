@@ -628,6 +628,7 @@ Provides a simple table which can be enriched with react elements as content.
             <Table
                 multiline={true} // boolean true or false, allow linebreaks and multilined content in table cells (optional, default: false)
                 fullWidth={true} // boolean true or false, table uses full width even if it could be smaller (optional, default: false)
+                scrollTableOverflow={true} // boolean true or false, add scrollbars to table when it overflows available space (optional, default: false)
                 className="my-table-class" // string, additional CSS classes (optional, default: "")
             >
                 <!-- your table content (optional) -->
@@ -643,6 +644,7 @@ Provides a simple table which can be enriched with react elements as content.
 - **className** (string) - string (optional): additional CSS class name
 - **fullWidth** (bool, default: false) - use full width even for smaller tables
 - **multiline** (bool, default: false) - allow linebreaks and multilined content in table cells
+- **scrollTableOverflow** (bool, default: false) - add scrollbars to table when it overflows available space
 
 ### Table body
 
