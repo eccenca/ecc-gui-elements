@@ -5,22 +5,7 @@ import Button from './../../elements/Button/Button';
 import SelectBox from './../../elements/SelectBox/SelectBox';
 import TextField from './../../elements/TextField/TextField';
 
-const calculatePagination = ({limit, offset, totalResults}) => {
-    const onLastPage = offset + limit >= totalResults;
-    return {
-        limit,
-        offset,
-        totalResults,
-        onFirstPage: offset === 0 || totalResults === 0,
-        onLastPage,
-        currentPage: Math.min(
-            _.ceil(totalResults / limit),
-            _.floor(1 + offset / limit)
-        ),
-        totalPages: _.ceil(totalResults / limit),
-        lastItemOnPage: onLastPage ? totalResults : offset + limit,
-    };
-};
+
 
 /**
  * This component provides a pagination for switching through lists of results
@@ -104,12 +89,30 @@ class Pagination extends React.Component {
             customPage: undefined,
         };
     }
+
+    calculatePagination = ({limit, offset, totalResults}) => {
+        const onLastPage = offset + limit >= totalResults;
+        return {
+            limit,
+            offset,
+            totalResults,
+            onFirstPage: offset === 0 || totalResults === 0,
+            onLastPage,
+            currentPage: Math.min(
+                _.ceil(totalResults / limit),
+                _.floor(1 + offset / limit)
+            ),
+            totalPages: _.ceil(totalResults / limit),
+            lastItemOnPage: onLastPage ? totalResults : offset + limit,
+        };
+    }
+
     // trigger event to show first results
     onClickFirst() {
         const {limit, totalResults} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: 0,
                 totalResults,
@@ -121,7 +124,7 @@ class Pagination extends React.Component {
         const {limit, totalResults, offset} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: offset < limit ? 0 : offset - limit,
                 totalResults,
@@ -133,7 +136,7 @@ class Pagination extends React.Component {
         const {limit, totalResults, offset} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: offset + limit,
                 totalResults,
@@ -145,7 +148,7 @@ class Pagination extends React.Component {
         const {limit, totalResults} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: (_.ceil(totalResults / limit) - 1) * limit,
                 totalResults,
@@ -157,7 +160,7 @@ class Pagination extends React.Component {
         const {offset, totalResults} = this.props;
 
         this.props.onChange(
-            calculatePagination({
+            this.calculatePagination({
                 limit,
                 offset: _.floor(offset / limit) * limit,
                 totalResults,
@@ -179,7 +182,7 @@ class Pagination extends React.Component {
                 return;
             }
             this.props.onChange(
-                calculatePagination({
+                this.calculatePagination({
                     limit,
                     offset: limit * parseInt(newPage, 10) - 1,
                     totalResults,
@@ -214,7 +217,7 @@ class Pagination extends React.Component {
             lastItemOnPage,
             onLastPage,
             onFirstPage,
-        } = calculatePagination(this.props);
+        } = this.calculatePagination(this.props);
 
         const pageField = !_.isUndefined(this.state.customPage)
             ? (isNaN(this.state.customPage) ? 0 : this.state.customPage)
