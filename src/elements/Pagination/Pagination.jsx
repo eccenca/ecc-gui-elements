@@ -176,7 +176,7 @@ class Pagination extends React.Component {
         const newPage = e.target.value;
         if (e.charCode === 13) {
             const {limit, totalResults} = this.props;
-            const {totalPages} = calculatePagination(this.props);
+            const {totalPages} = this.calculatePagination(this.props);
 
             if (newPage < 1 || newPage > totalPages) {
                 return;
