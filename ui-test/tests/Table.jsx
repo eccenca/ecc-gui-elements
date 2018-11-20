@@ -242,7 +242,7 @@ class TestTable extends React.Component {
                                 <TableCell>testcontent 5.1a<br/>testcontent 5.1b</TableCell>
                                 <TableCell className="my-cell-class">testcontent 5.2</TableCell>
                             </TableRow>
-                            <TableRow>
+                            <TableRow preventCellOverflow>
                                 <TableCell><Radio label="Select" name="testtable" /></TableCell>
                                 <TableCell multiline likeHead className="my-cell-class">testcontent 6.1</TableCell>
                                 <TableCell>
@@ -250,6 +250,15 @@ class TestTable extends React.Component {
                                         <p>Paragraph 1.</p>
                                         <p>Paragraph 2.</p>
                                     </div>
+                                    <Table>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell>
+                                                    This<br/>is<br/>a<br/>nested<br/>table.
+                                                </TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
                                 </TableCell>
                             </TableRow>
                         </TableBody>

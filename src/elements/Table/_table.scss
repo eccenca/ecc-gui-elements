@@ -40,7 +40,8 @@
         }
     }
     &:not(.mdl-data-table--multiline) {
-        tbody {
+        tbody:not(.mdl-data-table--multiline),
+        tbody:not(.mdl-data-table--multiline) {
             tr:not(.mdl-data-table--multiline) {
                 th:not(.mdl-data-table--multiline),
                 td:not(.mdl-data-table--multiline) {
@@ -130,11 +131,21 @@
     }
 }
 
-// multiline: add scrollbars to table when it overflows available space
-.mdl-data-table--multiline td,
-thead.mdl-data-table--multiline th,
-th.mdl-data-table--multiline,
-td.mdl-data-table--multiline {
+// multiline: allow linebreaks and multilined content in table cells
+.mdl-data-table--multiline > thead > tr > td, // class on table
+.mdl-data-table--multiline > tbody > tr > td,
+.mdl-data-table--multiline > thead > tr > th,
+.mdl-data-table--multiline > tbody > tr > th,
+table > .mdl-data-table--multiline > tr > td, // class on thead or tbody
+table > .mdl-data-table--multiline > tr > th,
+table > thead > .mdl-data-table--multiline > td, // class on row
+table > tbody > .mdl-data-table--multiline > td,
+table > thead > .mdl-data-table--multiline > th,
+table > tbody > .mdl-data-table--multiline > th,
+table > thead > tr > td.mdl-data-table--multiline, // class on cell
+table > tbody > tr > td.mdl-data-table--multiline,
+table > thead > tr > th.mdl-data-table--multiline,
+table > tbody > tr > th.mdl-data-table--multiline {
     white-space: normal;
     vertical-align: top;
     overflow: unset;
@@ -150,10 +161,18 @@ td.mdl-data-table--multiline {
 }
 
 // preventCellOverflow: prevent overlowing content in table cells
-.mdl-data-table--preventoverflow td,
-.mdl-data-table--preventoverflow th,
-td.mdl-data-table--preventoverflow,
-th.mdl-data-table--preventoverflow {
+.mdl-data-table--preventoverflow > thead > tr > td, // class on table
+.mdl-data-table--preventoverflow > tbody > tr > td,
+.mdl-data-table--preventoverflow > thead > tr > th,
+.mdl-data-table--preventoverflow > tbody > tr > th,
+table > thead > .mdl-data-table--preventoverflow > td, // class on row
+table > tbody > .mdl-data-table--preventoverflow > td,
+table > thead > .mdl-data-table--preventoverflow > th,
+table > tbody > .mdl-data-table--preventoverflow > th,
+table > thead > tr > td.mdl-data-table--preventoverflow, // class on cell
+table > tbody > tr > td.mdl-data-table--preventoverflow,
+table > thead > tr > th.mdl-data-table--preventoverflow,
+table > tbody > tr > th.mdl-data-table--preventoverflow {
     overflow: hidden;
     text-overflow: ellipsis;
 }
