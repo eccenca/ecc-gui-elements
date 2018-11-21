@@ -4,11 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- prevent nested tables from inherit usage of multiline/overflow configuration of the parent table
 
 ## [3.1.0] 2018-11-07
 
-### Fix
+### Fixed
 - version
 
 ## [2.32.0] 2018-11-07
