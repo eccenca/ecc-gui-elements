@@ -2,9 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [3.1.1] 2018-11-21
+
+### Fixed
+- prevent nested tables from inherit usage of multiline/overflow configuration of the parent table
+
 ## [3.1.0] 2018-11-07
 
-### Fix
+### Fixed
 - version
 
 ## [2.32.0] 2018-11-07
