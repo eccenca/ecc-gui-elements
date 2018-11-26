@@ -43,7 +43,8 @@ const TestSelects = React.createClass({
             },
             selectBox1: _.head(selectOptions),
             selectBox2: [],
-            autoCompleteBox: null,
+            autoCompleteBox1: null,
+            autoCompleteBox2: null,
         };
     },
     handleSelectChange(value, key) {
@@ -107,8 +108,16 @@ const TestSelects = React.createClass({
                     <AutoCompleteBox
                         placeholder="Sync select box"
                         options={selectOptions}
-                        name="autoCompleteBox"
-                        value={this.state.autoCompleteBox}
+                        name="autoCompleteBox1"
+                        value={this.state.autoCompleteBox1}
+                        onChange={this.handleSelectChange}
+                    />
+                    <AutoCompleteBox
+                        placeholder="createable select box"
+                        options={selectOptions}
+                        creatable
+                        name="autoCompleteBox2"
+                        value={this.state.autoCompleteBox2}
                         onChange={this.handleSelectChange}
                     />
                 </CardContent>

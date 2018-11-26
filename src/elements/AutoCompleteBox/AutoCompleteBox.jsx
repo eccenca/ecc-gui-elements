@@ -87,16 +87,16 @@ class AutoCompleteBox extends React.Component {
     };
     // will only be triggered when the user type something in textfield
     handleInputChange(inputValue) {
+        const inputValueCleaned = inputValue.replace(/\$/g, '');
         // check if value really changed
-        if (!_.isEqual(inputValue, this.currentInputValue)) {
-            this.currentInputValue = _.clone(inputValue);
+        if (!_.isEqual(inputValueCleaned, this.currentInputValue)) {
+            this.currentInputValue = _.clone(inputValueCleaned);
             // directly pass the current value to parent component (e.g. to update external options)
             if (_.isFunction(this.props.handleValueChange)) {
-                this.props.handleValueChange(inputValue);
+                this.props.handleValueChange(inputValueCleaned);
             }
         }
-
-        return inputValue;
+        return inputValueCleaned;
     }
 
     render = () => (

@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- fatal error when enter '$' into `<AutoCompleteBox />` when `creatable` is true
 
 ## [3.1.1] 2018-11-21
 
