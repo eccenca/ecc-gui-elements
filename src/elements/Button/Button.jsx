@@ -5,6 +5,7 @@ import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import Tooltip from '../Tooltip/Tooltip';
 import Icon from '../Icon/Icon';
 import PerformanceMixin from '../../mixins/PerformanceMixin';
+import canonicalTooltips from './../Icon/canonicaltooltips.json';
 
 /**
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
@@ -104,31 +105,6 @@ const Button = React.createClass({
         disruptive: React.PropTypes.bool,
     },
 
-    // TODO: use translations
-    /* eslint camelcase: 0 */
-    canonicalTooltips: {
-        edit: 'Edit',
-        remove: 'Remove',
-        save: 'Save',
-        confirm: 'Confirm',
-        cancel: 'Cancel',
-        arrow_nextpage: 'Next page',
-        arrow_prevpage: 'Previous page',
-        arrow_lastpage: 'Last page',
-        arrow_firstpage: 'First page',
-        arrow_dropdown: 'Open',
-        expand_more: 'Show more',
-        expand_less: 'Show less',
-        menu_more: 'Open menu',
-        adjust: 'Adjust settings',
-        filter: 'Filter data',
-        sort: 'Sort data',
-        hide: 'Hide',
-        settings: 'Administrate settings',
-        access_forbidden: 'No write access',
-        delete: 'Remove', // 'delete' is deprecated
-    },
-
     // template rendering
     render() {
         /* TODO:
@@ -177,9 +153,9 @@ const Button = React.createClass({
         if (
             !tooltip &&
             tooltip !== false &&
-            typeof this.canonicalTooltips[iconName] !== 'undefined'
+            typeof canonicalTooltips[iconName] !== 'undefined'
         ) {
-            tooltip = this.canonicalTooltips[iconName];
+            tooltip = canonicalTooltips[iconName];
         }
 
         let button = '';

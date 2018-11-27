@@ -1,0 +1,25 @@
+{
+    "edit": "Edit",
+    "remove": "Remove",
+    "save": "Save",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "arrow_nextpage": "Next page",
+    "arrow_prevpage": "Previous page",
+    "arrow_lastpage": "Last page",
+    "arrow_firstpage": "First page",
+    "arrow_dropdown": "Open",
+    "expand_more": "Show more",
+    "expand_less": "Show less",
+    "menu_more": "Open menu",
+    "adjust": "Adjust settings",
+    "filter": "Filter data",
+    "sort": "Sort data",
+    "hide": "Hide",
+    "settings": "Administrate settings",
+    "access_forbidden": "No write access",
+
+    "__comment_deprecated__": "all canonical names below this line are deprecated",
+
+    "delete": "Remove"
+}
