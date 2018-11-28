@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Fixed
 - fatal error when enter '$' into `<AutoCompleteBox />` when `creatable` is true
 
+### Added
+- add canonical icon names for 'add', 'clear', 'help', 'visibility_on' and 'visibility_off'
+
 ## [3.1.1] 2018-11-21
 
 ### Fixed
