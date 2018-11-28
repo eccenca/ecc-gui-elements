@@ -151,7 +151,7 @@ class TestButtons extends React.PureComponent {
                         <Icon name="hide" />
                         Hide
                     </Button>
-                    <Button iconName="more_vert" />
+                    <Button iconName="menu_more" />
                 </CardActions>
             </Card>
         );
@@ -221,7 +221,7 @@ class TestButtons extends React.PureComponent {
                     </Chip>
                     <Chip>
                         <ChipVisual>
-                            <Icon name="done" tooltip="test" />
+                            <Icon name="confirm" tooltip="test" />
                         </ChipVisual>
                         Plain chip with icon (ChipVisual content)
                     </Chip>

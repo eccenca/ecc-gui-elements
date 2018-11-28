@@ -1,0 +1,30 @@
+{
+    "access_forbidden": "lock_outline",
+    "add": "add",
+    "adjust": "tune",
+    "arrow_dropdown": "arrow_drop_down",
+    "arrow_firstpage": "first_page",
+    "arrow_lastpage": "last_page",
+    "arrow_nextpage": "navigate_next",
+    "arrow_prevpage": "navigate_before",
+    "cancel": "close",
+    "clear": "close",
+    "confirm": "check",
+    "edit": "mode_edit",
+    "expand_less": "expand_less",
+    "expand_more": "expand_more",
+    "filter": "filter_list",
+    "hide": "close",
+    "help": "help_outline",
+    "menu_more": "more_vert",
+    "remove": "delete",
+    "save": "save",
+    "settings": "settings",
+    "sort": "swap_vert",
+    "visibility_on": "visibility",
+    "visibility_off": "visibility_off",
+
+    "__comment_deprecated__": "all canonical names below this line are deprecated",
+
+    "delete": "delete"
+}

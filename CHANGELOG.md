@@ -2,6 +2,17 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [3.2.0] 2018-11-28
+
+### Added
+- new param `inputRestriction` for `<AutoCompleteBox />` which allows to manipulate user input before reacting on it
+### Fixed
+- fatal error when enter '$' into `<AutoCompleteBox />` when `creatable` is true
+- fatal error in `<AutoCompleteBox />`'s highlighter when using special characters sometimes
+
+### Added
+- add canonical icon names for 'add', 'clear', 'help', 'visibility_on' and 'visibility_off'
+
 ## [3.1.1] 2018-11-21
 
 ### Fixed
