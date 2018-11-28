@@ -24,21 +24,21 @@ class TestTable extends React.Component {
                     identifier: "vocabularies",
                     content: [
                         <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>vocabularies</Chip>,
-                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
+                        <Button key='btn' onClick={() => {}} iconName={'sort'} />
                     ],
                 },
                 {
                     identifier: 'modified',
                     content: [
                         'modified',
-                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} />
+                        <Button key='btn' onClick={() => {}} iconName={'sort'} />
                     ],
                 },
                 {
                     identifier: "description",
                     content: [
                         <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>description</Chip>,
-                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'}/>
+                        <Button key='btn' onClick={() => {}} iconName={'sort'}/>
                     ],
                 },
                 {
@@ -52,7 +52,7 @@ class TestTable extends React.Component {
                     identifier: "installed",
                     content: [
                         <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>installed</Chip>,
-                        <Button key='btn' onClick={() => {}} iconName={'swap_vert'} tooltip="sort" />
+                        <Button key='btn' onClick={() => {}} iconName={'sort'} tooltip="sort" />
                     ],
                 },
                 {
@@ -190,11 +190,11 @@ class TestTable extends React.Component {
                             <TableRow>
                                 <TableCell></TableCell>
                                 <TableCell isHead>
-                                    <Icon name="help_outline" tooltip="This is a very long description, so any user can understand what it does." />
+                                    <Icon name="help" tooltip="This is a very long description, so any user can understand what it does." />
                                     testhead 1
                                 </TableCell>
                                 <TableCell isHead>
-                                    <Icon name="help_outline" title="normal title, no tooltip" />
+                                    <Icon name="help" title="normal title, no tooltip" />
                                     testhead 2
                                 </TableCell>
                             </TableRow>
