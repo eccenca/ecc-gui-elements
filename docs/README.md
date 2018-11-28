@@ -196,6 +196,7 @@ const Page = React.createClass({
 #### Properties
 - **handleValueChange** (func) - pass Textfield user input to parent component (e.g. to update options)
 - **className** (string) - Insert a custom className to element
+- **inputRestriction** (func) - Allow to manipulate inserted user input string before using it
 
 ### BaseDialog
 

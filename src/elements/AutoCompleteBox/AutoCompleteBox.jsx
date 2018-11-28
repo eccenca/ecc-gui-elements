@@ -34,6 +34,10 @@ class AutoCompleteBox extends React.Component {
          * Insert a custom className to element
          */
         className: PropTypes.string,
+        /**
+         * Allow to manipulate inserted user input string before using it
+         */
+        inputRestriction: PropTypes.func,
         // rest will be validated by `SelectBox`
     };
 
@@ -47,7 +51,7 @@ class AutoCompleteBox extends React.Component {
 
     optionRender = option => {
         const {label, value, description} = option;
-
+        const escapedInput = this.currentInputValue.replace(/[?*|$]/g, '\\$0');
         // only show value entry if it is not same as label
         const optionValue =
             value === label ? (
@@ -56,7 +60,7 @@ class AutoCompleteBox extends React.Component {
                 <code key="autoCompleteValue" className="Select-option__value">
                     <Highlight
                         textToHighlight={value}
-                        searchWord={this.currentInputValue}
+                        searchWord={escapedInput}
                     />
                 </code>
             );
@@ -67,7 +71,7 @@ class AutoCompleteBox extends React.Component {
                 className="Select-option__description">
                 <Highlight
                     textToHighlight={description}
-                    searchWord={this.currentInputValue}
+                    searchWord={escapedInput}
                 />
             </span>
         ) : (
@@ -78,7 +82,7 @@ class AutoCompleteBox extends React.Component {
             <strong key="autoCompleteLabel" className="Select-option__label">
                 <Highlight
                     textToHighlight={label}
-                    searchWord={this.currentInputValue}
+                    searchWord={escapedInput}
                 />
             </strong>,
             optionValue,
@@ -87,6 +91,9 @@ class AutoCompleteBox extends React.Component {
     };
     // will only be triggered when the user type something in textfield
     handleInputChange(inputValue) {
+        if (_.isFunction(this.props.inputRestriction)) {
+            inputValue = this.props.inputRestriction(inputValue);
+        }
         const inputValueCleaned = inputValue.replace(/\$/g, '');
         // check if value really changed
         if (!_.isEqual(inputValueCleaned, this.currentInputValue)) {

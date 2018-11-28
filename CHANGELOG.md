@@ -4,8 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
+- new param `inputRestriction` for `<AutoCompleteBox />` which allows to manipulate user input before reacting on it
 ### Fixed
 - fatal error when enter '$' into `<AutoCompleteBox />` when `creatable` is true
+- fatal error in `<AutoCompleteBox />`'s highlighter when using special characters sometimes
 
 ## [3.1.1] 2018-11-21
 

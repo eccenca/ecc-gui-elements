@@ -45,6 +45,7 @@ const TestSelects = React.createClass({
             selectBox2: [],
             autoCompleteBox1: null,
             autoCompleteBox2: null,
+            autoCompleteBox3: null,
         };
     },
     handleSelectChange(value, key) {
@@ -117,6 +118,15 @@ const TestSelects = React.createClass({
                         options={selectOptions}
                         creatable
                         name="autoCompleteBox2"
+                        value={this.state.autoCompleteBox2}
+                        onChange={this.handleSelectChange}
+                    />
+                    <AutoCompleteBox
+                        placeholder="restricted input (no starting ? or *)"
+                        options={selectOptions}
+                        creatable
+                        inputRestriction={(string) => string.replace(/^(\?|\*)/, '')}
+                        name="autoCompleteBox3"
                         value={this.state.autoCompleteBox2}
                         onChange={this.handleSelectChange}
                     />
