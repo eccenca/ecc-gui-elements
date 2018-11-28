@@ -1,7 +1,7 @@
 /* eslint camelcase: 0 */
 import React from 'react';
 import classNames from 'classnames';
-import { includes } from 'lodash';
+import {includes} from 'lodash';
 import Tooltip from '../Tooltip/Tooltip';
 import PerformanceMixin from './../../mixins/PerformanceMixin';
 import ligatureCodes from './icontable.json';
@@ -61,7 +61,7 @@ const Icon = React.createClass({
         if (typeof canonicalIconNames[name] !== 'undefined') {
             if (name === 'delete' && __DEBUG__) {
                 console.warn(
-                    'Do not us "delete" as icon name. Please use "remove" instead.'
+                    'Do not use "delete" as icon name. Please use "remove" instead.'
                 );
             }
             name = canonicalIconNames[name];
