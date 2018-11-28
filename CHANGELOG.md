@@ -4,8 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
+- new param `inputRestriction` for `<AutoCompleteBox />` which allows to manipulate user input before reacting on it
 ### Fixed
 - fatal error when enter '$' into `<AutoCompleteBox />` when `creatable` is true
+- fatal error in `<AutoCompleteBox />`'s highlighter when using special characters sometimes
 
 ### Added
 - add canonical icon names for 'add', 'clear', 'help', 'visibility_on' and 'visibility_off'
