@@ -1,5 +1,7 @@
 import React from 'react';
+import _ from 'lodash';
 import {Card, CardTitle, CardContent, Icon} from '../../index';
+import canonicalIconNames from '../../src/elements/Icon/canonicalicons.json';
 
 const TestIcons = React.createClass({
     getInitialState() {
@@ -11,27 +13,13 @@ const TestIcons = React.createClass({
             <Card>
                 <CardTitle documentLevel="h4">Test Icons</CardTitle>
                 <CardContent>
-                    <h5>Basic Icons with Fallback tooltips</h5>
-                    <Icon name="edit" />
-                    <Icon name="remove" />
-                    <Icon name="save" />
-                    <Icon name="confirm" />
-                    <Icon name="cancel" />
-                    <Icon name="arrow_firstpage" />
-                    <Icon name="arrow_prevpage" />
-                    <Icon name="arrow_nextpage" />
-                    <Icon name="arrow_lastpage" />
-                    <Icon name="arrow_dropdown" />
-                    <Icon name="expand_more" />
-                    <Icon name="expand_less" />
-                    <Icon name="menu_more" />
-                    <Icon name="adjust" />
-                    <Icon name="filter" />
-                    <Icon name="sort" />
-                    <Icon name="hide" />
-                    <Icon name="settings" />
-                    <Icon name="access_forbidden" />
-                    <Icon name="delete" />
+                    <h5>Canonical icons with fallback tooltips</h5>
+                    {_.map(
+                        canonicalIconNames,
+                        (value, key) => (
+                            <Icon name={key} key={'testicon-'+key} />
+                        )
+                    )}
                     <h5>Other Icons</h5>
                     <Icon
                         name="widgets"
