@@ -34,7 +34,7 @@ const Page = React.createClass({
 
             // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
             <Button
-                iconName="more_vert"
+                iconName="menu_more"
                 tooltip="This is a Test!"
                 fabSize="mini"
             />

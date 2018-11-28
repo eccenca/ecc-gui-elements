@@ -32,7 +32,7 @@ const TestTooltips = () => {
                 </h4>
                 <CardMenu>
                     <Button>Test</Button>
-                    <Button iconName="more_vert" tooltip="Test" />
+                    <Button iconName="menu_more" tooltip="Test" />
                 </CardMenu>
             </CardTitle>
             <CardContent>
@@ -71,7 +71,7 @@ const TestTooltips = () => {
                 &nbsp;/&nbsp;
                 <Tooltip label="Tooltip for icon">
                     <span>
-                        <Icon name="add" />
+                        <Icon name="add" tooltip={false} />
                     </span>
                 </Tooltip>
                 &nbsp;/&nbsp;

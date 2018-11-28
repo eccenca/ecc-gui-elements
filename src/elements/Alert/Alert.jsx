@@ -51,7 +51,7 @@ const Alert = React.createClass({
                 <div className="mdl-alert__dismiss">
                     <Button
                         type="button"
-                        iconName={iconDismiss || 'close'}
+                        iconName={iconDismiss || 'hide'}
                         tooltip={labelDismiss || 'Hide'}
                         onClick={handlerDismiss}
                     />
