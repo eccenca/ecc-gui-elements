@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [3.2.0] 2018-11-28
 
 ### Added
 - new param `inputRestriction` for `<AutoCompleteBox />` which allows to manipulate user input before reacting on it
