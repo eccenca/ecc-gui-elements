@@ -1,5 +1,6 @@
 {
     "access_forbidden": "No write access",
+    "add": "Add",
     "adjust": "Adjust settings",
     "arrow_dropdown": "Open",
     "arrow_firstpage": "First page",
@@ -7,17 +8,21 @@
     "arrow_nextpage": "Next page",
     "arrow_prevpage": "Previous page",
     "cancel": "Cancel",
+    "clear": "Clear field",
     "confirm": "Confirm",
     "edit": "Edit",
     "expand_less": "Show less",
     "expand_more": "Show more",
     "filter": "Filter data",
     "hide": "Hide",
+    "help": "Show help text",
     "menu_more": "Open menu",
     "remove": "Remove",
     "save": "Save",
     "settings": "Administrate settings",
     "sort": "Sort data",
+    "visibility_on": "Visibility on",
+    "visibility_off": "Visibility off",
 
     "__comment_deprecated__": "all canonical names below this line are deprecated",
 
