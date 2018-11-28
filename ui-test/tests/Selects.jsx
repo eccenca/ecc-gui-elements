@@ -127,7 +127,7 @@ const TestSelects = React.createClass({
                         creatable
                         inputRestriction={(string) => string.replace(/^(\?|\*)/, '')}
                         name="autoCompleteBox3"
-                        value={this.state.autoCompleteBox2}
+                        value={this.state.autoCompleteBox3}
                         onChange={this.handleSelectChange}
                     />
                 </CardContent>
