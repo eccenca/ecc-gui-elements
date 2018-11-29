@@ -8,7 +8,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 - clearing button on TextField is now positioned correctly when it has an tooltip
 
 ### Added
-- add `onClearValue` option to `<TextField />` element
+- add `onClearValue` and `reducedSize` options to `<TextField />` element
 
 ## [3.2.0] 2018-11-28
 

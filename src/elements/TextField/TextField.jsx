@@ -60,6 +60,7 @@ const TextField = props => {
         multiline,
         onChange,
         onClearValue,
+        reducedSize,
         stretch,
         value,
         ...otherProps
@@ -68,6 +69,7 @@ const TextField = props => {
     const classes = classNames(className, {
         'mdl-textfield--full-width': stretch === true,
         'mdl-textfield--clearable': _.isFunction(onClearValue),
+        'mdl-textfield--reduced': reducedSize === true,
     });
 
     // provides clean searchstring button
@@ -136,7 +138,7 @@ TextField.propTypes = {
     /**
         reduce whitespace around the element
     */
-    // TODO: reducedSize: Proptypes.bool,
+    reducedSize: Proptypes.bool,
     /**
         value is required
     */
@@ -157,6 +159,7 @@ TextField.defaultProps = {
     label: '',
     multiline: false,
     onClearValue: false,
+    reducedSize: false,
     required: false,
     stretch: true,
 };

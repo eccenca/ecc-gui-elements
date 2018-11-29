@@ -190,8 +190,9 @@ const TestInputs = React.createClass({
                     />
                     <TextField
                         stretch
+                        reducedSize
                         name="textInput[2]"
-                        label="Clearable input"
+                        label="Clearable input and reduced size"
                         value={this.state.textInput[2]}
                         onChange={this.updateValue}
                         onClearValue={() => {
