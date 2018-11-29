@@ -19,7 +19,7 @@ const TestInputs = React.createClass({
     getInitialState() {
         return {
             switches: [false, true, undefined, undefined, true, false],
-            textInput: ['5'],
+            textInput: ['5', '', ''],
             selectedRadio: '',
             dateInput: [
                 // date only
@@ -182,6 +182,23 @@ const TestInputs = React.createClass({
                         className="mdl-textfield--full-width"
                         value={this.state.textInput[1]}
                         onChange={this.updateValue}
+                        onClearValue={() => {
+                            const currentState = this.state;
+                            currentState.textInput[1] = '';
+                            this.setState(currentState);
+                        }}
+                    />
+                    <TextField
+                        stretch
+                        name="textInput[2]"
+                        label="Clearable input"
+                        value={this.state.textInput[2]}
+                        onChange={this.updateValue}
+                        onClearValue={() => {
+                            const currentState = this.state;
+                            currentState.textInput[2] = '';
+                            this.setState(currentState);
+                        }}
                     />
                     <TextField
                         name="textInput[0]"
