@@ -15,6 +15,7 @@
         &:focus, &:hover, &:active {
             opacity: 1;
             color: to_color($palette-red-800);
+            background-color: transparent;
         }
     }
 }

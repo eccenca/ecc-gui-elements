@@ -28,13 +28,8 @@
     position: relative;
     top: 20px;
 
-    .mdl-button--icon {
-        opacity: 0.5;
-
-        &:focus, &:hover {
-            opacity: 1;
-            background-color: transparent;
-        }
+    & > div[style] {
+        display: block !important;
     }
 }
 
