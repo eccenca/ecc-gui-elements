@@ -70,6 +70,7 @@ const TextField = props => {
         'mdl-textfield--full-width': stretch === true,
         'mdl-textfield--clearable': _.isFunction(onClearValue),
         'mdl-textfield--reduced': reducedSize === true,
+        'mdl-textfield--multiline': multiline === true,
     });
 
     // provides clean searchstring button

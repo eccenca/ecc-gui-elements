@@ -31,6 +31,11 @@
     & > div[style] {
         display: block !important;
     }
+
+    .mdl-textfield--multiline & {
+        position: absolute;
+        top: 68px;
+    }
 }
 
 textarea.mdl-textfield__input {
