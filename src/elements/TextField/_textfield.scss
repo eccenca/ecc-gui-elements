@@ -28,13 +28,13 @@
     position: relative;
     top: 20px;
 
-    .mdl-button--icon {
-        opacity: 0.5;
+    & > div[style] {
+        display: block !important;
+    }
 
-        &:focus, &:hover {
-            opacity: 1;
-            background-color: transparent;
-        }
+    .mdl-textfield--multiline & {
+        position: absolute;
+        top: 68px;
     }
 }
 
