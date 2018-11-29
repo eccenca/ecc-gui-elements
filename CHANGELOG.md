@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [3.3.0] 2018-11-29
+
+### Fixed
+- clearing button on TextField is now positioned correctly when it has an tooltip
+
+### Added
+- add `onClearValue` and `reducedSize` options to `<TextField />` element
+
 ## [3.2.0] 2018-11-28
 
 ### Added
