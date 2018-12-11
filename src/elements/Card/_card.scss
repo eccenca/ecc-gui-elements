@@ -62,6 +62,13 @@
 }
 
 .mdl-card__content {
+    /*
+    TODO:
+    we need to figure out later if we can switch the margin/padding definitions,
+    because we need to do it for auto-scrolled content areas anyway
+    (see dialog element styles)
+    */
+
     margin: $ecc-size-blockelement-margin-vertical $ecc-size-blockelement-margin-horizontal;
     padding: 0;
 

@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Changed
+- use <Card/> element as foundation for the dialogs to align them visually
 
 ## [3.3.0] 2018-11-29
 
