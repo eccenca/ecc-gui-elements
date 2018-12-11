@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [3.3.1] 2018-12-11
+
+### Changed
+- use <Card/> element as foundation for the dialogs to align them visually
+
 ## [3.3.0] 2018-11-29
 
 ### Fixed

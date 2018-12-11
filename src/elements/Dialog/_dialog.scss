@@ -6,7 +6,7 @@
 
 .mdl-dialog {
     display: none;
-    background: $card-background-color;
+    // background: $card-background-color;
     border-radius: 2px;
     box-sizing: border-box;
     max-width: 90%;
@@ -49,33 +49,14 @@
     z-index: -1;
 }
 
-.mdl-dialog__title {
-    padding: 24px 24px 0 24px;
-}
-
-.mdl-dialog__title-text {
-    font-size: 20px;
-}
-
 .mdl-dialog__content {
-    padding: 0 24px 24px 24px;
-    margin-top: 24px;
-    max-height: 40rem;
-    max-height: 70vh;
+    padding: $ecc-size-blockelement-margin-vertical $ecc-size-blockelement-margin-horizontal;
+    margin: 0;
     max-height: calc(70vh - 52px - 68px);
     overflow: auto;
     overflow-x: hidden;
 }
 
-/*
-// replace by new dialog styles from mdl
 .mdl-dialog__actions {
-    display: flex;
-    justify-content: flex-end;
-    padding: 8px 8px 8px 24px;
-
-    & > * {
-        margin-left: 8px;
-    }
+    flex-direction: row-reverse;
 }
-*/
