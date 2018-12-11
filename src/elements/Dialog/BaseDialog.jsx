@@ -4,6 +4,13 @@ import classNames from 'classnames';
 
 import PerformanceMixin from '../../mixins/PerformanceMixin';
 import Button from '../../elements/Button/Button';
+import {
+    Card,
+    CardTitle,
+    CardMenu,
+    CardContent,
+    CardActions,
+} from '../../elements/Card';
 
 /**
  * This Component creates a customizable dialog.
@@ -63,7 +70,7 @@ const BaseDialog = React.createClass({
 
         // set classname
         const classes = classNames(
-            'mdl-dialog mdl-shadow--16dp',
+            'mdl-dialog',
             {
                 'is-activated': active === true,
                 'mdl-dialog--modal': modal === true,
@@ -81,32 +88,36 @@ const BaseDialog = React.createClass({
 
         // set title cancel Button
         const cancelButton = titleCancelButton ? (
-            <Button
-                className="mdl-dialog__title__close-button"
-                tooltip="Close"
-                iconName="hide"
-                onClick={titleCancelButton}
-            />
+            <CardMenu>
+                <Button
+                    className="mdl-dialog__title__close-button"
+                    tooltip="Close"
+                    iconName="hide"
+                    onClick={titleCancelButton}
+                />
+            </CardMenu>
         ) : (
             false
         );
         // set title
         const dialogTitle = title ? (
-            <div className="mdl-dialog__title">
-                <strong className="mdl-dialog__title-text">{title}</strong>
+            <CardTitle documentLevel="h1" className="mdl-dialog__title">
+                <h1 className="mdl-card__title-text">{title}</h1>
                 {cancelButton}
-            </div>
+            </CardTitle>
         ) : (
             false
         );
 
         // set content
-        let content = false;
-        if (this.props.children) {
-            content = (
-                <div className="mdl-dialog__content">{this.props.children}</div>
-            );
-        }
+        const content = this.props.children ? (
+            <CardContent className="mdl-dialog__content">
+                {this.props.children}
+            </CardContent>
+        ) : (
+            false
+        );
+
         // set button main layout
         const buttonLayout = {
             accent: true,
@@ -125,7 +136,11 @@ const BaseDialog = React.createClass({
             );
         });
 
-        const actions = <div className="mdl-dialog__actions">{rowActions}</div>;
+        const actions = (
+            <CardActions className="mdl-dialog__actions">
+                {rowActions}
+            </CardActions>
+        );
 
         let containerClass = '';
         if (active === true) {
@@ -136,11 +151,11 @@ const BaseDialog = React.createClass({
         const dialog = (
             <div className={containerClass}>
                 {modalbg}
-                <div className={classes} {...otherProps}>
+                <Card className={classes} shadow={5} {...otherProps}>
                     {dialogTitle}
                     {content}
                     {actions}
-                </div>
+                </Card>
             </div>
         );
 
