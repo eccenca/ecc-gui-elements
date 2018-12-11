@@ -151,7 +151,7 @@ const BaseDialog = React.createClass({
         const dialog = (
             <div className={containerClass}>
                 {modalbg}
-                <Card className={classes} shadow={5} {...otherProps}>
+                <Card className={classes} shadow={6} {...otherProps}>
                     {dialogTitle}
                     {content}
                     {actions}
