@@ -32,13 +32,11 @@ const DismissiveButton = React.createClass({
         // split 'normal' props from button content
         const {children, ...otherProps} = this.props;
         const useProgressButton =
-            typeof otherProps.progress !== 'undefined' ||
-            typeof otherProps.progressTopic !== 'undefined';
+            typeof otherProps.progress !== 'undefined';
 
         // remove unused propTypes from button
         if (!useProgressButton) {
             delete otherProps.progress;
-            delete otherProps.progressTopic;
         }
 
         if (__DEBUG__ && typeof otherProps.accent !== 'undefined') {

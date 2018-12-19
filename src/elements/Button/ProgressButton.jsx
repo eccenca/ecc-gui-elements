@@ -52,11 +52,6 @@ const ProgressButton = React.createClass({
         */
         progress: React.PropTypes.number,
         /**
-            message queue subject (optional): channel subject that are used to update information about progress,
-            if given that the button element listens to it for update objects that include `progressNumber` property with a value between 0 and 100
-        */
-        progressTopic: React.PropTypes.object,
-        /**
             string (optional): tooltip for progress bar
             if a progress number is known (via option or message queue) then the tooltip is extenden by a colon, the value and a percent char
         */
@@ -75,22 +70,6 @@ const ProgressButton = React.createClass({
             lastUpdate: _.get(this.props, 'lastUpdate', false),
         };
     },
-
-    componentDidMount() {
-        if (_.has(this.props, 'progressTopic')) {
-            const topic = _.get(this.props, 'progressTopic');
-            if (_.isFunction(topic.subscribe)) {
-                this.subscription = topic.subscribe(this.handleProgressUpdates);
-            }
-        }
-    },
-
-    componentWillUnmount() {
-        if (_.has(this, 'subscription')) {
-            this.subscription.unsubscribe();
-        }
-    },
-
     handleProgressUpdates({progressNumber, lastUpdate = false}) {
         if (_.isNumber(progressNumber)) {
             this.setState({
@@ -105,7 +84,6 @@ const ProgressButton = React.createClass({
         // split 'normal' props from button content
         const {children, className, tooltip, ...otherProps} = this.props;
         delete otherProps.progress;
-        delete otherProps.progressTopic;
 
         const classes = classNames('mdl-progress mdl-js-progress', className);
 
