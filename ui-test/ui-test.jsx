@@ -269,6 +269,15 @@ const Page = React.createClass({
             return 0;
         });
 
+        const path = this.props.location.pathname.substring(1);
+        if (
+            path !== 'all' &&
+            testcases.filter(c => c.name.toLowerCase() === path).length === 0
+        ) {
+            window.location = '/all';
+            return 0;
+        }
+
         return (
             <div>
                 <Layout fixedHeader>
