@@ -20,6 +20,7 @@
     .Select-option__value {
         font-family: "Roboto Mono", monospace;
         font-size: $ecc-size-typo-caption;
+        direction: rtl;
     }
 
     .Select-option__description {
