@@ -307,6 +307,46 @@ const Page = React.createClass({
                         </Navigation>
                     </Drawer>
                     <Content>
+                        {/* dummy cards to test scrolling */}
+                        <Route
+                            path="/scrolling"
+                            key="dummy"
+                            render={() => (
+                                <div style={{margin: '10px'}}>
+                                    <Card
+                                        ref={spinner => {
+                                            this.testSpinner = spinner;
+                                        }}>
+                                        <CardContent>
+                                            <div style={{height: '100px'}}>
+                                                A Spinner
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                    <Card
+                                        ref={alert => {
+                                            this.testAlerts = alert;
+                                        }}>
+                                        <CardContent>
+                                            <div style={{height: '100px'}}>
+                                                Some Alerts
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                    <Card
+                                        ref={button => {
+                                            this.testButtons = button;
+                                        }}>
+                                        <CardContent>
+                                            <div style={{height: '100px'}}>
+                                                One Button
+                                            </div>
+                                        </CardContent>
+                                    </Card>
+                                </div>
+                            )}
+                        />
+
                         {_.map(testcases, ({name, code}) => (
                             <Route
                                 path={`/(all|${name.toLowerCase()})`}
