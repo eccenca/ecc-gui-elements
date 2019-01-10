@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Changed
+- cut value description in `<AutoCompleteBox/>` on the left side if value is to big to get shown completely
 
 ## [3.3.1] 2018-12-11
 
