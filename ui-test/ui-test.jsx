@@ -15,6 +15,7 @@ import TestAlerts from './tests/Alerts';
 import TestDialogs from './tests/Dialogs';
 import TestIcons from './tests/Icons';
 import TestButtons from './tests/Buttons';
+import TestChips from './tests/Chips';
 import TestInputs from './tests/Inputs';
 import TestSelects from './tests/Selects';
 import TestTabs from './tests/Tabs';
@@ -236,6 +237,17 @@ const Page = React.createClass({
                         key="buttons"
                         ref={buttons => {
                             this.testButtons = buttons;
+                        }}
+                    />
+                ),
+            },
+            {
+                name: 'Chips',
+                code: (
+                    <TestChips
+                        key="chips"
+                        ref={chips => {
+                            this.testChips = chips;
                         }}
                     />
                 ),
