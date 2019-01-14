@@ -24,24 +24,16 @@ import TestScrolling from './tests/Scrolling';
 import TestPagination from './tests/Pagination';
 import TestTooltips from './tests/Tooltips';
 import TestCards from './tests/Cards';
+import TestNA from './tests/NA';
+import TestNothing from './tests/Nothing';
+import TestBreadcrumbList from './tests/BreadcrumbList';
+import TestContextMenu from './tests/ContextMenu';
+
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
 import ScrollingMixin from './../src/mixins/ScrollingMixin';
 
 // component
-import {
-    BreadcrumbList,
-    BreadcrumbItem,
-    ContextMenu,
-    MenuItem,
-    Nothing,
-    NotAvailable,
-    Layout,
-    Content,
-    Footer,
-    Card,
-    CardTitle,
-    CardContent,
-} from '../index';
+import {Layout, Content, Footer, Card, CardContent} from '../index';
 
 window.enablePerformanceMixingLog = true;
 
@@ -71,78 +63,15 @@ const Page = React.createClass({
         const testcases = [
             {
                 name: 'Context Menu',
-                code: (
-                    <Card>
-                        <CardTitle>Test Context Menu</CardTitle>
-                        <CardContent>
-                            <ContextMenu align="left" key="contextmenu1">
-                                <MenuItem className="ownClassName" key="no1">
-                                    First First Item
-                                </MenuItem>
-                                <MenuItem>First Second Item</MenuItem>
-                                <MenuItem>First Menu Item 3</MenuItem>
-                                <MenuItem>First Another Menu Item</MenuItem>
-                                <MenuItem onClick={this.addContextMenuItem}>
-                                    First Add Another
-                                </MenuItem>
-                                {this.state &&
-                                this.state.insertContextMenuItem ? (
-                                    <MenuItem
-                                        onClick={this.removeContextMenuItem}>
-                                        Remove me
-                                    </MenuItem>
-                                ) : (
-                                    false
-                                )}
-                            </ContextMenu>
-                            <ContextMenu
-                                align="right"
-                                iconName="add"
-                                tooltip="add property"
-                                key="contextmenu2">
-                                <MenuItem>Second First Item</MenuItem>
-                                <MenuItem>Second Second Item</MenuItem>
-                                <MenuItem>Second Menu Item 3</MenuItem>
-                                <MenuItem>Second Another Menu Item</MenuItem>
-                                <MenuItem>Second Alright</MenuItem>
-                            </ContextMenu>
-                            <ContextMenu valign="top" key="contextmenu3">
-                                <MenuItem>Only one menu item</MenuItem>
-                            </ContextMenu>
-                        </CardContent>
-                    </Card>
-                ),
+                code: <TestContextMenu key="contextmenu" />,
             },
             {
                 name: 'Breadcrumb List',
-                code: (
-                    <Card>
-                        <CardTitle>Test Breadcrumb List</CardTitle>
-                        <CardContent>
-                            <BreadcrumbList className="my-own-class">
-                                <BreadcrumbItem
-                                    onClick={function() {
-                                        alert('Click on breadcrumb item.');
-                                    }}>
-                                    Button
-                                </BreadcrumbItem>
-                                <BreadcrumbItem href="/">Link</BreadcrumbItem>
-                                <BreadcrumbItem>Span</BreadcrumbItem>
-                            </BreadcrumbList>
-                        </CardContent>
-                    </Card>
-                ),
+                code: <TestBreadcrumbList key="breadcrumblist" />,
             },
             {
                 name: 'Nothing',
-                code: (
-                    <Card>
-                        <CardTitle>Test Nothing</CardTitle>
-                        <CardContent>
-                            <Nothing key="nothing" />
-                        </CardContent>
-                    </Card>
-                ),
+                code: <TestNothing key="nothing" />,
             },
             {
                 name: 'Spinner',
@@ -157,27 +86,7 @@ const Page = React.createClass({
             },
             {
                 name: 'N/A',
-                code: (
-                    <Card>
-                        <CardTitle>Test N/A</CardTitle>
-                        <CardContent>
-                            <div key="N/A">
-                                <p>
-                                    This is a test with a block{' '}
-                                    <NotAvailable
-                                        label="N/A"
-                                        description="Not available element"
-                                    />{' '}
-                                    information.
-                                </p>
-                                <p>
-                                    This is a test with a inline
-                                    <NotAvailable inline />information.
-                                </p>
-                            </div>
-                        </CardContent>
-                    </Card>
-                ),
+                code: <TestNA key="N/A" />,
             },
             {
                 name: 'Progressbar',
