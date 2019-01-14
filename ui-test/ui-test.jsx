@@ -212,13 +212,13 @@ const Page = React.createClass({
                             path="/scrolling"
                             key="dummy"
                             render={() => (
-                                <div style={{margin: '10px'}}>
+                                <div className="uitest-divmargin">
                                     <Card
                                         ref={spinner => {
                                             this.testSpinner = spinner;
                                         }}>
                                         <CardContent>
-                                            <div style={{height: '100px'}}>
+                                            <div className="uitest-scrolling__cardcontent">
                                                 A Spinner
                                             </div>
                                         </CardContent>
@@ -228,7 +228,7 @@ const Page = React.createClass({
                                             this.testAlerts = alert;
                                         }}>
                                         <CardContent>
-                                            <div style={{height: '100px'}}>
+                                            <div className="uitest-scrolling__cardcontent">
                                                 Some Alerts
                                             </div>
                                         </CardContent>
@@ -238,7 +238,7 @@ const Page = React.createClass({
                                             this.testButtons = button;
                                         }}>
                                         <CardContent>
-                                            <div style={{height: '100px'}}>
+                                            <div className="uitest-scrolling__cardcontent">
                                                 One Button
                                             </div>
                                         </CardContent>
@@ -252,7 +252,9 @@ const Page = React.createClass({
                                 path={`/(all|${name.toLowerCase()})`}
                                 key={`${name}`}
                                 render={() => (
-                                    <div style={{margin: '10px'}}>{code}</div>
+                                    <div className="uitest-divmargin">
+                                        {code}
+                                    </div>
                                 )}
                             />
                         ))}

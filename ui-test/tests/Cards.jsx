@@ -45,7 +45,10 @@ class TestCards extends React.PureComponent {
                     </ContextMenu>
                 </CardMenu>
                 <CardContent>
-                    <div style={this.state.longCard ? {height: '120vh'} : {}}>
+                    <div
+                        className={
+                            this.state.longCard ? 'uitest-longcard' : ''
+                        }>
                         <Checkbox
                             label="Large card"
                             checked={this.state.longCard}
