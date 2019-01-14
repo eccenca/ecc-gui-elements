@@ -40,20 +40,6 @@ window.enablePerformanceMixingLog = true;
 const Page = React.createClass({
     mixins: [PerformanceMixin],
 
-    addContextMenuItem() {
-        this.setState({
-            insertContextMenuItem: true,
-        });
-        console.log('insert MenuItem');
-    },
-
-    removeContextMenuItem() {
-        this.setState({
-            insertContextMenuItem: false,
-        });
-        console.log('remove MenuItem');
-    },
-
     handleScrollTo(ref) {
         ScrollingMixin.scrollElementIntoView(this[ref], {topOffset: 100});
     },

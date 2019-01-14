@@ -47,7 +47,7 @@ class TestCards extends React.PureComponent {
                 <CardContent>
                     <div style={this.state.longCard ? {height: '120vh'} : {}}>
                         <Checkbox
-                            label="Click to lengthen me"
+                            label="Large card"
                             checked={this.state.longCard}
                             onChange={({value}) =>
                                 this.setState({longCard: value})
