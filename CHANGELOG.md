@@ -4,7 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+
+- Routing to test cases
+- New Cards test
+
+### Changed
+
+- Redesign the content using MDL sidebar with `<Drawer>` and `<Navigation>` elements
+- Separate chips test from buttons test
 
 ## [3.3.1] 2018-12-11
 

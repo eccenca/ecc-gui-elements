@@ -23,6 +23,7 @@ import TestTable from './tests/Table';
 import TestScrolling from './tests/Scrolling';
 import TestPagination from './tests/Pagination';
 import TestTooltips from './tests/Tooltips';
+import TestCards from './tests/Cards';
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
 import ScrollingMixin from './../src/mixins/ScrollingMixin';
 
@@ -271,6 +272,10 @@ const Page = React.createClass({
             {
                 name: 'Table',
                 code: <TestTable key="table" />,
+            },
+            {
+                name: 'Cards',
+                code: <TestCards key="cards" />,
             },
         ];
 
