@@ -1,6 +1,6 @@
 {
   "name": "@eccenca/gui-elements",
-  "version": "3.3.1",
+  "version": "3.4.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -56,7 +56,8 @@
     "js-yaml": "^3.8.4",
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.3.1"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint"

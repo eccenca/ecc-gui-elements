@@ -1,11 +1,26 @@
 import React from 'react';
+import _ from 'lodash';
+
 import {
-    Table, TableHead, TableBody, TableRow, TableCell,
-    Card, CardTitle, CardContent, Button, Chip, Checkbox, Radio,
-    ContextMenu, MenuItem, Icon
+    Table,
+    TableHead,
+    TableBody,
+    TableRow,
+    TableCell,
+    Card,
+    CardTitle,
+    CardContent,
+    Button,
+    Chip,
+    Checkbox,
+    Radio,
+    ContextMenu,
+    MenuItem,
+    Icon,
 } from '../../index';
 
-// FIXME: add documentation
+// test styles
+import '../../style/test.scss';
 
 class TestTable extends React.Component {
     constructor() {
@@ -21,50 +36,78 @@ class TestTable extends React.Component {
                     content: <Checkbox label="Select" />,
                 },
                 {
-                    identifier: "vocabularies",
+                    identifier: 'vocabularies',
                     content: [
-                        <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>vocabularies</Chip>,
-                        <Button key='btn' onClick={() => {}} iconName={'sort'} />
+                        <Chip
+                            key="chip"
+                            type="button"
+                            tooltip={false}
+                            onClick={() => {}}>
+                            vocabularies
+                        </Chip>,
+                        <Button key="btn" onClick={() => {}} iconName="sort" />,
                     ],
                 },
                 {
                     identifier: 'modified',
                     content: [
                         'modified',
-                        <Button key='btn' onClick={() => {}} iconName={'sort'} />
+                        <Button key="btn" onClick={() => {}} iconName="sort" />,
                     ],
                 },
                 {
-                    identifier: "description",
+                    identifier: 'description',
                     content: [
-                        <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>description</Chip>,
-                        <Button key='btn' onClick={() => {}} iconName={'sort'}/>
+                        <Chip
+                            key="chip"
+                            type="button"
+                            tooltip={false}
+                            onClick={() => {}}>
+                            description
+                        </Chip>,
+                        <Button key="btn" onClick={() => {}} iconName="sort" />,
                     ],
                 },
                 {
-                    identifier: "keywords",
+                    identifier: 'keywords',
                     content: [
-                        <Chip key='chip' type="button" tooltip={false} onClick={() => {
-                        }}>keywords</Chip>,
+                        <Chip
+                            key="chip"
+                            type="button"
+                            tooltip={false}
+                            onClick={() => {}}>
+                            keywords
+                        </Chip>,
                     ],
                 },
                 {
-                    identifier: "installed",
+                    identifier: 'installed',
                     content: [
-                        <Chip key='chip' type="button" tooltip={false} onClick={() => {}}>installed</Chip>,
-                        <Button key='btn' onClick={() => {}} iconName={'sort'} tooltip="sort" />
+                        <Chip
+                            key="chip"
+                            type="button"
+                            tooltip={false}
+                            onClick={() => {}}>
+                            installed
+                        </Chip>,
+                        <Button
+                            key="btn"
+                            onClick={() => {}}
+                            iconName="sort"
+                            tooltip="sort"
+                        />,
                     ],
                 },
                 {
                     identifier: 'testbutton',
                 },
                 {
-                    identifier: 'toolsetactions'
+                    identifier: 'toolsetactions',
                 },
             ],
             tableContent: [
                 {
-                    expanding: <Button iconName={'expand_more'} />,
+                    expanding: <Button iconName="expand_more" />,
                     selectrow: <Checkbox label="Select" />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (sec)</Chip>,
                     modified: <span>2017-08-07</span>,
@@ -75,39 +118,62 @@ class TestTable extends React.Component {
                     testbutton: <Button>Do it!</Button>,
                 },
                 {
-                    expanding: <Button iconName={'expand_more'} />,
+                    expanding: <Button iconName="expand_more" />,
                     selectrow: <Checkbox label="Select" />,
                     vocabularies: [
-                        <Chip onClick={() => {}}>FIBO (loan)</Chip>,
-                        <Chip onClick={() => {}}>FIBO (sec)</Chip>,
-                        <Chip onClick={() => {}}>FIBO (ind)</Chip>,
+                        <Chip key="1" onClick={() => {}}>
+                            FIBO (loan)
+                        </Chip>,
+                        <Chip key="2" onClick={() => {}}>
+                            FIBO (sec)
+                        </Chip>,
+                        <Chip key="3" onClick={() => {}}>
+                            FIBO (ind)
+                        </Chip>,
                     ],
                     modified: '2017-08-07',
                     keywords: 'Finance',
                     installed: 'no',
                     testbutton: <Button>Do it!</Button>,
                     toolsetactions: [
-                        <Button key='edit' onClick={() => {}} iconName={'edit'} />,
-                        <Button key='remove' onClick={() => {}} iconName={'remove'} />,
-                        <Button key='more' onClick={() => {}} iconName={'menu_more'} />,
+                        <Button
+                            key="edit"
+                            onClick={() => {}}
+                            iconName="edit"
+                        />,
+                        <Button
+                            key="remove"
+                            onClick={() => {}}
+                            iconName="remove"
+                        />,
+                        <Button
+                            key="more"
+                            onClick={() => {}}
+                            iconName="menu_more"
+                        />,
                     ],
                 },
                 {
-                    expanding: <Button iconName={'expand_more'} />,
-                selectrow: <Checkbox checked label="Select" />,
+                    expanding: <Button iconName="expand_more" />,
+                    selectrow: <Checkbox checked label="Select" />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (ind)</Chip>,
                     modified: '2017-08-07',
-                    description:
-                        'FIBO Indices and Indicators consists of a set of business concepts representing the various forms of market indices, economic indicators and market-based interest rates. The ontologies cover quoted interest rates, economic measures such as employment rates, and quoted indices required to support baskets of securities, including specific kinds of securities in share indices or bond indices, as well as credit indices.'.split(' ').join(''),
+                    description: 'FIBO Indices and Indicators consists of a set of business concepts representing the various forms of market indices, economic indicators and market-based interest rates. The ontologies cover quoted interest rates, economic measures such as employment rates, and quoted indices required to support baskets of securities, including specific kinds of securities in share indices or bond indices, as well as credit indices.'
+                        .split(' ')
+                        .join(''),
                     keywords: 'Finance',
                     installed: 'no',
                     toolsetactions: [
-                        <ContextMenu style={{display: 'inline-block'}}>
-                            <MenuItem>Menu item One</MenuItem>
-                            <MenuItem>Second Menu item</MenuItem>
-                            <MenuItem>Third</MenuItem>
-                            <MenuItem>The 4th and very last menu item</MenuItem>
-                        </ContextMenu>
+                        <ContextMenu
+                            key="contextmenu"
+                            className="uitest-table__contextmenu">
+                            <MenuItem key="1">Menu item One</MenuItem>
+                            <MenuItem key="2">Second Menu item</MenuItem>
+                            <MenuItem key="3">Third</MenuItem>
+                            <MenuItem key="4">
+                                The 4th and very last menu item
+                            </MenuItem>
+                        </ContextMenu>,
                     ],
                 },
             ],
@@ -120,91 +186,101 @@ class TestTable extends React.Component {
                 <CardTitle documentLevel="h4">Test Table</CardTitle>
                 <CardContent>
                     <h5>Standard</h5>
-                    <Table className="my-own-table-class" scrollTableOverflow preventCellOverflow>
+                    <Table
+                        className="my-own-table-class"
+                        scrollTableOverflow
+                        preventCellOverflow>
                         <TableHead>
                             <TableRow>
-                                {
-                                    _.map(this.data.tableHead, (column, idxColumn) => (
+                                {_.map(
+                                    this.data.tableHead,
+                                    (column, idxColumn) => (
                                         <TableCell key={idxColumn} isHead>
                                             {column.content || false}
                                         </TableCell>
-                                    ))
-                                }
+                                    )
+                                )}
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                                {
-                                    _.map(this.data.tableContent, (row, idxRow) => (
-                                        <TableRow key={idxRow}>
-                                            {
-                                                _.map(this.data.tableHead, (column, idxColumn) => (
-                                                    <TableCell key={idxRow + '.' + idxColumn}>
-                                                        {row[column.identifier] || false}
-                                                    </TableCell>
-                                                ))
-                                            }
-                                        </TableRow>
-                                    ))
-                                }
-
+                            {_.map(this.data.tableContent, (row, idxRow) => (
+                                <TableRow key={idxRow}>
+                                    {_.map(
+                                        this.data.tableHead,
+                                        (column, idxColumn) => (
+                                            <TableCell
+                                                key={`${idxRow}.${idxColumn}`}>
+                                                {row[column.identifier] ||
+                                                    false}
+                                            </TableCell>
+                                        )
+                                    )}
+                                </TableRow>
+                            ))}
                         </TableBody>
                     </Table>
                     <h5>Multilined, full width, extra buttons</h5>
-                        <Table multiline fullWidth>
-                            <TableHead>
-                                <TableRow>
-                                    {
-                                        _.map(this.data.tableHead, (column, idxColumn) => (
-                                            <TableCell key={idxColumn} isHead>
-                                                {column.content || false}
-                                            </TableCell>
-                                        ))
-                                    }
-                                </TableRow>
-                            </TableHead>
-                            <TableBody>
-                                    {
-                                        _.map(this.data.tableContent, (row, idxRow) => (
-                                            <TableRow key={idxRow} preventCellOverflow>
-                                                {
-                                                    _.map(this.data.tableHead, (column, idxColumn) => (
-                                                        <TableCell key={idxRow + '.' + idxColumn}>
-                                                            {row[column.identifier] || false}
-                                                        </TableCell>
-                                                    ))
-                                                }
-                                            </TableRow>
-                                        ))
-                                    }
-
-                            </TableBody>
-                        </Table>
-                    <h5>Manual Table</h5>
-                    <Table
-                        className="my-table-class"
-                    >
-                        <TableHead
-                            multiline
-                            className="my-table-head-class"
-                        >
+                    <Table multiline fullWidth>
+                        <TableHead>
                             <TableRow>
-                                <TableCell></TableCell>
+                                {_.map(
+                                    this.data.tableHead,
+                                    (column, idxColumn) => (
+                                        <TableCell key={idxColumn} isHead>
+                                            {column.content || false}
+                                        </TableCell>
+                                    )
+                                )}
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {_.map(this.data.tableContent, (row, idxRow) => (
+                                <TableRow key={idxRow} preventCellOverflow>
+                                    {_.map(
+                                        this.data.tableHead,
+                                        (column, idxColumn) => (
+                                            <TableCell
+                                                key={`${idxRow}.${idxColumn}`}>
+                                                {row[column.identifier] ||
+                                                    false}
+                                            </TableCell>
+                                        )
+                                    )}
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                    <h5>Manual Table</h5>
+                    <Table className="my-table-class">
+                        <TableHead multiline className="my-table-head-class">
+                            <TableRow>
+                                <TableCell />
                                 <TableCell isHead>
-                                    <Icon name="help" tooltip="This is a very long description, so any user can understand what it does." />
+                                    <Icon
+                                        name="help"
+                                        tooltip="This is a very long description, so any user can understand what it does."
+                                    />
                                     testhead 1
                                 </TableCell>
                                 <TableCell isHead>
-                                    <Icon name="help" title="normal title, no tooltip" />
+                                    <Icon
+                                        name="help"
+                                        title="normal title, no tooltip"
+                                    />
                                     testhead 2
                                 </TableCell>
                             </TableRow>
                         </TableHead>
                         <TableBody multiline className="my-table-body-class">
                             <TableRow>
-                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
+                                <TableCell>
+                                    <Radio label="Select" name="testtable" />
+                                </TableCell>
                                 <TableCell isHead className="my-cell-class">
                                     <div className="ecc-component-objectview ecc-component-objectview--iri">
-                                        <a className="mdl-chip" href="https://example.eccenca.com/035fb68b-4360-4f21-9812-dfd7e04dc94d">
+                                        <a
+                                            className="mdl-chip"
+                                            href="https://example.eccenca.com/035fb68b-4360-4f21-9812-dfd7e04dc94d">
                                             <span className="mdl-chip__text">
                                                 <span className="ecc-component-objectview__content-inline">
                                                     testcontent 1.1
@@ -216,13 +292,23 @@ class TestTable extends React.Component {
                                 <TableCell>testcontent 1.2</TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
-                                <TableCell>testcontent 2.1a<br/>testcontent 2.1b</TableCell>
-                                <TableCell className="my-cell-class">testcontent 2.2</TableCell>
+                                <TableCell>
+                                    <Radio label="Select" name="testtable" />
+                                </TableCell>
+                                <TableCell>
+                                    testcontent 2.1a<br />testcontent 2.1b
+                                </TableCell>
+                                <TableCell className="my-cell-class">
+                                    testcontent 2.2
+                                </TableCell>
                             </TableRow>
                             <TableRow>
-                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
-                                <TableCell likeHead className="my-cell-class">testcontent 3.1</TableCell>
+                                <TableCell>
+                                    <Radio label="Select" name="testtable" />
+                                </TableCell>
+                                <TableCell likeHead className="my-cell-class">
+                                    testcontent 3.1
+                                </TableCell>
                                 <TableCell>
                                     <div>
                                         <p>Paragraph 1.</p>
@@ -233,18 +319,35 @@ class TestTable extends React.Component {
                         </TableBody>
                         <TableBody className="my-table-body-class">
                             <TableRow>
-                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
-                                <TableCell isHead className="my-cell-class">testcontent 4.1</TableCell>
+                                <TableCell>
+                                    <Radio label="Select" name="testtable" />
+                                </TableCell>
+                                <TableCell isHead className="my-cell-class">
+                                    testcontent 4.1
+                                </TableCell>
                                 <TableCell>testcontent 4.2</TableCell>
                             </TableRow>
                             <TableRow multiline>
-                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
-                                <TableCell>testcontent 5.1a<br/>testcontent 5.1b</TableCell>
-                                <TableCell className="my-cell-class">testcontent 5.2</TableCell>
+                                <TableCell>
+                                    <Radio label="Select" name="testtable" />
+                                </TableCell>
+                                <TableCell>
+                                    testcontent 5.1a<br />testcontent 5.1b
+                                </TableCell>
+                                <TableCell className="my-cell-class">
+                                    testcontent 5.2
+                                </TableCell>
                             </TableRow>
                             <TableRow preventCellOverflow>
-                                <TableCell><Radio label="Select" name="testtable" /></TableCell>
-                                <TableCell multiline likeHead className="my-cell-class">testcontent 6.1</TableCell>
+                                <TableCell>
+                                    <Radio label="Select" name="testtable" />
+                                </TableCell>
+                                <TableCell
+                                    multiline
+                                    likeHead
+                                    className="my-cell-class">
+                                    testcontent 6.1
+                                </TableCell>
                                 <TableCell>
                                     <div>
                                         <p>Paragraph 1.</p>
@@ -254,7 +357,7 @@ class TestTable extends React.Component {
                                         <TableBody>
                                             <TableRow>
                                                 <TableCell>
-                                                    This<br/>is<br/>a<br/>nested<br/>table.
+                                                    This<br />is<br />a<br />nested<br />table.
                                                 </TableCell>
                                             </TableRow>
                                         </TableBody>
