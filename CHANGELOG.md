@@ -11,6 +11,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Changed
 
+- Cut value description in `<AutoCompleteBox/>` on the left side if value is to big to get shown completely
 - Redesign the content using MDL sidebar with `<Drawer>` and `<Navigation>` elements
 - Separate chips test from buttons test
 

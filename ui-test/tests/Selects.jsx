@@ -12,21 +12,21 @@ import {
 const selectOptions = [
     {
         label: 'Label 1',
-        value: 'http://example.com/one',
+        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/one',
         description: 'This is one of the options with a description',
     },
     {
         label: 'label two',
-        value: 'http://example.com/two',
+        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/two',
     },
     {
         label: 'label three',
-        value: 'http://example.com/three',
+        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/three',
         description: 'This is one of the options with another description',
     },
     {
-        label: 'http://example.com/four',
-        value: 'http://example.com/four',
+        label: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/four',
+        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/four',
         description: 'The fourth option has the same data for label and value',
     },
 ];
