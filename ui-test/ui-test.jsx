@@ -30,10 +30,9 @@ import TestBreadcrumbList from './tests/BreadcrumbList';
 import TestContextMenu from './tests/ContextMenu';
 
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
-import ScrollingMixin from './../src/mixins/ScrollingMixin';
 
 // component
-import {Layout, Content, Footer, Card, CardContent} from '../index';
+import {Layout, Content, Footer} from '../index';
 
 window.enablePerformanceMixingLog = true;
 

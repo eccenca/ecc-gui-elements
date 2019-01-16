@@ -1,4 +1,5 @@
 import React from 'react';
+import _ from 'lodash';
 import {
     Button,
     Card,
@@ -115,30 +116,26 @@ const TestScrolling = React.createClass({
     },
 
     render() {
-        const scrollTestCases=_.map([1,2,3],idx=>(
-            {
-                label: `Scroll to dummy card ${idx}`,
-                handleRef: `testDummy${idx}`,
-            }
-        ));
+        const scrollTestCases = _.map([1, 2, 3], idx => ({
+            label: `Scroll to dummy card ${idx}`,
+            handleRef: `testDummy${idx}`,
+        }));
 
-        const scrollHandlerButtons = scrollTestCases.map(
-            (testobject, id) => (
-                <Button
-                    raised
-                    key={id}
-                    onClick={() => {
-                        this.handleScrollTo(testobject.handleRef);
-                    }}>
-                    {testobject.label}
-                </Button>
-            )
-        );
+        const scrollHandlerButtons = scrollTestCases.map(testobject => (
+            <Button
+                raised
+                key={testobject.handleRef}
+                onClick={() => {
+                    this.handleScrollTo(testobject.handleRef);
+                }}>
+                {testobject.label}
+            </Button>
+        ));
 
         return (
             <div>
                 {/* dummy cards to test scrolling */}
-                {_.map([1,2,3],idx=>(
+                {_.map([1, 2, 3], idx => (
                     <Card
                         className="uitest-divmargin"
                         key={idx}
@@ -153,11 +150,13 @@ const TestScrolling = React.createClass({
                     </Card>
                 ))}
                 <Card fixedActions>
-                    <CardTitle documentLevel="h4">Test scrolling support</CardTitle>
+                    <CardTitle documentLevel="h4">
+                        Test scrolling support
+                    </CardTitle>
                     <CardContent className="uitest-highred">
                         <p>
-                            Content is higher than the viewport. Can you see the top
-                            part of this section?
+                            Content is higher than the viewport. Can you see the
+                            top part of this section?
                         </p>
                     </CardContent>
                     <CardActions fixed>
