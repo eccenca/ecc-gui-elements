@@ -40,10 +40,6 @@ window.enablePerformanceMixingLog = true;
 const Page = React.createClass({
     mixins: [PerformanceMixin],
 
-    handleScrollTo(ref) {
-        ScrollingMixin.scrollElementIntoView(this[ref], {topOffset: 100});
-    },
-
     // template rendering
     render() {
         const testcases = [
@@ -61,14 +57,7 @@ const Page = React.createClass({
             },
             {
                 name: 'Spinner',
-                code: (
-                    <TestSpinner
-                        key="test-spinner"
-                        ref={spinner => {
-                            this.testSpinner = spinner;
-                        }}
-                    />
-                ),
+                code: <TestSpinner key="test-spinner" />,
             },
             {
                 name: 'N/A',
@@ -80,39 +69,11 @@ const Page = React.createClass({
             },
             {
                 name: 'Alerts',
-                code: (
-                    <TestAlerts
-                        key="alerts"
-                        ref={alerts => {
-                            this.testAlerts = alerts;
-                        }}
-                    />
-                ),
+                code: <TestAlerts key="alerts" />,
             },
             {
                 name: 'Scrolling',
-                code: (
-                    <TestScrolling
-                        key="scrolling"
-                        scrollTestCases={[
-                            {
-                                label: 'Scroll to spinner test',
-                                handleScroll: this.handleScrollTo,
-                                handleRef: 'testSpinner',
-                            },
-                            {
-                                label: 'Scroll to alert test',
-                                handleScroll: this.handleScrollTo,
-                                handleRef: 'testAlerts',
-                            },
-                            {
-                                label: 'Scroll to button test',
-                                handleScroll: this.handleScrollTo,
-                                handleRef: 'testButtons',
-                            },
-                        ]}
-                    />
-                ),
+                code: <TestScrolling key="scrolling" />,
             },
             {
                 name: 'Dialogs',
@@ -128,25 +89,11 @@ const Page = React.createClass({
             },
             {
                 name: 'Buttons',
-                code: (
-                    <TestButtons
-                        key="buttons"
-                        ref={buttons => {
-                            this.testButtons = buttons;
-                        }}
-                    />
-                ),
+                code: <TestButtons key="buttons" />,
             },
             {
                 name: 'Chips',
-                code: (
-                    <TestChips
-                        key="chips"
-                        ref={chips => {
-                            this.testChips = chips;
-                        }}
-                    />
-                ),
+                code: <TestChips key="chips" />,
             },
             {
                 name: 'Inputs',
@@ -207,46 +154,6 @@ const Page = React.createClass({
                         </Navigation>
                     </Drawer>
                     <Content>
-                        {/* dummy cards to test scrolling */}
-                        <Route
-                            path="/scrolling"
-                            key="dummy"
-                            render={() => (
-                                <div className="uitest-divmargin">
-                                    <Card
-                                        ref={spinner => {
-                                            this.testSpinner = spinner;
-                                        }}>
-                                        <CardContent>
-                                            <div className="uitest-scrolling__cardcontent">
-                                                A Spinner
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                    <Card
-                                        ref={alert => {
-                                            this.testAlerts = alert;
-                                        }}>
-                                        <CardContent>
-                                            <div className="uitest-scrolling__cardcontent">
-                                                Some Alerts
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                    <Card
-                                        ref={button => {
-                                            this.testButtons = button;
-                                        }}>
-                                        <CardContent>
-                                            <div className="uitest-scrolling__cardcontent">
-                                                One Button
-                                            </div>
-                                        </CardContent>
-                                    </Card>
-                                </div>
-                            )}
-                        />
-
                         {_.map(testcases, ({name, code}) => (
                             <Route
                                 path={`/(all|${name.toLowerCase()})`}
