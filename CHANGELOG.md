@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [3.4.1] 2019-02-07
+
+### Fixed
+
+- fix specifity of CSS selector for reduced Cards sub elements and improve its layout
+
 ## [3.4.0] 2019-01-16
 
 ### Added

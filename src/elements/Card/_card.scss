@@ -16,19 +16,26 @@
 }
 
 .mdl-card--reduced {
-    .mdl-card__title {
+    & > .mdl-card__title {
         padding: $ecc-size-blockelement-margin-vertical / 4 0;
         margin-bottom: $ecc-size-blockelement-margin-vertical / 2;
+
+        & > .mdl-card__menu {
+            top: 0;
+        }
     }
 
-    .mdl-card__menu {
+    & > .mdl-card__menu {
         top: 0;
     }
 
-    .mdl-card__content {
-        margin-left: 0;
-        margin-right: 0;
-        margin-top: 0;
+    & > .mdl-card__content {
+        margin: 0;
+    }
+
+    & > .mdl-card__actions {
+        padding: $ecc-size-blockelement-margin-vertical / 4 0;
+        margin-top: $ecc-size-blockelement-margin-vertical / 2;
     }
 }
 
