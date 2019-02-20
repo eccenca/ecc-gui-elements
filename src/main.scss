@@ -10,7 +10,8 @@
 
 // -- Configuration ------------------------------------------------------------
 
-@import "./configuration.default";
+@import "./configuration.default"; // gui elements configuration
+@import "./configuration.mdl"; // calculation MDL config with our changes
 
 // -- Eccenca Material Design Lite -----------------------------------------------------
 
