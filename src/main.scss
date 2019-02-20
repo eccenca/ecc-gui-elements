@@ -11,20 +11,13 @@
 // -- Configuration ------------------------------------------------------------
 
 @import "./configuration.default"; // gui elements configuration
-@import "./configuration.mdl"; // calculation MDL config with our changes
 
 // -- Eccenca Material Design Lite -----------------------------------------------------
 
-// This also includes the react-mdl layout patch
-$image_path: "~@eccenca/material-design-lite/src/images" !default;
-//@import "~@eccenca/material-design-lite/src/material-design-lite";
-// Variables and mixins
-@import "~@eccenca/material-design-lite/src/variables";
-@import "~@eccenca/material-design-lite/src/mixins";
 // Resets and dependencies
 @import "~@eccenca/material-design-lite/src/resets/resets";
-@import "~@eccenca/material-design-lite/src/typography/typography";
 // Components
+@import "~@eccenca/material-design-lite/src/typography/typography";
 @import "~@eccenca/material-design-lite/src/palette/palette";
 @import "~@eccenca/material-design-lite/src/ripple/ripple";
 @import "~@eccenca/material-design-lite/src/animation/animation";
@@ -81,6 +74,7 @@ $image_path: "~@eccenca/material-design-lite/src/images" !default;
 // -- Changes ------------------------------------------------------------------
 
 @import "./scss/adjustments";
+@import "./scss/patches";
 
 // -- Fonts --------------------------------------------------------------------
 
