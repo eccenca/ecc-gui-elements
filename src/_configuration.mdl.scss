@@ -235,9 +235,9 @@ $icon-toggle-checked-color: $color-primary !default;
 $icon-toggle-checked-focus-color: rgba($color-primary, 0.26) !default;
 $icon-toggle-disabled-color: rgba($color-black, 0.26) !default;
 
-$icon-toggle-size: 32px !default;
-$icon-toggle-font-size: 24px !default;
-$icon-toggle-ripple-size: 36px !default;
+$icon-toggle-size: $button-icon-size !default; // original 32px
+$icon-toggle-font-size: $typo-icon-font-size !default; // original 24px
+$icon-toggle-ripple-size: $button-fab-size-mini !default; // original 36px
 
 /* -- Radio Buttons --------------------------------------------------------- */
 
