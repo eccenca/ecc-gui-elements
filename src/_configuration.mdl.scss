@@ -32,81 +32,81 @@ $text-link-color: $color-accent !default;
 $text-mark-background: #f4ff81 !default;
 $text-mark-color: inherit !default;
 
-$typo-display-4-font-size: 112px !default;
-$typo-display-4-line-height: 1 !default;
+$typo-body-base-font-size: $ecc-size-typo-base !default; // original 14px
+$typo-body-base-line-height: $ecc-size-typo-base-lineheight !default; // original 20px
+$typo-body-base-font-weight: 400 !default;
+
+$typo-display-4-font-size: $ecc-size-type-levelratio * $ecc-size-typo-display-3 !default; // original 112px
+$typo-display-4-line-height: max(1/$ecc-size-type-levelratio * $ecc-size-typo-display-3-lineheight, 1) !default; // original 1
 $typo-display-4-letter-spacing: -0.04em !default;
 $typo-display-4-font-weight: 300 !default;
 
 $typo-display-3-font-size: $ecc-size-typo-display-3 !default; // original 56px
-$typo-display-3-line-height: 1.35 !default;
+$typo-display-3-line-height: $ecc-size-typo-display-3-lineheight !default; // original 1.35
 $typo-display-3-letter-spacing: -0.02em !default;
 $typo-display-3-font-weight: 400 !default;
-$typo-display-3-margin-top: 24px !default;
-$typo-display-3-margin-bottom: 24px !default;
+$typo-display-3-margin-top: 1/2 * $ecc-size-typo-display-3-lineheight * $ecc-size-typo-display-3 !default; // original 24px
+$typo-display-3-margin-bottom: $typo-display-3-margin-top !default; // original 24px
 
 $typo-display-2-font-size: $ecc-size-typo-display-2 !default; // original 45px
-$typo-display-2-line-height: 48px !default;
+$typo-display-2-line-height: $ecc-size-typo-display-2-lineheight !default; // original 48px
 $typo-display-2-font-weight: 400 !default;
-$typo-display-2-margin-top: 24px !default;
-$typo-display-2-margin-bottom: 24px !default;
+$typo-display-2-margin-top: 1/2 * $ecc-size-typo-display-2-lineheight * $ecc-size-typo-display-2 !default; // original 24px
+$typo-display-2-margin-bottom: $typo-display-2-margin-top !default; // original 24px
 
 $typo-display-1-font-size: $ecc-size-typo-display-1 !default; // original 34px
-$typo-display-1-line-height: 40px !default;
+$typo-display-1-line-height: $ecc-size-typo-display-1-lineheight !default; // original 40px
 $typo-display-1-font-weight: 400 !default;
-$typo-display-1-margin-top: 24px !default;
-$typo-display-1-margin-bottom: 24px !default;
+$typo-display-1-margin-top: 1/2 * $ecc-size-typo-display-1-lineheight * $ecc-size-typo-display-1 !default; // original 24px
+$typo-display-1-margin-bottom: $typo-display-1-margin-top !default; // original 24px
 
 $typo-headline-font-size: $ecc-size-typo-headline !default; // original 24px
-$typo-headline-line-height: 32px !default;
+$typo-headline-line-height: $ecc-size-typo-headline-lineheight !default; // original 32px
 $typo-headline-1-font-weight: 400 !default;
-$typo-headline-margin-top: 24px !default;
-$typo-headline-margin-bottom: 16px !default;
+$typo-headline-margin-bottom: 1/2 * $ecc-size-typo-headline-lineheight * $ecc-size-typo-headline !default; // original 16px
+$typo-headline-margin-top: $ecc-size-typo-base-lineheight * $typo-headline-margin-bottom !default; // original 24px
 
 $typo-title-font-size: $ecc-size-typo-title !default; // original 20px
-$typo-title-line-height: 20px !default;
+$typo-title-line-height: $ecc-size-typo-title-lineheight !default; // original 20px
 $typo-title-letter-spacing: 0.02em !default;
 $typo-title-font-weight: 500 !default;
-$typo-title-margin-top: 24px !default;
-$typo-title-margin-bottom: 16px !default;
+$typo-title-margin-bottom: 1/2 * $ecc-size-typo-title-lineheight * $ecc-size-typo-title !default; // original 16px
+$typo-title-margin-top: $ecc-size-typo-base-lineheight * $typo-title-margin-bottom !default; // original 24px
 
 $typo-subhead-font-size: $ecc-size-typo-subtitle !default; // original 16px
-$typo-subhead-line-height: 24px !default;
+$typo-subhead-line-height: $ecc-size-typo-subtitle-lineheight !default; // original 24px
 $typo-subhead-letter-spacing: 0.04em !default;
 $typo-subhead-font-weight: 400 !default;
-$typo-subhead-margin-top: 24px !default;
-$typo-subhead-margin-bottom: 16px !default;
+$typo-subhead-margin-bottom: 1/2 * $ecc-size-typo-subtitle-lineheight * $ecc-size-typo-subtitle !default; // original 16px
+$typo-subhead-margin-top: $ecc-size-typo-base-lineheight * $typo-subhead-margin-bottom !default; // original 24px
 
-$typo-subhead-2-font-size: 16px !default;
-$typo-subhead-2-line-height: 28px !default;
-$typo-subhead-2-letter-spacing: 0.04em !default;
-$typo-subhead-2-font-weight: 400 !default;
+$typo-subhead-2-font-size: $typo-subhead-font-size !default; // original 16px
+$typo-subhead-2-line-height: $typo-subhead-line-height !default; // original 28px
+$typo-subhead-2-letter-spacing: $typo-subhead-letter-spacing !default; // original 0.04em
+$typo-subhead-2-font-weight: $typo-subhead-font-weight !default; // original 400
 
-$typo-body-base-font-size: 14px !default;
-$typo-body-base-line-height: 20px !default;
-$typo-body-base-font-weight: 400 !default;
-
-$typo-body-1-font-size: 14px !default;
-$typo-body-1-line-height: 24px !default;
+$typo-body-1-font-size: $ecc-size-typo-text !default; // original 14px
+$typo-body-1-line-height: $ecc-size-typo-text-lineheight !default; // original 24px
 $typo-body-1-letter-spacing: 0 !default;
 $typo-body-1-font-weight: 400 !default;
-$typo-body-1-margin-bottom: 16px !default;
+$typo-body-1-margin-bottom: 1/2 * $ecc-size-typo-text-lineheight * $ecc-size-typo-text !default; // 16px !default;
 
-$typo-caption-font-size: 12px !default;
-$typo-caption-line-height: 1 !default;
+$typo-caption-font-size: $ecc-size-typo-caption !default; // original 12px;
+$typo-caption-line-height: $ecc-size-typo-caption-lineheight !default; // original 1
 $typo-caption-letter-spacing: 0 !default;
 $typo-caption-font-weight: 400 !default;
 
-$typo-blockquote-font-size: 24px !default;
-$typo-blockquote-line-height: 1.35 !default;
+$typo-blockquote-font-size: $ecc-size-typo-title !default; // original 24px
+$typo-blockquote-line-height: $ecc-size-typo-title-lineheight !default; // original 1.35
 $typo-blockquote-letter-spacing: 0.08em !default;
 $typo-blockquote-font-weight: 300 !default;
 
-$typo-menu-font-size: 14px !default;
+$typo-menu-font-size: $ecc-size-typo-text !default; // original 14px
 $typo-menu-line-height: 1 !default;
 $typo-menu-letter-spacing: 0 !default;
 $typo-menu-font-weight: 500 !default;
 
-$typo-button-font-size: 14px !default;
+$typo-button-font-size: $ecc-size-typo-text !default; // original 14px
 $typo-button-line-height: 1 !default;
 $typo-button-letter-spacing: 0 !default;
 $typo-button-font-weight: 500 !default;

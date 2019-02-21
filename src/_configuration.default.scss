@@ -6,15 +6,15 @@
  * Configuration used for MDL and beyond.
  */
 
-// -- Load helper functions ----------------------------------------------------
+// -- Load helper functions ----------------------------------------------------------
 
 @import "scss/helpers";
 
-// -- Load MDL color definitions -----------------------------------------------
+// -- Load MDL color definitions -----------------------------------------------------
 
 @import "~@eccenca/material-design-lite/src/color-definitions";
 
-// -- Configuration stack of colors --------------------------------------------
+// -- Configuration stack of colors --------------------------------------------------
 
 /*
     We use ecc- prefix here to have an distinction to native MDL color
@@ -39,7 +39,7 @@ $ecc-color-warning-text: $palette-orange-800 !default;
 $ecc-color-danger-background: $palette-red-50 !default;
 $ecc-color-danger-text: $palette-red-800 !default;
 
-// -- Configuration stack of sizes ---------------------------------------------
+// -- Configuration stack of sizes ---------------------------------------------------
 
 /*
     We use ecc- prefix here to have an distinction to native MDL variables. All
@@ -47,14 +47,35 @@ $ecc-color-danger-text: $palette-red-800 !default;
     variables to overwrite the default look of the application.
 */
 
-$ecc-size-typo-display-3: 42px !default;
-$ecc-size-typo-display-2: 35px !default;
-$ecc-size-typo-display-1: 28px !default;
-$ecc-size-typo-headline: 21px !default;
-$ecc-size-typo-title: 18px !default;
-$ecc-size-typo-subtitle: 16px !default;
-$ecc-size-typo-text: 14px !default;
-$ecc-size-typo-caption: 11px !default;
+$ecc-size-typo-base: 14px !default; // size including absolute unit, preferable px
+$ecc-size-typo-base-lineheight: 1.39 !default; // only ratio to font size, no unit!
+
+
+// -- Calculation of more config vars ------------------------------------------------
+
+/*
+    You can overwrite them by setting them before loading this configuration but it is
+    not recommended to do so.
+*/
+
+$ecc-size-type-levelratio: 7/6;
+
+$ecc-size-typo-caption: 1/$ecc-size-type-levelratio * 1rem !default;
+$ecc-size-typo-caption-lineheight: max($ecc-size-type-levelratio * $ecc-size-typo-base-lineheight, 1) !default;
+$ecc-size-typo-text: 1rem !default;
+$ecc-size-typo-text-lineheight: max($ecc-size-typo-base-lineheight, 1) !default;
+$ecc-size-typo-subtitle: $ecc-size-type-levelratio * $ecc-size-typo-text !default;
+$ecc-size-typo-subtitle-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size-typo-text-lineheight, 1) !default;
+$ecc-size-typo-title: $ecc-size-type-levelratio * $ecc-size-typo-subtitle !default;
+$ecc-size-typo-title-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size-typo-subtitle-lineheight, 1) !default;
+$ecc-size-typo-headline: $ecc-size-type-levelratio * $ecc-size-typo-title !default;
+$ecc-size-typo-headline-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size-typo-title-lineheight, 1) !default;
+$ecc-size-typo-display-1: $ecc-size-type-levelratio * $ecc-size-typo-headline !default;
+$ecc-size-typo-display-1-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size-typo-headline-lineheight , 1)!default;
+$ecc-size-typo-display-2: $ecc-size-type-levelratio * $ecc-size-typo-display-1 !default;
+$ecc-size-typo-display-2-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size-typo-display-1-lineheight, 1) !default;
+$ecc-size-typo-display-3: $ecc-size-type-levelratio * $ecc-size-typo-display-2 !default;
+$ecc-size-typo-display-3-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size-typo-display-2-lineheight, 1) !default;
 
 $ecc-size-blockelement-margin-vertical: 1rem !default;
 $ecc-size-blockelement-margin-horizontal: 1rem !default;
@@ -66,7 +87,7 @@ $ecc-size-inlineelement-margin-horizontal: 0.5rem !default; // currently unused 
 $ecc-size-inlineelement-padding-vertical: 0.25rem !default;
 $ecc-size-inlineelement-padding-horizontal: 0.25rem !default;
 
-// -- Load MDL variables and mixins --------------------------------------------
+// -- Load MDL variables and mixins --------------------------------------------------
 
 @import "./configuration.mdl"; // calculation MDL config with our changes
 @import '~@eccenca/material-design-lite/src/variables'; // original MDL configuration as fallback
