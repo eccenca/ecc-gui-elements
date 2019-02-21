@@ -353,22 +353,22 @@ $card-subtitle-color: rgba($color-black, 0.54) !default;
 /* Card dimensions */
 $card-width: 330px !default;
 $card-height: 200px !default;
-$card-font-size: 16px !default;
-$card-title-font-size: 21px !default;
+$card-font-size: $typo-body-1-font-size !default; // original 16px
+$card-title-font-size: $typo-title-font-size !default; // original 21px
 $card-title-text-font-weight: 300 !default;
-$card-subtitle-font-size: 14px !default;
-$card-horizontal-padding: 16px !default;
-$card-vertical-padding: 16px !default;
+$card-subtitle-font-size: $typo-body-1-font-size !default; // original 14px
+$card-horizontal-padding: $ecc-size-block-whitespace !default; // original 16px
+$card-vertical-padding: $ecc-size-block-whitespace / 2 !default; // original 16px
 $card-title-perspective-origin-x: 165px !default;
 $card-title-perspective-origin-y: 56px !default;
 $card-title-transform-origin-x: 165px !default;
 $card-title-transform-origin-y: 56px !default;
 $card-title-text-transform-origin-x: 149px !default;
 $card-title-text-transform-origin-y: 48px !default;
-$card-supporting-text-font-size: 1rem !default;
-$card-supporting-text-line-height: 18px !default;
-$card-actions-font-size: 16px !default;
-$card-actions_padding: 8px !default;
+$card-supporting-text-font-size: $typo-body-1-font-size !default; // original 1rem
+$card-supporting-text-line-height: $typo-body-1-line-height !default; // original 18px
+$card-actions-font-size: $typo-body-1-font-size !default; // original 16px
+$card-actions_padding: $ecc-size-block-whitespace / 2 !default; // original 8px
 $card-z-index: 1 !default;
 /* Cover image */
 $card-cover-image-height: 186px !default;
