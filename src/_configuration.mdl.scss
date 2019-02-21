@@ -330,17 +330,17 @@ $input-text-disabled-color: $input-text-bottom-border-color !default;
 $input-text-disabled-text-color: $input-text-label-color !default;
 $input-text-error-color: rgb(222, 50, 38) !default;
 
-$input-text-font-size: 16px !default;
+$input-text-font-size: $ecc-size-typo-text !default; // original 16px
 $input-text-width: 100% !default;
-$input-text-padding: 4px !default;
-$input-text-vertical-spacing: 20px !default;
+$input-text-padding: ($button-height - $input-text-font-size) / 2 !default; // original 4px
+$input-text-vertical-spacing: $ecc-size-typo-caption-lineheight * $ecc-size-typo-caption !default; // original 20px
 
-$input-text-button-size: 32px !default;
-$input-text-floating-label-fontsize: 12px !default;
-$input-text-expandable-icon-top: 16px !default;
+$input-text-button-size: $button-icon-size !default; // original 32px
+$input-text-floating-label-fontsize: $ecc-size-typo-caption !default; // original 12px
+$input-text-expandable-icon-top: $input-text-vertical-spacing !default; // original 16px
 
-$input-text-error-font-size: 12px !default;
-$input-text-ripple-size: 32px !default;
+$input-text-error-font-size: $ecc-size-typo-caption !default; // original 12px
+$input-text-ripple-size: $button-fab-size-mini !default; // original 32px
 
 /* -- Card ------------------------------------------------------------------ */
 
