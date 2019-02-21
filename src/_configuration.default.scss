@@ -77,15 +77,18 @@ $ecc-size-typo-display-2-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size
 $ecc-size-typo-display-3: $ecc-size-type-levelratio * $ecc-size-typo-display-2 !default;
 $ecc-size-typo-display-3-lineheight: max(1/$ecc-size-type-levelratio * $ecc-size-typo-display-2-lineheight, 1) !default;
 
-$ecc-size-blockelement-margin-vertical: 1rem !default;
-$ecc-size-blockelement-margin-horizontal: 1rem !default;
-$ecc-size-blockelement-padding-vertical: 1rem !default;
-$ecc-size-blockelement-padding-horizontal: 1rem !default;
+$ecc-size-blockelement-margin-vertical: 1rem !default; // deprecated
+$ecc-size-blockelement-margin-horizontal: 1rem !default; // deprecated
+$ecc-size-blockelement-padding-vertical: 1rem !default; // deprecated
+$ecc-size-blockelement-padding-horizontal: 1rem !default; // deprecated
 
 $ecc-size-inlineelement-margin-vertical: 0.5rem !default; // currently unused in GUI elements
 $ecc-size-inlineelement-margin-horizontal: 0.5rem !default; // currently unused in GUI elements
-$ecc-size-inlineelement-padding-vertical: 0.25rem !default;
-$ecc-size-inlineelement-padding-horizontal: 0.25rem !default;
+$ecc-size-inlineelement-padding-vertical: 0.25rem !default; // deprecated
+$ecc-size-inlineelement-padding-horizontal: 0.25rem !default; // deprecated
+
+$ecc-size-block-whitespace: $ecc-size-typo-base !default;
+$ecc-size-inline-whitespace: $ecc-size-typo-base / 2 !default;
 
 // -- Load MDL variables and mixins --------------------------------------------------
 

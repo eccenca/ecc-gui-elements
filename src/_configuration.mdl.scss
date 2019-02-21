@@ -111,7 +111,7 @@ $typo-button-line-height: 1 !default;
 $typo-button-letter-spacing: 0 !default;
 $typo-button-font-weight: 500 !default;
 
-$typo-icon-font-size: 24px !default;
+$typo-icon-font-size: $typo-headline-font-size !default; // original 24px
 
 /* -- Drawer menu ----------------------------------------------------------------- */
 
@@ -196,10 +196,10 @@ $button-secondary-color: $color-black !default;
 $button-hover-color: $button-primary-color !default;
 $button-active-color: rgba($palette-grey-500, 0.40) !default;
 $button-focus-color: rgba($color-black, 0.12) !default;
-$button-min-width: 64px !default;
-$button-height: 36px !default;
-$button-padding: 16px !default;
-$button-margin: 4px !default;
+$button-height: $ecc-size-typo-base-lineheight * $ecc-size-typo-base-lineheight * $ecc-size-typo-text !default; // original 36px
+$button-min-width: 2 * $button-height !default; // original 64px
+$button-padding: 1/2 * $ecc-size-block-whitespace !default; // original 16px
+$button-margin: 0.25 * $ecc-size-block-whitespace !default; // original 4px
 $button-border-radius: 2px !default;
 // Colored button
 $button-primary-color-alt: $color-primary !default;
@@ -218,14 +218,14 @@ $button-fab-hover-color-alt: $color-accent !default;
 $button-fab-active-color-alt: $color-accent !default;
 $button-fab-text-color-alt: $color-accent-contrast !default;
 $button-fab-ripple-color-alt: $color-accent-contrast !default;
-$button-fab-size: 56px !default;
-$button-fab-size-mini: 40px !default;
-$button-fab-font-size: 24px !default;
+$button-fab-size: 2 * $typo-display-1-font-size !default; // original 56px
+$button-fab-size-mini: 2 * $typo-title-font-size !default; // original 40px
+$button-fab-font-size: $typo-icon-font-size !default; // original 24px
 // Icon button
 $button-icon-color: $palette-grey-700 !default;
 $button-icon-focus-color: $button-focus-color !default;
-$button-icon-size: 32px !default;
-$button-icon-size-mini: 24px !default;
+$button-icon-size: $button-height !default; // original 32px
+$button-icon-size-mini: $button-height / $ecc-size-typo-base-lineheight !default; // original 24px
 
 /* -- Icon Toggles ---------------------------------------------------------- */
 
