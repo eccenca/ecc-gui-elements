@@ -9,8 +9,8 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -14px;
-    margin-left: -14px;
+    margin-top: -1/2 * $typo-icon-font-size;
+    margin-left: -1/2 * $typo-icon-font-size;
     z-index: 32000;
 }
 
