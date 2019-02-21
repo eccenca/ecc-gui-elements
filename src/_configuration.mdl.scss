@@ -374,7 +374,6 @@ $card-z-index: 1 !default;
 $card-cover-image-height: 186px !default;
 $card-background-image-url: '' !default;
 
-
 /* -- Sliders --------------------------------------------------------------- */
 
 $range-bg-color: rgba($color-black, 0.26) !default;
@@ -388,7 +387,7 @@ $progress-main-color: $color-primary !default;
 $progress-secondary-color: rgba($color-primary-contrast, 0.7) !default;
 $progress-fallback-buffer-color: rgba($color-primary-contrast, 0.9) !default;
 $progress-image-path: $image_path;
-$bar-height: 4px !default;
+$bar-height: ($button-height - $typo-button-font-size)/4 !default; // original 4px
 
 /* -- Badge ----------------------------------------------------------------- */
 
