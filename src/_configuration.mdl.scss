@@ -308,8 +308,8 @@ $spinner-color-3: $palette-yellow-600 !default;
 $spinner-color-4: $palette-green-500 !default;
 $spinner-single-color: $color-primary !default;
 
-$spinner-size: 28px !default;
-$spinner-stroke-width: 3px !default;
+$spinner-size: $typo-icon-font-size !default; // original 28px
+$spinner-stroke-width: $ecc-size-block-whitespace / 3 !default; // original 3px
 // Amount of circle the arc takes up.
 $spinner-arc-size: 270deg !default;
 // Time it takes to expand and contract arc.
