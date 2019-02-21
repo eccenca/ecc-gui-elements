@@ -254,13 +254,13 @@ $radio-color: $color-primary !default;
 $radio-off-color: rgba($color-black, 0.54) !default;
 $radio-disabled-color: rgba($color-black, 0.26) !default;
 
-$radio-label-font-size: 16px !default;
-$radio-label-height: 24px !default;
-$radio-button-size: 16px !default;
+$radio-label-font-size: $ecc-size-typo-text !default; // original 16px
+$radio-label-height: $ecc-size-typo-base-lineheight * $ecc-size-typo-text !default; // original 24px !default;
+$radio-button-size: $typo-subhead-font-size !default; // original 16px
 $radio-inner-margin: $radio-button-size / 4 !default;
-$radio-padding: 8px !default;
+$radio-padding: $ecc-size-inline-whitespace/$ecc-size-typo-base * 1rem !default; // original 8px
 $radio-top-offset: ($radio-label-height - $radio-button-size) / 2 !default;
-$radio-ripple-size: 42px !default;
+$radio-ripple-size: $button-fab-size-mini !default; // original 42px
 
 /* -- Checkboxes ------------------------------------------------------------ */
 
@@ -270,13 +270,13 @@ $checkbox-disabled-color: rgba($color-black, 0.26) !default;
 $checkbox-focus-color: rgba($color-primary, 0.26) !default;
 $checkbox-image-path: $image_path;
 
-$checkbox-label-font-size: 16px !default;
-$checkbox-label-height: 24px !default;
-$checkbox-button-size: 16px !default;
-$checkbox-inner-margin: 2px !default;
-$checkbox-padding: 8px !default;
+$checkbox-label-font-size: $radio-label-font-size !default; // original 16px !default;
+$checkbox-label-height: $radio-label-height !default; // original 24px !default;
+$checkbox-button-size: $radio-button-size !default; // original 16px !default;
+$checkbox-inner-margin: $checkbox-button-size / 8 !default; // original 2px
+$checkbox-padding: $radio-padding !default; // original 8px !default;
 $checkbox-top-offset: ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2 !default;
-$checkbox-ripple-size: $checkbox-label-height * 1.5 !default;
+$checkbox-ripple-size: $button-fab-size-mini !default; // original $checkbox-label-height * 1.5
 
 /* -- Switches -------------------------------------------------------------- */
 
@@ -289,16 +289,16 @@ $switch-off-track-color: rgba($color-black, 0.26) !default;
 $switch-disabled-thumb-color: $palette-grey-400 !default;
 $switch-disabled-track-color: rgba($color-black, 0.12) !default;
 
-$switch-label-font-size: 16px !default;
-$switch-label-margin: 16px !default;
-$switch-label-height: 24px !default;
-$switch-track-height: 14px !default;
-$switch-track-length: 36px !default;
-$switch-thumb-size: 20px !default;
+$switch-label-font-size: $radio-label-font-size !default; // original 16px
+$switch-label-margin: $radio-padding !default; // original 16px
+$switch-label-height: $radio-label-height !default; // original 24px
+$switch-track-height: $ecc-size-typo-text !default; // original 14px
+$switch-track-length: 2 * $ecc-size-typo-text !default; // original 36px
+$switch-thumb-size: $typo-subhead-font-size !default; // original 20px
 $switch-track-top: ($switch-label-height - $switch-track-height) / 2 !default;
 $switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2 !default;
 $switch-ripple-size: $switch-label-height * 2 !default;
-$switch-helper-size: 8px !default;
+$switch-helper-size: $radio-padding !default; // original 8px
 
 /* -- Spinner --------------------------------------------------------------- */
 
