@@ -28,6 +28,7 @@ import TestNA from './tests/NA';
 import TestNothing from './tests/Nothing';
 import TestBreadcrumbList from './tests/BreadcrumbList';
 import TestContextMenu from './tests/ContextMenu';
+import TestTypography from './tests/Typography';
 
 import PerformanceMixin from './../src/mixins/PerformanceMixin';
 
@@ -117,6 +118,10 @@ const Page = React.createClass({
             {
                 name: 'Cards',
                 code: <TestCards key="cards" />,
+            },
+            {
+                name: 'Typography',
+                code: <TestTypography key="typography" />,
             },
         ];
 
