@@ -239,6 +239,15 @@ $icon-toggle-size: $button-icon-size !default; // original 32px
 $icon-toggle-font-size: $typo-icon-font-size !default; // original 24px
 $icon-toggle-ripple-size: $button-fab-size-mini !default; // original 36px
 
+/* -- Content Tabs ---------------------------------------------------------- */
+
+$tab-highlight-color: $color-primary !default;
+$tab-text-color: rgba($color-black, 0.54) !default;
+$tab-active-text-color: rgba($color-black, 0.87) !default;
+$tab-border-color: $palette-grey-300 !default;
+$tab-height: $ecc-size-typo-base-lineheight * $button-height !default; // original 48px
+$tab-padding-horizontal: $ecc-size-block-whitespace !default; // original 24px
+
 /* -- Radio Buttons --------------------------------------------------------- */
 
 $radio-color: $color-primary !default;
@@ -252,15 +261,6 @@ $radio-inner-margin: $radio-button-size / 4 !default;
 $radio-padding: 8px !default;
 $radio-top-offset: ($radio-label-height - $radio-button-size) / 2 !default;
 $radio-ripple-size: 42px !default;
-
-/* -- Content Tabs ---------------------------------------------------------- */
-
-$tab-highlight-color: $color-primary !default;
-$tab-text-color: rgba($color-black, 0.54) !default;
-$tab-active-text-color: rgba($color-black, 0.87) !default;
-$tab-border-color: $palette-grey-300 !default;
-$tab-height: 48px !default;
-$tab-padding-horizontal: 24px !default;
 
 /* -- Checkboxes ------------------------------------------------------------ */
 

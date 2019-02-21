@@ -1,13 +1,29 @@
 import React from 'react';
-import {Button, Card, CardTitle, CardContent, Tabs} from '../../index';
+import {
+    Button,
+    Card,
+    CardTitle,
+    CardContent,
+    CardActions,
+    Tabs,
+} from '../../index';
 
 const TestTabs = React.createClass({
     getInitialState() {
         return {
             tabContent: [
-                {tabTitle: 'profiling Tab', tabContent: "i'm profiling Tab"},
-                {tabTitle: 'discovery Tab', tabContent: "i'm discovery Tab"},
-                {tabTitle: 'kpiTab', tabContent: "i'm kpiTab Tab"},
+                {
+                    tabTitle: 'profiling Tab',
+                    tabContent: <CardContent>Content of profiling tab.</CardContent>,
+                },
+                {
+                    tabTitle: 'discovery Tab',
+                    tabContent: <CardContent>Content of discovery tab.</CardContent>,
+                },
+                {
+                    tabTitle: 'kpiTab',
+                    tabContent: <CardContent>Content of KPI tab.</CardContent>,
+                },
             ],
         };
     },
@@ -20,20 +36,20 @@ const TestTabs = React.createClass({
         return (
             <Card>
                 <CardTitle documentLevel="h4">Test Tabs</CardTitle>
-                <CardContent>
-                    <Tabs
-                        prefixTabNames="tab-container"
-                        tabs={this.state.tabContent}
-                        onTabClick={this.tabClick}
-                        activeTab="kpiTab"
-                    />
+                <Tabs
+                    prefixTabNames="tab-container"
+                    tabs={this.state.tabContent}
+                    onTabClick={this.tabClick}
+                    activeTab="kpiTab"
+                />
+                <CardActions>
                     <Button
                         onClick={() =>
                             this.setState({
                                 tabContent: [
                                     {
                                         tabTitle: 'profiling Tab',
-                                        tabContent: "i'm profiling Tab",
+                                        tabContent: <CardContent>Content of profiling tab.</CardContent>,
                                     },
                                     {
                                         tabTitle: 'discovery Tab',
@@ -41,14 +57,14 @@ const TestTabs = React.createClass({
                                     },
                                     {
                                         tabTitle: 'kpiTab',
-                                        tabContent: "i'm kpiTab Tab",
+                                        tabContent: <CardContent>Content of KPI tab.</CardContent>,
                                     },
                                 ],
                             })
                         }>
                         Remove content from discovery tab
                     </Button>
-                </CardContent>
+                </CardActions>
             </Card>
         );
     },
