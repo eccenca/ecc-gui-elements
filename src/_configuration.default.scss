@@ -49,7 +49,7 @@ $ecc-color-danger-text: $palette-red-800 !default;
 
 $ecc-size-typo-base: 14px !default; // size including absolute unit, preferable px
 $ecc-size-typo-base-lineheight: 1.39 !default; // only ratio to font size, no unit!
-
+$ecc-size-type-levelratio: 7/6 !default; // ratio without unit! used to calculate different text sizes, etc ...
 
 // -- Calculation of more config vars ------------------------------------------------
 
@@ -57,8 +57,6 @@ $ecc-size-typo-base-lineheight: 1.39 !default; // only ratio to font size, no un
     You can overwrite them by setting them before loading this configuration but it is
     not recommended to do so.
 */
-
-$ecc-size-type-levelratio: 7/6;
 
 $ecc-size-typo-caption: 1/$ecc-size-type-levelratio * 1rem !default;
 $ecc-size-typo-caption-lineheight: max($ecc-size-type-levelratio * $ecc-size-typo-base-lineheight, 1) !default;
@@ -82,8 +80,8 @@ $ecc-size-blockelement-margin-horizontal: 1rem !default; // deprecated
 $ecc-size-blockelement-padding-vertical: 1rem !default; // deprecated
 $ecc-size-blockelement-padding-horizontal: 1rem !default; // deprecated
 
-$ecc-size-inlineelement-margin-vertical: 0.5rem !default; // currently unused in GUI elements
-$ecc-size-inlineelement-margin-horizontal: 0.5rem !default; // currently unused in GUI elements
+$ecc-size-inlineelement-margin-vertical: 0.5rem !default; // deprecated
+$ecc-size-inlineelement-margin-horizontal: 0.5rem !default; // deprecated
 $ecc-size-inlineelement-padding-vertical: 0.25rem !default; // deprecated
 $ecc-size-inlineelement-padding-horizontal: 0.25rem !default; // deprecated
 

@@ -14,7 +14,7 @@
     flex-wrap: wrap;
     // justify-content: flex-end;
     align-items: center;
-    padding: $ecc-size-inlineelement-padding-vertical $ecc-size-inlineelement-padding-horizontal;
+    padding: $ecc-size-block-whitespace/8 $ecc-size-block-whitespace/4;
 
     .mdl-button {
         margin: calc((32px - 1.5rem) / -4) calc((32px - 1.5rem) / -2);
@@ -26,18 +26,18 @@
 }
 
 .ecc-gui-elements__pagination-summary {
-    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+    margin-right: $typo-body-1-margin-bottom / 2;
 }
 
 .ecc-gui-elements__pagination-limit {
     display: inline-flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+    margin-right: $typo-body-1-margin-bottom / 2;
 }
 
 .ecc-gui-elements__pagination-limit_text {
-    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+    margin-right: $typo-body-1-margin-bottom / 2;
     white-space: nowrap;
 }
 
@@ -79,7 +79,7 @@
     min-width: 0;
     font-size: inherit;
     vertical-align: middle;
-    margin: 0 $ecc-size-blockelement-margin-horizontal / 2;
+    margin: 0 $typo-body-1-margin-bottom / 2;
     padding: 0;
     width: auto;
 
