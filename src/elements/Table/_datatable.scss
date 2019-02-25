@@ -8,9 +8,9 @@
     position: relative;
     border-collapse: collapse;
     font-size: $data-table-font-size;
-    line-height: 1.5; // TODO use config parameter
+    line-height: $typo-body-1-line-height;
     text-align: left;
-    background-color: $color-white;
+    background-color: $card-background-color;
     table-layout: fixed;
 
     thead {
@@ -39,9 +39,9 @@
     td,
     th {
         position: relative;
-        padding: 2 * $ecc-size-inlineelement-padding-horizontal 2 * $ecc-size-inlineelement-padding-vertical;
+        padding: $data-table-column-padding $ecc-size-block-whitespace / 2;
         vertical-align: middle;
-        height: 1.5em; // TODO use config parameter
+        height: $data-table-row-height;
         box-sizing: content-box;
         border-top: $data-table-dividers;
         border-bottom: $data-table-dividers;
@@ -50,8 +50,6 @@
 
     td {
         max-width: 39vw;
-        // overflow: hidden;
-        // text-overflow: ellipsis;
     }
 
     th,
