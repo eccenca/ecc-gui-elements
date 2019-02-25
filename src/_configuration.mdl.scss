@@ -113,25 +113,6 @@ $typo-button-font-weight: 500 !default;
 
 $typo-icon-font-size: $typo-headline-font-size !default; // original 24px
 
-/* -- Drawer menu ----------------------------------------------------------------- */
-
-$layout-nav-color: $palette-grey-300 !default;
-$layout-text-color: $palette-grey-800 !default;
-$layout-drawer-bg-color: $palette-grey-50 !default;
-$layout-drawer-border-color: $palette-grey-300 !default;
-$layout-drawer-navigation-color: #757575 !default;
-$layout-drawer-navigation-link-active-background: $palette-grey-300 !default;
-$layout-drawer-navigation-link-active-color: $color-light-contrast !default;
-$layout-drawer-narrow: 240px !default;
-$layout-drawer-wide: 456px !default;
-$layout-drawer-width: $layout-drawer-narrow !default;
-$layout-drawer-navigation-padding-top: 16px !default;
-$layout-drawer-button-font-size: 26px !default;
-$layout-drawer-button-mobile-size: 32px !default;
-$layout-drawer-button-desktop-size: 48px !default;
-$layout-drawer-button-desktop-margin-horizontal: 12px !default;
-$layout-drawer-button-threshold-margin: 4px !default;
-
 /* -- Application header bar ------------------------------------------------------ */
 
 $layout-header-bg-color: to_color($color-white) !default;
@@ -150,6 +131,7 @@ $layout-header-mobile-baseline: 72px !default;
 $layout-header-mobile-indent: 16px !default;
 $layout-header-desktop-indent: 40px !default;
 $layout-header-navigation-link-padding-vertical: 24px !default;
+$layout-text-color: $palette-grey-800 !default;
 // Tabs
 $layout-header-tab-highlight: $color-accent !default;
 $layout-tab-font-size: 14px !default;
@@ -444,7 +426,7 @@ $disabled-item-text-color: $palette-grey-400 !default;
 
 /* -- Dropdown menu (Context menu) ------------------------------------------ */
 
-$default-dropdown-bg-color: $color-white !default;
+$default-dropdown-bg-color: $palette-grey-50 !default; // original $color-white
 
 $menu-expand-duration: 0.3s !default;
 $menu-fade-duration: 0.2s !default;
@@ -452,6 +434,24 @@ $menu-min-width: 124px !default;
 $menu-padding-vertical: 8px !default;
 $menu-item-padding-horizontal: 16px !default;
 $menu-item-height: 48px !default;
+
+/* -- Drawer menu ----------------------------------------------------------------- */
+
+$layout-nav-color: $default-item-hover-bg-color !default; // original $palette-grey-300
+$layout-drawer-bg-color: $default-dropdown-bg-color !default; // original $palette-grey-50
+$layout-drawer-border-color: $layout-nav-color !default; // original $palette-grey-300
+$layout-drawer-navigation-color: $default-item-text-color !default; // original #757575
+$layout-drawer-navigation-link-active-background: rgba($color-primary, 0.13) !default; // original $palette-grey-300 !default;
+$layout-drawer-navigation-link-active-color: $color-light-contrast !default;
+$layout-drawer-narrow: 20rem !default; // original 240px
+$layout-drawer-wide: 1.61 * $layout-drawer-narrow !default; // original 456px
+$layout-drawer-width: $layout-drawer-narrow !default;
+$layout-drawer-navigation-padding-top: $ecc-size-block-whitespace / 2 !default; // original 16px
+$layout-drawer-button-font-size: 26px !default; // original 26px
+$layout-drawer-button-mobile-size: 32px !default; // original 32px
+$layout-drawer-button-desktop-size: 48px !default; // original 48px
+$layout-drawer-button-desktop-margin-horizontal: 12px !default; // original 12px
+$layout-drawer-button-threshold-margin: 4px !default;
 
 /* -- Tooltips -------------------------------------------------------------- */
 

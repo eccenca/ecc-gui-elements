@@ -142,9 +142,15 @@ const Page = React.createClass({
                     <Header title="Test Cases" />
                     <Drawer>
                         <Navigation>
-                            <a href="all">All</a>
+                            <a
+                                className={path === 'all' ? 'mdl-navigation__link--current' : ''}
+                                href="all"
+                            >
+                                All
+                            </a>
                             {_.map(testcases, ({name}) => (
                                 <a
+                                    className={name.toLowerCase() === path ? 'mdl-navigation__link--current' : ''}
                                     href={`${name.toLowerCase()}`}
                                     key={`${name}`}>
                                     {name}
