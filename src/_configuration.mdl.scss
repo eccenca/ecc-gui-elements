@@ -500,9 +500,9 @@ $snackbar-action-color: $color-accent !default;
 
 /* -- Modal dialogs --------------------------------------------------------------- */
 
-$dialog-content-color: $card-supporting-text-text-color !default;
-$dialog-title-font-size: 2.5rem !default;
-$dialog-padding: 24px !default;
+$dialog-content-color: $card-supporting-text-text-color !default; // currently not used
+$dialog-title-font-size: 2.5rem !default; // currently not used
+$dialog-padding: 24px !default; // currently not used
 
 /* -- Shadows --------------------------------------------------------------------- */
 
