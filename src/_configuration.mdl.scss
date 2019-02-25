@@ -227,6 +227,14 @@ $button-icon-focus-color: $button-focus-color !default;
 $button-icon-size: $button-height !default; // original 32px
 $button-icon-size-mini: $button-height / $ecc-size-typo-base-lineheight !default; // original 24px
 
+/* -- Chips ----------------------------------------------------------------------- */
+$chip-bg-color: rgba($text-color-primary, 0.13) !default; // original rgb(222, 222, 222)
+$chip-bg-active-color: rgba($color-accent, 0.13) !default; // original rgb(214, 214, 214)
+$chip-height: $button-height !default; // original 32px
+$chip-font-size: $typo-body-1-font-size !default; // original 13px
+$chips-padding-horizontal: $ecc-size-block-whitespace / 2 !default; // original 12px
+$chips-margin-vertical: $ecc-size-block-whitespace / 4 !default; // original 2px
+
 /* -- Icon Toggles ---------------------------------------------------------- */
 
 $icon-toggle-color: $palette-grey-700 !default;
@@ -489,15 +497,6 @@ $data-table-card-title-top: 20px !default;
 $data-table-card-padding: 24px !default;
 $data-table-button-padding-right: 16px !default;
 $data-table-cell-top: $data-table-card-padding / 2 !default;
-
-
-/* -- Chips ----------------------------------------------------------------------- */
-$chip-bg-color: rgb(222, 222, 222) !default;
-$chip-bg-active-color: rgb(214, 214, 214) !default;
-$chip-height: 32px !default;
-$chip-font-size: 13px !default;
-$chips-padding-horizontal: 12px !default;
-$chips-margin-vertical: 2px !default;
 
 /* -- Snackbar messages ----------------------------------------------------------- */
 
