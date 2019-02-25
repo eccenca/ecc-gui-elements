@@ -448,13 +448,13 @@ $menu-item-height: 48px !default;
 /* -- Tooltips -------------------------------------------------------------- */
 
 $tooltip-text-color: $color-white !default;
-$tooltip-background-color: rgba($palette-grey-700, 0.9) !default;
-$tooltip-max-width: 170px !default;
+$tooltip-background-color: rgba($palette-grey-900, 0.9) !default; // original rgba($palette-grey-700, 0.9)
+$tooltip-max-width: 15rem !default; // original 170px
 $tooltip-border-radius: 2px !default;
-$tooltip-font-size: 10px !default;
-$tooltip-padding: 8px !default;
-$tooltip-font-size-large: 14px !default;
-$tooltip-padding-large: 16px !default;
+$tooltip-font-size: $typo-caption-font-size !default; // original 10px
+$tooltip-padding: $ecc-size-block-whitespace / 2 !default; // original 8px
+$tooltip-font-size-large: $typo-body-1-font-size !default; // original 14px
+$tooltip-padding-large: $tooltip-padding !default; // original 16px
 
 /* -- Data Table ------------------------------------------------------------------ */
 
