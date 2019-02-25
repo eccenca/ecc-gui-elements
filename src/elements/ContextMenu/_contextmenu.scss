@@ -15,6 +15,7 @@
 
 .mdl-menu__item {
     &.has-contextblock {
+        // FIXME: Can probably removed after change in Graphlist
         padding-right: calc(1.5rem + 24px);
     }
 
@@ -23,6 +24,7 @@
 }
 
 .mdl-menu__item-contextmenu {
+    // FIXME: probably removed after change in Graphlist
     display: block;
     position: absolute;
     height: 32px;
@@ -35,6 +37,6 @@
     }
 }
 
-.contextmenu-container {
+.ege-contextmenu__wrapper {
   position: relative;
 }

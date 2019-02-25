@@ -85,7 +85,7 @@ const ContextMenu = React.createClass({
             );
 
         return menulist ? (
-            <div className="contextmenu-container">
+            <div className="ege-contextmenu__wrapper">
                 <Button
                     iconName={iconName || 'menu_more'}
                     id={menuId}

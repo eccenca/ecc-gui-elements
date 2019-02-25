@@ -431,9 +431,9 @@ $default-dropdown-bg-color: $palette-grey-50 !default; // original $color-white
 $menu-expand-duration: 0.3s !default;
 $menu-fade-duration: 0.2s !default;
 $menu-min-width: 124px !default;
-$menu-padding-vertical: 8px !default;
-$menu-item-padding-horizontal: 16px !default;
-$menu-item-height: 48px !default;
+$menu-padding-vertical: $ecc-size-block-whitespace / 4 !default; // original 8px
+$menu-item-padding-horizontal: $ecc-size-block-whitespace !default; // original 16px
+$menu-item-height: $ecc-size-type-levelratio * $button-height !default; // original 48px
 
 /* -- Drawer menu ----------------------------------------------------------------- */
 
