@@ -2,6 +2,9 @@
 @import "~react-datetime/css/react-datetime.css";
 
 div.rdt {
+
+    $rdt-cell-height: 1.61 * $typo-body-1-line-height * 1rem;
+
     .mdl-textfield {
         padding-bottom: 0;
     }
@@ -10,7 +13,7 @@ div.rdt {
         bottom: 0;
     }
 
-    padding-bottom: $input-text-vertical-spacing;
+    margin-bottom: $typo-body-1-margin-bottom;
 
     div.rdtPicker {
         @include shadow-2dp();
@@ -18,15 +21,15 @@ div.rdt {
         color: $button-secondary-color;
         border: none;
         padding: 0;
-        font-size: 1rem;
-        width: 7 * 3em;
+        font-size: $typo-caption-font-size;
+        width: 7 * $rdt-cell-height;
 
         table {
             border-collapse: collapse;
             border-spacing: 0;
             border: none;
-            font-size: 1rem;
-            width: 7 * 3em;
+            font-size: $typo-caption-font-size;
+            width: 7 * $rdt-cell-height;
         }
 
         thead, tbody, tfoot {
@@ -44,8 +47,8 @@ div.rdt {
                 text-align: center;
                 vertical-align: middle;
                 padding: 0;
-                height: 2.5em;
-                width: 3em;
+                height: $rdt-cell-height;
+                width: $rdt-cell-height;
                 line-height: 1;
                 border: none;
                 color: $button-secondary-color;
@@ -93,11 +96,11 @@ div.rdt {
         thead {
             tr:first-child {
                 th {
-                    height: 1em;
+                    height: $rdt-cell-height;
                     border-bottom: $data-table-dividers;
 
                     &.rdtSwitch {
-                        height: 3em;
+                        height: $rdt-cell-height;
                     }
                 }
             }
@@ -105,7 +108,7 @@ div.rdt {
 
         tfoot {
             td, td:first-of-type, td:last-of-type {
-                height: 3em;
+                height: $rdt-cell-height;
                 border-top: $data-table-dividers;
             }
         }
