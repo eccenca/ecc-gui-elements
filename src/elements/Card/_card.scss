@@ -81,7 +81,7 @@
 
 .mdl-card__actions--fixed {
     position: sticky;
-    bottom: 0;
+    bottom: -1 * $ecc-size-block-whitespace;
 
     .mdl-card__title ~ & {
         margin-top: $button-fab-size;
@@ -124,7 +124,7 @@
 
 .ecc-floatingactionlist__wrapper--fixed {
     position: sticky;
-    bottom: 0;
+    bottom: -1 * $ecc-size-block-whitespace;
     height: 0;
 }
 
