@@ -113,47 +113,6 @@ $typo-button-font-weight: 500 !default;
 
 $typo-icon-font-size: $typo-headline-font-size !default; // original 24px
 
-/* -- Application header bar ------------------------------------------------------ */
-
-$layout-header-bg-color: to_color($color-white) !default;
-$layout-header-text-color: to_color($color-black) !default;
-$layout-header-nav-hover-color: rgba(to_color($palette-grey-700), 0.6) !default;
-$layout-header-tab-text-color: rgba(to_color($ecc-color-primary-contrast), 0.6) !default;
-$layout-header-max-height: 1000px !default;
-$layout-header-icon-size: 32px !default;
-$layout-header-icon-margin: 24px !default;
-$layout-header-mobile-row-height: 56px !default;
-$layout-mobile-header-height: $layout-header-mobile-row-height !default;
-$layout-header-desktop-row-height: 64px !default;
-$layout-desktop-header-height: $layout-header-desktop-row-height !default;
-$layout-header-desktop-baseline: 80px !default;
-$layout-header-mobile-baseline: 72px !default;
-$layout-header-mobile-indent: 16px !default;
-$layout-header-desktop-indent: 40px !default;
-$layout-header-navigation-link-padding-vertical: 24px !default;
-$layout-text-color: $palette-grey-800 !default;
-// Tabs
-$layout-header-tab-highlight: $color-accent !default;
-$layout-tab-font-size: 14px !default;
-$layout-tab-bar-height: 48px !default;
-$layout-tab-mobile-padding: 12px !default;
-$layout-tab-desktop-padding: 24px !default;
-$layout-tab-highlight-thickness: 2px !default;
-
-/* -- Application footer bar ------------------------------------------------------ */
-
-$footer-bg-color: $palette-grey-800 !default;
-$footer-color: $palette-grey-500 !default;
-$footer-heading-color: $palette-grey-300 !default;
-$footer-button-fill-color: $footer-color !default;
-$footer-underline-color: $footer-color !default;
-$footer-min-padding: 16px !default;
-$padding: 16px !default;
-$footer-padding-sides: 40px !default;
-$footer-heading-font-size: 24px !default;
-$footer-heading-line-height: (1.5 * $footer-heading-font-size) !default;
-$footer-btn-size: 36px  !default;
-
 /* -- Grid ------------------------------------------------------------------------ */
 
 $grid-desktop-columns: 12 !default;
@@ -435,24 +394,6 @@ $menu-padding-vertical: $ecc-size-block-whitespace / 4 !default; // original 8px
 $menu-item-padding-horizontal: $ecc-size-block-whitespace !default; // original 16px
 $menu-item-height: $ecc-size-type-levelratio * $button-height !default; // original 48px
 
-/* -- Drawer menu ----------------------------------------------------------------- */
-
-$layout-nav-color: $default-item-hover-bg-color !default; // original $palette-grey-300
-$layout-drawer-bg-color: $default-dropdown-bg-color !default; // original $palette-grey-50
-$layout-drawer-border-color: $layout-nav-color !default; // original $palette-grey-300
-$layout-drawer-navigation-color: $default-item-text-color !default; // original #757575
-$layout-drawer-navigation-link-active-background: rgba($color-primary, 0.13) !default; // original $palette-grey-300 !default;
-$layout-drawer-navigation-link-active-color: $color-light-contrast !default;
-$layout-drawer-narrow: 20rem !default; // original 240px
-$layout-drawer-wide: 1.61 * $layout-drawer-narrow !default; // original 456px
-$layout-drawer-width: $layout-drawer-narrow !default;
-$layout-drawer-navigation-padding-top: $ecc-size-block-whitespace / 2 !default; // original 16px
-$layout-drawer-button-font-size: 26px !default; // original 26px
-$layout-drawer-button-mobile-size: 32px !default; // original 32px
-$layout-drawer-button-desktop-size: 48px !default; // original 48px
-$layout-drawer-button-desktop-margin-horizontal: 12px !default; // original 12px
-$layout-drawer-button-threshold-margin: 4px !default;
-
 /* -- Tooltips -------------------------------------------------------------- */
 
 $tooltip-text-color: $color-white !default;
@@ -516,3 +457,62 @@ $animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
 $animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
 $animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
 $animation-curve-default: $animation-curve-fast-out-slow-in !default;
+
+/* -- Application header bar ------------------------------------------------------ */
+
+$layout-text-color: $text-color-primary !default; // original $palette-grey-800
+$layout-header-bg-color: to_color($palette-grey-100) !default; // original to_color($color-white)
+$layout-header-text-color: $layout-text-color !default; // original to_color($color-black)
+$layout-header-nav-hover-color: rgba(to_color($palette-grey-700), 0.6) !default;
+$layout-header-tab-text-color: rgba(to_color($ecc-color-primary-contrast), 0.6) !default;
+$layout-header-max-height: 1000px !default;
+$layout-header-icon-size: 32px !default;
+$layout-header-icon-margin: 24px !default; // not used in @mdl/layout.scss
+$layout-header-mobile-row-height: 2 * $button-height/1rem * $ecc-size-typo-base !default; // original 56px
+$layout-mobile-header-height: $layout-header-mobile-row-height !default;
+$layout-header-mobile-indent: $ecc-size-block-whitespace / 2 !default; // original 16px
+$layout-header-mobile-baseline: $layout-mobile-header-height !default; // original 72px
+$layout-header-desktop-row-height: 2 * $button-height/1rem * $ecc-size-typo-base !default; // original 64px
+$layout-desktop-header-height: $layout-header-desktop-row-height !default;
+$layout-header-desktop-indent: $ecc-size-block-whitespace / 2 !default; // original 40px
+$layout-header-desktop-baseline: $layout-desktop-header-height !default; // original 80px
+$layout-header-navigation-link-padding-vertical: $ecc-size-block-whitespace !default; // original 24px
+// Tabs -- currently not used in header bar
+$layout-header-tab-highlight: $color-accent !default;
+$layout-tab-font-size: 14px !default;
+$layout-tab-bar-height: 48px !default;
+$layout-tab-mobile-padding: 12px !default;
+$layout-tab-desktop-padding: 24px !default;
+$layout-tab-highlight-thickness: 2px !default;
+
+/* -- Application footer bar ------------------------------------------------------ */
+
+$footer-bg-color: to_color($palette-grey-400) !default; // original $palette-grey-800
+$footer-color: to_color($palette-grey-100) !default; // original $palette-grey-500
+$footer-heading-color: to_color($palette-grey-50) !default; // original $palette-grey-300
+$footer-button-fill-color: $footer-color !default;
+$footer-underline-color: $footer-color !default;
+$footer-min-padding: $ecc-size-block-whitespace / 4 !default; // original 16px
+$padding: $ecc-size-block-whitespace / 2 !default; // original 16px
+$footer-padding-sides: $ecc-size-block-whitespace !default; // original 40px
+$footer-heading-font-size: $typo-subhead-font-size !default; // original 24px
+$footer-heading-line-height: $typo-subhead-line-height !default; // original (1.5 * $footer-heading-font-size)
+$footer-btn-size: $button-height !default; // original 36px
+
+/* -- Drawer menu ----------------------------------------------------------------- */
+
+$layout-nav-color: $default-item-hover-bg-color !default; // original $palette-grey-300
+$layout-drawer-bg-color: $default-dropdown-bg-color !default; // original $palette-grey-50
+$layout-drawer-border-color: $layout-nav-color !default; // original $palette-grey-300
+$layout-drawer-navigation-color: $default-item-text-color !default; // original #757575
+$layout-drawer-navigation-link-active-background: rgba($color-primary, 0.13) !default; // original $palette-grey-300 !default;
+$layout-drawer-navigation-link-active-color: $color-light-contrast !default;
+$layout-drawer-narrow: 20rem !default; // original 240px
+$layout-drawer-wide: 1.61 * $layout-drawer-narrow !default; // original 456px
+$layout-drawer-width: $layout-drawer-narrow !default;
+$layout-drawer-navigation-padding-top: $ecc-size-block-whitespace / 2 !default; // original 16px
+$layout-drawer-button-font-size: $typo-icon-font-size !default; // original 26px
+$layout-drawer-button-mobile-size: $layout-mobile-header-height !default; // original 32px
+$layout-drawer-button-desktop-size: $layout-desktop-header-height !default; // original 48px
+$layout-drawer-button-desktop-margin-horizontal: 0 !default; // original 12px
+$layout-drawer-button-threshold-margin: 0 !default;

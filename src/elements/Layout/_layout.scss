@@ -4,6 +4,43 @@
  * @author Michael Haschke
  */
 
+.mdl-layout__header {
+    .mdl-navigation__link {
+        color: rgba(to_color($layout-header-text-color), .61);
+        border-bottom: 2px solid transparent;
+
+        &:focus, &:hover {
+            color: $layout-header-text-color;
+            border-color: inherit;
+        }
+
+        &.active {
+            color: rgba(to_color($layout-header-text-color), 1);
+            border-color: $color-primary;
+        }
+    }
+
+    .mdl-layout-title {
+        padding: $ecc-size-inline-whitespace 0;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+
+        img {
+            max-height: 100%;
+            width: auto;
+            margin-right: $ecc-size-inline-whitespace;
+        }
+    }
+}
+
+.mdl-layout__drawer-button {
+    .material-icons {
+        vertical-align: middle;
+    }
+}
+
 hr.mdl-layout-spacer {
     padding: 0;
     margin: 0.5rem 0;
