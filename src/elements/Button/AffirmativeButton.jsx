@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from './Button';
 import ProgressButton from './ProgressButton';
 
@@ -23,9 +23,10 @@ const Page = React.createClass({
 });
 ```
 */
-const AffirmativeButton = React.createClass({
-    displayName: 'AffirmativeButton',
+class AffirmativeButton extends Component{
+    displayName: 'AffirmativeButton';
     // template rendering
+
     render() {
         // split 'normal' props from button content
         const {children, ...otherProps} = this.props;
@@ -73,7 +74,7 @@ const AffirmativeButton = React.createClass({
                 {children}
             </Button>
         );
-    },
-});
+    }
+}
 
 export default AffirmativeButton;

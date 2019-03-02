@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Nothing = React.createClass({
-    displayName: 'Nothing',
+class Nothing extends Component{
+    displayName: 'Nothing';
     // render nothing
     render() {
         return false;
-    },
-});
+    }
+}
 
 export default Nothing;

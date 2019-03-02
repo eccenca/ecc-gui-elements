@@ -1,17 +1,23 @@
 // react
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const Version = React.createClass({
-    displayName: 'Version',
+class Version extends Component{
+    displayName: 'Version';
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...props
+
+        }
+    }
+
     // define property types
-    propTypes: {
-        version: React.PropTypes.string.isRequired,
-    },
-    // initilize state
-    getInitialState() {
-        // return state
-        return this.props;
-    },
+    static propTypes = {
+        version: PropTypes.string.isRequired,
+    };
+
     // template rendering
     render() {
         return (
@@ -21,7 +27,7 @@ const Version = React.createClass({
                 {this.state.version}
             </span>
         );
-    },
-});
+    }
+}
 
 export default Version;

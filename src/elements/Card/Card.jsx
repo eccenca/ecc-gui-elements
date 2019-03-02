@@ -1,30 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactMDLCard from 'react-mdl/lib/Card/Card';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
-const Card = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Card',
+class Card extends Component{
+    displayName: 'Card';
 
     // define property types
-    propTypes: {
-        className: React.PropTypes.string,
-        shadow: React.PropTypes.number,
-        stretch: React.PropTypes.bool,
-        fixedActions: React.PropTypes.bool,
-        reducedSize: React.PropTypes.bool,
-    },
+    static propTypes = {
+        className: PropTypes.string,
+        shadow: PropTypes.number,
+        stretch: PropTypes.bool,
+        fixedActions: PropTypes.bool,
+        reducedSize: PropTypes.bool,
+    };
 
-    getDefaultProps() {
-        return {
+    static defaultProps = {
             shadow: 1,
             stretch: true,
             fixedActions: false,
             reducedSize: false,
-        };
-    },
 
+    };
     render() {
         const {
             className,
@@ -53,7 +50,7 @@ const Card = React.createClass({
                 {children}
             </ReactMDLCard>
         );
-    },
-});
+    }
+}
 
 export default Card;

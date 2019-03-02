@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip/Tooltip';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
 /* TODO:
 
@@ -9,18 +9,17 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 */
 
-const Button = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'NotAvailable',
+class Button extends Component{
+    displayName: 'NotAvailable';
 
     // define property types
-    propTypes: {
-        className: React.PropTypes.string, // additional classname
-        description: React.PropTypes.string, // long description
+    static propTypes = {
+        className: PropTypes.string, // additional classname
+        description: PropTypes.string, // long description
         // TODO iconName: React.PropTypes.string,
-        inline: React.PropTypes.bool, // displayed as inline text
-        label: React.PropTypes.string, // short description
-    },
+        inline: PropTypes.bool, // displayed as inline text
+        label: PropTypes.string, // short description
+    };
 
     // template rendering
     render() {
@@ -43,7 +42,7 @@ const Button = React.createClass({
                 </Tooltip>
             </span>
         );
-    },
-});
+    }
+}
 
 export default Button;

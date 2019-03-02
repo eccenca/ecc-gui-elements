@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 
-import PerformanceMixin from '../../mixins/PerformanceMixin';
 import Button from '../../elements/Button/Button';
 import {
     Card,
@@ -11,45 +10,46 @@ import {
     CardContent,
     CardActions,
 } from '../../elements/Card';
+import PropTypes from 'prop-types';
 
 /**
  * This Component creates a customizable dialog.
  */
-const BaseDialog = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'BaseDialog',
+class BaseDialog extends Component{
+    displayName: 'BaseDialog';
+
 
     // define property types
-    propTypes: {
+   static propTypes = {
         /**
          * Define if dialog is displayed.
          */
-        active: React.PropTypes.bool.isRequired,
+        active: PropTypes.bool.isRequired,
         /**
          * Custom dialog classname.
          */
-        className: React.PropTypes.string,
+        className: PropTypes.string,
         /**
          * Defines dialog as modal.
          */
-        modal: React.PropTypes.bool,
+        modal: PropTypes.bool,
         /**
          * Size of dialog.
          */
-        size: React.PropTypes.string,
+        size: PropTypes.string,
         /**
          * Contain buttons for action row.
          */
-        buttonRow: React.PropTypes.arrayOf(React.PropTypes.element).isRequired,
+        buttonRow: PropTypes.arrayOf(PropTypes.element).isRequired,
         /**
          * Title of dialog.
          */
-        title: React.PropTypes.node,
+        title: PropTypes.node,
         /**
          * Add cancel button to title.
          */
-        titleCancelButton: React.PropTypes.func,
-    },
+        titleCancelButton: PropTypes.func,
+    };
 
     // template rendering
     render() {
@@ -160,7 +160,7 @@ const BaseDialog = React.createClass({
         );
 
         return dialog;
-    },
-});
+    }
+}
 
 export default BaseDialog;

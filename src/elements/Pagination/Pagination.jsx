@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import Button from './../../elements/Button/Button';
@@ -10,7 +10,24 @@ import TextField from './../../elements/TextField/TextField';
 /**
  * This component provides a pagination for switching through lists of results
  */
-class Pagination extends React.Component {
+class Pagination extends Component {
+
+    constructor(props) {
+        super(props);
+        this.displayName = 'Pagination';
+        this.onClickFirst = this.onClickFirst.bind(this);
+        this.onClickBack = this.onClickBack.bind(this);
+        this.onClickForward = this.onClickForward.bind(this);
+        this.onClickLast = this.onClickLast.bind(this);
+        this.onNewLimit = this.onNewLimit.bind(this);
+        this.onChangePage = this.onChangePage.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+
+        this.state = {
+            customPage: undefined,
+        };
+    }
+
     // define property types
     static propTypes = {
         /**
@@ -73,22 +90,6 @@ class Pagination extends React.Component {
         showPageInput: false,
         isTopPagination: false,
     };
-
-    constructor(props) {
-        super(props);
-        this.displayName = 'Pagination';
-        this.onClickFirst = this.onClickFirst.bind(this);
-        this.onClickBack = this.onClickBack.bind(this);
-        this.onClickForward = this.onClickForward.bind(this);
-        this.onClickLast = this.onClickLast.bind(this);
-        this.onNewLimit = this.onNewLimit.bind(this);
-        this.onChangePage = this.onChangePage.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-
-        this.state = {
-            customPage: undefined,
-        };
-    }
 
     calculatePagination = ({limit, offset, totalResults}) => {
         const onLastPage = offset + limit >= totalResults;

@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 import cx from 'classnames';
+import PropTypes from 'prop-types';
 
 /**
 The are two simple React elements to create breadcrumb navigation.
@@ -37,14 +38,14 @@ const Page = React.createClass({
 });
 ```
 */
-export const BreadcrumbList = React.createClass({
+export class BreadcrumbList extends Component {
     // define property types
-    propTypes: {
+   static propTypes = {
         /**
             string (optional): additional CSS class name
         */
-        className: React.PropTypes.string,
-    },
+        className: PropTypes.string,
+    };
 
     render() {
         const {children, className, ...otherProps} = this.props;
@@ -54,17 +55,18 @@ export const BreadcrumbList = React.createClass({
                 {children}
             </ol>
         );
-    },
-});
+    }
+}
 
-export const BreadcrumbItem = React.createClass({
+
+export class BreadcrumbItem extends Component {
     // define property types
-    propTypes: {
+    static propTypes: {
         /**
             string (optional): additional CSS class name
         */
-        className: React.PropTypes.string,
-    },
+        className: PropTypes.string,
+    };
 
     render() {
         const {children, className, ...otherProps} = this.props;
@@ -86,5 +88,5 @@ export const BreadcrumbItem = React.createClass({
                 {crumbButton}
             </li>
         );
-    },
-});
+    }
+}

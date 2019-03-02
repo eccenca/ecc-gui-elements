@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from './Button';
 import ProgressButton from './ProgressButton';
 
@@ -24,8 +24,8 @@ const Page = React.createClass({
 });
 ```
 */
-const DisruptiveButton = React.createClass({
-    displayName: 'DisruptiveButton',
+class DisruptiveButton extends Component {
+    displayName: 'DisruptiveButton';
     // template rendering
     render() {
         // split 'normal' props from button content
@@ -74,7 +74,7 @@ const DisruptiveButton = React.createClass({
                 {children}
             </Button>
         );
-    },
-});
+    }
+}
 
 export default DisruptiveButton;

@@ -1,24 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactMDLCardActions from 'react-mdl/lib/Card/CardActions';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
-const CardActions = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'CardActions',
+class CardActions extends Component{
+    displayName: 'CardActions';
 
     // define property types
-    propTypes: {
-        border: React.PropTypes.bool,
-        fixed: React.PropTypes.bool,
-    },
+    static propTypes = {
+        border: PropTypes.bool,
+        fixed: PropTypes.bool,
+    };
 
-    getDefaultProps() {
-        return {
+    static defaultProps = {
             border: true,
             fixed: false,
-        };
-    },
+    };
 
     render() {
         const {children, className, fixed, ...otherProps} = this.props;
@@ -35,7 +32,7 @@ const CardActions = React.createClass({
                 {children}
             </ReactMDLCardActions>
         );
-    },
-});
+    }
+}
 
 export default CardActions;

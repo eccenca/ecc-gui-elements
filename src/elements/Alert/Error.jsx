@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Alert from './Alert';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
-const Error = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Error',
+class Error extends Component {
+    displayName: 'Error';
 
     // define property types
-    propTypes: {
-        children: React.PropTypes.node.isRequired,
-    },
+    static propTypes = {
+        children: PropTypes.node.isRequired,
+    };
 
     // template rendering
     render() {
@@ -20,7 +19,6 @@ const Error = React.createClass({
                 {children}
             </Alert>
         );
-    },
-});
-
+    }
+}
 export default Error;

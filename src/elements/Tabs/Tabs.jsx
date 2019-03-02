@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import classNames from 'classnames';
 import ReactMDLTabs from 'react-mdl/lib/Tabs/Tabs';
 import ReactMDLTab from 'react-mdl/lib/Tabs/Tab';
 // import ReactMDLTabBar from 'react-mdl/lib/Tabs/TabBar';
 import _ from 'lodash';
 import {Info} from './../Alert';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types'
 
 // get pure title names from i18n format
 const clearTabTitles = tabs =>
@@ -17,34 +17,36 @@ const clearTabTitles = tabs =>
         return tab;
     });
 
-const Tabs = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Tabs',
 
-    propTypes: {
-        prefixTabNames: React.PropTypes.string, // html class prefix
-        activeTab: React.PropTypes.string, // set default active tab
-        tabs: React.PropTypes.array, // tab content [{tabTitle: 'name', tabContent: value}]
-        onTabClick: React.PropTypes.func, // handle tab header click
-    },
-    getDefaultProps() {
-        return {
-            prefixTabNames: 'tabBar',
+class Tabs extends Component{
+    displayName: 'Tabs';
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            // remove entries with empty tabContent and get clear names from i18n
+            tabs: clearTabTitles(
+                _.reject(this.props.tabs, ({tabContent}) =>
+                    _.isEmpty(tabContent)
+                )
+            ),
+            ...props,
         };
-    },
-    getInitialState() {
-        return _.defaults(
-            {
-                // remove entries with empty tabContent and get clear names from i18n
-                tabs: clearTabTitles(
-                    _.reject(this.props.tabs, ({tabContent}) =>
-                        _.isEmpty(tabContent)
-                    )
-                ),
-            },
-            this.props
-        );
-    },
+        this.handleSelect = this.handleSelect.bind(this);
+
+    }
+
+
+    static propTypes = {
+        prefixTabNames: PropTypes.string, // html class prefix
+        activeTab: PropTypes.string, // set default active tab
+        tabs: PropTypes.array, // tab content [{tabTitle: 'name', tabContent: value}]
+        onTabClick: PropTypes.func, // handle tab header click
+    };
+    static defaultProps = {
+            prefixTabNames: 'tabBar',
+    };
+
     componentWillReceiveProps(props) {
         const newProps = _.cloneDeep(props);
         // remove entries with empty tabContent and get clear names from i18n
@@ -52,7 +54,7 @@ const Tabs = React.createClass({
             _.reject(props.tabs, ({tabContent}) => _.isEmpty(tabContent))
         );
         this.setState(newProps);
-    },
+    }
     handleSelect(selected) {
         const activeTab = this.state.tabs[selected].tabTitle;
         // do nothing if tab not changed
@@ -63,7 +65,7 @@ const Tabs = React.createClass({
         if (_.isFunction(this.state.onTabClick)) {
             this.state.onTabClick(activeTab);
         }
-    },
+    }
 
     render() {
         /* eslint no-script-url: 0 */
@@ -107,7 +109,7 @@ const Tabs = React.createClass({
         }
 
         return <div className="ecc-tab-container">{content}</div>;
-    },
-});
+    }
+}
 
 export default Tabs;

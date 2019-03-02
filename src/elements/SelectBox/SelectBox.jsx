@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Select from 'react-select/lib/Select';
 import Creatable from 'react-select/lib/Creatable';
 import Async from 'react-select/lib/Async';
 import AsyncCreatable from 'react-select/lib/AsyncCreatable';
 import _ from 'lodash';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 import UniqueIdWrapper from '../../utils/uniqueId';
 import Button from '../Button/Button';
 
@@ -18,16 +18,23 @@ const clearRenderer = () => (
     <Button iconName="clear" className="mdl-button--clearance" />
 );
 
-const SelectBox = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'SelectBox',
+class SelectBox extends Component{
+    displayName: 'SelectBox';
 
-    propTypes: {
+    constructor(props) {
+        super(props);
+        this.onChange =  this.onChange.bind(this);
+        this.uniqueOptions = this.uniqueOptions.bind(this);
+        this.onFocus = this.onFocus.bind(this);
+        this.onBlur = this.onBlur.bind(this);
+    }
+
+    static propTypes = {
         /**
          * contains values which are available in dropdown list
          * options is an array of objects or strings and/or numbers
          */
-        options: React.PropTypes.arrayOf(
+        options: PropTypes.arrayOf(
             (propValue, key, componentName, location, propFullName) => {
                 const containObjects = _.isPlainObject(_.head(propValue));
 
@@ -52,18 +59,18 @@ const SelectBox = React.createClass({
          * contains selected value
          * value is an object or a strings a numbers
          */
-        value: React.PropTypes.oneOfType([
-            React.PropTypes.string,
-            React.PropTypes.number,
-            React.PropTypes.object,
+        value: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+            PropTypes.object,
             // only needed for multiple inputs
-            React.PropTypes.array,
+            PropTypes.array,
         ]),
         // onChange handler
-        onChange: React.PropTypes.func.isRequired,
+        onChange: PropTypes.func.isRequired,
         // allow creation of new values
-        creatable: React.PropTypes.bool,
-    },
+        creatable: PropTypes.bool,
+    };
 
     onChange(newValue) {
         // If the options consist of plainvalues, we just want to return the plain value
@@ -71,7 +78,7 @@ const SelectBox = React.createClass({
             return this.props.onChange(newValue.value, this.props.name);
         }
         return this.props.onChange(newValue, this.props.name);
-    },
+    }
     // default check for value creation
     // prevent double values (check case insensitive, and handle numbers as string)
     uniqueOptions({option: newObject, options}) {
@@ -81,17 +88,17 @@ const SelectBox = React.createClass({
                 stringCompare(value) === stringCompare(newObject.value) &&
                 stringCompare(label) === stringCompare(newObject.label)
         );
-    },
+    }
     onFocus() {
         this.setState({
             focused: true,
         });
-    },
+    }
     onBlur() {
         this.setState({
             focused: false,
         });
-    },
+    }
     render() {
         const {
             autofocus,
@@ -242,8 +249,8 @@ const SelectBox = React.createClass({
                 )}
             </div>
         );
-    },
-});
+    }
+};
 
 export default UniqueIdWrapper(SelectBox, {
     prefix: 'selectBox',

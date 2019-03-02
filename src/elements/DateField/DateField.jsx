@@ -1,42 +1,51 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Datetime from 'react-datetime';
 import _ from 'lodash';
 import moment from 'moment';
 import TextField from './../TextField/TextField';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
-const DateField = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'DateField',
+class DateField extends Component{
+    displayName: 'DateField';
 
-    propTypes: {
-        label: React.PropTypes.string, // input label as string
-        value: React.PropTypes.oneOfType([
-            React.PropTypes.string, // date value as string
-            React.PropTypes.object, // can be a moment object as well
-        ]),
-        onChange: React.PropTypes.func.isRequired, // on change function
-        timeFormat: React.PropTypes.oneOfType([
-            React.PropTypes.string, // time format as string
-            React.PropTypes.bool, // time select can be disabled
-        ]),
-        dateFormat: React.PropTypes.oneOfType([
-            React.PropTypes.string, // date format as string
-            React.PropTypes.bool, // date select can be disabled
-        ]),
-        placeholder: React.PropTypes.string, // text shown on empty input element
-        disabled: React.PropTypes.bool, // prevent change of input element
-        inputClassName: React.PropTypes.string, // class name of input element
-        input: React.PropTypes.bool, // show/hide input element
-        closeOnSelect: React.PropTypes.bool, // auto close picker after date select
-    },
+    constructor(props) {
+        super(props);
+        this.getFormats = this.getFormats.bind(this);
+        this.convertToMoment = this.convertToMoment.bind(this);
+        this.extendedOnChange = this.extendedOnChange.bind(this);
+        this.textFieldOnChange = this.textFieldOnChange.bind(this);
+        this.renderInput = this.renderInput.bind(this);
 
-    getDefaultProps() {
-        return {
+    }
+
+
+    static propTypes = {
+        label: PropTypes.string, // input label as string
+        value: PropTypes.oneOfType([
+            PropTypes.string, // date value as string
+            PropTypes.object, // can be a moment object as well
+        ]),
+        onChange: PropTypes.func.isRequired, // on change function
+        timeFormat: PropTypes.oneOfType([
+            PropTypes.string, // time format as string
+            PropTypes.bool, // time select can be disabled
+        ]),
+        dateFormat: PropTypes.oneOfType([
+            PropTypes.string, // date format as string
+            PropTypes.bool, // date select can be disabled
+        ]),
+        placeholder: PropTypes.string, // text shown on empty input element
+        disabled: PropTypes.bool, // prevent change of input element
+        inputClassName: PropTypes.string, // class name of input element
+        input: PropTypes.bool, // show/hide input element
+        closeOnSelect: PropTypes.bool, // auto close picker after date select
+    };
+
+    static defaultProps ={
+
             timeFormat: false,
             dateFormat: 'YYYY-MM-DD',
-        };
-    },
+    };
 
     componentWillMount() {
         const {value, onChange} = this.props;
@@ -47,7 +56,7 @@ const DateField = React.createClass({
             );
             this.extendedOnChange({onChange, value});
         }
-    },
+    }
 
     // construct the date/time for moment
     getFormats() {
@@ -78,13 +87,13 @@ const DateField = React.createClass({
             time,
             full: fullFormat.join(' '),
         };
-    },
+    }
     convertToMoment(value, format) {
         if (moment.isMoment(value)) {
             return value;
         }
         return moment(value, format, true);
-    },
+    }
     extendedOnChange({onChange, value}) {
         const format = this.getFormats().full;
 
@@ -100,7 +109,7 @@ const DateField = React.createClass({
                 name: this.props.name,
             });
         }
-    },
+    }
 
     textFieldOnChange({rawValue}) {
         if (
@@ -112,7 +121,7 @@ const DateField = React.createClass({
                 value: rawValue,
             });
         }
-    },
+    }
 
     renderInput(props) {
         return (
@@ -123,7 +132,7 @@ const DateField = React.createClass({
                 onChange={this.textFieldOnChange}
             />
         );
-    },
+    }
 
     render() {
         const {
@@ -173,7 +182,7 @@ const DateField = React.createClass({
                 {...otherProps}
             />
         );
-    },
-});
+    }
+}
 
 export default DateField;

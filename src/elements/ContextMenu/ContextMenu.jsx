@@ -1,34 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import ReactMDLMenu, {MenuItem} from 'react-mdl/lib/Menu';
 
 import Button from './../../elements/Button/Button';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
 /**
  * This component provides a context menu
  */
-const ContextMenu = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'ContextMenu',
+class ContextMenu extends Component{
+    displayName: 'ContextMenu';
 
-    propTypes: {
-        align: React.PropTypes.string,
-        valign: React.PropTypes.string,
-        className: React.PropTypes.string,
-        ripple: React.PropTypes.bool,
-        target: React.PropTypes.string,
-        tooltip: React.PropTypes.string,
-    },
+    static propTypes ={
+        align: PropTypes.string,
+        valign: PropTypes.string,
+        className: PropTypes.string,
+        ripple: PropTypes.bool,
+        target: PropTypes.string,
+        tooltip: PropTypes.string,
+    };
 
-    getDefaultProps() {
-        return {
-            align: 'right',
-            valign: 'bottom',
-            ripple: false,
-            tooltip: 'open menu',
-        };
-    },
+    static defaultProps = {
+        align: 'right',
+        valign: 'bottom',
+        ripple: false,
+        tooltip: 'open menu',
+    };
 
     render() {
         const {children, iconName, tooltip, target, ...otherProps} = this.props;
@@ -96,10 +93,7 @@ const ContextMenu = React.createClass({
         ) : (
             false
         );
-    },
-});
+    }
+}
 
-export default {
-    ContextMenu,
-    MenuItem,
-};
+export default {ContextMenu, MenuItem};

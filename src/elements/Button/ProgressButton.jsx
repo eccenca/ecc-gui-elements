@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip/Tooltip';
 import Button from './Button';
 import Progressbar from '../Progressbar/Progressbar';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
 /**
 `<ProgressButton/>` is a special version of the `<Button/>` element that can be used to visualize a running process.
@@ -41,40 +41,40 @@ const Page = React.createClass({
 You can use `progress` and `progressTopic` options directly on `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements.
 
 */
-const ProgressButton = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'ProgressButton',
+class ProgressButton extends Component{
+    displayName: 'ProgressButton';
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            progress: _.get(this.props, 'progress', 0),
+            lastUpdate: _.get(this.props, 'lastUpdate', false),
+        };
+        this.handleProgressUpdates = this.handleProgressUpdates.bind(this);
+    }
+
 
     // define property types
-    propTypes: {
+    static propTypes = {
         /**
             integer (default: 0): progress number 0..100, if not set or 0 then an infinite progress bar is used
         */
-        progress: React.PropTypes.number,
+        progress: PropTypes.number,
         /**
             message queue subject (optional): channel subject that are used to update information about progress,
             if given that the button element listens to it for update objects that include `progressNumber` property with a value between 0 and 100
         */
-        progressTopic: React.PropTypes.object,
+        progressTopic: PropTypes.object,
         /**
             string (optional): tooltip for progress bar
             if a progress number is known (via option or message queue) then the tooltip is extenden by a colon, the value and a percent char
         */
-        tooltip: React.PropTypes.string,
+        tooltip: PropTypes.string,
         /**
             string (optional): text info that shows information about the last known update on the process
         */
-        lastUpdate: React.PropTypes.string,
-    },
-    getDefaultProps() {
-        return {};
-    },
-    getInitialState() {
-        return {
-            progress: _.get(this.props, 'progress', 0),
-            lastUpdate: _.get(this.props, 'lastUpdate', false),
-        };
-    },
+        lastUpdate: PropTypes.string,
+    };
 
     componentDidMount() {
         if (_.has(this.props, 'progressTopic')) {
@@ -83,13 +83,13 @@ const ProgressButton = React.createClass({
                 this.subscription = topic.subscribe(this.handleProgressUpdates);
             }
         }
-    },
+    }
 
     componentWillUnmount() {
         if (_.has(this, 'subscription')) {
             this.subscription.unsubscribe();
         }
-    },
+    }
 
     handleProgressUpdates({progressNumber, lastUpdate = false}) {
         if (_.isNumber(progressNumber)) {
@@ -98,7 +98,7 @@ const ProgressButton = React.createClass({
                 lastUpdate,
             });
         }
-    },
+    }
 
     // template rendering
     render() {
@@ -140,7 +140,7 @@ const ProgressButton = React.createClass({
                 {progressbar}
             </Button>
         );
-    },
-});
+    }
+}
 
 export default ProgressButton;

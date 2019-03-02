@@ -1,26 +1,26 @@
-import React from 'react';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import BaseDialog from './BaseDialog';
 
 /**
  * This Component creates a confirmation dialog based on BaseDialog.
  */
-const ConfirmationDialog = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'ConfirmationDialog',
+
+class ConfirmationDialog extends Component{
+    displayName: 'ConfirmationDialog';
 
     // define property types
-    propTypes: {
-        active: React.PropTypes.bool.isRequired,
-        className: React.PropTypes.string,
-        modal: React.PropTypes.bool,
-        size: React.PropTypes.string,
+    static propTypes = {
+        active: PropTypes.bool.isRequired,
+        className: PropTypes.string,
+        modal: PropTypes.bool,
+        size: PropTypes.string,
         // a Confirmation Dialog should always have two buttons per spec:
         // https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs
-        cancelButton: React.PropTypes.element.isRequired,
-        confirmButton: React.PropTypes.element.isRequired,
-        title: React.PropTypes.node,
-    },
+        cancelButton: PropTypes.element.isRequired,
+        confirmButton: PropTypes.element.isRequired,
+        title: PropTypes.node,
+    };
     // template rendering
     render() {
         const {active} = this.props;
@@ -46,7 +46,7 @@ const ConfirmationDialog = React.createClass({
                 {this.props.children}
             </BaseDialog>
         );
-    },
-});
+    }
+}
 
 export default ConfirmationDialog;

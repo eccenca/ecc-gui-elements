@@ -1,12 +1,12 @@
 /* eslint camelcase: 0 */
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import {includes} from 'lodash';
 import Tooltip from '../Tooltip/Tooltip';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
 import ligatureCodes from './icontable.json';
 import canonicalIconNames from './canonicalicons.json';
 import canonicalTooltips from './canonicaltooltips.json';
+import PropTypes from 'prop-types';
 
 /**
 import {Icon} from '@eccenca/gui-elements';
@@ -26,19 +26,18 @@ const Page = React.createClass({
 });
 ```
 */
-const Icon = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Icon',
+class Icon extends Component{
+    displayName: 'Icon';
 
     // define property types
-    propTypes: {
-        className: React.PropTypes.string,
-        name: React.PropTypes.string.isRequired,
-        tooltip: React.PropTypes.oneOfType([
-            React.PropTypes.node,
-            React.PropTypes.bool,
+    static propTypes = {
+        className: PropTypes.string,
+        name: PropTypes.string.isRequired,
+        tooltip: PropTypes.oneOfType([
+            PropTypes.node,
+            PropTypes.bool,
         ]),
-    },
+    };
 
     // template rendering
     render() {
@@ -96,7 +95,7 @@ const Icon = React.createClass({
         }
 
         return icon;
-    },
-});
+    }
+}
 
 export default Icon;

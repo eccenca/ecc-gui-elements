@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
 import Tooltip from '../Tooltip/Tooltip';
 import Icon from '../Icon/Icon';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
 import canonicalTooltips from './../Icon/canonicaltooltips.json';
+import PropTypes from 'prop-types';
 
 /**
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
@@ -44,25 +44,25 @@ const Page = React.createClass({
 });
 ```
 */
-const Button = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Button',
+
+class Button extends Component {
+    displayName: 'Button';
 
     // define property types
-    propTypes: {
-        children: React.PropTypes.oneOfType([React.PropTypes.node]),
+    static propTypes = {
+        children: PropTypes.oneOfType([PropTypes.node]),
         /**
             string (optional): additional CSS class name
         */
-        className: React.PropTypes.string,
+        className: PropTypes.string,
         /**
             boolean (default: false): button is disabled and cannot get used to trigger an action
         */
-        disabled: React.PropTypes.bool,
+        disabled: PropTypes.bool,
         /**
             string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
         */
-        fabSize: React.PropTypes.string,
+        fabSize: PropTypes.string,
         /**
             string (optional): icon name if it is an Material Design icon button
 
@@ -85,25 +85,25 @@ const Button = React.createClass({
 
             For other symbols and icon names @see https://material.io/icons/
         */
-        iconName: React.PropTypes.string,
+        iconName: PropTypes.string,
         /**
             boolean (default: false): activate ripple effect on button
         */
-        ripple: React.PropTypes.bool,
+        ripple: PropTypes.bool,
         /**
             React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
         */
-        tooltip: React.PropTypes.oneOfType([
-            React.PropTypes.node,
-            React.PropTypes.bool,
+        tooltip: PropTypes.oneOfType([
+            PropTypes.node,
+            PropTypes.bool,
         ]),
 
         // internal properties, used by button sub types
 
-        affirmative: React.PropTypes.bool,
-        dismissive: React.PropTypes.bool,
-        disruptive: React.PropTypes.bool,
-    },
+        affirmative: PropTypes.bool,
+        dismissive: PropTypes.bool,
+        disruptive: PropTypes.bool,
+    };
 
     // template rendering
     render() {
@@ -198,7 +198,7 @@ const Button = React.createClass({
         }
 
         return button;
-    },
-});
+    }
+}
 
 export default Button;

@@ -1,26 +1,23 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
-import PerformanceMixin from './../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
-const Spinner = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Spinner',
+class Spinner extends Component{
+    displayName: 'Spinner';
 
     // define property types
-    propTypes: {
-        appearGlobal: React.PropTypes.bool,
-        appearInline: React.PropTypes.bool,
-        appearLocal: React.PropTypes.bool,
-        className: React.PropTypes.string,
-    },
-    getDefaultProps() {
-        return {
+    static propTypes = {
+        appearGlobal: PropTypes.bool,
+        appearInline: PropTypes.bool,
+        appearLocal: PropTypes.bool,
+        className: PropTypes.string,
+    };
+    static defaultProps = {
             appearGlobal: true,
             appearInline: false,
             appearLocal: false,
-        };
-    },
+    };
 
     // template rendering
     render() {
@@ -45,7 +42,7 @@ const Spinner = React.createClass({
         return (
             <ReactMDLSpinner singleColor className={classes} {...otherProps} />
         );
-    },
-});
+    }
+}
 
 export default Spinner;

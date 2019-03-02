@@ -1,37 +1,37 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
 
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 import Nothing from '../Nothing/Nothing';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
-const FloatingActionList = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'FloatingActionList',
+ class FloatingActionList extends Component {
+     displayName: 'FloatingActionList';
 
-    propTypes: {
-        actions: React.PropTypes.array.isRequired,
-        className: React.PropTypes.string,
-        fabSize: React.PropTypes.string.isRequired,
-        fixed: React.PropTypes.bool,
-        iconName: React.PropTypes.string,
-    },
+     constructor(props) {
+         super(props);
+         this.state = {
+             activeFAB: false,
+         };
+         this.handleFAB = this.handleFAB.bind(this);
+     }
 
-    getDefaultProps() {
-        return {
-            fabSize: 'large',
-            fixed: false,
-            iconName: 'add',
-        };
-    },
 
-    getInitialState() {
-        return {
-            activeFAB: false,
-        };
-    },
+     static propTypes = {
+         actions: PropTypes.array.isRequired,
+         className: PropTypes.string,
+         fabSize: PropTypes.string.isRequired,
+         fixed: PropTypes.bool,
+         iconName: PropTypes.string,
+    };
+
+    static defaultProps = {
+        fabSize: 'large',
+        fixed: false,
+        iconName: 'add',
+    };
 
     componentWillReceiveProps() {
         if (this.state.activeFAB) {
@@ -39,14 +39,14 @@ const FloatingActionList = React.createClass({
                 activeFAB: false,
             });
         }
-    },
+    }
 
     handleFAB(event) {
         event.stopPropagation();
         this.setState({
             activeFAB: !this.state.activeFAB,
         });
-    },
+    }
 
     render() {
         const {
@@ -127,7 +127,7 @@ const FloatingActionList = React.createClass({
         }
 
         return floatinglist;
-    },
-});
+    }
+}
 
 export default FloatingActionList;

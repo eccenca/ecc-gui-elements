@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Highlighter from 'react-highlight-words';
@@ -24,7 +24,7 @@ const Highlight = props => {
     );
 };
 
-class AutoCompleteBox extends React.Component {
+class AutoCompleteBox extends Component {
     static propTypes = {
         /**
          * pass Textfield user input to parent component (e.g. to update options)

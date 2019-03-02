@@ -1,26 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
-
 import ReactMDLCardTitle from 'react-mdl/lib/Card/CardTitle';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 
-const CardTitle = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'CardTitle',
+class CardTitle extends Component{
+    displayName: 'CardTitle';
 
     // define property types
-    propTypes: {
-        className: React.PropTypes.string,
-        border: React.PropTypes.bool,
-        documentLevel: React.PropTypes.string,
-    },
+    static propTypes = {
+        className: PropTypes.string,
+        border: PropTypes.bool,
+        documentLevel: PropTypes.string,
+    };
 
-    getDefaultProps() {
-        return {
-            border: true,
-        };
-    },
+    static defaultProps = {
+            border: true
+    };
 
     render() {
         const {
@@ -82,7 +78,7 @@ const CardTitle = React.createClass({
                 {title}
             </ReactMDLCardTitle>
         );
-    },
-});
+    }
+}
 
 export default CardTitle;

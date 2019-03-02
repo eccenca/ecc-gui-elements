@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Button from './Button';
 import ProgressButton from './ProgressButton';
+
 
 /**
 Use the `<DismissiveButton />` element for all buttons that trigger dismissive actions, e.g. cancelling edit forms.
@@ -25,8 +26,8 @@ const Page = React.createClass({
 });
 ```
 */
-const DismissiveButton = React.createClass({
-    displayName: 'DismissiveButton',
+class DismissiveButton extends Component {
+    displayName: 'DismissiveButton';
     // template rendering
     render() {
         // split 'normal' props from button content
@@ -75,7 +76,7 @@ const DismissiveButton = React.createClass({
                 {children}
             </Button>
         );
-    },
-});
+    }
+}
 
 export default DismissiveButton;

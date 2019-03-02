@@ -1,20 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import Button from '../../elements/Button/Button';
+import PropTypes from 'prop-types';
 
-const Alert = React.createClass({
-    displayName: 'Alert',
+class Alert extends Component {
+    displayName: 'Alert';
     // define property types
-    propTypes: {
-        children: React.PropTypes.node.isRequired,
-        className: React.PropTypes.string,
-        handlerDismiss: React.PropTypes.func,
-        labelDismiss: React.PropTypes.string,
-        iconDismiss: React.PropTypes.string,
-        type: React.PropTypes.string,
-        border: React.PropTypes.bool,
-        vertSpacing: React.PropTypes.bool,
-    },
+    static propTypes = {
+        children: PropTypes.node.isRequired,
+        className: PropTypes.string,
+        handlerDismiss: PropTypes.func,
+        labelDismiss: PropTypes.string,
+        iconDismiss: PropTypes.string,
+        type: PropTypes.string,
+        border: PropTypes.bool,
+        vertSpacing: PropTypes.bool,
+    };
 
     // template rendering
     render() {
@@ -65,7 +66,7 @@ const Alert = React.createClass({
                 {dismiss}
             </div>
         );
-    },
-});
+    }
+}
 
 export default Alert;
