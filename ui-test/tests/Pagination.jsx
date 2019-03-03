@@ -1,13 +1,16 @@
 import React from 'react';
 import {Card, CardTitle, CardContent, Pagination} from '../../index';
 
-const TestPagination = React.createClass({
-    getInitialState() {
-        return {
+class TestPagination extends React.Component{
+
+    constructor(props) {
+        super(props);
+        this.state = {
             paginationOffset: 15,
             paginationLimit: 3,
         };
-    },
+        this.handlePaginationChange = this.handlePaginationChange.bind(this);
+    }
 
     handlePaginationChange({offset, limit}) {
         console.log(`Pagination: Offset ${offset} Limit: ${limit}`);
@@ -15,7 +18,7 @@ const TestPagination = React.createClass({
             paginationLimit: limit,
             paginationOffset: offset,
         });
-    },
+    }
 
     render() {
         return (
@@ -81,7 +84,7 @@ const TestPagination = React.createClass({
                 </CardContent>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestPagination;

@@ -15,9 +15,10 @@ import {
     DateTimefield,
 } from '../../index';
 
-const TestInputs = React.createClass({
-    getInitialState() {
-        return {
+class TestInputs extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
             switches: [false, true, undefined, undefined, true, false],
             textInput: ['5', '', ''],
             selectedRadio: '',
@@ -37,7 +38,9 @@ const TestInputs = React.createClass({
                 moment(''),
             ],
         };
-    },
+        this.updateValue = this.updateValue.bind(this);
+    }
+
     updateValue({name, rawValue, value, isValid}) {
         console.log(
             `Changing value of ${name} to: ${value}`,
@@ -47,7 +50,7 @@ const TestInputs = React.createClass({
         const currentState = this.state;
         _.set(currentState, name, value);
         this.setState(currentState);
-    },
+    }
     render() {
         return (
             <Card>
@@ -280,7 +283,7 @@ const TestInputs = React.createClass({
                 </CardContent>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestInputs;

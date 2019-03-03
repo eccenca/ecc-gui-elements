@@ -31,9 +31,10 @@ const selectOptions = [
     },
 ];
 
-const TestSelects = React.createClass({
-    getInitialState() {
-        return {
+class TestSelects extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
             selectSettings: {
                 searchable: true,
                 optionsOnTop: false,
@@ -47,17 +48,18 @@ const TestSelects = React.createClass({
             autoCompleteBox2: null,
             autoCompleteBox3: null,
         };
-    },
+        this.handleSelectChange = this.handleChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
     handleSelectChange(value, key) {
-        console.log('SelectBox onChange: ', value);
         this.setState({[key]: value});
-    },
+    }
     handleChange({value, name}) {
         const newState = this.state;
-        console.warn(newState, name);
         _.set(newState, name, value);
         this.setState(newState);
-    },
+    }
     render() {
         const {selectSettings} = this.state;
 
@@ -81,7 +83,6 @@ const TestSelects = React.createClass({
                         onChange={this.handleSelectChange}
                         async
                         loadOptions={function(input, callback) {
-                            console.warn('loadOptions');
                             setTimeout(() => {
                                 callback(null, {
                                     options: selectOptions,
@@ -133,7 +134,7 @@ const TestSelects = React.createClass({
                 </CardContent>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestSelects;

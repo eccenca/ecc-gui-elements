@@ -3,11 +3,11 @@ import _ from 'lodash';
 import {Card, CardTitle, CardContent, Icon} from '../../index';
 import canonicalIconNames from '../../src/elements/Icon/canonicalicons.json';
 
-const TestIcons = React.createClass({
-    getInitialState() {
-        return {};
-    },
-
+class TestIcons extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
     render() {
         return (
             <Card>
@@ -43,7 +43,7 @@ const TestIcons = React.createClass({
                 </CardContent>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestIcons;

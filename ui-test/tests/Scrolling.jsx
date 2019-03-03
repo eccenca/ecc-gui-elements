@@ -10,16 +10,10 @@ import {
 } from '../../index';
 import ScrollingMixin from '../../src/mixins/ScrollingMixin';
 
-const TestScrolling = React.createClass({
-    mixins: [ScrollingMixin],
-
-    componentDidMount() {
-        this.scrollIntoView({
-            topOffset: 10,
-        });
-    },
-    getInitialState() {
-        return {
+class TestScrolling extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
             actionsList: [
                 {
                     icon: 'confirm',
@@ -68,7 +62,12 @@ const TestScrolling = React.createClass({
                 },
             ],
         };
-    },
+        this.makeActionsSingle1 = this.makeActionsSingle1.bind(this);
+        this.makeActionsSingle2 = this.makeActionsSingle2.bind(this);
+        this.makeActionsMultiple = this.makeActionsMultiple.bind(this);
+        this.handleScrollTo = this.handleScrollTo.bind(this);
+    }
+
     makeActionsSingle1() {
         this.setState({
             actionsList: [
@@ -79,7 +78,7 @@ const TestScrolling = React.createClass({
                 },
             ],
         });
-    },
+    }
     makeActionsSingle2() {
         this.setState({
             actionsList: [
@@ -89,7 +88,7 @@ const TestScrolling = React.createClass({
                 },
             ],
         });
-    },
+    }
     makeActionsMultiple() {
         this.setState({
             actionsList: [
@@ -110,10 +109,11 @@ const TestScrolling = React.createClass({
                 },
             ],
         });
-    },
+    }
+
     handleScrollTo(ref) {
         ScrollingMixin.scrollElementIntoView(this[ref], {topOffset: 5});
-    },
+    }
 
     render() {
         const scrollTestCases = _.map([1, 2, 3], idx => ({
@@ -169,7 +169,7 @@ const TestScrolling = React.createClass({
                 </Card>
             </div>
         );
-    },
-});
+    }
+}
 
 export default TestScrolling;

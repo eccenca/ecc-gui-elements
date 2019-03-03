@@ -1,5 +1,4 @@
 import React from 'react';
-
 import rxmq from 'ecc-messagebus';
 import {
     Card,
@@ -14,12 +13,16 @@ import {
 
 const progressTestChannel = rxmq.channel('ui-test.progresstest');
 
-const TestProgressbar = React.createClass({
-    progress: 0,
+class TestProgressbar extends React.Component{
+    constructor(props) {
+        super(props);
+        this.updateProgress = this.updateProgress.bind(this);
+    }
+    progress: 0;
 
     componentDidMount() {
         window.setTimeout(this.updateProgress, 5000);
-    },
+    }
 
     updateProgress() {
         this.progress = this.progress + 5;
@@ -33,7 +36,7 @@ const TestProgressbar = React.createClass({
             });
             window.setTimeout(this.updateProgress, 1000);
         }
-    },
+    }
 
     render() {
         return (
@@ -90,7 +93,7 @@ const TestProgressbar = React.createClass({
                 <Progressbar appearLocal progress={15} />
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestProgressbar;

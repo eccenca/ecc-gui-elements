@@ -29,15 +29,13 @@ import TestNothing from './tests/Nothing';
 import TestBreadcrumbList from './tests/BreadcrumbList';
 import TestContextMenu from './tests/ContextMenu';
 
-import PerformanceMixin from './../src/mixins/PerformanceMixin';
 
 // component
 import {Layout, Content, Footer} from '../index';
 
 window.enablePerformanceMixingLog = true;
 
-const Page = React.createClass({
-    mixins: [PerformanceMixin],
+class Page extends React.Component{
 
     // template rendering
     render() {
@@ -173,8 +171,8 @@ const Page = React.createClass({
                 </Layout>
             </div>
         );
-    },
-});
+    }
+}
 
 const PageWithRouter = withRouter(Page);
 

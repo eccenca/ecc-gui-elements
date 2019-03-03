@@ -1,20 +1,22 @@
 import React from 'react';
 import {Button, Card, CardTitle, CardContent, Tabs} from '../../index';
 
-const TestTabs = React.createClass({
-    getInitialState() {
-        return {
+class TestTabs extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
             tabContent: [
                 {tabTitle: 'profiling Tab', tabContent: "i'm profiling Tab"},
                 {tabTitle: 'discovery Tab', tabContent: "i'm discovery Tab"},
                 {tabTitle: 'kpiTab', tabContent: "i'm kpiTab Tab"},
             ],
-        };
-    },
+        }
+    }
 
-    tabClick(tabName) {
-        console.log('tabClick:', tabName);
-    },
+
+    static tabClick(tabName) {
+        console.warn('tabClick:', tabName);
+    }
 
     render() {
         return (
@@ -24,7 +26,7 @@ const TestTabs = React.createClass({
                     <Tabs
                         prefixTabNames="tab-container"
                         tabs={this.state.tabContent}
-                        onTabClick={this.tabClick}
+                        onTabClick={TestTabs.tabClick}
                         activeTab="kpiTab"
                     />
                     <Button
@@ -51,7 +53,7 @@ const TestTabs = React.createClass({
                 </CardContent>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestTabs;
