@@ -115,11 +115,11 @@
 
 .ecc-floatingactionlist {
     position: absolute;
-    bottom: calc(#{$button-height/2} + #{$ecc-size-block-whitespace/2});
-    right: calc(#{$button-height} + #{$ecc-size-block-whitespace});
+    bottom: $ecc-size-block-whitespace;
+    right: 2 * $ecc-size-block-whitespace;
 
-    .mdl-card__actions & {
-        right: calc(#{$button-height} + #{$ecc-size-block-whitespace/2});
+    .mdl-card__actions--fixed & {
+        //right: $ecc-size-block-whitespace/2;
     }
 }
 
