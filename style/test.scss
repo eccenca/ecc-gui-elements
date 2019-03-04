@@ -3,7 +3,7 @@ $font_root: "../dist/fonts";
 @import "../src/main";
 
 .mdl-layout__content {
-    padding: 0;
+    padding: 1rem;
 }
 
 .ecc-application__workspace {
@@ -12,4 +12,19 @@ $font_root: "../dist/fonts";
 
 .uitest-highred {
     height: 111vh;
+}
+
+.uitest-table__contextmenu {
+}
+
+.uitest-divmargin {
+    margin-bottom: 10px;
+}
+
+.uitest-scrolling__cardcontent {
+    height: 100px;
+}
+
+.uitest-longcard {
+    height: 120vh
 }

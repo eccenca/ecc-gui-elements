@@ -3,8 +3,25 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
+
 ### Removed
 - messagebus
+
+## [3.4.1] 2019-02-07
+### Fixed
+
+- fix specifity of CSS selector for reduced Cards sub elements and improve its layout
+## [3.4.0] 2019-01-16
+
+### Added
+- Routing to test cases
+- New Cards test
+
+### Changed
+- Cut value description in `<AutoCompleteBox/>` on the left side if value is to big to get shown completely
+- Redesign the content using MDL sidebar with `<Drawer>` and `<Navigation>` elements
+- Separate chips test from buttons test
+
 ## [3.3.1] 2018-12-11
 
 ### Changed
