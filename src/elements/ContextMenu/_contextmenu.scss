@@ -13,30 +13,6 @@
     clip: auto !important;
 }
 
-.mdl-menu__item {
-    &.has-contextblock {
-        // FIXME: Can probably removed after change in Graphlist
-        padding-right: calc(1.5rem + 24px);
-    }
-
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.mdl-menu__item-contextmenu {
-    // FIXME: probably removed after change in Graphlist
-    display: block;
-    position: absolute;
-    height: 32px;
-    right: 16px;
-    top: 50%;
-    margin-top: -16px;
-
-    .material-icons {
-        vertical-align: middle;
-    }
-}
-
 .ege-contextmenu__wrapper {
   position: relative;
 }
