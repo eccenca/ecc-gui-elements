@@ -13,6 +13,11 @@
     clip: auto !important;
 }
 
+.mdl-menu__item {
+    width: 100%;
+    box-sizing: border-box;
+}
+
 .ege-contextmenu__wrapper {
   position: relative;
 }
