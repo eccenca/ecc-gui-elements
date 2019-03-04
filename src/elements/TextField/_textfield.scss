@@ -58,6 +58,12 @@ textarea.mdl-textfield__input {
 }
 
 .mdl-textfield__label {
+    .mdl-textfield--floating-label.is-focused &,
+    .mdl-textfield--floating-label.is-dirty &,
+    .mdl-textfield--floating-label.has-placeholder & {
+        top: $input-text-vertical-spacing - $input-text-floating-label-fontsize;
+    }
+
     .material-icons {
         font-size: 1.25em;
         vertical-align: text-bottom;
