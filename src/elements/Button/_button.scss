@@ -37,4 +37,5 @@
 .mdl-button--fab {
     width: $button-fab-size;
     height: $button-fab-size;
+    min-width: unset;
 }
