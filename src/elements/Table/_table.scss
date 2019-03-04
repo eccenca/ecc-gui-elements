@@ -78,6 +78,22 @@
             vertical-align: middle;
         }
     }
+    thead th {
+        & > .mdl-button--icon,
+        & > div[style] > .mdl-button--icon,
+        & > .contextmenu-container > .mdl-button--icon {
+            min-width: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            width: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            height: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            line-height: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            margin-top: -1 * $data-table-column-padding / 2;
+            margin-bottom: -1 * $data-table-column-padding / 2;
+        }
+
+        .material-icons {
+            font-size: $typo-body-1-font-size;
+        }
+    }
 }
 
 // multiline: allow linebreaks and multilined content in table cells
