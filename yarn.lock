@@ -2492,14 +2492,6 @@ ecc-license-checker@^2.7.0:
     mkdirp "^0.5.1"
     spdx "^0.5.1"
 
-ecc-messagebus@^3.6.0:
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/ecc-messagebus/-/ecc-messagebus-3.6.0.tgz#8cdb8c23c700a0f7c405fa1e6167e30843fdf7e7"
-  dependencies:
-    rx "^4.1.0"
-    rxmq "^0.9.3"
-    rxmq.middleware "^0.2.1"
-
 ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
@@ -6933,27 +6925,11 @@ rx-lite@*, rx-lite@^4.0.8:
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/rx-lite/-/rx-lite-4.0.8.tgz#0b1e11af8bc44836f04a6407e92da42467b79444"
 
-rx@^4.0.6, rx@^4.1.0:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
-
 rxjs@^5.4.2, rxjs@^5.5.2:
   version "5.5.9"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.9.tgz#12a0487794b00f5eb370fec2751bd973a89886fb"
   dependencies:
     symbol-observable "1.0.1"
-
-rxmq.middleware@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/rxmq.middleware/-/rxmq.middleware-0.2.1.tgz#8e508d7579132565247427f61ae3b5966ca065ed"
-  dependencies:
-    rx "^4.0.6"
-
-rxmq@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/rxmq/-/rxmq-0.9.3.tgz#da2472be135b370a57d6b9c4026809cf7615107d"
-  dependencies:
-    rx "^4.1.0"
 
 safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"

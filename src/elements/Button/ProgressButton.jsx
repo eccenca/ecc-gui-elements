@@ -44,16 +44,6 @@ You can use `progress` and `progressTopic` options directly on `<AffirmativeButt
 class ProgressButton extends Component{
     displayName: 'ProgressButton';
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            progress: _.get(this.props, 'progress', 0),
-            lastUpdate: _.get(this.props, 'lastUpdate', false),
-        };
-        this.handleProgressUpdates = this.handleProgressUpdates.bind(this);
-    }
-
-
     // define property types
     static propTypes = {
         /**
@@ -75,6 +65,15 @@ class ProgressButton extends Component{
         */
         lastUpdate: PropTypes.string,
     };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            progress: _.get(this.props, 'progress', 0),
+            lastUpdate: _.get(this.props, 'lastUpdate', false),
+        };
+        this.handleProgressUpdates = this.handleProgressUpdates.bind(this);
+    }
 
     componentDidMount() {
         if (_.has(this.props, 'progressTopic')) {
