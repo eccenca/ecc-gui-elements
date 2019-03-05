@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 // import classNames from 'classnames';
+import PropTypes from 'prop-types'
 import ReactMDLTabs from 'react-mdl/lib/Tabs/Tabs';
 import ReactMDLTab from 'react-mdl/lib/Tabs/Tab';
 // import ReactMDLTabBar from 'react-mdl/lib/Tabs/TabBar';
 import _ from 'lodash';
 import {Info} from './../Alert';
-import PropTypes from 'prop-types'
 
 // get pure title names from i18n format
 const clearTabTitles = tabs =>
@@ -21,6 +21,16 @@ const clearTabTitles = tabs =>
 class Tabs extends Component{
     displayName: 'Tabs';
 
+    static propTypes = {
+        prefixTabNames: PropTypes.string, // html class prefix
+        activeTab: PropTypes.string, // set default active tab
+        tabs: PropTypes.array, // tab content [{tabTitle: 'name', tabContent: value}]
+        onTabClick: PropTypes.func, // handle tab header click
+    };
+    static defaultProps = {
+            prefixTabNames: 'tabBar',
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -35,17 +45,6 @@ class Tabs extends Component{
         this.handleSelect = this.handleSelect.bind(this);
 
     }
-
-
-    static propTypes = {
-        prefixTabNames: PropTypes.string, // html class prefix
-        activeTab: PropTypes.string, // set default active tab
-        tabs: PropTypes.array, // tab content [{tabTitle: 'name', tabContent: value}]
-        onTabClick: PropTypes.func, // handle tab header click
-    };
-    static defaultProps = {
-            prefixTabNames: 'tabBar',
-    };
 
     componentWillReceiveProps(props) {
         const newProps = _.cloneDeep(props);

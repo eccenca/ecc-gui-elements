@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip/Tooltip';
-import PropTypes from 'prop-types';
 
 /* TODO:
 
@@ -16,7 +16,7 @@ class Button extends Component{
     static propTypes = {
         className: PropTypes.string, // additional classname
         description: PropTypes.string, // long description
-        // TODO iconName: React.PropTypes.string,
+        // TODO iconName: PropTypes.string,
         inline: PropTypes.bool, // displayed as inline text
         label: PropTypes.string, // short description
     };

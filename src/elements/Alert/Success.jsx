@@ -1,25 +1,21 @@
-import React, { Component } from 'react';
-import Alert from './Alert';
+import React from 'react';
 import PropTypes from 'prop-types';
+import Alert from './Alert';
 
-class  Success extends Component{
-    displayName: 'Success';
+const Success = props => {
+    const {children, ...otherProps} = props;
 
-    // define property types
-    static propTypes = {
-        children: PropTypes.node.isRequired,
-    };
+    return (
+        <Alert type="success" {...otherProps}>
+            {children}
+        </Alert>
+    );
 
-    // template rendering
-    render() {
-        const {children, ...otherProps} = this.props;
+};
 
-        return (
-            <Alert type="success" {...otherProps}>
-                {children}
-            </Alert>
-        );
-    }
-}
+Success.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+Success.displayName = 'Success';
 
 export default Success;

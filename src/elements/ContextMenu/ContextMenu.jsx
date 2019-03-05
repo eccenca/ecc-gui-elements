@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import ReactMDLMenu, {MenuItem} from 'react-mdl/lib/Menu';
 
 import Button from './../../elements/Button/Button';
-import PropTypes from 'prop-types';
 
 /**
  * This component provides a context menu

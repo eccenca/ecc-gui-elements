@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classNames from 'classnames';
 
@@ -10,7 +11,6 @@ import {
     CardContent,
     CardActions,
 } from '../../elements/Card';
-import PropTypes from 'prop-types';
 
 /**
  * This Component creates a customizable dialog.

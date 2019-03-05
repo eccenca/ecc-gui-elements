@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Select from 'react-select/lib/Select';
 import Creatable from 'react-select/lib/Creatable';
 import Async from 'react-select/lib/Async';
 import AsyncCreatable from 'react-select/lib/AsyncCreatable';
 import _ from 'lodash';
-import PropTypes from 'prop-types';
 import UniqueIdWrapper from '../../utils/uniqueId';
 import Button from '../Button/Button';
 
@@ -20,14 +20,6 @@ const clearRenderer = () => (
 
 class SelectBox extends Component{
     displayName: 'SelectBox';
-
-    constructor(props) {
-        super(props);
-        this.onChange =  this.onChange.bind(this);
-        this.uniqueOptions = this.uniqueOptions.bind(this);
-        this.onFocus = this.onFocus.bind(this);
-        this.onBlur = this.onBlur.bind(this);
-    }
 
     static propTypes = {
         /**
@@ -71,6 +63,14 @@ class SelectBox extends Component{
         // allow creation of new values
         creatable: PropTypes.bool,
     };
+
+    constructor(props) {
+        super(props);
+        this.onChange =  this.onChange.bind(this);
+        this.uniqueOptions = this.uniqueOptions.bind(this);
+        this.onFocus = this.onFocus.bind(this);
+        this.onBlur = this.onBlur.bind(this);
+    }
 
     onChange(newValue) {
         // If the options consist of plainvalues, we just want to return the plain value

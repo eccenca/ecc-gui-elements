@@ -1,12 +1,13 @@
 /* eslint camelcase: 0 */
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {includes} from 'lodash';
 import Tooltip from '../Tooltip/Tooltip';
 import ligatureCodes from './icontable.json';
 import canonicalIconNames from './canonicalicons.json';
 import canonicalTooltips from './canonicaltooltips.json';
-import PropTypes from 'prop-types';
+
 
 /**
 import {Icon} from '@eccenca/gui-elements';
@@ -26,76 +27,73 @@ const Page = React.createClass({
 });
 ```
 */
-class Icon extends Component{
-    displayName: 'Icon';
 
-    // define property types
-    static propTypes = {
-        className: PropTypes.string,
-        name: PropTypes.string.isRequired,
-        tooltip: PropTypes.oneOfType([
-            PropTypes.node,
-            PropTypes.bool,
-        ]),
-    };
 
-    // template rendering
-    render() {
-        const {className, badge = false, ...otherProps} = this.props;
+const Icon = props => {
 
-        let name = otherProps.name;
-        delete otherProps.name;
+    const {className, badge = false, ...otherProps} = props;
 
-        let tooltip = otherProps.tooltip;
-        delete otherProps.tooltip;
+    let name = otherProps.name;
+    delete otherProps.name;
 
-        if (!tooltip && tooltip !== false) {
-            if (typeof canonicalTooltips[name] !== 'undefined') {
-                tooltip = canonicalTooltips[name];
-            } else if (__DEBUG__) {
-                console.warn(`Icon "${name}" has no canonical tooltip defined`);
-            }
-        }
+    let tooltip = otherProps.tooltip;
+    delete otherProps.tooltip;
 
-        if (typeof canonicalIconNames[name] !== 'undefined') {
-            if (name === 'delete' && __DEBUG__) {
-                console.warn(
-                    'Do not use "delete" as icon name. Please use "remove" instead.'
-                );
-            }
-            name = canonicalIconNames[name];
+    if (!tooltip && tooltip !== false) {
+        if (typeof canonicalTooltips[name] !== 'undefined') {
+            tooltip = canonicalTooltips[name];
         } else if (__DEBUG__) {
-            console.log(
-                `%cFound usage of "${name}" as icon name. Use canonical icon names if possible.`,
-                'color: orange'
+            console.warn(`Icon "${name}" has no canonical tooltip defined`);
+        }
+    }
+
+    if (typeof canonicalIconNames[name] !== 'undefined') {
+        if (name === 'delete' && __DEBUG__) {
+            console.warn(
+                'Do not use "delete" as icon name. Please use "remove" instead.'
             );
         }
-
-        if (!includes(ligatureCodes, name)) {
-            if (__DEBUG__) {
-                console.error(`"${name}" is not a valid icon name.`);
-            }
-            name = 'error';
-        }
-
-        const classes = classNames(
-            'material-icons',
-            {'mdl-badge mdl-badge--overlap': badge},
-            className
+        name = canonicalIconNames[name];
+    } else if (__DEBUG__) {
+        console.log(
+            `%cFound usage of "${name}" as icon name. Use canonical icon names if possible.`,
+            'color: orange'
         );
-
-        let icon = (
-            <i className={classes} data-badge={badge} {...otherProps}>
-                {name}
-            </i>
-        );
-
-        if (tooltip) {
-            icon = <Tooltip label={tooltip}>{icon}</Tooltip>;
-        }
-
-        return icon;
     }
-}
+
+    if (!includes(ligatureCodes, name)) {
+        if (__DEBUG__) {
+            console.error(`"${name}" is not a valid icon name.`);
+        }
+        name = 'error';
+    }
+
+    const classes = classNames(
+        'material-icons',
+        {'mdl-badge mdl-badge--overlap': badge},
+        className
+    );
+
+    let icon = (
+        <i className={classes} data-badge={badge} {...otherProps}>
+            {name}
+        </i>
+    );
+
+    if (tooltip) {
+        icon = <Tooltip label={tooltip}>{icon}</Tooltip>;
+    }
+    return icon;
+};
+
+Icon.propTypes = {
+    className: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    tooltip: PropTypes.oneOfType([
+        PropTypes.node,
+        PropTypes.bool,
+    ]),
+};
+Icon.displayName = 'Icon';
 
 export default Icon;

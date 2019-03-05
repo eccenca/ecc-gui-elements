@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import _ from 'lodash';
 import classNames from 'classnames';
 import Button from './../../elements/Button/Button';
@@ -12,68 +13,53 @@ import TextField from './../../elements/TextField/TextField';
  */
 class Pagination extends Component {
 
-    constructor(props) {
-        super(props);
-        this.displayName = 'Pagination';
-        this.onClickFirst = this.onClickFirst.bind(this);
-        this.onClickBack = this.onClickBack.bind(this);
-        this.onClickForward = this.onClickForward.bind(this);
-        this.onClickLast = this.onClickLast.bind(this);
-        this.onNewLimit = this.onNewLimit.bind(this);
-        this.onChangePage = this.onChangePage.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
-
-        this.state = {
-            customPage: undefined,
-        };
-    }
 
     // define property types
     static propTypes = {
         /**
          * contains actual start value which is shown
          */
-        offset: React.PropTypes.number.isRequired,
+        offset: PropTypes.number.isRequired,
         /**
          * contains number of max shown elements per page
          */
-        limit: React.PropTypes.number.isRequired,
+        limit: PropTypes.number.isRequired,
         /**
          * contains total number of results
          */
-        totalResults: React.PropTypes.number.isRequired,
+        totalResults: PropTypes.number.isRequired,
         /**
          * contains method which is called if offset have to change by user
          */
-        onChange: React.PropTypes.func.isRequired,
+        onChange: PropTypes.func.isRequired,
         /**
          * show element offset numbers as pagination information
          */
-        showElementOffsetPagination: React.PropTypes.bool,
+        showElementOffsetPagination: PropTypes.bool,
         /**
          * define position of page change dropdown/dropup
          */
-        isTopPagination: React.PropTypes.bool,
+        isTopPagination: PropTypes.bool,
         /**
          * text displayed next to limit changer selectbox
          */
-        newLimitText: React.PropTypes.string,
+        newLimitText: PropTypes.string,
         /**
          * possible page sizes
          */
-        limitRange: React.PropTypes.array,
+        limitRange: PropTypes.array,
         /**
          * if true all buttons and inputs fields are disabled and visibility is decreased
          */
-        disabled: React.PropTypes.bool,
+        disabled: PropTypes.bool,
         /**
          * the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
          */
-        showPageInput: React.PropTypes.bool,
+        showPageInput: PropTypes.bool,
         /**
          * hide info about number of total results
          */
-        hideTotalResults: React.PropTypes.bool,
+        hideTotalResults: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -91,6 +77,22 @@ class Pagination extends Component {
         isTopPagination: false,
     };
 
+    constructor(props) {
+        super(props);
+        this.displayName = 'Pagination';
+        this.onClickFirst = this.onClickFirst.bind(this);
+        this.onClickBack = this.onClickBack.bind(this);
+        this.onClickForward = this.onClickForward.bind(this);
+        this.onClickLast = this.onClickLast.bind(this);
+        this.onNewLimit = this.onNewLimit.bind(this);
+        this.onChangePage = this.onChangePage.bind(this);
+        this.handleKeyPress = this.handleKeyPress.bind(this);
+
+        this.state = {
+            customPage: undefined,
+        };
+    }
+
     calculatePagination = ({limit, offset, totalResults}) => {
         const onLastPage = offset + limit >= totalResults;
         return {
@@ -106,7 +108,7 @@ class Pagination extends Component {
             totalPages: _.ceil(totalResults / limit),
             lastItemOnPage: onLastPage ? totalResults : offset + limit,
         };
-    }
+    };
 
     // trigger event to show first results
     onClickFirst() {

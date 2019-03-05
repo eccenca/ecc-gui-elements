@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Datetime from 'react-datetime';
 import _ from 'lodash';
 import moment from 'moment';
 import TextField from './../TextField/TextField';
-import PropTypes from 'prop-types';
 
 class DateField extends Component{
     displayName: 'DateField';

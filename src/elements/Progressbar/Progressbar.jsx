@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactMDLProgressBar from 'react-mdl/lib/ProgressBar';
-import PropTypes from 'prop-types';
 
 class Progressbar extends Component{
     displayName: 'Progressbar';

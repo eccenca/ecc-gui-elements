@@ -67,6 +67,13 @@ class TestScrolling extends React.Component{
         this.makeActionsMultiple = this.makeActionsMultiple.bind(this);
         this.handleScrollTo = this.handleScrollTo.bind(this);
     }
+/*
+    componentDidMount() {
+        this.scrollIntoView({
+            topOffset: 10,
+        });
+    }
+    */
 
     makeActionsSingle1() {
         this.setState({

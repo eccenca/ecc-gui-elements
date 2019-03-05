@@ -1,24 +1,23 @@
-import React, { Component } from 'react';
-import Alert from './Alert';
+import React from 'react';
 import PropTypes from 'prop-types';
+import Alert from './Alert';
 
-class Error extends Component {
-    displayName: 'Error';
+const Error = props => {
+    const {children, ...otherProps} = props;
 
-    // define property types
-    static propTypes = {
-        children: PropTypes.node.isRequired,
-    };
+    return (
+        <Alert type="error" {...otherProps}>
+            {children}
+        </Alert>
+    );
 
-    // template rendering
-    render() {
-        const {children, ...otherProps} = this.props;
+};
 
-        return (
-            <Alert type="error" {...otherProps}>
-                {children}
-            </Alert>
-        );
-    }
-}
+// define property types
+Error.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+Error.displayName = 'Error';
+
 export default Error;

@@ -10,15 +10,6 @@ import PropTypes from 'prop-types';
  class FloatingActionList extends Component {
      displayName: 'FloatingActionList';
 
-     constructor(props) {
-         super(props);
-         this.state = {
-             activeFAB: false,
-         };
-         this.handleFAB = this.handleFAB.bind(this);
-     }
-
-
      static propTypes = {
          actions: PropTypes.array.isRequired,
          className: PropTypes.string,
@@ -33,7 +24,15 @@ import PropTypes from 'prop-types';
         iconName: 'add',
     };
 
-    componentWillReceiveProps() {
+     constructor(props) {
+         super(props);
+         this.state = {
+             activeFAB: false,
+         };
+         this.handleFAB = this.handleFAB.bind(this);
+     }
+
+     componentWillReceiveProps() {
         if (this.state.activeFAB) {
             this.setState({
                 activeFAB: false,

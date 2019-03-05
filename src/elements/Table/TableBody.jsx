@@ -1,9 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import _ from 'lodash';
 import classNames from 'classnames';
-import TableRow from './TableRow';
-import TableCell from './TableCell';
 
 /**
 

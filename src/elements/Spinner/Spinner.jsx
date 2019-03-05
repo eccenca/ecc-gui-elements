@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
-import PropTypes from 'prop-types';
+
 
 class Spinner extends Component{
     displayName: 'Spinner';

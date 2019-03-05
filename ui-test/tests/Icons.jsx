@@ -4,10 +4,7 @@ import {Card, CardTitle, CardContent, Icon} from '../../index';
 import canonicalIconNames from '../../src/elements/Icon/canonicalicons.json';
 
 class TestIcons extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
+    
     render() {
         return (
             <Card>

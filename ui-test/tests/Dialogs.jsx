@@ -12,28 +12,35 @@ import {
     BaseDialog,
 } from '../../index';
 
-const TestDialogs = React.createClass({
-    getInitialState() {
-        return {
+
+class TestDialogs extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
             baseDialog: false,
             confirmationDialog: false,
         };
-    },
+
+        this.openConfirmationDialog = this.openConfirmationDialog.bind(this);
+        this.closeConfirmationDialog = this.openConfirmationDialog.bind(this);
+        this.openBaseDialog = this.openBaseDialog.bind(this);
+        this.closeBaseDialog = this.closeBaseDialog.bind(this);
+    }
 
     openConfirmationDialog() {
         this.setState({confirmationDialog: true});
-    },
+    }
     closeConfirmationDialog(param) {
         console.log('ConfirmationDialog closed', param);
         this.setState({confirmationDialog: false});
-    },
+    }
     openBaseDialog() {
         this.setState({baseDialog: true});
-    },
+    }
     closeBaseDialog(param) {
         console.log('BaseDialog closed', param);
         this.setState({baseDialog: false});
-    },
+    }
 
     // template rendering
     render() {
@@ -158,7 +165,7 @@ const TestDialogs = React.createClass({
                 </Card>
             </div>
         );
-    },
-});
+    }
+}
 
 export default TestDialogs;
