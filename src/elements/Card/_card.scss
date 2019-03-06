@@ -17,19 +17,6 @@
 
 .mdl-card__title {
     min-height: $typo-title-font-size;
-
-    .mdl-card__menu {
-        // TODO: evaluate where we use menu inside the title, maybe we can remove this code
-        position: relative;
-        top: calc(-0.5 * (#{$typo-title-font-size} + #{$ecc-size-block-whitespace} - #{$button-icon-size}));
-        right: calc(-0.5 * (#{$typo-title-font-size} + 2 * #{$ecc-size-block-whitespace} - #{$button-icon-size}));
-        height: 1px;
-        overflow: visible;
-        white-space: nowrap;
-        flex-shrink: 0;
-        flex-grow: 0;
-        align-self: flex-start;
-    }
 }
 
 .mdl-card__menu {

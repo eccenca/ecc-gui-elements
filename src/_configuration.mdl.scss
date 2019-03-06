@@ -13,7 +13,7 @@ $image_path: "~@eccenca/material-design-lite/src/images" !default;
 
 // main colors
 $color-primary: $ecc-color-primary !default;
-$color-primary-dark: $palette-indigo-700 !default; // TODO
+$color-primary-dark: darken($color-primary, 20%) !default;
 $color-accent: $ecc-color-accent !default;
 $color-primary-contrast: $ecc-color-primary-contrast !default;
 $color-accent-contrast: $ecc-color-accent-contrast !default;

@@ -4,22 +4,6 @@
  * @author Michael Haschke
  */
 
-// This fixes an animation bug
-// https://github.com/google/material-design-lite/issues/4574#issuecomment-246600670
-// 2019-02-25: removed it because problem should be solved in webkit
-// TODO check for old symptoms
-.mdl-tooltip {
-    /*
-    will-change: unset;
-    &.is-active {
-        animation: none;
-        transform: scale(1);
-        opacity: 1;
-        visibility: visible;
-    }
-    */
-}
-
 .mdl-tooltip.is-active {
 
     button[disabled] + & {
