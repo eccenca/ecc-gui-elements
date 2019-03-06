@@ -29,7 +29,7 @@
   "author": "eccenca GmbH <opensource@eccenca.com> (http://eccenca.com)",
   "license": "MIT",
   "dependencies": {
-    "@eccenca/material-design-lite": "^1.3.0-beta3",
+    "@eccenca/material-design-lite": "^2.0.0",
     "classnames": "^2.2.5",
     "lodash": "^4.16.4",
     "moment": "^2.20.1",

@@ -104,9 +104,10 @@
     webpack-sources "^1.0.1"
     yaml-loader "^0.5.0"
 
-"@eccenca/material-design-lite@^1.3.0-beta3":
-  version "1.3.0-beta5"
-  resolved "https://registry.yarnpkg.com/@eccenca/material-design-lite/-/material-design-lite-1.3.0-beta5.tgz#70c0d0f49a4e10883c365706faff7bdadada67fb"
+"@eccenca/material-design-lite@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@eccenca/material-design-lite/-/material-design-lite-2.0.0.tgz#4a85d61d91ecb35d56fd94f03e3151f2a88435a8"
+  integrity sha512-wF+L9PrfxLcInNpDQ8qu3PYq7DiXbH43zXbFL7DlvDOw22tjiz2yCV9ykjpPMEuo6TNY7LHHSQdydiMxAwe0XA==
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
