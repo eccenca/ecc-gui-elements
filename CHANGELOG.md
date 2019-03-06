@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- include full configuration stack of MDL variables, all sizes there are calculated based on very few own base configurations: `$ecc-size-typo-base`, `$ecc-size-typo-base-lineheight` and `$ecc-size-type-levelratio`, see README.md under "Justify default configuration"
 
 ## [3.4.1] 2019-02-07
 
