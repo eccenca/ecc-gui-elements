@@ -1,13 +1,11 @@
 extends:
-  - airbnb
-  - plugin:react/recommended
-  - prettier
-  - prettier/react
+- airbnb
+- plugin:react/recommended
+
 plugins:
-  - react
-  - jsx-a11y
-  - import
-  - prettier
+- react
+- jsx-a11y
+- import
 env:
   browser: true
   es6: true
@@ -18,22 +16,47 @@ globals:
   __WEBPACK__: true
   __VERSION__: true
 parserOptions:
-   ecmaFeatures:
-     # enable JSX support
-      jsx: true
+  ecmaFeatures:
+    # enable JSX support
+    jsx: true
 rules:
-  prettier/prettier:
-    - error
-    - singleQuote: true
-      trailingComma: es5
-      bracketSpacing: false
-      jsxBracketSameLine: true
-      tabWidth: 4
-      printWidth: 80
-      semi: true
+  # FIXME: deactivate rules for arrow functions until we find out why they fail sometimes
+  # READ more about it here: https://github.com/eslint/eslint/issues/10137
+  array-callback-return: "off"
+  arrow-body-style: "off"
+  implicit-arrow-linebreak: "off"
+  # use only single quotes/backquotes for strings
+  quotes: ["error", "single"]
+  # trailing commas are mandatory
+  comma-dangle: ["error", "always-multiline"]
+  # indentation made with spaces not tabs
+  indent: ["error", 4, { "ignoreComments": true }]
+  # lines are max. 100 signs long
+  max-len: ["error", { "code": 120 }]
+  # a line ends with semicolon, period
+  semi: ["error", "always"]
+  # addon to 'semi', cares about spaces before and after semicolon usage
+  semi-spacing: ["error", {"before": false, "after": true}]
   prefer-destructuring: ["warn"]
+  no-multi-spaces: ["error"]
+  yoda: ["error"]
+  no-multiple-empty-lines: ["error"]
+  no-trailing-spaces: ["error"]
+  no-unneeded-ternary: ["error"]
+  "require-jsdoc": [
+    "error",
+    {
+      "require": {
+        "FunctionDeclaration": false,
+        "MethodDefinition": true,
+        "ClassDeclaration": true,
+        "ArrowFunctionExpression": false,
+        "FunctionExpression": false
+      }
+    }
+  ]
   no-plusplus: ["error", { "allowForLoopAfterthoughts": true }]
-  no-use-before-define: ["warn"]
+  no-use-before-define: ["error"]
   no-warning-comments: [
     "warn",
     {
@@ -53,6 +76,9 @@ rules:
       ]
     }
   ]
+  # limit the max amount of conditionals
+  complexity: ["error", { "max": 4 }]
+  arrow-parens: [2, "as-needed"]
   react/jsx-no-bind: ["warn"]
   react/forbid-prop-types: ["warn"]
   react/prefer-es6-class: ["warn"]
@@ -60,3 +86,8 @@ rules:
   react/require-default-props: ["warn"]
   react/sort-comp: ["warn"]
   react/jsx-boolean-value: ["off"]
+  # align closing react component bracket with opening bracket
+  react/jsx-closing-bracket-location: [1, "line-aligned"]
+  # disable checks as default eslint indent rule already do it
+  react/jsx-indent: ["off"]
+  react/jsx-indent-props: ["off"]
