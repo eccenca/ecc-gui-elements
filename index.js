@@ -12,7 +12,7 @@ import Content from 'react-mdl/lib/Layout/Content';
 
 import MaterialMixin from './src/mixins/MaterialMixin';
 import PerformanceMixin from './src/mixins/PerformanceMixin';
-import ScrollingMixin from './src/mixins/ScrollingMixin';
+import ScrollingMixin from './src/mixins/ScrollingHOC';
 
 // GUI Elements
 

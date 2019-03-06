@@ -1,66 +1,51 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Datetime from 'react-datetime';
 import _ from 'lodash';
 import moment from 'moment';
 import TextField from './../TextField/TextField';
 
-class DateField extends Component{
-    displayName: 'DateField';
+const DateField = (props) => {
+    const {
+        // outer props
+        label,
+        value,
+        onChange,
+        className,
+        // inner props
+        placeholder,
+        disabled,
+        inputClassName,
+        // rest outer props
+        ...otherProps} = props;
 
-    constructor(props) {
-        super(props);
-        this.getFormats = this.getFormats.bind(this);
-        this.convertToMoment = this.convertToMoment.bind(this);
-        this.extendedOnChange = this.extendedOnChange.bind(this);
-        this.textFieldOnChange = this.textFieldOnChange.bind(this);
-        this.renderInput = this.renderInput.bind(this);
+    const extendedOnChange = (onChange, value) => {
+        const format = getFormats().full;
 
-    }
+        const newValue = convertToMoment(value, format);
+        const oldValue = convertToMoment(props.value, format);
 
-
-    static propTypes = {
-        label: PropTypes.string, // input label as string
-        value: PropTypes.oneOfType([
-            PropTypes.string, // date value as string
-            PropTypes.object, // can be a moment object as well
-        ]),
-        onChange: PropTypes.func.isRequired, // on change function
-        timeFormat: PropTypes.oneOfType([
-            PropTypes.string, // time format as string
-            PropTypes.bool, // time select can be disabled
-        ]),
-        dateFormat: PropTypes.oneOfType([
-            PropTypes.string, // date format as string
-            PropTypes.bool, // date select can be disabled
-        ]),
-        placeholder: PropTypes.string, // text shown on empty input element
-        disabled: PropTypes.bool, // prevent change of input element
-        inputClassName: PropTypes.string, // class name of input element
-        input: PropTypes.bool, // show/hide input element
-        closeOnSelect: PropTypes.bool, // auto close picker after date select
-    };
-
-    static defaultProps ={
-
-            timeFormat: false,
-            dateFormat: 'YYYY-MM-DD',
-    };
-
-    componentWillMount() {
-        const {value, onChange} = this.props;
-        // initial input formatting
-        if (!moment.isMoment(value)) {
-            console.warn(
-                'Datefield: Please provide the value as a Moment Object, otherwise it could result in false value conversions'
-            );
-            this.extendedOnChange({onChange, value});
+        // only return value if value is a new one
+        if (!oldValue.isSame(newValue) && _.isFunction(onChange)) {
+            onChange({
+                value: newValue,
+                rawValue: newValue,
+                isValid: newValue.isValid(),
+                name: props.name,
+            });
         }
+    };
+
+    // initial input formatting
+    if (!moment.isMoment(value)) {
+        console.warn(
+            'Datefield: Please provide the value as a Moment Object, otherwise it could result in false value conversions'
+        );
+        extendedOnChange({onChange, value});
     }
 
-    // construct the date/time for moment
-    getFormats() {
-        const {dateFormat, timeFormat} = this.props;
+   const getFormats = () => {
+        const {dateFormat, timeFormat} = props;
         // set format output
         const fullFormat = [];
         let date = false;
@@ -87,102 +72,103 @@ class DateField extends Component{
             time,
             full: fullFormat.join(' '),
         };
-    }
-    convertToMoment(value, format) {
+    };
+
+    const convertToMoment = (value, format) => {
         if (moment.isMoment(value)) {
             return value;
         }
         return moment(value, format, true);
-    }
-    extendedOnChange({onChange, value}) {
-        const format = this.getFormats().full;
+    };
 
-        const newValue = this.convertToMoment(value, format);
-        const oldValue = this.convertToMoment(this.props.value, format);
-
-        // only return value if value is a new one
-        if (!oldValue.isSame(newValue) && _.isFunction(onChange)) {
-            onChange({
-                value: newValue,
-                rawValue: newValue,
-                isValid: newValue.isValid(),
-                name: this.props.name,
-            });
-        }
-    }
-
-    textFieldOnChange({rawValue}) {
+    const textFieldOnChange = (rawValue) => {
         if (
-            rawValue !== this.props.value &&
-            _.isFunction(this.props.onChange)
+            rawValue !== props.value &&
+            _.isFunction(props.onChange)
         ) {
-            this.extendedOnChange({
-                onChange: this.props.onChange,
+            extendedOnChange({
+                onChange: props.onChange,
                 value: rawValue,
             });
         }
-    }
+    };
 
-    renderInput(props) {
+    const renderInput = (props) => {
         return (
             <TextField
                 {...props}
-                stretch={this.props.stretch}
-                error={this.props.error}
-                onChange={this.textFieldOnChange}
+                stretch={props.stretch}
+                error={props.error}
+                onChange={textFieldOnChange}
             />
         );
-    }
+    };
 
-    render() {
-        const {
-            // outer props
-            label,
-            value,
-            onChange,
-            className,
-            // inner props
-            placeholder,
-            disabled,
-            inputClassName,
-            // rest outer props
-            ...otherProps
-        } = this.props;
-        delete otherProps.initialFormat;
-        delete otherProps.dateFormat;
-        delete otherProps.timeFormat;
-        delete otherProps.name;
 
-        const inputProps = {
-            label: label || placeholder,
-            disabled,
-            className: className || inputClassName,
-        };
+    delete otherProps.initialFormat;
+    delete otherProps.dateFormat;
+    delete otherProps.timeFormat;
+    delete otherProps.name;
 
-        const formats = this.getFormats();
+    const inputProps = {
+        label: label || placeholder,
+        disabled,
+        className: className || inputClassName,
+    };
 
-        // try to convert value to moment object
-        const inputValue = this.convertToMoment(value, formats.full);
+    const formats = getFormats();
 
-        return (
-            <Datetime
-                value={
-                    inputValue.isValid()
-                        ? inputValue
-                        : inputValue.creationData().input
-                }
-                onChange={newValue => {
-                    this.extendedOnChange({onChange, value: newValue});
-                }}
-                dateFormat={formats.date}
-                timeFormat={formats.time}
-                strictParsing
-                inputProps={inputProps}
-                renderInput={this.renderInput}
-                {...otherProps}
-            />
-        );
-    }
-}
+    // try to convert value to moment object
+    const inputValue = convertToMoment(value, formats.full);
+
+    return (
+        <Datetime
+            value={
+                inputValue.isValid()
+                    ? inputValue
+                    : inputValue.creationData().input
+            }
+            onChange={newValue => {
+                extendedOnChange({onChange, value: newValue});
+            }}
+            dateFormat={formats.date}
+            timeFormat={formats.time}
+            strictParsing
+            inputProps={inputProps}
+            renderInput={renderInput}
+            {...otherProps}
+        />
+    );
+
+
+};
+
+DateField.propTypes = {
+    label: PropTypes.string, // input label as string
+    value: PropTypes.oneOfType([
+        PropTypes.string, // date value as string
+        PropTypes.object, // can be a moment object as well
+    ]),
+    onChange: PropTypes.func.isRequired, // on change function
+    timeFormat: PropTypes.oneOfType([
+        PropTypes.string, // time format as string
+        PropTypes.bool, // time select can be disabled
+    ]),
+    dateFormat: PropTypes.oneOfType([
+        PropTypes.string, // date format as string
+        PropTypes.bool, // date select can be disabled
+    ]),
+    placeholder: PropTypes.string, // text shown on empty input element
+    disabled: PropTypes.bool, // prevent change of input element
+    inputClassName: PropTypes.string, // class name of input element
+    input: PropTypes.bool, // show/hide input element
+    closeOnSelect: PropTypes.bool, // auto close picker after date select
+};
+DateField.defaultProps = {
+    timeFormat: false,
+    dateFormat: 'YYYY-MM-DD',
+};
+
+DateField.displayName = 'DateField';
 
 export default DateField;

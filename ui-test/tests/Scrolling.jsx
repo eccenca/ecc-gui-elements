@@ -8,7 +8,7 @@ import {
     CardActions,
     FloatingActionList,
 } from '../../index';
-import ScrollingMixin from '../../src/mixins/ScrollingMixin';
+import ScrollingHOC from '../../src/mixins/ScrollingHOC';
 
 class TestScrolling extends React.Component{
     constructor(props) {
@@ -67,13 +67,13 @@ class TestScrolling extends React.Component{
         this.makeActionsMultiple = this.makeActionsMultiple.bind(this);
         this.handleScrollTo = this.handleScrollTo.bind(this);
     }
-/*
+
     componentDidMount() {
-        this.scrollIntoView({
+        this.props.scrollIntoView({
             topOffset: 10,
         });
     }
-    */
+
 
     makeActionsSingle1() {
         this.setState({
@@ -119,7 +119,7 @@ class TestScrolling extends React.Component{
     }
 
     handleScrollTo(ref) {
-        ScrollingMixin.scrollElementIntoView(this[ref], {topOffset: 5});
+        this.props.scrollElementIntoView(this[ref], {topOffset: 5});
     }
 
     render() {
@@ -179,4 +179,4 @@ class TestScrolling extends React.Component{
     }
 }
 
-export default TestScrolling;
+export default ScrollingHOC(TestScrolling);

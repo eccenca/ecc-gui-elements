@@ -34,13 +34,14 @@ class Tabs extends Component{
     constructor(props) {
         super(props);
         this.state = {
+            ...props,
             // remove entries with empty tabContent and get clear names from i18n
             tabs: clearTabTitles(
                 _.reject(this.props.tabs, ({tabContent}) =>
                     _.isEmpty(tabContent)
                 )
             ),
-            ...props,
+
         };
         this.handleSelect = this.handleSelect.bind(this);
 
