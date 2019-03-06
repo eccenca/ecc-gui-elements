@@ -10,9 +10,8 @@ import Content from 'react-mdl/lib/Layout/Content';
 
 // Mixins
 
-import MaterialMixin from './src/mixins/MaterialMixin';
-import PerformanceMixin from './src/mixins/PerformanceMixin';
-import ScrollingMixin from './src/mixins/ScrollingHOC';
+
+import ScrollingMixin from './src/hocs/ScrollingHOC';
 
 // GUI Elements
 
@@ -86,8 +85,6 @@ import Version from './src/elements/Version/Version';
 import Footer from './src/elements/Footer/Footer';
 
 export default {
-    MaterialMixin,
-    PerformanceMixin,
     ScrollingMixin,
 
     Alert,

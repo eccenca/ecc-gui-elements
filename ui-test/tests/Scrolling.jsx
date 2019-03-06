@@ -8,7 +8,7 @@ import {
     CardActions,
     FloatingActionList,
 } from '../../index';
-import ScrollingHOC from '../../src/mixins/ScrollingHOC';
+import ScrollingHOC from '../../src/hocs/ScrollingHOC';
 
 class TestScrolling extends React.Component{
     constructor(props) {
