@@ -6,13 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Changed 
 - Prepared component for react 16
 ### Removed
-- Mixins, PerformanceMixin and MaterialMixin 
+- Mixins, PerformanceMixin, MaterialMixin and messagebus 
 ### Added
-- messagebuswrapper HOC  
-
-
-### Removed
-- messagebus
+- ScrollingHOC  
 
 ## [3.4.1] 2019-02-07
 ### Fixed
@@ -275,7 +271,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [2.18.1] 2017-08-29
 
 ### Removed
-- Circular dependency on ecc-hocs
+- Circular dependency on ecc-mixins
 
 ### Fixed
 - How subscriptions in progress buttons are handled
