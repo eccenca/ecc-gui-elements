@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
 
@@ -38,55 +38,47 @@ const Page = React.createClass({
 });
 ```
 */
-export class BreadcrumbList extends Component {
-    // define property types
-   static propTypes = {
-        /**
-            string (optional): additional CSS class name
-        */
-        className: PropTypes.string,
-    };
 
-    render() {
-        const {children, className, ...otherProps} = this.props;
+// BreadcrumbList component
+const BreadcrumbList = props => {
+    const {children, className, ...otherProps} = props;
 
-        return (
-            <ol className={cx('ecc-breadcrumbs', className)} {...otherProps}>
-                {children}
-            </ol>
-        );
-    }
-}
+    return (
+        <ol className={cx('ecc-breadcrumbs', className)} {...otherProps}>
+            {children}
+        </ol>
+    );
+};
+BreadcrumbList.propTypes = {
+    className: PropTypes.string,
+};
 
 
-export class BreadcrumbItem extends Component {
-    // define property types
-    static propTypes: {
-        /**
-            string (optional): additional CSS class name
-        */
-        className: PropTypes.string,
-    };
+// BreadcrumbItem component
+const BreadcrumbItem = props => {
+    const {children, className, ...otherProps} = props;
 
-    render() {
-        const {children, className, ...otherProps} = this.props;
+    let crumbType = otherProps.onClick ? 'button' : 'span';
+    crumbType = otherProps.href ? 'a' : crumbType;
 
-        let crumbType = otherProps.onClick ? 'button' : 'span';
-        crumbType = otherProps.href ? 'a' : crumbType;
+    const crumbButton = React.createElement(
+        crumbType,
+        {
+            className: 'ecc-breadcrumbs__button',
+            ...otherProps,
+        },
+        children
+    );
 
-        const crumbButton = React.createElement(
-            crumbType,
-            {
-                className: 'ecc-breadcrumbs__button',
-                ...otherProps,
-            },
-            children
-        );
+    return (
+        <li className={cx('ecc-breadcrumbs__item', className)}>
+            {crumbButton}
+        </li>
+    );
 
-        return (
-            <li className={cx('ecc-breadcrumbs__item', className)}>
-                {crumbButton}
-            </li>
-        );
-    }
-}
+};
+BreadcrumbList.propTypes = {
+    className: PropTypes.string,
+};
+
+export default {BreadcrumbItem, BreadcrumbList};

@@ -1,56 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 import classNames from 'classnames';
 import ReactMDLCard from 'react-mdl/lib/Card/Card';
 import PropTypes from 'prop-types';
 
-class Card extends Component{
-    displayName: 'Card';
+const Card = props => {
+    const {
+        className,
+        stretch,
+        shadow,
+        fixedActions,
+        reducedSize,
+        children,
+        ...otherProps
+    } = props;
 
-    // define property types
-    static propTypes = {
-        className: PropTypes.string,
-        shadow: PropTypes.number,
-        stretch: PropTypes.bool,
-        fixedActions: PropTypes.bool,
-        reducedSize: PropTypes.bool,
-    };
+    const classes = classNames(
+        {
+            'mdl-card--stretch': stretch === true,
+            'mdl-card--has-fixed-actions': fixedActions === true,
+            'mdl-card--reduced': reducedSize === true,
+        },
+        className
+    );
 
-    static defaultProps = {
-            shadow: 1,
-            stretch: true,
-            fixedActions: false,
-            reducedSize: false,
+    return (
+        <ReactMDLCard
+            className={classes}
+            shadow={shadow > 0 ? shadow - 1 : undefined}
+            {...otherProps}>
+            {children}
+        </ReactMDLCard>
+    );
 
-    };
-    render() {
-        const {
-            className,
-            stretch,
-            shadow,
-            fixedActions,
-            reducedSize,
-            children,
-            ...otherProps
-        } = this.props;
+};
+// define property types
+Card.propTypes = {
+    className: PropTypes.string,
+    shadow: PropTypes.number,
+    stretch: PropTypes.bool,
+    fixedActions: PropTypes.bool,
+    reducedSize: PropTypes.bool,
+};
 
-        const classes = classNames(
-            {
-                'mdl-card--stretch': stretch === true,
-                'mdl-card--has-fixed-actions': fixedActions === true,
-                'mdl-card--reduced': reducedSize === true,
-            },
-            className
-        );
+Card.defaultProps = {
+    shadow: 1,
+    stretch: true,
+    fixedActions: false,
+    reducedSize: false,
+};
+Card.displayName = 'Card';
 
-        return (
-            <ReactMDLCard
-                className={classes}
-                shadow={shadow > 0 ? shadow - 1 : undefined}
-                {...otherProps}>
-                {children}
-            </ReactMDLCard>
-        );
-    }
-}
 
 export default Card;

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import ReactMDLMenu, {MenuItem} from 'react-mdl/lib/Menu';
@@ -8,27 +8,9 @@ import Button from './../../elements/Button/Button';
 /**
  * This component provides a context menu
  */
-class ContextMenu extends Component{
-    displayName: 'ContextMenu';
+const ContextMenu = props => {
 
-    static propTypes ={
-        align: PropTypes.string,
-        valign: PropTypes.string,
-        className: PropTypes.string,
-        ripple: PropTypes.bool,
-        target: PropTypes.string,
-        tooltip: PropTypes.string,
-    };
-
-    static defaultProps = {
-        align: 'right',
-        valign: 'bottom',
-        ripple: false,
-        tooltip: 'open menu',
-    };
-
-    render() {
-        const {children, iconName, tooltip, target, ...otherProps} = this.props;
+        const {children, iconName, tooltip, target, ...otherProps} = props;
 
         const menuItemsCopy = Array.isArray(children) ? children : [children];
         const menuId = target || _.uniqueId('app-contextmenu-');
@@ -93,7 +75,24 @@ class ContextMenu extends Component{
         ) : (
             false
         );
-    }
-}
+};
+
+ContextMenu.propTypes ={
+    align: PropTypes.string,
+    valign: PropTypes.string,
+    className: PropTypes.string,
+    ripple: PropTypes.bool,
+    target: PropTypes.string,
+    tooltip: PropTypes.string,
+};
+
+ContextMenu.defaultProps = {
+    align: 'right',
+    valign: 'bottom',
+    ripple: false,
+    tooltip: 'open menu',
+};
+
+ContextMenu.displayName = 'ContextMenu';
 
 export default {ContextMenu, MenuItem};

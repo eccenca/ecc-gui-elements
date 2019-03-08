@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from './Button';
 import ProgressButton from './ProgressButton';
 
@@ -23,55 +23,54 @@ const Page = React.createClass({
 });
 ```
 */
-class AffirmativeButton extends Component{
-    displayName: 'AffirmativeButton';
-    // template rendering
 
-    render() {
-        // split 'normal' props from button content
-        const {children, ...otherProps} = this.props;
-        const useProgressButton =
-            typeof otherProps.progress !== 'undefined';
-        // remove unused propTypes from button
-        if (!useProgressButton) {
-            delete otherProps.progress;
-        }
-
-        if (__DEBUG__ && typeof otherProps.accent !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with accent property.'
-            ); // eslint-disable-line no-console
-        }
-
-        if (__DEBUG__ && typeof otherProps.colored !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with colored property.'
-            ); // eslint-disable-line no-console
-        }
-
-        if (__DEBUG__ && typeof otherProps.dismissive !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with dismissive property.'
-            ); // eslint-disable-line no-console
-        }
-
-        if (__DEBUG__ && typeof otherProps.disruptive !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with disruptive property.'
-            ); // eslint-disable-line no-console
-        }
-
-        // render button
-        return useProgressButton ? (
-            <ProgressButton {...otherProps} affirmative>
-                {children}
-            </ProgressButton>
-        ) : (
-            <Button {...otherProps} affirmative>
-                {children}
-            </Button>
-        );
+const AffirmativeButton = props => {
+    // split 'normal' props from button content
+    const {children, ...otherProps} = props;
+    const useProgressButton =
+        typeof otherProps.progress !== 'undefined';
+    // remove unused propTypes from button
+    if (!useProgressButton) {
+        delete otherProps.progress;
     }
-}
+
+    if (__DEBUG__ && typeof otherProps.accent !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with accent property.'
+        ); // eslint-disable-line no-console
+    }
+
+    if (__DEBUG__ && typeof otherProps.colored !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with colored property.'
+        ); // eslint-disable-line no-console
+    }
+
+    if (__DEBUG__ && typeof otherProps.dismissive !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with dismissive property.'
+        ); // eslint-disable-line no-console
+    }
+
+    if (__DEBUG__ && typeof otherProps.disruptive !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with disruptive property.'
+        ); // eslint-disable-line no-console
+    }
+
+    // render button
+    return useProgressButton ? (
+        <ProgressButton {...otherProps} affirmative>
+            {children}
+        </ProgressButton>
+    ) : (
+        <Button {...otherProps} affirmative>
+            {children}
+        </Button>
+    );
+
+};
+AffirmativeButton.displayName = 'AffirmativeButton';
 
 export default AffirmativeButton;
+

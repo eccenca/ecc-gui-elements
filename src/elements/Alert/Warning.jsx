@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Alert from './Alert';
 import PropTypes from 'prop-types'
 
-class Warning extends Component {
-    displayName: 'Warning';
+const Warning = props => {
+    const {children, ...otherProps} = props;
 
-    // define property types
-    static propTypes = {
-        children: PropTypes.node.isRequired,
-    };
-
-    // template rendering
-    render() {
-        const {children, ...otherProps} = this.props;
-
-        return (
-            <Alert type="warning" {...otherProps}>
-                {children}
-            </Alert>
-        );
-    }
-}
+    return (
+        <Alert type="warning" {...otherProps}>
+            {children}
+        </Alert>
+    );
+};
+Warning.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+Warning.displayName ='Warning';
 
 export default Warning;

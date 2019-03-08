@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip/Tooltip';
@@ -9,21 +9,10 @@ import Tooltip from '../Tooltip/Tooltip';
 
 */
 
-class Button extends Component{
-    displayName: 'NotAvailable';
 
-    // define property types
-    static propTypes = {
-        className: PropTypes.string, // additional classname
-        description: PropTypes.string, // long description
-        // TODO iconName: PropTypes.string,
-        inline: PropTypes.bool, // displayed as inline text
-        label: PropTypes.string, // short description
-    };
 
-    // template rendering
-    render() {
-        const {className, description, inline, label} = this.props;
+const Button = props => {
+        const {className, description, inline, label} = props;
 
         const classes = classNames(
             {
@@ -42,7 +31,16 @@ class Button extends Component{
                 </Tooltip>
             </span>
         );
-    }
-}
+};
 
+// define property types
+Button.propTypes = {
+    className: PropTypes.string, // additional classname
+    description: PropTypes.string, // long description
+    // TODO iconName: PropTypes.string,
+    inline: PropTypes.bool, // displayed as inline text
+    label: PropTypes.string, // short description
+};
+
+Button.displayName = 'NotAvailable';
 export default Button;

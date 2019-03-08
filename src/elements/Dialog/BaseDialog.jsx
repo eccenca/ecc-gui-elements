@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React  from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classNames from 'classnames';
@@ -15,44 +15,8 @@ import {
 /**
  * This Component creates a customizable dialog.
  */
-class BaseDialog extends Component{
-    displayName: 'BaseDialog';
+const BaseDialog = props => {
 
-
-    // define property types
-   static propTypes = {
-        /**
-         * Define if dialog is displayed.
-         */
-        active: PropTypes.bool.isRequired,
-        /**
-         * Custom dialog classname.
-         */
-        className: PropTypes.string,
-        /**
-         * Defines dialog as modal.
-         */
-        modal: PropTypes.bool,
-        /**
-         * Size of dialog.
-         */
-        size: PropTypes.string,
-        /**
-         * Contain buttons for action row.
-         */
-        buttonRow: PropTypes.arrayOf(PropTypes.element).isRequired,
-        /**
-         * Title of dialog.
-         */
-        title: PropTypes.node,
-        /**
-         * Add cancel button to title.
-         */
-        titleCancelButton: PropTypes.func,
-    };
-
-    // template rendering
-    render() {
         const {
             active,
             className,
@@ -62,7 +26,7 @@ class BaseDialog extends Component{
             title,
             titleCancelButton,
             ...otherProps
-        } = this.props;
+        } = props;
 
         if (active !== true) {
             return false;
@@ -110,9 +74,9 @@ class BaseDialog extends Component{
         );
 
         // set content
-        const content = this.props.children ? (
+        const content = props.children ? (
             <CardContent className="mdl-dialog__content">
-                {this.props.children}
+                {props.children}
             </CardContent>
         ) : (
             false
@@ -160,7 +124,39 @@ class BaseDialog extends Component{
         );
 
         return dialog;
-    }
-}
+};
+
+// define property types
+BaseDialog.propTypes = {
+    /**
+     * Define if dialog is displayed.
+     */
+    active: PropTypes.bool.isRequired,
+    /**
+     * Custom dialog classname.
+     */
+    className: PropTypes.string,
+    /**
+     * Defines dialog as modal.
+     */
+    modal: PropTypes.bool,
+    /**
+     * Size of dialog.
+     */
+    size: PropTypes.string,
+    /**
+     * Contain buttons for action row.
+     */
+    buttonRow: PropTypes.arrayOf(PropTypes.element).isRequired,
+    /**
+     * Title of dialog.
+     */
+    title: PropTypes.node,
+    /**
+     * Add cancel button to title.
+     */
+    titleCancelButton: PropTypes.func,
+};
+BaseDialog.displayName = 'BaseDialog';
 
 export default BaseDialog;

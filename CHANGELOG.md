@@ -6,9 +6,14 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Changed 
 - Prepared component for react 16
 ### Removed
-- Mixins, PerformanceMixin, MaterialMixin and messagebus 
+- messagebus
+- PerformanceMixin
+- MaterialMixin
+ 
 ### Added
-- ScrollingHOC  
+- ScrollingHOC
+### Breaking
+- mixin replaced with hocs
 
 ## [3.4.1] 2019-02-07
 ### Fixed

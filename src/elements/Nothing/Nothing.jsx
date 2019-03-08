@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Nothing extends Component{
-    displayName: 'Nothing';
-    // render nothing
-    render() {
-        return false;
-    }
-}
 
+
+const Nothing = props => {
+    return false;
+};
+Nothing.displayName = 'Nothing';
 export default Nothing;
