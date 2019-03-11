@@ -1,22 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Datefield from './DateField';
 
 
 /**
  * This Component creates a date and time input field based on DateField.
  */
-class DateTimefield extends Component{
-    displayName: 'DateTimefield';
+const DateTimefield = props => (
+    <Datefield {...props} />
+);
 
-    static defaultProps = {
-            timeFormat: 'HH:mm',
-            dateFormat: 'DD-MM-YYYY',
-    };
+DateTimefield.defaultProps = {
+    timeFormat: 'HH:mm',
+    dateFormat: 'DD-MM-YYYY',
+};
 
-    // template rendering
-    render() {
-        return <Datefield {...this.props} />;
-    }
-}
+DateTimefield.displayName = 'DateTimefield';
 
 export default DateTimefield;

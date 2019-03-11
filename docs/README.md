@@ -211,75 +211,6 @@ This Component creates a customizable dialog.
 - **title** (node) - Title of dialog.
 - **titleCancelButton** (func) - Add cancel button to title.
 
-### Button
-
-Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications##GUISpecifications-Buttons).
-
-```js
-import {Button} from '@eccenca/gui-elements';
-
-const Page = React.createClass({
-    // template rendering
-    render() {
-        return (
-            <Button>
-                Flat button
-            </Button>
-
-            // use the button parameters according to MDL-API, @see https://getmdl.io/components/index.html##buttons-section
-            <Button
-                raised
-                accent
-                colored
-                ripple
-                disabled
-            >
-                Button label
-            </Button>
-
-            // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
-            <Button
-                iconName="menu_more"
-                tooltip="This is a Test!"
-                fabSize="mini"
-            />
-        )
-    },
-    // ....
-});
-```
-
-#### Properties
-- **children** (node) - 
-- **className** (string) - string (optional): additional CSS class name
-- **disabled** (bool) - boolean (default: false): button is disabled and cannot get used to trigger an action
-- **fabSize** (string) - string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
-- **iconName** (string) - string (optional): icon name if it is an Material Design icon button
-
-    We defined some canonical names for icons and their meanings:
-
-    - 'edit': edit data
-    - 'remove': remove data
-    - 'arrow_nextpage': go to next page
-    - 'arrow_prevpage': go to previous page
-    - 'arrow_lastpage': go to last page
-    - 'arrow_firstpage': go to first page
-    - 'arrow_dropdown': open dropdown select
-    - 'expand_more': expand GUI element to show more details
-    - 'expand_less': reduce GUI element to show less details
-    - 'menu_more': open context menu
-    - 'filter': filter data
-    - 'sort': sort data
-    - 'hide': hide (or close/remove) GUI elements
-    - 'access_forbidden': no access to read and write data
-
-    For other symbols and icon names @see https://material.io/icons/
-- **ripple** (bool) - boolean (default: false): activate ripple effect on button
-- **tooltip** (node|bool) - React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
-- **affirmative** (bool) - 
-- **dismissive** (bool) - 
-- **disruptive** (bool) - 
-
 ### Card
 
 #### Properties
@@ -482,10 +413,6 @@ const Page = React.createClass({
 - **inline** (bool) - 
 - **label** (string) - 
 
-### Nothing
-
-#### Properties
-
 ### Pagination
 
 This component provides a pagination for switching through lists of results
@@ -524,7 +451,7 @@ const Page = React.createClass({
         return (
             <ProgressButton
                 progress={50}
-                progressTopic={rxmq.channel('yourchannel').subject('progressNumber')}
+                lastUpdate={'August 31st 2017, 9:48:24 am.'}
                 tooltip={'running'}
                 raised={false}
             >
@@ -536,14 +463,12 @@ const Page = React.createClass({
 });
 ```
 
-You can use `progress` and `progressTopic` options directly on `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements.
+You can use `progress` option directly on `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements.
 
 #### Properties
 - **progress** (number) - integer (default: 0): progress number 0..100, if not set or 0 then an infinite progress bar is used
-- **progressTopic** (object) - message queue subject (optional): channel subject that are used to update information about progress,
+- **tooltip** (string) - message queue subject (optional): channel subject that are used to update information about progress,
     if given that the button element listens to it for update objects that include `progressNumber` property with a value between 0 and 100
-- **tooltip** (string) - string (optional): tooltip for progress bar
-    if a progress number is known (via option or message queue) then the tooltip is extenden by a colon, the value and a percent char
 - **lastUpdate** (string) - string (optional): text info that shows information about the last known update on the process
 
 ### Progressbar

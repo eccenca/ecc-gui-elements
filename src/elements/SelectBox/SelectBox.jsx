@@ -19,7 +19,7 @@ const clearRenderer = () => (
 );
 
 class SelectBox extends Component{
-    displayName: 'SelectBox';
+    static displayName = 'SelectBox';
 
     static propTypes = {
         /**

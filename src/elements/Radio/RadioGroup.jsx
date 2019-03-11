@@ -19,7 +19,7 @@ const RadioGroup = props => {
     return (
         <div className="mdl-radio-group">
             <ReactMDLRadioGroup
-                onChange={extendedOnChange.bind(null, onChange)}
+                onChange={(event) => extendedOnChange(onChange, event)}
                 container={!childContainer && !container ? 'ul' : container}
                 childContainer={
                     !childContainer && !container ? 'li' : childContainer

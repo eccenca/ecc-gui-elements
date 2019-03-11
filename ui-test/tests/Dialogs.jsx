@@ -30,8 +30,8 @@ class TestDialogs extends React.PureComponent {
     openConfirmationDialog() {
         this.setState({confirmationDialog: true});
     }
-    closeConfirmationDialog(param) {
-        console.log('ConfirmationDialog closed', param);
+    closeConfirmationDialog() {
+        console.warn('ConfirmationDialog closed');
         this.setState({confirmationDialog: false});
     }
     openBaseDialog() {
@@ -52,20 +52,12 @@ class TestDialogs extends React.PureComponent {
                     modal
                     size="mini"
                     cancelButton={
-                        <Button
-                            onClick={this.closeConfirmationDialog.bind(
-                                null,
-                                'Cancel'
-                            )}>
+                        <Button onClick={() => this.setState({confirmationDialog: false})}>
                             Cancel
                         </Button>
                     }
                     confirmButton={
-                        <Button
-                            onClick={this.closeConfirmationDialog.bind(
-                                null,
-                                'Yes'
-                            )}>
+                        <Button onClick={() => this.setState({confirmationDialog: false})}>
                             Yes
                         </Button>
                     }>
@@ -93,22 +85,22 @@ class TestDialogs extends React.PureComponent {
                     title="DialogCustomActions Title"
                     active={this.state.baseDialog}
                     modal
-                    titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
+                    titleCancelButton={() => this.closeBaseDialog('Abort')}
                     size="large"
                     buttonRow={[
                         <Button
                             key="Cancel"
-                            onClick={this.closeBaseDialog.bind(null, 'Cancel')}>
+                            onClick={() => this.closeBaseDialog('Cancel')}>
                             Cancel
                         </Button>,
                         <Button
                             key="Yes"
-                            onClick={this.closeBaseDialog.bind(null, 'Yes')}>
+                            onClick={() => this.closeBaseDialog('Yes')}>
                             Yes
                         </Button>,
                         <Button
                             key="Custom"
-                            onClick={this.closeBaseDialog.bind(null, 'Custom')}>
+                            onClick={() => this.closeBaseDialog('Custom')}>
                             Custom
                         </Button>,
                     ]}>

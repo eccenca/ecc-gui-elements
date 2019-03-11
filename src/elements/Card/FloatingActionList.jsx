@@ -8,7 +8,7 @@ import Nothing from '../Nothing/Nothing';
 import PropTypes from 'prop-types';
 
  class FloatingActionList extends Component {
-     displayName: 'FloatingActionList';
+     static displayName = 'FloatingActionList';
 
      static propTypes = {
          actions: PropTypes.array.isRequired,

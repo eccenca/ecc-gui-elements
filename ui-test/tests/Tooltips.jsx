@@ -18,7 +18,10 @@ const TestTooltips = () => {
             <p>
                 This is a tooltip,<br /> holding dom and react objects.
             </p>
-            <Checkbox>
+            <Checkbox
+                checked={false}
+                onChange={() => {}}
+            >
                 <p>Object label</p>
             </Checkbox>
         </div>
@@ -81,7 +84,7 @@ const TestTooltips = () => {
                 &nbsp;/&nbsp;
                 <Tooltip label="Tooltip for checkbox">
                     <span>
-                        <Checkbox label="checkbox label" />
+                        <Checkbox label="checkbox label" checked={false} onChange={() => {}}/>
                     </span>
                 </Tooltip>
                 &nbsp;/&nbsp;
@@ -90,6 +93,7 @@ const TestTooltips = () => {
                         <TextField
                             label="textfield label"
                             value="textfield value"
+                            onChange={() => {}}
                         />
                     </div>
                 </Tooltip>

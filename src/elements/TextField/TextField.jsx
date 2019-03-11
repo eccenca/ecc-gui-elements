@@ -159,7 +159,7 @@ TextField.defaultProps = {
     error: false,
     label: '',
     multiline: false,
-    onClearValue: false,
+    onClearValue: undefined,
     reducedSize: false,
     required: false,
     stretch: true,

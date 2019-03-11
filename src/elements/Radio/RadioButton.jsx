@@ -98,7 +98,7 @@ Radio.propTypes = {
     /**
      update handler for changes on Radio select element
     */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /**
      MDL ripple effect is used on Radio element
     */
@@ -118,6 +118,7 @@ Radio.defaultProps = {
     hideLabel: false,
     label: null,
     ripple: false,
+    onChange: undefined,
 };
 
 Radio.displayName = 'Radio select';

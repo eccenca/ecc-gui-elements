@@ -49,13 +49,6 @@ export const ChipVisual = props => {
     );
 };
 
-const propTypes = {
-    className: PropTypes.string,
-    onClick: PropTypes.func,
-    onClose: PropTypes.func,
-    href: PropTypes.string,
-};
-
 export const Chip = props => {
     const {className, onClose, children, ...otherProps} = props;
 
@@ -113,4 +106,9 @@ export const Chip = props => {
     );
 };
 
-Chip.propTypes = propTypes;
+Chip.propTypes = {
+    className: PropTypes.string,
+    onClick: PropTypes.func,
+    onClose: PropTypes.func,
+    href: PropTypes.string,
+};

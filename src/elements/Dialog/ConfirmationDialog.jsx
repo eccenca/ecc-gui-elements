@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BaseDialog from './BaseDialog';
+import Button from '../../elements/Button/Button';
 
 /**
  * This Component creates a confirmation dialog based on BaseDialog.
@@ -14,8 +15,8 @@ const ConfirmationDialog = props => {
         }
 
         const buttonRow = [
-            React.cloneElement(this.props.cancelButton, {key: 'cancel'}),
-            React.cloneElement(this.props.confirmButton, {key: 'confirm'}),
+            React.cloneElement(props.cancelButton, {key: 'cancel'}),
+            React.cloneElement(props.confirmButton, {key: 'confirm'}),
         ];
 
         // push data with formatted buttons to base dialog

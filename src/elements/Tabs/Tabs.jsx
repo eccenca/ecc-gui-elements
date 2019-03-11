@@ -19,7 +19,7 @@ const clearTabTitles = tabs =>
 
 
 class Tabs extends Component{
-    displayName: 'Tabs';
+    static displayName = 'Tabs';
 
     static propTypes = {
         prefixTabNames: PropTypes.string, // html class prefix
