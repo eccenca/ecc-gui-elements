@@ -1,4 +1,4 @@
-import React from 'react';
+import React,  { Component } from 'react';
 import _ from 'lodash';
 import {
     Card,
@@ -31,7 +31,8 @@ const selectOptions = [
     },
 ];
 
-class TestSelects extends React.Component{
+class TestSelects extends Component {
+
     constructor(props) {
         super(props);
         this.state = {
@@ -48,18 +49,22 @@ class TestSelects extends React.Component{
             autoCompleteBox2: null,
             autoCompleteBox3: null,
         };
-        this.handleSelectChange = this.handleChange.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleSelectChange = this.handleSelectChange.bind(this);
+        this.handleChange = this.handleChange.bind(this)
     }
 
     handleSelectChange(value, key) {
+        console.log('SelectBox onChange: ', value);
         this.setState({[key]: value});
     }
+
     handleChange({value, name}) {
         const newState = this.state;
+        console.warn(newState, name);
         _.set(newState, name, value);
         this.setState(newState);
     }
+
     render() {
         const {selectSettings} = this.state;
 
@@ -83,6 +88,7 @@ class TestSelects extends React.Component{
                         onChange={this.handleSelectChange}
                         async
                         loadOptions={function(input, callback) {
+                            console.warn('loadOptions');
                             setTimeout(() => {
                                 callback(null, {
                                     options: selectOptions,
@@ -136,5 +142,4 @@ class TestSelects extends React.Component{
         );
     }
 }
-
 export default TestSelects;
