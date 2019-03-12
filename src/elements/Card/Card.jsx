@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactMDLCard from 'react-mdl/lib/Card/Card';
-import PropTypes from 'prop-types';
+import ScrollingHOC from '../../hocs/ScrollingHOC';
+
 
 const Card = props => {
     const {
@@ -41,14 +43,13 @@ Card.propTypes = {
     fixedActions: PropTypes.bool,
     reducedSize: PropTypes.bool,
 };
-
 Card.defaultProps = {
     shadow: 1,
     stretch: true,
     fixedActions: false,
     reducedSize: false,
 };
+
 Card.displayName = 'Card';
 
-
-export default Card;
+export default ScrollingHOC(Card);
