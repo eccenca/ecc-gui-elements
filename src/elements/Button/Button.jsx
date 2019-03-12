@@ -52,6 +52,10 @@ const Button = React.createClass({
     propTypes: {
         children: React.PropTypes.oneOfType([React.PropTypes.node]),
         /**
+            string (optional): use badge if the (icon) button need to be enhanced by a small badge containing 1 to 3 chars or digits
+        */
+        badge: React.PropTypes.string,
+        /**
             string (optional): additional CSS class name
         */
         className: React.PropTypes.string,

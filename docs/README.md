@@ -251,6 +251,7 @@ const Page = React.createClass({
 
 #### Properties
 - **children** (node) - 
+- **badge** (string) - string (optional): use badge if the (icon) button need to be enhanced by a small badge containing 1 to 3 chars or digits
 - **className** (string) - string (optional): additional CSS class name
 - **disabled** (bool) - boolean (default: false): button is disabled and cannot get used to trigger an action
 - **fabSize** (string) - string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
