@@ -52,6 +52,10 @@ const Button = React.createClass({
     propTypes: {
         children: React.PropTypes.oneOfType([React.PropTypes.node]),
         /**
+            string (optional): use badge if the (icon) button need to be enhanced by a small badge containing 1 to 3 chars or digits
+        */
+        badge: React.PropTypes.string,
+        /**
             string (optional): additional CSS class name
         */
         className: React.PropTypes.string,
@@ -115,6 +119,7 @@ const Button = React.createClass({
         */
 
         const {
+            badge,
             className,
             fabSize,
             iconName,
@@ -143,6 +148,7 @@ const Button = React.createClass({
             {
                 'mdl-button--icon': typeof iconName !== 'undefined',
                 'mdl-button--danger': disruptive === true,
+                'mdl-badge mdl-badge--overlap': typeof badge !== 'undefined',
             },
             className
         );
@@ -166,8 +172,13 @@ const Button = React.createClass({
                 <Icon
                     name={iconName}
                     tooltip={tooltip || tooltip === false ? false : ''}
+                    badge={badge ? badge : false}
                 />
             );
+        }
+
+        if (badge && !iconName) {
+            otherProps['data-badge'] = badge;
         }
 
         if (fabSize) {

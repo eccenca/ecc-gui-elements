@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+
+- Button element now allows a badge property to use them (mainly) with icon buttons
 
 ## [3.4.1] 2019-02-07
 
