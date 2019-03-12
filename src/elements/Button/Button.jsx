@@ -115,6 +115,7 @@ const Button = React.createClass({
         */
 
         const {
+            badge,
             className,
             fabSize,
             iconName,
@@ -143,6 +144,7 @@ const Button = React.createClass({
             {
                 'mdl-button--icon': typeof iconName !== 'undefined',
                 'mdl-button--danger': disruptive === true,
+                'mdl-badge mdl-badge--overlap': typeof badge !== 'undefined',
             },
             className
         );
@@ -166,8 +168,13 @@ const Button = React.createClass({
                 <Icon
                     name={iconName}
                     tooltip={tooltip || tooltip === false ? false : ''}
+                    badge={badge ? badge : false}
                 />
             );
+        }
+
+        if (badge && !iconName) {
+            otherProps['data-badge'] = badge;
         }
 
         if (fabSize) {
