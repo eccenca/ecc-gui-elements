@@ -39,8 +39,11 @@ const Page = React.createClass({
 ```
 */
 
+
+
+
 // BreadcrumbList component
-const BreadcrumbList = props => {
+export const BreadcrumbList = props => {
     const {children, className, ...otherProps} = props;
 
     return (
@@ -53,9 +56,10 @@ BreadcrumbList.propTypes = {
     className: PropTypes.string,
 };
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 // BreadcrumbItem component
-const BreadcrumbItem = props => {
+export const BreadcrumbItem = props => {
     const {children, className, ...otherProps} = props;
 
     let crumbType = otherProps.onClick ? 'button' : 'span';
@@ -77,8 +81,7 @@ const BreadcrumbItem = props => {
     );
 
 };
-BreadcrumbList.propTypes = {
+BreadcrumbItem.propTypes = {
     className: PropTypes.string,
 };
 
-export default {BreadcrumbItem, BreadcrumbList};

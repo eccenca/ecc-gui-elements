@@ -16,14 +16,20 @@ const Card = props => {
         ...otherProps
     } = props;
 
+    delete otherProps.scrollElementIntoView;
+    delete otherProps.scrollIntoView;
+
+
     const classes = classNames(
         {
             'mdl-card--stretch': stretch === true,
             'mdl-card--has-fixed-actions': fixedActions === true,
+
             'mdl-card--reduced': reducedSize === true,
         },
         className
     );
+
 
     return (
         <ReactMDLCard

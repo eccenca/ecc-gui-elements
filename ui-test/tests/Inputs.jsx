@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import moment from 'moment';
 import _ from 'lodash';
 
@@ -15,11 +15,11 @@ import {
     DateTimefield,
 } from '../../index';
 
-class TestInputs extends React.Component{
+class TestInputs extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            switches: [false, true, undefined, undefined, true, false],
+            switches: [false, true, true, false, true, false],
             textInput: ['5', '', ''],
             selectedRadio: '',
             dateInput: [
@@ -116,18 +116,18 @@ class TestInputs extends React.Component{
                         name="selectedRadio"
                         onChange={this.updateValue}
                         value={this.state.selectedRadio}>
-                        <Radio value="one" />
-                        <Radio value="two" label="Radio 2 Text" />
+                        <Radio value="one"  name="one" checked={false}/>
+                        <Radio name="two"  value="two" label="Radio 2 Text" checked={false}/>
                     </RadioGroup>
                     <RadioGroup
                         childContainer="div"
                         name="selectedRadio"
                         onChange={this.updateValue}
                         value={this.state.selectedRadio}>
-                        <Radio disabled value="three">
+                        <Radio disabled value="three" name="three" checked={false}>
                             Radio 3 Text
                         </Radio>
-                        <Radio value="four">
+                        <Radio name="four" value="four" checked={false}>
                             <div className="test">
                                 Radio 4 Text <br />Line 2
                             </div>
@@ -140,24 +140,25 @@ class TestInputs extends React.Component{
                         </p>
                     </div>
                     <RadioGroup
+                        name="name2"
                         container="div"
                         value={this.state.selectedRadio}>
-                        <Radio value="one" />
-                        <Radio value="two" label="Radio 2 Text" />
-                        <Radio disabled value="three">
+                        <Radio name="one" value="one" checked={false}/>
+                        <Radio name="two" value="two" label="Radio 2 Text" checked={false}/>
+                        <Radio name="three" disabled value="three" checked={false}>
                             Radio 3 Text
                         </Radio>
-                        <Radio value="four">
+                        <Radio name="four" value="four" checked={false}>
                             <div className="test">
                                 Radio 4 Text <br />Line 2
                             </div>
                         </Radio>
-                        <Radio value="one" />
-                        <Radio value="two" label="Radio 2 Text" />
-                        <Radio disabled value="three">
+                        <Radio name="one" value="one" checked={false}/>
+                        <Radio name="two" value="two" label="Radio 2 Text" checked={false} />
+                        <Radio name="three"  disabled value="three" checked={false}>
                             Radio 3 Text
                         </Radio>
-                        <Radio value="four" hideLabel>
+                        <Radio name="four" value="four" hideLabel checked={false}>
                             <div className="test">
                                 Radio 4 Text <br />Line 2
                             </div>

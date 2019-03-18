@@ -23,6 +23,12 @@ const DateField = props => {
         ...otherProps
     } = props;
 
+    delete otherProps.initialFormat;
+    delete otherProps.dateFormat;
+    delete otherProps.timeFormat;
+    delete otherProps.name;
+    delete otherProps.scrollElementIntoView;
+    delete otherProps.scrollIntoView;
 
     // construct the date/time for moment
     const getFormats = () => {
@@ -107,12 +113,6 @@ const DateField = props => {
             />
         );
     };
-
-
-    delete otherProps.initialFormat;
-    delete otherProps.dateFormat;
-    delete otherProps.timeFormat;
-    delete otherProps.name;
 
     const inputProps = {
         label: label || placeholder,

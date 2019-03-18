@@ -11,6 +11,7 @@ const ChipContact = basicClassCreator(
 );
 const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
 
+// Chip Component
 export const ChipVisual = props => {
     const {
         image = false,
@@ -20,6 +21,7 @@ export const ChipVisual = props => {
         textColor = false,
         children = false,
     } = props;
+
 
     if (image) {
         return (
@@ -49,15 +51,18 @@ export const ChipVisual = props => {
     );
 };
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+// Chip Component
 export const Chip = props => {
     const {className, onClose, children, ...otherProps} = props;
-
     const childrenArray = React.Children.toArray(children);
     const contactIndex = _.findIndex(childrenArray,
         c => c.type === ChipContact || c.type === ChipVisual
     );
-
     const chipContent = [];
+    delete otherProps.tooltip;
 
     if (contactIndex >= 0) {
         chipContent.push(

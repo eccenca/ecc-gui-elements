@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import {
     Button,
@@ -10,7 +10,8 @@ import {
 } from '../../index';
 import ScrollingHOC from '../../src/hocs/ScrollingHOC';
 
-class TestScrolling extends React.Component{
+class TestScrolling extends Component{
+
     constructor(props) {
         super(props);
         this.state = {
@@ -73,7 +74,6 @@ class TestScrolling extends React.Component{
             topOffset: 10,
         });
     }
-
 
     makeActionsSingle1() {
         this.setState({
