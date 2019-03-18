@@ -211,6 +211,76 @@ This Component creates a customizable dialog.
 - **title** (node) - Title of dialog.
 - **titleCancelButton** (func) - Add cancel button to title.
 
+### Button
+
+Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications##GUISpecifications-Buttons).
+
+```js
+import {Button} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <Button>
+                Flat button
+            </Button>
+
+            // use the button parameters according to MDL-API, @see https://getmdl.io/components/index.html##buttons-section
+            <Button
+                raised
+                accent
+                colored
+                ripple
+                disabled
+            >
+                Button label
+            </Button>
+
+            // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
+            <Button
+                iconName="menu_more"
+                tooltip="This is a Test!"
+                fabSize="mini"
+            />
+        )
+    },
+    // ....
+});
+```
+
+#### Properties
+- **children** (node) - 
+- **badge** (string) - string (optional): use badge if the (icon) button need to be enhanced by a small badge containing 1 to 3 chars or digits
+- **className** (string) - string (optional): additional CSS class name
+- **disabled** (bool) - boolean (default: false): button is disabled and cannot get used to trigger an action
+- **fabSize** (string) - string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
+- **iconName** (string) - string (optional): icon name if it is an Material Design icon button
+
+    We defined some canonical names for icons and their meanings:
+
+    - 'edit': edit data
+    - 'remove': remove data
+    - 'arrow_nextpage': go to next page
+    - 'arrow_prevpage': go to previous page
+    - 'arrow_lastpage': go to last page
+    - 'arrow_firstpage': go to first page
+    - 'arrow_dropdown': open dropdown select
+    - 'expand_more': expand GUI element to show more details
+    - 'expand_less': reduce GUI element to show less details
+    - 'menu_more': open context menu
+    - 'filter': filter data
+    - 'sort': sort data
+    - 'hide': hide (or close/remove) GUI elements
+    - 'access_forbidden': no access to read and write data
+
+    For other symbols and icon names @see https://material.io/icons/
+- **ripple** (bool) - boolean (default: false): activate ripple effect on button
+- **tooltip** (node|bool) - React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
+- **affirmative** (bool) - 
+- **dismissive** (bool) - 
+- **disruptive** (bool) - 
+
 ### Card
 
 #### Properties

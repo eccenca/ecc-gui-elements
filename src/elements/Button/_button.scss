@@ -18,6 +18,14 @@
             background-color: transparent;
         }
     }
+
+    &.mdl-badge {
+        overflow: visible;
+    }
+
+    .material-icons.mdl-badge[data-badge]:after {
+        right: -10px;
+    }
 }
 
 .mdl-button--raised {

@@ -15,6 +15,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Breaking
 - mixin replaced with hocs
 
+## [3.4.2] 2019-03-12
+
+### Fixed
+
+- Button element now allows a badge property to use them (mainly) with icon buttons
+
 ## [3.4.1] 2019-02-07
 ### Fixed
 
