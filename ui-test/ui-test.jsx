@@ -25,7 +25,6 @@ import TestPagination from './tests/Pagination';
 import TestTooltips from './tests/Tooltips';
 import TestCards from './tests/Cards';
 import TestNA from './tests/NA';
-import TestNothing from './tests/Nothing';
 import TestBreadcrumbList from './tests/BreadcrumbList';
 import TestContextMenu from './tests/ContextMenu';
 
@@ -47,10 +46,6 @@ class Page extends React.Component{
             {
                 name: 'Breadcrumb List',
                 code: <TestBreadcrumbList key="breadcrumblist" />,
-            },
-            {
-                name: 'Nothing',
-                code: <TestNothing key="nothing" />,
             },
             {
                 name: 'Spinner',

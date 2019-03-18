@@ -28,7 +28,7 @@ import {
 import {
     BreadcrumbList,
     BreadcrumbItem,
-} from './src/elements/Breadcrumbs/Breadcrumbs';
+} from './src/elements/Breadcrumbs';
 
 import {
     Card,
@@ -43,13 +43,11 @@ import {BaseDialog, ConfirmationDialog} from './src/elements/Dialog';
 
 import Checkbox from './src/elements/Checkbox/Checkbox';
 
-import {Chip, ChipVisual} from './src/elements/Chip/Chip';
+import {Chip, ChipVisual} from './src/elements/Chip';
 
 import {ContextMenu, MenuItem} from './src/elements/ContextMenu/ContextMenu';
 
 import Icon from './src/elements/Icon/Icon';
-
-import Nothing from './src/elements/Nothing/Nothing';
 
 import NotAvailable from './src/elements/NotAvailable/NotAvailable';
 
@@ -113,7 +111,6 @@ export default {
     Icon,
     Info,
     Layout,
-    Nothing,
     NotAvailable,
     Progressbar,
     Radio,

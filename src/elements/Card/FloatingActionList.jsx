@@ -4,7 +4,6 @@ import _ from 'lodash';
 
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
-import Nothing from '../Nothing/Nothing';
 import PropTypes from 'prop-types';
 
  class FloatingActionList extends Component {
@@ -56,10 +55,6 @@ import PropTypes from 'prop-types';
             iconName,
             ...otherProps
         } = this.props;
-
-        if (!actions || actions.length < 1) {
-            return <Nothing />;
-        }
 
         const classes = classNames(
             {
