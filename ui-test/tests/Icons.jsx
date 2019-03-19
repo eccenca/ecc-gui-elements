@@ -25,7 +25,7 @@ class TestIcons extends React.Component {
                     />
                     <Icon name="access_forbidden" tooltip={false} />
                     <Icon
-                        name="non_existing_icon_name"
+                        name="error"
                         tooltip="Icon with non existent icon name"
                     />
                     <Icon
@@ -34,7 +34,7 @@ class TestIcons extends React.Component {
                         tooltip="Icon with badge"
                     />
                     <Icon
-                        name=""
+                        name="error"
                         badge="673"
                         tooltip="Icon with three digit badge"
                     />
