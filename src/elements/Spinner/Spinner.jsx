@@ -5,27 +5,27 @@ import ReactMDLSpinner from 'react-mdl/lib/Spinner';
 
 
 const Spinner = props => {
-        const {
-            className,
-            appearGlobal,
-            appearInline,
-            appearLocal,
-            ...otherProps
-        } = props;
-        const classes = classNames(
-            {
-                'mdl-spinner--global':
-                    appearGlobal === true &&
-                    appearInline === false &&
-                    appearLocal === false,
-                'mdl-spinner--inline': appearInline === true,
-                'mdl-spinner--local': appearLocal === true,
-            },
-            className
-        );
-        return (
-            <ReactMDLSpinner singleColor className={classes} {...otherProps} />
-        );
+    const {
+        className,
+        appearGlobal,
+        appearInline,
+        appearLocal,
+        ...otherProps
+    } = props;
+    const classes = classNames(
+        {
+            'mdl-spinner--global':
+                    appearGlobal === true
+                    && appearInline === false
+                    && appearLocal === false,
+            'mdl-spinner--inline': appearInline === true,
+            'mdl-spinner--local': appearLocal === true,
+        },
+        className
+    );
+    return (
+        <ReactMDLSpinner singleColor className={classes} {...otherProps} />
+    );
 };
 Spinner.displayName = 'Spinner';
 

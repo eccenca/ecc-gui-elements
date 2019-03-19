@@ -1,5 +1,7 @@
 import React from 'react';
-import {Card, CardTitle, CardContent, Spinner} from '../../index';
+import {
+    Card, CardTitle, CardContent, Spinner,
+} from '../../index';
 
 
 const TestSpinner = () => {
@@ -8,11 +10,13 @@ const TestSpinner = () => {
             className="my-own-class"
             shadow={0}
             stretch={false}
-            reducedSize>
+            reducedSize
+        >
             <CardTitle
                 className="my-own-class"
                 border={false}
-                documentLevel="h7">
+                documentLevel="h7"
+            >
                 Test Spinner
             </CardTitle>
             <CardContent className="my-own-class">

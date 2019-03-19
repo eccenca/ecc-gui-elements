@@ -15,7 +15,9 @@ import ScrollingHOC from './src/hocs/ScrollingHOC';
 
 // GUI Elements
 
-import {Alert, Error, Info, Success, Warning} from './src/elements/Alert';
+import {
+    Alert, Error, Info, Success, Warning,
+} from './src/elements/Alert';
 
 import {
     Button,
@@ -39,13 +41,13 @@ import {
     FloatingActionList,
 } from './src/elements/Card';
 
-import {BaseDialog, ConfirmationDialog} from './src/elements/Dialog';
+import { BaseDialog, ConfirmationDialog } from './src/elements/Dialog';
 
 import Checkbox from './src/elements/Checkbox/Checkbox';
 
-import {Chip, ChipVisual} from './src/elements/Chip';
+import { Chip, ChipVisual } from './src/elements/Chip';
 
-import {ContextMenu, MenuItem} from './src/elements/ContextMenu/ContextMenu';
+import { ContextMenu, MenuItem } from './src/elements/ContextMenu/ContextMenu';
 
 import Icon from './src/elements/Icon/Icon';
 
@@ -55,7 +57,7 @@ import Pagination from './src/elements/Pagination/Pagination';
 
 import Progressbar from './src/elements/Progressbar/Progressbar';
 
-import {Radio, RadioGroup} from './src/elements/Radio';
+import { Radio, RadioGroup } from './src/elements/Radio';
 
 import SelectBox from './src/elements/SelectBox/SelectBox';
 import AutoCompleteBox from './src/elements/AutoCompleteBox/AutoCompleteBox';
@@ -76,7 +78,7 @@ import TextField from './src/elements/TextField/TextField';
 
 import Tooltip from './src/elements/Tooltip/Tooltip';
 
-import {DateField, DateTimefield} from './src/elements/DateField';
+import { DateField, DateTimefield } from './src/elements/DateField';
 
 import Version from './src/elements/Version/Version';
 

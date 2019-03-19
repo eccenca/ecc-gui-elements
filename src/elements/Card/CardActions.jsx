@@ -5,8 +5,9 @@ import ReactMDLCardActions from 'react-mdl/lib/Card/CardActions';
 
 
 const CardActions = props => {
-
-    const {children, className, fixed, ...otherProps} = props;
+    const {
+        children, className, fixed, ...otherProps
+    } = props;
 
     const classes = classNames(
         {
@@ -18,8 +19,7 @@ const CardActions = props => {
         <ReactMDLCardActions className={classes} {...otherProps}>
             {children}
         </ReactMDLCardActions>
-    )
-
+    );
 };
 
 // define property types

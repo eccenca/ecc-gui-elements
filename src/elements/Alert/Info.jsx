@@ -4,14 +4,13 @@ import Alert from './Alert';
 
 
 const Info = props => {
-    const {children, ...otherProps} = props;
+    const { children, ...otherProps } = props;
 
     return (
         <Alert type="info" {...otherProps}>
             {children}
         </Alert>
     );
-
 };
 
 Info.propTypes = {

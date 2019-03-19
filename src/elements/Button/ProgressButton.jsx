@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip/Tooltip';
 import Button from './Button';
 import Progressbar from '../Progressbar/Progressbar';
-import PropTypes from 'prop-types';
 
 /**
 `<ProgressButton/>` is a special version of the `<Button/>` element that can be used to visualize a running process.
@@ -42,7 +42,9 @@ You can use `progress` option directly on `<AffirmativeButton/>`, `<DismissiveBu
 
 */
 const ProgressButton = props => {
-    const {children, className, tooltip, progress, lastUpdate, ...otherProps} = props;
+    const {
+        children, className, tooltip, progress, lastUpdate, ...otherProps
+    } = props;
     // template rendering
 
     const classes = classNames('mdl-progress mdl-js-progress', className);
@@ -51,7 +53,7 @@ const ProgressButton = props => {
         <Progressbar
             appearLocal
             indeterminate={!progress}
-            progress={progress ? progress : 0}
+            progress={progress || 0}
         />
     );
 
@@ -65,7 +67,8 @@ const ProgressButton = props => {
                     progress
                         ? `${lastUpdate}${tooltip}: ${progress}%`
                         : lastUpdate + tooltip
-                }>
+                }
+            >
                 {progressbar}
             </Tooltip>
         );

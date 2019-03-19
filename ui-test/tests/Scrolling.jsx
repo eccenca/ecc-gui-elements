@@ -10,8 +10,7 @@ import {
 } from '../../index';
 import ScrollingHOC from '../../src/hocs/ScrollingHOC';
 
-class TestScrolling extends Component{
-
+class TestScrolling extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -86,6 +85,7 @@ class TestScrolling extends Component{
             ],
         });
     }
+
     makeActionsSingle2() {
         this.setState({
             actionsList: [
@@ -96,6 +96,7 @@ class TestScrolling extends Component{
             ],
         });
     }
+
     makeActionsMultiple() {
         this.setState({
             actionsList: [
@@ -119,7 +120,7 @@ class TestScrolling extends Component{
     }
 
     handleScrollTo(ref) {
-        this.props.scrollElementIntoView(this[ref], {topOffset: 5});
+        this.props.scrollElementIntoView(this[ref], { topOffset: 5 });
     }
 
     render() {
@@ -134,7 +135,8 @@ class TestScrolling extends Component{
                 key={testobject.handleRef}
                 onClick={() => {
                     this.handleScrollTo(testobject.handleRef);
-                }}>
+                }}
+            >
                 {testobject.label}
             </Button>
         ));
@@ -148,10 +150,13 @@ class TestScrolling extends Component{
                         key={idx}
                         ref={id => {
                             this[`testDummy${idx}`] = id;
-                        }}>
+                        }}
+                    >
                         <CardContent>
                             <div className="uitest-scrolling__cardcontent">
-                                A test Dummy for card {idx}
+                                A test Dummy for card
+                                {' '}
+                                {idx}
                             </div>
                         </CardContent>
                     </Card>

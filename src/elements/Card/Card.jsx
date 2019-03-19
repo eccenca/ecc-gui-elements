@@ -35,11 +35,11 @@ const Card = props => {
         <ReactMDLCard
             className={classes}
             shadow={shadow > 0 ? shadow - 1 : undefined}
-            {...otherProps}>
+            {...otherProps}
+        >
             {children}
         </ReactMDLCard>
     );
-
 };
 // define property types
 Card.propTypes = {

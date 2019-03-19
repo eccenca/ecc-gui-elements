@@ -32,7 +32,7 @@ export default function ScrollingHOC(WrappedComponent) {
                     console.log(
                         `scrolling DOM element with a height of ${
                             domElement.scrollHeight
-                            }`
+                        }`
                     );
                 }
             } else if (_.get(element, 'props', false) !== false) {
@@ -43,7 +43,7 @@ export default function ScrollingHOC(WrappedComponent) {
                     console.log(
                         `scrolling react element with a height of ${
                             domElement.scrollHeight
-                            }`
+                        }`
                     );
                 }
             }
@@ -81,18 +81,18 @@ export default function ScrollingHOC(WrappedComponent) {
                         }
 
                         if (
-                            el.scrollHeight !== el.clientHeight ||
-                            el.scrollWidth !== el.clientWidth
+                            el.scrollHeight !== el.clientHeight
+                            || el.scrollWidth !== el.clientWidth
                         ) {
                             const css = getComputedStyle(el);
 
                             return (
-                                css &&
-                                (css.overflow !== 'hidden' ||
-                                    (_.get(options, 'scrollY', true) &&
-                                        css.overflowY !== 'hidden') ||
-                                    (_.get(options, 'scrollX', true) &&
-                                        css.overflowX !== 'hidden'))
+                                css
+                                && (css.overflow !== 'hidden'
+                                    || (_.get(options, 'scrollY', true)
+                                        && css.overflowY !== 'hidden')
+                                    || (_.get(options, 'scrollX', true)
+                                        && css.overflowX !== 'hidden'))
                             );
                         }
                         return false;
@@ -103,7 +103,7 @@ export default function ScrollingHOC(WrappedComponent) {
                         console.log(
                             `element scrolling ${result}, now at ${
                                 domElement.getBoundingClientRect().top
-                                }`
+                            }`
                         );
                     }
 
@@ -114,9 +114,8 @@ export default function ScrollingHOC(WrappedComponent) {
             );
         }
 
-    render() {
-            return (<WrappedComponent scrollElementIntoView={this.scrollElementIntoView} scrollIntoView={this.scrollIntoView} {...this.props}/>)
+        render() {
+            return (<WrappedComponent scrollElementIntoView={this.scrollElementIntoView} scrollIntoView={this.scrollIntoView} {...this.props} />);
         }
-    }
-};
-
+    };
+}

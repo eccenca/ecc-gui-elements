@@ -1,5 +1,7 @@
 import React from 'react';
-import {Card, CardTitle, CardContent, ContextMenu, MenuItem} from '../../index';
+import {
+    Card, CardTitle, CardContent, ContextMenu, MenuItem,
+} from '../../index';
 
 class TestContextMenu extends React.PureComponent {
     constructor(props) {
@@ -50,7 +52,8 @@ class TestContextMenu extends React.PureComponent {
                         align="right"
                         iconName="add"
                         tooltip="add property"
-                        key="contextmenu2">
+                        key="contextmenu2"
+                    >
                         <MenuItem>Second First Item</MenuItem>
                         <MenuItem>Second Second Item</MenuItem>
                         <MenuItem>Second Menu Item 3</MenuItem>

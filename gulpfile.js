@@ -1,6 +1,5 @@
 /* eslint global-require: 0 */
 
-const gulp = require('@eccenca/gulp-tasks')(require('./buildConfig.js'));
 
 gulp.task('default', ['debug']);
 
@@ -9,6 +8,7 @@ const gulpSequence = require('gulp-sequence');
 const fs = require('fs-extra');
 const path = require('path');
 const _ = require('lodash');
+const gulp = require('@eccenca/gulp-tasks')(require('./buildConfig.js'));
 
 const iconFontVersion = '3.0.1';
 /*
@@ -94,7 +94,7 @@ const areFontsUpToDate = () => {
 
 gulp.task('download-iconfont', () => {
     if (areFontsUpToDate()) {
-        console.warn(`Fonts are up to date, no need to download`);
+        console.warn('Fonts are up to date, no need to download');
         return true;
     }
     const download = require('gulp-download-stream');
@@ -109,7 +109,7 @@ gulp.task('download-iconfont', () => {
 
 gulp.task('download-roboto', () => {
     if (areFontsUpToDate()) {
-        console.warn(`Fonts are up to date, no need to download`);
+        console.warn('Fonts are up to date, no need to download');
         return true;
     }
     const download = require('gulp-download-stream');
@@ -157,8 +157,7 @@ gulp.task('download-roboto', () => {
 gulp.task('sass-assets', () =>
     gulp
         .src('node_modules/@eccenca/material-design-lite/src/images/*')
-        .pipe(gulp.dest('./dist/images'))
-);
+        .pipe(gulp.dest('./dist/images')));
 
 gulp.task('sass-compile', cb => {
     const sass = require('node-sass');
@@ -175,7 +174,7 @@ gulp.task('sass-compile', cb => {
                     };
                 }
 
-                return {file: url};
+                return { file: url };
             },
         },
         (err, res) => {
@@ -191,7 +190,7 @@ gulp.task('sass-compile', cb => {
 
 gulp.task('download-codepoints', ['download-iconfont'], () => {
     if (areFontsUpToDate()) {
-        console.warn(`Fonts are up to date, no need to download`);
+        console.warn('Fonts are up to date, no need to download');
         return true;
     }
     const download = require('gulp-download-stream');

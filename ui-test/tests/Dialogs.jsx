@@ -28,18 +28,21 @@ class TestDialogs extends React.PureComponent {
     }
 
     openConfirmationDialog() {
-        this.setState({confirmationDialog: true});
+        this.setState({ confirmationDialog: true });
     }
+
     closeConfirmationDialog() {
         console.warn('ConfirmationDialog closed');
-        this.setState({confirmationDialog: false});
+        this.setState({ confirmationDialog: false });
     }
+
     openBaseDialog() {
-        this.setState({baseDialog: true});
+        this.setState({ baseDialog: true });
     }
+
     closeBaseDialog(param) {
         console.log('BaseDialog closed', param);
-        this.setState({baseDialog: false});
+        this.setState({ baseDialog: false });
     }
 
     // template rendering
@@ -51,16 +54,17 @@ class TestDialogs extends React.PureComponent {
                     active={this.state.confirmationDialog}
                     modal
                     size="mini"
-                    cancelButton={
-                        <Button onClick={() => this.setState({confirmationDialog: false})}>
+                    cancelButton={(
+                        <Button onClick={() => this.setState({ confirmationDialog: false })}>
                             Cancel
                         </Button>
-                    }
-                    confirmButton={
-                        <Button onClick={() => this.setState({confirmationDialog: false})}>
+                    )}
+                    confirmButton={(
+                        <Button onClick={() => this.setState({ confirmationDialog: false })}>
                             Yes
                         </Button>
-                    }>
+                    )}
+                >
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
@@ -90,20 +94,24 @@ class TestDialogs extends React.PureComponent {
                     buttonRow={[
                         <Button
                             key="Cancel"
-                            onClick={() => this.closeBaseDialog('Cancel')}>
+                            onClick={() => this.closeBaseDialog('Cancel')}
+                        >
                             Cancel
                         </Button>,
                         <Button
                             key="Yes"
-                            onClick={() => this.closeBaseDialog('Yes')}>
+                            onClick={() => this.closeBaseDialog('Yes')}
+                        >
                             Yes
                         </Button>,
                         <Button
                             key="Custom"
-                            onClick={() => this.closeBaseDialog('Custom')}>
+                            onClick={() => this.closeBaseDialog('Custom')}
+                        >
                             Custom
                         </Button>,
-                    ]}>
+                    ]}
+                >
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>
@@ -147,7 +155,8 @@ class TestDialogs extends React.PureComponent {
                         <Button
                             raised
                             accent
-                            onClick={this.openConfirmationDialog}>
+                            onClick={this.openConfirmationDialog}
+                        >
                             Open ConfirmationDialog
                         </Button>
                         <Button raised accent onClick={this.openBaseDialog}>

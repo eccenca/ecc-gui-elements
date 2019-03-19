@@ -17,7 +17,7 @@ import _ from 'lodash';
  * @param {String} [targetProp='id'] prop which contains the generated unique id
  * @returns {uniqueIdComponent} Decorated WrappedComponent with id prop
  */
-const uniqueId = (WrappedComponent, {prefix = '', targetProp = 'id'}) => {
+const uniqueId = (WrappedComponent, { prefix = '', targetProp = 'id' }) => {
     class uniqueIdComponent extends React.Component {
         id = {};
 

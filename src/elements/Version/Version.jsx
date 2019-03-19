@@ -6,11 +6,11 @@ const Version = props => {
     return (
         <span
             className="version-info"
-            style={{marginLeft: '5px', marginRight: '5px'}}>
-                {props.version}
-            </span>
+            style={{ marginLeft: '5px', marginRight: '5px' }}
+        >
+            {props.version}
+        </span>
     );
-
 };
 Version.propTypes = {
     version: PropTypes.string.isRequired,

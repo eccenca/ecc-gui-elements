@@ -1,16 +1,18 @@
 import React from 'react';
-import {Button, Card, CardTitle, CardContent, Tabs} from '../../index';
+import {
+    Button, Card, CardTitle, CardContent, Tabs,
+} from '../../index';
 
-class TestTabs extends React.Component{
+class TestTabs extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             tabContent: [
-                {tabTitle: 'profiling Tab', tabContent: "i'm profiling Tab"},
-                {tabTitle: 'discovery Tab', tabContent: "i'm discovery Tab"},
-                {tabTitle: 'kpiTab', tabContent: "i'm kpiTab Tab"},
+                { tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab' },
+                { tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab' },
+                { tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab' },
             ],
-        }
+        };
     }
 
 
@@ -35,7 +37,7 @@ class TestTabs extends React.Component{
                                 tabContent: [
                                     {
                                         tabTitle: 'profiling Tab',
-                                        tabContent: "i'm profiling Tab",
+                                        tabContent: 'i\'m profiling Tab',
                                     },
                                     {
                                         tabTitle: 'discovery Tab',
@@ -43,11 +45,12 @@ class TestTabs extends React.Component{
                                     },
                                     {
                                         tabTitle: 'kpiTab',
-                                        tabContent: "i'm kpiTab Tab",
+                                        tabContent: 'i\'m kpiTab Tab',
                                     },
                                 ],
                             })
-                        }>
+                        }
+                    >
                         Remove content from discovery tab
                     </Button>
                 </CardContent>

@@ -8,7 +8,7 @@ import {
 } from '../../index';
 
 
-class TestProgressbar extends React.Component{
+class TestProgressbar extends React.Component {
     progress: 0;
 
     render() {
@@ -22,14 +22,16 @@ class TestProgressbar extends React.Component{
                     <ProgressButton
                         raised
                         disabled={false}
-                        tooltip="some more info about the running progress">
+                        tooltip="some more info about the running progress"
+                    >
                         Run
                     </ProgressButton>
                     <ProgressButton
                         disruptive
                         disabled={false}
                         tooltip="working"
-                        progress={0}>
+                        progress={0}
+                    >
                         Run 2
                     </ProgressButton>
                 </CardContent>

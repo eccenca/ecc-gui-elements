@@ -26,7 +26,7 @@ const Page = React.createClass({
 */
 
 const DisruptiveButton = props => {
-    const {children, ...otherProps} = props;
+    const { children, ...otherProps } = props;
     const useProgressButton = typeof otherProps.progress !== 'undefined';
 
     // remove unused propTypes from button
@@ -68,7 +68,6 @@ const DisruptiveButton = props => {
             {children}
         </Button>
     );
-
 };
 DisruptiveButton.displayName = 'DisruptiveButton';
 

@@ -2,8 +2,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {Header, Drawer, Navigation} from 'react-mdl';
-import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
+import { Header, Drawer, Navigation } from 'react-mdl';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
 // test styles
@@ -30,12 +30,11 @@ import TestContextMenu from './tests/ContextMenu';
 
 
 // component
-import {Layout, Content, Footer} from '../index';
+import { Layout, Content, Footer } from '../index';
 
 window.enablePerformanceMixingLog = true;
 
-class Page extends React.Component{
-
+class Page extends React.Component {
     // template rendering
     render() {
         const testcases = [
@@ -122,8 +121,8 @@ class Page extends React.Component{
 
         const path = this.props.location.pathname.substring(1);
         if (
-            path !== 'all' &&
-            testcases.filter(c => c.name.toLowerCase() === path).length === 0
+            path !== 'all'
+            && testcases.filter(c => c.name.toLowerCase() === path).length === 0
         ) {
             window.location = '/all';
             return 0;
@@ -136,17 +135,18 @@ class Page extends React.Component{
                     <Drawer>
                         <Navigation>
                             <a href="all">All</a>
-                            {_.map(testcases, ({name}) => (
+                            {_.map(testcases, ({ name }) => (
                                 <a
                                     href={`${name.toLowerCase()}`}
-                                    key={`${name}`}>
+                                    key={`${name}`}
+                                >
                                     {name}
                                 </a>
                             ))}
                         </Navigation>
                     </Drawer>
                     <Content>
-                        {_.map(testcases, ({name, code}) => (
+                        {_.map(testcases, ({ name, code }) => (
                             <Route
                                 path={`/(all|${name.toLowerCase()})`}
                                 key={`${name}`}

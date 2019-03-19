@@ -1,5 +1,7 @@
 import React from 'react';
-import {Card, CardTitle, CardContent, NotAvailable} from '../../index';
+import {
+    Card, CardTitle, CardContent, NotAvailable,
+} from '../../index';
 
 function TestNA() {
     return (
@@ -9,16 +11,19 @@ function TestNA() {
             <CardContent>
                 <div key="N/A">
                     <div>
-                        This is a test with a block{' '}
+                        This is a test with a block
+                        {' '}
                         <NotAvailable
                             label="N/A"
                             description="Not available element"
-                        />{' '}
+                        />
+                        {' '}
                         information.
                     </div>
                     <div>
                         This is a test with a inline
-                        <NotAvailable inline />information.
+                        <NotAvailable inline />
+information.
                     </div>
                 </div>
             </CardContent>

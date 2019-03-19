@@ -41,7 +41,9 @@ class TestInputs extends Component {
         this.updateValue = this.updateValue.bind(this);
     }
 
-    updateValue({name, rawValue, value, isValid}) {
+    updateValue({
+        name, rawValue, value, isValid,
+    }) {
         console.log(
             `Changing value of ${name} to: ${value}`,
             `(${isValid ? 'valid' : 'invalid'})`,
@@ -51,6 +53,7 @@ class TestInputs extends Component {
         _.set(currentState, name, value);
         this.setState(currentState);
     }
+
     render() {
         return (
             <Card>
@@ -66,7 +69,8 @@ class TestInputs extends Component {
                     <Switch
                         name="switches[1]"
                         checked={this.state.switches[1]}
-                        onChange={this.updateValue}>
+                        onChange={this.updateValue}
+                    >
                         Switch with Ripple
                     </Switch>
                     <hr />
@@ -95,41 +99,49 @@ class TestInputs extends Component {
                         name="switches[4]"
                         disabled
                         checked={this.state.switches[4]}
-                        onChange={this.updateValue}>
+                        onChange={this.updateValue}
+                    >
                         Checkbox 2 Text
                     </Checkbox>
                     <Checkbox
                         name="switches[5]"
                         checked={this.state.switches[5]}
-                        onChange={this.updateValue}>
+                        onChange={this.updateValue}
+                    >
                         <div className="test">Checkbox 3 Text</div>
                     </Checkbox>
                     <Checkbox
                         name="switches[5b]"
                         hideLabel
                         checked={this.state.switches[5]}
-                        onChange={this.updateValue}>
+                        onChange={this.updateValue}
+                    >
                         <div className="test">Hidden children label</div>
                     </Checkbox>
                     <hr />
                     <RadioGroup
                         name="selectedRadio"
                         onChange={this.updateValue}
-                        value={this.state.selectedRadio}>
-                        <Radio value="one"  name="one" checked={false}/>
-                        <Radio name="two"  value="two" label="Radio 2 Text" checked={false}/>
+                        value={this.state.selectedRadio}
+                    >
+                        <Radio value="one" name="one" checked={false} />
+                        <Radio name="two" value="two" label="Radio 2 Text" checked={false} />
                     </RadioGroup>
                     <RadioGroup
                         childContainer="div"
                         name="selectedRadio"
                         onChange={this.updateValue}
-                        value={this.state.selectedRadio}>
+                        value={this.state.selectedRadio}
+                    >
                         <Radio disabled value="three" name="three" checked={false}>
                             Radio 3 Text
                         </Radio>
                         <Radio name="four" value="four" checked={false}>
                             <div className="test">
-                                Radio 4 Text <br />Line 2
+                                Radio 4 Text
+                                {' '}
+                                <br />
+Line 2
                             </div>
                         </Radio>
                     </RadioGroup>
@@ -142,25 +154,32 @@ class TestInputs extends Component {
                     <RadioGroup
                         name="name2"
                         container="div"
-                        value={this.state.selectedRadio}>
-                        <Radio name="one" value="one" checked={false}/>
-                        <Radio name="two" value="two" label="Radio 2 Text" checked={false}/>
+                        value={this.state.selectedRadio}
+                    >
+                        <Radio name="one" value="one" checked={false} />
+                        <Radio name="two" value="two" label="Radio 2 Text" checked={false} />
                         <Radio name="three" disabled value="three" checked={false}>
                             Radio 3 Text
                         </Radio>
                         <Radio name="four" value="four" checked={false}>
                             <div className="test">
-                                Radio 4 Text <br />Line 2
+                                Radio 4 Text
+                                {' '}
+                                <br />
+Line 2
                             </div>
                         </Radio>
-                        <Radio name="one" value="one" checked={false}/>
+                        <Radio name="one" value="one" checked={false} />
                         <Radio name="two" value="two" label="Radio 2 Text" checked={false} />
-                        <Radio name="three"  disabled value="three" checked={false}>
+                        <Radio name="three" disabled value="three" checked={false}>
                             Radio 3 Text
                         </Radio>
                         <Radio name="four" value="four" hideLabel checked={false}>
                             <div className="test">
-                                Radio 4 Text <br />Line 2
+                                Radio 4 Text
+                                {' '}
+                                <br />
+Line 2
                             </div>
                         </Radio>
                     </RadioGroup>
@@ -213,7 +232,8 @@ class TestInputs extends Component {
                         onChange={this.updateValue}
                     />
                     <h5>Datefields</h5>
-                    date only fields (8th, February 2017)<br />
+                    date only fields (8th, February 2017)
+                    <br />
                     <DateField
                         label="Date label"
                         stretch={false}
@@ -247,7 +267,8 @@ class TestInputs extends Component {
                         closeOnSelect
                         placeholder="picker disappear on select"
                     />
-                    time only fields (14:23)<br />
+                    time only fields (14:23)
+                    <br />
                     <DateTimefield
                         value={this.state.dateInput[5]}
                         name="dateInput[5]"
@@ -274,7 +295,9 @@ class TestInputs extends Component {
                     />
                     no manual input
                     <br />
-                    Selected date: {this.state.dateInput[9].format()}
+                    Selected date:
+                    {' '}
+                    {this.state.dateInput[9].format()}
                     <DateTimefield
                         value={this.state.dateInput[9]}
                         name="dateInput[9]"

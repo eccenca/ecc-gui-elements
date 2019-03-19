@@ -1,4 +1,4 @@
-import React,  { Component } from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import {
     Card,
@@ -32,7 +32,6 @@ const selectOptions = [
 ];
 
 class TestSelects extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -50,15 +49,15 @@ class TestSelects extends Component {
             autoCompleteBox3: null,
         };
         this.handleSelectChange = this.handleSelectChange.bind(this);
-        this.handleChange = this.handleChange.bind(this)
+        this.handleChange = this.handleChange.bind(this);
     }
 
     handleSelectChange(value, key) {
         console.log('SelectBox onChange: ', value);
-        this.setState({[key]: value});
+        this.setState({ [key]: value });
     }
 
-    handleChange({value, name}) {
+    handleChange({ value, name }) {
         const newState = this.state;
         console.warn(newState, name);
         _.set(newState, name, value);
@@ -66,7 +65,7 @@ class TestSelects extends Component {
     }
 
     render() {
-        const {selectSettings} = this.state;
+        const { selectSettings } = this.state;
 
         return (
             <Card>
@@ -87,7 +86,7 @@ class TestSelects extends Component {
                         value={this.state.selectBox2}
                         onChange={this.handleSelectChange}
                         async
-                        loadOptions={function(input, callback) {
+                        loadOptions={function (input, callback) {
                             console.warn('loadOptions');
                             setTimeout(() => {
                                 callback(null, {
@@ -107,7 +106,8 @@ class TestSelects extends Component {
                             key={key}
                             name={`selectSettings.${key}`}
                             checked={value}
-                            onChange={this.handleChange}>
+                            onChange={this.handleChange}
+                        >
                             {key}
                         </Checkbox>
                     ))}
@@ -132,7 +132,7 @@ class TestSelects extends Component {
                         placeholder="restricted input (no starting ? or *)"
                         options={selectOptions}
                         creatable
-                        inputRestriction={(string) => string.replace(/^(\?|\*)/, '')}
+                        inputRestriction={string => string.replace(/^(\?|\*)/, '')}
                         name="autoCompleteBox3"
                         value={this.state.autoCompleteBox3}
                         onChange={this.handleSelectChange}

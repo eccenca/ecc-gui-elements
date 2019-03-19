@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 // BreadcrumbItem component
 const BreadcrumbItem = props => {
-    const {children, className, ...otherProps} = props;
+    const { children, className, ...otherProps } = props;
 
     let crumbType = otherProps.onClick ? 'button' : 'span';
     crumbType = otherProps.href ? 'a' : crumbType;
@@ -23,7 +23,6 @@ const BreadcrumbItem = props => {
             {crumbButton}
         </li>
     );
-
 };
 BreadcrumbItem.propTypes = {
     className: PropTypes.string,

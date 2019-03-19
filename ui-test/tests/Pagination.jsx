@@ -1,8 +1,9 @@
 import React from 'react';
-import {Card, CardTitle, CardContent, Pagination} from '../../index';
+import {
+    Card, CardTitle, CardContent, Pagination,
+} from '../../index';
 
-class TestPagination extends React.Component{
-
+class TestPagination extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,7 +13,7 @@ class TestPagination extends React.Component{
         this.handlePaginationChange = this.handlePaginationChange.bind(this);
     }
 
-    handlePaginationChange({offset, limit}) {
+    handlePaginationChange({ offset, limit }) {
         console.log(`Pagination: Offset ${offset} Limit: ${limit}`);
         this.setState({
             paginationLimit: limit,
@@ -32,7 +33,7 @@ class TestPagination extends React.Component{
                         onChange={this.handlePaginationChange}
                         totalResults={10001}
                     />
-                <h5>Pagination with selection of page size and page jumper</h5>
+                    <h5>Pagination with selection of page size and page jumper</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
@@ -49,7 +50,7 @@ class TestPagination extends React.Component{
                         totalResults={0}
                         onChange={this.handlePaginationChange}
                     />
-                <h5>Pagination of 0 elements displaying element offsets</h5>
+                    <h5>Pagination of 0 elements displaying element offsets</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}

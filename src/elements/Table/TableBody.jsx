@@ -28,7 +28,9 @@ import classNames from 'classnames';
  */
 
 const TableBody = props => {
-    const {children, className, multiline, ...otherProps} = props;
+    const {
+        children, className, multiline, ...otherProps
+    } = props;
     // set classname
     const bodyClassNames = classNames(
         {

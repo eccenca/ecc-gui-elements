@@ -10,7 +10,7 @@ import UniqueIdWrapper from '../../utils/uniqueId';
 import Button from '../Button/Button';
 
 // format value to lowercase string
-const stringCompare = function(value) {
+const stringCompare = function (value) {
     return _.toLower(_.toString(value));
 };
 
@@ -18,7 +18,7 @@ const clearRenderer = () => (
     <Button iconName="clear" className="mdl-button--clearance" />
 );
 
-class SelectBox extends Component{
+class SelectBox extends Component {
     static displayName = 'SelectBox';
 
     static propTypes = {
@@ -32,16 +32,15 @@ class SelectBox extends Component{
 
                 const isObject = _.isPlainObject(propValue[key]);
 
-                const isNumberOrString =
-                    _.isString(propValue[key]) || _.isNumber(propValue[key]);
+                const isNumberOrString = _.isString(propValue[key]) || _.isNumber(propValue[key]);
 
                 if (
-                    (!containObjects && !isNumberOrString) ||
-                    (containObjects && !isObject)
+                    (!containObjects && !isNumberOrString)
+                    || (containObjects && !isObject)
                 ) {
                     return new Error(
-                        `Invalid prop \`${propFullName}\` supplied to` +
-                            ` \`${componentName}\`. No mixed content (object vs string/number) allowed.`
+                        `Invalid prop \`${propFullName}\` supplied to`
+                            + ` \`${componentName}\`. No mixed content (object vs string/number) allowed.`
                     );
                 }
                 return false;
@@ -66,7 +65,7 @@ class SelectBox extends Component{
 
     constructor(props) {
         super(props);
-        this.onChange =  this.onChange.bind(this);
+        this.onChange = this.onChange.bind(this);
         this.uniqueOptions = this.uniqueOptions.bind(this);
         this.onFocus = this.onFocus.bind(this);
         this.onBlur = this.onBlur.bind(this);
@@ -79,26 +78,30 @@ class SelectBox extends Component{
         }
         return this.props.onChange(newValue, this.props.name);
     }
+
     // default check for value creation
     // prevent double values (check case insensitive, and handle numbers as string)
-    uniqueOptions({option: newObject, options}) {
+    uniqueOptions({ option: newObject, options }) {
         return !_.some(
             options,
-            ({value, label}) =>
-                stringCompare(value) === stringCompare(newObject.value) &&
-                stringCompare(label) === stringCompare(newObject.label)
+            ({ value, label }) =>
+                stringCompare(value) === stringCompare(newObject.value)
+                && stringCompare(label) === stringCompare(newObject.label)
         );
     }
+
     onFocus() {
         this.setState({
             focused: true,
         });
     }
+
     onBlur() {
         this.setState({
             focused: false,
         });
     }
+
     render() {
         const {
             autofocus,
@@ -128,10 +131,9 @@ class SelectBox extends Component{
             passProps.clearRenderer = clearRenderer;
         }
 
-        const focused =
-            this.state && typeof this.state.focused !== 'undefined'
-                ? this.state.focused
-                : autofocus;
+        const focused = this.state && typeof this.state.focused !== 'undefined'
+            ? this.state.focused
+            : autofocus;
 
         const classes = classNames(
             {
@@ -153,12 +155,12 @@ class SelectBox extends Component{
             if (_.isArray(value)) {
                 parsedValue = _.map(
                     value,
-                    it => (_.isPlainObject(it) ? it : {value: it, label: it})
+                    it => (_.isPlainObject(it) ? it : { value: it, label: it })
                 );
             } else {
                 parsedValue = _.isPlainObject(value)
                     ? value
-                    : {value, label: value};
+                    : { value, label: value };
             }
         }
 
@@ -200,16 +202,16 @@ class SelectBox extends Component{
                 );
             }
         } else {
-            const {options, ...passSyncProps} = passProps;
+            const { options, ...passSyncProps } = passProps;
 
             // parse values to object format if needed
             const parsedOptions = _.isPlainObject(options[0])
                 ? options
                 : _.map(options, it => ({
-                      value: it,
-                      label: it,
-                      $plainValue: true,
-                  }));
+                    value: it,
+                    label: it,
+                    $plainValue: true,
+                }));
 
             if (creatable) {
                 component = (
@@ -250,7 +252,7 @@ class SelectBox extends Component{
             </div>
         );
     }
-};
+}
 
 export default UniqueIdWrapper(SelectBox, {
     prefix: 'selectBox',

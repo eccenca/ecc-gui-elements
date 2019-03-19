@@ -1,10 +1,10 @@
-import cx from "classnames";
-import PropTypes from "prop-types";
-import React from "react";
+import cx from 'classnames';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 // BreadcrumbList component
 const BreadcrumbList = props => {
-    const {children, className, ...otherProps} = props;
+    const { children, className, ...otherProps } = props;
 
     return (
         <ol className={cx('ecc-breadcrumbs', className)} {...otherProps}>

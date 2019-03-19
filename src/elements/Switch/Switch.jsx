@@ -23,7 +23,8 @@ const Switch = props => {
             checked={!!checked}
             ripple={ripple}
             onChange={extendedOnChangeBoolean.bind(null, onChange)}
-            {...otherProperties}>
+            {...otherProperties}
+        >
             {checkboxlabel}
         </ReactMDLSwitch>
     );

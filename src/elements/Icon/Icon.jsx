@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import {includes} from 'lodash';
+import { includes } from 'lodash';
 import Tooltip from '../Tooltip/Tooltip';
 import ligatureCodes from './icontable.json';
 import canonicalIconNames from './canonicalicons.json';
@@ -30,13 +30,12 @@ const Page = React.createClass({
 
 
 const Icon = props => {
+    const { className, badge = false, ...otherProps } = props;
 
-    const {className, badge = false, ...otherProps} = props;
-
-    let name = otherProps.name;
+    let { name } = otherProps;
     delete otherProps.name;
 
-    let tooltip = otherProps.tooltip;
+    let { tooltip } = otherProps;
     delete otherProps.tooltip;
 
     if (!tooltip && tooltip !== false) {
@@ -70,7 +69,7 @@ const Icon = props => {
 
     const classes = classNames(
         'material-icons',
-        {'mdl-badge mdl-badge--overlap': badge},
+        { 'mdl-badge mdl-badge--overlap': badge },
         className
     );
 

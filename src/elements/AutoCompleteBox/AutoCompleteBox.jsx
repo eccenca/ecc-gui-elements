@@ -6,7 +6,7 @@ import cx from 'classnames';
 import SelectBox from '../SelectBox/SelectBox';
 
 const Highlight = props => {
-    const {textToHighlight, searchWord} = props;
+    const { textToHighlight, searchWord } = props;
 
     if (!_.isString(textToHighlight) || _.isEmpty(textToHighlight)) {
         return false;
@@ -50,25 +50,25 @@ class AutoCompleteBox extends Component {
     }
 
     optionRender = option => {
-        const {label, value, description} = option;
+        const { label, value, description } = option;
         const escapedInput = this.currentInputValue.replace(/[?*|$]/g, '\\$0');
         // only show value entry if it is not same as label
-        const optionValue =
-            value === label ? (
-                false
-            ) : (
-                <code key="autoCompleteValue" className="Select-option__value">
-                    <Highlight
-                        textToHighlight={value}
-                        searchWord={escapedInput}
-                    />
-                </code>
-            );
+        const optionValue = value === label ? (
+            false
+        ) : (
+            <code key="autoCompleteValue" className="Select-option__value">
+                <Highlight
+                    textToHighlight={value}
+                    searchWord={escapedInput}
+                />
+            </code>
+        );
 
         const optionDescription = description ? (
             <span
                 key="autoCompleteDescription"
-                className="Select-option__description">
+                className="Select-option__description"
+            >
                 <Highlight
                     textToHighlight={description}
                     searchWord={escapedInput}
@@ -89,6 +89,7 @@ class AutoCompleteBox extends Component {
             optionDescription,
         ];
     };
+
     // will only be triggered when the user type something in textfield
     handleInputChange(inputValue) {
         if (_.isFunction(this.props.inputRestriction)) {

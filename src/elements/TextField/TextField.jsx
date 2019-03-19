@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import ReactMDLTextField from 'react-mdl/lib/Textfield';
 import _ from 'lodash';
 import Button from '../Button/Button';
-import uniqueId from './../../utils/uniqueId';
+import uniqueId from '../../utils/uniqueId';
 
 const extendedOnChange = (onChangeFn, event) => {
     if (_.isFunction(onChangeFn)) {
@@ -74,19 +74,18 @@ const TextField = props => {
     });
 
     // provides clean searchstring button
-    const clearButton =
-        _.isFunction(onClearValue) && value ? (
-            <div className="mdl-input__clearable-holder">
-                <Button
-                    type="button"
-                    iconName="clear"
-                    onClick={onClearValue}
-                    className="mdl-button--clearance"
-                />
-            </div>
-        ) : (
-            false
-        );
+    const clearButton = _.isFunction(onClearValue) && value ? (
+        <div className="mdl-input__clearable-holder">
+            <Button
+                type="button"
+                iconName="clear"
+                onClick={onClearValue}
+                className="mdl-button--clearance"
+            />
+        </div>
+    ) : (
+        false
+    );
     return (
         <ReactMDLTextField
             className={classes}
@@ -95,7 +94,8 @@ const TextField = props => {
             label={label}
             onChange={extendedOnChange.bind(null, onChange)}
             rows={multiline === true ? 3 : 0}
-            {...otherProps}>
+            {...otherProps}
+        >
             {clearButton}
             {children}
         </ReactMDLTextField>
@@ -167,4 +167,4 @@ TextField.defaultProps = {
 
 TextField.displayName = 'TextField';
 
-export default uniqueId(TextField, {prefix: 'textField', targetProp: 'id'});
+export default uniqueId(TextField, { prefix: 'textField', targetProp: 'id' });

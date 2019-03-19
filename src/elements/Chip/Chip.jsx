@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 import _ from 'lodash';
 import ChipVisual from './ChipVisual';
-
 
 
 const ChipContact = basicClassCreator(
@@ -16,11 +15,12 @@ const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
 
 // Chip Component
 const Chip = props => {
-    const {className, onClose, children, ...otherProps} = props;
+    const {
+        className, onClose, children, ...otherProps
+    } = props;
     const childrenArray = React.Children.toArray(children);
     const contactIndex = _.findIndex(childrenArray,
-        c => c.type === ChipContact || c.type === ChipVisual
-    );
+        c => c.type === ChipContact || c.type === ChipVisual);
     const chipContent = [];
     delete otherProps.tooltip;
 
@@ -40,8 +40,8 @@ const Chip = props => {
     if (__DEBUG__) {
         if (onClose) {
             console.warn(
-                'At the moment our chips do not allow for a chip action (like close).' +
-                    'If you think, you need one please start a discussion around that topic.'
+                'At the moment our chips do not allow for a chip action (like close).'
+                    + 'If you think, you need one please start a discussion around that topic.'
             );
             // chipContent.push(
             //     <button key="btn" type="button" className="mdl-chip__action" onClick={onClose}>

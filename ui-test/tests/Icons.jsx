@@ -1,10 +1,11 @@
 import React from 'react';
 import _ from 'lodash';
-import {Card, CardTitle, CardContent, Icon} from '../../index';
+import {
+    Card, CardTitle, CardContent, Icon,
+} from '../../index';
 import canonicalIconNames from '../../src/elements/Icon/canonicalicons.json';
 
-class TestIcons extends React.Component{
-    
+class TestIcons extends React.Component {
     render() {
         return (
             <Card>
@@ -14,7 +15,7 @@ class TestIcons extends React.Component{
                     {_.map(
                         canonicalIconNames,
                         (value, key) => (
-                            <Icon name={key} key={'testicon-'+key} />
+                            <Icon name={key} key={`testicon-${key}`} />
                         )
                     )}
                     <h5>Other Icons</h5>
@@ -33,7 +34,7 @@ class TestIcons extends React.Component{
                         tooltip="Icon with badge"
                     />
                     <Icon
-                        name="account"
+                        name=""
                         badge="673"
                         tooltip="Icon with three digit badge"
                     />

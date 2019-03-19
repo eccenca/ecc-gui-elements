@@ -26,9 +26,8 @@ const Page = React.createClass({
 
 const AffirmativeButton = props => {
     // split 'normal' props from button content
-    const {children, ...otherProps} = props;
-    const useProgressButton =
-        typeof otherProps.progress !== 'undefined';
+    const { children, ...otherProps } = props;
+    const useProgressButton = typeof otherProps.progress !== 'undefined';
     // remove unused propTypes from button
     if (!useProgressButton) {
         delete otherProps.progress;
@@ -68,9 +67,7 @@ const AffirmativeButton = props => {
             {children}
         </Button>
     );
-
 };
 AffirmativeButton.displayName = 'AffirmativeButton';
 
 export default AffirmativeButton;
-

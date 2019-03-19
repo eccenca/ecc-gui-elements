@@ -1,13 +1,11 @@
-import BreadcrumbItem from "./BreadcrumbItem";
-import BreadcrumbList from "./BreadcrumbList";
+import BreadcrumbItem from './BreadcrumbItem';
+import BreadcrumbList from './BreadcrumbList';
 
 
 export default {
     BreadcrumbItem,
-    BreadcrumbList
+    BreadcrumbList,
 };
-
-
 
 
 /**
@@ -46,4 +44,3 @@ export default {
 });
  ```
  */
-

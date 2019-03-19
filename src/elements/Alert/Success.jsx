@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 import Alert from './Alert';
 
 const Success = props => {
-    const {children, ...otherProps} = props;
+    const { children, ...otherProps } = props;
 
     return (
         <Alert type="success" {...otherProps}>
             {children}
         </Alert>
     );
-
 };
 
 Success.propTypes = {

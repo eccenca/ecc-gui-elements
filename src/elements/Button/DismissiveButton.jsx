@@ -29,10 +29,8 @@ const Page = React.createClass({
 
 
 const DismissiveButton = props => {
-
-    const {children, ...otherProps} = props;
-    const useProgressButton =
-        typeof otherProps.progress !== 'undefined';
+    const { children, ...otherProps } = props;
+    const useProgressButton = typeof otherProps.progress !== 'undefined';
 
     // remove unused propTypes from button
     if (!useProgressButton) {
@@ -73,7 +71,6 @@ const DismissiveButton = props => {
             {children}
         </Button>
     );
-
 };
 
 DismissiveButton.displayName = 'DismissiveButton';

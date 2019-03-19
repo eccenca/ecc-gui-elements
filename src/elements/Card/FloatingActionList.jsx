@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
 
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
-import PropTypes from 'prop-types';
 
- class FloatingActionList extends Component {
+class FloatingActionList extends Component {
      static displayName = 'FloatingActionList';
 
      static propTypes = {
@@ -15,7 +15,7 @@ import PropTypes from 'prop-types';
          fabSize: PropTypes.string.isRequired,
          fixed: PropTypes.bool,
          iconName: PropTypes.string,
-    };
+     };
 
     static defaultProps = {
         fabSize: 'large',
@@ -23,15 +23,15 @@ import PropTypes from 'prop-types';
         iconName: 'add',
     };
 
-     constructor(props) {
-         super(props);
-         this.state = {
-             activeFAB: false,
-         };
-         this.handleFAB = this.handleFAB.bind(this);
-     }
+    constructor(props) {
+        super(props);
+        this.state = {
+            activeFAB: false,
+        };
+        this.handleFAB = this.handleFAB.bind(this);
+    }
 
-     componentWillReceiveProps() {
+    componentWillReceiveProps() {
         if (this.state.activeFAB) {
             this.setState({
                 activeFAB: false,
@@ -87,7 +87,8 @@ import PropTypes from 'prop-types';
                             <li key={`FloatingAction_${idx}_${action.label}`}>
                                 <button
                                     className="mdl-menu__item"
-                                    onClick={action.handler}>
+                                    onClick={action.handler}
+                                >
                                     {action.icon ? (
                                         <Icon name={action.icon} />
                                     ) : (

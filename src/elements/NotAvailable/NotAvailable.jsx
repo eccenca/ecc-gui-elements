@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip/Tooltip';
@@ -10,27 +10,28 @@ import Tooltip from '../Tooltip/Tooltip';
 */
 
 
-
 const Button = props => {
-        const {className, description, inline, label} = props;
+    const {
+        className, description, inline, label,
+    } = props;
 
-        const classes = classNames(
-            {
-                'ecc-gui-elements__notavailable': true,
-                'ecc-gui-elements__notavailable--inline': inline,
-            },
-            className
-        );
+    const classes = classNames(
+        {
+            'ecc-gui-elements__notavailable': true,
+            'ecc-gui-elements__notavailable--inline': inline,
+        },
+        className
+    );
 
-        return (
-            <span className={classes}>
-                <Tooltip label={description || (label ? '' : 'not available')}>
-                    <span className="ecc-gui-elements__notavailable-label">
-                        {label || 'n/a'}
-                    </span>
-                </Tooltip>
-            </span>
-        );
+    return (
+        <span className={classes}>
+            <Tooltip label={description || (label ? '' : 'not available')}>
+                <span className="ecc-gui-elements__notavailable-label">
+                    {label || 'n/a'}
+                </span>
+            </Tooltip>
+        </span>
+    );
 };
 
 // define property types

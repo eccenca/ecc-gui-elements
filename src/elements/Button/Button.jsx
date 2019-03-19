@@ -2,10 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
+import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip/Tooltip';
 import Icon from '../Icon/Icon';
-import canonicalTooltips from './../Icon/canonicaltooltips.json';
-import PropTypes from 'prop-types';
+import canonicalTooltips from '../Icon/canonicaltooltips.json';
 
 /**
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
@@ -46,7 +46,6 @@ const Page = React.createClass({
 */
 
 const Button = props => {
-
     const {
         className,
         fabSize,
@@ -86,9 +85,9 @@ const Button = props => {
     let tooltip = defaultTooltip;
     // if tooltip is empty check for default one
     if (
-        !tooltip &&
-        tooltip !== false &&
-        typeof canonicalTooltips[iconName] !== 'undefined'
+        !tooltip
+        && tooltip !== false
+        && typeof canonicalTooltips[iconName] !== 'undefined'
     ) {
         tooltip = canonicalTooltips[iconName];
     }
@@ -112,7 +111,8 @@ const Button = props => {
                 ripple={ripple}
                 mini={fabSize === 'mini'}
                 {...otherProps}
-                {...semanticConfig}>
+                {...semanticConfig}
+            >
                 {buttonContent}
             </ReactMDLFabButton>
         );
@@ -122,7 +122,8 @@ const Button = props => {
                 className={classes}
                 ripple={ripple}
                 {...otherProps}
-                {...semanticConfig}>
+                {...semanticConfig}
+            >
                 {buttonContent}
             </ReactMDLButton>
         );
@@ -133,8 +134,6 @@ const Button = props => {
     }
 
     return button;
-
-
 };
 
 Button.propTypes = {
@@ -193,6 +192,6 @@ Button.propTypes = {
     disruptive: PropTypes.bool,
 };
 
-Button.displayName ='Button';
+Button.displayName = 'Button';
 
 export default Button;
