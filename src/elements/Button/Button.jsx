@@ -60,6 +60,8 @@ const Button = props => {
         ...otherProps
     } = props;
 
+    delete otherProps.badge;
+
     const semanticConfig = {};
 
     if (affirmative === true) {
