@@ -1,13 +1,6 @@
 import BreadcrumbItem from './BreadcrumbItem';
 import BreadcrumbList from './BreadcrumbList';
 
-
-export default {
-    BreadcrumbItem,
-    BreadcrumbList,
-};
-
-
 /**
  The are two simple React elements to create breadcrumb navigation.
 
@@ -44,3 +37,10 @@ export default {
 });
  ```
  */
+
+export default {
+    BreadcrumbItem,
+    BreadcrumbList,
+};
+
+
