@@ -445,6 +445,7 @@ const Page = React.createClass({
 - **version** (string, *required*) - 
 - **companyUrl** (string, *required*) - 
 - **workspace** (string) - 
+- **userName** (string) - 
 
 ### Icon
 
