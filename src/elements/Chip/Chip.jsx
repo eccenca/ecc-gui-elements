@@ -72,9 +72,21 @@ const Chip = props => {
 };
 
 Chip.propTypes = {
+    /**
+     additional CSS class name
+     */
     className: PropTypes.string,
+    /**
+     Click handler
+     */
     onClick: PropTypes.func,
+    /**
+     Close handler
+     */
     onClose: PropTypes.func,
+    /**
+     Chip is rendered as HTML link anchor
+     */
     href: PropTypes.string,
 };
 

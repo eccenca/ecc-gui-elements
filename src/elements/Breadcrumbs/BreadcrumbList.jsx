@@ -13,6 +13,9 @@ const BreadcrumbList = props => {
     );
 };
 BreadcrumbList.propTypes = {
+    /**
+     additional CSS class name
+     */
     className: PropTypes.string,
 };
 export default BreadcrumbList;

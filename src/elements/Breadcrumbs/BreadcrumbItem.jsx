@@ -25,6 +25,9 @@ const BreadcrumbItem = props => {
     );
 };
 BreadcrumbItem.propTypes = {
+    /**
+     additional CSS class name
+     */
     className: PropTypes.string,
 };
 

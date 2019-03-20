@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import cx from 'classnames';
 import React from 'react';
+import PropTypes from 'prop-types';
 import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 
 
@@ -9,15 +10,15 @@ const ChipContact = basicClassCreator(
     'mdl-chip__contact',
     'span'
 );
-// Chip Component
+// ChipVisual Component
 const ChipVisual = props => {
     const {
-        image = false,
-        label = false,
-        className = '',
-        bgColor = false,
-        textColor = false,
-        children = false,
+        image,
+        label,
+        className,
+        bgColor,
+        textColor,
+        children,
     } = props;
 
 
@@ -48,4 +49,26 @@ const ChipVisual = props => {
         </ChipContact>
     );
 };
+
+ChipVisual.propTypes = {
+    /**
+     additional CSS class name
+     */
+    className: PropTypes.string,
+    image: PropTypes.string,
+    label: PropTypes.string,
+    bgColor: PropTypes.string,
+    textColor: PropTypes.string,
+    children: PropTypes.object,
+};
+
+ChipVisual.defaultProps = {
+    image: '',
+    label: '',
+    className: '',
+    bgColor: '',
+    textColor: '',
+};
+
+
 export default ChipVisual;
