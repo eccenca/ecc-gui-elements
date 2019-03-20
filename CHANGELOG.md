@@ -2,6 +2,10 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [3.5.0] 2019-03-20
+### Added
+- Footer now contain the logged in user name 
+
 ## [3.4.2] 2019-03-12
 
 ### Fixed
