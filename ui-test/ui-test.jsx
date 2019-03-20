@@ -166,9 +166,11 @@ const Page = React.createClass({
                         ))}
                     </Content>
                     <Footer
-                        company="Eccenca"
-                        version="v0.1.0"
+                        company="eccenca"
+                        version="v3.4.2"
                         companyUrl="http://eccenca.com"
+                        workspace={document.title}
+                        userName="userB"
                     />
                 </Layout>
             </div>
