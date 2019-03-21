@@ -5,7 +5,32 @@ import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 import _ from 'lodash';
 import ChipVisual from './ChipVisual';
 
+/**
+ The are two simple React elements to create Chip and ChipVisual.
 
+ ```js
+ import {
+    Chip,
+    ChipVisual,
+} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
+    // template rendering
+    render() {
+        return (
+            <div>
+                <Chip onClick={() => console.log('#1 chip clicked')}>
+                    <ChipVisual
+                        image="https://placekitten.com/500/500"
+                    />
+                clickable with image visual
+                </Chip>
+            </div>
+        );
+    }
+}
+ ```
+ */
 const ChipContact = basicClassCreator(
     'ChipContact',
     'mdl-chip__contact',

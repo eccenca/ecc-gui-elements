@@ -1,5 +1,5 @@
 /* eslint global-require: 0 */
-
+const gulp = require('@eccenca/gulp-tasks')(require('./buildConfig.js'));
 gulp.task('default', ['debug']);
 
 const gulpSequence = require('gulp-sequence');
@@ -7,7 +7,7 @@ const gulpSequence = require('gulp-sequence');
 const fs = require('fs-extra');
 const path = require('path');
 const _ = require('lodash');
-const gulp = require('@eccenca/gulp-tasks')(require('./buildConfig.js'));
+
 
 const iconFontVersion = '3.0.1';
 /*

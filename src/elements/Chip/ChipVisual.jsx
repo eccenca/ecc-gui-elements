@@ -4,7 +4,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 
-
 const ChipContact = basicClassCreator(
     'ChipContact',
     'mdl-chip__contact',
@@ -55,10 +54,25 @@ ChipVisual.propTypes = {
      additional CSS class name
      */
     className: PropTypes.string,
+    /**
+     Image prop
+     */
     image: PropTypes.string,
+    /**
+     label name prop
+     */
     label: PropTypes.string,
+    /**
+     additional css color prop
+     */
     bgColor: PropTypes.string,
+    /**
+     additional css text color prop
+     */
     textColor: PropTypes.string,
+    /**
+     Chip children prop
+     */
     children: PropTypes.object,
 };
 
