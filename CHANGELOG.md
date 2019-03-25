@@ -9,6 +9,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 - messagebus
 - PerformanceMixin
 - MaterialMixin
+- Nothing component
  
 ### Added
 - ScrollingHOC
