@@ -16,7 +16,9 @@ const Footer = props => {
 
     const workspace = props.workspace ? (
         <div className="mdl-mini-footer__left-section">
-            Workspace: {props.workspace}
+            Workspace:
+            {' '}
+            {props.workspace}
         </div>
     ) : (
         false
@@ -30,7 +32,9 @@ const Footer = props => {
                 <div className="mdl-mini-footer__right-section">
                     <div className="mdl-logo">
                         <Version version={props.version} />
-                        &copy; {year}
+                        &copy;
+                        {' '}
+                        {year}
                     </div>
                     <ul className="mdl-mini-footer__link-list">
                         <li>

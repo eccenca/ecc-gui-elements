@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import {
     Card,
@@ -31,9 +31,10 @@ const selectOptions = [
     },
 ];
 
-const TestSelects = React.createClass({
-    getInitialState() {
-        return {
+class TestSelects extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             selectSettings: {
                 searchable: true,
                 optionsOnTop: false,
@@ -47,19 +48,24 @@ const TestSelects = React.createClass({
             autoCompleteBox2: null,
             autoCompleteBox3: null,
         };
-    },
+        this.handleSelectChange = this.handleSelectChange.bind(this);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
     handleSelectChange(value, key) {
         console.log('SelectBox onChange: ', value);
-        this.setState({[key]: value});
-    },
-    handleChange({value, name}) {
+        this.setState({ [key]: value });
+    }
+
+    handleChange({ value, name }) {
         const newState = this.state;
         console.warn(newState, name);
         _.set(newState, name, value);
         this.setState(newState);
-    },
+    }
+
     render() {
-        const {selectSettings} = this.state;
+        const { selectSettings } = this.state;
 
         return (
             <Card>
@@ -80,7 +86,7 @@ const TestSelects = React.createClass({
                         value={this.state.selectBox2}
                         onChange={this.handleSelectChange}
                         async
-                        loadOptions={function(input, callback) {
+                        loadOptions={function (input, callback) {
                             console.warn('loadOptions');
                             setTimeout(() => {
                                 callback(null, {
@@ -100,7 +106,8 @@ const TestSelects = React.createClass({
                             key={key}
                             name={`selectSettings.${key}`}
                             checked={value}
-                            onChange={this.handleChange}>
+                            onChange={this.handleChange}
+                        >
                             {key}
                         </Checkbox>
                     ))}
@@ -125,7 +132,7 @@ const TestSelects = React.createClass({
                         placeholder="restricted input (no starting ? or *)"
                         options={selectOptions}
                         creatable
-                        inputRestriction={(string) => string.replace(/^(\?|\*)/, '')}
+                        inputRestriction={string => string.replace(/^(\?|\*)/, '')}
                         name="autoCompleteBox3"
                         value={this.state.autoCompleteBox3}
                         onChange={this.handleSelectChange}
@@ -133,7 +140,6 @@ const TestSelects = React.createClass({
                 </CardContent>
             </Card>
         );
-    },
-});
-
+    }
+}
 export default TestSelects;

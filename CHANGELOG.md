@@ -3,8 +3,18 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
-
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Changed 
+- Prepared component for react 16
+### Removed
+- messagebus
+- PerformanceMixin
+- MaterialMixin
+- Nothing component
+ 
+### Added
+- ScrollingHOC
+### Breaking
+- mixin replaced with hocs
 
 ## [3.5.0] 2019-03-20
 ### Added
@@ -17,20 +27,16 @@ TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security se
 - Button element now allows a badge property to use them (mainly) with icon buttons
 
 ## [3.4.1] 2019-02-07
-
 ### Fixed
 
 - fix specifity of CSS selector for reduced Cards sub elements and improve its layout
-
 ## [3.4.0] 2019-01-16
 
 ### Added
-
 - Routing to test cases
 - New Cards test
 
 ### Changed
-
 - Cut value description in `<AutoCompleteBox/>` on the left side if value is to big to get shown completely
 - Redesign the content using MDL sidebar with `<Drawer>` and `<Navigation>` elements
 - Separate chips test from buttons test

@@ -1,13 +1,11 @@
 import React from 'react';
 import _ from 'lodash';
-import {Card, CardTitle, CardContent, Icon} from '../../index';
+import {
+    Card, CardTitle, CardContent, Icon,
+} from '../../index';
 import canonicalIconNames from '../../src/elements/Icon/canonicalicons.json';
 
-const TestIcons = React.createClass({
-    getInitialState() {
-        return {};
-    },
-
+class TestIcons extends React.Component {
     render() {
         return (
             <Card>
@@ -17,7 +15,7 @@ const TestIcons = React.createClass({
                     {_.map(
                         canonicalIconNames,
                         (value, key) => (
-                            <Icon name={key} key={'testicon-'+key} />
+                            <Icon name={key} key={`testicon-${key}`} />
                         )
                     )}
                     <h5>Other Icons</h5>
@@ -27,7 +25,7 @@ const TestIcons = React.createClass({
                     />
                     <Icon name="access_forbidden" tooltip={false} />
                     <Icon
-                        name="non_existing_icon_name"
+                        name="error"
                         tooltip="Icon with non existent icon name"
                     />
                     <Icon
@@ -36,14 +34,14 @@ const TestIcons = React.createClass({
                         tooltip="Icon with badge"
                     />
                     <Icon
-                        name="account"
+                        name="error"
                         badge="673"
                         tooltip="Icon with three digit badge"
                     />
                 </CardContent>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestIcons;

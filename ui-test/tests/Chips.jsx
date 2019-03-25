@@ -10,11 +10,9 @@ import {
 } from '../../index';
 
 function TestChips() {
-    const image =
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.JPG';
+    const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.JPG';
 
-    const brokenImage =
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.png';
+    const brokenImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.png';
     const chips = (
         <Card>
             <CardTitle documentLevel="h4">Test Chips</CardTitle>
@@ -98,7 +96,8 @@ function TestChips() {
                 <Chip href="http://example.com/">single href</Chip>
                 <Chip
                     href="http://example.com/"
-                    onClick={() => alert('#4 chip clicked')}>
+                    onClick={() => alert('#4 chip clicked')}
+                >
                     href and onclick event
                 </Chip>
             </CardContent>

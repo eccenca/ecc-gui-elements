@@ -1,52 +1,50 @@
 import React from 'react';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import PropTypes from 'prop-types';
 import BaseDialog from './BaseDialog';
+import Button from '../Button/Button';
 
 /**
  * This Component creates a confirmation dialog based on BaseDialog.
  */
-const ConfirmationDialog = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'ConfirmationDialog',
 
-    // define property types
-    propTypes: {
-        active: React.PropTypes.bool.isRequired,
-        className: React.PropTypes.string,
-        modal: React.PropTypes.bool,
-        size: React.PropTypes.string,
-        // a Confirmation Dialog should always have two buttons per spec:
-        // https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs
-        cancelButton: React.PropTypes.element.isRequired,
-        confirmButton: React.PropTypes.element.isRequired,
-        title: React.PropTypes.node,
-    },
-    // template rendering
-    render() {
-        const {active} = this.props;
+const ConfirmationDialog = props => {
+    const { active } = props;
 
-        if (active !== true) {
-            return false;
-        }
+    if (active !== true) {
+        return false;
+    }
 
-        const buttonRow = [
-            React.cloneElement(this.props.cancelButton, {key: 'cancel'}),
-            React.cloneElement(this.props.confirmButton, {key: 'confirm'}),
-        ];
+    const buttonRow = [
+        React.cloneElement(props.cancelButton, { key: 'cancel' }),
+        React.cloneElement(props.confirmButton, { key: 'confirm' }),
+    ];
 
         // push data with formatted buttons to base dialog
-        return (
-            <BaseDialog
-                active={this.props.active}
-                className={this.props.className}
-                modal={this.props.modal}
-                size={this.props.size}
-                title={this.props.title}
-                buttonRow={buttonRow}>
-                {this.props.children}
-            </BaseDialog>
-        );
-    },
-});
+    return (
+        <BaseDialog
+            active={props.active}
+            className={props.className}
+            modal={props.modal}
+            size={props.size}
+            title={props.title}
+            buttonRow={buttonRow}
+        >
+            {props.children}
+        </BaseDialog>
+    );
+};
+// define property types
+ConfirmationDialog.propTypes = {
+    active: PropTypes.bool.isRequired,
+    className: PropTypes.string,
+    modal: PropTypes.bool,
+    size: PropTypes.string,
+    // a Confirmation Dialog should always have two buttons per spec:
+    // https://material.google.com/components/dialogs.html#dialogs-confirmation-dialogs
+    cancelButton: PropTypes.element.isRequired,
+    confirmButton: PropTypes.element.isRequired,
+    title: PropTypes.node,
+};
+ConfirmationDialog.displayName = 'ConfirmationDialog';
 
 export default ConfirmationDialog;

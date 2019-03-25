@@ -1,62 +1,62 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classNames from 'classnames';
-import Button from './../../elements/Button/Button';
-import SelectBox from './../../elements/SelectBox/SelectBox';
-import TextField from './../../elements/TextField/TextField';
-
+import Button from '../Button/Button';
+import SelectBox from '../SelectBox/SelectBox';
+import TextField from '../TextField/TextField';
 
 
 /**
  * This component provides a pagination for switching through lists of results
  */
-class Pagination extends React.Component {
+class Pagination extends Component {
     // define property types
     static propTypes = {
         /**
          * contains actual start value which is shown
          */
-        offset: React.PropTypes.number.isRequired,
+        offset: PropTypes.number.isRequired,
         /**
          * contains number of max shown elements per page
          */
-        limit: React.PropTypes.number.isRequired,
+        limit: PropTypes.number.isRequired,
         /**
          * contains total number of results
          */
-        totalResults: React.PropTypes.number.isRequired,
+        totalResults: PropTypes.number.isRequired,
         /**
          * contains method which is called if offset have to change by user
          */
-        onChange: React.PropTypes.func.isRequired,
+        onChange: PropTypes.func.isRequired,
         /**
          * show element offset numbers as pagination information
          */
-        showElementOffsetPagination: React.PropTypes.bool,
+        showElementOffsetPagination: PropTypes.bool,
         /**
          * define position of page change dropdown/dropup
          */
-        isTopPagination: React.PropTypes.bool,
+        isTopPagination: PropTypes.bool,
         /**
          * text displayed next to limit changer selectbox
          */
-        newLimitText: React.PropTypes.string,
+        newLimitText: PropTypes.string,
         /**
          * possible page sizes
          */
-        limitRange: React.PropTypes.array,
+        limitRange: PropTypes.array,
         /**
          * if true all buttons and inputs fields are disabled and visibility is decreased
          */
-        disabled: React.PropTypes.bool,
+        disabled: PropTypes.bool,
         /**
          * the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
          */
-        showPageInput: React.PropTypes.bool,
+        showPageInput: PropTypes.bool,
         /**
          * hide info about number of total results
          */
-        hideTotalResults: React.PropTypes.bool,
+        hideTotalResults: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -90,7 +90,7 @@ class Pagination extends React.Component {
         };
     }
 
-    calculatePagination = ({limit, offset, totalResults}) => {
+    calculatePagination = ({ limit, offset, totalResults }) => {
         const onLastPage = offset + limit >= totalResults;
         return {
             limit,
@@ -105,11 +105,11 @@ class Pagination extends React.Component {
             totalPages: _.ceil(totalResults / limit),
             lastItemOnPage: onLastPage ? totalResults : offset + limit,
         };
-    }
+    };
 
     // trigger event to show first results
     onClickFirst() {
-        const {limit, totalResults} = this.props;
+        const { limit, totalResults } = this.props;
 
         this.props.onChange(
             this.calculatePagination({
@@ -119,9 +119,10 @@ class Pagination extends React.Component {
             })
         );
     }
+
     // trigger event to show previous results (regarding to limit)
     onClickBack() {
-        const {limit, totalResults, offset} = this.props;
+        const { limit, totalResults, offset } = this.props;
 
         this.props.onChange(
             this.calculatePagination({
@@ -131,9 +132,10 @@ class Pagination extends React.Component {
             })
         );
     }
+
     // trigger event to show next results (regarding to limit)
     onClickForward() {
-        const {limit, totalResults, offset} = this.props;
+        const { limit, totalResults, offset } = this.props;
 
         this.props.onChange(
             this.calculatePagination({
@@ -143,9 +145,10 @@ class Pagination extends React.Component {
             })
         );
     }
+
     // trigger event to show last results (regarding to limit)
     onClickLast() {
-        const {limit, totalResults} = this.props;
+        const { limit, totalResults } = this.props;
 
         this.props.onChange(
             this.calculatePagination({
@@ -157,7 +160,7 @@ class Pagination extends React.Component {
     }
 
     onNewLimit(limit) {
-        const {offset, totalResults} = this.props;
+        const { offset, totalResults } = this.props;
 
         this.props.onChange(
             this.calculatePagination({
@@ -167,16 +170,18 @@ class Pagination extends React.Component {
             })
         );
     }
+
     onChangePage(newPage) {
         this.setState({
             customPage: parseInt(newPage, 10),
         });
     }
+
     handleKeyPress(e) {
         const newPage = e.target.value;
         if (e.charCode === 13) {
-            const {limit, totalResults} = this.props;
-            const {totalPages} = this.calculatePagination(this.props);
+            const { limit, totalResults } = this.props;
+            const { totalPages } = this.calculatePagination(this.props);
 
             if (newPage < 1 || newPage > totalPages) {
                 return;
@@ -188,9 +193,10 @@ class Pagination extends React.Component {
                     totalResults,
                 })
             );
-            this.setState({customPage: undefined});
+            this.setState({ customPage: undefined });
         }
     }
+
     // template rendering
     render() {
         const {
@@ -249,7 +255,10 @@ class Pagination extends React.Component {
                             this.onChangePage(e.value);
                         }}
                     />,
-                    <span>of {totalPages.toLocaleString()}</span>
+                    <span>
+of
+                        {totalPages.toLocaleString()}
+                    </span>,
                 ];
             } else {
                 pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
@@ -257,10 +266,9 @@ class Pagination extends React.Component {
         } else {
             const firstItem = Math.min(totalResults, offset + 1);
             const lastItem = lastItemOnPage;
-            const start =
-                firstItem === lastItem
-                    ? lastItem.toLocaleString()
-                    : `${firstItem.toLocaleString()} - ${lastItem.toLocaleString()}`;
+            const start = firstItem === lastItem
+                ? lastItem.toLocaleString()
+                : `${firstItem.toLocaleString()} - ${lastItem.toLocaleString()}`;
             pageInfo = `${start} of ${totalResults.toLocaleString()}`;
         }
 
@@ -281,7 +289,12 @@ class Pagination extends React.Component {
             <div className={paginationClassNames}>
                 {this.props.hideTotalResults === false && (
                     <span className="ecc-gui-elements__pagination-summary">
-                        Found {totalResults.toLocaleString()} {totalResults === 1 ? 'result' : 'results'}.
+                        Found
+                        {' '}
+                        {totalResults.toLocaleString()}
+                        {' '}
+                        {totalResults === 1 ? 'result' : 'results'}
+.
                     </span>
                 )}
                 {newLimitText && !_.isEmpty(limitRange) ? (

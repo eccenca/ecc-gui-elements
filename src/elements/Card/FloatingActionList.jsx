@@ -1,37 +1,35 @@
-import React from 'react';
+import React, { Component } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
 
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
-import Nothing from '../Nothing/Nothing';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
 
-const FloatingActionList = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'FloatingActionList',
+class FloatingActionList extends Component {
+     static displayName = 'FloatingActionList';
 
-    propTypes: {
-        actions: React.PropTypes.array.isRequired,
-        className: React.PropTypes.string,
-        fabSize: React.PropTypes.string.isRequired,
-        fixed: React.PropTypes.bool,
-        iconName: React.PropTypes.string,
-    },
+     static propTypes = {
+         actions: PropTypes.array.isRequired,
+         className: PropTypes.string,
+         fabSize: PropTypes.string.isRequired,
+         fixed: PropTypes.bool,
+         iconName: PropTypes.string,
+     };
 
-    getDefaultProps() {
-        return {
-            fabSize: 'large',
-            fixed: false,
-            iconName: 'add',
-        };
-    },
+    static defaultProps = {
+        fabSize: 'large',
+        fixed: false,
+        iconName: 'add',
+    };
 
-    getInitialState() {
-        return {
+    constructor(props) {
+        super(props);
+        this.state = {
             activeFAB: false,
         };
-    },
+        this.handleFAB = this.handleFAB.bind(this);
+    }
 
     componentWillReceiveProps() {
         if (this.state.activeFAB) {
@@ -39,14 +37,14 @@ const FloatingActionList = React.createClass({
                 activeFAB: false,
             });
         }
-    },
+    }
 
     handleFAB(event) {
         event.stopPropagation();
         this.setState({
             activeFAB: !this.state.activeFAB,
         });
-    },
+    }
 
     render() {
         const {
@@ -57,10 +55,6 @@ const FloatingActionList = React.createClass({
             iconName,
             ...otherProps
         } = this.props;
-
-        if (!actions || actions.length < 1) {
-            return <Nothing />;
-        }
 
         const classes = classNames(
             {
@@ -93,7 +87,8 @@ const FloatingActionList = React.createClass({
                             <li key={`FloatingAction_${idx}_${action.label}`}>
                                 <button
                                     className="mdl-menu__item"
-                                    onClick={action.handler}>
+                                    onClick={action.handler}
+                                >
                                     {action.icon ? (
                                         <Icon name={action.icon} />
                                     ) : (
@@ -127,7 +122,7 @@ const FloatingActionList = React.createClass({
         }
 
         return floatinglist;
-    },
-});
+    }
+}
 
 export default FloatingActionList;
