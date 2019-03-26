@@ -27,18 +27,13 @@ import TestPagination from './tests/Pagination';
 import TestTooltips from './tests/Tooltips';
 import TestCards from './tests/Cards';
 import TestNA from './tests/NA';
-import TestNothing from './tests/Nothing';
 import TestBreadcrumbList from './tests/BreadcrumbList';
 import TestContextMenu from './tests/ContextMenu';
 import TestTypography from './tests/Typography';
 
-import PerformanceMixin from './../src/mixins/PerformanceMixin';
-
 window.enablePerformanceMixingLog = true;
 
-const Page = React.createClass({
-    mixins: [PerformanceMixin],
-
+class Page extends React.Component {
     // template rendering
     render() {
         const testcases = [
@@ -49,10 +44,6 @@ const Page = React.createClass({
             {
                 name: 'Breadcrumb List',
                 code: <TestBreadcrumbList key="breadcrumblist" />,
-            },
-            {
-                name: 'Nothing',
-                code: <TestNothing key="nothing" />,
             },
             {
                 name: 'Spinner',
@@ -133,8 +124,8 @@ const Page = React.createClass({
 
         const path = this.props.location.pathname.substring(1);
         if (
-            path !== 'all' &&
-            testcases.filter(c => c.name.toLowerCase() === path).length === 0
+            path !== 'all'
+            && testcases.filter(c => c.name.toLowerCase() === path).length === 0
         ) {
             window.location = '/all';
             return 0;
@@ -177,14 +168,15 @@ const Page = React.createClass({
                                 <a
                                     className={name.toLowerCase() === path ? 'mdl-navigation__link--current' : ''}
                                     href={`${name.toLowerCase()}`}
-                                    key={`${name}`}>
+                                    key={`${name}`}
+                                >
                                     {name}
                                 </a>
                             ))}
                         </Navigation>
                     </Drawer>
                     <Content>
-                        {_.map(testcases, ({name, code}) => (
+                        {_.map(testcases, ({ name, code }) => (
                             <Route
                                 path={`/(all|${name.toLowerCase()})`}
                                 key={`${name}`}
@@ -197,15 +189,17 @@ const Page = React.createClass({
                         ))}
                     </Content>
                     <Footer
-                        company="Eccenca"
-                        version="v0.1.0"
+                        company="eccenca"
+                        version="v3.4.2"
                         companyUrl="http://eccenca.com"
+                        workspace={document.title}
+                        userName="userB"
                     />
                 </Layout>
             </div>
         );
-    },
-});
+    }
+}
 
 const PageWithRouter = withRouter(Page);
 

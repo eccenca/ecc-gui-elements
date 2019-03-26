@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip/Tooltip';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 /* TODO:
 
@@ -9,41 +9,39 @@ import PerformanceMixin from '../../mixins/PerformanceMixin';
 
 */
 
-const Button = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'NotAvailable',
 
-    // define property types
-    propTypes: {
-        className: React.PropTypes.string, // additional classname
-        description: React.PropTypes.string, // long description
-        // TODO iconName: React.PropTypes.string,
-        inline: React.PropTypes.bool, // displayed as inline text
-        label: React.PropTypes.string, // short description
-    },
+const Button = props => {
+    const {
+        className, description, inline, label,
+    } = props;
 
-    // template rendering
-    render() {
-        const {className, description, inline, label} = this.props;
+    const classes = classNames(
+        {
+            'ecc-gui-elements__notavailable': true,
+            'ecc-gui-elements__notavailable--inline': inline,
+        },
+        className
+    );
 
-        const classes = classNames(
-            {
-                'ecc-gui-elements__notavailable': true,
-                'ecc-gui-elements__notavailable--inline': inline,
-            },
-            className
-        );
+    return (
+        <span className={classes}>
+            <Tooltip label={description || (label ? '' : 'not available')}>
+                <span className="ecc-gui-elements__notavailable-label">
+                    {label || 'n/a'}
+                </span>
+            </Tooltip>
+        </span>
+    );
+};
 
-        return (
-            <span className={classes}>
-                <Tooltip label={description || (label ? '' : 'not available')}>
-                    <span className="ecc-gui-elements__notavailable-label">
-                        {label || 'n/a'}
-                    </span>
-                </Tooltip>
-            </span>
-        );
-    },
-});
+// define property types
+Button.propTypes = {
+    className: PropTypes.string, // additional classname
+    description: PropTypes.string, // long description
+    // TODO iconName: PropTypes.string,
+    inline: PropTypes.bool, // displayed as inline text
+    label: PropTypes.string, // short description
+};
 
+Button.displayName = 'NotAvailable';
 export default Button;

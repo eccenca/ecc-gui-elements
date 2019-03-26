@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
     Alert,
     Card,
@@ -31,7 +31,8 @@ class TestAlerts extends React.PureComponent {
                     <Error
                         handlerDismiss={() => alert('dismiss handler')}
                         labelDismiss="remove error"
-                        vertSpacing>
+                        vertSpacing
+                    >
                         error
                     </Error>
                     <Alert
@@ -39,7 +40,8 @@ class TestAlerts extends React.PureComponent {
                         vertSpacing
                         handlerDismiss={() => alert('dismiss handler')}
                         labelDismiss="label for handler"
-                        iconDismiss="help">
+                        iconDismiss="help"
+                    >
                         <p>This is a</p>
                         <p>untyped message.</p>
                     </Alert>

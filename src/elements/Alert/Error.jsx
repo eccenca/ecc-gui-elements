@@ -1,26 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Alert from './Alert';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
 
-const Error = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Error',
+const Error = props => {
+    const { children, ...otherProps } = props;
 
-    // define property types
-    propTypes: {
-        children: React.PropTypes.node.isRequired,
-    },
+    return (
+        <Alert type="error" {...otherProps}>
+            {children}
+        </Alert>
+    );
+};
 
-    // template rendering
-    render() {
-        const {children, ...otherProps} = this.props;
+// define property types
+Error.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
-        return (
-            <Alert type="error" {...otherProps}>
-                {children}
-            </Alert>
-        );
-    },
-});
+Error.displayName = 'Error';
 
 export default Error;

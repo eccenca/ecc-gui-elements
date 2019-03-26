@@ -1,39 +1,33 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactMDLProgressBar from 'react-mdl/lib/ProgressBar';
 
-const Progressbar = React.createClass({
-    displayName: 'Progressbar',
-    // define property types
-    propTypes: {
-        appearGlobal: React.PropTypes.bool,
-        appearLocal: React.PropTypes.bool,
-        className: React.PropTypes.string,
-    },
-    getDefaultProps() {
-        return {
-            appearGlobal: false,
-            appearLocal: false,
-        };
-    },
-
-    // template rendering
-    render() {
-        const {
-            className,
-            appearGlobal,
-            appearLocal,
-            ...otherProps
-        } = this.props;
-        const classes = classNames(
-            {
-                'mdl-progress--global': appearGlobal === true,
-                'mdl-progress--local': appearLocal === true,
-            },
-            className
-        );
-        return <ReactMDLProgressBar className={classes} {...otherProps} />;
-    },
-});
-
+const Progressbar = props => {
+    const {
+        className,
+        appearGlobal,
+        appearLocal,
+        ...otherProps
+    } = props;
+    const classes = classNames(
+        {
+            'mdl-progress--global': appearGlobal === true,
+            'mdl-progress--local': appearLocal === true,
+        },
+        className
+    );
+    return <ReactMDLProgressBar className={classes} {...otherProps} />;
+};
+// define property types
+Progressbar.propTypes = {
+    appearGlobal: PropTypes.bool,
+    appearLocal: PropTypes.bool,
+    className: PropTypes.string,
+};
+Progressbar.defaultProps = {
+    appearGlobal: false,
+    appearLocal: false,
+};
+Progressbar.displayName = 'Progressbar';
 export default Progressbar;

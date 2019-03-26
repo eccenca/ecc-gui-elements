@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import _ from 'lodash';
 import {
     Button,
@@ -8,18 +8,12 @@ import {
     CardActions,
     FloatingActionList,
 } from '../../index';
-import ScrollingMixin from '../../src/mixins/ScrollingMixin';
+import ScrollingHOC from '../../src/hocs/ScrollingHOC';
 
-const TestScrolling = React.createClass({
-    mixins: [ScrollingMixin],
-
-    componentDidMount() {
-        this.scrollIntoView({
-            topOffset: 10,
-        });
-    },
-    getInitialState() {
-        return {
+class TestScrolling extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             actionsList: [
                 {
                     icon: 'confirm',
@@ -68,7 +62,18 @@ const TestScrolling = React.createClass({
                 },
             ],
         };
-    },
+        this.makeActionsSingle1 = this.makeActionsSingle1.bind(this);
+        this.makeActionsSingle2 = this.makeActionsSingle2.bind(this);
+        this.makeActionsMultiple = this.makeActionsMultiple.bind(this);
+        this.handleScrollTo = this.handleScrollTo.bind(this);
+    }
+
+    componentDidMount() {
+        this.props.scrollIntoView({
+            topOffset: 10,
+        });
+    }
+
     makeActionsSingle1() {
         this.setState({
             actionsList: [
@@ -79,7 +84,8 @@ const TestScrolling = React.createClass({
                 },
             ],
         });
-    },
+    }
+
     makeActionsSingle2() {
         this.setState({
             actionsList: [
@@ -89,7 +95,8 @@ const TestScrolling = React.createClass({
                 },
             ],
         });
-    },
+    }
+
     makeActionsMultiple() {
         this.setState({
             actionsList: [
@@ -110,10 +117,11 @@ const TestScrolling = React.createClass({
                 },
             ],
         });
-    },
+    }
+
     handleScrollTo(ref) {
-        ScrollingMixin.scrollElementIntoView(this[ref], {topOffset: 5});
-    },
+        this.props.scrollElementIntoView(this[ref], { topOffset: 5 });
+    }
 
     render() {
         const scrollTestCases = _.map([1, 2, 3], idx => ({
@@ -127,7 +135,8 @@ const TestScrolling = React.createClass({
                 key={testobject.handleRef}
                 onClick={() => {
                     this.handleScrollTo(testobject.handleRef);
-                }}>
+                }}
+            >
                 {testobject.label}
             </Button>
         ));
@@ -141,10 +150,13 @@ const TestScrolling = React.createClass({
                         key={idx}
                         ref={id => {
                             this[`testDummy${idx}`] = id;
-                        }}>
+                        }}
+                    >
                         <CardContent>
                             <div className="uitest-scrolling__cardcontent">
-                                A test Dummy for card {idx}
+                                A test Dummy for card
+                                {' '}
+                                {idx}
                             </div>
                         </CardContent>
                     </Card>
@@ -169,7 +181,7 @@ const TestScrolling = React.createClass({
                 </Card>
             </div>
         );
-    },
-});
+    }
+}
 
-export default TestScrolling;
+export default ScrollingHOC(TestScrolling);

@@ -8,9 +8,10 @@ import {
     Tabs,
 } from '../../index';
 
-const TestTabs = React.createClass({
-    getInitialState() {
-        return {
+class TestTabs extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             tabContent: [
                 {
                     tabTitle: 'profiling Tab',
@@ -26,11 +27,12 @@ const TestTabs = React.createClass({
                 },
             ],
         };
-    },
+    }
+
 
     tabClick(tabName) {
-        console.log('tabClick:', tabName);
-    },
+        console.warn('tabClick:', tabName);
+    }
 
     render() {
         return (
@@ -61,13 +63,14 @@ const TestTabs = React.createClass({
                                     },
                                 ],
                             })
-                        }>
+                        }
+                    >
                         Remove content from discovery tab
                     </Button>
                 </CardActions>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestTabs;

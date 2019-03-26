@@ -1,6 +1,6 @@
 # Low-Level GUI Components (@eccenca/gui-elements)
 
-Collection of shared GUI elements and mixins.
+Collection of shared GUI elements and hocs.
 
 ## Mixins
 

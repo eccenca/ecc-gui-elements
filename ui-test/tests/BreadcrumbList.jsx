@@ -14,9 +14,10 @@ function TestBreadcrumbList() {
             <CardContent>
                 <BreadcrumbList className="my-own-class">
                     <BreadcrumbItem
-                        onClick={function() {
+                        onClick={function () {
                             alert('Click on breadcrumb item.');
-                        }}>
+                        }}
+                    >
                         Button
                     </BreadcrumbItem>
                     <BreadcrumbItem href="/">Link</BreadcrumbItem>

@@ -131,6 +131,29 @@ class TestButtons extends React.PureComponent {
                         Clear
                     </Button>
                 </CardContent>
+                <CardContent>
+                    <h5>Buttons with Badges</h5>
+                    <Button badge="1">Normal</Button>
+                    <Button accent badge="2">Accented</Button>
+                    <Button colored badge="3">Colored</Button>
+                    <br />
+                    <DismissiveButton raised colored badge="4">Dismissive</DismissiveButton>
+                    <AffirmativeButton raised colored badge="5">Affirmative</AffirmativeButton>
+                    <DisruptiveButton raised colored badge="6">Disruptive</DisruptiveButton>
+                    <br />
+                    <Button raised iconName="arrow_nextpage" badge="7" />
+                    <Button raised colored iconName="arrow_prevpage" badge="8" />
+                    <Button raised accent iconName="arrow_lastpage" badge="9" />
+                    <Button fabSize="mini" iconName="arrow_firstpage" badge="10" />
+                    <Button fabSize="large" iconName="arrow_dropdown" badge="11" />
+                    <Button iconName="expand_more" badge="12" />
+                    <Button iconName="expand_less" badge="13" />
+                    <Button iconName="menu_more" badge="14" />
+                    <Button iconName="filter" badge="15" />
+                    <Button iconName="sort" badge="16" />
+                    <Button iconName="hide" badge="17" />
+                    <Button iconName="access_forbidden" badge="18" />
+                </CardContent>
                 <CardActions fixed>
                     <FloatingActionList
                         iconName="edit"
@@ -147,7 +170,8 @@ class TestButtons extends React.PureComponent {
                         raised
                         ripple={false}
                         tooltip="This is a Test!"
-                        fabSize="mini">
+                        fabSize="mini"
+                    >
                         <Icon name="mood" />
                     </Button>
                     <Button raised>

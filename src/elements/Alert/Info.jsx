@@ -1,26 +1,22 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Alert from './Alert';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
 
-const Info = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Info',
 
-    // define property types
-    propTypes: {
-        children: React.PropTypes.node.isRequired,
-    },
+const Info = props => {
+    const { children, ...otherProps } = props;
 
-    // template rendering
-    render() {
-        const {children, ...otherProps} = this.props;
+    return (
+        <Alert type="info" {...otherProps}>
+            {children}
+        </Alert>
+    );
+};
 
-        return (
-            <Alert type="info" {...otherProps}>
-                {children}
-            </Alert>
-        );
-    },
-});
+Info.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
+Info.displayName = 'Info';
 
 export default Info;

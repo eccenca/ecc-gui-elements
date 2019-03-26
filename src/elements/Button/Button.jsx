@@ -2,10 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
+import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip/Tooltip';
 import Icon from '../Icon/Icon';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
-import canonicalTooltips from './../Icon/canonicaltooltips.json';
+import canonicalTooltips from '../Icon/canonicaltooltips.json';
 
 /**
 Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications#GUISpecifications-Buttons).
@@ -44,161 +44,154 @@ const Page = React.createClass({
 });
 ```
 */
-const Button = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Button',
 
-    // define property types
-    propTypes: {
-        children: React.PropTypes.oneOfType([React.PropTypes.node]),
-        /**
-            string (optional): additional CSS class name
-        */
-        className: React.PropTypes.string,
-        /**
-            boolean (default: false): button is disabled and cannot get used to trigger an action
-        */
-        disabled: React.PropTypes.bool,
-        /**
-            string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
-        */
-        fabSize: React.PropTypes.string,
-        /**
-            string (optional): icon name if it is an Material Design icon button
+const Button = props => {
+    const {
+        className,
+        fabSize,
+        iconName,
+        affirmative,
+        dismissive,
+        disruptive,
+        tooltip: defaultTooltip,
+        children: defaultChildren,
+        ripple: defaultRipple,
+        ...otherProps
+    } = props;
 
-            We defined some canonical names for icons and their meanings:
+    delete otherProps.badge;
 
-            - 'edit': edit data
-            - 'remove': remove data
-            - 'arrow_nextpage': go to next page
-            - 'arrow_prevpage': go to previous page
-            - 'arrow_lastpage': go to last page
-            - 'arrow_firstpage': go to first page
-            - 'arrow_dropdown': open dropdown select
-            - 'expand_more': expand GUI element to show more details
-            - 'expand_less': reduce GUI element to show less details
-            - 'menu_more': open context menu
-            - 'filter': filter data
-            - 'sort': sort data
-            - 'hide': hide (or close/remove) GUI elements
-            - 'access_forbidden': no access to read and write data
+    const semanticConfig = {};
 
-            For other symbols and icon names @see https://material.io/icons/
-        */
-        iconName: React.PropTypes.string,
-        /**
-            boolean (default: false): activate ripple effect on button
-        */
-        ripple: React.PropTypes.bool,
-        /**
-            React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
-        */
-        tooltip: React.PropTypes.oneOfType([
-            React.PropTypes.node,
-            React.PropTypes.bool,
-        ]),
+    if (affirmative === true) {
+        semanticConfig.accent = true;
+        semanticConfig.colored = false;
+    }
 
-        // internal properties, used by button sub types
+    if (dismissive === true || disruptive === true) {
+        semanticConfig.accent = false;
+        semanticConfig.colored = false;
+    }
 
-        affirmative: React.PropTypes.bool,
-        dismissive: React.PropTypes.bool,
-        disruptive: React.PropTypes.bool,
-    },
+    const classes = classNames(
+        {
+            'mdl-button--icon': typeof iconName !== 'undefined',
+            'mdl-button--danger': disruptive === true,
+        },
+        className
+    );
+    const ripple = defaultRipple === true; // disable ripple by default
 
-    // template rendering
-    render() {
-        /* TODO:
+    let tooltip = defaultTooltip;
+    // if tooltip is empty check for default one
+    if (
+        !tooltip
+        && tooltip !== false
+        && typeof canonicalTooltips[iconName] !== 'undefined'
+    ) {
+        tooltip = canonicalTooltips[iconName];
+    }
 
-        * add label/content as tooltip for icon/fab buttons
-        * add label as tooltip if children content is available
-
-        */
-
-        const {
-            className,
-            fabSize,
-            iconName,
-            affirmative,
-            dismissive,
-            disruptive,
-            tooltip: defaultTooltip,
-            children: defaultChildren,
-            ripple: defaultRipple,
-            ...otherProps
-        } = this.props;
-
-        const semanticConfig = {};
-
-        if (affirmative === true) {
-            semanticConfig.accent = true;
-            semanticConfig.colored = false;
-        }
-
-        if (dismissive === true || disruptive === true) {
-            semanticConfig.accent = false;
-            semanticConfig.colored = false;
-        }
-
-        const classes = classNames(
-            {
-                'mdl-button--icon': typeof iconName !== 'undefined',
-                'mdl-button--danger': disruptive === true,
-            },
-            className
+    let button = '';
+    let buttonContent = defaultChildren;
+    if (iconName) {
+        buttonContent = (
+            // if tooltip already exist send 'false' to prevent adding additional default tooltip in <Icon/>
+            <Icon
+                name={iconName}
+                tooltip={tooltip || tooltip === false ? false : ''}
+            />
         );
-        const ripple = defaultRipple === true; // disable ripple by default
+    }
 
-        let tooltip = defaultTooltip;
-        // if tooltip is empty check for default one
-        if (
-            !tooltip &&
-            tooltip !== false &&
-            typeof canonicalTooltips[iconName] !== 'undefined'
-        ) {
-            tooltip = canonicalTooltips[iconName];
-        }
+    if (fabSize) {
+        button = (
+            <ReactMDLFabButton
+                className={classes}
+                ripple={ripple}
+                mini={fabSize === 'mini'}
+                {...otherProps}
+                {...semanticConfig}
+            >
+                {buttonContent}
+            </ReactMDLFabButton>
+        );
+    } else {
+        button = (
+            <ReactMDLButton
+                className={classes}
+                ripple={ripple}
+                {...otherProps}
+                {...semanticConfig}
+            >
+                {buttonContent}
+            </ReactMDLButton>
+        );
+    }
 
-        let button = '';
-        let buttonContent = defaultChildren;
-        if (iconName) {
-            buttonContent = (
-                // if tooltip already exist send 'false' to prevent adding additional default tooltip in <Icon/>
-                <Icon
-                    name={iconName}
-                    tooltip={tooltip || tooltip === false ? false : ''}
-                />
-            );
-        }
+    if (tooltip && !props.disabled) {
+        button = <Tooltip label={tooltip}>{button}</Tooltip>;
+    }
 
-        if (fabSize) {
-            button = (
-                <ReactMDLFabButton
-                    className={classes}
-                    ripple={ripple}
-                    mini={fabSize === 'mini'}
-                    {...otherProps}
-                    {...semanticConfig}>
-                    {buttonContent}
-                </ReactMDLFabButton>
-            );
-        } else {
-            button = (
-                <ReactMDLButton
-                    className={classes}
-                    ripple={ripple}
-                    {...otherProps}
-                    {...semanticConfig}>
-                    {buttonContent}
-                </ReactMDLButton>
-            );
-        }
+    return button;
+};
 
-        if (tooltip && !this.props.disabled) {
-            button = <Tooltip label={tooltip}>{button}</Tooltip>;
-        }
+Button.propTypes = {
+    children: PropTypes.oneOfType([PropTypes.node]),
+    /**
+     string (optional): additional CSS class name
+     */
+    className: PropTypes.string,
+    /**
+     boolean (default: false): button is disabled and cannot get used to trigger an action
+     */
+    disabled: PropTypes.bool,
+    /**
+     string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
+     */
+    fabSize: PropTypes.string,
+    /**
+     string (optional): icon name if it is an Material Design icon button
 
-        return button;
-    },
-});
+     We defined some canonical names for icons and their meanings:
+
+     - 'edit': edit data
+     - 'remove': remove data
+     - 'arrow_nextpage': go to next page
+     - 'arrow_prevpage': go to previous page
+     - 'arrow_lastpage': go to last page
+     - 'arrow_firstpage': go to first page
+     - 'arrow_dropdown': open dropdown select
+     - 'expand_more': expand GUI element to show more details
+     - 'expand_less': reduce GUI element to show less details
+     - 'menu_more': open context menu
+     - 'filter': filter data
+     - 'sort': sort data
+     - 'hide': hide (or close/remove) GUI elements
+     - 'access_forbidden': no access to read and write data
+
+     For other symbols and icon names @see https://material.io/icons/
+     */
+    iconName: PropTypes.string,
+    /**
+     boolean (default: false): activate ripple effect on button
+     */
+    ripple: PropTypes.bool,
+    /**
+     React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
+     */
+    tooltip: PropTypes.oneOfType([
+        PropTypes.node,
+        PropTypes.bool,
+    ]),
+
+    // internal properties, used by button sub types
+
+    affirmative: PropTypes.bool,
+    dismissive: PropTypes.bool,
+    disruptive: PropTypes.bool,
+};
+
+Button.displayName = 'Button';
 
 export default Button;

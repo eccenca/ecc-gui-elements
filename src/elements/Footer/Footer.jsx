@@ -6,9 +6,19 @@ import Version from '../Version/Version';
 const Footer = props => {
     const year = new Date().getFullYear();
 
+    const loggedUser = props.userName ? (
+        <div className="mdl-logged_user">
+            Logged in as: {props.userName}
+        </div>
+    ) : (
+        false
+    );
+
     const workspace = props.workspace ? (
         <div className="mdl-mini-footer__left-section">
-            Workspace: {props.workspace}
+            Workspace:
+            {' '}
+            {props.workspace}
         </div>
     ) : (
         false
@@ -18,10 +28,13 @@ const Footer = props => {
         <div className="ecc-component-footer">
             <footer className="mdl-mini-footer">
                 {workspace}
+                {loggedUser}
                 <div className="mdl-mini-footer__right-section">
                     <div className="mdl-logo">
                         <Version version={props.version} />
-                        &copy; {year}
+                        &copy;
+                        {' '}
+                        {year}
                     </div>
                     <ul className="mdl-mini-footer__link-list">
                         <li>
@@ -41,6 +54,7 @@ Footer.propTypes = {
     version: PropTypes.string.isRequired,
     companyUrl: PropTypes.string.isRequired,
     workspace: PropTypes.string,
+    userName: PropTypes.string,
 };
 
 export default Footer;

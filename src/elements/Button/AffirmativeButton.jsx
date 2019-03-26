@@ -23,57 +23,51 @@ const Page = React.createClass({
 });
 ```
 */
-const AffirmativeButton = React.createClass({
-    displayName: 'AffirmativeButton',
-    // template rendering
-    render() {
-        // split 'normal' props from button content
-        const {children, ...otherProps} = this.props;
-        const useProgressButton =
-            typeof otherProps.progress !== 'undefined' ||
-            typeof otherProps.progressTopic !== 'undefined';
 
-        // remove unused propTypes from button
-        if (!useProgressButton) {
-            delete otherProps.progress;
-            delete otherProps.progressTopic;
-        }
+const AffirmativeButton = props => {
+    // split 'normal' props from button content
+    const { children, ...otherProps } = props;
+    const useProgressButton = typeof otherProps.progress !== 'undefined';
+    // remove unused propTypes from button
+    if (!useProgressButton) {
+        delete otherProps.progress;
+    }
 
-        if (__DEBUG__ && typeof otherProps.accent !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with accent property.'
-            ); // eslint-disable-line no-console
-        }
+    if (__DEBUG__ && typeof otherProps.accent !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with accent property.'
+        ); // eslint-disable-line no-console
+    }
 
-        if (__DEBUG__ && typeof otherProps.colored !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with colored property.'
-            ); // eslint-disable-line no-console
-        }
+    if (__DEBUG__ && typeof otherProps.colored !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with colored property.'
+        ); // eslint-disable-line no-console
+    }
 
-        if (__DEBUG__ && typeof otherProps.dismissive !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with dismissive property.'
-            ); // eslint-disable-line no-console
-        }
+    if (__DEBUG__ && typeof otherProps.dismissive !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with dismissive property.'
+        ); // eslint-disable-line no-console
+    }
 
-        if (__DEBUG__ && typeof otherProps.disruptive !== 'undefined') {
-            console.warn(
-                'Do not use <AffirmativeButton/> with disruptive property.'
-            ); // eslint-disable-line no-console
-        }
+    if (__DEBUG__ && typeof otherProps.disruptive !== 'undefined') {
+        console.warn(
+            'Do not use <AffirmativeButton/> with disruptive property.'
+        ); // eslint-disable-line no-console
+    }
 
-        // render button
-        return useProgressButton ? (
-            <ProgressButton {...otherProps} affirmative>
-                {children}
-            </ProgressButton>
-        ) : (
-            <Button {...otherProps} affirmative>
-                {children}
-            </Button>
-        );
-    },
-});
+    // render button
+    return useProgressButton ? (
+        <ProgressButton {...otherProps} affirmative>
+            {children}
+        </ProgressButton>
+    ) : (
+        <Button {...otherProps} affirmative>
+            {children}
+        </Button>
+    );
+};
+AffirmativeButton.displayName = 'AffirmativeButton';
 
 export default AffirmativeButton;

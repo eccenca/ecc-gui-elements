@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMDLSwitch from 'react-mdl/lib/Switch';
 import extendedOnChangeBoolean from '../../utils/extendedOnChangeBoolean';
 
@@ -22,15 +23,16 @@ const Switch = props => {
             checked={!!checked}
             ripple={ripple}
             onChange={extendedOnChangeBoolean.bind(null, onChange)}
-            {...otherProperties}>
+            {...otherProperties}
+        >
             {checkboxlabel}
         </ReactMDLSwitch>
     );
 };
 
 Switch.propTypes = {
-    checked: React.PropTypes.bool.isRequired,
-    onChange: React.PropTypes.func.isRequired,
+    checked: PropTypes.bool.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
 export default Switch;

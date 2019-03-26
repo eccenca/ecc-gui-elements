@@ -1,59 +1,61 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactMDLCard from 'react-mdl/lib/Card/Card';
-import PerformanceMixin from '../../mixins/PerformanceMixin';
+import ScrollingHOC from '../../hocs/ScrollingHOC';
 
-const Card = React.createClass({
-    mixins: [PerformanceMixin],
-    displayName: 'Card',
 
-    // define property types
-    propTypes: {
-        className: React.PropTypes.string,
-        shadow: React.PropTypes.number,
-        stretch: React.PropTypes.bool,
-        fixedActions: React.PropTypes.bool,
-        reducedSize: React.PropTypes.bool,
-    },
+const Card = props => {
+    const {
+        className,
+        stretch,
+        shadow,
+        fixedActions,
+        reducedSize,
+        children,
+        ...otherProps
+    } = props;
 
-    getDefaultProps() {
-        return {
-            shadow: 1,
-            stretch: true,
-            fixedActions: false,
-            reducedSize: false,
-        };
-    },
+    delete otherProps.scrollElementIntoView;
+    delete otherProps.scrollIntoView;
 
-    render() {
-        const {
-            className,
-            stretch,
-            shadow,
-            fixedActions,
-            reducedSize,
-            children,
-            ...otherProps
-        } = this.props;
 
-        const classes = classNames(
-            {
-                'mdl-card--stretch': stretch === true,
-                'mdl-card--has-fixed-actions': fixedActions === true,
-                'mdl-card--reduced': reducedSize === true,
-            },
-            className
-        );
+    const classes = classNames(
+        {
+            'mdl-card--stretch': stretch === true,
+            'mdl-card--has-fixed-actions': fixedActions === true,
 
-        return (
-            <ReactMDLCard
-                className={classes}
-                shadow={shadow > 0 ? shadow - 1 : undefined}
-                {...otherProps}>
-                {children}
-            </ReactMDLCard>
-        );
-    },
-});
+            'mdl-card--reduced': reducedSize === true,
+        },
+        className
+    );
 
-export default Card;
+
+    return (
+        <ReactMDLCard
+            className={classes}
+            shadow={shadow > 0 ? shadow - 1 : undefined}
+            {...otherProps}
+        >
+            {children}
+        </ReactMDLCard>
+    );
+};
+// define property types
+Card.propTypes = {
+    className: PropTypes.string,
+    shadow: PropTypes.number,
+    stretch: PropTypes.bool,
+    fixedActions: PropTypes.bool,
+    reducedSize: PropTypes.bool,
+};
+Card.defaultProps = {
+    shadow: 1,
+    stretch: true,
+    fixedActions: false,
+    reducedSize: false,
+};
+
+Card.displayName = 'Card';
+
+export default ScrollingHOC(Card);

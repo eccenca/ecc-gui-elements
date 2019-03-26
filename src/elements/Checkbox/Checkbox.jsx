@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMDLCheckbox from 'react-mdl/lib/Checkbox';
 import classNames from 'classnames';
 import extendedOnChangeBoolean from '../../utils/extendedOnChangeBoolean';
@@ -69,34 +70,34 @@ Checkbox.propTypes = {
     /**
      describes the checked state of Checkbox
      */
-    checked: React.PropTypes.bool.isRequired,
+    checked: PropTypes.bool.isRequired,
     /**
      additional CSS class names
      */
-    className: React.PropTypes.string,
+    className: PropTypes.string,
     /**
      describes if Checkbox is disabled
      */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      describes if Checkbox label is not visible
      */
-    hideLabel: React.PropTypes.bool,
+    hideLabel: PropTypes.bool,
     /**
      label that describes the input checkbox for the user
      */
-    label: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.element,
+    label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element,
     ]),
     /**
      update handler for changes on Checkbox
      */
-    onChange: React.PropTypes.func.isRequired,
+    onChange: PropTypes.func.isRequired,
     /**
      MDL ripple effect is used on Checkbox
      */
-    ripple: React.PropTypes.bool,
+    ripple: PropTypes.bool,
 };
 
 Checkbox.defaultProps = {

@@ -1,21 +1,25 @@
 import React from 'react';
-import {Card, CardTitle, CardContent, Pagination} from '../../index';
+import {
+    Card, CardTitle, CardContent, Pagination,
+} from '../../index';
 
-const TestPagination = React.createClass({
-    getInitialState() {
-        return {
+class TestPagination extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
             paginationOffset: 15,
             paginationLimit: 3,
         };
-    },
+        this.handlePaginationChange = this.handlePaginationChange.bind(this);
+    }
 
-    handlePaginationChange({offset, limit}) {
+    handlePaginationChange({ offset, limit }) {
         console.log(`Pagination: Offset ${offset} Limit: ${limit}`);
         this.setState({
             paginationLimit: limit,
             paginationOffset: offset,
         });
-    },
+    }
 
     render() {
         return (
@@ -29,7 +33,7 @@ const TestPagination = React.createClass({
                         onChange={this.handlePaginationChange}
                         totalResults={10001}
                     />
-                <h5>Pagination with selection of page size and page jumper</h5>
+                    <h5>Pagination with selection of page size and page jumper</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
@@ -46,7 +50,7 @@ const TestPagination = React.createClass({
                         totalResults={0}
                         onChange={this.handlePaginationChange}
                     />
-                <h5>Pagination of 0 elements displaying element offsets</h5>
+                    <h5>Pagination of 0 elements displaying element offsets</h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}
@@ -81,7 +85,7 @@ const TestPagination = React.createClass({
                 </CardContent>
             </Card>
         );
-    },
-});
+    }
+}
 
 export default TestPagination;
