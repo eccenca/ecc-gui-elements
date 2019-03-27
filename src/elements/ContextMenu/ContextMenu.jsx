@@ -55,6 +55,14 @@ const ContextMenu = props => {
         return null;
     });
 
+    const menulist = menuItems.length > 0 ? (
+        <ReactMDLMenu target={menuId} {...otherProps}>
+            {menuItems}
+        </ReactMDLMenu>
+    ) : (
+        false
+    );
+
     return menulist ? (
         <div className="ege-contextmenu__wrapper">
             <Button
@@ -73,6 +81,7 @@ ContextMenu.propTypes = {
     align: PropTypes.string,
     valign: PropTypes.string,
     className: PropTypes.string,
+    iconName: PropTypes.string,
     ripple: PropTypes.bool,
     target: PropTypes.string,
     tooltip: PropTypes.string,
@@ -83,6 +92,8 @@ ContextMenu.defaultProps = {
     valign: 'bottom',
     ripple: false,
     tooltip: 'open menu',
+    target: '',
+    iconName: '',
 };
 
 ContextMenu.displayName = 'ContextMenu';
