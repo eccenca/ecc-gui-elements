@@ -407,12 +407,40 @@ const Page = React.createClass({
 
 ### Footer
 
+```js
+import {Footer} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            // all properties are optional, if one is given then a additional
+            // footer line is generated on top of the other children elements
+            <Footer
+                version="vX.Y.Z"
+                company="Company name"
+                companyUrl="https://company.example.com/"
+                workspace="Workspace title"
+                userName="User account id"
+            >
+                <!--
+                    any children elements
+                    it is recommended to use MDL sub elements for footer here
+                    @see https://getmdl.io/components/index.html##layout-section/footer
+                -->
+            </Footer>
+        )
+    },
+    // ....
+});
+```
+
 #### Properties
-- **company** (string, *required*) - 
-- **version** (string, *required*) - 
-- **companyUrl** (string, *required*) - 
-- **workspace** (string) - 
-- **userName** (string) - 
+- **company** (string, default: '') - string (optional): company name
+- **companyUrl** (string, default: '') - string (optional): URL of company website
+- **version** (string, default: '') - string (optional): version identifier
+- **workspace** (string, default: '') - string (optional): idientifier of current workspace
+- **userName** (string, default: '') - string (optional): identifier of currently logged in user
 
 ### Icon
 
