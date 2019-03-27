@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Changed
 - Prepared component for react 16
 - rules for sizes and colors now build on available configuration vars
+- clean up `<Footer/>` sub elements
 
 ### Removed
 - messagebus
@@ -16,6 +17,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - ScrollingHOC
 - include full configuration stack of MDL variables, all sizes there are calculated based on very few own base configurations: `$ecc-size-typo-base`, `$ecc-size-typo-base-lineheight` and `$ecc-size-type-levelratio`, see README.md under "Justify default configuration"
+- allow children in `<Footer/>` element
 
 ### Breaking
 - mixin replaced with hocs
