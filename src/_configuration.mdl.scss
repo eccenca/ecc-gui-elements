@@ -173,7 +173,7 @@ $chip-bg-color: rgba($text-color-primary, 0.13) !default; // original rgb(222, 2
 $chip-bg-active-color: rgba($color-accent, 0.13) !default; // original rgb(214, 214, 214)
 $chip-height: $button-height !default; // original 32px
 $chip-font-size: $typo-body-1-font-size !default; // original 13px
-$chips-padding-horizontal: $ecc-size-block-whitespace / 2 !default; // original 12px
+$chips-padding-horizontal: $chip-height / 3 !default; // original 12px
 $chips-margin-vertical: $ecc-size-block-whitespace / 4 !default; // original 2px
 
 /* -- Icon Toggles ---------------------------------------------------------- */
