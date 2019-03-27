@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactMDLButton from 'react-mdl/lib/Button';
 import ReactMDLFabButton from 'react-mdl/lib/FABButton';
-import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip/Tooltip';
 import Icon from '../Icon/Icon';
 import canonicalTooltips from '../Icon/canonicaltooltips.json';
@@ -28,6 +28,7 @@ const Page = React.createClass({
                 colored
                 ripple
                 disabled
+                badge="5"
             >
                 Button label
             </Button>
@@ -46,7 +47,15 @@ const Page = React.createClass({
 */
 
 const Button = props => {
+    /* TODO:
+
+    * add label/content as tooltip for icon/fab buttons
+    * add label as tooltip if children content is available
+
+    */
+
     const {
+        badge,
         className,
         fabSize,
         iconName,
@@ -58,8 +67,6 @@ const Button = props => {
         ripple: defaultRipple,
         ...otherProps
     } = props;
-
-    delete otherProps.badge;
 
     const semanticConfig = {};
 
@@ -77,6 +84,7 @@ const Button = props => {
         {
             'mdl-button--icon': typeof iconName !== 'undefined',
             'mdl-button--danger': disruptive === true,
+            'mdl-badge mdl-badge--overlap': typeof badge !== 'undefined',
         },
         className
     );
@@ -100,8 +108,13 @@ const Button = props => {
             <Icon
                 name={iconName}
                 tooltip={tooltip || tooltip === false ? false : ''}
+                badge={badge ? badge : false}
             />
         );
+    }
+
+    if (badge && !iconName) {
+        otherProps['data-badge'] = badge;
     }
 
     if (fabSize) {
@@ -139,47 +152,53 @@ const Button = props => {
 Button.propTypes = {
     children: PropTypes.oneOfType([PropTypes.node]),
     /**
-     string (optional): additional CSS class name
-     */
+        string (optional): use badge if the (icon) button need to be enhanced by
+        a small badge containing 1 to 3 chars or digits
+    */
+    badge: PropTypes.string,
+    /**
+        string (optional): additional CSS class name
+    */
     className: PropTypes.string,
     /**
-     boolean (default: false): button is disabled and cannot get used to trigger an action
-     */
+        boolean (default: false): button is disabled and cannot get used to trigger an action
+    */
     disabled: PropTypes.bool,
     /**
-     string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
-     */
+        string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
+    */
     fabSize: PropTypes.string,
     /**
-     string (optional): icon name if it is an Material Design icon button
+        string (optional): icon name if it is an Material Design icon button
 
-     We defined some canonical names for icons and their meanings:
+        We defined some canonical names for icons and their meanings:
 
-     - 'edit': edit data
-     - 'remove': remove data
-     - 'arrow_nextpage': go to next page
-     - 'arrow_prevpage': go to previous page
-     - 'arrow_lastpage': go to last page
-     - 'arrow_firstpage': go to first page
-     - 'arrow_dropdown': open dropdown select
-     - 'expand_more': expand GUI element to show more details
-     - 'expand_less': reduce GUI element to show less details
-     - 'menu_more': open context menu
-     - 'filter': filter data
-     - 'sort': sort data
-     - 'hide': hide (or close/remove) GUI elements
-     - 'access_forbidden': no access to read and write data
+        - 'edit': edit data
+        - 'remove': remove data
+        - 'arrow_nextpage': go to next page
+        - 'arrow_prevpage': go to previous page
+        - 'arrow_lastpage': go to last page
+        - 'arrow_firstpage': go to first page
+        - 'arrow_dropdown': open dropdown select
+        - 'expand_more': expand GUI element to show more details
+        - 'expand_less': reduce GUI element to show less details
+        - 'menu_more': open context menu
+        - 'filter': filter data
+        - 'sort': sort data
+        - 'hide': hide (or close/remove) GUI elements
+        - 'access_forbidden': no access to read and write data
 
-     For other symbols and icon names @see https://material.io/icons/
-     */
+        For other symbols and icon names @see https://material.io/icons/
+    */
     iconName: PropTypes.string,
     /**
-     boolean (default: false): activate ripple effect on button
-     */
+        boolean (default: false): activate ripple effect on button
+    */
     ripple: PropTypes.bool,
     /**
-     React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
-     */
+        React node or boolean (optional): tooltip text, some icons have fallback
+        tooltips, set it to false if you need to prevent them
+    */
     tooltip: PropTypes.oneOfType([
         PropTypes.node,
         PropTypes.bool,
