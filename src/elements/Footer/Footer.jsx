@@ -2,6 +2,37 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Version from '../Version/Version';
 
+/**
+
+```js
+import {Footer} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            // all properties are optional, if one is given then a additional
+            // footer line is generated on top of the other children elements
+            <Footer
+                version="vX.Y.Z"
+                company="Company name"
+                companyUrl="https://company.example.com/"
+                workspace="Workspace title"
+                userName="User account id"
+            >
+                <!--
+                    any children elements
+                    it is recommended to use MDL sub elements for footer here
+                    @see https://getmdl.io/components/index.html#layout-section/footer
+                -->
+            </Footer>
+        )
+    },
+    // ....
+});
+```
+*/
+
 const Footer = props => {
     const year = new Date().getFullYear();
     const {
@@ -102,10 +133,25 @@ const Footer = props => {
 };
 
 Footer.propTypes = {
+    /**
+        string (optional): company name
+    */
     company: PropTypes.string,
+    /**
+        string (optional): URL of company website
+    */
     companyUrl: PropTypes.string,
+    /**
+        string (optional): version identifier
+    */
     version: PropTypes.string,
+    /**
+        string (optional): idientifier of current workspace
+    */
     workspace: PropTypes.string,
+    /**
+        string (optional): identifier of currently logged in user
+    */
     userName: PropTypes.string,
 };
 
