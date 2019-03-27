@@ -488,7 +488,7 @@ $layout-tab-highlight-thickness: 2px !default;
 /* -- Application footer bar ------------------------------------------------------ */
 
 $footer-bg-color: to_color($palette-grey-400) !default; // original $palette-grey-800
-$footer-color: to_color($palette-grey-100) !default; // original $palette-grey-500
+$footer-color: to_color($palette-grey-200) !default; // original $palette-grey-500
 $footer-heading-color: to_color($palette-grey-50) !default; // original $palette-grey-300
 $footer-button-fill-color: $footer-color !default;
 $footer-underline-color: $footer-color !default;
