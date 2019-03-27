@@ -194,7 +194,9 @@ class Page extends React.Component {
                         companyUrl="http://eccenca.com"
                         workspace={document.title}
                         userName="userB"
-                    />
+                    >
+                        <div>This is an additional footer content part.</div>
+                    </Footer>
                 </Layout>
             </div>
         );

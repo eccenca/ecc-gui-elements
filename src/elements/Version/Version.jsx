@@ -3,12 +3,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Version = props => {
+    const { version } = props;
     return (
-        <span
-            className="version-info"
-            style={{ marginLeft: '5px', marginRight: '5px' }}
-        >
-            {props.version}
+        <span>
+            {version}
         </span>
     );
 };

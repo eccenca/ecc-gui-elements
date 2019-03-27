@@ -10,66 +10,113 @@ const Footer = props => {
         version,
         company,
         companyUrl,
+        children,
     } = props;
 
-    const loggedUser = userName ? (
-        <span>
-            {'Logged in as: '}
-            {userName}
-        </span>
+    const infoApplication = version ? (
+        <div className="mdl-logo">
+            <Version version={version} /> &copy; {year}
+        </div>
     ) : (
         false
     );
 
-    const loggedWorkspace = workspace ? (
-        <span>
+    const infoCompany = company && companyUrl ? (
+        <li>
+            <a href={companyUrl} target="_blank">
+                {company}
+            </a>
+        </li>
+    ) : (
+        false
+    );
+
+    const infoUser = userName ? (
+        <li>
+            {'Logged in as: '}
+            {userName}
+        </li>
+    ) : (
+        false
+    );
+
+    const infoWorkspace = workspace ? (
+        <li>
             {'Workspace: '}
             {workspace}
-        </span>
+        </li>
+    ) : (
+        false
+    );
+
+    const generatedFooterContent = (
+        infoApplication
+        || infoCompany
+        || infoWorkspace
+        || infoUser
+    ) ? (
+            <section className="mdl-mini-footer">
+                {
+                    (infoApplication || infoCompany) ? (
+                        <div className="mdl-mini-footer__left-section">
+                            {infoApplication}
+                            <ul className="mdl-mini-footer__link-list">
+                                {infoCompany}
+                            </ul>
+                        </div>
+                    ) : (
+                        false
+                    )
+                }
+                {
+                    (infoWorkspace || infoUser) ? (
+                        <div className="mdl-mini-footer__right-section">
+                            <ul className="mdl-mini-footer__link-list">
+                                {infoWorkspace}
+                                {infoUser}
+                            </ul>
+                        </div>
+                    ) : (
+                        false
+                    )
+                }
+            </section>
+        ) : (
+            false
+        );
+
+    const additionalFooterContent = children ? (
+        <section className="mdl-mini-footer">
+            {children}
+        </section>
     ) : (
         false
     );
 
     return (
-        <div className="ecc-component-footer">
-            <footer className="mdl-mini-footer">
-                <div className="mdl-mini-footer__left-section">
-                    <div className="mdl-logo">
-                        <Version version={version} />
-                        &copy;
-                        {' '}
-                        {year}
-                    </div>
-                    <ul className="mdl-mini-footer__link-list">
-                        <li>
-                            <a href={companyUrl} target="_blank">
-                                {company}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div className="mdl-mini-footer__right-section">
-                    <ul className="mdl-mini-footer__link-list">
-                        <li>{loggedWorkspace}</li>
-                        <li>{loggedUser}</li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
+        <footer className="ecc-component-footer">
+            {generatedFooterContent}
+            {additionalFooterContent}
+        </footer>
     );
 };
 
 Footer.propTypes = {
-    company: PropTypes.string.isRequired,
-    version: PropTypes.string.isRequired,
-    companyUrl: PropTypes.string.isRequired,
+    company: PropTypes.string,
+    companyUrl: PropTypes.string,
+    version: PropTypes.string,
     workspace: PropTypes.string,
     userName: PropTypes.string,
 };
 
 Footer.defaultProps = {
+    company: '',
+    companyUrl: '',
+    version: '',
     workspace: '',
     userName: '',
 };
+
+Footer.displayName = 'Footer';
 
 export default Footer;

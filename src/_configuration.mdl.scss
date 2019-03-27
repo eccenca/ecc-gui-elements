@@ -492,7 +492,7 @@ $footer-color: to_color($palette-grey-200) !default; // original $palette-grey-5
 $footer-heading-color: to_color($palette-grey-50) !default; // original $palette-grey-300
 $footer-button-fill-color: $footer-color !default;
 $footer-underline-color: $footer-color !default;
-$footer-min-padding: $ecc-size-block-whitespace / 4 !default; // original 16px
+$footer-min-padding: $ecc-size-block-whitespace / 2 !default; // original 16px
 $padding: $ecc-size-block-whitespace / 2 !default; // original 16px
 $footer-padding-sides: $ecc-size-block-whitespace !default; // original 40px
 $footer-heading-font-size: $typo-subhead-font-size !default; // original 24px
