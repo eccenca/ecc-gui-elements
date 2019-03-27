@@ -345,7 +345,7 @@ $badge-color: $color-accent-contrast !default;
 $badge-color-inverse: $color-accent !default;
 $badge-background: $color-accent !default;
 $badge-background-inverse: rgba($color-accent-contrast,0.2) !default;
-$badge-size: $typo-title-font-size !default; // original 22px
+$badge-size: ($typo-subhead-font-size * 2 + $typo-title-font-size)/3 !default; // original 22px
 $badge-padding: $ecc-size-block-whitespace/$ecc-size-typo-base/8 * 1rem !default; // original 2px
 $badge-overlap: $typo-title-font-size/2 !default; // original 12px
 
