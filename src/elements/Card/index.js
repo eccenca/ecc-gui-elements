@@ -1,4 +1,4 @@
-import {CardMenu} from 'react-mdl/lib/Card';
+import { CardMenu } from 'react-mdl/lib/Card';
 import basicClassCreator from 'react-mdl/lib/utils/basicClassCreator';
 
 import Card from './Card';

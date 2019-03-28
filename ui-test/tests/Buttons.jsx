@@ -136,7 +136,7 @@ class TestButtons extends React.PureComponent {
                     <Button badge="1">Normal</Button>
                     <Button accent badge="2">Accented</Button>
                     <Button colored badge="3">Colored</Button>
-                    <br/>
+                    <br />
                     <DismissiveButton raised colored badge="4">Dismissive</DismissiveButton>
                     <AffirmativeButton raised colored badge="5">Affirmative</AffirmativeButton>
                     <DisruptiveButton raised colored badge="6">Disruptive</DisruptiveButton>
@@ -152,7 +152,7 @@ class TestButtons extends React.PureComponent {
                     <Button iconName="filter" badge="15" />
                     <Button iconName="sort" badge="16" />
                     <Button iconName="hide" badge="17" />
-                    <Button iconName="access_forbidden" badge="18" />                    
+                    <Button iconName="access_forbidden" badge="18" />
                 </CardContent>
                 <CardActions fixed>
                     <FloatingActionList
@@ -170,7 +170,8 @@ class TestButtons extends React.PureComponent {
                         raised
                         ripple={false}
                         tooltip="This is a Test!"
-                        fabSize="mini">
+                        fabSize="mini"
+                    >
                         <Icon name="mood" />
                     </Button>
                     <Button raised>

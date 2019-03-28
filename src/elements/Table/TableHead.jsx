@@ -1,9 +1,6 @@
 import React from 'react';
 import Proptypes from 'prop-types';
-import _ from 'lodash';
 import classNames from 'classnames';
-import TableRow from './TableRow';
-import TableCell from './TableCell';
 
 /**
 
@@ -31,7 +28,9 @@ import TableCell from './TableCell';
  */
 
 const TableHead = props => {
-    const {children, className, multiline, ...otherProps} = props;
+    const {
+        children, className, multiline, ...otherProps
+    } = props;
     // set classname
     const headClassNames = classNames(
         {

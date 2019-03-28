@@ -1,51 +1,27 @@
 # Low-Level GUI elements (@eccenca/gui-elements)
 
-Collection of shared GUI elements and mixins.
+Collection of shared GUI elements and hocs.
 
-## Mixins
+## HOC
 
-- `MaterialMixin`: A mixin which forces material design lite components to rerender if the React Component gets updated.
-- `PerformanceMixin`: A mixin that provides default functionality for shouldComponentUpdate() to prevent unnecessary renderings.
-- `ScrollingMixin`: A mixin that provides methods to scroll mounted React components into the viewport.
+- `ScrollingHOC`: A higher-order component that provides methods to scroll mounted React components into the viewport.
 
-### PerformanceMixin
+### ScrollingHOC
 
-The performance mixin provides a default process to test if a component need to be updated before it is rendered. It may be used to improve performance by preventeing unnecessary re-renderings of child components that did not changed.
-
-Include mixin into your widget component:
-
-```js
-import {PerformanceMixin} from '@eccenca/gui-elements';
-const Widget = React.createClass({
-    mixins: [PerformanceMixin],
-    // ...
-});
-```
-
-In GUI elments import it directly from the source file, use the include path relative to the folder of the widget:
-
-```js
-import PerformanceMixin from '../mixins/PerformanceMixin';
-```
-**Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
-
-### ScrollingMixin
-
-The scrolling mixin provides methods to scroll a mounted React element or component into the visible viewport of a scrollable area:
+The scrolling HOC provides methods to scroll a mounted React element or component into the visible viewport of a scrollable area:
 
 * `scrollIntoView()`: use this method within a component to scroll it into the visible viewport
-* `ScrollingMixin.scrollElementIntoView(ReactOrDomElement)`: use this method from outside an element to scroll it into the visible viewport
+* `ScrollingHOC.scrollElementIntoView(ReactOrDomElement)`: use this method from outside an element to scroll it into the visible viewport
 
 ```js
-import {ScrollingMixin} from '@eccenca/gui-elements';
+import {ScrollingHOC} from '@eccenca/gui-elements';
 const Widget = React.createClass({
-    mixins: [ScrollingMixin],
     componentDidMount() {
         const options = {
             animationTime: 500, // (optional) integer, time in milliseconds
             topOffset: 0, // (optional) integer, pixels to offset top alignment
             callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed',
-            scrollX: true // (optional) boolean, whether overflowX should be checked to decide whether an element is scrollable,
+            scrollX: true, // (optional) boolean, whether overflowX should be checked to decide whether an element is scrollable,
             scrollY: true // (optional) boolean, whether overflowY should be checked to decide whether an element is scrollable,
         }
         this.scrollIntoView(
@@ -54,16 +30,14 @@ const Widget = React.createClass({
     },
     // ...
 });
+export default ScrollingHOC(Widget)
 ```
 
 It is important that the component height can be calculated correctly, `scrollIntoView()` should be used after all contents are loaded.
 
-Use another method from the mixin to scroll other elements into the viewport.
-It's important to use references to active DOM elements or mounted React components, e.g. by using the React ref pattern.
-
 ```js
 // use it from outside of the component that needs to be scrolled into the visible viewport
-import {Card, Button, ScrollingMixin} from '@eccenca/gui-elements';
+import {Card, Button, ScrollingHOC} from '@eccenca/gui-elements';
 const Widget = React.createClass({
     handleScroll() {
         const options = {
@@ -71,7 +45,7 @@ const Widget = React.createClass({
             // topOffset: 0, // (optional) integer, pixels to offset top alignment
             // callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed'
         }
-        ScrollingMixin.scrollElementIntoView(
+        ScrollingHOC.scrollElementIntoView(
             this.myCard,
             options, // optional parameter
         );
@@ -211,75 +185,50 @@ This Component creates a customizable dialog.
 - **title** (node) - Title of dialog.
 - **titleCancelButton** (func) - Add cancel button to title.
 
-### Button
+### BreadcrumbItem
 
-Read the [GUI spec about button usage](https://confluence.brox.de/display/ECCGMBH/GUI+Specifications##GUISpecifications-Buttons).
+#### Properties
+- **className** (string) - additional CSS class name
 
-```js
-import {Button} from '@eccenca/gui-elements';
+### BreadcrumbList
 
-const Page = React.createClass({
+The are two simple React elements to create breadcrumb navigation.
+
+ ```js
+ import {
+    BreadcrumbList,
+    BreadcrumbItem,
+} from '@eccenca/gui-elements';
+
+ class Page extends React.Component {
     // template rendering
     render() {
         return (
-            <Button>
-                Flat button
-            </Button>
-
-            // use the button parameters according to MDL-API, @see https://getmdl.io/components/index.html##buttons-section
-            <Button
-                raised
-                accent
-                colored
-                ripple
-                disabled
+            <BreadcrumbList
+                className={'my-own-class'}
             >
-                Button label
-            </Button>
-
-            // you can apply all other button properties on icon buttons, too (e.g. affirmative, accent, ripple, ...)
-            <Button
-                iconName="menu_more"
-                tooltip="This is a Test!"
-                fabSize="mini"
-            />
+                <BreadcrumbItem
+                    onClick={function(){}} // (optional) function, breadcrumb is rendered as HTML button element
+                >
+                    Button
+                </BreadcrumbItem>
+                <BreadcrumbItem
+                    href="##" // (optional) string, breadcrumb is rendered as HTML link anchor
+                >
+                    Link
+                </BreadcrumbItem>
+                <BreadcrumbItem>
+                    Span
+                </BreadcrumbItem>
+            </BreadcrumbList>
         )
     },
     // ....
-});
-```
+};
+ ```
 
 #### Properties
-- **children** (node) - 
-- **badge** (string) - string (optional): use badge if the (icon) button need to be enhanced by a small badge containing 1 to 3 chars or digits
-- **className** (string) - string (optional): additional CSS class name
-- **disabled** (bool) - boolean (default: false): button is disabled and cannot get used to trigger an action
-- **fabSize** (string) - string 'mini|large' (optional): use fabSize only if it is a Material Design floating action button (FAB)
-- **iconName** (string) - string (optional): icon name if it is an Material Design icon button
-
-    We defined some canonical names for icons and their meanings:
-
-    - 'edit': edit data
-    - 'remove': remove data
-    - 'arrow_nextpage': go to next page
-    - 'arrow_prevpage': go to previous page
-    - 'arrow_lastpage': go to last page
-    - 'arrow_firstpage': go to first page
-    - 'arrow_dropdown': open dropdown select
-    - 'expand_more': expand GUI element to show more details
-    - 'expand_less': reduce GUI element to show less details
-    - 'menu_more': open context menu
-    - 'filter': filter data
-    - 'sort': sort data
-    - 'hide': hide (or close/remove) GUI elements
-    - 'access_forbidden': no access to read and write data
-
-    For other symbols and icon names @see https://material.io/icons/
-- **ripple** (bool) - boolean (default: false): activate ripple effect on button
-- **tooltip** (node|bool) - React node or boolean (optional): tooltip text, some icons have fallback tooltips, set it to false if you need to prevent them
-- **affirmative** (bool) - 
-- **dismissive** (bool) - 
-- **disruptive** (bool) - 
+- **className** (string) - additional CSS class name
 
 ### Card
 
@@ -337,6 +286,24 @@ const Page = React.createClass({
 - **label** (string|element, default: null) - label that describes the input checkbox for the user
 - **onChange** (func, *required*) - update handler for changes on Checkbox
 - **ripple** (bool, default: false) - MDL ripple effect is used on Checkbox
+
+### Chip
+
+#### Properties
+- **className** (string) - additional CSS class name
+- **onClick** (func) - Click handler
+- **onClose** (func) - Close handler
+- **href** (string) - Chip is rendered as HTML link anchor
+
+### ChipVisual
+
+#### Properties
+- **className** (string, default: '') - additional CSS class name
+- **image** (string, default: '') - Image prop
+- **label** (string, default: '') - label name prop
+- **bgColor** (string, default: '') - additional css color prop
+- **textColor** (string, default: '') - additional css text color prop
+- **children** (object) - Chip children prop
 
 ### ConfirmationDialog
 
@@ -440,12 +407,40 @@ const Page = React.createClass({
 
 ### Footer
 
+```js
+import {Footer} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            // all properties are optional, if one is given then a additional
+            // footer line is generated on top of the other children elements
+            <Footer
+                version="vX.Y.Z"
+                company="Company name"
+                companyUrl="https://company.example.com/"
+                workspace="Workspace title"
+                userName="User account id"
+            >
+                <!--
+                    any children elements
+                    it is recommended to use MDL sub elements for footer here
+                    @see https://getmdl.io/components/index.html##layout-section/footer
+                -->
+            </Footer>
+        )
+    },
+    // ....
+});
+```
+
 #### Properties
-- **company** (string, *required*) - 
-- **version** (string, *required*) - 
-- **companyUrl** (string, *required*) - 
-- **workspace** (string) - 
-- **userName** (string) - 
+- **company** (string, default: '') - string (optional): company name
+- **companyUrl** (string, default: '') - string (optional): URL of company website
+- **version** (string, default: '') - string (optional): version identifier
+- **workspace** (string, default: '') - string (optional): idientifier of current workspace
+- **userName** (string, default: '') - string (optional): identifier of currently logged in user
 
 ### Icon
 
@@ -484,10 +479,6 @@ const Page = React.createClass({
 - **inline** (bool) - 
 - **label** (string) - 
 
-### Nothing
-
-#### Properties
-
 ### Pagination
 
 This component provides a pagination for switching through lists of results
@@ -508,17 +499,11 @@ This component provides a pagination for switching through lists of results
 ### ProgressButton
 
 `<ProgressButton/>` is a special version of the `<Button/>` element that can be used to visualize a running process.
-It is shown as a raised disabled button but this behaviour can be overwritten, using the `raised` and `disabled` paramters from the `<Button/>` element.
+It is shown as a raised disabled button but this behaviour can be overwritten, using the `raised`
+ and `disabled` paramters from the `<Button/>` element.
 
 ```js
 import {ProgressButton} from '@eccenca/gui-elements';
-import rxmq from 'ecc-messagebus';
-
-// channel event which updates progressTopic
-rxmq.channel('yourchannel').subject('progressNumber').onNext({
-    progress: 30, // integer, progress in percentage
-    lastUpdate: 'August 31st 2017, 9:48:24 am.', // string which should be a date, require tooltip to be set
-});
 
 const Page = React.createClass({
     // template rendering
@@ -526,7 +511,7 @@ const Page = React.createClass({
         return (
             <ProgressButton
                 progress={50}
-                progressTopic={rxmq.channel('yourchannel').subject('progressNumber')}
+                lastUpdate={'August 31st 2017, 9:48:24 am.'}
                 tooltip={'running'}
                 raised={false}
             >
@@ -538,14 +523,14 @@ const Page = React.createClass({
 });
 ```
 
-You can use `progress` and `progressTopic` options directly on `<AffirmativeButton/>`, `<DismissiveButton/>` and `<DisruptiveButton/>` elements.
+You can use `progress` option directly on `<AffirmativeButton/>`, `<DismissiveButton/>`
+ and `<DisruptiveButton/>` elements.
 
 #### Properties
 - **progress** (number) - integer (default: 0): progress number 0..100, if not set or 0 then an infinite progress bar is used
-- **progressTopic** (object) - message queue subject (optional): channel subject that are used to update information about progress,
-    if given that the button element listens to it for update objects that include `progressNumber` property with a value between 0 and 100
-- **tooltip** (string) - string (optional): tooltip for progress bar
-    if a progress number is known (via option or message queue) then the tooltip is extenden by a colon, the value and a percent char
+- **tooltip** (string) - message queue subject (optional): channel subject that are used to update information about progress,
+    if given that the button element listens to it for update objects that include `progressNumber`
+    property with a value between 0 and 100
 - **lastUpdate** (string) - string (optional): text info that shows information about the last known update on the process
 
 ### Progressbar
@@ -590,7 +575,7 @@ const Page = React.createClass({
 - **hideLabel** (bool, default: false) - describes if Radio label is not visible
 - **name** (string, *required*) - name of input that Radio select is related to
 - **label** (string|element, default: null) - label that describes the Radio select for the user
-- **onChange** (func, *required*) - update handler for changes on Radio select element
+- **onChange** (func, default: undefined) - update handler for changes on Radio select element
 - **ripple** (bool, default: false) - MDL ripple effect is used on Radio element
 - **value** (string|number, *required*) - value for input when Radio is selected
 

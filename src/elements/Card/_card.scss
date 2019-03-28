@@ -15,76 +15,32 @@
     width: auto;
 }
 
-.mdl-card--reduced {
-    & > .mdl-card__title {
-        padding: $ecc-size-blockelement-margin-vertical / 4 0;
-        margin-bottom: $ecc-size-blockelement-margin-vertical / 2;
-
-        & > .mdl-card__menu {
-            top: 0;
-        }
-    }
-
-    & > .mdl-card__menu {
-        top: 0;
-    }
-
-    & > .mdl-card__content {
-        margin: 0;
-    }
-
-    & > .mdl-card__actions {
-        padding: $ecc-size-blockelement-margin-vertical / 4 0;
-        margin-top: $ecc-size-blockelement-margin-vertical / 2;
-    }
-}
-
 .mdl-card__title {
-    .mdl-card__menu {
-        position: relative;
-        top: (24px - 36px) / 2;
-        right: -8px;
-        height: 1px;
-        overflow: visible;
-        white-space: nowrap;
-        flex-shrink: 0;
-        flex-grow: 0;
-        align-self: flex-start;
-
-        .mdl-card--reduced & {
-            right: 8px;
-        }
-    }
+    min-height: $typo-title-font-size;
 }
 
 .mdl-card__menu {
-    right: 8px;
-    top: 16px + (24px - 32px) / 2;
+    top: calc(0.5 * (#{$typo-title-font-size} + #{$ecc-size-block-whitespace} - #{$button-icon-size}));
+    right: calc(0.5 * (#{$typo-title-font-size} + #{$ecc-size-block-whitespace} - #{$button-icon-size}));
 }
 
 .mdl-card__title-text {
+    line-height: 1;
     flex-grow: 1;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .mdl-card__content {
-    /*
-    TODO:
-    we need to figure out later if we can switch the margin/padding definitions,
-    because we need to do it for auto-scrolled content areas anyway
-    (see dialog element styles)
-    */
-
-    margin: $ecc-size-blockelement-margin-vertical $ecc-size-blockelement-margin-horizontal;
-    padding: 0;
+    margin: 0;
+    padding: $ecc-size-block-whitespace/2 $ecc-size-block-whitespace;
 
     .mdl-grid + & {
-        margin-top: -1 * $ecc-size-blockelement-margin-vertical;
+        margin-top: -1 * $ecc-size-block-whitespace;
     }
 
     .mdl-card--has-fixed-actions > .mdl-card__title ~ &:nth-last-child(-n+2) {
-        margin-bottom: calc(#{$ecc-size-blockelement-margin-vertical} - 56px);
+        margin-bottom: calc(#{$ecc-size-block-whitespace/2} - #{$button-fab-size});
     }
 }
 
@@ -92,10 +48,11 @@
     display: flex;
     justify-content: flex-start;
     background-color: rgba(to_color($card-background-color), 0.90);
+    min-height: $button-height;
     z-index: 1;
 
     & > * {
-        margin-right: 8px;
+        margin-right: $ecc-size-block-whitespace/2;
 
         &:last-child {
             margin-right: 0;
@@ -109,26 +66,53 @@
 
 .mdl-card__actions--fixed {
     position: sticky;
-    bottom: 0;
+    bottom: -1 * $ecc-size-block-whitespace;
 
     .mdl-card__title ~ & {
-        margin-top: 56px;
+        margin-top: $button-fab-size;
+    }
+}
+
+.mdl-card--reduced {
+    & > .mdl-card__title {
+        padding: 0;
+
+        &.mdl-card--border {
+            padding-bottom: $ecc-size-block-whitespace/4;
+        }
+    }
+
+    & > .mdl-card__menu {
+        top: calc(0.5 * (#{$typo-title-font-size} + #{$ecc-size-block-whitespace/4} - #{$button-icon-size}));
+        right: 0;
+    }
+
+    & > .mdl-card__content {
+        padding: $ecc-size-block-whitespace/4 0;
+    }
+
+    & > .mdl-card__actions {
+        padding: 0;
+
+        &.mdl-card--border {
+            padding-top: $ecc-size-block-whitespace/4;
+        }
     }
 }
 
 .ecc-floatingactionlist {
     position: absolute;
-    bottom: calc(56px - 28px);
-    right: 4rem;
+    bottom: $ecc-size-block-whitespace;
+    right: 2 * $ecc-size-block-whitespace;
 
-    .mdl-card__actions & {
-        right: calc(4rem - 8px);
+    .mdl-card__actions--fixed & {
+        //right: $ecc-size-block-whitespace/2;
     }
 }
 
 .ecc-floatingactionlist__wrapper--fixed {
     position: sticky;
-    bottom: 0;
+    bottom: -1 * $ecc-size-block-whitespace;
     height: 0;
 }
 

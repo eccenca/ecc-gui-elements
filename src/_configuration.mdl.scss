@@ -1,0 +1,518 @@
+/* We pre-configure the variables from MDL here to overwrite their default
+   config, for further explanation on each variable please have a look to
+   @eccenca/material-design-lite/src/_variables.scss
+*/
+
+/* -- Global environment ---------------------------------------------------- */
+
+$trim-color-classes: true !default;
+$target-elements-directly: true !default;
+$image_path: "~@eccenca/material-design-lite/src/images" !default;
+
+/* -- Layout ---------------------------------------------------------------- */
+
+// main colors
+$color-primary: $ecc-color-primary !default;
+$color-primary-dark: darken($color-primary, 20%) !default;
+$color-accent: $ecc-color-accent !default;
+$color-primary-contrast: $ecc-color-primary-contrast !default;
+$color-accent-contrast: $ecc-color-accent-contrast !default;
+// ripple effect
+$ripple-bg-color: $color-light-contrast !default;
+// breakpoint
+$layout-screen-size-threshold: 1024px !default;
+
+/* -- Typography ------------------------------------------------------------ */
+
+$preferred_font: 'Roboto', 'Helvetica', 'Arial', sans-serif !default;
+$performance_font: 'Helvetica', 'Arial', sans-serif !default;
+
+$text-color-primary: rgba($color-black, 0.87) !default;
+$text-link-color: $color-accent !default;
+$text-mark-background: #f4ff81 !default;
+$text-mark-color: inherit !default;
+
+$typo-body-base-font-size: $ecc-size-typo-base !default; // original 14px
+$typo-body-base-line-height: $ecc-size-typo-base-lineheight !default; // original 20px
+$typo-body-base-font-weight: 400 !default;
+
+$typo-display-4-font-size: $ecc-size-type-levelratio * $ecc-size-typo-display-3 !default; // original 112px
+$typo-display-4-line-height: max(1/$ecc-size-type-levelratio * $ecc-size-typo-display-3-lineheight, 1) !default; // original 1
+$typo-display-4-letter-spacing: -0.04em !default;
+$typo-display-4-font-weight: 300 !default;
+
+$typo-display-3-font-size: $ecc-size-typo-display-3 !default; // original 56px
+$typo-display-3-line-height: $ecc-size-typo-display-3-lineheight !default; // original 1.35
+$typo-display-3-letter-spacing: -0.02em !default;
+$typo-display-3-font-weight: 400 !default;
+$typo-display-3-margin-top: 1/2 * $ecc-size-typo-display-3-lineheight * $ecc-size-typo-display-3 !default; // original 24px
+$typo-display-3-margin-bottom: $typo-display-3-margin-top !default; // original 24px
+
+$typo-display-2-font-size: $ecc-size-typo-display-2 !default; // original 45px
+$typo-display-2-line-height: $ecc-size-typo-display-2-lineheight !default; // original 48px
+$typo-display-2-font-weight: 400 !default;
+$typo-display-2-margin-top: 1/2 * $ecc-size-typo-display-2-lineheight * $ecc-size-typo-display-2 !default; // original 24px
+$typo-display-2-margin-bottom: $typo-display-2-margin-top !default; // original 24px
+
+$typo-display-1-font-size: $ecc-size-typo-display-1 !default; // original 34px
+$typo-display-1-line-height: $ecc-size-typo-display-1-lineheight !default; // original 40px
+$typo-display-1-font-weight: 400 !default;
+$typo-display-1-margin-top: 1/2 * $ecc-size-typo-display-1-lineheight * $ecc-size-typo-display-1 !default; // original 24px
+$typo-display-1-margin-bottom: $typo-display-1-margin-top !default; // original 24px
+
+$typo-headline-font-size: $ecc-size-typo-headline !default; // original 24px
+$typo-headline-line-height: $ecc-size-typo-headline-lineheight !default; // original 32px
+$typo-headline-1-font-weight: 400 !default;
+$typo-headline-margin-bottom: 1/2 * $ecc-size-typo-headline-lineheight * $ecc-size-typo-headline !default; // original 16px
+$typo-headline-margin-top: $ecc-size-typo-base-lineheight * $typo-headline-margin-bottom !default; // original 24px
+
+$typo-title-font-size: $ecc-size-typo-title !default; // original 20px
+$typo-title-line-height: $ecc-size-typo-title-lineheight !default; // original 20px
+$typo-title-letter-spacing: 0.02em !default;
+$typo-title-font-weight: 500 !default;
+$typo-title-margin-bottom: 1/2 * $ecc-size-typo-title-lineheight * $ecc-size-typo-title !default; // original 16px
+$typo-title-margin-top: $ecc-size-typo-base-lineheight * $typo-title-margin-bottom !default; // original 24px
+
+$typo-subhead-font-size: $ecc-size-typo-subtitle !default; // original 16px
+$typo-subhead-line-height: $ecc-size-typo-subtitle-lineheight !default; // original 24px
+$typo-subhead-letter-spacing: 0.04em !default;
+$typo-subhead-font-weight: 400 !default;
+$typo-subhead-margin-bottom: 1/2 * $ecc-size-typo-subtitle-lineheight * $ecc-size-typo-subtitle !default; // original 16px
+$typo-subhead-margin-top: $ecc-size-typo-base-lineheight * $typo-subhead-margin-bottom !default; // original 24px
+
+$typo-subhead-2-font-size: $typo-subhead-font-size !default; // original 16px
+$typo-subhead-2-line-height: $typo-subhead-line-height !default; // original 28px
+$typo-subhead-2-letter-spacing: $typo-subhead-letter-spacing !default; // original 0.04em
+$typo-subhead-2-font-weight: $typo-subhead-font-weight !default; // original 400
+
+$typo-body-1-font-size: $ecc-size-typo-text !default; // original 14px
+$typo-body-1-line-height: $ecc-size-typo-text-lineheight !default; // original 24px
+$typo-body-1-letter-spacing: 0 !default;
+$typo-body-1-font-weight: 400 !default;
+$typo-body-1-margin-bottom: 1/2 * $ecc-size-typo-text-lineheight * $ecc-size-typo-text !default; // 16px !default;
+
+$typo-caption-font-size: $ecc-size-typo-caption !default; // original 12px;
+$typo-caption-line-height: $ecc-size-typo-caption-lineheight !default; // original 1
+$typo-caption-letter-spacing: 0 !default;
+$typo-caption-font-weight: 400 !default;
+
+$typo-blockquote-font-size: $ecc-size-typo-title !default; // original 24px
+$typo-blockquote-line-height: $ecc-size-typo-title-lineheight !default; // original 1.35
+$typo-blockquote-letter-spacing: 0.08em !default;
+$typo-blockquote-font-weight: 300 !default;
+
+$typo-menu-font-size: $ecc-size-typo-text !default; // original 14px
+$typo-menu-line-height: 1 !default;
+$typo-menu-letter-spacing: 0 !default;
+$typo-menu-font-weight: 500 !default;
+
+$typo-button-font-size: $ecc-size-typo-text !default; // original 14px
+$typo-button-line-height: 1 !default;
+$typo-button-letter-spacing: 0 !default;
+$typo-button-font-weight: 500 !default;
+
+$typo-icon-font-size: $typo-title-font-size !default; // original 24px
+
+/* -- Grid ------------------------------------------------------------------------ */
+
+$grid-desktop-columns: 12 !default;
+$grid-desktop-gutter: 16px !default;
+$grid-desktop-margin: 16px !default;
+$grid-desktop-breakpoint: 840px !default;
+$grid-tablet-columns: 8 !default;
+$grid-tablet-gutter: $grid-desktop-gutter !default;
+$grid-tablet-margin: $grid-desktop-margin !default;
+$grid-tablet-breakpoint: 480px !default;
+$grid-phone-columns: 4 !default;
+$grid-phone-gutter: $grid-desktop-gutter !default;
+$grid-phone-margin: $grid-desktop-margin !default;
+$grid-cell-default-columns: $grid-phone-columns !default;
+$grid-max-columns: $grid-desktop-columns !default;
+
+/* -- Buttons --------------------------------------------------------------- */
+
+// Default button
+$button-primary-color: rgba($palette-grey-500, 0.20) !default;
+$button-secondary-color: $color-black !default;
+$button-hover-color: $button-primary-color !default;
+$button-active-color: rgba($palette-grey-500, 0.40) !default;
+$button-focus-color: rgba($color-black, 0.12) !default;
+$button-height: 1.61 * $ecc-size-typo-base-lineheight * $ecc-size-typo-text !default; // original 36px
+$button-min-width: 2 * $button-height !default; // original 64px
+$button-padding: 1/2 * $ecc-size-block-whitespace !default; // original 16px
+$button-margin: 0.25 * $ecc-size-block-whitespace !default; // original 4px
+$button-border-radius: 2px !default;
+// Colored button
+$button-primary-color-alt: $color-primary !default;
+$button-secondary-color-alt: $color-primary-contrast !default;
+$button-hover-color-alt: $color-primary !default;
+$button-active-color-alt: $color-primary !default;
+$button-focus-color-alt: $button-focus-color !default;
+// Ripple color for colored raised buttons.
+$button-ripple-color-alt: $color-primary-contrast !default;
+// Disabled button
+$button-primary-color-disabled: rgba($color-black, 0.12) !default;
+$button-secondary-color-disabled: rgba($color-black, 0.26) !default;
+// FAB
+$button-fab-color-alt: $color-accent !default;
+$button-fab-hover-color-alt: $color-accent !default;
+$button-fab-active-color-alt: $color-accent !default;
+$button-fab-text-color-alt: $color-accent-contrast !default;
+$button-fab-ripple-color-alt: $color-accent-contrast !default;
+$button-fab-size-mini: $ecc-size-typo-base-lineheight * $button-height !default; // original 40px
+$button-fab-size: $ecc-size-typo-base-lineheight * $button-fab-size-mini !default; // original 56px
+$button-fab-font-size: $typo-icon-font-size !default; // original 24px
+// Icon button
+$button-icon-color: $palette-grey-700 !default;
+$button-icon-focus-color: $button-focus-color !default;
+$button-icon-size: $button-height !default; // original 32px
+$button-icon-size-mini: $button-height / $ecc-size-typo-base-lineheight !default; // original 24px
+
+/* -- Chips ----------------------------------------------------------------------- */
+$chip-bg-color: rgba($text-color-primary, 0.13) !default; // original rgb(222, 222, 222)
+$chip-bg-active-color: rgba($color-accent, 0.13) !default; // original rgb(214, 214, 214)
+$chip-height: $button-height !default; // original 32px
+$chip-font-size: $typo-body-1-font-size !default; // original 13px
+$chips-padding-horizontal: $chip-height / 3 !default; // original 12px
+$chips-margin-vertical: $ecc-size-block-whitespace / 4 !default; // original 2px
+
+/* -- Icon Toggles ---------------------------------------------------------- */
+
+$icon-toggle-color: $palette-grey-700 !default;
+$icon-toggle-focus-color: $button-focus-color !default;
+$icon-toggle-checked-color: $color-primary !default;
+$icon-toggle-checked-focus-color: rgba($color-primary, 0.26) !default;
+$icon-toggle-disabled-color: rgba($color-black, 0.26) !default;
+
+$icon-toggle-size: $button-icon-size !default; // original 32px
+$icon-toggle-font-size: $typo-icon-font-size !default; // original 24px
+$icon-toggle-ripple-size: $button-fab-size-mini !default; // original 36px
+
+/* -- Content Tabs ---------------------------------------------------------- */
+
+$tab-highlight-color: $color-primary !default;
+$tab-text-color: rgba($color-black, 0.54) !default;
+$tab-active-text-color: rgba($color-black, 0.87) !default;
+$tab-border-color: $palette-grey-300 !default;
+$tab-height: $ecc-size-typo-base-lineheight * $button-height !default; // original 48px
+$tab-padding-horizontal: $ecc-size-block-whitespace !default; // original 24px
+
+/* -- Radio Buttons --------------------------------------------------------- */
+
+$radio-color: $color-primary !default;
+$radio-off-color: rgba($color-black, 0.54) !default;
+$radio-disabled-color: rgba($color-black, 0.26) !default;
+
+$radio-label-font-size: $ecc-size-typo-text !default; // original 16px
+$radio-label-height: $ecc-size-typo-base-lineheight * $ecc-size-typo-text !default; // original 24px !default;
+$radio-button-size: $typo-subhead-font-size !default; // original 16px
+$radio-inner-margin: $radio-button-size / 4 !default;
+$radio-padding: $ecc-size-inline-whitespace/$ecc-size-typo-base * 1rem !default; // original 8px
+$radio-top-offset: ($radio-label-height - $radio-button-size) / 2 !default;
+$radio-ripple-size: $button-fab-size-mini !default; // original 42px
+
+/* -- Checkboxes ------------------------------------------------------------ */
+
+$checkbox-color: $color-primary !default;
+$checkbox-off-color: rgba($color-black, 0.54) !default;
+$checkbox-disabled-color: rgba($color-black, 0.26) !default;
+$checkbox-focus-color: rgba($color-primary, 0.26) !default;
+$checkbox-image-path: $image_path;
+
+$checkbox-label-font-size: $radio-label-font-size !default; // original 16px !default;
+$checkbox-label-height: $radio-label-height !default; // original 24px !default;
+$checkbox-button-size: $radio-button-size !default; // original 16px !default;
+$checkbox-inner-margin: $checkbox-button-size / 8 !default; // original 2px
+$checkbox-padding: $radio-padding !default; // original 8px !default;
+$checkbox-top-offset: ($checkbox-label-height - $checkbox-button-size - $checkbox-inner-margin) / 2 !default;
+$checkbox-ripple-size: $button-fab-size-mini !default; // original $checkbox-label-height * 1.5
+
+/* -- Switches -------------------------------------------------------------- */
+
+$switch-color: $color-primary !default;
+$switch-faded-color: rgba($color-primary, 0.26) !default;
+$switch-thumb-color: $switch-color !default;
+$switch-track-color: rgba($color-primary, 0.5) !default;
+$switch-off-thumb-color: $palette-grey-50 !default;
+$switch-off-track-color: rgba($color-black, 0.26) !default;
+$switch-disabled-thumb-color: $palette-grey-400 !default;
+$switch-disabled-track-color: rgba($color-black, 0.12) !default;
+
+$switch-label-font-size: $radio-label-font-size !default; // original 16px
+$switch-label-margin: $radio-padding !default; // original 16px
+$switch-label-height: $radio-label-height !default; // original 24px
+$switch-track-height: $ecc-size-typo-text !default; // original 14px
+$switch-track-length: 2 * $ecc-size-typo-text !default; // original 36px
+$switch-thumb-size: $typo-subhead-font-size !default; // original 20px
+$switch-track-top: ($switch-label-height - $switch-track-height) / 2 !default;
+$switch-thumb-top: ($switch-label-height - $switch-thumb-size) / 2 !default;
+$switch-ripple-size: $switch-label-height * 2 !default;
+$switch-helper-size: $radio-padding !default; // original 8px
+
+/* -- Spinner --------------------------------------------------------------- */
+
+$spinner-color-1: $palette-blue-400 !default;
+$spinner-color-2: $palette-red-500 !default;
+$spinner-color-3: $palette-yellow-600 !default;
+$spinner-color-4: $palette-green-500 !default;
+$spinner-single-color: $color-primary !default;
+
+$spinner-size: $typo-icon-font-size !default; // original 28px
+$spinner-stroke-width: $ecc-size-block-whitespace / 3 !default; // original 3px
+// Amount of circle the arc takes up.
+$spinner-arc-size: 270deg !default;
+// Time it takes to expand and contract arc.
+$spinner-arc-time: 1333ms !default;
+// How much the start location of the arc should rotate each time.
+$spinner-arc-start-rot: 216deg !default;
+
+$spinner-duration: 360 * $spinner-arc-time / (
+    strip-units($spinner-arc-start-rot + (360deg - $spinner-arc-size))) !default;
+
+/* -- Text fields ----------------------------------------------------------- */
+
+$input-text-background-color: to_color($color-white) !default;
+$input-text-label-color: rgba(to_color($color-black), 0.26) !default;
+$input-text-bottom-border-color: rgba(to_color($color-black), 0.12) !default;
+$input-text-highlight-color: to_color($ecc-color-primary) !default;
+$input-text-disabled-color: $input-text-bottom-border-color !default;
+$input-text-disabled-text-color: $input-text-label-color !default;
+$input-text-error-color: rgb(222, 50, 38) !default;
+
+$input-text-font-size: $ecc-size-typo-text !default; // original 16px
+$input-text-width: 100% !default;
+$input-text-padding: ($button-height - $input-text-font-size) / 2 !default; // original 4px
+$input-text-vertical-spacing: $ecc-size-typo-caption-lineheight * $ecc-size-typo-caption !default; // original 20px
+
+$input-text-button-size: $button-icon-size !default; // original 32px
+$input-text-floating-label-fontsize: $ecc-size-typo-caption !default; // original 12px
+$input-text-expandable-icon-top: $input-text-vertical-spacing !default; // original 16px
+
+$input-text-error-font-size: $ecc-size-typo-caption !default; // original 12px
+$input-text-ripple-size: $button-fab-size-mini !default; // original 32px
+
+/* -- Card ------------------------------------------------------------------ */
+
+$card-background-color: $color-white !default;
+$card-text-color: $color-black !default;
+$card-image-placeholder-color: $color-accent !default;
+$card-supporting-text-text-color: rgba($color-black, 0.54) !default;
+$card-border-color: rgba(0,0,0,0.1) !default;
+$card-subtitle-color: rgba($color-black, 0.54) !default;
+/* Card dimensions */
+$card-width: 330px !default;
+$card-height: 200px !default;
+$card-font-size: $typo-body-1-font-size !default; // original 16px
+$card-title-font-size: $typo-title-font-size !default; // original 21px
+$card-title-text-font-weight: 300 !default;
+$card-subtitle-font-size: $typo-body-1-font-size !default; // original 14px
+$card-horizontal-padding: $ecc-size-block-whitespace !default; // original 16px
+$card-vertical-padding: $ecc-size-block-whitespace / 2 !default; // original 16px
+$card-title-perspective-origin-x: 165px !default;
+$card-title-perspective-origin-y: 56px !default;
+$card-title-transform-origin-x: 165px !default;
+$card-title-transform-origin-y: 56px !default;
+$card-title-text-transform-origin-x: 149px !default;
+$card-title-text-transform-origin-y: 48px !default;
+$card-supporting-text-font-size: $typo-body-1-font-size !default; // original 1rem
+$card-supporting-text-line-height: $typo-body-1-line-height !default; // original 18px
+$card-actions-font-size: $typo-body-1-font-size !default; // original 16px
+$card-actions_padding: $ecc-size-block-whitespace / 2 !default; // original 8px
+$card-z-index: 1 !default;
+/* Cover image */
+$card-cover-image-height: 186px !default;
+$card-background-image-url: '' !default;
+
+/* -- Sliders --------------------------------------------------------------- */
+
+$range-bg-color: rgba($color-black, 0.26) !default;
+$range-color: $color-primary !default;
+$range-faded-color: rgba($color-primary, 0.26) !default;
+$range-bg-focus-color: rgba($color-black, 0.12) !default;
+
+/* -- Progress -------------------------------------------------------------- */
+
+$progress-main-color: $color-primary !default;
+$progress-secondary-color: rgba($color-primary-contrast, 0.7) !default;
+$progress-fallback-buffer-color: rgba($color-primary-contrast, 0.9) !default;
+$progress-image-path: $image_path;
+$bar-height: ($button-height - $typo-button-font-size)/4 !default; // original 4px
+
+/* -- Badge ----------------------------------------------------------------- */
+
+$badge-font-size: 1/$ecc-size-type-levelratio * $typo-caption-font-size !default; // original 12px
+$badge-color: $color-accent-contrast !default;
+$badge-color-inverse: $color-accent !default;
+$badge-background: $color-accent !default;
+$badge-background-inverse: rgba($color-accent-contrast,0.2) !default;
+$badge-size: ($typo-subhead-font-size * 2 + $typo-title-font-size)/3 !default; // original 22px
+$badge-padding: $ecc-size-block-whitespace/$ecc-size-typo-base/8 * 1rem !default; // original 2px
+$badge-overlap: $typo-title-font-size/2 !default; // original 12px
+
+/* -- List ------------------------------------------------------------------ */
+
+$list-container-item-border-color: $palette-grey-300 !default;
+$list-container-view-background: $color-white !default;
+$list-main-text-text-color: rgba($color-black, 0.87) !default;
+$list-supporting-text-text-color: rgba($color-black, 0.54) !default;
+$list-icon-color: $palette-grey-600 !default;
+$list-avatar-color: white !default;
+
+$list-border: 8px !default;
+$list-min-height: 48px !default;
+$list-min-padding: 16px !default;
+$list-bottom-padding: 20px !default;
+$list-avatar-text-left-distance: 72px !default;
+$list-icon-text-left-distance: 72px !default;
+
+$list-avatar-size: 40px !default;
+$list-icon-size: 24px !default;
+
+$list-two-line-height: 72px !default;
+$list-three-line-height: 88px !default;
+
+/* -- List Item ------------------------------------------------------------- */
+
+// Default Item Colors
+$default-item-text-color: rgba($color-black, 0.87) !default;
+$default-item-outline-color: $palette-grey-400 !default;
+$default-item-hover-bg-color: $palette-grey-200 !default;
+$default-item-focus-bg-color: $palette-grey-200 !default;
+$default-item-active-bg-color: $palette-grey-300 !default;
+$default-item-divider-color: rgba($color-black, 0.12) !default;
+// Disabled Button Colors
+$disabled-item-text-color: $palette-grey-400 !default;
+
+/* -- Dropdown menu (Context menu) ------------------------------------------ */
+
+$default-dropdown-bg-color: $palette-grey-50 !default; // original $color-white
+
+$menu-expand-duration: 0.3s !default;
+$menu-fade-duration: 0.2s !default;
+$menu-min-width: 124px !default;
+$menu-padding-vertical: $ecc-size-block-whitespace / 4 !default; // original 8px
+$menu-item-padding-horizontal: $ecc-size-block-whitespace !default; // original 16px
+$menu-item-height: $ecc-size-type-levelratio * $button-height !default; // original 48px
+
+/* -- Tooltips -------------------------------------------------------------- */
+
+$tooltip-text-color: $color-white !default;
+$tooltip-background-color: rgba($palette-grey-900, 0.9) !default; // original rgba($palette-grey-700, 0.9)
+$tooltip-max-width: 15rem !default; // original 170px
+$tooltip-border-radius: 2px !default;
+$tooltip-font-size: $typo-caption-font-size !default; // original 10px
+$tooltip-padding: $ecc-size-block-whitespace / 2 !default; // original 8px
+$tooltip-font-size-large: $typo-body-1-font-size !default; // original 14px
+$tooltip-padding-large: $tooltip-padding !default; // original 16px
+
+/* -- Data Table ------------------------------------------------------------------ */
+
+$data-table-header-color: rgba($text-color-primary, 0.61) !default; // original rgba(#000, 0.54)
+$data-table-header-font-size: $typo-body-1-font-size !default; // original 12px
+$data-table-header-sort-icon-size: $typo-subhead-font-size !default; // original 16px
+$data-table-header-sorted-color: $text-color-primary !default; // original rgba(#000, 0.87)
+$data-table-header-sorted-icon-hover-color: rgba($text-color-primary, 0.39) !default; // original rgba(#000, 0.26)
+
+$data-table-hover-color: $button-hover-color !default; // original #eeeeee
+$data-table-selection-color: $chip-bg-active-color !default; // original #e0e0e0
+$data-table-font-size: $typo-body-1-font-size !default; // original 13px
+$data-table-row-height: $button-height !default; // original 48px
+$data-table-column-spacing: $ecc-size-block-whitespace !default; // original 36px
+$data-table-column-padding: $data-table-column-spacing / 4 !default;
+
+$data-table-divider-color: $chip-bg-color !default; // original rgba(#000, 0.12)
+$data-table-dividers: 1px solid $data-table-divider-color !default;
+
+$data-table-card-header-height: 64px !default; // currently not used
+$data-table-card-title-top: 20px !default; // currently not used
+$data-table-card-padding: 24px !default; // currently not used
+$data-table-button-padding-right: 16px !default; // currently not used
+$data-table-cell-top: $data-table-card-padding / 2 !default; // currently not used
+
+$data-table-last-row-height: 56px !default; // currently not used
+$data-table-header-height: 56px !default; // currently not used
+
+/* -- Snackbar messages ----------------------------------------------------------- */
+
+// Hard coded since the color is not present in any palette.
+$snackbar-background-color: #323232 !default;
+$snackbar-tablet-breakpoint: $grid-tablet-breakpoint;
+$snackbar-action-color: $color-accent !default;
+
+/* -- Modal dialogs --------------------------------------------------------------- */
+
+$dialog-content-color: $card-supporting-text-text-color !default; // currently not used
+$dialog-title-font-size: 2.5rem !default; // currently not used
+$dialog-padding: 24px !default; // currently not used
+
+/* -- Shadows --------------------------------------------------------------------- */
+
+$shadow-key-umbra-opacity: 0.2 !default;
+$shadow-key-penumbra-opacity: 0.14 !default;
+$shadow-ambient-shadow-opacity: 0.12 !default;
+
+/* -- Animations ------------------------------------------------------------------ */
+
+$animation-curve-fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1) !default;
+$animation-curve-linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1) !default;
+$animation-curve-fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1) !default;
+$animation-curve-default: $animation-curve-fast-out-slow-in !default;
+
+/* -- Application header bar ------------------------------------------------------ */
+
+$layout-text-color: $text-color-primary !default; // original $palette-grey-800
+$layout-header-bg-color: to_color($palette-grey-100) !default; // original to_color($color-white)
+$layout-header-text-color: $layout-text-color !default; // original to_color($color-black)
+$layout-header-nav-hover-color: rgba(to_color($palette-grey-700), 0.6) !default;
+$layout-header-tab-text-color: rgba(to_color($ecc-color-primary-contrast), 0.6) !default;
+$layout-header-max-height: 1000px !default;
+$layout-header-icon-size: 32px !default;
+$layout-header-icon-margin: 24px !default; // not used in @mdl/layout.scss
+$layout-header-mobile-row-height: 1.61 * $button-height/1rem * $ecc-size-typo-base !default; // original 56px
+$layout-mobile-header-height: $layout-header-mobile-row-height !default;
+$layout-header-mobile-indent: $ecc-size-block-whitespace / 2 !default; // original 16px
+$layout-header-mobile-baseline: $layout-mobile-header-height !default; // original 72px
+$layout-header-desktop-row-height: 1.61 * $button-height/1rem * $ecc-size-typo-base !default; // original 64px
+$layout-desktop-header-height: $layout-header-desktop-row-height !default;
+$layout-header-desktop-indent: $ecc-size-block-whitespace / 2 !default; // original 40px
+$layout-header-desktop-baseline: $layout-desktop-header-height !default; // original 80px
+$layout-header-navigation-link-padding-vertical: $ecc-size-block-whitespace !default; // original 24px
+// Tabs -- currently not used in header bar
+$layout-header-tab-highlight: $color-accent !default;
+$layout-tab-font-size: 14px !default;
+$layout-tab-bar-height: 48px !default;
+$layout-tab-mobile-padding: 12px !default;
+$layout-tab-desktop-padding: 24px !default;
+$layout-tab-highlight-thickness: 2px !default;
+
+/* -- Application footer bar ------------------------------------------------------ */
+
+$footer-bg-color: to_color($palette-grey-400) !default; // original $palette-grey-800
+$footer-color: to_color($palette-grey-200) !default; // original $palette-grey-500
+$footer-heading-color: to_color($palette-grey-50) !default; // original $palette-grey-300
+$footer-button-fill-color: $footer-color !default;
+$footer-underline-color: $footer-color !default;
+$footer-min-padding: $ecc-size-block-whitespace / 2 !default; // original 16px
+$padding: $ecc-size-block-whitespace / 2 !default; // original 16px
+$footer-padding-sides: $ecc-size-block-whitespace !default; // original 40px
+$footer-heading-font-size: $typo-subhead-font-size !default; // original 24px
+$footer-heading-line-height: $typo-subhead-line-height !default; // original (1.5 * $footer-heading-font-size)
+$footer-btn-size: $button-height !default; // original 36px
+
+/* -- Drawer menu ----------------------------------------------------------------- */
+
+$layout-nav-color: $default-item-hover-bg-color !default; // original $palette-grey-300
+$layout-drawer-bg-color: $default-dropdown-bg-color !default; // original $palette-grey-50
+$layout-drawer-border-color: $layout-nav-color !default; // original $palette-grey-300
+$layout-drawer-navigation-color: $default-item-text-color !default; // original #757575
+$layout-drawer-navigation-link-active-background: rgba($color-primary, 0.13) !default; // original $palette-grey-300 !default;
+$layout-drawer-navigation-link-active-color: $color-light-contrast !default;
+$layout-drawer-narrow: 20rem !default; // original 240px
+$layout-drawer-wide: 1.61 * $layout-drawer-narrow !default; // original 456px
+$layout-drawer-width: $layout-drawer-narrow !default;
+$layout-drawer-navigation-padding-top: $ecc-size-block-whitespace / 2 !default; // original 16px
+$layout-drawer-button-font-size: $typo-icon-font-size !default; // original 26px
+$layout-drawer-button-mobile-size: $layout-mobile-header-height !default; // original 32px
+$layout-drawer-button-desktop-size: $layout-desktop-header-height !default; // original 48px
+$layout-drawer-button-desktop-margin-horizontal: 0 !default; // original 12px
+$layout-drawer-button-threshold-margin: 0 !default;

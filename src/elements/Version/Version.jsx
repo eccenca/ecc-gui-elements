@@ -1,27 +1,19 @@
 // react
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Version = React.createClass({
-    displayName: 'Version',
-    // define property types
-    propTypes: {
-        version: React.PropTypes.string.isRequired,
-    },
-    // initilize state
-    getInitialState() {
-        // return state
-        return this.props;
-    },
-    // template rendering
-    render() {
-        return (
-            <span
-                className="version-info"
-                style={{marginLeft: '5px', marginRight: '5px'}}>
-                {this.state.version}
-            </span>
-        );
-    },
-});
+const Version = props => {
+    const { version } = props;
+    return (
+        <span>
+            {version}
+        </span>
+    );
+};
+Version.propTypes = {
+    version: PropTypes.string.isRequired,
+};
+
+Version.displayName = 'Version';
 
 export default Version;

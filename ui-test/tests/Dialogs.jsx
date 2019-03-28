@@ -12,28 +12,38 @@ import {
     BaseDialog,
 } from '../../index';
 
-const TestDialogs = React.createClass({
-    getInitialState() {
-        return {
+
+class TestDialogs extends React.PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {
             baseDialog: false,
             confirmationDialog: false,
         };
-    },
+
+        this.openConfirmationDialog = this.openConfirmationDialog.bind(this);
+        this.closeConfirmationDialog = this.openConfirmationDialog.bind(this);
+        this.openBaseDialog = this.openBaseDialog.bind(this);
+        this.closeBaseDialog = this.closeBaseDialog.bind(this);
+    }
 
     openConfirmationDialog() {
-        this.setState({confirmationDialog: true});
-    },
-    closeConfirmationDialog(param) {
-        console.log('ConfirmationDialog closed', param);
-        this.setState({confirmationDialog: false});
-    },
+        this.setState({ confirmationDialog: true });
+    }
+
+    closeConfirmationDialog() {
+        console.warn('ConfirmationDialog closed');
+        this.setState({ confirmationDialog: false });
+    }
+
     openBaseDialog() {
-        this.setState({baseDialog: true});
-    },
+        this.setState({ baseDialog: true });
+    }
+
     closeBaseDialog(param) {
         console.log('BaseDialog closed', param);
-        this.setState({baseDialog: false});
-    },
+        this.setState({ baseDialog: false });
+    }
 
     // template rendering
     render() {
@@ -44,24 +54,17 @@ const TestDialogs = React.createClass({
                     active={this.state.confirmationDialog}
                     modal
                     size="mini"
-                    cancelButton={
-                        <Button
-                            onClick={this.closeConfirmationDialog.bind(
-                                null,
-                                'Cancel'
-                            )}>
+                    cancelButton={(
+                        <Button onClick={() => this.setState({ confirmationDialog: false })}>
                             Cancel
                         </Button>
-                    }
-                    confirmButton={
-                        <Button
-                            onClick={this.closeConfirmationDialog.bind(
-                                null,
-                                'Yes'
-                            )}>
+                    )}
+                    confirmButton={(
+                        <Button onClick={() => this.setState({ confirmationDialog: false })}>
                             Yes
                         </Button>
-                    }>
+                    )}
+                >
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
                     <p>ConfirmationDialog Content</p>
@@ -86,25 +89,29 @@ const TestDialogs = React.createClass({
                     title="DialogCustomActions Title"
                     active={this.state.baseDialog}
                     modal
-                    titleCancelButton={this.closeBaseDialog.bind(null, 'Abort')}
+                    titleCancelButton={() => this.closeBaseDialog('Abort')}
                     size="large"
                     buttonRow={[
                         <Button
                             key="Cancel"
-                            onClick={this.closeBaseDialog.bind(null, 'Cancel')}>
+                            onClick={() => this.closeBaseDialog('Cancel')}
+                        >
                             Cancel
                         </Button>,
                         <Button
                             key="Yes"
-                            onClick={this.closeBaseDialog.bind(null, 'Yes')}>
+                            onClick={() => this.closeBaseDialog('Yes')}
+                        >
                             Yes
                         </Button>,
                         <Button
                             key="Custom"
-                            onClick={this.closeBaseDialog.bind(null, 'Custom')}>
+                            onClick={() => this.closeBaseDialog('Custom')}
+                        >
                             Custom
                         </Button>,
-                    ]}>
+                    ]}
+                >
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>
                     <p>DialogCustomActions Content</p>
@@ -148,7 +155,8 @@ const TestDialogs = React.createClass({
                         <Button
                             raised
                             accent
-                            onClick={this.openConfirmationDialog}>
+                            onClick={this.openConfirmationDialog}
+                        >
                             Open ConfirmationDialog
                         </Button>
                         <Button raised accent onClick={this.openBaseDialog}>
@@ -158,7 +166,7 @@ const TestDialogs = React.createClass({
                 </Card>
             </div>
         );
-    },
-});
+    }
+}
 
 export default TestDialogs;

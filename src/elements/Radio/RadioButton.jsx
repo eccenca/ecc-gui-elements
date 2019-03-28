@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ReactMDLRadio from 'react-mdl/lib/Radio';
 import classNames from 'classnames';
 
@@ -30,7 +31,9 @@ const Page = React.createClass({
 ```
 */
 const Radio = props => {
-    const {children, label, className, hideLabel, ...otherProps} = props;
+    const {
+        children, label, className, hideLabel, ...otherProps
+    } = props;
 
     let radioLabel = false;
 
@@ -70,44 +73,44 @@ Radio.propTypes = {
     /**
      describes the selected state of Radio
     */
-    checked: React.PropTypes.bool.isRequired,
+    checked: PropTypes.bool.isRequired,
     /**
      additional CSS class names
     */
-    className: React.PropTypes.string,
+    className: PropTypes.string,
     /**
      describes if Radio is disabled
     */
-    disabled: React.PropTypes.bool,
+    disabled: PropTypes.bool,
     /**
      describes if Radio label is not visible
     */
-    hideLabel: React.PropTypes.bool,
+    hideLabel: PropTypes.bool,
     /**
      name of input that Radio select is related to
     */
-    name: React.PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     /**
      label that describes the Radio select for the user
     */
-    label: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.element,
+    label: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.element,
     ]),
     /**
      update handler for changes on Radio select element
     */
-    onChange: React.PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /**
      MDL ripple effect is used on Radio element
     */
-    ripple: React.PropTypes.bool,
+    ripple: PropTypes.bool,
     /**
      value for input when Radio is selected
     */
-    value: React.PropTypes.oneOfType([
-        React.PropTypes.string,
-        React.PropTypes.number,
+    value: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
     ]).isRequired,
 };
 
@@ -117,6 +120,7 @@ Radio.defaultProps = {
     hideLabel: false,
     label: null,
     ripple: false,
+    onChange: undefined,
 };
 
 Radio.displayName = 'Radio select';

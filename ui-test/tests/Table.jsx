@@ -25,7 +25,6 @@ import '../../style/test.scss';
 class TestTable extends React.Component {
     constructor() {
         super();
-
         this.data = {
             tableHead: [
                 {
@@ -33,7 +32,7 @@ class TestTable extends React.Component {
                 },
                 {
                     identifier: 'selectrow',
-                    content: <Checkbox label="Select" />,
+                    content: <Checkbox label="Select" checked onChange={() => {}} />,
                 },
                 {
                     identifier: 'vocabularies',
@@ -42,10 +41,12 @@ class TestTable extends React.Component {
                             key="chip"
                             type="button"
                             tooltip={false}
-                            onClick={() => {}}>
+                            onClick={() => {}}
+                        >
                             vocabularies
                         </Chip>,
-                        <Button key="btn" onClick={() => {}} iconName="sort" />,
+                        <Button key="btnsort" onClick={() => {}} iconName="sort" />,
+                        <Button key="btnfilter" onClick={() => {}} iconName="filter" badge={99}/>,
                     ],
                 },
                 {
@@ -62,7 +63,8 @@ class TestTable extends React.Component {
                             key="chip"
                             type="button"
                             tooltip={false}
-                            onClick={() => {}}>
+                            onClick={() => {}}
+                        >
                             description
                         </Chip>,
                         <Button key="btn" onClick={() => {}} iconName="sort" />,
@@ -75,7 +77,8 @@ class TestTable extends React.Component {
                             key="chip"
                             type="button"
                             tooltip={false}
-                            onClick={() => {}}>
+                            onClick={() => {}}
+                        >
                             keywords
                         </Chip>,
                     ],
@@ -87,7 +90,8 @@ class TestTable extends React.Component {
                             key="chip"
                             type="button"
                             tooltip={false}
-                            onClick={() => {}}>
+                            onClick={() => {}}
+                        >
                             installed
                         </Chip>,
                         <Button
@@ -108,7 +112,7 @@ class TestTable extends React.Component {
             tableContent: [
                 {
                     expanding: <Button iconName="expand_more" />,
-                    selectrow: <Checkbox label="Select" />,
+                    selectrow: <Checkbox label="Select" checked onChange={() => {}} />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (sec)</Chip>,
                     modified: <span>2017-08-07</span>,
                     description:
@@ -119,7 +123,7 @@ class TestTable extends React.Component {
                 },
                 {
                     expanding: <Button iconName="expand_more" />,
-                    selectrow: <Checkbox label="Select" />,
+                    selectrow: <Checkbox label="Select" checked onChange={() => {}} />,
                     vocabularies: [
                         <Chip key="1" onClick={() => {}}>
                             FIBO (loan)
@@ -155,7 +159,7 @@ class TestTable extends React.Component {
                 },
                 {
                     expanding: <Button iconName="expand_more" />,
-                    selectrow: <Checkbox checked label="Select" />,
+                    selectrow: <Checkbox checked label="Select" onChange={() => {}} />,
                     vocabularies: <Chip onClick={() => {}}>FIBO (ind)</Chip>,
                     modified: '2017-08-07',
                     description: 'FIBO Indices and Indicators consists of a set of business concepts representing the various forms of market indices, economic indicators and market-based interest rates. The ontologies cover quoted interest rates, economic measures such as employment rates, and quoted indices required to support baskets of securities, including specific kinds of securities in share indices or bond indices, as well as credit indices.'
@@ -166,7 +170,8 @@ class TestTable extends React.Component {
                     toolsetactions: [
                         <ContextMenu
                             key="contextmenu"
-                            className="uitest-table__contextmenu">
+                            className="uitest-table__contextmenu"
+                        >
                             <MenuItem key="1">Menu item One</MenuItem>
                             <MenuItem key="2">Second Menu item</MenuItem>
                             <MenuItem key="3">Third</MenuItem>
@@ -180,6 +185,7 @@ class TestTable extends React.Component {
         };
     }
 
+
     render() {
         return (
             <Card>
@@ -189,7 +195,8 @@ class TestTable extends React.Component {
                     <Table
                         className="my-own-table-class"
                         scrollTableOverflow
-                        preventCellOverflow>
+                        preventCellOverflow
+                    >
                         <TableHead>
                             <TableRow>
                                 {_.map(
@@ -209,9 +216,10 @@ class TestTable extends React.Component {
                                         this.data.tableHead,
                                         (column, idxColumn) => (
                                             <TableCell
-                                                key={`${idxRow}.${idxColumn}`}>
-                                                {row[column.identifier] ||
-                                                    false}
+                                                key={`${idxRow}.${idxColumn}`}
+                                            >
+                                                {row[column.identifier]
+                                                    || false}
                                             </TableCell>
                                         )
                                     )}
@@ -240,9 +248,10 @@ class TestTable extends React.Component {
                                         this.data.tableHead,
                                         (column, idxColumn) => (
                                             <TableCell
-                                                key={`${idxRow}.${idxColumn}`}>
-                                                {row[column.identifier] ||
-                                                    false}
+                                                key={`${idxRow}.${idxColumn}`}
+                                            >
+                                                {row[column.identifier]
+                                                    || false}
                                             </TableCell>
                                         )
                                     )}
@@ -274,13 +283,14 @@ class TestTable extends React.Component {
                         <TableBody multiline className="my-table-body-class">
                             <TableRow>
                                 <TableCell>
-                                    <Radio label="Select" name="testtable" />
+                                    <Radio label="Select" name="testtable" value="no valaue" checked={false} />
                                 </TableCell>
                                 <TableCell isHead className="my-cell-class">
                                     <div className="ecc-component-objectview ecc-component-objectview--iri">
                                         <a
                                             className="mdl-chip"
-                                            href="https://example.eccenca.com/035fb68b-4360-4f21-9812-dfd7e04dc94d">
+                                            href="https://example.eccenca.com/035fb68b-4360-4f21-9812-dfd7e04dc94d"
+                                        >
                                             <span className="mdl-chip__text">
                                                 <span className="ecc-component-objectview__content-inline">
                                                     testcontent 1.1
@@ -293,10 +303,12 @@ class TestTable extends React.Component {
                             </TableRow>
                             <TableRow>
                                 <TableCell>
-                                    <Radio label="Select" name="testtable" />
+                                    <Radio label="Select" name="testtable" value="no valaue" checked={false} />
                                 </TableCell>
                                 <TableCell>
-                                    testcontent 2.1a<br />testcontent 2.1b
+                                    testcontent 2.1a
+                                    <br />
+testcontent 2.1b
                                 </TableCell>
                                 <TableCell className="my-cell-class">
                                     testcontent 2.2
@@ -304,7 +316,7 @@ class TestTable extends React.Component {
                             </TableRow>
                             <TableRow>
                                 <TableCell>
-                                    <Radio label="Select" name="testtable" />
+                                    <Radio label="Select" name="testtable" value="no valaue" checked={false} />
                                 </TableCell>
                                 <TableCell likeHead className="my-cell-class">
                                     testcontent 3.1
@@ -320,7 +332,7 @@ class TestTable extends React.Component {
                         <TableBody className="my-table-body-class">
                             <TableRow>
                                 <TableCell>
-                                    <Radio label="Select" name="testtable" />
+                                    <Radio label="Select" name="testtable" value="no valaue" checked={false} />
                                 </TableCell>
                                 <TableCell isHead className="my-cell-class">
                                     testcontent 4.1
@@ -329,10 +341,12 @@ class TestTable extends React.Component {
                             </TableRow>
                             <TableRow multiline>
                                 <TableCell>
-                                    <Radio label="Select" name="testtable" />
+                                    <Radio label="Select" name="testtable" value="no valaue" checked={false} />
                                 </TableCell>
                                 <TableCell>
-                                    testcontent 5.1a<br />testcontent 5.1b
+                                    testcontent 5.1a
+                                    <br />
+testcontent 5.1b
                                 </TableCell>
                                 <TableCell className="my-cell-class">
                                     testcontent 5.2
@@ -340,12 +354,13 @@ class TestTable extends React.Component {
                             </TableRow>
                             <TableRow preventCellOverflow>
                                 <TableCell>
-                                    <Radio label="Select" name="testtable" />
+                                    <Radio label="Select" name="testtable" value="no valaue" checked={false} />
                                 </TableCell>
                                 <TableCell
                                     multiline
                                     likeHead
-                                    className="my-cell-class">
+                                    className="my-cell-class"
+                                >
                                     testcontent 6.1
                                 </TableCell>
                                 <TableCell>
@@ -357,7 +372,15 @@ class TestTable extends React.Component {
                                         <TableBody>
                                             <TableRow>
                                                 <TableCell>
-                                                    This<br />is<br />a<br />nested<br />table.
+                                                    This
+                                                    <br />
+is
+                                                    <br />
+a
+                                                    <br />
+nested
+                                                    <br />
+table.
                                                 </TableCell>
                                             </TableRow>
                                         </TableBody>

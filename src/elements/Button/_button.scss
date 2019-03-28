@@ -26,6 +26,11 @@
     .material-icons.mdl-badge[data-badge]:after {
         right: -10px;
     }
+
+    &--accent.mdl-badge[data-badge]:after,
+    &--accent .material-icons.mdl-badge[data-badge]:after {
+        border: 1px solid $badge-color;
+    }
 }
 
 .mdl-button--raised {
@@ -43,6 +48,7 @@
 }
 
 .mdl-button--fab {
-    width: 56px;
-    height: 56px;
+    width: $button-fab-size;
+    height: $button-fab-size;
+    min-width: unset;
 }
