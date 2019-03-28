@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [4.0.0] 2019-03-28
 ### Changed
 - Prepared component for react 16
 - rules for sizes and colors now build on available configuration vars
