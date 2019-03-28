@@ -231,6 +231,15 @@ Line 2
                         error="Something went wrong, so this error is shown."
                         onChange={this.updateValue}
                     />
+                    <h5>Expandables</h5>
+                    <TextField
+                        name="textInput[2]"
+                        value={this.state.textInput[2]}
+                        label="Expandable test field"
+                        onChange={this.updateValue}
+                        expandable
+                        expandableIcon="search"
+                    />
                     <h5>Datefields</h5>
                     date only fields (8th, February 2017)
                     <br />

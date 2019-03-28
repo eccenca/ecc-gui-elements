@@ -5,7 +5,7 @@
  */
 
 .mdl-radio-group {
-    margin-bottom: 1rem;
+    margin-bottom: $typo-body-1-margin-bottom;
 
     & > div {
         display: flex;
@@ -15,8 +15,8 @@
         & > * {
             min-width: 5em;
             flex-grow: 1;
-            margin-right: 1rem;
-            margin-bottom: 0.5rem;
+            margin-right: $ecc-size-block-whitespace;
+            margin-bottom: 0.5 * $ecc-size-block-whitespace;
         }
     }
 
@@ -37,4 +37,10 @@
         bottom: 200vh;
         right: 200vw;
     }
+}
+
+.mdl-radio__outer-circle,
+.mdl-radio__inner-circle {
+    // move thickness of border to top that element looks vertically centered
+    margin-top: -2px;
 }

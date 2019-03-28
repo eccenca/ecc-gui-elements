@@ -3,22 +3,28 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
-### Changed 
+### Changed
 - Prepared component for react 16
+- rules for sizes and colors now build on available configuration vars
+- clean up `<Footer/>` sub elements
+
 ### Removed
 - messagebus
 - PerformanceMixin
 - MaterialMixin
 - Nothing component
- 
+
 ### Added
 - ScrollingHOC
+- include full configuration stack of MDL variables, all sizes there are calculated based on very few own base configurations: `$ecc-size-typo-base`, `$ecc-size-typo-base-lineheight` and `$ecc-size-type-levelratio`, see README.md under "Justify default configuration"
+- allow children in `<Footer/>` element
+
 ### Breaking
 - mixin replaced with hocs
 
 ## [3.5.0] 2019-03-20
 ### Added
-- Footer now contain the logged in user name 
+- Footer now contain the logged in user name
 
 ## [3.4.2] 2019-03-12
 

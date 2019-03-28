@@ -11,33 +11,6 @@ html, body {
 }
 
 html {
-    background-color: $layout-bg-color;
+    background-color: to_color($ecc-color-application-background);
+    color: to_color($ecc-color-application-text);
 }
-
-h1 {
-    font-size: $ecc-size-typo-display-3;
-}
-
-h2 {
-    font-size: $ecc-size-typo-display-2;
-}
-
-h3 {
-    font-size: $ecc-size-typo-display-1;
-}
-
-h4 {
-    font-size: $ecc-size-typo-headline;
-}
-
-h5 {
-    font-size: $ecc-size-typo-title;
-}
-
-h6 {
-    font-size: $ecc-size-typo-subtitle;
-}
-
-// -- Other patches ------------------------------------------------------------
-
-@import "./patches";

@@ -13,7 +13,7 @@
     }
 
     &.mdl-alert--spacing {
-        margin: $ecc-size-blockelement-margin-vertical 0;
+        margin: $typo-body-1-margin-bottom 0;
 
         &:first-child {
             margin-top: 0;
@@ -76,7 +76,7 @@
 }
 
 .mdl-alert__content {
-    padding: $ecc-size-blockelement-padding-vertical $ecc-size-blockelement-padding-horizontal;
+    padding: $ecc-size-block-whitespace/4 $ecc-size-block-whitespace/2;
 
     & > *:last-child {
         margin-bottom: 0;

@@ -6,8 +6,6 @@
 
 .mdl-dialog {
     display: none;
-    // background: $card-background-color;
-    border-radius: 2px;
     box-sizing: border-box;
     max-width: 90%;
     z-index: 1000;
@@ -44,15 +42,13 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #f6f6f6;
+    background-color: $color-primary-contrast;
     opacity: 0.54;
     z-index: -1;
 }
 
 .mdl-dialog__content {
-    padding: $ecc-size-blockelement-margin-vertical $ecc-size-blockelement-margin-horizontal;
-    margin: 0;
-    max-height: calc(70vh - 52px - 68px);
+    max-height: calc(70vh - #{$typo-title-font-size} - 2 * #{$card-vertical-padding} - #{$button-height});
     overflow: auto;
     overflow-x: hidden;
 }

@@ -1,6 +1,11 @@
 import React from 'react';
 import {
-    Button, Card, CardTitle, CardContent, Tabs,
+    Button,
+    Card,
+    CardTitle,
+    CardContent,
+    CardActions,
+    Tabs,
 } from '../../index';
 
 class TestTabs extends React.Component {
@@ -8,9 +13,18 @@ class TestTabs extends React.Component {
         super(props);
         this.state = {
             tabContent: [
-                { tabTitle: 'profiling Tab', tabContent: 'i\'m profiling Tab' },
-                { tabTitle: 'discovery Tab', tabContent: 'i\'m discovery Tab' },
-                { tabTitle: 'kpiTab', tabContent: 'i\'m kpiTab Tab' },
+                {
+                    tabTitle: 'profiling Tab',
+                    tabContent: <CardContent>Content of profiling tab.</CardContent>,
+                },
+                {
+                    tabTitle: 'discovery Tab',
+                    tabContent: <CardContent>Content of discovery tab.</CardContent>,
+                },
+                {
+                    tabTitle: 'kpiTab',
+                    tabContent: <CardContent>Content of KPI tab.</CardContent>,
+                },
             ],
         };
     }
@@ -24,20 +38,20 @@ class TestTabs extends React.Component {
         return (
             <Card>
                 <CardTitle documentLevel="h4">Test Tabs</CardTitle>
-                <CardContent>
-                    <Tabs
-                        prefixTabNames="tab-container"
-                        tabs={this.state.tabContent}
-                        onTabClick={TestTabs.tabClick}
-                        activeTab="kpiTab"
-                    />
+                <Tabs
+                    prefixTabNames="tab-container"
+                    tabs={this.state.tabContent}
+                    onTabClick={this.tabClick}
+                    activeTab="kpiTab"
+                />
+                <CardActions>
                     <Button
                         onClick={() =>
                             this.setState({
                                 tabContent: [
                                     {
                                         tabTitle: 'profiling Tab',
-                                        tabContent: 'i\'m profiling Tab',
+                                        tabContent: <CardContent>Content of profiling tab.</CardContent>,
                                     },
                                     {
                                         tabTitle: 'discovery Tab',
@@ -45,7 +59,7 @@ class TestTabs extends React.Component {
                                     },
                                     {
                                         tabTitle: 'kpiTab',
-                                        tabContent: 'i\'m kpiTab Tab',
+                                        tabContent: <CardContent>Content of KPI tab.</CardContent>,
                                     },
                                 ],
                             })
@@ -53,7 +67,7 @@ class TestTabs extends React.Component {
                     >
                         Remove content from discovery tab
                     </Button>
-                </CardContent>
+                </CardActions>
             </Card>
         );
     }

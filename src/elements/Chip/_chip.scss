@@ -5,38 +5,27 @@
  */
 
 .mdl-chip {
-    margin-right: 4px;
-    background-color: rgba(0, 0, 0, 0.13);
-
-    display: inline-flex;
-    vertical-align: middle;
-    box-sizing: border-box;
-    max-width: 100%;
-
-    text-decoration: none;
+    margin-right: $chips-margin-vertical;
     font-weight: inherit;
-
-    &:active {
-        background-color: rgba(0, 0, 0, 0.13);
-    }
+    max-width: calc(100% - #{$chips-margin-vertical});
 }
 
 .mdl-chip__text {
-    flex-grow: 1;
-    flex-shrink: 1;
-    overflow: hidden;
+    max-width: 100%;
     text-overflow: ellipsis;
+    overflow: hidden;
+
+    .mdl-chip__contact + & {
+        max-width: calc(101% - #{$chip-height} - #{$chips-margin-vertical});
+    }
 }
 
 .mdl-chip__contact {
-    background-color: rgba(0, 0, 0, 0.54);
-    color: $chip-bg-color;
-    flex-shrink: 0;
-    flex-grow: 0;
+    background-color: $chip-bg-color;
+    margin-right: $chips-margin-vertical;
 
     .material-icons {
-        line-height: inherit;
-        font-size: 1em;
+        line-height: $chip-height;
         width: $chip-height;
         height: $chip-height;
     }
@@ -57,9 +46,4 @@ button.mdl-chip {
     &:hover {
         @extend .mdl-chip:focus;
     }
-
-    &:active {
-        background-color: rgba(0, 0, 0, 0.17);
-    }
-
 }

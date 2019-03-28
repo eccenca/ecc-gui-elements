@@ -1,16 +1,17 @@
 .ecc-component-footer {
+    @include typo-caption();
+
     .mdl-mini-footer {
-        padding-top: 0.25rem;
-        padding-bottom: 0.25rem;
-
-        opacity: 0.64;
+        padding-top: $ecc-size-block-whitespace / 4;
+        padding-bottom: $ecc-size-block-whitespace / 4;
     }
 
-    .mdl-mini-footer__left-section{
-        line-height: 36px;
-    }
-    .mdl-logged_user{
-        line-height: 36px;
+    ul, ol {
+        font-size: inherit;
+        line-height: inherit;
     }
 
+    a {
+        color: lighten($footer-color, 25%);
+    }
 }

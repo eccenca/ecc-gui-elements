@@ -11,7 +11,7 @@
 .mdl-progress--global,
 .mdl-progress--local {
     position: fixed;
-    top: 64px;
+    top: $layout-desktop-header-height;
     left: 0;
     z-index: 32000;
 }
