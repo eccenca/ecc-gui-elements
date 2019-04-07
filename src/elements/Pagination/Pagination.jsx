@@ -92,7 +92,7 @@ class Pagination extends Component {
 
     calculatePagination = ({ limit, offset, totalResults }) => {
         const onLastPage = offset + limit >= totalResults;
-        console.warn(offset)
+
         return {
             limit,
             offset,
