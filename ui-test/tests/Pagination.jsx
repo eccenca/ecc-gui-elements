@@ -82,6 +82,16 @@ class TestPagination extends React.Component {
                         hideTotalResults
                         showPageInput={true}
                     />
+                    <h5>Pagination with unknown elements</h5>
+                    <Pagination
+                        offset={this.state.paginationOffset}
+                        limit={this.state.paginationLimit}
+                        limitRange={[1, 2, 3, 5, 10, 25, 50, 100, 200]}
+                        totalResults={undefined}
+                        newLimitText="Elements per Page"
+                        onChange={this.handlePaginationChange}
+                        showPageInput={true}
+                    />
                 </CardContent>
             </Card>
         );
