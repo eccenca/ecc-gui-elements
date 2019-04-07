@@ -486,7 +486,7 @@ This component provides a pagination for switching through lists of results
 #### Properties
 - **offset** (number, *required*) - contains actual start value which is shown
 - **limit** (number, *required*) - contains number of max shown elements per page
-- **totalResults** (number, *required*) - contains total number of results
+- **totalResults** (number) - contains total number of results. The value must be positive or undefined.
 - **onChange** (func, *required*) - contains method which is called if offset have to change by user
 - **showElementOffsetPagination** (bool, default: false) - show element offset numbers as pagination information
 - **isTopPagination** (bool, default: false) - define position of page change dropdown/dropup
