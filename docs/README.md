@@ -495,6 +495,7 @@ This component provides a pagination for switching through lists of results
 - **disabled** (bool, default: false) - if true all buttons and inputs fields are disabled and visibility is decreased
 - **showPageInput** (bool, default: false) - the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
 - **hideTotalResults** (bool, default: false) - hide info about number of total results
+- **pendingTotal** (bool, default: false) - show a spinner if true and totalResults is not set
 
 ### ProgressButton
 
