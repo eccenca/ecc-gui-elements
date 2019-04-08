@@ -5,7 +5,8 @@ import classNames from 'classnames';
 import Button from '../Button/Button';
 import SelectBox from '../SelectBox/SelectBox';
 import TextField from '../TextField/TextField';
-import Spinner from "../Spinner/Spinner";
+import Spinner from '../Spinner/Spinner';
+import Tooltip from '../Tooltip/Tooltip';
 
 
 /**
@@ -51,7 +52,8 @@ class Pagination extends Component {
          */
         disabled: PropTypes.bool,
         /**
-         * the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
+         * the current page number can be edited to jump directly there, works only with
+         * `showElementOffsetPagination===false`
          */
         showPageInput: PropTypes.bool,
         /**
@@ -62,6 +64,10 @@ class Pagination extends Component {
          * show a spinner if true and totalResults is not set
          */
         pendingTotal: PropTypes.bool,
+        /**
+         * additional class names
+         */
+        className: PropTypes.string,
     };
 
     static defaultProps = {
@@ -78,6 +84,8 @@ class Pagination extends Component {
         showPageInput: false,
         isTopPagination: false,
         pendingTotal: false,
+        totalResults: undefined,
+        className: '',
     };
 
     constructor(props) {
@@ -95,28 +103,6 @@ class Pagination extends Component {
             customPage: undefined,
         };
     }
-
-    calculatePagination = ({ limit, offset, totalResults }) => {
-        const onLastPage = offset + limit >= totalResults;
-
-        return {
-            limit,
-            offset,
-            totalResults,
-            onFirstPage: offset === 0 || totalResults === 0,
-            onLastPage,
-            currentPage:
-                totalResults === undefined
-                    ? _.floor(1 + offset / limit)
-                    : Math.min(
-                        _.ceil(totalResults / limit),
-                        _.floor(1 + offset / limit)
-                    )
-            ,
-            totalPages: _.ceil(totalResults / limit),
-            lastItemOnPage: onLastPage ? totalResults : offset + limit,
-        };
-    };
 
     // trigger event to show first results
     onClickFirst() {
@@ -186,6 +172,27 @@ class Pagination extends Component {
         this.setState({
             customPage: parseInt(newPage, 10),
         });
+    }
+
+    calculatePagination = ({ limit, offset, totalResults }) => {
+        const onLastPage = offset + limit >= totalResults;
+
+        return {
+            limit,
+            offset,
+            totalResults,
+            onFirstPage: offset === 0 || totalResults === 0,
+            onLastPage,
+            currentPage:
+                totalResults === undefined
+                    ? _.floor(1 + offset / limit)
+                    : Math.min(
+                        _.ceil(totalResults / limit),
+                        _.floor(1 + offset / limit)
+                    ),
+            totalPages: _.ceil(totalResults / limit),
+            lastItemOnPage: onLastPage ? totalResults : offset + limit,
+        };
     }
 
     handleKeyPress(e) {
@@ -268,25 +275,21 @@ class Pagination extends Component {
                     }}
                 />,
                 <span>
-                    of {totalPages.toLocaleString()}
+                    {'of '}
+                    {totalPages.toLocaleString()}
                 </span>,
             ];
-        }
-        else if (showElementOffsetPagination === false && !this.props.showPageInput && !_.isUndefined(totalResults)) {
+        } else if (showElementOffsetPagination === false && !this.props.showPageInput && !_.isUndefined(totalResults)) {
             pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
-
-        }
-        else if (showElementOffsetPagination === false && _.isUndefined(totalResults)) {
+        } else if (showElementOffsetPagination === false && _.isUndefined(totalResults)) {
             pageInfo = `Page ${currentPage.toLocaleString()}`;
-        }
-        else if (showElementOffsetPagination === true ) {
+        } else if (showElementOffsetPagination === true) {
             const firstItem = Math.min(totalResults, offset + 1);
             const lastItem = lastItemOnPage;
             const start = firstItem === lastItem
                 ? lastItem.toLocaleString()
                 : `${firstItem.toLocaleString()} - ${lastItem.toLocaleString()}`;
             pageInfo = `${start} of ${totalResults.toLocaleString()}`;
-
         }
 
         // render actual site information
@@ -305,8 +308,8 @@ class Pagination extends Component {
         return (
             <div className={paginationClassNames}>
                 {(
-                    this.props.hideTotalResults === false &&
-                    !_.isUndefined(totalResults)
+                    this.props.hideTotalResults === false
+                    && !_.isUndefined(totalResults)
 
                 ) && (
                     <span className="ecc-gui-elements__pagination-summary">
@@ -358,18 +361,22 @@ class Pagination extends Component {
                         disabled={onLastPage || disabled === true}
                         iconName="arrow_nextpage"
                     />
-                    {totalResults > 0 && (
-                        <Button
-                            className="ecc-gui-elements__pagination-actions__last-page-button"
-                            onClick={this.onClickLast}
-                            disabled={onLastPage || disabled === true}
-                            iconName="arrow_lastpage"
-                        />
-                    )}
-                    {totalResults === undefined && pendingTotal && (
-                        <Spinner appearInline={true} />
-                    )}
+                    <Button
+                        className="ecc-gui-elements__pagination-actions__last-page-button"
+                        onClick={this.onClickLast}
+                        disabled={onLastPage || disabled === true || totalResults < 1 || totalResults === undefined}
+                        iconName="arrow_lastpage"
+                    />
                 </div>
+                {totalResults === undefined && pendingTotal && (
+                    <div className="ecc-gui-elements__pagination-processinfo">
+                        <Tooltip
+                            label="Fetch count of total results."
+                        >
+                            <Spinner appearInline={true} />
+                        </Tooltip>
+                    </div>
+                )}
             </div>
         );
     }
