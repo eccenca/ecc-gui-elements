@@ -91,6 +91,7 @@ class TestPagination extends React.Component {
                         newLimitText="Elements per Page"
                         onChange={this.handlePaginationChange}
                         showPageInput={true}
+                        pendingTotal={true}
                     />
                 </CardContent>
             </Card>

@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Button from '../Button/Button';
 import SelectBox from '../SelectBox/SelectBox';
 import TextField from '../TextField/TextField';
+import Spinner from "../Spinner/Spinner";
 
 
 /**
@@ -57,6 +58,10 @@ class Pagination extends Component {
          * hide info about number of total results
          */
         hideTotalResults: PropTypes.bool,
+        /**
+         * show a spinner if true and totalResults is not set
+         */
+        pendingTotal: PropTypes.bool,
     };
 
     static defaultProps = {
@@ -72,6 +77,7 @@ class Pagination extends Component {
         hideTotalResults: false,
         showPageInput: false,
         isTopPagination: false,
+        pendingTotal: false,
     };
 
     constructor(props) {
@@ -214,6 +220,7 @@ class Pagination extends Component {
             isTopPagination,
             disabled,
             className,
+            pendingTotal,
         } = this.props;
 
         const limitRange = _.chain(this.props.limitRange)
@@ -358,6 +365,9 @@ class Pagination extends Component {
                             disabled={onLastPage || disabled === true}
                             iconName="arrow_lastpage"
                         />
+                    )}
+                    {totalResults === undefined && pendingTotal && (
+                        <Spinner appearInline={true} />
                     )}
                 </div>
             </div>
