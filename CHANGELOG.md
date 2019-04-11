@@ -4,7 +4,14 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- add canonical definitions for reste and back buttons
+
+### Changed
+- increase visibility of clearance buttons to prevent mismatch with disabled buttons
+
+### Fixed
+- improve position of icons in normal buttons
 
 ## [4.2.0] 2019-04-11
 
