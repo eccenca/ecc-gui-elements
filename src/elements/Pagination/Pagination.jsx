@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import Button from '../Button/Button';
 import SelectBox from '../SelectBox/SelectBox';
 import TextField from '../TextField/TextField';
+import Spinner from '../Spinner/Spinner';
+import Tooltip from '../Tooltip/Tooltip';
 
 
 /**
@@ -22,9 +24,9 @@ class Pagination extends Component {
          */
         limit: PropTypes.number.isRequired,
         /**
-         * contains total number of results
+         * contains total number of results. The value must be positive or undefined.
          */
-        totalResults: PropTypes.number.isRequired,
+        totalResults: PropTypes.number,
         /**
          * contains method which is called if offset have to change by user
          */
@@ -50,13 +52,22 @@ class Pagination extends Component {
          */
         disabled: PropTypes.bool,
         /**
-         * the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
+         * the current page number can be edited to jump directly there, works only with
+         * `showElementOffsetPagination===false`
          */
         showPageInput: PropTypes.bool,
         /**
          * hide info about number of total results
          */
         hideTotalResults: PropTypes.bool,
+        /**
+         * show a spinner if true and totalResults is not set
+         */
+        pendingTotal: PropTypes.bool,
+        /**
+         * additional class names
+         */
+        className: PropTypes.string,
     };
 
     static defaultProps = {
@@ -72,6 +83,9 @@ class Pagination extends Component {
         hideTotalResults: false,
         showPageInput: false,
         isTopPagination: false,
+        pendingTotal: false,
+        totalResults: undefined,
+        className: '',
     };
 
     constructor(props) {
@@ -89,23 +103,6 @@ class Pagination extends Component {
             customPage: undefined,
         };
     }
-
-    calculatePagination = ({ limit, offset, totalResults }) => {
-        const onLastPage = offset + limit >= totalResults;
-        return {
-            limit,
-            offset,
-            totalResults,
-            onFirstPage: offset === 0 || totalResults === 0,
-            onLastPage,
-            currentPage: Math.min(
-                _.ceil(totalResults / limit),
-                _.floor(1 + offset / limit)
-            ),
-            totalPages: _.ceil(totalResults / limit),
-            lastItemOnPage: onLastPage ? totalResults : offset + limit,
-        };
-    };
 
     // trigger event to show first results
     onClickFirst() {
@@ -177,8 +174,29 @@ class Pagination extends Component {
         });
     }
 
+    calculatePagination = ({ limit, offset, totalResults }) => {
+        const onLastPage = offset + limit >= totalResults;
+
+        return {
+            limit,
+            offset,
+            totalResults,
+            onFirstPage: offset === 0 || totalResults === 0,
+            onLastPage,
+            currentPage:
+                totalResults === undefined
+                    ? _.floor(1 + offset / limit)
+                    : Math.min(
+                        _.ceil(totalResults / limit),
+                        _.floor(1 + offset / limit)
+                    ),
+            totalPages: _.ceil(totalResults / limit),
+            lastItemOnPage: onLastPage ? totalResults : offset + limit,
+        };
+    }
+
     handleKeyPress(e) {
-        const newPage = e.target.value;
+        const newPage = parseInt(e.target.value, 10);
         if (e.charCode === 13) {
             const { limit, totalResults } = this.props;
             const { totalPages } = this.calculatePagination(this.props);
@@ -186,10 +204,11 @@ class Pagination extends Component {
             if (newPage < 1 || newPage > totalPages) {
                 return;
             }
+
             this.props.onChange(
                 this.calculatePagination({
                     limit,
-                    offset: limit * parseInt(newPage, 10) - 1,
+                    offset: limit * (newPage - 1),
                     totalResults,
                 })
             );
@@ -208,6 +227,7 @@ class Pagination extends Component {
             isTopPagination,
             disabled,
             className,
+            pendingTotal,
         } = this.props;
 
         const limitRange = _.chain(this.props.limitRange)
@@ -233,37 +253,37 @@ class Pagination extends Component {
 
         let pageInfo = '';
 
-        if (showElementOffsetPagination === false) {
-            if (this.props.showPageInput) {
-                pageInfo = [
-                    <span>Page</span>,
-                    <TextField
-                        className="ecc-gui-elements__pagination__pagenumber"
-                        onKeyPress={this.handleKeyPress}
-                        disabled={disabled === true}
-                        stretch={false}
-                        style={{
-                            // the calculation can be improved
-                            width: `calc(${Math.max(1, pageField.toString().length)}ex + 1rem)`,
-                        }}
-                        min={1}
-                        max={totalPages}
-                        type="number"
-                        value={pageField > 0 ? pageField : ''}
-                        error={valid ? '' : 'Invalid page'}
-                        onChange={e => {
-                            this.onChangePage(e.value);
-                        }}
-                    />,
-                    <span>
-of
-                        {totalPages.toLocaleString()}
-                    </span>,
-                ];
-            } else {
-                pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
-            }
-        } else {
+        if (showElementOffsetPagination === false && this.props.showPageInput && !_.isUndefined(totalResults)) {
+            pageInfo = [
+                <span>Page</span>,
+                <TextField
+                    className="ecc-gui-elements__pagination__pagenumber"
+                    onKeyPress={this.handleKeyPress}
+                    disabled={disabled === true}
+                    stretch={false}
+                    style={{
+                        // the calculation can be improved
+                        width: `calc(${Math.max(1, pageField.toString().length)}ex + 1rem)`,
+                    }}
+                    min={1}
+                    max={totalPages}
+                    type="number"
+                    value={pageField > 0 ? pageField : ''}
+                    error={valid ? '' : 'Invalid page'}
+                    onChange={e => {
+                        this.onChangePage(e.value);
+                    }}
+                />,
+                <span>
+                    {'of '}
+                    {totalPages.toLocaleString()}
+                </span>,
+            ];
+        } else if (showElementOffsetPagination === false && !this.props.showPageInput && !_.isUndefined(totalResults)) {
+            pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
+        } else if (showElementOffsetPagination === false && _.isUndefined(totalResults)) {
+            pageInfo = `Page ${currentPage.toLocaleString()}`;
+        } else if (showElementOffsetPagination === true) {
             const firstItem = Math.min(totalResults, offset + 1);
             const lastItem = lastItemOnPage;
             const start = firstItem === lastItem
@@ -287,7 +307,11 @@ of
         );
         return (
             <div className={paginationClassNames}>
-                {this.props.hideTotalResults === false && (
+                {(
+                    this.props.hideTotalResults === false
+                    && !_.isUndefined(totalResults)
+
+                ) && (
                     <span className="ecc-gui-elements__pagination-summary">
                         Found
                         {' '}
@@ -340,10 +364,19 @@ of
                     <Button
                         className="ecc-gui-elements__pagination-actions__last-page-button"
                         onClick={this.onClickLast}
-                        disabled={onLastPage || disabled === true}
+                        disabled={onLastPage || disabled === true || totalResults < 1 || totalResults === undefined}
                         iconName="arrow_lastpage"
                     />
                 </div>
+                {totalResults === undefined && pendingTotal && (
+                    <div className="ecc-gui-elements__pagination-processinfo">
+                        <Tooltip
+                            label="Fetch count of total results."
+                        >
+                            <Spinner appearInline={true} />
+                        </Tooltip>
+                    </div>
+                )}
             </div>
         );
     }

@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Changed
+- prop `totalResults` can be undefined if the value is unknown.
+
+### Fixed
+- calculation of offset when using the page input field  
 
 ## [4.0.0] 2019-03-28
 ### Changed
