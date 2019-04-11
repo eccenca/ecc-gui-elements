@@ -7,6 +7,7 @@
     "arrow_lastpage": "last_page",
     "arrow_nextpage": "navigate_next",
     "arrow_prevpage": "navigate_before",
+    "back": "arrow_back",
     "cancel": "close",
     "clear": "close",
     "confirm": "check",
