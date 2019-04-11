@@ -10,7 +10,10 @@
     }
 
     &.mdl-button--clearance:not(.mdl-button--raised) {
-        opacity: 0.39;
+
+        &.mdl-button--icon {
+            opacity: 0.61;
+        }
 
         &:focus, &:hover, &:active {
             opacity: 1;
@@ -23,8 +26,12 @@
         overflow: visible;
     }
 
-    .material-icons.mdl-badge[data-badge]:after {
-        right: -10px;
+    .material-icons {
+        vertical-align: text-bottom;
+
+        &.mdl-badge[data-badge]:after {
+            right: -10px;
+        }
     }
 
     &--accent.mdl-badge[data-badge]:after,
