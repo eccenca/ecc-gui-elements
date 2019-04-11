@@ -18,6 +18,7 @@
     "help": "Show help text",
     "menu_more": "Open menu",
     "remove": "Remove",
+    "reset": "Reset settings to default values",
     "save": "Save",
     "settings": "Administrate settings",
     "sort": "Sort data",

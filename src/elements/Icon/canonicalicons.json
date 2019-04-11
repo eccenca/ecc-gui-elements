@@ -18,6 +18,7 @@
     "help": "help_outline",
     "menu_more": "more_vert",
     "remove": "delete",
+    "reset": "settings_backup_restore",
     "save": "save",
     "settings": "settings",
     "sort": "swap_vert",
