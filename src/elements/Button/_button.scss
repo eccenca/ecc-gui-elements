@@ -23,8 +23,12 @@
         overflow: visible;
     }
 
-    .material-icons.mdl-badge[data-badge]:after {
-        right: -10px;
+    .material-icons {
+        vertical-align: text-bottom;
+
+        &.mdl-badge[data-badge]:after {
+            right: -10px;
+        }
     }
 
     &--accent.mdl-badge[data-badge]:after,
