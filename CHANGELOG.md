@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [4.2.0] 2019-04-11
+
+### Changed
+- prop `totalResults` can be undefined if the value is unknown.
+
+### Fixed
+- calculation of offset when using the page input field  
+
 ## [4.0.0] 2019-03-28
 ### Changed
 - Prepared component for react 16
