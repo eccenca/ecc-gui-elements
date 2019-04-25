@@ -50,6 +50,10 @@
 
     td {
         max-width: 39vw;
+
+        @media (min-width: $ecc-size-maxwidth-workview) {
+            max-width: 0.39 * $ecc-size-maxwidth-workview;
+        }
     }
 
     th,
