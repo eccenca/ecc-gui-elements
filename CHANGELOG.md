@@ -13,6 +13,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 - fix state of clearance buttons on disabled textfields
 - fix hover effect on disable clearance buttons
 - fix maximum value of table cell width for very large displays
+- `AutoCompleteBox` error in highlighting when using chars which need to be escaped
 
 ## [4.2.1] 2019-04-11
 

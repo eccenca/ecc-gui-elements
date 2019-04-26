@@ -20,6 +20,7 @@ const Highlight = props => {
         <Highlighter
             textToHighlight={textToHighlight}
             searchWords={[searchWord]}
+            autoEscape={true}
         />
     );
 };
