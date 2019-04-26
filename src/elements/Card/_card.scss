@@ -16,15 +16,18 @@
 }
 
 .mdl-card__title {
-    min-height: $typo-title-font-size;
+    min-height: calc(#{$button-height} - #{$ecc-size-block-whitespace});
 }
 
 .mdl-card__menu {
-    top: calc(0.5 * (#{$typo-title-font-size} + #{$ecc-size-block-whitespace} - #{$button-icon-size}));
-    right: calc(0.5 * (#{$typo-title-font-size} + #{$ecc-size-block-whitespace} - #{$button-icon-size}));
+    display: flex;
+    justify-content: flex-end;
+    top: calc(0.5 * (#{$button-height} - #{$button-icon-size}));
+    right: calc(0.5 * (#{$button-height} - #{$button-icon-size}));
 }
 
 .mdl-card__title-text {
+    align-self: center;
     line-height: 1;
     flex-grow: 1;
     white-space: nowrap;
@@ -76,6 +79,7 @@
 .mdl-card--reduced {
     & > .mdl-card__title {
         padding: 0;
+        min-height: $button-height;
 
         &.mdl-card--border {
             padding-bottom: $ecc-size-block-whitespace/4;
@@ -83,7 +87,7 @@
     }
 
     & > .mdl-card__menu {
-        top: calc(0.5 * (#{$typo-title-font-size} + #{$ecc-size-block-whitespace/4} - #{$button-icon-size}));
+        top: 0;
         right: 0;
     }
 

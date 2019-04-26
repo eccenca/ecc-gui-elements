@@ -225,6 +225,28 @@ Line 2
                         }}
                     />
                     <TextField
+                        disabled
+                        stretch
+                        reducedSize
+                        name="textInput[2]"
+                        label="Clearable input and disabled"
+                        value={this.state.textInput[2]}
+                        onChange={this.updateValue}
+                        onClearValue={() => {
+                            const currentState = this.state;
+                            currentState.textInput[2] = '';
+                            this.setState(currentState);
+                        }}
+                    />
+                    <TextField
+                        stretch
+                        reducedSize
+                        name="textInput[2]"
+                        placeholder="No label and reduced size"
+                        value={this.state.textInput[2]}
+                        onChange={this.updateValue}
+                    />
+                    <TextField
                         name="textInput[0]"
                         value={this.state.textInput[0]}
                         label="Test Input"

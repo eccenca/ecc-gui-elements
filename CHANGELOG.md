@@ -2,6 +2,19 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [4.2.2] 2019-04-26
+
+### Changed
+- remove upper textfield padding when it is visually reduced and misses a label
+- adjust Card title size
+
+### Fixed
+- prevent line breaks on multiselect values without clearance button
+- fix state of clearance buttons on disabled textfields
+- fix hover effect on disable clearance buttons
+- fix maximum value of table cell width for very large displays
+- `AutoCompleteBox` error in highlighting when using chars which need to be escaped
+
 ## [4.2.1] 2019-04-11
 
 ### Added
