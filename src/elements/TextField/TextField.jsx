@@ -73,10 +73,11 @@ const TextField = props => {
         'mdl-textfield--multiline': multiline === true,
     });
 
-    // provides clean searchstring button
+    // provides clearance button
     const clearButton = _.isFunction(onClearValue) && value ? (
         <div className="mdl-input__clearable-holder">
             <Button
+                disabled={otherProps.disabled ? true : false}
                 type="button"
                 iconName="clear"
                 onClick={onClearValue}
