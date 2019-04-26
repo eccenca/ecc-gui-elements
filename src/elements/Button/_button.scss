@@ -9,7 +9,7 @@
         color: to_color($palette-red-800);
     }
 
-    &.mdl-button--clearance:not(.mdl-button--raised) {
+    &.mdl-button--clearance:not(.mdl-button--raised):not([disabled]) {
 
         &.mdl-button--icon {
             opacity: 0.61;
@@ -46,7 +46,7 @@
         color: to_color($palette-red-50);
     }
 
-    &.mdl-button--clearance {
+    &.mdl-button--clearance:not([disabled]) {
         &:focus, &:hover, &:active {
             background-color: $button-primary-color;
             color: to_color($palette-red-800);

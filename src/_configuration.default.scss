@@ -88,6 +88,8 @@ $ecc-size-inlineelement-padding-horizontal: 0.25rem !default; // deprecated
 $ecc-size-block-whitespace: $ecc-size-typo-base !default;
 $ecc-size-inline-whitespace: $ecc-size-typo-base / 2 !default;
 
+$ecc-size-maxwidth-workview: 100 * $ecc-size-typo-text;
+
 // -- Load MDL variables and mixins --------------------------------------------------
 
 @import "./configuration.mdl"; // calculation MDL config with our changes
