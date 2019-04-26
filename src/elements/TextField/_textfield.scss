@@ -7,6 +7,10 @@
 .mdl-textfield--reduced {
     padding-bottom: 0;
 
+    &.mdl-textfield--missinglabel {
+        padding-top: 0;
+    }
+
     .mdl-textfield__label:after {
         bottom: 0;
     }

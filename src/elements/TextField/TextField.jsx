@@ -71,6 +71,7 @@ const TextField = props => {
         'mdl-textfield--clearable': _.isFunction(onClearValue),
         'mdl-textfield--reduced': reducedSize === true,
         'mdl-textfield--multiline': multiline === true,
+        'mdl-textfield--missinglabel': !label,
     });
 
     // provides clearance button
