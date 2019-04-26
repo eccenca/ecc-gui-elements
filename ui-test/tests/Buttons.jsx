@@ -130,6 +130,53 @@ class TestButtons extends React.PureComponent {
                     <Button raised colored className="mdl-button--clearance">
                         Clear
                     </Button>
+                    <br />
+                    <Button
+                        disabled
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        accent
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        colored
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        raised
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        raised
+                        accent
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        raised
+                        colored
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                <Button raised accent disabled className="mdl-button--clearance">
+                        Clear
+                    </Button>
                 </CardContent>
                 <CardContent>
                     <h5>Buttons with Badges</h5>
