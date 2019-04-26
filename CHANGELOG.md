@@ -4,7 +4,15 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Changed
+- remove upper textfield padding when it is visually reduced and misses a label
+- adjust Card title size
+
+### Fixed
+- prevent line breaks on multiselect values without clearance button
+- fix state of clearance buttons on disabled textfields
+- fix hover effect on disable clearance buttons
+- fix maximum value of table cell width for very large displays
 
 ## [4.2.1] 2019-04-11
 
