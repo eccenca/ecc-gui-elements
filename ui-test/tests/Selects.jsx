@@ -99,7 +99,16 @@ class TestSelects extends Component {
                         }}
                         {...selectSettings}
                     />
-                    <h5>without placeholder label</h5>
+                    <h6>Reduced size / without placeholder label</h6>
+                    <SelectBox
+                        reducedSize
+                        placeholder="Sync select box"
+                        options={selectOptions}
+                        name="selectBox1"
+                        value={this.state.selectBox1}
+                        onChange={this.handleSelectChange}
+                        {...selectSettings}
+                    />
                     <SelectBox
                         placeholder=""
                         options={selectOptions}
@@ -153,6 +162,30 @@ class TestSelects extends Component {
                         inputRestriction={string => string.replace(/^(\?|\*)/, '')}
                         name="autoCompleteBox3"
                         value={this.state.autoCompleteBox3}
+                        onChange={this.handleSelectChange}
+                    />
+                <h6>Reduced size / without placeholder label</h6>
+                    <AutoCompleteBox
+                        reducedSize
+                        placeholder="Sync select box"
+                        options={selectOptions}
+                        name="autoCompleteBox1"
+                        value={this.state.autoCompleteBox1}
+                        onChange={this.handleSelectChange}
+                    />
+                    <AutoCompleteBox
+                        placeholder=""
+                        options={selectOptions}
+                        name="autoCompleteBox1"
+                        value={this.state.autoCompleteBox1}
+                        onChange={this.handleSelectChange}
+                    />
+                    <AutoCompleteBox
+                        reducedSize
+                        placeholder=""
+                        options={selectOptions}
+                        name="autoCompleteBox1"
+                        value={this.state.autoCompleteBox1}
                         onChange={this.handleSelectChange}
                     />
                 </CardContent>

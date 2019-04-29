@@ -108,6 +108,7 @@ class SelectBox extends Component {
             className,
             creatable,
             placeholder = '',
+            reducedSize,
             optionsOnTop,
             value,
             async = false,
@@ -139,7 +140,8 @@ class SelectBox extends Component {
             {
                 'mdl-textfield mdl-js-textfield mdl-textfield--full-width': true, // use always
                 'mdl-textfield--floating-label': true, // use always
-                'mdl-textfield--missinglabel': !!placeholder,
+                'mdl-textfield--reduced': reducedSize === true,
+                'mdl-textfield--missinglabel': !placeholder,
                 'is-dirty':
                     !_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value)),
                 'is-focused': focused === true,
