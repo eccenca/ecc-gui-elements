@@ -99,6 +99,24 @@ class TestSelects extends Component {
                         }}
                         {...selectSettings}
                     />
+                    <h5>without placeholder label</h5>
+                    <SelectBox
+                        placeholder=""
+                        options={selectOptions}
+                        name="selectBox1"
+                        value={this.state.selectBox1}
+                        onChange={this.handleSelectChange}
+                        {...selectSettings}
+                    />
+                    <SelectBox
+                        reducedSize
+                        placeholder=""
+                        options={selectOptions}
+                        name="selectBox1"
+                        value={this.state.selectBox1}
+                        onChange={this.handleSelectChange}
+                        {...selectSettings}
+                    />
                     <hr />
                     Settings:
                     {_.map(selectSettings, (value, key) => (

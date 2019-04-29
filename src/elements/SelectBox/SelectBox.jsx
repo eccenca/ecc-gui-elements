@@ -137,8 +137,9 @@ class SelectBox extends Component {
 
         const classes = classNames(
             {
-                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': !!placeholder,
-                'mdl-textfield--floating-label': !!placeholder,
+                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': true, // use always
+                'mdl-textfield--floating-label': true, // use always
+                'mdl-textfield--missinglabel': !!placeholder,
                 'is-dirty':
                     !_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value)),
                 'is-focused': focused === true,
@@ -244,11 +245,9 @@ class SelectBox extends Component {
         return (
             <div className={classes}>
                 {component}
-                {placeholder && (
-                    <label className="mdl-textfield__label" htmlFor={uniqueId}>
-                        {placeholder}
-                    </label>
-                )}
+                <label className="mdl-textfield__label" htmlFor={uniqueId}>
+                    {placeholder}
+                </label>
             </div>
         );
     }
