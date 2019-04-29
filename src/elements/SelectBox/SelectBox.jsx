@@ -18,6 +18,54 @@ const clearRenderer = () => (
     <Button iconName="clear" className="mdl-button--clearance" />
 );
 
+/**
+The SelectBox wraps [react-select](https://github.com/JedWatson/react-select) to use mixed content of strings and numbers as well as the default object type.
+The SelectBox behaves like a [controlled input](https://facebook.github.io/react/docs/forms.html#controlled-components).
+Please refer to all available properties in the linked documentations.
+
+```js
+import { SelectBox } from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    getInitialState(){
+      return {
+          value: 8,
+      };
+    },
+    selectBoxOnChange(value){
+       this.setState({
+           value
+       });
+    },
+    // template rendering
+    render() {
+        return (
+            <SelectBox
+                placeholder="Label for SelectBox"
+                options={['label1', 3]}
+                optionsOnTop={true} // option list opens up on top of select input (default: false)
+                value={this.state.value}
+                onChange={this.selectBoxOnChange}
+                creatable={true} // allow creation of new values
+                promptTextCreator={(newLabel) => ('New stuff: ' + newLabel)} // change default "Create option 'newLabel'" to "New stuff: 'newLabel'"
+                multi={true} // allow multi selection
+                clearable={false} // hide 'remove all selected values' button
+                searchable={true} // whether to behave like a type-ahead or not
+                reducedSize={false} // remove vertical whitespace around element, default: false
+            />
+        )
+    },
+});
+
+```
+
+Note:
+
+- if objects are used in multi selectable options you can add {"clearableValue": false} to it to hide delete button for this specifc object
+- if "creatable" is set new values will be applied on Enter, Tab and Comma (",")
+- ``placeholder`` label is used within MDL floating label layout
+
+ */
 class SelectBox extends Component {
     static displayName = 'SelectBox';
 
@@ -61,6 +109,15 @@ class SelectBox extends Component {
         onChange: PropTypes.func.isRequired,
         // allow creation of new values
         creatable: PropTypes.bool,
+        /**
+         * remove vertical whitespace around element
+         */
+        reducedSize: PropTypes.bool,
+    };
+
+    static defaultProps = {
+        creatable: false,
+        reducedSize: false,
     };
 
     constructor(props) {
@@ -108,6 +165,7 @@ class SelectBox extends Component {
             className,
             creatable,
             placeholder = '',
+            reducedSize,
             optionsOnTop,
             value,
             async = false,
@@ -137,8 +195,10 @@ class SelectBox extends Component {
 
         const classes = classNames(
             {
-                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': !!placeholder,
-                'mdl-textfield--floating-label': !!placeholder,
+                'mdl-textfield mdl-js-textfield mdl-textfield--full-width': true, // use always
+                'mdl-textfield--floating-label': true, // use always
+                'mdl-textfield--reduced': reducedSize === true,
+                'mdl-textfield--missinglabel': !placeholder,
                 'is-dirty':
                     !_.isNil(value) && (_.isNumber(value) || !_.isEmpty(value)),
                 'is-focused': focused === true,
@@ -244,11 +304,9 @@ class SelectBox extends Component {
         return (
             <div className={classes}>
                 {component}
-                {placeholder && (
-                    <label className="mdl-textfield__label" htmlFor={uniqueId}>
-                        {placeholder}
-                    </label>
-                )}
+                <label className="mdl-textfield__label" htmlFor={uniqueId}>
+                    {placeholder}
+                </label>
             </div>
         );
     }

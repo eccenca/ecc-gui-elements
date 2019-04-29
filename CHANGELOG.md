@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [4.2.3] 2019-04-29
+
+### Fixed
+- justify `SelectBox` behaviour to other inout input fields, so focused state with placeholder and reduced size option work correctly
+
 ## [4.2.2] 2019-04-26
 
 ### Changed
