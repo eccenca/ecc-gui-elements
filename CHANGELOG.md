@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- justify `SelectBox` behaviour to other inout input fields, so focused state with placeholder and reduced size option work correctly
 
 ## [4.2.2] 2019-04-26
 
