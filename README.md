@@ -48,7 +48,7 @@ const Widget = React.createClass({
             // topOffset: 0, // (optional) integer, pixels to offset top alignment
             // callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed'
         }
-        ScrollingHOC.scrollElementIntoView(
+        this.props.scrollElementIntoView(
             this.myCard,
             options, // optional parameter
         );
