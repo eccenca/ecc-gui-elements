@@ -5,6 +5,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ## [Unreleased]
 ### Changed 
 - Prepared component for react 16
+
 ### Removed
 - messagebus
 - PerformanceMixin
@@ -13,6 +14,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
  
 ### Added
 - ScrollingHOC
+- ScrollingHOC and usage ScrollingHOC in README
 ### Breaking
 - mixin replaced with hocs
 
