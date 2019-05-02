@@ -3,33 +3,9 @@
 Collection of shared GUI elements and hocs.
 
 ## Mixins
+- `ScrollingHOC`: It provides methods to scroll mounted React components into the viewport.
 
-- `MaterialMixin`: A mixin which forces material design lite components to rerender if the React Component gets updated.
-- `PerformanceMixin`: A mixin that provides default functionality for shouldComponentUpdate() to prevent unnecessary renderings.
-- `ScrollingMixin`: A mixin that provides methods to scroll mounted React components into the viewport.
-
-### PerformanceMixin
-
-The performance mixin provides a default process to test if a component need to be updated before it is rendered. It may be used to improve performance by preventeing unnecessary re-renderings of child components that did not changed.
-
-Include mixin into your widget component:
-
-```js
-import {PerformanceMixin} from '@eccenca/gui-elements';
-const Widget = React.createClass({
-    mixins: [PerformanceMixin],
-    // ...
-});
-```
-
-In GUI elments import it directly from the source file, use the include path relative to the folder of the widget:
-
-```js
-import PerformanceMixin from '../mixins/PerformanceMixin';
-```
-**Debug log:** set `window.enablePerformanceMixingLog = true` in the ui tests script to enable the log output of the perfermance mixin to the development console.
-
-### ScrollingMixin
+### ScrollingHOC
 
 The scrolling mixin provides methods to scroll a mounted React element or component into the visible viewport of a scrollable area:
 
@@ -37,9 +13,9 @@ The scrolling mixin provides methods to scroll a mounted React element or compon
 * `ScrollingMixin.scrollElementIntoView(ReactOrDomElement)`: use this method from outside an element to scroll it into the visible viewport
 
 ```js
-import {ScrollingMixin} from '@eccenca/gui-elements';
+import { ScrollingHOC } from '@eccenca/gui-elements';
 const Widget = React.createClass({
-    mixins: [ScrollingMixin],
+
     componentDidMount() {
         const options = {
             animationTime: 500, // (optional) integer, time in milliseconds
@@ -54,6 +30,7 @@ const Widget = React.createClass({
     },
     // ...
 });
+export default ScrollingHOC(Widget)
 ```
 
 It is important that the component height can be calculated correctly, `scrollIntoView()` should be used after all contents are loaded.
@@ -63,7 +40,7 @@ It's important to use references to active DOM elements or mounted React compone
 
 ```js
 // use it from outside of the component that needs to be scrolled into the visible viewport
-import {Card, Button, ScrollingMixin} from '@eccenca/gui-elements';
+import {Card, Button, ScrollingHOC} from '@eccenca/gui-elements';
 const Widget = React.createClass({
     handleScroll() {
         const options = {
@@ -71,7 +48,7 @@ const Widget = React.createClass({
             // topOffset: 0, // (optional) integer, pixels to offset top alignment
             // callbackFinished: function(result) {}, // (optional) function, result parameter is currently 'cancelled' or 'completed'
         }
-        ScrollingMixin.scrollElementIntoView(
+        ScrollingHOC.scrollElementIntoView(
             this.myCard,
             options, // optional parameter
         );
