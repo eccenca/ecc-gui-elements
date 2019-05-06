@@ -130,6 +130,53 @@ class TestButtons extends React.PureComponent {
                     <Button raised colored className="mdl-button--clearance">
                         Clear
                     </Button>
+                    <br />
+                    <Button
+                        disabled
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        accent
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        colored
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        raised
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        raised
+                        accent
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                    <Button
+                        disabled
+                        raised
+                        colored
+                        iconName="hide"
+                        tooltip="clear input"
+                        className="mdl-button--clearance"
+                    />
+                <Button raised accent disabled className="mdl-button--clearance">
+                        Clear
+                    </Button>
                 </CardContent>
                 <CardContent>
                     <h5>Buttons with Badges</h5>
@@ -153,6 +200,58 @@ class TestButtons extends React.PureComponent {
                     <Button iconName="sort" badge="16" />
                     <Button iconName="hide" badge="17" />
                     <Button iconName="access_forbidden" badge="18" />
+                </CardContent>
+                <CardContent>
+                    <h5>Buttons with icons</h5>
+                    <DismissiveButton>
+                        <Icon name="cancel" tooltip={false} />
+                        {' '}
+                        Cancel
+                    </DismissiveButton>
+                    <AffirmativeButton>
+                        <Icon name="save" tooltip={false} />
+                        {' '}
+                        Save
+                    </AffirmativeButton>
+                    <DisruptiveButton>
+                        <Icon name="remove" tooltip={false} />
+                        {' '}
+                        Remove
+                    </DisruptiveButton>
+                    <br />
+                    <DismissiveButton raised>
+                        <Icon name="cancel" tooltip={false} />
+                        {' '}
+                        Cancel
+                    </DismissiveButton>
+                    <AffirmativeButton raised>
+                        <Icon name="save" tooltip={false} />
+                        {' '}
+                        Save
+                    </AffirmativeButton>
+                    <DisruptiveButton raised>
+                        <Icon name="remove" tooltip={false} />
+                        {' '}
+                        Remove
+                    </DisruptiveButton>
+                    <br />
+                    <Button>
+                        <Icon name="arrow_prevpage" tooltip={false} />
+                        {' '}
+                        Left
+                    </Button>
+                    <Button>
+                        Mid
+                        {' '}
+                        <Icon name="stop" tooltip={false} />
+                        {' '}
+                        dle
+                    </Button>
+                    <Button>
+                        Right
+                        {' '}
+                        <Icon name="arrow_nextpage" tooltip={false} />
+                    </Button>
                 </CardContent>
                 <CardActions fixed>
                     <FloatingActionList

@@ -7,10 +7,13 @@
 // react-select styles
 @import "~react-select/dist/react-select.css";
 
+$input-height: $input-text-font-size + 2 * $input-text-padding;
+
 .Select-control {
     border-style: none none solid none;
     border-radius: 0;
     border-color: $input-text-bottom-border-color;
+    height: $input-height;
 
     .Select.is-focused > & {
         outline: none;
@@ -23,6 +26,10 @@
         border-color: $input-text-bottom-border-color;
         box-shadow: none;
     }
+}
+
+.Select-arrow-zone {
+    height: $input-height;
 }
 
 .Select--multi {
@@ -38,23 +45,26 @@
 }
 
 .Select-value {
+    line-height: $input-height;
 
     .Select--multi & {
         margin-left: 0;
-        margin-right: 5px;
-        margin-top: 5px;
+        margin-right: $ecc-size-block-whitespace / 4;
+        margin-top: ($input-height - $typo-body-1-font-size) / 2;
         //display: inline-flex;
         //flex-direction: row-reverse;
         border-color: darken($chip-bg-color, 5%);
         background: $chip-bg-color;
-        border-radius: 3px;
+        border-radius: $button-border-radius;
         color: $text-color-primary;
         // white-space: nowrap;
         max-width: 100%;
+        font-size: $typo-caption-font-size;
     }
 
     .Select--single > .Select-control & {
         padding-left: 0;
+        line-height: $input-height;
     }
 
     .Select--single.is-focused:not(.is-pseudo-focused) & {
@@ -80,6 +90,8 @@
 .Select-value-label {
     .Select--multi & {
         padding-left: 0;
+    }
+    .Select-value-icon + & {
         max-width: calc(100% - 1.5rem);
     }
 }
@@ -93,6 +105,7 @@
 .Select-input {
     padding-left: 0;
     padding-right: 35px;
+    height: $input-height;
 
     .Select.is-clearable & {
         padding-right: 55px;

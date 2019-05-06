@@ -45,7 +45,8 @@ class TestTable extends React.Component {
                         >
                             vocabularies
                         </Chip>,
-                        <Button key="btn" onClick={() => {}} iconName="sort" />,
+                        <Button key="btnsort" onClick={() => {}} iconName="sort" />,
+                        <Button key="btnfilter" onClick={() => {}} iconName="filter" badge={99}/>,
                     ],
                 },
                 {

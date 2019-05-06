@@ -14,27 +14,10 @@
 }
 
 .mdl-menu__item {
-    &.has-contextblock {
-        padding-right: calc(1.5rem + 24px);
-    }
-
     width: 100%;
     box-sizing: border-box;
 }
 
-.mdl-menu__item-contextmenu {
-    display: block;
-    position: absolute;
-    height: 32px;
-    right: 16px;
-    top: 50%;
-    margin-top: -16px;
-
-    .material-icons {
-        vertical-align: middle;
-    }
-}
-
-.contextmenu-container {
+.ege-contextmenu__wrapper {
   position: relative;
 }

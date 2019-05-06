@@ -11,6 +11,7 @@ import {
     SelectBox,
     Checkbox,
     Button,
+    DisruptiveButton,
 } from '../../index';
 
 class TestCards extends React.PureComponent {
@@ -48,6 +49,8 @@ class TestCards extends React.PureComponent {
                         Test Cards
                     </CardTitle>
                     <CardMenu>
+                        <Button raised>Action</Button>
+                        <DisruptiveButton>Remove</DisruptiveButton>
                         <ContextMenu>
                             <MenuItem>Menu item 1</MenuItem>
                             <MenuItem>Menu item 2</MenuItem>
@@ -171,6 +174,12 @@ class TestCards extends React.PureComponent {
                     <CardTitle>
                         Test with normal Card included in reduced Card
                     </CardTitle>
+                    <CardMenu>
+                        <ContextMenu>
+                            <MenuItem>Menu item 1</MenuItem>
+                            <MenuItem>Menu item 2</MenuItem>
+                        </ContextMenu>
+                    </CardMenu>
                     <CardContent>
                         <Card shadow={0}>
                             <CardTitle>Normal Card</CardTitle>

@@ -9,11 +9,11 @@
         width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-height: 1.25rem;
+        line-height: 1/$ecc-size-type-levelratio * $ecc-size-typo-base-lineheight;
     }
 
     .Select-option__label {
-        font-size: 1rem;
+        font-size: $typo-body-1-font-size;
         font-weight: 500;
     }
 

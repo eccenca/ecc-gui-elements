@@ -74,8 +74,8 @@ const Widget = React.createClass({
 Style core for all projects.
 Includes libraries from:
 
-- [Material Design Lite](https://github.com/google/material-design-lite/)
-- [Material Design icons](http://google.github.io/material-design-icons/)
+- [Material Lite One](https://github.com/eccenca/material-lite-one)
+- [Material Design icons](http://google.github.io/material-design-icons)
 - [Roboto Font](https://github.com/FontFaceKit/roboto)
 
 ### Include full SCSS into application
@@ -93,6 +93,22 @@ You can import the global default configuration by using it from `@eccenca/gui-e
 ```scss
 @import '~@eccenca/gui-elements/src/configuration.default';
 ```
+
+#### Justify default configuration
+
+Base configuration can be defined by only 7 variables, they need to be set before importing `~@eccenca/gui-elements/src/configuration.default`.
+
+- Colors:
+    - `$ecc-color-primary`:
+    - `$ecc-color-primary-contrast`:
+    - `$ecc-color-accent`:
+    - `$ecc-color-accent-contrast`:
+- Sizes:
+    - `$ecc-size-typo-base`:
+    - `$ecc-size-typo-base-lineheight`:
+    - `$ecc-size-type-levelratio`:
+
+If necessary you can pre-define all SCSS variables with your own values, please have a look into `src/onfiguration.default` and `src/configuration.mdl` in `@eccenca/gui-elements` for a full list, otherwise they are set by default to base colors (e.g. for alerts) or calculated based on the mentioned variables above.
 
 ### Include ready to use CSS
 

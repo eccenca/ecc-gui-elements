@@ -407,12 +407,40 @@ const Page = React.createClass({
 
 ### Footer
 
+```js
+import {Footer} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            // all properties are optional, if one is given then a additional
+            // footer line is generated on top of the other children elements
+            <Footer
+                version="vX.Y.Z"
+                company="Company name"
+                companyUrl="https://company.example.com/"
+                workspace="Workspace title"
+                userName="User account id"
+            >
+                <!--
+                    any children elements
+                    it is recommended to use MDL sub elements for footer here
+                    @see https://getmdl.io/components/index.html##layout-section/footer
+                -->
+            </Footer>
+        )
+    },
+    // ....
+});
+```
+
 #### Properties
-- **company** (string, *required*) - 
-- **version** (string, *required*) - 
-- **companyUrl** (string, *required*) - 
-- **workspace** (string) - 
-- **userName** (string) - 
+- **company** (string, default: '') - string (optional): company name
+- **companyUrl** (string, default: '') - string (optional): URL of company website
+- **version** (string, default: '') - string (optional): version identifier
+- **workspace** (string, default: '') - string (optional): idientifier of current workspace
+- **userName** (string, default: '') - string (optional): identifier of currently logged in user
 
 ### Icon
 
@@ -458,15 +486,18 @@ This component provides a pagination for switching through lists of results
 #### Properties
 - **offset** (number, *required*) - contains actual start value which is shown
 - **limit** (number, *required*) - contains number of max shown elements per page
-- **totalResults** (number, *required*) - contains total number of results
+- **totalResults** (number, default: undefined) - contains total number of results. The value must be positive or undefined.
 - **onChange** (func, *required*) - contains method which is called if offset have to change by user
 - **showElementOffsetPagination** (bool, default: false) - show element offset numbers as pagination information
 - **isTopPagination** (bool, default: false) - define position of page change dropdown/dropup
 - **newLimitText** (string) - text displayed next to limit changer selectbox
 - **limitRange** (array, default: [5, 10, 25, 50, 100, 200]) - possible page sizes
 - **disabled** (bool, default: false) - if true all buttons and inputs fields are disabled and visibility is decreased
-- **showPageInput** (bool, default: false) - the current page number can be edited to jump directly there, works only with `showElementOffsetPagination===false`
+- **showPageInput** (bool, default: false) - the current page number can be edited to jump directly there, works only with
+`showElementOffsetPagination===false`
 - **hideTotalResults** (bool, default: false) - hide info about number of total results
+- **pendingTotal** (bool, default: false) - show a spinner if true and totalResults is not set
+- **className** (string, default: '') - additional class names
 
 ### ProgressButton
 

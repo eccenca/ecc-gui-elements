@@ -99,6 +99,33 @@ class TestSelects extends Component {
                         }}
                         {...selectSettings}
                     />
+                    <h6>Reduced size / without placeholder label</h6>
+                    <SelectBox
+                        reducedSize
+                        placeholder="Sync select box"
+                        options={selectOptions}
+                        name="selectBox1"
+                        value={this.state.selectBox1}
+                        onChange={this.handleSelectChange}
+                        {...selectSettings}
+                    />
+                    <SelectBox
+                        placeholder=""
+                        options={selectOptions}
+                        name="selectBox1"
+                        value={this.state.selectBox1}
+                        onChange={this.handleSelectChange}
+                        {...selectSettings}
+                    />
+                    <SelectBox
+                        reducedSize
+                        placeholder=""
+                        options={selectOptions}
+                        name="selectBox1"
+                        value={this.state.selectBox1}
+                        onChange={this.handleSelectChange}
+                        {...selectSettings}
+                    />
                     <hr />
                     Settings:
                     {_.map(selectSettings, (value, key) => (
@@ -135,6 +162,30 @@ class TestSelects extends Component {
                         inputRestriction={string => string.replace(/^(\?|\*)/, '')}
                         name="autoCompleteBox3"
                         value={this.state.autoCompleteBox3}
+                        onChange={this.handleSelectChange}
+                    />
+                <h6>Reduced size / without placeholder label</h6>
+                    <AutoCompleteBox
+                        reducedSize
+                        placeholder="Sync select box"
+                        options={selectOptions}
+                        name="autoCompleteBox1"
+                        value={this.state.autoCompleteBox1}
+                        onChange={this.handleSelectChange}
+                    />
+                    <AutoCompleteBox
+                        placeholder=""
+                        options={selectOptions}
+                        name="autoCompleteBox1"
+                        value={this.state.autoCompleteBox1}
+                        onChange={this.handleSelectChange}
+                    />
+                    <AutoCompleteBox
+                        reducedSize
+                        placeholder=""
+                        options={selectOptions}
+                        name="autoCompleteBox1"
+                        value={this.state.autoCompleteBox1}
                         onChange={this.handleSelectChange}
                     />
                 </CardContent>

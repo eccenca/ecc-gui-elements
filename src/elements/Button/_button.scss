@@ -9,8 +9,11 @@
         color: to_color($palette-red-800);
     }
 
-    &.mdl-button--clearance:not(.mdl-button--raised) {
-        opacity: 0.39;
+    &.mdl-button--clearance:not(.mdl-button--raised):not([disabled]) {
+
+        &.mdl-button--icon {
+            opacity: 0.61;
+        }
 
         &:focus, &:hover, &:active {
             opacity: 1;
@@ -23,8 +26,17 @@
         overflow: visible;
     }
 
-    .material-icons.mdl-badge[data-badge]:after {
-        right: -10px;
+    .material-icons {
+        vertical-align: text-bottom;
+
+        &.mdl-badge[data-badge]:after {
+            right: -10px;
+        }
+    }
+
+    &--accent.mdl-badge[data-badge]:after,
+    &--accent .material-icons.mdl-badge[data-badge]:after {
+        border: 1px solid $badge-color;
     }
 }
 
@@ -34,7 +46,7 @@
         color: to_color($palette-red-50);
     }
 
-    &.mdl-button--clearance {
+    &.mdl-button--clearance:not([disabled]) {
         &:focus, &:hover, &:active {
             background-color: $button-primary-color;
             color: to_color($palette-red-800);
@@ -43,6 +55,7 @@
 }
 
 .mdl-button--fab {
-    width: 56px;
-    height: 56px;
+    width: $button-fab-size;
+    height: $button-fab-size;
+    min-width: unset;
 }

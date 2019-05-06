@@ -7,17 +7,16 @@
 .ecc-gui-elements__pagination {
     @include typo-body-1;
     font-size: $data-table-font-size;
-    line-height: 1.5rem; // like in table, TODO: use value from configuration
     // flex-grow: 1;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     // justify-content: flex-end;
     align-items: center;
-    padding: $ecc-size-inlineelement-padding-vertical $ecc-size-inlineelement-padding-horizontal;
+    padding: $ecc-size-block-whitespace/8 $ecc-size-block-whitespace/4;
 
     .mdl-button {
-        margin: calc((32px - 1.5rem) / -4) calc((32px - 1.5rem) / -2);
+        margin: calc((#{$button-height} - #{$typo-body-1-line-height * 1rem}) / -4) calc((#{$button-height} - #{$typo-body-1-line-height * 1rem}) / -2);
     }
 }
 
@@ -26,27 +25,24 @@
 }
 
 .ecc-gui-elements__pagination-summary {
-    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+    margin-right: $typo-body-1-margin-bottom / 2;
 }
 
 .ecc-gui-elements__pagination-limit {
     display: inline-flex;
     flex-wrap: nowrap;
     align-items: center;
-    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+    margin-right: $typo-body-1-margin-bottom / 2;
 }
 
 .ecc-gui-elements__pagination-limit_text {
-    margin-right: 0.5 * $ecc-size-blockelement-margin-horizontal;
+    margin-right: $typo-body-1-margin-bottom / 2;
     white-space: nowrap;
 }
 
 .ecc-gui-elements__pagination-limit_size {
     display: inline-block;
     vertical-align: middle;
-
-    .Select {
-    }
 
     .Select-control {
         height: auto;
@@ -56,7 +52,6 @@
     .Select-value {
         width: auto;
         height: auto;
-        line-height: inherit !important;
     }
 
     .Select-input {
@@ -79,7 +74,7 @@
     min-width: 0;
     font-size: inherit;
     vertical-align: middle;
-    margin: 0 $ecc-size-blockelement-margin-horizontal / 2;
+    margin: 0 $typo-body-1-margin-bottom / 2;
     padding: 0;
     width: auto;
 
@@ -89,7 +84,15 @@
         text-align: center;
     }
 
+    .mdl-textfield__label::after {
+        bottom: 0;
+    }
+
     .mdl-textfield__error {
         white-space: nowrap;
     }
+}
+
+.ecc-gui-elements__pagination-processinfo {
+    margin-left: $ecc-size-block-whitespace / 2;
 }

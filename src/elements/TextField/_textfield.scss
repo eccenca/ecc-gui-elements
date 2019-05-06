@@ -7,6 +7,10 @@
 .mdl-textfield--reduced {
     padding-bottom: 0;
 
+    &.mdl-textfield--missinglabel {
+        padding-top: 0;
+    }
+
     .mdl-textfield__label:after {
         bottom: 0;
     }
@@ -17,16 +21,16 @@
 
     .mdl-textfield__input {
         box-sizing: border-box;
-        padding-right: 32px;
+        padding-right: $button-height;
     }
 }
 
 .mdl-input__clearable-holder {
     display: block;
     left: 100%;
-    margin-left: -32px;
+    margin-left: -1 * $button-height;
     position: relative;
-    top: 20px;
+    top: $input-text-vertical-spacing;
 
     & > div[style] {
         display: block !important;
@@ -39,7 +43,7 @@
 }
 
 textarea.mdl-textfield__input {
-    margin-top: 4px;
+    margin-top: $input-text-padding;
     padding-top: 0;
 }
 
@@ -58,6 +62,12 @@ textarea.mdl-textfield__input {
 }
 
 .mdl-textfield__label {
+    .mdl-textfield--floating-label.is-focused &,
+    .mdl-textfield--floating-label.is-dirty &,
+    .mdl-textfield--floating-label.has-placeholder & {
+        top: $input-text-vertical-spacing - $input-text-floating-label-fontsize;
+    }
+
     .material-icons {
         font-size: 1.25em;
         vertical-align: text-bottom;

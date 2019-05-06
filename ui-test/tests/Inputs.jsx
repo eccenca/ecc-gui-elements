@@ -225,11 +225,42 @@ Line 2
                         }}
                     />
                     <TextField
+                        disabled
+                        stretch
+                        reducedSize
+                        name="textInput[2]"
+                        label="Clearable input and disabled"
+                        value={this.state.textInput[2]}
+                        onChange={this.updateValue}
+                        onClearValue={() => {
+                            const currentState = this.state;
+                            currentState.textInput[2] = '';
+                            this.setState(currentState);
+                        }}
+                    />
+                    <TextField
+                        stretch
+                        reducedSize
+                        name="textInput[2]"
+                        placeholder="No label and reduced size"
+                        value={this.state.textInput[2]}
+                        onChange={this.updateValue}
+                    />
+                    <TextField
                         name="textInput[0]"
                         value={this.state.textInput[0]}
                         label="Test Input"
                         error="Something went wrong, so this error is shown."
                         onChange={this.updateValue}
+                    />
+                    <h5>Expandables</h5>
+                    <TextField
+                        name="textInput[2]"
+                        value={this.state.textInput[2]}
+                        label="Expandable test field"
+                        onChange={this.updateValue}
+                        expandable
+                        expandableIcon="search"
                     />
                     <h5>Datefields</h5>
                     date only fields (8th, February 2017)

@@ -13,7 +13,7 @@ $font_root: "fonts" !default;
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: $typo-icon-font-size;  /* Preferred icon size */
   display: inline-block;
   width: 1em;
   height: 1em;

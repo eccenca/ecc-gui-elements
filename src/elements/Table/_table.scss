@@ -30,13 +30,9 @@
     td, th {
         & > .mdl-chip,
         & > div[class] .mdl-chip {
-            & {
-                height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-                line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-                margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
-                margin-bottom: 2 * $ecc-size-inlineelement-padding-vertical;
-                margin-right: $ecc-size-inlineelement-padding-vertical;
-            }
+            height: calc(#{$chip-height} - #{$data-table-column-padding});
+            line-height: calc(#{$chip-height} - #{$data-table-column-padding});
+            margin-top: -1 * $data-table-column-padding / 2;
         }
     }
     &:not(.mdl-data-table--multiline) {
@@ -47,9 +43,7 @@
                 td:not(.mdl-data-table--multiline) {
                     & > .mdl-chip,
                     & > div[class] .mdl-chip {
-                        & {
-                            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
-                        }
+                        margin-bottom: -1 * $data-table-column-padding / 2;
                     }
                 }
             }
@@ -58,7 +52,7 @@
     thead {
         .mdl-chip {
             margin-right: 0;
-            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+            margin-bottom: -1 * $data-table-column-padding / 2;
         }
     }
 
@@ -67,66 +61,37 @@
         & > .mdl-button,
         & > div[style] > .mdl-button,
         & > .contextmenu-container > .mdl-button {
-            font-size: inherit;
-            height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-            line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-            margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
-            margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
+            height: calc(#{$button-height} - #{$data-table-column-padding});
+            line-height: calc(#{$button-height} - #{$data-table-column-padding});
+            margin-top: -1 * $data-table-column-padding / 2;
+            margin-bottom: -1 * $data-table-column-padding / 2;
             white-space: nowrap;
         }
         & > .mdl-button--icon,
         & > div[style] > .mdl-button--icon,
         & > .contextmenu-container > .mdl-button--icon {
-            min-width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-            width: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
+            min-width: calc(#{$button-height} - #{$data-table-column-padding});
+            width: calc(#{$button-height} - #{$data-table-column-padding});
         }
 
         .material-icons {
             vertical-align: middle;
         }
     }
-    thead {
+    thead th {
+        & > .mdl-button--icon,
+        & > div[style] > .mdl-button--icon,
+        & > .contextmenu-container > .mdl-button--icon {
+            min-width: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            width: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            height: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            line-height: calc(#{$button-height/$ecc-size-type-levelratio} - #{$data-table-column-padding});
+            margin-top: -1 * $data-table-column-padding / 2;
+            margin-bottom: -1 * $data-table-column-padding / 2;
+        }
+
         .material-icons {
-            font-size: inherit;
-        }
-    }
-    tbody {
-        .material-icons {
-            font-size: 1.5rem; // TODO calculate with config values
-        }
-    }
-
-    // Justify checkbox select inputs
-    .mdl-checkbox {
-        font-size: inherit;
-        height: 1.5em; // TODO calculate with config values
-
-        .mdl-checkbox__input,
-        .mdl-checkbox__label {
-            font-size: inherit;
-            line-height: 1.5em;
-            vertical-align: middle;
-        }
-
-        .mdl-checkbox__box-outline,
-        .mdl-checkbox__focus-helper {
-            top: calc((1.5em - 16px) / 2);
-        }
-    }
-
-    // Justify radio select inputs
-    .mdl-radio {
-        font-size: inherit;
-        height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-        line-height: calc(1.5em + 2 * #{$ecc-size-inlineelement-padding-vertical}); // TODO calculate with config values
-        margin-top: -1 * $ecc-size-inlineelement-padding-vertical;
-        margin-bottom: -1 * $ecc-size-inlineelement-padding-vertical;
-
-        .mdl-radio__input,
-        .mdl-radio__label {
-            font-size: inherit;
-            //line-height: 1.5em;
-            vertical-align: middle;
+            font-size: $typo-body-1-font-size;
         }
     }
 }

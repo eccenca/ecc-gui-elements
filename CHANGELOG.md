@@ -3,24 +3,70 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
-### Changed 
+
+TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+
+## [4.2.3] 2019-04-29
+
+### Fixed
+- justify `SelectBox` behaviour to other inout input fields, so focused state with placeholder and reduced size option work correctly
+
+## [4.2.2] 2019-04-26
+
+### Changed
+- remove upper textfield padding when it is visually reduced and misses a label
+- adjust Card title size
+
+### Fixed
+- prevent line breaks on multiselect values without clearance button
+- fix state of clearance buttons on disabled textfields
+- fix hover effect on disable clearance buttons
+- fix maximum value of table cell width for very large displays
+- `AutoCompleteBox` error in highlighting when using chars which need to be escaped
+
+## [4.2.1] 2019-04-11
+
+### Added
+- add canonical definitions for reste and back buttons
+
+### Changed
+- increase visibility of clearance buttons to prevent mismatch with disabled buttons
+
+### Fixed
+- improve position of icons in normal buttons
+
+## [4.2.0] 2019-04-11
+
+### Changed
+- prop `totalResults` can be undefined if the value is unknown.
+
+### Fixed
+- calculation of offset when using the page input field  
+
+## [4.0.0] 2019-03-28
+### Changed
 - Prepared component for react 16
+- rules for sizes and colors now build on available configuration vars
+- clean up `<Footer/>` sub elements
 
 ### Removed
 - messagebus
 - PerformanceMixin
 - MaterialMixin
 - Nothing component
- 
+
 ### Added
 - ScrollingHOC
 - ScrollingHOC and usage ScrollingHOC in README
+- include full configuration stack of MDL variables, all sizes there are calculated based on very few own base configurations: `$ecc-size-typo-base`, `$ecc-size-typo-base-lineheight` and `$ecc-size-type-levelratio`, see README.md under "Justify default configuration"
+- allow children in `<Footer/>` element
+
 ### Breaking
 - mixin replaced with hocs
 
 ## [3.5.0] 2019-03-20
 ### Added
-- Footer now contain the logged in user name 
+- Footer now contain user credential info
 
 ## [3.4.2] 2019-03-12
 

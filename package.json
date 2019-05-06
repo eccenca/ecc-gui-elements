@@ -1,6 +1,6 @@
 {
   "name": "@eccenca/gui-elements",
-  "version": "3.5.0",
+  "version": "4.2.3",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -16,20 +16,13 @@
     "docs": "gulp docs",
     "precommit": "lint-staged && npm run docs"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eccenca/ecc-gui-elements.git"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  },
   "bugs": {
     "url": "https://github.com/eccenca/ecc-gui-elements/issues"
   },
   "author": "eccenca GmbH <opensource@eccenca.com> (http://eccenca.com)",
   "license": "MIT",
   "dependencies": {
-    "@eccenca/material-design-lite": "^1.3.0-beta3",
+    "@eccenca/material-design-lite": "^2.0.0",
     "classnames": "^2.2.5",
     "lodash": "^4.16.4",
     "moment": "^2.20.1",
@@ -40,6 +33,13 @@
     "react-select": "1.0.1",
     "sassyjson": "^1.1.8",
     "scroll-into-view": "^1.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eccenca/ecc-gui-elements.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
     "react": "*",
