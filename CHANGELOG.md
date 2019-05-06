@@ -57,6 +57,7 @@ TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security se
 
 ### Added
 - ScrollingHOC
+- ScrollingHOC and usage ScrollingHOC in README
 - include full configuration stack of MDL variables, all sizes there are calculated based on very few own base configurations: `$ecc-size-typo-base`, `$ecc-size-typo-base-lineheight` and `$ecc-size-type-levelratio`, see README.md under "Justify default configuration"
 - allow children in `<Footer/>` element
 
@@ -65,7 +66,7 @@ TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security se
 
 ## [3.5.0] 2019-03-20
 ### Added
-- Footer now contain the logged in user name
+- Footer now contain user credential info
 
 ## [3.4.2] 2019-03-12
 
