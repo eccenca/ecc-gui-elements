@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [4.2.4] 2019-05-27
+
+### Fixed
+- change rendering styles of clearance button in TextField to prevent strange behaviour of table wrappers
+- fix line breaks in tooltips within table cells
+
 ## [4.2.3] 2019-04-29
 
 ### Fixed
@@ -53,6 +59,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Added
 - ScrollingHOC
+- ScrollingHOC and usage ScrollingHOC in README
 - include full configuration stack of MDL variables, all sizes there are calculated based on very few own base configurations: `$ecc-size-typo-base`, `$ecc-size-typo-base-lineheight` and `$ecc-size-type-levelratio`, see README.md under "Justify default configuration"
 - allow children in `<Footer/>` element
 
@@ -61,7 +68,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [3.5.0] 2019-03-20
 ### Added
-- Footer now contain the logged in user name
+- Footer now contain user credential info
 
 ## [3.4.2] 2019-03-12
 

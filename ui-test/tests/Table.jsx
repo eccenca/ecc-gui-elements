@@ -17,6 +17,7 @@ import {
     ContextMenu,
     MenuItem,
     Icon,
+    TextField,
 } from '../../index';
 
 // test styles
@@ -381,6 +382,52 @@ a
 nested
                                                     <br />
 table.
+                                                </TableCell>
+                                            </TableRow>
+                                        </TableBody>
+                                    </Table>
+                                </TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                    <h5>Tooltip and Clearance button test</h5>
+                    <Table fullWidth scrollTableOverflow>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>
+                                    <Table fullWidth>
+                                        <TableBody>
+                                            <TableRow>
+                                                <TableCell isHead>
+                                                    This is a medium long label
+                                                    {' '}
+                                                    <Icon
+                                                        name="help"
+                                                        tooltip="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
+                                                    />
+                                                </TableCell>
+                                                <TableCell>
+                                                    <TextField
+                                                        value="clearance test"
+                                                        onClearValue={() => (alert('clearance'))}
+                                                    />
+                                                </TableCell>
+                                            </TableRow>
+                                            <TableRow>
+                                                <TableCell isHead>
+                                                    Another medium long label
+                                                    {' '}
+                                                    <Icon
+                                                        name="help"
+                                                        tooltip="Lorem ipsum dolor sit amet, consetetur sadipscing elitr."
+                                                    />
+                                                </TableCell>
+                                                <TableCell>
+                                                    <TextField
+                                                        reducedSize
+                                                        value="clearance test 2"
+                                                        onClearValue={() => (alert('clearance'))}
+                                                    />
                                                 </TableCell>
                                             </TableRow>
                                         </TableBody>
