@@ -4,7 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- change rendering styles of clearance button in TextField to prevent strange behaviour of table wrappers
+- fix line breaks in tooltips within table cells
 
 ## [4.2.3] 2019-04-29
 

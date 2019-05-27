@@ -26,19 +26,24 @@
 }
 
 .mdl-input__clearable-holder {
-    display: block;
-    left: 100%;
-    margin-left: -1 * $button-height;
-    position: relative;
+    position: absolute;
+    width: $button-height;
+    height: $button-height;
+    right: 0;
     top: $input-text-vertical-spacing;
+
+    .mdl-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 
     & > div[style] {
         display: block !important;
     }
 
-    .mdl-textfield--multiline & {
-        position: absolute;
-        top: 68px;
+    .mdl-textfield--reduced.mdl-textfield--missinglabel & {
+        top: 0;
     }
 }
 

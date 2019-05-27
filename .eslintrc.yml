@@ -77,7 +77,7 @@ rules:
     }
   ]
   # limit the max amount of conditionals
-  complexity: ["error", { "max": 4 }]
+  complexity: ["error", { "max": 14 }]
   arrow-parens: [2, "as-needed"]
   react/jsx-no-bind: ["warn"]
   react/forbid-prop-types: ["warn"]
@@ -91,3 +91,23 @@ rules:
   # disable checks as default eslint indent rule already do it
   react/jsx-indent: ["off"]
   react/jsx-indent-props: ["off"]
+
+overrides: [
+{
+  files: [
+    "**/*.test.js",
+    "**/*.test.jsx"
+  ],
+  env: {
+    jest: true,
+  },
+  plugins: ["jest"],
+  rules: {
+    jest/no-disabled-tests: "warn",
+    jest/no-focused-tests: "error",
+    jest/no-identical-title: "error",
+    jest/prefer-to-have-length: "warn",
+    jest/valid-expect: "error"
+  }
+}
+]
