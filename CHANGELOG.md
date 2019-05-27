@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [4.2.4] 2019-05-27
 
 ### Fixed
 - change rendering styles of clearance button in TextField to prevent strange behaviour of table wrappers
