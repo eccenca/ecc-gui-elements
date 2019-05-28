@@ -41,6 +41,7 @@ class TestSelects extends Component {
                 clearable: false,
                 multi: true,
                 creatable: false,
+                disabled: false,
             },
             selectBox1: _.head(selectOptions),
             selectBox2: [],
