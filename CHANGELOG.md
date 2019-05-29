@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- use `not-allowed` cursor on disabled select inputs to align it with disabled textfields
 
 ## [4.2.4] 2019-05-27
 
