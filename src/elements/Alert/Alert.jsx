@@ -13,6 +13,7 @@ const Alert = props => {
         iconDismiss,
         type,
         vertSpacing,
+        reducedHeight,
         children,
         ...otherProps
     } = props;
@@ -26,12 +27,12 @@ const Alert = props => {
             'mdl-alert--danger': type === 'error',
             'mdl-alert--border': border,
             'mdl-alert--spacing': vertSpacing,
+            'mdl-alert--reducedheight': reducedHeight,
             'mdl-alert--dismissable': typeof handlerDismiss !== 'undefined',
         },
         className
     );
 
-    // TODO: add onclick event to remove alert
     let dismiss = false;
     if (handlerDismiss) {
         dismiss = (
@@ -62,6 +63,7 @@ Alert.propTypes = {
     type: PropTypes.string,
     border: PropTypes.bool,
     vertSpacing: PropTypes.bool,
+    reducedHeight: PropTypes.bool,
 };
 
 Alert.displayName = 'Alert';

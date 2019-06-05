@@ -55,7 +55,6 @@
 
     &.mdl-alert--dismissable {
 
-        padding-right: 32px;
         position: relative;
 
         .mdl-alert__dismiss {
@@ -81,4 +80,14 @@
     & > *:last-child {
         margin-bottom: 0;
     }
+
+    .mdl-alert--dismissable & {
+        padding-right: calc(#{$button-icon-size} + #{$ecc-size-block-whitespace/2});
+    }
+
+    .mdl-alert--reducedheight & {
+        max-height: 50vh;
+        overflow: auto;
+    }
+
 }

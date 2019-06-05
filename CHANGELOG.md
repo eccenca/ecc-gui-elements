@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
+### Added
+- add a `reducedHeight` option to `<Alert/>` element, forcing it to be not larger than 50% of the viewport 
+
 ### Fixed
 - use `not-allowed` cursor on disabled select inputs to align it with disabled textfields
 - use input elements with reduced vertical margins in pagination to prevent too much white space
