@@ -257,6 +257,7 @@ class Pagination extends Component {
             pageInfo = [
                 <span>Page</span>,
                 <TextField
+                    reducedSize
                     className="ecc-gui-elements__pagination__pagenumber"
                     onKeyPress={this.handleKeyPress}
                     disabled={disabled === true}
@@ -328,6 +329,7 @@ class Pagination extends Component {
                         </span>
                         <div className="ecc-gui-elements__pagination-limit_size">
                             <SelectBox
+                                reducedSize
                                 value={limit}
                                 options={limitRange}
                                 clearable={false}
