@@ -6,6 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ### Fixed
 - use `not-allowed` cursor on disabled select inputs to align it with disabled textfields
+- use input elements with reduced vertical margins in pagination to prevent too much white space
 
 ## [4.2.4] 2019-05-27
 
