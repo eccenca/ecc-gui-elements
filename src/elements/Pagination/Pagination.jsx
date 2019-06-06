@@ -86,6 +86,7 @@ class Pagination extends Component {
         pendingTotal: false,
         totalResults: undefined,
         className: '',
+        newLimitText: '',
     };
 
     constructor(props) {
@@ -106,9 +107,9 @@ class Pagination extends Component {
 
     // trigger event to show first results
     onClickFirst() {
-        const { limit, totalResults } = this.props;
+        const { limit, totalResults, onChange } = this.props;
 
-        this.props.onChange(
+        onChange(
             this.calculatePagination({
                 limit,
                 offset: 0,
@@ -119,9 +120,14 @@ class Pagination extends Component {
 
     // trigger event to show previous results (regarding to limit)
     onClickBack() {
-        const { limit, totalResults, offset } = this.props;
+        const {
+            limit,
+            totalResults,
+            offset,
+            onChange,
+        } = this.props;
 
-        this.props.onChange(
+        onChange(
             this.calculatePagination({
                 limit,
                 offset: offset < limit ? 0 : offset - limit,
@@ -132,9 +138,14 @@ class Pagination extends Component {
 
     // trigger event to show next results (regarding to limit)
     onClickForward() {
-        const { limit, totalResults, offset } = this.props;
+        const {
+            limit,
+            totalResults,
+            offset,
+            onChange,
+        } = this.props;
 
-        this.props.onChange(
+        onChange(
             this.calculatePagination({
                 limit,
                 offset: offset + limit,
@@ -145,9 +156,9 @@ class Pagination extends Component {
 
     // trigger event to show last results (regarding to limit)
     onClickLast() {
-        const { limit, totalResults } = this.props;
+        const { limit, totalResults, onChange } = this.props;
 
-        this.props.onChange(
+        onChange(
             this.calculatePagination({
                 limit,
                 offset: (_.ceil(totalResults / limit) - 1) * limit,
@@ -157,9 +168,9 @@ class Pagination extends Component {
     }
 
     onNewLimit(limit) {
-        const { offset, totalResults } = this.props;
+        const { offset, totalResults, onChange } = this.props;
 
-        this.props.onChange(
+        onChange(
             this.calculatePagination({
                 limit,
                 offset: _.floor(offset / limit) * limit,
@@ -198,14 +209,14 @@ class Pagination extends Component {
     handleKeyPress(e) {
         const newPage = parseInt(e.target.value, 10);
         if (e.charCode === 13) {
-            const { limit, totalResults } = this.props;
+            const { limit, totalResults, onChange } = this.props;
             const { totalPages } = this.calculatePagination(this.props);
 
             if (newPage < 1 || newPage > totalPages) {
                 return;
             }
 
-            this.props.onChange(
+            onChange(
                 this.calculatePagination({
                     limit,
                     offset: limit * (newPage - 1),
@@ -222,15 +233,20 @@ class Pagination extends Component {
             showElementOffsetPagination,
             offset,
             limit,
+            limitRange,
             totalResults,
             newLimitText,
             isTopPagination,
             disabled,
             className,
             pendingTotal,
+            showPageInput,
+            hideTotalResults,
         } = this.props;
 
-        const limitRange = _.chain(this.props.limitRange)
+        const { customPage } = this.state;
+
+        const limitRangeSorted = _.chain(limitRange)
             .push(limit)
             .filter(_.isNumber)
             .sortBy()
@@ -245,18 +261,20 @@ class Pagination extends Component {
             onFirstPage,
         } = this.calculatePagination(this.props);
 
-        const pageField = !_.isUndefined(this.state.customPage)
-            ? (isNaN(this.state.customPage) ? 0 : this.state.customPage)
+        const pageField = !_.isUndefined(customPage)
+            ? (isNaN(customPage) ? 0 : customPage)
             : currentPage;
 
         const valid = pageField > 0 && pageField <= totalPages;
 
         let pageInfo = '';
 
-        if (showElementOffsetPagination === false && this.props.showPageInput && !_.isUndefined(totalResults)) {
+        if (showElementOffsetPagination === false && showPageInput && !_.isUndefined(totalResults)) {
             pageInfo = [
-                <span>Page</span>,
+                <span key="PageText">Page</span>,
                 <TextField
+                    key="PageNumber"
+                    reducedSize
                     className="ecc-gui-elements__pagination__pagenumber"
                     onKeyPress={this.handleKeyPress}
                     disabled={disabled === true}
@@ -274,12 +292,12 @@ class Pagination extends Component {
                         this.onChangePage(e.value);
                     }}
                 />,
-                <span>
+                <span key="PageText2">
                     {'of '}
                     {totalPages.toLocaleString()}
                 </span>,
             ];
-        } else if (showElementOffsetPagination === false && !this.props.showPageInput && !_.isUndefined(totalResults)) {
+        } else if (showElementOffsetPagination === false && !showPageInput && !_.isUndefined(totalResults)) {
             pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
         } else if (showElementOffsetPagination === false && _.isUndefined(totalResults)) {
             pageInfo = `Page ${currentPage.toLocaleString()}`;
@@ -308,7 +326,7 @@ class Pagination extends Component {
         return (
             <div className={paginationClassNames}>
                 {(
-                    this.props.hideTotalResults === false
+                    hideTotalResults === false
                     && !_.isUndefined(totalResults)
 
                 ) && (
@@ -321,15 +339,16 @@ class Pagination extends Component {
 .
                     </span>
                 )}
-                {newLimitText && !_.isEmpty(limitRange) ? (
+                {newLimitText && !_.isEmpty(limitRangeSorted) ? (
                     <div className="ecc-gui-elements__pagination-limit">
                         <span className="ecc-gui-elements__pagination-limit_text">
                             {newLimitText}
                         </span>
                         <div className="ecc-gui-elements__pagination-limit_size">
                             <SelectBox
+                                reducedSize
                                 value={limit}
-                                options={limitRange}
+                                options={limitRangeSorted}
                                 clearable={false}
                                 searchable={false}
                                 onChange={this.onNewLimit}

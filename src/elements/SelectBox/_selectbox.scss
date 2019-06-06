@@ -26,6 +26,14 @@ $input-height: $input-text-font-size + 2 * $input-text-padding;
         border-color: $input-text-bottom-border-color;
         box-shadow: none;
     }
+
+    .Select.is-disabled > & {
+        cursor: not-allowed;
+
+        .Select-value-label {
+            cursor: not-allowed;
+        }
+    }
 }
 
 .Select-arrow-zone {

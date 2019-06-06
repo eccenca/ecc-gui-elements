@@ -155,15 +155,61 @@ const Page = React.createClass({
 
 ### Alert
 
+```js
+import { Alert, Error, Info, Success, Warning } from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    onDismiss(){ },
+    render() {
+        return (
+            <Alert
+                border={true} // true|false, default is false
+                vertSpacing={true} // true|false, default is false
+                handlerDismiss={this.onDismiss} // onClick handler, necessary if icon button should be rendered
+                labelDismiss="label for handler" // string, default: "Hide"
+                iconDismiss="expand_less" // string, default: "close"
+                reducedHeight={true} // true|false, default is false
+            >
+                <p>This is a</p>
+                <p>untyped message.</p>
+            </Alert>
+            <Info border vertSpacing>
+                info
+            </Info>
+            <Success border vertSpacing>
+               success
+            </Success>
+            <Warning border vertSpacing>
+                warning
+            </Warning>
+            <Error
+                handlerDismiss={this.onDismiss}
+                labelDismiss="remove error"
+                vertSpacing
+            >
+                error with tooltip
+            </Error>
+        )
+    },
+    // ....
+});
+```
+
 #### Properties
 - **children** (node, *required*) - 
-- **className** (string) - 
-- **handlerDismiss** (func) - 
-- **labelDismiss** (string) - 
-- **iconDismiss** (string) - 
-- **type** (string) - 
-- **border** (bool) - 
-- **vertSpacing** (bool) - 
+- **className** (string) - string (optional): additional CSS class name
+- **handlerDismiss** (func) - function (optional): handler that provides dismiss functionality for the message, this it not handled by the
+    element itself
+- **labelDismiss** (string) - string (optional): tooltip text that is shown on dismiss button, default is 'Hide'
+- **iconDismiss** (string) - string (optional): icon that is used for dismiss button, default icon is `hide`
+- **type** (string) - string (optional): type of the alert message, one of `info`, `success`, `warning` and `error`, otherwise the
+    alert is not typed and appeares without special color scheme
+- **border** (bool) - boolean (optional): adds a small border to the alert message, default it appears without border
+- **vertSpacing** (bool) - boolean (optional): adds top and bottom margins to the alert message, default it appears without additional
+    whitespace around it
+- **reducedHeight** (bool) - boolean (optional): forces alert message to be not larger than 50% of the viewport and adds scrollbars on
+    overflows, otherwise it takes as much vertical space as content needs
 
 ### AutoCompleteBox
 
@@ -490,7 +536,7 @@ This component provides a pagination for switching through lists of results
 - **onChange** (func, *required*) - contains method which is called if offset have to change by user
 - **showElementOffsetPagination** (bool, default: false) - show element offset numbers as pagination information
 - **isTopPagination** (bool, default: false) - define position of page change dropdown/dropup
-- **newLimitText** (string) - text displayed next to limit changer selectbox
+- **newLimitText** (string, default: '') - text displayed next to limit changer selectbox
 - **limitRange** (array, default: [5, 10, 25, 50, 100, 200]) - possible page sizes
 - **disabled** (bool, default: false) - if true all buttons and inputs fields are disabled and visibility is decreased
 - **showPageInput** (bool, default: false) - the current page number can be edited to jump directly there, works only with
