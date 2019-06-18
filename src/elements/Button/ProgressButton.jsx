@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import Tooltip from '../Tooltip/Tooltip';
 import Button from './Button';
@@ -37,11 +36,9 @@ You can use `progress` option directly on `<AffirmativeButton/>`, `<DismissiveBu
 */
 const ProgressButton = props => {
     const {
-        children, className, tooltip, progress, lastUpdate, ...otherProps
+        children, tooltip, progress, lastUpdate, ...otherProps
     } = props;
     // template rendering
-
-    const classes = classNames('mdl-progress mdl-js-progress', className);
 
     let progressbar = (
         <Progressbar
@@ -52,15 +49,13 @@ const ProgressButton = props => {
     );
 
     if (typeof tooltip !== 'undefined' && tooltip) {
-        const lastUpdate = lastUpdate
-            ? `${lastUpdate} `
-            : '';
+        const infoUpdate = lastUpdate ? `${lastUpdate} ` : '';
         progressbar = (
             <Tooltip
                 label={
                     progress
-                        ? `${lastUpdate}${tooltip}: ${progress}%`
-                        : lastUpdate + tooltip
+                        ? `${infoUpdate}${tooltip}: ${progress}%`
+                        : infoUpdate + tooltip
                 }
             >
                 {progressbar}
@@ -70,7 +65,7 @@ const ProgressButton = props => {
 
     // render button
     return (
-        <Button className={classes} raised disabled {...otherProps}>
+        <Button {...otherProps} raised disabled>
             {children}
             {progressbar}
         </Button>

@@ -2,10 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [4.3.1] 2019-06-18
+
+### Fixed
+- repair progress buttons to make them appear correctly
+
 ## [4.3.0] 2019-06-06
 
 ### Added
-- add a `reducedHeight` option to `<Alert/>` element, forcing it to be not larger than 50% of the viewport 
+- add a `reducedHeight` option to `<Alert/>` element, forcing it to be not larger than 50% of the viewport
 
 ### Fixed
 - use `not-allowed` cursor on disabled select inputs to align it with disabled textfields
