@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [4.3.1] 2019-06-18
 
 ### Fixed
 - repair progress buttons to make them appear correctly
