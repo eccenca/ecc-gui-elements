@@ -16,9 +16,10 @@ class TestProgressbar extends React.Component {
             <Card stretch={false} shadow={4}>
                 <CardTitle documentLevel="h4">Test Progressbars</CardTitle>
                 <CardContent>
+                    <h5>Progressbar</h5>
                     <Progressbar progress={85} />
                     <Progressbar appearGlobal indeterminate />
-                    <CardContent />
+                    <h5>Progressbutton</h5>
                     <ProgressButton
                         raised
                         disabled={false}
@@ -27,6 +28,7 @@ class TestProgressbar extends React.Component {
                         Run
                     </ProgressButton>
                     <ProgressButton
+                        className="testbutton"
                         disruptive
                         disabled={false}
                         tooltip="working"
