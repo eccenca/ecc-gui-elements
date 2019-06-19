@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
-
 import PropTypes from 'prop-types';
+
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 
 class FloatingActionList extends Component {
-     static displayName = 'FloatingActionList';
+    static displayName = 'FloatingActionList';
 
-     static propTypes = {
-         actions: PropTypes.array.isRequired,
-         className: PropTypes.string,
-         fabSize: PropTypes.string.isRequired,
-         fixed: PropTypes.bool,
-         iconName: PropTypes.string,
-     };
+    static propTypes = {
+        actions: PropTypes.array.isRequired,
+        className: PropTypes.string,
+        fabSize: PropTypes.string,
+        fixed: PropTypes.bool,
+        iconName: PropTypes.string,
+    };
 
     static defaultProps = {
         fabSize: 'large',
@@ -25,10 +25,32 @@ class FloatingActionList extends Component {
 
     constructor(props) {
         super(props);
+
         this.state = {
             activeFAB: false,
         };
+
         this.handleFAB = this.handleFAB.bind(this);
+
+        this.refFAB = null;
+        this.setRefFAB = element => {
+            this.refFAB = element;
+        };
+        this.handleOutsideClick = () => {
+            // close the fab button context menu whenever not the fab button is clieked
+            document.addEventListener('click', event => {
+                if (this.state.activeFAB === false) return;
+                if (!this.refFAB.contains(event.target)) {
+                    this.setState({
+                        activeFAB: false,
+                    });
+                }
+            });
+        };
+    }
+
+    componentDidMount() {
+        this.handleOutsideClick();
     }
 
     componentWillReceiveProps() {
@@ -66,12 +88,13 @@ class FloatingActionList extends Component {
         const floatinglist = (
             <div className={classes} {...otherProps}>
                 <Button
+
                     className={classNames('ecc-floatingactionlist__button', {
                         'is-active': this.state.activeFAB === true,
                     })}
                     iconName={
                         actions.length > 1 || !actions[0].icon
-                            ? iconName
+                            ? (this.state.activeFAB ? 'hide' : iconName)
                             : actions[0].icon
                     }
                     fabSize={fabSize}
@@ -102,26 +125,17 @@ class FloatingActionList extends Component {
                 ) : (
                     false
                 )}
-                {actions.length > 1 && this.state.activeFAB ? (
-                    <div
-                        className="ecc-floatingactionlist__menu--backdrop"
-                        onMouseOver={this.handleFAB}
-                    />
-                ) : (
-                    false
-                )}
             </div>
         );
 
-        if (fixed === true) {
-            return (
-                <div className="ecc-floatingactionlist__wrapper--fixed">
-                    {floatinglist}
-                </div>
-            );
-        }
-
-        return floatinglist;
+        return (
+            <div
+                ref={this.setRefFAB}
+                className={fixed ? 'ecc-floatingactionlist__wrapper--fixed' : ''}
+            >
+                {floatinglist}
+            </div>
+        );
     }
 }
 
