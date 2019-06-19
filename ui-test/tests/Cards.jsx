@@ -163,6 +163,14 @@ class TestCards extends React.PureComponent {
                                             alert('You clicked the edit FAB.');
                                         },
                                     },
+                                    {
+                                        icon: 'remove',
+                                        label: 'remove FAB',
+                                        disabled: true,
+                                        handler() {
+                                            alert('You clicked the remove FAB.');
+                                        },
+                                    },
                                 ]}
                                 fabSize={this.state.miniFAB ? 'mini' : 'large'}
                             />
@@ -194,6 +202,77 @@ class TestCards extends React.PureComponent {
                     <CardActions>
                         <Button raised>Dummy button</Button>
                     </CardActions>
+                </Card>
+
+                <Card className="uitest-divmargin">
+                    <CardTitle
+                        border={this.state.titleBorder}
+                    >
+                        Allow floating menu with 1 item
+                    </CardTitle>
+                    <CardContent>
+                        <p>
+                            Illum hic hic quis cernantur, ea quid ingeniis laboris. Aute si consequat et
+                            magna excepteur arbitror, veniam doctrina graviterque aut consequat multos sint
+                            laborum amet, ex magna ullamco proident, esse nescius exquisitaque ea pariatur
+                            se ipsum voluptate, quem mentitum exercitation. Ne illum elit esse iudicem,
+                            doctrina sed quis.Enim deserunt et constias, fabulas irure admodum. Nescius
+                            summis quo iudicem domesticarum a ex quid ipsum do quibusdam, in tempor pariatur
+                            concursionibus, cupidatat te fugiat officia, a sunt incididunt, labore id ad
+                            anim consequat e nam summis do nulla quo summis hic mandaremus. Vidisse
+                            domesticarum ne mentitum. Minim incurreret est appellat nam probant velit irure
+                            eu sint e illum si vidisse, nostrud a illum.
+                        </p>
+                    </CardContent>
+                    <FloatingActionList
+                        allowSingleItemList
+                        fixed={this.state.actionsFixed}
+                        actions={[
+                            {
+                                icon: 'info',
+                                label: 'info FAB',
+                                handler() {
+                                    alert('You clicked the info FAB.');
+                                },
+                            },
+                        ]}
+                        fabSize={this.state.miniFAB ? 'mini' : 'large'}
+                    />
+                </Card>
+
+                <Card className="uitest-divmargin">
+                    <CardTitle
+                        border={this.state.titleBorder}
+                    >
+                        Do not allow floating menu with 1 item
+                    </CardTitle>
+                    <CardContent>
+                        <p>
+                            Illum hic hic quis cernantur, ea quid ingeniis laboris. Aute si consequat et
+                            magna excepteur arbitror, veniam doctrina graviterque aut consequat multos sint
+                            laborum amet, ex magna ullamco proident, esse nescius exquisitaque ea pariatur
+                            se ipsum voluptate, quem mentitum exercitation. Ne illum elit esse iudicem,
+                            doctrina sed quis.Enim deserunt et constias, fabulas irure admodum. Nescius
+                            summis quo iudicem domesticarum a ex quid ipsum do quibusdam, in tempor pariatur
+                            concursionibus, cupidatat te fugiat officia, a sunt incididunt, labore id ad
+                            anim consequat e nam summis do nulla quo summis hic mandaremus. Vidisse
+                            domesticarum ne mentitum. Minim incurreret est appellat nam probant velit irure
+                            eu sint e illum si vidisse, nostrud a illum.
+                        </p>
+                    </CardContent>
+                    <FloatingActionList
+                        fixed={this.state.actionsFixed}
+                        actions={[
+                            {
+                                icon: 'info',
+                                label: 'info FAB',
+                                handler() {
+                                    alert('You clicked the info FAB.');
+                                },
+                            },
+                        ]}
+                        fabSize={this.state.miniFAB ? 'mini' : 'large'}
+                    />
                 </Card>
             </diV>
         );

@@ -499,9 +499,10 @@ const Page = React.createClass({
                     </CardContent>
                     <FloatingActionList
                         className={'my-own-class'} // string, element can be enhanced with additional CSS classes
+                        allowSingleItemList={false|true} // boolean, opens a menu after click on FAB even if there is onle one action in the list, otherwise the FAB directly triggers that action, default: false
                         fabSize={'mini|large'} // string, what FAB size should be used, default: 'large'
                         fixed={false|true} // boolean, if FAB should be always visible sticky on botton when card is only partly shown, default: false
-                        iconName={'add'} // string, name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given the action icon is used.
+                        iconName={'add'} // string, name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
                         actions={
                             [
                                 // array of objects that define icon, label and handler method of each action
@@ -513,7 +514,8 @@ const Page = React.createClass({
                                 {
                                     icon: 'info',
                                     label: 'Open BaseDialog',
-                                    handler: this.openBaseDialog
+                                    handler: this.openBaseDialog,
+                                    disabled: true
                                 },
                             ]
                         }

@@ -108,10 +108,8 @@
     position: absolute;
     bottom: $ecc-size-block-whitespace;
     right: 2 * $ecc-size-block-whitespace;
-
-    .mdl-card__actions--fixed & {
-        //right: $ecc-size-block-whitespace/2;
-    }
+    height: 0;
+    width: 0;
 }
 
 .ecc-floatingactionlist__wrapper--fixed {
@@ -126,31 +124,29 @@
     right: 0;
     z-index: 2;
     transition: opacity .2s, width .2s, height .2s, border-radius .2s;
-
-    &.is-active {
-        opacity: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 0;
-    }
 }
 
 .ecc-floatingactionlist__menu {
-    position: relative;
-    bottom: 3px;
-    right: 3px;
+    position: absolute;
+    bottom: 0.61 * $button-fab-size;
+    right: 0.61 * $button-fab-size;
     top: auto;
     left: auto;
     height: auto;
     overflow: hidden;
-    width: 50px;
+    width: 0;
     min-width: 0;
-    max-height: 50px;
+    max-height: 0;
     padding: 0;
     opacity: 0;
     border-radius: 50%;
     z-index: 0;
     transition: opacity .2s, width .2s, max-height .2s, border-radius .2s;
+
+    .mdl-button--mini-fab + & {
+        bottom: 0.61 * $button-fab-size-mini;
+        right: 0.61 * $button-fab-size-mini;
+    }
 
     .mdl-menu__item {
         opacity: 1;
@@ -162,8 +158,6 @@
     }
 
     .ecc-floatingactionlist__button.is-active + & {
-        bottom: 0;
-        right: 0;
         width: 20em;
         max-height: 6 * 48px;
         overflow-y: auto;
@@ -172,13 +166,4 @@
         border-radius: 0;
         z-index: 2;
     }
-}
-
-.ecc-floatingactionlist__menu--backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: transparent;
 }

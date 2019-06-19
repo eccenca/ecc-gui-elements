@@ -2,6 +2,15 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [4.4.0] 2019-06-19
+
+### Added
+- allow disabled actionitems in floating menu lists, use the `disabled` property
+- add option `allowSingleItemList` to allow `<FloatingActionList />` elements with menu lists containing only one action item
+
+### Changed
+- do not auto close FAB menu when mouse cursor moved out of it
+
 ## [4.3.1] 2019-06-18
 
 ### Fixed
