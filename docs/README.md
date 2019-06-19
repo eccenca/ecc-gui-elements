@@ -444,12 +444,92 @@ const Page = React.createClass({
 
 ### FloatingActionList
 
+The `<FloatingActionList />` element provides functionality for a quick adaption of the floating action button (FAB) pattern from Material Design.
+It can be configured with a single action handler or a list of them. Then it opens a list of provided actions when activated, with a single action it will trigger the configured event handler immediately on default.
+The position of the FAB is always the right bottom corner within the card but there is an `fixed` option to made it always visible in case the card is not fully shown in the viewport.
+When there is already a fixed `<CardActions />` element in use put the `<FloatingActionList />` in it to use it fixed.
+
+```js
+import {
+    Card,
+    CardTitle,
+    CardContent,
+    CardActions,
+    FloatingActionList
+} from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <div>
+                <Card>
+                    <CardTitle>
+                        Card title
+                    </CardTitle>
+                    <CardContent>
+                        <!-- ... -->
+                    </CardContent>
+                    <FloatingActionList
+                        className={'my-own-class'} // string, element can be enhanced with additional CSS classes
+                        allowSingleItemList={false|true} // boolean, opens a menu after click on FAB even if there is onle one action in the list, otherwise the FAB directly triggers that action, default: false
+                        fabSize={'mini|large'} // string, what FAB size should be used, default: 'large'
+                        fixed={false|true} // boolean, if FAB should be always visible sticky on botton when card is only partly shown, default: false
+                        iconName={'add'} // string, name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
+                        actions={
+                            [
+                                // array of objects that define icon, label and handler method of each action
+                                {
+                                    icon: 'info',
+                                    label: 'Open ConfirmationDialog',
+                                    handler: this.openConfirmationDialog
+                                },
+                                {
+                                    icon: 'info',
+                                    label: 'Open BaseDialog',
+                                    handler: this.openBaseDialog,
+                                    disabled: true
+                                },
+                            ]
+                        }
+                    />
+                </Card>
+                <Card fixedActions={true}>
+                    <CardTitle>
+                        Card title
+                    </CardTitle>
+                    <CardContent>
+                        <!-- ... -->
+                    </CardContent>
+                    <CardActions fixed={true}>
+                        <!-- if a fixed button row is used then include the action list there if it need to be fixed, too. -->
+                        <FloatingActionList
+                            actions={
+                                [
+                                    {
+                                        icon: 'info',
+                                        label: 'Open ConfirmationDialog',
+                                        handler: this.openConfirmationDialog
+                                    },
+                                ]
+                            }
+                        />
+                    </CardActions>
+                </Card>
+            </div>
+        )
+    },
+    // ....
+});
+```
+
 #### Properties
-- **actions** (array, *required*) - 
-- **className** (string) - 
-- **fabSize** (string, default: 'large') - 
-- **fixed** (bool, default: false) - 
-- **iconName** (string, default: 'add') - 
+- **actions** (array, *required*) - array (required): list of action objects, each can have `icon`, `label`, `handler` and `disabled` properties
+- **className** (string) - string (optional): additional CSS class name
+- **fabSize** (string, default: 'large') - string (optional): `large` (default) or `mini` FAB size
+- **fixed** (bool, default: false) - boolean (optional): `true` sets FAB always visible sticky on botton when card is only partly shown, default: `false`
+- **iconName** (string, default: 'add') - string (optional): name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
+- **allowSingleItemList** (bool, default: false) - boolean (optional): opens a menu after click on FAB even if there is onle one action in the list, otherwise the FAB directly triggers that action, default: false
 
 ### Footer
 
