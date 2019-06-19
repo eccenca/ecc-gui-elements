@@ -1,6 +1,6 @@
 {
   "name": "@eccenca/gui-elements",
-  "version": "4.3.1",
+  "version": "4.4.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
