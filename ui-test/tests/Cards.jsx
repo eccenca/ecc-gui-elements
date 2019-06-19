@@ -163,6 +163,14 @@ class TestCards extends React.PureComponent {
                                             alert('You clicked the edit FAB.');
                                         },
                                     },
+                                    {
+                                        icon: 'remove',
+                                        label: 'remove FAB',
+                                        disabled: true,
+                                        handler() {
+                                            alert('You clicked the remove FAB.');
+                                        },
+                                    },
                                 ]}
                                 fabSize={this.state.miniFAB ? 'mini' : 'large'}
                             />
