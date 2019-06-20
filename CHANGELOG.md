@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [4.5.0] 2019-06-20
 
 ### Added
 - add option `openToBottom` to allow `<FloatingActionList />` menu list to get opened to the bottom side
