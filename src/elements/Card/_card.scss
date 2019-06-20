@@ -143,9 +143,19 @@
     z-index: 0;
     transition: opacity .2s, width .2s, max-height .2s, border-radius .2s;
 
+    .ecc-floatingactionlist--bottommenu & {
+        bottom: auto;
+        top: -0.39 * $button-fab-size;
+    }
+
     .mdl-button--mini-fab + & {
         bottom: 0.61 * $button-fab-size-mini;
         right: 0.61 * $button-fab-size-mini;
+
+        .ecc-floatingactionlist--bottommenu & {
+            bottom: auto;
+            top: -0.39 * $button-fab-size-mini;
+        }
     }
 
     .mdl-menu__item {
