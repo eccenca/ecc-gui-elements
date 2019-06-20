@@ -29,6 +29,7 @@ class TestCards extends React.PureComponent {
             longCard: false,
             miniFAB: false,
             actionsHide: false,
+            bottomMenuFAB: false,
         };
     }
 
@@ -136,6 +137,11 @@ class TestCards extends React.PureComponent {
                             checked={this.state.miniFAB}
                             onChange={({ value }) => this.setState({ miniFAB: value })}
                         />
+                        <Checkbox
+                            label="Open FAB menu to bottom"
+                            checked={this.state.bottomMenuFAB}
+                            onChange={({ value }) => this.setState({ bottomMenuFAB: value })}
+                        />
                     </CardContent>
                     {!this.state.actionsHide ? (
                         <CardActions
@@ -148,6 +154,7 @@ class TestCards extends React.PureComponent {
                             </Button>
                             <Button>Normal dummy Button</Button>
                             <FloatingActionList
+                                openToBottom={this.state.bottomMenuFAB}
                                 actions={[
                                     {
                                         icon: 'info',
