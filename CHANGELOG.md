@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- add option `openToBottom` to allow `<FloatingActionList />` menu list to get opened to the bottom side
 
 ## [4.4.0] 2019-06-19
 
