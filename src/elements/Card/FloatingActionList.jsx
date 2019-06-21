@@ -118,7 +118,7 @@ class FloatingActionList extends Component {
         /**
             boolean (optional): action menu list is shown at the bottom of the FAB, default: `false`
         */
-        openToBottom: PropTypes.bool,
+        openToBottom: PropTypes.func,
     };
 
     static defaultProps = {
@@ -126,7 +126,7 @@ class FloatingActionList extends Component {
         fixed: false,
         iconName: 'add',
         allowSingleItemList: false,
-        openToBottom: false,
+        openToBottom: function() { return false; },
     };
 
     constructor(props) {
@@ -189,7 +189,7 @@ class FloatingActionList extends Component {
         const classes = classNames(
             {
                 'ecc-floatingactionlist': true,
-                'ecc-floatingactionlist--bottommenu': openToBottom,
+                'ecc-floatingactionlist--bottommenu': openToBottom(),
             },
             className
         );
