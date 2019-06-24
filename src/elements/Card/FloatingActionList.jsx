@@ -35,7 +35,7 @@ const Page = React.createClass({
                     </CardContent>
                     <FloatingActionList
                         className={'my-own-class'} // string, element can be enhanced with additional CSS classes
-                        openToBottom={false|true} // boolean, action menu list is shown at the bottom of the FAB, default: false
+                        openToBottom={boolReturningFunction} // Function returning a bool value, action menu list is shown at the bottom of the FAB for boolean true, default: function that always returns false
                         allowSingleItemList={false|true} // boolean, opens a menu after click on FAB even if there is onle one action in the list, otherwise the FAB directly triggers that action, default: false
                         fabSize={'mini|large'} // string, what FAB size should be used, default: 'large'
                         fixed={false|true} // boolean, if FAB should be always visible sticky on botton when card is only partly shown, default: false
