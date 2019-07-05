@@ -217,6 +217,9 @@ const Page = React.createClass({
 - **handleValueChange** (func) - pass Textfield user input to parent component (e.g. to update options)
 - **className** (string) - Insert a custom className to element
 - **inputRestriction** (func) - Allow to manipulate inserted user input string before using it
+- **showLabel** (bool, default: true) - Define if the label is shown in option's dropdown
+- **showValue** (bool, default: true) - Define if the value is shown in option's dropdown
+- **showDescription** (bool, default: true) - Define if the description is shown in option's dropdown
 
 ### BaseDialog
 

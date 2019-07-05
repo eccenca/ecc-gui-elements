@@ -39,7 +39,25 @@ class AutoCompleteBox extends Component {
          * Allow to manipulate inserted user input string before using it
          */
         inputRestriction: PropTypes.func,
+        /**
+         * Define if the label is shown in option's dropdown
+         */
+        showLabel: PropTypes.bool,
+        /**
+         * Define if the value is shown in option's dropdown
+         */
+        showValue: PropTypes.bool,
+        /**
+         * Define if the description is shown in option's dropdown
+         */
+        showDescription: PropTypes.bool,
         // rest will be validated by `SelectBox`
+    };
+
+    static defaultProps = {
+        showLabel: true,
+        showValue: true,
+        showDescription: true,
     };
 
     constructor(props) {
@@ -51,12 +69,11 @@ class AutoCompleteBox extends Component {
     }
 
     optionRender = option => {
+        const { showLabel, showValue, showDescription } = this.props;
         const { label, value, description } = option;
         const escapedInput = this.currentInputValue.replace(/[?*|$]/g, '\\$0');
-        // only show value entry if it is not same as label
-        const optionValue = value === label ? (
-            false
-        ) : (
+        // only show value entry if it is not same as label and is allowed to show
+        const optionValue = (value !== label) && showValue && (
             <code key="autoCompleteValue" className="Select-option__value">
                 <Highlight
                     textToHighlight={value}
@@ -65,7 +82,7 @@ class AutoCompleteBox extends Component {
             </code>
         );
 
-        const optionDescription = description ? (
+        const optionDescription = description && showDescription && (
             <span
                 key="autoCompleteDescription"
                 className="Select-option__description"
@@ -75,17 +92,19 @@ class AutoCompleteBox extends Component {
                     searchWord={escapedInput}
                 />
             </span>
-        ) : (
-            false
         );
 
-        return [
+        const optionLabel = label && showLabel && (
             <strong key="autoCompleteLabel" className="Select-option__label">
                 <Highlight
                     textToHighlight={label}
                     searchWord={escapedInput}
                 />
-            </strong>,
+            </strong>
+        );
+
+        return [
+            optionLabel,
             optionValue,
             optionDescription,
         ];
@@ -108,15 +127,18 @@ class AutoCompleteBox extends Component {
         return inputValueCleaned;
     }
 
-    render = () => (
-        <SelectBox
-            {...this.props}
-            className={cx(this.props.className, 'Select--AutoComplete')}
-            onInputChange={this.handleInputChange}
-            searchable
-            optionRenderer={this.optionRender}
-        />
-    );
+    render() {
+        const { showLabel, showValue, showDescription, ...props} = this.props;
+        return (
+            <SelectBox
+                {...props}
+                className={cx(this.props.className, 'Select--AutoComplete')}
+                onInputChange={this.handleInputChange}
+                searchable
+                optionRenderer={this.optionRender}
+            />
+        );
+    }
 }
 
 export default AutoCompleteBox;

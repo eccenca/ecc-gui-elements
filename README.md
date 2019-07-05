@@ -256,6 +256,9 @@ const Page = React.createClass({
                 multi={true} // allow multi selection
                 clearable={false} // hide 'remove all selected values' button
                 handleValueChange={(value) => console.log(value)} // pass user input directly to parrent
+                showLabel={true} // define if label in options should be shown (default: true)
+                showValue={true} // define if value in options should be shown (default: true)
+                showDescription={true} // define if description in options should be shown (default: true)
             />
         )
     },
