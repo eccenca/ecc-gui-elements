@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [5.1.0] 2019-07-05
+
+### Added
+- `<AutoCompleteBox />` option content can now be disabled.
+
 ## [5.0.0] 2019-06-24
 
 ### Changed

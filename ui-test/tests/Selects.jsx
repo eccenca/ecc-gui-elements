@@ -165,6 +165,33 @@ class TestSelects extends Component {
                         value={this.state.autoCompleteBox3}
                         onChange={this.handleSelectChange}
                     />
+                    <AutoCompleteBox
+                        placeholder="hide resource"
+                        options={selectOptions}
+                        creatable
+                        name="autoCompleteBox2"
+                        value={this.state.autoCompleteBox2}
+                        onChange={this.handleSelectChange}
+                        showValue={false}
+                    />
+                    <AutoCompleteBox
+                        placeholder="hide description"
+                        options={selectOptions}
+                        creatable
+                        name="autoCompleteBox2"
+                        value={this.state.autoCompleteBox2}
+                        onChange={this.handleSelectChange}
+                        showDescription={false}
+                    />
+                    <AutoCompleteBox
+                        placeholder="hide label"
+                        options={selectOptions}
+                        creatable
+                        name="autoCompleteBox2"
+                        value={this.state.autoCompleteBox2}
+                        onChange={this.handleSelectChange}
+                        showLabel={false}
+                    />
                 <h6>Reduced size / without placeholder label</h6>
                     <AutoCompleteBox
                         reducedSize
