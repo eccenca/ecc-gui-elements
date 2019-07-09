@@ -869,7 +869,7 @@ const Page = React.createClass({
 ### NotAvailable
 
 Use that element as very simple "not available" placeholder information, e.g. in empty table cells or statistic overviews.
-It currently only supports short label strings and long descriptions using the title attribute.
+It currently only supports short label strings and long descriptions used as tooltip addition.
 
 ```js
 import { NotAvailable } from '@eccenca/gui-elements';

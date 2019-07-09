@@ -3,10 +3,28 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Tooltip from '../Tooltip/Tooltip';
 
-/* TODO:
+/**
+Use that element as very simple "not available" placeholder information, e.g. in empty table cells or statistic
+overviews. It currently only supports short label strings and long descriptions used as tooltip addition.
 
-* add option `iconName` to use icon
+```js
+import { NotAvailable } from '@eccenca/gui-elements';
 
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <NotAvailable
+                label="N/A" // short label that is shown, default: 'n/a'
+                description="Not available element" // long description that is only shown on hover
+                inline={false|true} // show it as inline text element, default: false
+            />
+        )
+    },
+    // ....
+});
+
+```
 */
 
 
@@ -23,8 +41,8 @@ const Button = props => {
         className
     );
 
-    const visibleLabel = <span className="ecc-gui-elements__notavailable-label">{label || 'n/a'}</span>;
-    const addedTooltip = description || (label ? '' : 'not available');
+    const visibleLabel = <span className="ecc-gui-elements__notavailable-label">{label}</span>;
+    const addedTooltip = description || (label !== 'n/a' ? '' : 'not available');
 
     return (
         <span className={classes}>
@@ -35,10 +53,26 @@ const Button = props => {
 
 // define property types
 Button.propTypes = {
-    className: PropTypes.string, // additional classname
-    description: PropTypes.string, // long description
-    // TODO iconName: PropTypes.string,
-    inline: PropTypes.bool, // displayed as inline text
+    /**
+        string (optional): additional CSS class name
+    */
+    className: PropTypes.string,
+    /**
+        string (optional): long description that is only shown on hover, default: empty string when label is given,
+        otherwise "not available"
+    */
+    description: PropTypes.string,
+    /* TODO *
+        string (optional): name of icon that is used instead of label string
+    */
+    // iconName: PropTypes.string,
+    /**
+        boolean (default: false): show it as inline text element, default: false
+    */
+    inline: PropTypes.bool,
+    /**
+        string (optional): short label that is shown, default: 'n/a'
+    */
     label: PropTypes.string, // short description
 };
 
@@ -46,7 +80,7 @@ Button.defaultProps = {
     className: '',
     description: '',
     inline: false,
-    label: '',
+    label: 'n/a',
 };
 
 Button.displayName = 'NotAvailable';
