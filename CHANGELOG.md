@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Fixed
+- Prevent empty tooltips on `<NotAvailable/>` elements that contain a label but no description.
 
 ## [5.1.0] 2019-07-05
 

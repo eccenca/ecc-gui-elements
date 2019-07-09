@@ -23,13 +23,12 @@ const Button = props => {
         className
     );
 
+    const visibleLabel = <span className="ecc-gui-elements__notavailable-label">{label || 'n/a'}</span>;
+    const addedTooltip = description || (label ? '' : 'not available');
+
     return (
         <span className={classes}>
-            <Tooltip label={description || (label ? '' : 'not available')}>
-                <span className="ecc-gui-elements__notavailable-label">
-                    {label || 'n/a'}
-                </span>
-            </Tooltip>
+            { addedTooltip ? <Tooltip label={addedTooltip}>{visibleLabel}</Tooltip> : visibleLabel}
         </span>
     );
 };
@@ -41,6 +40,13 @@ Button.propTypes = {
     // TODO iconName: PropTypes.string,
     inline: PropTypes.bool, // displayed as inline text
     label: PropTypes.string, // short description
+};
+
+Button.defaultProps = {
+    className: '',
+    description: '',
+    inline: false,
+    label: '',
 };
 
 Button.displayName = 'NotAvailable';
