@@ -3,6 +3,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
 ## [Unreleased]
+### Fixed
+- FabButton in case of null should be false
 
 ### Fixed
 - Prevent empty tooltips on `<NotAvailable/>` elements that contain a label but no description.
