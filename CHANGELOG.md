@@ -4,7 +4,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 ### Fixed
-- FabButton in case of null should be false
+- `<FloatingActionList />` did not closed its listener event.
 
 ### Fixed
 - Prevent empty tooltips on `<NotAvailable/>` elements that contain a label but no description.

@@ -141,26 +141,33 @@ class FloatingActionList extends Component {
         };
 
         this.handleFAB = this.handleFAB.bind(this);
+        this.handleOutsideClick = this.handleOutsideClick.bind(this);
 
         this.refFAB = null;
         this.setRefFAB = element => {
             this.refFAB = element;
         };
-        this.handleOutsideClick = () => {
-            // close the fab button context menu whenever not the fab button is clieked
-            document.addEventListener('click', event => {
-                if (this.state.activeFAB === false) return;
-                if (this.refFAB && !this.refFAB.contains(event.target)) {
-                    this.setState({
-                        activeFAB: false,
-                    });
-                }
+        this.handleOutsideClick = () => {};
+    }
+
+    /**
+     * close the fab button context menu whenever not the fab button is clicked
+     */
+    handleOutsideClick() {
+        if (this.state.activeFAB === false) return;
+        if (this.refFAB && !this.refFAB.contains(event.target)) {
+            this.setState({
+                activeFAB: false,
             });
-        };
+        }
     }
 
     componentDidMount() {
-        this.handleOutsideClick();
+        document.addEventListener('click', this.handleOutsideClick, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
     componentWillReceiveProps() {
