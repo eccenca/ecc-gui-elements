@@ -15,16 +15,17 @@ function TestNA() {
                         {' '}
                         <NotAvailable
                             label="N/A"
-                            description="Not available element"
+                            description="Tooltip description for N/A element"
                         />
                         {' '}
                         information.
                     </div>
                     <div>
                         This is a test with a inline
-                        <NotAvailable inline />
-information.
+                        {' '}<NotAvailable inline />{' '}
+                        information.
                     </div>
+                    <NotAvailable label="N/A with label without description for tooltip" />
                 </div>
             </CardContent>
         </Card>

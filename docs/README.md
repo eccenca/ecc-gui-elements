@@ -604,11 +604,34 @@ const Page = React.createClass({
 
 ### NotAvailable
 
+Use that element as very simple "not available" placeholder information, e.g. in empty table cells or statistic
+overviews. It currently only supports short label strings and long descriptions used as tooltip addition.
+
+```js
+import { NotAvailable } from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <NotAvailable
+                label="N/A" // short label that is shown, default: 'n/a'
+                description="Not available element" // long description that is only shown on hover
+                inline={false|true} // show it as inline text element, default: false
+            />
+        )
+    },
+    // ....
+});
+
+```
+
 #### Properties
-- **className** (string) - 
-- **description** (string) - 
-- **inline** (bool) - 
-- **label** (string) - 
+- **className** (string, default: '') - string (optional): additional CSS class name
+- **description** (string, default: '') - string (optional): long description that is only shown on hover, default: empty string when label is given,
+    otherwise "not available"
+- **inline** (bool, default: false) - boolean (default: false): show it as inline text element, default: false
+- **label** (string, default: 'n/a') - string (optional): short label that is shown, default: 'n/a'
 
 ### Pagination
 
