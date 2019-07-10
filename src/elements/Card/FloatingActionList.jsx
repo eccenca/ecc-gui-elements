@@ -104,15 +104,19 @@ class FloatingActionList extends Component {
         */
         fabSize: PropTypes.string,
         /**
-            boolean (optional): `true` sets FAB always visible sticky on botton when card is only partly shown, default: `false`
+         // eslint-disable-next-line max-len
+         boolean (optional): `true` sets FAB always visible sticky
+         on botton when card is only partly shown, default: `false`
         */
         fixed: PropTypes.bool,
         /**
-            string (optional): name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
+            string (optional): name of icon what is used for the FAB before the list of actions is used, default:
+         'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
         */
         iconName: PropTypes.string,
         /**
-            boolean (optional): opens a menu after click on FAB even if there is onle one action in the list, otherwise the FAB directly triggers that action, default: false
+            boolean (optional): opens a menu after click on FAB even if there is onle one action in the list,
+         otherwise the FAB directly triggers that action, default: false
         */
         allowSingleItemList: PropTypes.bool,
         /**
@@ -137,26 +141,32 @@ class FloatingActionList extends Component {
         };
 
         this.handleFAB = this.handleFAB.bind(this);
+        this.handleOutsideClick = this.handleOutsideClick.bind(this);
 
         this.refFAB = null;
         this.setRefFAB = element => {
             this.refFAB = element;
         };
-        this.handleOutsideClick = () => {
-            // close the fab button context menu whenever not the fab button is clieked
-            document.addEventListener('click', event => {
-                if (this.state.activeFAB === false) return;
-                if (!this.refFAB.contains(event.target)) {
-                    this.setState({
-                        activeFAB: false,
-                    });
-                }
+    }
+
+    /**
+     * close the fab button context menu whenever not the fab button is clicked
+     */
+    handleOutsideClick(event) {
+        if (this.state.activeFAB === false) return;
+        if (this.refFAB && !this.refFAB.contains(event.target)) {
+            this.setState({
+                activeFAB: false,
             });
-        };
+        }
     }
 
     componentDidMount() {
-        this.handleOutsideClick();
+        document.addEventListener('click', this.handleOutsideClick, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('click', this.handleOutsideClick, false);
     }
 
     componentWillReceiveProps() {

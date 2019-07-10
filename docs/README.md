@@ -531,9 +531,13 @@ const Page = React.createClass({
 - **actions** (array, *required*) - array (required): list of action objects, each can have `icon`, `label`, `handler` and `disabled` properties
 - **className** (string) - string (optional): additional CSS class name
 - **fabSize** (string, default: 'large') - string (optional): `large` (default) or `mini` FAB size
-- **fixed** (bool, default: false) - boolean (optional): `true` sets FAB always visible sticky on botton when card is only partly shown, default: `false`
-- **iconName** (string, default: 'add') - string (optional): name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
-- **allowSingleItemList** (bool, default: false) - boolean (optional): opens a menu after click on FAB even if there is onle one action in the list, otherwise the FAB directly triggers that action, default: false
+- **fixed** (bool, default: false) - // eslint-disable-next-line max-len
+    boolean (optional): `true` sets FAB always visible sticky
+    on botton when card is only partly shown, default: `false`
+- **iconName** (string, default: 'add') - string (optional): name of icon what is used for the FAB before the list of actions is used, default:
+    'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
+- **allowSingleItemList** (bool, default: false) - boolean (optional): opens a menu after click on FAB even if there is onle one action in the list,
+    otherwise the FAB directly triggers that action, default: false
 - **openToBottom** (func, default: function() { return false; }) - boolean (optional): action menu list is shown at the bottom of the FAB, default: `false`
 
 ### Footer
@@ -604,11 +608,34 @@ const Page = React.createClass({
 
 ### NotAvailable
 
+Use that element as very simple "not available" placeholder information, e.g. in empty table cells or statistic
+overviews. It currently only supports short label strings and long descriptions used as tooltip addition.
+
+```js
+import { NotAvailable } from '@eccenca/gui-elements';
+
+const Page = React.createClass({
+    // template rendering
+    render() {
+        return (
+            <NotAvailable
+                label="N/A" // short label that is shown, default: 'n/a'
+                description="Not available element" // long description that is only shown on hover
+                inline={false|true} // show it as inline text element, default: false
+            />
+        )
+    },
+    // ....
+});
+
+```
+
 #### Properties
-- **className** (string) - 
-- **description** (string) - 
-- **inline** (bool) - 
-- **label** (string) - 
+- **className** (string, default: '') - string (optional): additional CSS class name
+- **description** (string, default: '') - string (optional): long description that is only shown on hover, default: empty string when label is given,
+    otherwise "not available"
+- **inline** (bool, default: false) - boolean (default: false): show it as inline text element, default: false
+- **label** (string, default: 'n/a') - string (optional): short label that is shown, default: 'n/a'
 
 ### Pagination
 
