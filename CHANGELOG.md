@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [5.1.1] 2019-07-10
 ### Fixed
 - `<FloatingActionList />` did not closed its listener event.
 - Prevent empty tooltips on `<NotAvailable/>` elements that contain a label but no description.
