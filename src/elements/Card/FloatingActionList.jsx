@@ -147,13 +147,12 @@ class FloatingActionList extends Component {
         this.setRefFAB = element => {
             this.refFAB = element;
         };
-        this.handleOutsideClick = () => {};
     }
 
     /**
      * close the fab button context menu whenever not the fab button is clicked
      */
-    handleOutsideClick() {
+    handleOutsideClick(event) {
         if (this.state.activeFAB === false) return;
         if (this.refFAB && !this.refFAB.contains(event.target)) {
             this.setState({
