@@ -531,9 +531,13 @@ const Page = React.createClass({
 - **actions** (array, *required*) - array (required): list of action objects, each can have `icon`, `label`, `handler` and `disabled` properties
 - **className** (string) - string (optional): additional CSS class name
 - **fabSize** (string, default: 'large') - string (optional): `large` (default) or `mini` FAB size
-- **fixed** (bool, default: false) - boolean (optional): `true` sets FAB always visible sticky on botton when card is only partly shown, default: `false`
-- **iconName** (string, default: 'add') - string (optional): name of icon what is used for the FAB before the list of actions is used, default: 'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
-- **allowSingleItemList** (bool, default: false) - boolean (optional): opens a menu after click on FAB even if there is onle one action in the list, otherwise the FAB directly triggers that action, default: false
+- **fixed** (bool, default: false) - // eslint-disable-next-line max-len
+    boolean (optional): `true` sets FAB always visible sticky
+    on botton when card is only partly shown, default: `false`
+- **iconName** (string, default: 'add') - string (optional): name of icon what is used for the FAB before the list of actions is used, default:
+    'add', or if only one action is given and `allowSingleItemList` is false then the action icon is used.
+- **allowSingleItemList** (bool, default: false) - boolean (optional): opens a menu after click on FAB even if there is onle one action in the list,
+    otherwise the FAB directly triggers that action, default: false
 - **openToBottom** (func, default: function() { return false; }) - boolean (optional): action menu list is shown at the bottom of the FAB, default: `false`
 
 ### Footer
