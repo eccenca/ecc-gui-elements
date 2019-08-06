@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import ReactMDLMenu, { MenuItem } from 'react-mdl/lib/Menu';
-
 import Button from '../Button/Button';
 
 /**
  * This component provides a context menu
  */
+
 const ContextMenu = props => {
     const {
         children, iconName, tooltip, target, ...otherProps

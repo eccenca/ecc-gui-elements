@@ -174,7 +174,7 @@ class TestButtons extends React.PureComponent {
                         tooltip="clear input"
                         className="mdl-button--clearance"
                     />
-                <Button raised accent disabled className="mdl-button--clearance">
+                    <Button raised accent disabled className="mdl-button--clearance">
                         Clear
                     </Button>
                 </CardContent>

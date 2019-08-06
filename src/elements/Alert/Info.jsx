@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Alert from './Alert';
 
-
 const Info = props => {
     const { children, ...otherProps } = props;
 

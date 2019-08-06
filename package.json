@@ -6,7 +6,7 @@
   "es5": "es5/component.js",
   "es6": "index.js",
   "scripts": {
-    "test": "gulp full-test",
+    "test": "export TEST_REPORT_PATH='./test/reports/' && jest --no-cache --detectOpenHandles",
     "lint": "eslint --ignore-path .gitignore '**/*.{js,jsx}' --fix",
     "cover": "gulp cover",
     "start": "gulp",
@@ -48,15 +48,32 @@
   "devDependencies": {
     "@eccenca/dotfiles": "^2.6.3",
     "@eccenca/gulp-tasks": "^3.16.10",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "ecc-messagebus": "^3.6.0",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-15": "^1.4.0",
+    "enzyme-to-json": "^3.3.5",
     "fs-extra": "^5.0.0",
     "gulp-download-stream": "^0.0.13",
     "gulp-rename": "^1.2.2",
     "gulp-sequence": "^1.0.0",
+    "jest": "^23.6.0",
+    "nock": "^10.0.6",
+    "jest-environment-enzyme": "^7.0.1",
+    "jest-enzyme": "^7.0.1",
+    "jest-html-reporter": "^2.4.4",
+    "jest-junit-reporter": "^1.1.0",
+    "jest-raw-loader": "^1.0.1",
     "js-yaml": "^3.8.4",
+    "markdown-loader-jest": "^0.1.1",
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "react-test-renderer": "^15",
+    "sinon": "^7.2.3"
   },
   "lint-staged": {
     "*.{js,jsx}": "eslint"

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import classNames from 'classnames';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-
 import Button from '../Button/Button';
 import Icon from '../Icon/Icon';
 
@@ -130,7 +129,7 @@ class FloatingActionList extends Component {
         fixed: false,
         iconName: 'add',
         allowSingleItemList: false,
-        openToBottom: function() { return false; },
+        openToBottom() { return false; },
     };
 
     constructor(props) {
@@ -246,7 +245,6 @@ class FloatingActionList extends Component {
                 )}
             </div>
         );
-
         return (
             <div
                 ref={this.setRefFAB}

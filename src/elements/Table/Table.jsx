@@ -51,12 +51,9 @@ const Table = props => {
         },
         className
     );
-    const wrapperClassNames = classNames(
-        'ecc-table__wrapper',
-        {
-            'ecc-table__wrapper--autoscroll': scrollTableOverflow === true,
-        }
-    );
+    const wrapperClassNames = classNames('ecc-table__wrapper', {
+        'ecc-table__wrapper--autoscroll': scrollTableOverflow === true,
+    });
 
     return (
         <div className={wrapperClassNames}>

@@ -28,7 +28,6 @@ const Page = React.createClass({
 ```
 */
 
-
 const Icon = props => {
     const { className, badge = false, ...otherProps } = props;
 

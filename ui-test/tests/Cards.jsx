@@ -29,7 +29,7 @@ class TestCards extends React.PureComponent {
             longCard: false,
             miniFAB: false,
             actionsHide: false,
-            bottomMenuFAB: function() { return false; },
+            bottomMenuFAB() { return false; },
         };
     }
 
@@ -140,7 +140,7 @@ class TestCards extends React.PureComponent {
                         <Checkbox
                             label="Open FAB menu to bottom"
                             checked={this.state.bottomMenuFAB()}
-                            onChange={({ value }) => this.setState({ bottomMenuFAB: function() { return value; }})}
+                            onChange={({ value }) => this.setState({ bottomMenuFAB() { return value; } })}
                         />
                     </CardContent>
                     {!this.state.actionsHide ? (

@@ -1,12 +1,14 @@
 /* eslint no-console: 0 */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Header, Drawer, Navigation} from 'react-mdl';
-import {BrowserRouter as Router, Route, withRouter} from 'react-router-dom';
+import { Header, Drawer, Navigation } from 'react-mdl';
+import { BrowserRouter as Router, Route, withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
 // component
-import {Layout, Content, Footer, ContextMenu, MenuItem} from '../index';
+import {
+    Layout, Content, Footer, ContextMenu, MenuItem,
+} from '../index';
 
 // test styles
 import '../style/test.scss';
@@ -141,9 +143,13 @@ class Page extends React.Component {
                                 alt="eccenca Corporate Memory"
                                 className="mdl-layout--hide-on-phone"
                             />
-                            <span className="mdl-layout--hide-on-tablet"><abbr title="eccenca GUI elements">eGe</abbr> Test Cases</span>
+                            <span className="mdl-layout--hide-on-tablet">
+                                <abbr title="eccenca GUI elements">eGe</abbr>
+                                {' '}
+Test Cases
+                            </span>
                         </div>
-                        <div className="mdl-layout-spacer"></div>
+                        <div className="mdl-layout-spacer" />
                         <Navigation className="mdl-layout--large-screen-only">
                             <a href="#" className="mdl-typography--text-uppercase">Module</a>
                             <a href="#" className="mdl-typography--text-uppercase">Name</a>
@@ -164,7 +170,7 @@ class Page extends React.Component {
                             >
                                 All
                             </a>
-                            {_.map(testcases, ({name}) => (
+                            {_.map(testcases, ({ name }) => (
                                 <a
                                     className={name.toLowerCase() === path ? 'mdl-navigation__link--current' : ''}
                                     href={`${name.toLowerCase()}`}

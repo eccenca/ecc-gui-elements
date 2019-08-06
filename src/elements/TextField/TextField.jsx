@@ -78,7 +78,7 @@ const TextField = props => {
     const clearButton = _.isFunction(onClearValue) && value ? (
         <div className="mdl-input__clearable-holder">
             <Button
-                disabled={otherProps.disabled ? true : false}
+                disabled={!!otherProps.disabled}
                 type="button"
                 iconName="clear"
                 onClick={onClearValue}

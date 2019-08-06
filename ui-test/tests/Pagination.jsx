@@ -26,7 +26,9 @@ class TestPagination extends React.Component {
             <Card>
                 <CardTitle documentLevel="h4">Test Pagination</CardTitle>
                 <CardContent>
-                    <h5>Pagination only with required options and default values</h5>
+                    <h5>
+                        Pagination only with required options and default values
+                    </h5>
                     <Pagination
                         offset={this.state.paginationOffset}
                         limit={this.state.paginationLimit}

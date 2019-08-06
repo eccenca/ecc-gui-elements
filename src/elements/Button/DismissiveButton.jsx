@@ -27,7 +27,6 @@ const Page = React.createClass({
 ```
 */
 
-
 const DismissiveButton = props => {
     const { children, ...otherProps } = props;
     const useProgressButton = typeof otherProps.progress !== 'undefined';

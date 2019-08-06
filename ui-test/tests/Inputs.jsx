@@ -41,6 +41,12 @@ class TestInputs extends Component {
         this.updateValue = this.updateValue.bind(this);
     }
 
+    /**
+     * @param name
+     * @param rawValue
+     * @param value
+     * @param isValid
+     */
     updateValue({
         name, rawValue, value, isValid,
     }) {
@@ -54,6 +60,9 @@ class TestInputs extends Component {
         this.setState(currentState);
     }
 
+    /**
+     * @return {*}
+     */
     render() {
         return (
             <Card>

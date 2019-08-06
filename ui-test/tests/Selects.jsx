@@ -12,24 +12,30 @@ import {
 const selectOptions = [
     {
         label: 'Label 1',
-        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/one',
+        value:
+            'http://example.com/this/is/a/very/log/example/for/an/resourceuri/one',
         description: 'This is one of the options with a description',
     },
     {
         label: 'label two',
-        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/two',
+        value:
+            'http://example.com/this/is/a/very/log/example/for/an/resourceuri/two',
     },
     {
         label: 'label three',
-        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/three',
+        value:
+            'http://example.com/this/is/a/very/log/example/for/an/resourceuri/three',
         description: 'This is one of the options with another description',
     },
     {
-        label: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/four',
-        value: 'http://example.com/this/is/a/very/log/example/for/an/resourceuri/four',
+        label:
+            'http://example.com/this/is/a/very/log/example/for/an/resourceuri/four',
+        value:
+            'http://example.com/this/is/a/very/log/example/for/an/resourceuri/four',
         description: 'The fourth option has the same data for label and value',
     },
 ];
+
 
 class TestSelects extends Component {
     constructor(props) {
@@ -192,7 +198,7 @@ class TestSelects extends Component {
                         onChange={this.handleSelectChange}
                         showLabel={false}
                     />
-                <h6>Reduced size / without placeholder label</h6>
+                    <h6>Reduced size / without placeholder label</h6>
                     <AutoCompleteBox
                         reducedSize
                         placeholder="Sync select box"
@@ -221,4 +227,5 @@ class TestSelects extends Component {
         );
     }
 }
+
 export default TestSelects;
