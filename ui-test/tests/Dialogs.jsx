@@ -12,7 +12,6 @@ import {
     BaseDialog,
 } from '../../index';
 
-
 class TestDialogs extends React.PureComponent {
     constructor(props) {
         super(props);

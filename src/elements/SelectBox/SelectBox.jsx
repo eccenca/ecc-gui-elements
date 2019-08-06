@@ -93,7 +93,7 @@ class SelectBox extends Component {
                 }
                 return false;
             }
-        ),
+        ).isRequired,
         /**
          * contains selected value
          * value is an object or a strings a numbers
@@ -302,7 +302,10 @@ class SelectBox extends Component {
         }
 
         return (
-            <div className={classes}>
+            <div
+                className={classes}
+                data-test-id={`ecc-gui-elements-${uniqueId}`}
+            >
                 {component}
                 <label className="mdl-textfield__label" htmlFor={uniqueId}>
                     {placeholder}

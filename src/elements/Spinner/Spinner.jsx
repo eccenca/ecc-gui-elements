@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import ReactMDLSpinner from 'react-mdl/lib/Spinner';
 
-
 const Spinner = props => {
     const {
         className,

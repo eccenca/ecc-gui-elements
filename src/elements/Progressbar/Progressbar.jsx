@@ -30,4 +30,5 @@ Progressbar.defaultProps = {
     appearLocal: false,
 };
 Progressbar.displayName = 'Progressbar';
+
 export default Progressbar;

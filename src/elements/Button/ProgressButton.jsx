@@ -34,6 +34,7 @@ You can use `progress` option directly on `<AffirmativeButton/>`, `<DismissiveBu
  and `<DisruptiveButton/>` elements.
 
 */
+
 const ProgressButton = props => {
     const {
         children, tooltip, progress, lastUpdate, ...otherProps

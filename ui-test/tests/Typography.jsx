@@ -52,20 +52,49 @@ class TestTypography extends React.PureComponent {
                     <h5>Headline Level 5 (title)</h5>
                     <h6>Headline Level 6 (subhead)</h6>
                     <p>
+                        {/* eslint-disable-next-line max-len */}
                         Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna.
                     </p>
-                    <h1>Headline Level 1<br/>second line</h1>
-                    <h2>Headline Level 2<br/>second line</h2>
-                    <h3>Headline Level 3<br/>second line</h3>
-                    <h4>Headline Level 4<br/>second line</h4>
-                    <h5>Headline Level 5<br/>second line</h5>
-                    <h6>Headline Level 6<br/>second line</h6>
+                    <h1>
+Headline Level 1
+                        <br />
+second line
+                    </h1>
+                    <h2>
+Headline Level 2
+                        <br />
+second line
+                    </h2>
+                    <h3>
+Headline Level 3
+                        <br />
+second line
+                    </h3>
+                    <h4>
+Headline Level 4
+                        <br />
+second line
+                    </h4>
+                    <h5>
+Headline Level 5
+                        <br />
+second line
+                    </h5>
+                    <h6>
+Headline Level 6
+                        <br />
+second line
+                    </h6>
                     <blockquote>
+                        {/* eslint-disable-next-line max-len */}
                         Li Europan lingues es membres del sam familie. Lor separat existentie es un myth. Por scientie, musica, sport etc, litot Europa usa li sam vocabular. Li lingues differe solmen in li grammatica, li pronunciation e li plu commun vocabules. Omnicos directe al desirabilite de un nov lingua franca: On refusa continuar payar custosi traductores. At solmen va esser necessi far uniform grammatica, pronunciation e plu sommun paroles. Ma quande lingues coalesce, li grammatica del resultant lingue es plu simplic e regulari quam ti del coalescent lingues. Li nov lingua franca va esser plu simplic e regulari quam li existent Europan lingues.
                     </blockquote>
-                    {_.map(typoclasses, (typoClassName) => (
+                    {_.map(typoclasses, typoClassName => (
                         <div className={typoClassName}>
-                            .{typoClassName}<br/>second line
+                            .
+                            {typoClassName}
+                            <br />
+second line
                         </div>
                     ))}
                 </CardContent>

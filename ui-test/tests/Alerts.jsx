@@ -12,6 +12,10 @@ import {
 } from '../../index';
 
 class TestAlerts extends React.PureComponent {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <Card>
@@ -52,7 +56,12 @@ class TestAlerts extends React.PureComponent {
                         reducedHeight
                         border
                     >
-                        <h5>Test with <code>reducedHeight</code> option</h5>
+                        <h5>
+Test with
+                            <code>reducedHeight</code>
+                            {' '}
+option
+                        </h5>
                         <p>
                             Fore commodo si praesentibus, noster aut ab dolore senserit eu minim ad laborum,
                             sunt arbitror quo exercitation qui a minim iis aliqua ab ea amet cillum non

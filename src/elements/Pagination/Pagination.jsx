@@ -8,7 +8,6 @@ import TextField from '../TextField/TextField';
 import Spinner from '../Spinner/Spinner';
 import Tooltip from '../Tooltip/Tooltip';
 
-
 /**
  * This component provides a pagination for switching through lists of results
  */

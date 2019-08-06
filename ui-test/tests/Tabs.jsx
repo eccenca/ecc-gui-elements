@@ -29,7 +29,6 @@ class TestTabs extends React.Component {
         };
     }
 
-
     tabClick(tabName) {
         console.warn('tabClick:', tabName);
     }

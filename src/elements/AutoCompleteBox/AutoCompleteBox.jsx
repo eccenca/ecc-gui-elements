@@ -60,6 +60,9 @@ class AutoCompleteBox extends Component {
         showDescription: true,
     };
 
+    /**
+     * @param props
+     */
     constructor(props) {
         super(props);
         this.displayName = 'AutoCompleteBox';
@@ -128,7 +131,9 @@ class AutoCompleteBox extends Component {
     }
 
     render() {
-        const { showLabel, showValue, showDescription, ...props} = this.props;
+        const {
+            showLabel, showValue, showDescription, ...props
+        } = this.props;
         return (
             <SelectBox
                 {...props}

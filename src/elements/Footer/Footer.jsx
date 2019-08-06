@@ -46,7 +46,10 @@ const Footer = props => {
 
     const infoApplication = version ? (
         <div className="mdl-logo">
-            <Version version={version} /> &copy; {year}
+            <Version version={version} />
+            {' '}
+&copy;
+            {year}
         </div>
     ) : (
         false

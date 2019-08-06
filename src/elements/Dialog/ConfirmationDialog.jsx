@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import BaseDialog from './BaseDialog';
-import Button from '../Button/Button';
 
 /**
  * This Component creates a confirmation dialog based on BaseDialog.
  */
-
 const ConfirmationDialog = props => {
     const { active } = props;
 

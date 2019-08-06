@@ -30,6 +30,7 @@ const Page = React.createClass({
 });
 ```
 */
+
 const Radio = props => {
     const {
         children, label, className, hideLabel, ...otherProps

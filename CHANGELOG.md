@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- add unit test for all components
 
 ## [5.1.1] 2019-07-10
 ### Fixed
@@ -502,7 +503,7 @@ TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security se
 ## [2.11.3] 2017-03-28
 ### Fixed
 - use separated chip scss stylesheet to include patches
-- fix layout to use Chips on smaller spaces
+- fix layout to use Chip on smaller spaces
 - allow additional class names for `<ChipVisual/>` elements
 - enable icons as content in `<ChipVisual/>` elements
 
