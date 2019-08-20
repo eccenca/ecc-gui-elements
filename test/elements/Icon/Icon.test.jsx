@@ -10,4 +10,14 @@ describe('Icon', () => {
         expect(wrapper.exists()).toBe(true);
         expect(wrapper.text()).toEqual('info');
     });
+
+    it('should render Icon Component with tooltip property', () => {
+        wrapper = shallow(
+            <Icon
+                name="info"
+                tooltip="cloudy clouds"
+            />
+        );
+        expect(wrapper.find('Tooltip').prop('label')).toEqual('cloudy clouds');
+    });
 });

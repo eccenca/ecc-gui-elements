@@ -4,29 +4,32 @@ import Footer from '../../../src/elements/Footer/Footer';
 
 const year = new Date().getFullYear();
 
-let wrapper = shallow(
-    <Footer
-        company="eccenca"
-        version="0.1.0"
-        companyUrl="www.eccenca.com"
-        year={year}
-    />
-);
 describe('Footer', () => {
+    const wrapper = shallow(
+        <Footer
+            company="eccenca"
+            version="0.1.0"
+            companyUrl="www.eccenca.com"
+            year={year}
+        />
+    );
     it('should render the Footer Component', () => {
         expect(wrapper.exists()).toEqual(true);
     });
 
-    it('should render the mini Footer', () => {
-        wrapper = shallow(
-            <Footer
-                company="eccenca"
-                version="1.0.0"
-                companyUrl="www.eccenca.com"
-                workspace="ecc GUI Elements"
-            />
-        );
-        expect(wrapper.exists()).toEqual(true);
-        expect(wrapper.text()).toContain('ecc GUI Elements');
+    it('should render the Footer Component with company property', () => {
+        expect(wrapper.find('a').text()).toContain('eccenca');
+    });
+
+    it('should render the Footer Component with version property', () => {
+        expect(wrapper.find('Version')).toHaveLength(1);
+    });
+
+    it('should render the Footer Component with companyUrl property', () => {
+        expect(wrapper.find('a')).toHaveLength(1);
+    });
+
+    it('should render the Footer Component with year property', () => {
+        expect(wrapper.text()).toContain(year);
     });
 });
