@@ -17,7 +17,6 @@ describe('Checkbox', () => {
     let wrapper;
     it('should click on the Checkbox', () => {
         wrapper = mountComponent();
-        console.warn(wrapper.debug());
         wrapper.find('Checkbox').simulate('click');
         expect(wrapper.props().checked).toEqual(true);
     });

@@ -44,7 +44,6 @@ describe('AutoCompleteBox', () => {
     });
 
     it('should render the component with promptTextCreator property', () => {
-        console.warn(wrapper.debug())
         expect(wrapper.find('SelectBox').get(0).props.promptTextCreator).toEqual("New stuff: selectBox label");
     });
 

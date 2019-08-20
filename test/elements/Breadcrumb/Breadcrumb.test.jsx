@@ -1,9 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import {
-    BreadcrumbItem,
-    BreadcrumbList,
-} from '../../../src/elements/Breadcrumbs/index';
+import BreadcrumbItem from '../../../src/elements/Breadcrumbs/BreadcrumbItem';
+import BreadcrumbList from '../../../src/elements/Breadcrumbs/BreadcrumbList';
 
 const selectors = {
     BREADCRUMB_ITEM: 'li.ecc-breadcrumbs__item',

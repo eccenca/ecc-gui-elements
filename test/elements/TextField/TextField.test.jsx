@@ -27,7 +27,6 @@ describe('TextField', () => {
                 stretch={false}
             />
         );
-        console.warn(wrapper.debug());
 
         expect(wrapper.find('TextField').get(0).props.value).toEqual('test the input');
     });
