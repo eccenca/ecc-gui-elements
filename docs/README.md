@@ -328,7 +328,7 @@ const Page = React.createClass({
 ```
 
 #### Properties
-- **checked** (bool, *required*) - describes the checked state of Checkbox
+- **checked** (bool, default: false) - describes the checked state of Checkbox
 - **className** (string, default: null) - additional CSS class names
 - **disabled** (bool, default: false) - describes if Checkbox is disabled
 - **hideLabel** (bool, default: false) - describes if Checkbox label is not visible
