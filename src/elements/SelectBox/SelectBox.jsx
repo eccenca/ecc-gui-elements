@@ -15,7 +15,7 @@ const stringCompare = function (value) {
 };
 
 const clearRenderer = () => (
-    <Button iconName="clear" className="mdl-button--clearance" />
+    <Button iconName="clear" className="mdl-button--clearance" tabIndex={-1} />
 );
 
 /**
@@ -172,6 +172,7 @@ class SelectBox extends Component {
             uniqueId,
             ...passProps
         } = this.props;
+        console.warn('debug', passProps);
 
         // we do not want to pass onChange, as we wrap onChange ourselves
         delete passProps.onChange;
