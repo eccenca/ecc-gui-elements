@@ -172,7 +172,6 @@ class SelectBox extends Component {
             uniqueId,
             ...passProps
         } = this.props;
-        console.warn('debug', passProps);
 
         // we do not want to pass onChange, as we wrap onChange ourselves
         delete passProps.onChange;
