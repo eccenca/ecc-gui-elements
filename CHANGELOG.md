@@ -7,6 +7,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 ### Added
 - add unit test for all components
 
+### Fixed
+- `<Selectbox />` clear icon was selectable when tabbing through elements.
+
 ## [5.1.1] 2019-07-10
 ### Fixed
 - `<FloatingActionList />` did not closed its listener event.

@@ -15,7 +15,7 @@ const stringCompare = function (value) {
 };
 
 const clearRenderer = () => (
-    <Button iconName="clear" className="mdl-button--clearance" />
+    <Button iconName="clear" className="mdl-button--clearance" tabIndex={-1} />
 );
 
 /**
