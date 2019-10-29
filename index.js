@@ -27,10 +27,8 @@ import {
     ProgressButton,
 } from './src/elements/Button';
 
-import {
-    BreadcrumbList,
-    BreadcrumbItem,
-} from './src/elements/Breadcrumbs';
+import BreadcrumbList from './src/elements/Breadcrumbs/BreadcrumbList';
+import BreadcrumbItem from './src/elements/Breadcrumbs/BreadcrumbItem';
 
 import {
     Card,

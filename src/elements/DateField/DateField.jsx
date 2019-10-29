@@ -85,6 +85,7 @@ const DateField = props => {
 
     if (!moment.isMoment(value)) {
         console.warn(
+            // eslint-disable-next-line max-len
             'Datefield: Please provide the value as a Moment Object, otherwise it could result in false value conversions'
         );
         extendedOnChange({ onChange, value });

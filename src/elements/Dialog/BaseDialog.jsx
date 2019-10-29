@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import classNames from 'classnames';
-
 import Button from '../Button/Button';
 import {
     Card,

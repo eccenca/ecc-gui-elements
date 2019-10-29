@@ -17,7 +17,6 @@ const clearTabTitles = tabs =>
         return tab;
     });
 
-
 class Tabs extends Component {
     static displayName = 'Tabs';
 

@@ -21,7 +21,6 @@ const CardActions = props => {
         </ReactMDLCardActions>
     );
 };
-
 // define property types
 CardActions.propTypes = {
     border: PropTypes.bool,

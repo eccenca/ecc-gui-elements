@@ -52,7 +52,6 @@ const Checkbox = props => {
         },
         className
     );
-
     return (
         <ReactMDLCheckbox
             checked={!!checked}
@@ -106,6 +105,7 @@ Checkbox.defaultProps = {
     hideLabel: false,
     label: null,
     ripple: false,
+    checked: false,
 };
 
 Checkbox.displayName = 'Checkbox input';

@@ -115,6 +115,7 @@ export default function ScrollingHOC(WrappedComponent) {
         }
 
         render() {
+            // eslint-disable-next-line max-len
             return (<WrappedComponent scrollElementIntoView={this.scrollElementIntoView} scrollIntoView={this.scrollIntoView} {...this.props} />);
         }
     };

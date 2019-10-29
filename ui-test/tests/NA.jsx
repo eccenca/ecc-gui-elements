@@ -22,7 +22,9 @@ function TestNA() {
                     </div>
                     <div>
                         This is a test with a inline
-                        {' '}<NotAvailable inline />{' '}
+                        {' '}
+                        <NotAvailable inline />
+                        {' '}
                         information.
                     </div>
                     <NotAvailable label="N/A with label without description for tooltip" />

@@ -108,7 +108,7 @@ const Button = props => {
             <Icon
                 name={iconName}
                 tooltip={tooltip || tooltip === false ? false : ''}
-                badge={badge ? badge : false}
+                badge={badge || false}
             />
         );
     }

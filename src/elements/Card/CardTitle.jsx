@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import ReactMDLCardTitle from 'react-mdl/lib/Card/CardTitle';
 import PropTypes from 'prop-types';
 
-
 const CardTitle = props => {
     const {
         className,
