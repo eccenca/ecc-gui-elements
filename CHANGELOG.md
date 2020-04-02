@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [5.1.3] 2020-04-02
+
+### Changed
+- use latest `react-mdl@2.1.0`
+
 ## [5.1.2] 2019-10-29
 
 ### Added

@@ -1,6 +1,6 @@
 {
   "name": "@eccenca/gui-elements",
-  "version": "5.1.2",
+  "version": "5.1.3",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -29,7 +29,7 @@
     "prop-types": "^15.7.2",
     "react-datetime": "^2.11.0",
     "react-highlight-words": "^0.10.0",
-    "react-mdl": "^1.10.3",
+    "react-mdl": "^2.1.0",
     "react-select": "1.0.1",
     "sassyjson": "^1.1.8",
     "scroll-into-view": "^1.9.0"
@@ -60,7 +60,6 @@
     "gulp-rename": "^1.2.2",
     "gulp-sequence": "^1.0.0",
     "jest": "^23.6.0",
-    "nock": "^10.0.6",
     "jest-environment-enzyme": "^7.0.1",
     "jest-enzyme": "^7.0.1",
     "jest-html-reporter": "^2.4.4",
@@ -68,6 +67,7 @@
     "jest-raw-loader": "^1.0.1",
     "js-yaml": "^3.8.4",
     "markdown-loader-jest": "^0.1.1",
+    "nock": "^10.0.6",
     "node-sass": "^4.5.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
