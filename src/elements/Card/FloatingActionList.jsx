@@ -229,6 +229,7 @@ class FloatingActionList extends Component {
                                     className="mdl-menu__item"
                                     onClick={action.handler}
                                     disabled={action.disabled}
+                                    data-test-id={action.dataTestId}
                                 >
                                     {action.icon ? (
                                         <Icon name={action.icon} />
