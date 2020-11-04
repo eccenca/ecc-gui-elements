@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [5.1.4] 2020-11-04
+
+### Added
+- add `data-test-id` property to items in FloatActionItems component.
+
 ## [5.1.3] 2020-04-02
 
 ### Changed
