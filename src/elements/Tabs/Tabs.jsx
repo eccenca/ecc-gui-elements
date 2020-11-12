@@ -55,7 +55,7 @@ class Tabs extends Component {
     }
 
     handleSelect(selected) {
-        const activeTab = this.state.tabs[selected].tabTitle;
+        const activeTab = this.state.tabs[selected].tabId;
         // do nothing if tab not changed
         if (_.isEqual(activeTab, this.state.activeTab)) {
             return;
@@ -75,12 +75,12 @@ class Tabs extends Component {
         if (!_.isEmpty(tabs)) {
             // set active tab if given and matches // else take first tab
             let activeTab = _.findIndex(tabs, {
-                tabTitle: this.state.activeTab,
+                tabId: this.state.activeTab,
             });
             activeTab = activeTab === -1 ? 0 : activeTab;
             // create tab header
             const tabPanel = _.map(tabs, tab => {
-                const key = _.kebabCase(tab.tabTitle);
+                const key = _.kebabCase(tab.tabId);
 
                 return (
                     <ReactMDLTab

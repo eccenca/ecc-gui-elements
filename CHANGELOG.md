@@ -2,6 +2,13 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [6.0.0] 2020-11-12
+
+### Changed
+
+- **BREAKING** Tabs now require tabId besides tabTitle and tabContent.
+- Tabs now use tabId instead of tabTitle as identifier, to be compatible with translations.
+
 ## [5.1.4] 2020-11-04
 
 ### Added
