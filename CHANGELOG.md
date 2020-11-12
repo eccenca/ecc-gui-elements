@@ -4,7 +4,11 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- New properties for **Pagination**:
+    - foundResultsText: text with placeholders. Default value `Found ::total:: results`
+    - pageWithLimitText: text with placeholders. Default value `Page ::current:: of ::total::`
+    - pageWithoutLimitText: text with placeholders. Default value `Page ::current::`
 
 ## [6.0.0] 2020-11-12
 
