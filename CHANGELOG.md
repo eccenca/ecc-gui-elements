@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
+## [6.1.0] 2020-11-12
+
+### Added
+- New properties for **Pagination**:
+    - foundResultsText: text with placeholders. Default value `Found ::total:: results`
+    - pageWithLimitText: text with placeholders. Default value `Page ::current:: of ::total::`
+    - pageWithoutLimitText: text with placeholders. Default value `Page ::current::`
+
 ## [6.0.0] 2020-11-12
 
 ### Changed

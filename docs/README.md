@@ -656,6 +656,9 @@ This component provides a pagination for switching through lists of results
 - **hideTotalResults** (bool, default: false) - hide info about number of total results
 - **pendingTotal** (bool, default: false) - show a spinner if true and totalResults is not set
 - **className** (string, default: '') - additional class names
+- **foundResultsText** (string, default: 'Found ::total:: results') - 
+- **pageWithLimitText** (string, default: 'Page ::current:: of ::total::') - 
+- **pageWithoutLimitText** (string, default: 'Page ::current::') - 
 
 ### ProgressButton
 

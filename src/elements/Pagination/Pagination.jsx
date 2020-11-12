@@ -67,6 +67,12 @@ class Pagination extends Component {
          * additional class names
          */
         className: PropTypes.string,
+
+        foundResultsText: PropTypes.string,
+
+        pageWithLimitText: PropTypes.string,
+
+        pageWithoutLimitText: PropTypes.string,
     };
 
     static defaultProps = {
@@ -86,6 +92,9 @@ class Pagination extends Component {
         totalResults: undefined,
         className: '',
         newLimitText: '',
+        foundResultsText: 'Found ::total:: results',
+        pageWithLimitText: 'Page ::current:: of ::total::',
+        pageWithoutLimitText: 'Page ::current::',
     };
 
     constructor(props) {
@@ -241,6 +250,10 @@ class Pagination extends Component {
             pendingTotal,
             showPageInput,
             hideTotalResults,
+            pageWithoutLimitText,
+            pageWithLimitText,
+            foundResultsText,
+
         } = this.props;
 
         const { customPage } = this.state;
@@ -297,9 +310,12 @@ class Pagination extends Component {
                 </span>,
             ];
         } else if (showElementOffsetPagination === false && !showPageInput && !_.isUndefined(totalResults)) {
-            pageInfo = `Page ${currentPage.toLocaleString()} of ${totalPages.toLocaleString()}`;
+            pageInfo = pageWithLimitText
+                .replace('::current::', currentPage.toLocaleString())
+                .replace('::total::', totalPages.toLocaleString())
         } else if (showElementOffsetPagination === false && _.isUndefined(totalResults)) {
-            pageInfo = `Page ${currentPage.toLocaleString()}`;
+            pageInfo = pageWithoutLimitText
+                .replace('::current::', currentPage.toLocaleString());
         } else if (showElementOffsetPagination === true) {
             const firstItem = Math.min(totalResults, offset + 1);
             const lastItem = lastItemOnPage;
@@ -330,12 +346,7 @@ class Pagination extends Component {
 
                 ) && (
                     <span className="ecc-gui-elements__pagination-summary">
-                        Found
-                        {' '}
-                        {totalResults.toLocaleString()}
-                        {' '}
-                        {totalResults === 1 ? 'result' : 'results'}
-.
+                        {foundResultsText.replace('::total::', totalResults.toLocaleString())}
                     </span>
                 )}
                 {newLimitText && !_.isEmpty(limitRangeSorted) ? (
