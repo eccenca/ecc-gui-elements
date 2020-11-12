@@ -4,7 +4,10 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Changed
+
+- **BREAKING** Tabs now require tabId besides tabTitle and tabContent.
+- Tabs now use tabId instead of tabTitle as identifier, to be compatible with translations.
 
 ## [5.1.4] 2020-11-04
 
