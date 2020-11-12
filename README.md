@@ -1186,7 +1186,7 @@ const Page = React.createClass({
             <Tabs
                 prefixTabNames={'ecc-view-resource-panel-tab'}
                 activeTab={'historyview'}
-                tabs={[{tabTitle: 'name', tabContent: value}]}
+                tabs={[{tabId: 'name', tabTitle: 'Name', tabContent: value}]}
                 onTabClick={this.TabClick}
             />
         )
