@@ -70,9 +70,13 @@ class Pagination extends Component {
 
         foundResultsText: PropTypes.string,
 
+        foundResultsTextSingular: PropTypes.string,
+
         pageWithLimitText: PropTypes.string,
 
         pageWithoutLimitText: PropTypes.string,
+
+        invalidPageText: PropTypes.string,
     };
 
     static defaultProps = {
@@ -93,8 +97,10 @@ class Pagination extends Component {
         className: '',
         newLimitText: '',
         foundResultsText: 'Found ::total:: results',
+        foundResultsTextSingular: 'Found ::total:: result',
         pageWithLimitText: 'Page ::current:: of ::total::',
         pageWithoutLimitText: 'Page ::current::',
+        invalidPageText: 'Invalid page',
     };
 
     constructor(props) {
@@ -253,7 +259,8 @@ class Pagination extends Component {
             pageWithoutLimitText,
             pageWithLimitText,
             foundResultsText,
-
+            foundResultsTextSingular,
+            invalidPageText,
         } = this.props;
 
         const { customPage } = this.state;
@@ -279,36 +286,43 @@ class Pagination extends Component {
 
         const valid = pageField > 0 && pageField <= totalPages;
 
-        let pageInfo = '';
+        let pageInfo = undefined;
 
         if (showElementOffsetPagination === false && showPageInput && !_.isUndefined(totalResults)) {
-            pageInfo = [
-                <span key="PageText">Page</span>,
-                <TextField
-                    key="PageNumber"
-                    reducedSize
-                    className="ecc-gui-elements__pagination__pagenumber"
-                    onKeyPress={this.handleKeyPress}
-                    disabled={disabled === true}
-                    stretch={false}
-                    style={{
-                        // the calculation can be improved
-                        width: `calc(${Math.max(1, pageField.toString().length)}ex + 1rem)`,
-                    }}
-                    min={1}
-                    max={totalPages}
-                    type="number"
-                    value={pageField > 0 ? pageField : ''}
-                    error={valid ? '' : 'Invalid page'}
-                    onChange={e => {
-                        this.onChangePage(e.value);
-                    }}
-                />,
-                <span key="PageText2">
-                    {'of '}
-                    {totalPages.toLocaleString()}
-                </span>,
-            ];
+            const current = <TextField
+                key="PageNumber"
+                reducedSize
+                className="ecc-gui-elements__pagination__pagenumber"
+                onKeyPress={this.handleKeyPress}
+                disabled={disabled === true}
+                stretch={false}
+                style={{
+                    // the calculation can be improved
+                    width: `calc(${Math.max(1, pageField.toString().length)}ex + 1rem)`,
+                }}
+                min={1}
+                max={totalPages}
+                type="number"
+                value={pageField > 0 ? pageField : ''}
+                error={valid ? '' : invalidPageText}
+                onChange={e => {
+                    this.onChangePage(e.value);
+                }}
+            />;
+
+            const total = totalPages.toLocaleString();
+
+            pageInfo = pageWithLimitText.split('::');
+
+            pageInfo = pageInfo.map(x => {
+                if (x === 'current') {
+                    return current;
+                }
+                if (x === 'total') {
+                    return total;
+                }
+                return x;
+            });
         } else if (showElementOffsetPagination === false && !showPageInput && !_.isUndefined(totalResults)) {
             pageInfo = pageWithLimitText
                 .replace('::current::', currentPage.toLocaleString())
@@ -322,7 +336,7 @@ class Pagination extends Component {
             const start = firstItem === lastItem
                 ? lastItem.toLocaleString()
                 : `${firstItem.toLocaleString()} - ${lastItem.toLocaleString()}`;
-            pageInfo = `${start} of ${totalResults.toLocaleString()}`;
+            pageInfo = `${start} / ${totalResults.toLocaleString()}`;
         }
 
         // render actual site information
@@ -346,7 +360,10 @@ class Pagination extends Component {
 
                 ) && (
                     <span className="ecc-gui-elements__pagination-summary">
-                        {foundResultsText.replace('::total::', totalResults.toLocaleString())}
+                        {totalResults === 1
+                            ? foundResultsTextSingular.replace('::total::', totalResults.toLocaleString())
+                            : foundResultsText.replace('::total::', totalResults.toLocaleString())
+                        }
                     </span>
                 )}
                 {newLimitText && !_.isEmpty(limitRangeSorted) ? (

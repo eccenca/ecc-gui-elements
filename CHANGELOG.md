@@ -4,7 +4,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- New Property for **Pagination** `invalidPageText`
+- New Property for **Pagination** `foundResultsTextSingular`
+
+### Fixed
+- Render locale string whether
 
 ## [6.1.0] 2020-11-12
 
