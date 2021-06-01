@@ -47,3 +47,36 @@ button.mdl-chip {
         @extend .mdl-chip:focus;
     }
 }
+
+.mdl-chip--hasoverlay {
+    position: relative;
+}
+
+.mdl-chip__actionsoverlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: $chip-height;
+    max-width: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(to_color($color-white), 0.61);
+    border-radius: $chip-height/2;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width 0.5s $animation-curve-default,
+        opacity 0.5s $animation-curve-default,
+        background-color 0.5s $animation-curve-default;
+
+    &:hover {
+        background-color: rgba(to_color($color-white), 1);
+    }
+
+    .mdl-chip:hover &,
+    .mdl-chip:focus & {
+        opacity: 1;
+        max-width: 100%;
+        overflow: visible;
+    }
+}

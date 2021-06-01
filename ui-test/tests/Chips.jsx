@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Button,
     Card,
     CardTitle,
     CardContent,
@@ -7,12 +8,14 @@ import {
     Icon,
     Chip,
     ChipVisual,
-} from '../../index';
+    ContextMenu,
+    MenuItem,
+} from '../..';
 
 function TestChips() {
     const image = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.JPG';
-
     const brokenImage = 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Junonia_almana_by_kadavoor.JPG/281px-Junonia_almana_by_kadavoor.png';
+
     const chips = (
         <Card>
             <CardTitle documentLevel="h4">Test Chips</CardTitle>
@@ -74,8 +77,16 @@ function TestChips() {
                 <Chip className="my-own-chip-class">
                     <ChipVisual label="C1" />
                     Plain chip with extra chip class
+                    <button
+                        key="btn"
+                        type="button"
+                        className="mdl-chip__action"
+                        onClick={() => alert('click handler')}
+                    >
+                        <Icon name="cancel" />
+                    </button>
                 </Chip>
-                <Chip>
+                <Chip onClose={() => alert('closing handler')}>
                     <ChipVisual
                         label="C2"
                         className="my-own-visual-class"
@@ -96,9 +107,56 @@ function TestChips() {
                 <Chip href="http://example.com/">single href</Chip>
                 <Chip
                     href="http://example.com/"
-                    onClick={() => alert('#4 chip clicked')}
+                    onClick={e => { e.preventDefault(); alert('#4 chip clicked'); }}
                 >
                     href and onclick event
+                </Chip>
+                <h5>Chips with context actions</h5>
+                <Chip
+                    onClick={() => alert('chip clicked')}
+                    contextActions={(
+                        <Button
+                            onClick={() => alert('clicked context action')}
+                            iconName="content_copy"
+                            tooltip="Context action"
+                        />
+                    )}
+                >
+                    <ChipVisual label="AB" />
+                    clickable with visual
+                </Chip>
+                <Chip
+                    href="http://example.com/"
+                    contextActions={(
+                        <ContextMenu>
+                            <MenuItem>First First Item</MenuItem>
+                            <MenuItem>First Second Item</MenuItem>
+                            <MenuItem>First Menu Item 3</MenuItem>
+                            <MenuItem>First Another Menu Item</MenuItem>
+                        </ContextMenu>
+                    )}
+                >
+                    single href
+                </Chip>
+                <Chip
+                    href="http://example.com/"
+                    onClick={e => { e.preventDefault(); alert('chip clicked'); }}
+                    contextActions={[
+                        <Button
+                            key="contextbutton"
+                            onClick={() => alert('clicked context action')}
+                            iconName="content_copy"
+                            tooltip="Context action"
+                        />,
+                        <ContextMenu key="contextmenu">
+                            <MenuItem>First First Item</MenuItem>
+                            <MenuItem>First Second Item</MenuItem>
+                            <MenuItem>First Menu Item 3</MenuItem>
+                            <MenuItem>First Another Menu Item</MenuItem>
+                        </ContextMenu>,
+                    ]}
+                >
+                    href and onclick
                 </Chip>
             </CardContent>
             <FloatingActionList

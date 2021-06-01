@@ -4,7 +4,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Ch
 
 ## [Unreleased]
 
-TODO: add at least one Added, Changed, Deprecated, Removed, Fixed or Security section
+### Added
+- Add `contextActions` property to `Chip` element, it can be used to add one or more icon buttons or centext menus offering context sensitive actions
 
 ## [6.2.0] 2020-11-13
 
