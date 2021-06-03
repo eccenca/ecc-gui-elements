@@ -37,11 +37,16 @@ const ChipContact = basicClassCreator(
     'span'
 );
 const ChipText = basicClassCreator('ChipText', 'mdl-chip__text', 'span');
+const ChipContextActions = basicClassCreator(
+    'ChipContextActions',
+    'mdl-chip__actionsoverlay',
+    'div'
+);
 
 // Chip Component
 const Chip = props => {
     const {
-        className, onClose, children, ...otherProps
+        className, onClose, children, contextActions, ...otherProps
     } = props;
     const childrenArray = React.Children.toArray(children);
     const contactIndex = _.findIndex(childrenArray,
@@ -60,6 +65,18 @@ const Chip = props => {
         );
     } else {
         chipContent.push(<ChipText key="text">{children}</ChipText>);
+    }
+
+    if (contextActions) {
+        chipContent.push(
+            <ChipContextActions
+                onClick={
+                    e => { e.stopPropagation(); e.preventDefault(); }
+                }
+                key="contextactions">
+                {contextActions}
+            </ChipContextActions>
+        );
     }
 
     if (__DEBUG__) {
@@ -87,6 +104,7 @@ const Chip = props => {
                 {
                     'mdl-chip--contact': contactIndex > -1,
                     'mdl-chip--deletable': !!onClose,
+                    'mdl-chip--hasoverlay': !!contextActions,
                 },
                 className
             ),
@@ -97,6 +115,7 @@ const Chip = props => {
 };
 
 Chip.propTypes = {
+    children: PropTypes.node,
     /**
      additional CSS class name
      */
@@ -113,6 +132,10 @@ Chip.propTypes = {
      Chip is rendered as HTML link anchor
      */
     href: PropTypes.string,
+    /**
+     Chip offers context buttons or menu, display on hover
+     */
+    contextActions: PropTypes.node,
 };
 
 export default Chip;
