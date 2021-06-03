@@ -13,8 +13,7 @@
     "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
     "prepare": "ecc-link-dotfiles && gulp full-build",
-    "docs": "gulp docs",
-    "precommit": "lint-staged && npm run docs"
+    "docs": "gulp docs"
   },
   "bugs": {
     "url": "https://github.com/eccenca/ecc-gui-elements/issues"
