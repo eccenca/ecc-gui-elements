@@ -1,6 +1,6 @@
 {
   "name": "@eccenca/gui-elements",
-  "version": "6.2.0",
+  "version": "6.3.0",
   "description": "Collection of low-level GUI elements like Buttons, Icons or Alerts. Also includes core styles for those elements.",
   "main": "es5/component.js",
   "es5": "es5/component.js",
@@ -13,8 +13,7 @@
     "build": "gulp full-build",
     "init": "ecc-link-dotfiles",
     "prepare": "ecc-link-dotfiles && gulp full-build",
-    "docs": "gulp docs",
-    "precommit": "lint-staged && npm run docs"
+    "docs": "gulp docs"
   },
   "bugs": {
     "url": "https://github.com/eccenca/ecc-gui-elements/issues"
