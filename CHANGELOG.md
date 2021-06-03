@@ -2,7 +2,7 @@
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep A Changelog's Format](http://keepachangelog.com/).
 
-## [Unreleased]
+## [6.3.0] 2021-06-03
 
 ### Added
 - Add `contextActions` property to `Chip` element, it can be used to add one or more icon buttons or centext menus offering context sensitive actions
